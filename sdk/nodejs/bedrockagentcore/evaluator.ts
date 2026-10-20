@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+ * Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations. Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
  */
 export class Evaluator extends pulumi.CustomResource {
     /**
@@ -50,7 +50,7 @@ export class Evaluator extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly evaluatorArn: pulumi.Output<string>;
     /**
-     * The configuration for the evaluator.
+     * The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
      */
     declare public readonly evaluatorConfig: pulumi.Output<outputs.bedrockagentcore.EvaluatorConfig>;
     /**
@@ -62,13 +62,21 @@ export class Evaluator extends pulumi.CustomResource {
      */
     declare public readonly evaluatorName: pulumi.Output<string>;
     /**
+     * The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+     */
+    declare public /*out*/ readonly evaluatorType: pulumi.Output<enums.bedrockagentcore.EvaluatorType>;
+    /**
      * The ARN of the KMS key used to encrypt evaluator data.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
-     * The evaluation level that determines the scope of evaluation.
+     * The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
      */
     declare public readonly level: pulumi.Output<enums.bedrockagentcore.EvaluatorLevel>;
+    /**
+     * Where the evaluator's logic comes from: AWS, a third-party library (DeepEval or AutoEval), or you. Derived evaluators inherit the provider of their base evaluator.
+     */
+    declare public /*out*/ readonly provider: pulumi.Output<enums.bedrockagentcore.EvaluatorProvider>;
     /**
      * The current status of the evaluator.
      */
@@ -108,6 +116,8 @@ export class Evaluator extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["evaluatorArn"] = undefined /*out*/;
             resourceInputs["evaluatorId"] = undefined /*out*/;
+            resourceInputs["evaluatorType"] = undefined /*out*/;
+            resourceInputs["provider"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
@@ -117,14 +127,16 @@ export class Evaluator extends pulumi.CustomResource {
             resourceInputs["evaluatorConfig"] = undefined /*out*/;
             resourceInputs["evaluatorId"] = undefined /*out*/;
             resourceInputs["evaluatorName"] = undefined /*out*/;
+            resourceInputs["evaluatorType"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["level"] = undefined /*out*/;
+            resourceInputs["provider"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["evaluatorName"] };
+        const replaceOnChanges = { replaceOnChanges: ["evaluatorConfig.derived.baseEvaluatorId", "evaluatorName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Evaluator.__pulumiType, name, resourceInputs, opts);
     }
@@ -139,7 +151,7 @@ export interface EvaluatorArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The configuration for the evaluator.
+     * The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
      */
     evaluatorConfig: pulumi.Input<inputs.bedrockagentcore.EvaluatorConfigArgs>;
     /**
@@ -151,7 +163,7 @@ export interface EvaluatorArgs {
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * The evaluation level that determines the scope of evaluation.
+     * The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
      */
     level: pulumi.Input<enums.bedrockagentcore.EvaluatorLevel>;
     /**

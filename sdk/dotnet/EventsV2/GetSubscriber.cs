@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.EventsV2
         /// <summary>
         /// Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
         /// </summary>
-        public readonly Outputs.SubscriberInvokeConfigurationProperties? InvokeConfiguration;
+        public readonly Outputs.SubscriberInvokeConfiguration? InvokeConfiguration;
         /// <summary>
         /// Last-modification timestamp (ISO-8601), read-only.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.EventsV2
 
             Outputs.SubscriberFilterConfiguration? filterConfiguration,
 
-            Outputs.SubscriberInvokeConfigurationProperties? invokeConfiguration,
+            Outputs.SubscriberInvokeConfiguration? invokeConfiguration,
 
             string? lastModifiedTime,
 

@@ -116,6 +116,9 @@
         },
         "KeyPairCredentials" : {
           "$ref" : "#/definitions/KeyPairCredentials"
+        },
+        "OAuthClientCredentials" : {
+          "$ref" : "#/definitions/OAuthClientCredentials"
         }
       }
     },
@@ -621,6 +624,27 @@
       },
       "required" : [ "Database", "Host", "Port" ]
     },
+    "OAuthClientCredentials" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Username" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 64
+        },
+        "ClientSecret" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 2048
+        },
+        "ClientId" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 256
+        }
+      }
+    },
     "PrestoParameters" : {
       "description" : "<p>The parameters for Presto.</p>",
       "additionalProperties" : false,
@@ -941,6 +965,9 @@
           "type" : "number",
           "minimum" : 1
         },
+        "OAuthParameters" : {
+          "$ref" : "#/definitions/OAuthParameters"
+        },
         "Host" : {
           "minLength" : 1,
           "description" : "<p>The host name of the Databricks data source.</p>",
@@ -952,6 +979,9 @@
           "description" : "<p>The HTTP path of the Databricks data source.</p>",
           "type" : "string",
           "maxLength" : 4096
+        },
+        "AuthenticationType" : {
+          "$ref" : "#/definitions/AuthenticationType"
         }
       },
       "required" : [ "Host", "Port", "SqlEndpointPath" ]

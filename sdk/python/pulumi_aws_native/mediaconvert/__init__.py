@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .certificate_association import *
 from .get_job_template import *
 from .get_preset import *
 from .get_queue import *

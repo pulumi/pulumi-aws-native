@@ -2585,6 +2585,108 @@ func (o GlobalTableResourcePolicyPtrOutput) PolicyDocument() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+type GlobalTableSearchSchemaElement struct {
+	AttributeName           string                                                `pulumi:"attributeName"`
+	SearchSchemaElementType GlobalTableSearchSchemaElementSearchSchemaElementType `pulumi:"searchSchemaElementType"`
+}
+
+// GlobalTableSearchSchemaElementInput is an input type that accepts GlobalTableSearchSchemaElementArgs and GlobalTableSearchSchemaElementOutput values.
+// You can construct a concrete instance of `GlobalTableSearchSchemaElementInput` via:
+//
+//	GlobalTableSearchSchemaElementArgs{...}
+type GlobalTableSearchSchemaElementInput interface {
+	pulumi.Input
+
+	ToGlobalTableSearchSchemaElementOutput() GlobalTableSearchSchemaElementOutput
+	ToGlobalTableSearchSchemaElementOutputWithContext(context.Context) GlobalTableSearchSchemaElementOutput
+}
+
+type GlobalTableSearchSchemaElementArgs struct {
+	AttributeName           pulumi.StringInput                                         `pulumi:"attributeName"`
+	SearchSchemaElementType GlobalTableSearchSchemaElementSearchSchemaElementTypeInput `pulumi:"searchSchemaElementType"`
+}
+
+func (GlobalTableSearchSchemaElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableSearchSchemaElement)(nil)).Elem()
+}
+
+func (i GlobalTableSearchSchemaElementArgs) ToGlobalTableSearchSchemaElementOutput() GlobalTableSearchSchemaElementOutput {
+	return i.ToGlobalTableSearchSchemaElementOutputWithContext(context.Background())
+}
+
+func (i GlobalTableSearchSchemaElementArgs) ToGlobalTableSearchSchemaElementOutputWithContext(ctx context.Context) GlobalTableSearchSchemaElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSearchSchemaElementOutput)
+}
+
+// GlobalTableSearchSchemaElementArrayInput is an input type that accepts GlobalTableSearchSchemaElementArray and GlobalTableSearchSchemaElementArrayOutput values.
+// You can construct a concrete instance of `GlobalTableSearchSchemaElementArrayInput` via:
+//
+//	GlobalTableSearchSchemaElementArray{ GlobalTableSearchSchemaElementArgs{...} }
+type GlobalTableSearchSchemaElementArrayInput interface {
+	pulumi.Input
+
+	ToGlobalTableSearchSchemaElementArrayOutput() GlobalTableSearchSchemaElementArrayOutput
+	ToGlobalTableSearchSchemaElementArrayOutputWithContext(context.Context) GlobalTableSearchSchemaElementArrayOutput
+}
+
+type GlobalTableSearchSchemaElementArray []GlobalTableSearchSchemaElementInput
+
+func (GlobalTableSearchSchemaElementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalTableSearchSchemaElement)(nil)).Elem()
+}
+
+func (i GlobalTableSearchSchemaElementArray) ToGlobalTableSearchSchemaElementArrayOutput() GlobalTableSearchSchemaElementArrayOutput {
+	return i.ToGlobalTableSearchSchemaElementArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalTableSearchSchemaElementArray) ToGlobalTableSearchSchemaElementArrayOutputWithContext(ctx context.Context) GlobalTableSearchSchemaElementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSearchSchemaElementArrayOutput)
+}
+
+type GlobalTableSearchSchemaElementOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableSearchSchemaElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableSearchSchemaElement)(nil)).Elem()
+}
+
+func (o GlobalTableSearchSchemaElementOutput) ToGlobalTableSearchSchemaElementOutput() GlobalTableSearchSchemaElementOutput {
+	return o
+}
+
+func (o GlobalTableSearchSchemaElementOutput) ToGlobalTableSearchSchemaElementOutputWithContext(ctx context.Context) GlobalTableSearchSchemaElementOutput {
+	return o
+}
+
+func (o GlobalTableSearchSchemaElementOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalTableSearchSchemaElement) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+func (o GlobalTableSearchSchemaElementOutput) SearchSchemaElementType() GlobalTableSearchSchemaElementSearchSchemaElementTypeOutput {
+	return o.ApplyT(func(v GlobalTableSearchSchemaElement) GlobalTableSearchSchemaElementSearchSchemaElementType {
+		return v.SearchSchemaElementType
+	}).(GlobalTableSearchSchemaElementSearchSchemaElementTypeOutput)
+}
+
+type GlobalTableSearchSchemaElementArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableSearchSchemaElementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalTableSearchSchemaElement)(nil)).Elem()
+}
+
+func (o GlobalTableSearchSchemaElementArrayOutput) ToGlobalTableSearchSchemaElementArrayOutput() GlobalTableSearchSchemaElementArrayOutput {
+	return o
+}
+
+func (o GlobalTableSearchSchemaElementArrayOutput) ToGlobalTableSearchSchemaElementArrayOutputWithContext(ctx context.Context) GlobalTableSearchSchemaElementArrayOutput {
+	return o
+}
+
+func (o GlobalTableSearchSchemaElementArrayOutput) Index(i pulumi.IntInput) GlobalTableSearchSchemaElementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalTableSearchSchemaElement {
+		return vs[0].([]GlobalTableSearchSchemaElement)[vs[1].(int)]
+	}).(GlobalTableSearchSchemaElementOutput)
+}
+
 type GlobalTableSseSpecification struct {
 	// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
 	SseEnabled bool `pulumi:"sseEnabled"`
@@ -3368,6 +3470,179 @@ func (o GlobalTableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOut
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type GlobalTableVectorAttribute struct {
+	AttributeName string `pulumi:"attributeName"`
+}
+
+// GlobalTableVectorAttributeInput is an input type that accepts GlobalTableVectorAttributeArgs and GlobalTableVectorAttributeOutput values.
+// You can construct a concrete instance of `GlobalTableVectorAttributeInput` via:
+//
+//	GlobalTableVectorAttributeArgs{...}
+type GlobalTableVectorAttributeInput interface {
+	pulumi.Input
+
+	ToGlobalTableVectorAttributeOutput() GlobalTableVectorAttributeOutput
+	ToGlobalTableVectorAttributeOutputWithContext(context.Context) GlobalTableVectorAttributeOutput
+}
+
+type GlobalTableVectorAttributeArgs struct {
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+}
+
+func (GlobalTableVectorAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableVectorAttribute)(nil)).Elem()
+}
+
+func (i GlobalTableVectorAttributeArgs) ToGlobalTableVectorAttributeOutput() GlobalTableVectorAttributeOutput {
+	return i.ToGlobalTableVectorAttributeOutputWithContext(context.Background())
+}
+
+func (i GlobalTableVectorAttributeArgs) ToGlobalTableVectorAttributeOutputWithContext(ctx context.Context) GlobalTableVectorAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableVectorAttributeOutput)
+}
+
+type GlobalTableVectorAttributeOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableVectorAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableVectorAttribute)(nil)).Elem()
+}
+
+func (o GlobalTableVectorAttributeOutput) ToGlobalTableVectorAttributeOutput() GlobalTableVectorAttributeOutput {
+	return o
+}
+
+func (o GlobalTableVectorAttributeOutput) ToGlobalTableVectorAttributeOutputWithContext(ctx context.Context) GlobalTableVectorAttributeOutput {
+	return o
+}
+
+func (o GlobalTableVectorAttributeOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalTableVectorAttribute) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+type GlobalTableVectorIndex struct {
+	Dimensions       int                                    `pulumi:"dimensions"`
+	DistanceFunction GlobalTableVectorIndexDistanceFunction `pulumi:"distanceFunction"`
+	IndexName        string                                 `pulumi:"indexName"`
+	Projection       GlobalTableProjection                  `pulumi:"projection"`
+	SearchSchema     []GlobalTableSearchSchemaElement       `pulumi:"searchSchema"`
+	VectorAttribute  GlobalTableVectorAttribute             `pulumi:"vectorAttribute"`
+}
+
+// GlobalTableVectorIndexInput is an input type that accepts GlobalTableVectorIndexArgs and GlobalTableVectorIndexOutput values.
+// You can construct a concrete instance of `GlobalTableVectorIndexInput` via:
+//
+//	GlobalTableVectorIndexArgs{...}
+type GlobalTableVectorIndexInput interface {
+	pulumi.Input
+
+	ToGlobalTableVectorIndexOutput() GlobalTableVectorIndexOutput
+	ToGlobalTableVectorIndexOutputWithContext(context.Context) GlobalTableVectorIndexOutput
+}
+
+type GlobalTableVectorIndexArgs struct {
+	Dimensions       pulumi.IntInput                             `pulumi:"dimensions"`
+	DistanceFunction GlobalTableVectorIndexDistanceFunctionInput `pulumi:"distanceFunction"`
+	IndexName        pulumi.StringInput                          `pulumi:"indexName"`
+	Projection       GlobalTableProjectionInput                  `pulumi:"projection"`
+	SearchSchema     GlobalTableSearchSchemaElementArrayInput    `pulumi:"searchSchema"`
+	VectorAttribute  GlobalTableVectorAttributeInput             `pulumi:"vectorAttribute"`
+}
+
+func (GlobalTableVectorIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableVectorIndex)(nil)).Elem()
+}
+
+func (i GlobalTableVectorIndexArgs) ToGlobalTableVectorIndexOutput() GlobalTableVectorIndexOutput {
+	return i.ToGlobalTableVectorIndexOutputWithContext(context.Background())
+}
+
+func (i GlobalTableVectorIndexArgs) ToGlobalTableVectorIndexOutputWithContext(ctx context.Context) GlobalTableVectorIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableVectorIndexOutput)
+}
+
+// GlobalTableVectorIndexArrayInput is an input type that accepts GlobalTableVectorIndexArray and GlobalTableVectorIndexArrayOutput values.
+// You can construct a concrete instance of `GlobalTableVectorIndexArrayInput` via:
+//
+//	GlobalTableVectorIndexArray{ GlobalTableVectorIndexArgs{...} }
+type GlobalTableVectorIndexArrayInput interface {
+	pulumi.Input
+
+	ToGlobalTableVectorIndexArrayOutput() GlobalTableVectorIndexArrayOutput
+	ToGlobalTableVectorIndexArrayOutputWithContext(context.Context) GlobalTableVectorIndexArrayOutput
+}
+
+type GlobalTableVectorIndexArray []GlobalTableVectorIndexInput
+
+func (GlobalTableVectorIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalTableVectorIndex)(nil)).Elem()
+}
+
+func (i GlobalTableVectorIndexArray) ToGlobalTableVectorIndexArrayOutput() GlobalTableVectorIndexArrayOutput {
+	return i.ToGlobalTableVectorIndexArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalTableVectorIndexArray) ToGlobalTableVectorIndexArrayOutputWithContext(ctx context.Context) GlobalTableVectorIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableVectorIndexArrayOutput)
+}
+
+type GlobalTableVectorIndexOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableVectorIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableVectorIndex)(nil)).Elem()
+}
+
+func (o GlobalTableVectorIndexOutput) ToGlobalTableVectorIndexOutput() GlobalTableVectorIndexOutput {
+	return o
+}
+
+func (o GlobalTableVectorIndexOutput) ToGlobalTableVectorIndexOutputWithContext(ctx context.Context) GlobalTableVectorIndexOutput {
+	return o
+}
+
+func (o GlobalTableVectorIndexOutput) Dimensions() pulumi.IntOutput {
+	return o.ApplyT(func(v GlobalTableVectorIndex) int { return v.Dimensions }).(pulumi.IntOutput)
+}
+
+func (o GlobalTableVectorIndexOutput) DistanceFunction() GlobalTableVectorIndexDistanceFunctionOutput {
+	return o.ApplyT(func(v GlobalTableVectorIndex) GlobalTableVectorIndexDistanceFunction { return v.DistanceFunction }).(GlobalTableVectorIndexDistanceFunctionOutput)
+}
+
+func (o GlobalTableVectorIndexOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalTableVectorIndex) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+func (o GlobalTableVectorIndexOutput) Projection() GlobalTableProjectionOutput {
+	return o.ApplyT(func(v GlobalTableVectorIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
+}
+
+func (o GlobalTableVectorIndexOutput) SearchSchema() GlobalTableSearchSchemaElementArrayOutput {
+	return o.ApplyT(func(v GlobalTableVectorIndex) []GlobalTableSearchSchemaElement { return v.SearchSchema }).(GlobalTableSearchSchemaElementArrayOutput)
+}
+
+func (o GlobalTableVectorIndexOutput) VectorAttribute() GlobalTableVectorAttributeOutput {
+	return o.ApplyT(func(v GlobalTableVectorIndex) GlobalTableVectorAttribute { return v.VectorAttribute }).(GlobalTableVectorAttributeOutput)
+}
+
+type GlobalTableVectorIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableVectorIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalTableVectorIndex)(nil)).Elem()
+}
+
+func (o GlobalTableVectorIndexArrayOutput) ToGlobalTableVectorIndexArrayOutput() GlobalTableVectorIndexArrayOutput {
+	return o
+}
+
+func (o GlobalTableVectorIndexArrayOutput) ToGlobalTableVectorIndexArrayOutputWithContext(ctx context.Context) GlobalTableVectorIndexArrayOutput {
+	return o
+}
+
+func (o GlobalTableVectorIndexArrayOutput) Index(i pulumi.IntInput) GlobalTableVectorIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalTableVectorIndex {
+		return vs[0].([]GlobalTableVectorIndex)[vs[1].(int)]
+	}).(GlobalTableVectorIndexOutput)
 }
 
 type GlobalTableWarmThroughput struct {
@@ -5629,6 +5904,7 @@ type TableProjection struct {
 	//   +  ``ALL`` - All of the table attributes are projected into the index.
 	//
 	//  When using the DynamoDB console, ``ALL`` is selected by default.
+	//  You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
 	ProjectionType *string `pulumi:"projectionType"`
 }
 
@@ -5654,6 +5930,7 @@ type TableProjectionArgs struct {
 	//   +  ``ALL`` - All of the table attributes are projected into the index.
 	//
 	//  When using the DynamoDB console, ``ALL`` is selected by default.
+	//  You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
 	ProjectionType pulumi.StringPtrInput `pulumi:"projectionType"`
 }
 
@@ -5700,6 +5977,7 @@ func (o TableProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 //   - “ALL“ - All of the table attributes are projected into the index.
 //
 //     When using the DynamoDB console, “ALL“ is selected by default.
+//     You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
 func (o TableProjectionOutput) ProjectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableProjection) *string { return v.ProjectionType }).(pulumi.StringPtrOutput)
 }
@@ -6223,6 +6501,108 @@ func (o TableS3BucketSourcePtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TableSearchSchemaElement struct {
+	AttributeName           string                                          `pulumi:"attributeName"`
+	SearchSchemaElementType TableSearchSchemaElementSearchSchemaElementType `pulumi:"searchSchemaElementType"`
+}
+
+// TableSearchSchemaElementInput is an input type that accepts TableSearchSchemaElementArgs and TableSearchSchemaElementOutput values.
+// You can construct a concrete instance of `TableSearchSchemaElementInput` via:
+//
+//	TableSearchSchemaElementArgs{...}
+type TableSearchSchemaElementInput interface {
+	pulumi.Input
+
+	ToTableSearchSchemaElementOutput() TableSearchSchemaElementOutput
+	ToTableSearchSchemaElementOutputWithContext(context.Context) TableSearchSchemaElementOutput
+}
+
+type TableSearchSchemaElementArgs struct {
+	AttributeName           pulumi.StringInput                                   `pulumi:"attributeName"`
+	SearchSchemaElementType TableSearchSchemaElementSearchSchemaElementTypeInput `pulumi:"searchSchemaElementType"`
+}
+
+func (TableSearchSchemaElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSearchSchemaElement)(nil)).Elem()
+}
+
+func (i TableSearchSchemaElementArgs) ToTableSearchSchemaElementOutput() TableSearchSchemaElementOutput {
+	return i.ToTableSearchSchemaElementOutputWithContext(context.Background())
+}
+
+func (i TableSearchSchemaElementArgs) ToTableSearchSchemaElementOutputWithContext(ctx context.Context) TableSearchSchemaElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSearchSchemaElementOutput)
+}
+
+// TableSearchSchemaElementArrayInput is an input type that accepts TableSearchSchemaElementArray and TableSearchSchemaElementArrayOutput values.
+// You can construct a concrete instance of `TableSearchSchemaElementArrayInput` via:
+//
+//	TableSearchSchemaElementArray{ TableSearchSchemaElementArgs{...} }
+type TableSearchSchemaElementArrayInput interface {
+	pulumi.Input
+
+	ToTableSearchSchemaElementArrayOutput() TableSearchSchemaElementArrayOutput
+	ToTableSearchSchemaElementArrayOutputWithContext(context.Context) TableSearchSchemaElementArrayOutput
+}
+
+type TableSearchSchemaElementArray []TableSearchSchemaElementInput
+
+func (TableSearchSchemaElementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableSearchSchemaElement)(nil)).Elem()
+}
+
+func (i TableSearchSchemaElementArray) ToTableSearchSchemaElementArrayOutput() TableSearchSchemaElementArrayOutput {
+	return i.ToTableSearchSchemaElementArrayOutputWithContext(context.Background())
+}
+
+func (i TableSearchSchemaElementArray) ToTableSearchSchemaElementArrayOutputWithContext(ctx context.Context) TableSearchSchemaElementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSearchSchemaElementArrayOutput)
+}
+
+type TableSearchSchemaElementOutput struct{ *pulumi.OutputState }
+
+func (TableSearchSchemaElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSearchSchemaElement)(nil)).Elem()
+}
+
+func (o TableSearchSchemaElementOutput) ToTableSearchSchemaElementOutput() TableSearchSchemaElementOutput {
+	return o
+}
+
+func (o TableSearchSchemaElementOutput) ToTableSearchSchemaElementOutputWithContext(ctx context.Context) TableSearchSchemaElementOutput {
+	return o
+}
+
+func (o TableSearchSchemaElementOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSearchSchemaElement) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+func (o TableSearchSchemaElementOutput) SearchSchemaElementType() TableSearchSchemaElementSearchSchemaElementTypeOutput {
+	return o.ApplyT(func(v TableSearchSchemaElement) TableSearchSchemaElementSearchSchemaElementType {
+		return v.SearchSchemaElementType
+	}).(TableSearchSchemaElementSearchSchemaElementTypeOutput)
+}
+
+type TableSearchSchemaElementArrayOutput struct{ *pulumi.OutputState }
+
+func (TableSearchSchemaElementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableSearchSchemaElement)(nil)).Elem()
+}
+
+func (o TableSearchSchemaElementArrayOutput) ToTableSearchSchemaElementArrayOutput() TableSearchSchemaElementArrayOutput {
+	return o
+}
+
+func (o TableSearchSchemaElementArrayOutput) ToTableSearchSchemaElementArrayOutputWithContext(ctx context.Context) TableSearchSchemaElementArrayOutput {
+	return o
+}
+
+func (o TableSearchSchemaElementArrayOutput) Index(i pulumi.IntInput) TableSearchSchemaElementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableSearchSchemaElement {
+		return vs[0].([]TableSearchSchemaElement)[vs[1].(int)]
+	}).(TableSearchSchemaElementOutput)
+}
+
 // Represents the settings used to enable server-side encryption.
 type TableSseSpecification struct {
 	// The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
@@ -6416,8 +6796,10 @@ type TableStreamSpecification struct {
 	//   +  ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
 	//   +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
 	//   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
-	StreamViewType string     `pulumi:"streamViewType"`
-	Tags           []TableTag `pulumi:"tags"`
+	StreamViewType string `pulumi:"streamViewType"`
+	// Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+	//  For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+	Tags []TableTag `pulumi:"tags"`
 }
 
 // TableStreamSpecificationInput is an input type that accepts TableStreamSpecificationArgs and TableStreamSpecificationOutput values.
@@ -6443,7 +6825,9 @@ type TableStreamSpecificationArgs struct {
 	//   +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
 	//   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
 	StreamViewType pulumi.StringInput `pulumi:"streamViewType"`
-	Tags           TableTagArrayInput `pulumi:"tags"`
+	// Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+	//  For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+	Tags TableTagArrayInput `pulumi:"tags"`
 }
 
 func (TableStreamSpecificationArgs) ElementType() reflect.Type {
@@ -6541,6 +6925,9 @@ func (o TableStreamSpecificationOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableStreamSpecification) string { return v.StreamViewType }).(pulumi.StringOutput)
 }
 
+// Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+//
+//	For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
 func (o TableStreamSpecificationOutput) Tags() TableTagArrayOutput {
 	return o.ApplyT(func(v TableStreamSpecification) []TableTag { return v.Tags }).(TableTagArrayOutput)
 }
@@ -6596,6 +6983,9 @@ func (o TableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+//
+//	For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
 func (o TableStreamSpecificationPtrOutput) Tags() TableTagArrayOutput {
 	return o.ApplyT(func(v *TableStreamSpecification) []TableTag {
 		if v == nil {
@@ -6890,6 +7280,179 @@ func (o TableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type TableVectorAttribute struct {
+	AttributeName string `pulumi:"attributeName"`
+}
+
+// TableVectorAttributeInput is an input type that accepts TableVectorAttributeArgs and TableVectorAttributeOutput values.
+// You can construct a concrete instance of `TableVectorAttributeInput` via:
+//
+//	TableVectorAttributeArgs{...}
+type TableVectorAttributeInput interface {
+	pulumi.Input
+
+	ToTableVectorAttributeOutput() TableVectorAttributeOutput
+	ToTableVectorAttributeOutputWithContext(context.Context) TableVectorAttributeOutput
+}
+
+type TableVectorAttributeArgs struct {
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+}
+
+func (TableVectorAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableVectorAttribute)(nil)).Elem()
+}
+
+func (i TableVectorAttributeArgs) ToTableVectorAttributeOutput() TableVectorAttributeOutput {
+	return i.ToTableVectorAttributeOutputWithContext(context.Background())
+}
+
+func (i TableVectorAttributeArgs) ToTableVectorAttributeOutputWithContext(ctx context.Context) TableVectorAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableVectorAttributeOutput)
+}
+
+type TableVectorAttributeOutput struct{ *pulumi.OutputState }
+
+func (TableVectorAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableVectorAttribute)(nil)).Elem()
+}
+
+func (o TableVectorAttributeOutput) ToTableVectorAttributeOutput() TableVectorAttributeOutput {
+	return o
+}
+
+func (o TableVectorAttributeOutput) ToTableVectorAttributeOutputWithContext(ctx context.Context) TableVectorAttributeOutput {
+	return o
+}
+
+func (o TableVectorAttributeOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableVectorAttribute) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+type TableVectorIndex struct {
+	Dimensions       int                              `pulumi:"dimensions"`
+	DistanceFunction TableVectorIndexDistanceFunction `pulumi:"distanceFunction"`
+	IndexName        string                           `pulumi:"indexName"`
+	Projection       TableProjection                  `pulumi:"projection"`
+	SearchSchema     []TableSearchSchemaElement       `pulumi:"searchSchema"`
+	VectorAttribute  TableVectorAttribute             `pulumi:"vectorAttribute"`
+}
+
+// TableVectorIndexInput is an input type that accepts TableVectorIndexArgs and TableVectorIndexOutput values.
+// You can construct a concrete instance of `TableVectorIndexInput` via:
+//
+//	TableVectorIndexArgs{...}
+type TableVectorIndexInput interface {
+	pulumi.Input
+
+	ToTableVectorIndexOutput() TableVectorIndexOutput
+	ToTableVectorIndexOutputWithContext(context.Context) TableVectorIndexOutput
+}
+
+type TableVectorIndexArgs struct {
+	Dimensions       pulumi.IntInput                       `pulumi:"dimensions"`
+	DistanceFunction TableVectorIndexDistanceFunctionInput `pulumi:"distanceFunction"`
+	IndexName        pulumi.StringInput                    `pulumi:"indexName"`
+	Projection       TableProjectionInput                  `pulumi:"projection"`
+	SearchSchema     TableSearchSchemaElementArrayInput    `pulumi:"searchSchema"`
+	VectorAttribute  TableVectorAttributeInput             `pulumi:"vectorAttribute"`
+}
+
+func (TableVectorIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableVectorIndex)(nil)).Elem()
+}
+
+func (i TableVectorIndexArgs) ToTableVectorIndexOutput() TableVectorIndexOutput {
+	return i.ToTableVectorIndexOutputWithContext(context.Background())
+}
+
+func (i TableVectorIndexArgs) ToTableVectorIndexOutputWithContext(ctx context.Context) TableVectorIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableVectorIndexOutput)
+}
+
+// TableVectorIndexArrayInput is an input type that accepts TableVectorIndexArray and TableVectorIndexArrayOutput values.
+// You can construct a concrete instance of `TableVectorIndexArrayInput` via:
+//
+//	TableVectorIndexArray{ TableVectorIndexArgs{...} }
+type TableVectorIndexArrayInput interface {
+	pulumi.Input
+
+	ToTableVectorIndexArrayOutput() TableVectorIndexArrayOutput
+	ToTableVectorIndexArrayOutputWithContext(context.Context) TableVectorIndexArrayOutput
+}
+
+type TableVectorIndexArray []TableVectorIndexInput
+
+func (TableVectorIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableVectorIndex)(nil)).Elem()
+}
+
+func (i TableVectorIndexArray) ToTableVectorIndexArrayOutput() TableVectorIndexArrayOutput {
+	return i.ToTableVectorIndexArrayOutputWithContext(context.Background())
+}
+
+func (i TableVectorIndexArray) ToTableVectorIndexArrayOutputWithContext(ctx context.Context) TableVectorIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableVectorIndexArrayOutput)
+}
+
+type TableVectorIndexOutput struct{ *pulumi.OutputState }
+
+func (TableVectorIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableVectorIndex)(nil)).Elem()
+}
+
+func (o TableVectorIndexOutput) ToTableVectorIndexOutput() TableVectorIndexOutput {
+	return o
+}
+
+func (o TableVectorIndexOutput) ToTableVectorIndexOutputWithContext(ctx context.Context) TableVectorIndexOutput {
+	return o
+}
+
+func (o TableVectorIndexOutput) Dimensions() pulumi.IntOutput {
+	return o.ApplyT(func(v TableVectorIndex) int { return v.Dimensions }).(pulumi.IntOutput)
+}
+
+func (o TableVectorIndexOutput) DistanceFunction() TableVectorIndexDistanceFunctionOutput {
+	return o.ApplyT(func(v TableVectorIndex) TableVectorIndexDistanceFunction { return v.DistanceFunction }).(TableVectorIndexDistanceFunctionOutput)
+}
+
+func (o TableVectorIndexOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableVectorIndex) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+func (o TableVectorIndexOutput) Projection() TableProjectionOutput {
+	return o.ApplyT(func(v TableVectorIndex) TableProjection { return v.Projection }).(TableProjectionOutput)
+}
+
+func (o TableVectorIndexOutput) SearchSchema() TableSearchSchemaElementArrayOutput {
+	return o.ApplyT(func(v TableVectorIndex) []TableSearchSchemaElement { return v.SearchSchema }).(TableSearchSchemaElementArrayOutput)
+}
+
+func (o TableVectorIndexOutput) VectorAttribute() TableVectorAttributeOutput {
+	return o.ApplyT(func(v TableVectorIndex) TableVectorAttribute { return v.VectorAttribute }).(TableVectorAttributeOutput)
+}
+
+type TableVectorIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (TableVectorIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableVectorIndex)(nil)).Elem()
+}
+
+func (o TableVectorIndexArrayOutput) ToTableVectorIndexArrayOutput() TableVectorIndexArrayOutput {
+	return o
+}
+
+func (o TableVectorIndexArrayOutput) ToTableVectorIndexArrayOutputWithContext(ctx context.Context) TableVectorIndexArrayOutput {
+	return o
+}
+
+func (o TableVectorIndexArrayOutput) Index(i pulumi.IntInput) TableVectorIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableVectorIndex {
+		return vs[0].([]TableVectorIndex)[vs[1].(int)]
+	}).(TableVectorIndexOutput)
+}
+
 // Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the “UpdateTable“ operation to meet the throughput requirements of an upcoming peak event.
 type TableWarmThroughput struct {
 	// Represents the number of read operations your base table can instantaneously support.
@@ -7083,6 +7646,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaStreamSpecificationPtrInput)(nil)).Elem(), GlobalTableReplicaStreamSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableResourcePolicyInput)(nil)).Elem(), GlobalTableResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableResourcePolicyPtrInput)(nil)).Elem(), GlobalTableResourcePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSearchSchemaElementInput)(nil)).Elem(), GlobalTableSearchSchemaElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSearchSchemaElementArrayInput)(nil)).Elem(), GlobalTableSearchSchemaElementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSseSpecificationInput)(nil)).Elem(), GlobalTableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSseSpecificationPtrInput)(nil)).Elem(), GlobalTableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableStreamSpecificationInput)(nil)).Elem(), GlobalTableStreamSpecificationArgs{})
@@ -7093,6 +7658,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTargetTrackingScalingPolicyConfigurationPtrInput)(nil)).Elem(), GlobalTableTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTimeToLiveSpecificationInput)(nil)).Elem(), GlobalTableTimeToLiveSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTimeToLiveSpecificationPtrInput)(nil)).Elem(), GlobalTableTimeToLiveSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableVectorAttributeInput)(nil)).Elem(), GlobalTableVectorAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableVectorIndexInput)(nil)).Elem(), GlobalTableVectorIndexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableVectorIndexArrayInput)(nil)).Elem(), GlobalTableVectorIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWarmThroughputInput)(nil)).Elem(), GlobalTableWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWarmThroughputPtrInput)(nil)).Elem(), GlobalTableWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWitnessInput)(nil)).Elem(), GlobalTableWitnessArgs{})
@@ -7130,6 +7698,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableResourcePolicyPtrInput)(nil)).Elem(), TableResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourceInput)(nil)).Elem(), TableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourcePtrInput)(nil)).Elem(), TableS3BucketSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSearchSchemaElementInput)(nil)).Elem(), TableSearchSchemaElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSearchSchemaElementArrayInput)(nil)).Elem(), TableSearchSchemaElementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSseSpecificationInput)(nil)).Elem(), TableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSseSpecificationPtrInput)(nil)).Elem(), TableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStreamSpecificationInput)(nil)).Elem(), TableStreamSpecificationArgs{})
@@ -7138,6 +7708,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTimeToLiveSpecificationInput)(nil)).Elem(), TableTimeToLiveSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTimeToLiveSpecificationPtrInput)(nil)).Elem(), TableTimeToLiveSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableVectorAttributeInput)(nil)).Elem(), TableVectorAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableVectorIndexInput)(nil)).Elem(), TableVectorIndexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableVectorIndexArrayInput)(nil)).Elem(), TableVectorIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputInput)(nil)).Elem(), TableWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputPtrInput)(nil)).Elem(), TableWarmThroughputArgs{})
 	pulumi.RegisterOutputType(GlobalTableAttributeDefinitionOutput{})
@@ -7173,6 +7746,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableReplicaStreamSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableResourcePolicyOutput{})
 	pulumi.RegisterOutputType(GlobalTableResourcePolicyPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableSearchSchemaElementOutput{})
+	pulumi.RegisterOutputType(GlobalTableSearchSchemaElementArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableSseSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableStreamSpecificationOutput{})
@@ -7183,6 +7758,9 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableTimeToLiveSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableTimeToLiveSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableVectorAttributeOutput{})
+	pulumi.RegisterOutputType(GlobalTableVectorIndexOutput{})
+	pulumi.RegisterOutputType(GlobalTableVectorIndexArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableWarmThroughputOutput{})
 	pulumi.RegisterOutputType(GlobalTableWarmThroughputPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableWitnessOutput{})
@@ -7220,6 +7798,8 @@ func init() {
 	pulumi.RegisterOutputType(TableResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourceOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourcePtrOutput{})
+	pulumi.RegisterOutputType(TableSearchSchemaElementOutput{})
+	pulumi.RegisterOutputType(TableSearchSchemaElementArrayOutput{})
 	pulumi.RegisterOutputType(TableSseSpecificationOutput{})
 	pulumi.RegisterOutputType(TableSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableStreamSpecificationOutput{})
@@ -7228,6 +7808,9 @@ func init() {
 	pulumi.RegisterOutputType(TableTagArrayOutput{})
 	pulumi.RegisterOutputType(TableTimeToLiveSpecificationOutput{})
 	pulumi.RegisterOutputType(TableTimeToLiveSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableVectorAttributeOutput{})
+	pulumi.RegisterOutputType(TableVectorIndexOutput{})
+	pulumi.RegisterOutputType(TableVectorIndexArrayOutput{})
 	pulumi.RegisterOutputType(TableWarmThroughputOutput{})
 	pulumi.RegisterOutputType(TableWarmThroughputPtrOutput{})
 }

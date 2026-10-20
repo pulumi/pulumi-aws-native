@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "aws-native:sagemaker:CodeRepository":
 		r = &CodeRepository{}
+	case "aws-native:sagemaker:ComputeQuota":
+		r = &ComputeQuota{}
 	case "aws-native:sagemaker:Context":
 		r = &Context{}
 	case "aws-native:sagemaker:DataQualityJobDefinition":

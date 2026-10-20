@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'LaunchConfigurationTemplateLaunchDisposition',
     'LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod',
+    'RecoveryPlanStatus',
     'ReplicationConfigurationTemplateDataPlaneRouting',
     'ReplicationConfigurationTemplateDefaultLargeStagingDiskType',
     'ReplicationConfigurationTemplateEbsEncryption',
@@ -34,6 +35,15 @@ class LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod(_builtins.s
     NONE = "NONE"
     BASIC = "BASIC"
     IN_AWS = "IN_AWS"
+
+
+@pulumi.type_token("aws-native:drs:RecoveryPlanStatus")
+class RecoveryPlanStatus(_builtins.str, Enum):
+    """
+    The status of the Recovery Plan. ACTIVE means executable. INVALID means the plan has no SERVER type steps and cannot be executed.
+    """
+    ACTIVE = "ACTIVE"
+    INVALID = "INVALID"
 
 
 @pulumi.type_token("aws-native:drs:ReplicationConfigurationTemplateDataPlaneRouting")

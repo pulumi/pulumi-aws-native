@@ -3905,6 +3905,825 @@ func (in *clusterTieredStorageConfigModePtr) ToClusterTieredStorageConfigModePtr
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterTieredStorageConfigModePtrOutput)
 }
 
+// MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+type ComputeQuotaAcceleratorPartitionConfigType string
+
+const (
+	ComputeQuotaAcceleratorPartitionConfigTypeMig1g5gb   = ComputeQuotaAcceleratorPartitionConfigType("mig-1g.5gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig1g10gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-1g.10gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig1g18gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-1g.18gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig1g20gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-1g.20gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig1g23gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-1g.23gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig1g35gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-1g.35gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig1g45gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-1g.45gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig1g47gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-1g.47gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig2g10gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-2g.10gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig2g20gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-2g.20gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig2g35gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-2g.35gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig2g45gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-2g.45gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig2g47gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-2g.47gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig3g20gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-3g.20gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig3g40gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-3g.40gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig3g71gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-3g.71gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig3g90gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-3g.90gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig3g93gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-3g.93gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig4g20gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-4g.20gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig4g40gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-4g.40gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig4g71gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-4g.71gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig4g90gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-4g.90gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig4g93gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-4g.93gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig7g40gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-7g.40gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig7g80gb  = ComputeQuotaAcceleratorPartitionConfigType("mig-7g.80gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig7g141gb = ComputeQuotaAcceleratorPartitionConfigType("mig-7g.141gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig7g180gb = ComputeQuotaAcceleratorPartitionConfigType("mig-7g.180gb")
+	ComputeQuotaAcceleratorPartitionConfigTypeMig7g186gb = ComputeQuotaAcceleratorPartitionConfigType("mig-7g.186gb")
+)
+
+func (ComputeQuotaAcceleratorPartitionConfigType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaAcceleratorPartitionConfigType)(nil)).Elem()
+}
+
+func (e ComputeQuotaAcceleratorPartitionConfigType) ToComputeQuotaAcceleratorPartitionConfigTypeOutput() ComputeQuotaAcceleratorPartitionConfigTypeOutput {
+	return pulumi.ToOutput(e).(ComputeQuotaAcceleratorPartitionConfigTypeOutput)
+}
+
+func (e ComputeQuotaAcceleratorPartitionConfigType) ToComputeQuotaAcceleratorPartitionConfigTypeOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeQuotaAcceleratorPartitionConfigTypeOutput)
+}
+
+func (e ComputeQuotaAcceleratorPartitionConfigType) ToComputeQuotaAcceleratorPartitionConfigTypePtrOutput() ComputeQuotaAcceleratorPartitionConfigTypePtrOutput {
+	return e.ToComputeQuotaAcceleratorPartitionConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (e ComputeQuotaAcceleratorPartitionConfigType) ToComputeQuotaAcceleratorPartitionConfigTypePtrOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigTypePtrOutput {
+	return ComputeQuotaAcceleratorPartitionConfigType(e).ToComputeQuotaAcceleratorPartitionConfigTypeOutputWithContext(ctx).ToComputeQuotaAcceleratorPartitionConfigTypePtrOutputWithContext(ctx)
+}
+
+func (e ComputeQuotaAcceleratorPartitionConfigType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeQuotaAcceleratorPartitionConfigType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeQuotaAcceleratorPartitionConfigType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeQuotaAcceleratorPartitionConfigType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeQuotaAcceleratorPartitionConfigTypeOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaAcceleratorPartitionConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaAcceleratorPartitionConfigType)(nil)).Elem()
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypeOutput) ToComputeQuotaAcceleratorPartitionConfigTypeOutput() ComputeQuotaAcceleratorPartitionConfigTypeOutput {
+	return o
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypeOutput) ToComputeQuotaAcceleratorPartitionConfigTypeOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigTypeOutput {
+	return o
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypeOutput) ToComputeQuotaAcceleratorPartitionConfigTypePtrOutput() ComputeQuotaAcceleratorPartitionConfigTypePtrOutput {
+	return o.ToComputeQuotaAcceleratorPartitionConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypeOutput) ToComputeQuotaAcceleratorPartitionConfigTypePtrOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeQuotaAcceleratorPartitionConfigType) *ComputeQuotaAcceleratorPartitionConfigType {
+		return &v
+	}).(ComputeQuotaAcceleratorPartitionConfigTypePtrOutput)
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaAcceleratorPartitionConfigType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaAcceleratorPartitionConfigType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeQuotaAcceleratorPartitionConfigTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaAcceleratorPartitionConfigTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaAcceleratorPartitionConfigType)(nil)).Elem()
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypePtrOutput) ToComputeQuotaAcceleratorPartitionConfigTypePtrOutput() ComputeQuotaAcceleratorPartitionConfigTypePtrOutput {
+	return o
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypePtrOutput) ToComputeQuotaAcceleratorPartitionConfigTypePtrOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigTypePtrOutput {
+	return o
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypePtrOutput) Elem() ComputeQuotaAcceleratorPartitionConfigTypeOutput {
+	return o.ApplyT(func(v *ComputeQuotaAcceleratorPartitionConfigType) ComputeQuotaAcceleratorPartitionConfigType {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeQuotaAcceleratorPartitionConfigType
+		return ret
+	}).(ComputeQuotaAcceleratorPartitionConfigTypeOutput)
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeQuotaAcceleratorPartitionConfigType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeQuotaAcceleratorPartitionConfigTypeInput is an input type that accepts values of the ComputeQuotaAcceleratorPartitionConfigType enum
+// A concrete instance of `ComputeQuotaAcceleratorPartitionConfigTypeInput` can be one of the following:
+//
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig1g5gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig1g10gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig1g18gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig1g20gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig1g23gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig1g35gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig1g45gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig1g47gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig2g10gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig2g20gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig2g35gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig2g45gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig2g47gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig3g20gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig3g40gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig3g71gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig3g90gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig3g93gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig4g20gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig4g40gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig4g71gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig4g90gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig4g93gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig7g40gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig7g80gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig7g141gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig7g180gb
+//	ComputeQuotaAcceleratorPartitionConfigTypeMig7g186gb
+type ComputeQuotaAcceleratorPartitionConfigTypeInput interface {
+	pulumi.Input
+
+	ToComputeQuotaAcceleratorPartitionConfigTypeOutput() ComputeQuotaAcceleratorPartitionConfigTypeOutput
+	ToComputeQuotaAcceleratorPartitionConfigTypeOutputWithContext(context.Context) ComputeQuotaAcceleratorPartitionConfigTypeOutput
+}
+
+var computeQuotaAcceleratorPartitionConfigTypePtrType = reflect.TypeOf((**ComputeQuotaAcceleratorPartitionConfigType)(nil)).Elem()
+
+type ComputeQuotaAcceleratorPartitionConfigTypePtrInput interface {
+	pulumi.Input
+
+	ToComputeQuotaAcceleratorPartitionConfigTypePtrOutput() ComputeQuotaAcceleratorPartitionConfigTypePtrOutput
+	ToComputeQuotaAcceleratorPartitionConfigTypePtrOutputWithContext(context.Context) ComputeQuotaAcceleratorPartitionConfigTypePtrOutput
+}
+
+type computeQuotaAcceleratorPartitionConfigTypePtr string
+
+func ComputeQuotaAcceleratorPartitionConfigTypePtr(v string) ComputeQuotaAcceleratorPartitionConfigTypePtrInput {
+	return (*computeQuotaAcceleratorPartitionConfigTypePtr)(&v)
+}
+
+func (*computeQuotaAcceleratorPartitionConfigTypePtr) ElementType() reflect.Type {
+	return computeQuotaAcceleratorPartitionConfigTypePtrType
+}
+
+func (in *computeQuotaAcceleratorPartitionConfigTypePtr) ToComputeQuotaAcceleratorPartitionConfigTypePtrOutput() ComputeQuotaAcceleratorPartitionConfigTypePtrOutput {
+	return pulumi.ToOutput(in).(ComputeQuotaAcceleratorPartitionConfigTypePtrOutput)
+}
+
+func (in *computeQuotaAcceleratorPartitionConfigTypePtr) ToComputeQuotaAcceleratorPartitionConfigTypePtrOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeQuotaAcceleratorPartitionConfigTypePtrOutput)
+}
+
+// Whether the compute allocation rule is active. Defaults service-side to 'Enabled' when omitted on Create.
+type ComputeQuotaActivationState string
+
+const (
+	ComputeQuotaActivationStateEnabled  = ComputeQuotaActivationState("Enabled")
+	ComputeQuotaActivationStateDisabled = ComputeQuotaActivationState("Disabled")
+)
+
+func (ComputeQuotaActivationState) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaActivationState)(nil)).Elem()
+}
+
+func (e ComputeQuotaActivationState) ToComputeQuotaActivationStateOutput() ComputeQuotaActivationStateOutput {
+	return pulumi.ToOutput(e).(ComputeQuotaActivationStateOutput)
+}
+
+func (e ComputeQuotaActivationState) ToComputeQuotaActivationStateOutputWithContext(ctx context.Context) ComputeQuotaActivationStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeQuotaActivationStateOutput)
+}
+
+func (e ComputeQuotaActivationState) ToComputeQuotaActivationStatePtrOutput() ComputeQuotaActivationStatePtrOutput {
+	return e.ToComputeQuotaActivationStatePtrOutputWithContext(context.Background())
+}
+
+func (e ComputeQuotaActivationState) ToComputeQuotaActivationStatePtrOutputWithContext(ctx context.Context) ComputeQuotaActivationStatePtrOutput {
+	return ComputeQuotaActivationState(e).ToComputeQuotaActivationStateOutputWithContext(ctx).ToComputeQuotaActivationStatePtrOutputWithContext(ctx)
+}
+
+func (e ComputeQuotaActivationState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeQuotaActivationState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeQuotaActivationState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeQuotaActivationState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeQuotaActivationStateOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaActivationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaActivationState)(nil)).Elem()
+}
+
+func (o ComputeQuotaActivationStateOutput) ToComputeQuotaActivationStateOutput() ComputeQuotaActivationStateOutput {
+	return o
+}
+
+func (o ComputeQuotaActivationStateOutput) ToComputeQuotaActivationStateOutputWithContext(ctx context.Context) ComputeQuotaActivationStateOutput {
+	return o
+}
+
+func (o ComputeQuotaActivationStateOutput) ToComputeQuotaActivationStatePtrOutput() ComputeQuotaActivationStatePtrOutput {
+	return o.ToComputeQuotaActivationStatePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaActivationStateOutput) ToComputeQuotaActivationStatePtrOutputWithContext(ctx context.Context) ComputeQuotaActivationStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeQuotaActivationState) *ComputeQuotaActivationState {
+		return &v
+	}).(ComputeQuotaActivationStatePtrOutput)
+}
+
+func (o ComputeQuotaActivationStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaActivationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaActivationState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeQuotaActivationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaActivationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaActivationState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeQuotaActivationStatePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaActivationStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaActivationState)(nil)).Elem()
+}
+
+func (o ComputeQuotaActivationStatePtrOutput) ToComputeQuotaActivationStatePtrOutput() ComputeQuotaActivationStatePtrOutput {
+	return o
+}
+
+func (o ComputeQuotaActivationStatePtrOutput) ToComputeQuotaActivationStatePtrOutputWithContext(ctx context.Context) ComputeQuotaActivationStatePtrOutput {
+	return o
+}
+
+func (o ComputeQuotaActivationStatePtrOutput) Elem() ComputeQuotaActivationStateOutput {
+	return o.ApplyT(func(v *ComputeQuotaActivationState) ComputeQuotaActivationState {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeQuotaActivationState
+		return ret
+	}).(ComputeQuotaActivationStateOutput)
+}
+
+func (o ComputeQuotaActivationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaActivationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeQuotaActivationState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeQuotaActivationStateInput is an input type that accepts values of the ComputeQuotaActivationState enum
+// A concrete instance of `ComputeQuotaActivationStateInput` can be one of the following:
+//
+//	ComputeQuotaActivationStateEnabled
+//	ComputeQuotaActivationStateDisabled
+type ComputeQuotaActivationStateInput interface {
+	pulumi.Input
+
+	ToComputeQuotaActivationStateOutput() ComputeQuotaActivationStateOutput
+	ToComputeQuotaActivationStateOutputWithContext(context.Context) ComputeQuotaActivationStateOutput
+}
+
+var computeQuotaActivationStatePtrType = reflect.TypeOf((**ComputeQuotaActivationState)(nil)).Elem()
+
+type ComputeQuotaActivationStatePtrInput interface {
+	pulumi.Input
+
+	ToComputeQuotaActivationStatePtrOutput() ComputeQuotaActivationStatePtrOutput
+	ToComputeQuotaActivationStatePtrOutputWithContext(context.Context) ComputeQuotaActivationStatePtrOutput
+}
+
+type computeQuotaActivationStatePtr string
+
+func ComputeQuotaActivationStatePtr(v string) ComputeQuotaActivationStatePtrInput {
+	return (*computeQuotaActivationStatePtr)(&v)
+}
+
+func (*computeQuotaActivationStatePtr) ElementType() reflect.Type {
+	return computeQuotaActivationStatePtrType
+}
+
+func (in *computeQuotaActivationStatePtr) ToComputeQuotaActivationStatePtrOutput() ComputeQuotaActivationStatePtrOutput {
+	return pulumi.ToOutput(in).(ComputeQuotaActivationStatePtrOutput)
+}
+
+func (in *computeQuotaActivationStatePtr) ToComputeQuotaActivationStatePtrOutputWithContext(ctx context.Context) ComputeQuotaActivationStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeQuotaActivationStatePtrOutput)
+}
+
+// Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+type ComputeQuotaConfigPreemptTeamTasks string
+
+const (
+	ComputeQuotaConfigPreemptTeamTasksNever         = ComputeQuotaConfigPreemptTeamTasks("Never")
+	ComputeQuotaConfigPreemptTeamTasksLowerPriority = ComputeQuotaConfigPreemptTeamTasks("LowerPriority")
+)
+
+func (ComputeQuotaConfigPreemptTeamTasks) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaConfigPreemptTeamTasks)(nil)).Elem()
+}
+
+func (e ComputeQuotaConfigPreemptTeamTasks) ToComputeQuotaConfigPreemptTeamTasksOutput() ComputeQuotaConfigPreemptTeamTasksOutput {
+	return pulumi.ToOutput(e).(ComputeQuotaConfigPreemptTeamTasksOutput)
+}
+
+func (e ComputeQuotaConfigPreemptTeamTasks) ToComputeQuotaConfigPreemptTeamTasksOutputWithContext(ctx context.Context) ComputeQuotaConfigPreemptTeamTasksOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeQuotaConfigPreemptTeamTasksOutput)
+}
+
+func (e ComputeQuotaConfigPreemptTeamTasks) ToComputeQuotaConfigPreemptTeamTasksPtrOutput() ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return e.ToComputeQuotaConfigPreemptTeamTasksPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeQuotaConfigPreemptTeamTasks) ToComputeQuotaConfigPreemptTeamTasksPtrOutputWithContext(ctx context.Context) ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return ComputeQuotaConfigPreemptTeamTasks(e).ToComputeQuotaConfigPreemptTeamTasksOutputWithContext(ctx).ToComputeQuotaConfigPreemptTeamTasksPtrOutputWithContext(ctx)
+}
+
+func (e ComputeQuotaConfigPreemptTeamTasks) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeQuotaConfigPreemptTeamTasks) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeQuotaConfigPreemptTeamTasks) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeQuotaConfigPreemptTeamTasks) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeQuotaConfigPreemptTeamTasksOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaConfigPreemptTeamTasksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaConfigPreemptTeamTasks)(nil)).Elem()
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksOutput) ToComputeQuotaConfigPreemptTeamTasksOutput() ComputeQuotaConfigPreemptTeamTasksOutput {
+	return o
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksOutput) ToComputeQuotaConfigPreemptTeamTasksOutputWithContext(ctx context.Context) ComputeQuotaConfigPreemptTeamTasksOutput {
+	return o
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksOutput) ToComputeQuotaConfigPreemptTeamTasksPtrOutput() ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return o.ToComputeQuotaConfigPreemptTeamTasksPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksOutput) ToComputeQuotaConfigPreemptTeamTasksPtrOutputWithContext(ctx context.Context) ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeQuotaConfigPreemptTeamTasks) *ComputeQuotaConfigPreemptTeamTasks {
+		return &v
+	}).(ComputeQuotaConfigPreemptTeamTasksPtrOutput)
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaConfigPreemptTeamTasks) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaConfigPreemptTeamTasks) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeQuotaConfigPreemptTeamTasksPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaConfigPreemptTeamTasksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaConfigPreemptTeamTasks)(nil)).Elem()
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksPtrOutput) ToComputeQuotaConfigPreemptTeamTasksPtrOutput() ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksPtrOutput) ToComputeQuotaConfigPreemptTeamTasksPtrOutputWithContext(ctx context.Context) ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksPtrOutput) Elem() ComputeQuotaConfigPreemptTeamTasksOutput {
+	return o.ApplyT(func(v *ComputeQuotaConfigPreemptTeamTasks) ComputeQuotaConfigPreemptTeamTasks {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeQuotaConfigPreemptTeamTasks
+		return ret
+	}).(ComputeQuotaConfigPreemptTeamTasksOutput)
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaConfigPreemptTeamTasksPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeQuotaConfigPreemptTeamTasks) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeQuotaConfigPreemptTeamTasksInput is an input type that accepts values of the ComputeQuotaConfigPreemptTeamTasks enum
+// A concrete instance of `ComputeQuotaConfigPreemptTeamTasksInput` can be one of the following:
+//
+//	ComputeQuotaConfigPreemptTeamTasksNever
+//	ComputeQuotaConfigPreemptTeamTasksLowerPriority
+type ComputeQuotaConfigPreemptTeamTasksInput interface {
+	pulumi.Input
+
+	ToComputeQuotaConfigPreemptTeamTasksOutput() ComputeQuotaConfigPreemptTeamTasksOutput
+	ToComputeQuotaConfigPreemptTeamTasksOutputWithContext(context.Context) ComputeQuotaConfigPreemptTeamTasksOutput
+}
+
+var computeQuotaConfigPreemptTeamTasksPtrType = reflect.TypeOf((**ComputeQuotaConfigPreemptTeamTasks)(nil)).Elem()
+
+type ComputeQuotaConfigPreemptTeamTasksPtrInput interface {
+	pulumi.Input
+
+	ToComputeQuotaConfigPreemptTeamTasksPtrOutput() ComputeQuotaConfigPreemptTeamTasksPtrOutput
+	ToComputeQuotaConfigPreemptTeamTasksPtrOutputWithContext(context.Context) ComputeQuotaConfigPreemptTeamTasksPtrOutput
+}
+
+type computeQuotaConfigPreemptTeamTasksPtr string
+
+func ComputeQuotaConfigPreemptTeamTasksPtr(v string) ComputeQuotaConfigPreemptTeamTasksPtrInput {
+	return (*computeQuotaConfigPreemptTeamTasksPtr)(&v)
+}
+
+func (*computeQuotaConfigPreemptTeamTasksPtr) ElementType() reflect.Type {
+	return computeQuotaConfigPreemptTeamTasksPtrType
+}
+
+func (in *computeQuotaConfigPreemptTeamTasksPtr) ToComputeQuotaConfigPreemptTeamTasksPtrOutput() ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return pulumi.ToOutput(in).(ComputeQuotaConfigPreemptTeamTasksPtrOutput)
+}
+
+func (in *computeQuotaConfigPreemptTeamTasksPtr) ToComputeQuotaConfigPreemptTeamTasksPtrOutputWithContext(ctx context.Context) ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeQuotaConfigPreemptTeamTasksPtrOutput)
+}
+
+// How this team participates in idle-resource sharing.
+type ComputeQuotaResourceSharingConfigStrategy string
+
+const (
+	ComputeQuotaResourceSharingConfigStrategyLend          = ComputeQuotaResourceSharingConfigStrategy("Lend")
+	ComputeQuotaResourceSharingConfigStrategyDontLend      = ComputeQuotaResourceSharingConfigStrategy("DontLend")
+	ComputeQuotaResourceSharingConfigStrategyLendAndBorrow = ComputeQuotaResourceSharingConfigStrategy("LendAndBorrow")
+)
+
+func (ComputeQuotaResourceSharingConfigStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaResourceSharingConfigStrategy)(nil)).Elem()
+}
+
+func (e ComputeQuotaResourceSharingConfigStrategy) ToComputeQuotaResourceSharingConfigStrategyOutput() ComputeQuotaResourceSharingConfigStrategyOutput {
+	return pulumi.ToOutput(e).(ComputeQuotaResourceSharingConfigStrategyOutput)
+}
+
+func (e ComputeQuotaResourceSharingConfigStrategy) ToComputeQuotaResourceSharingConfigStrategyOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeQuotaResourceSharingConfigStrategyOutput)
+}
+
+func (e ComputeQuotaResourceSharingConfigStrategy) ToComputeQuotaResourceSharingConfigStrategyPtrOutput() ComputeQuotaResourceSharingConfigStrategyPtrOutput {
+	return e.ToComputeQuotaResourceSharingConfigStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeQuotaResourceSharingConfigStrategy) ToComputeQuotaResourceSharingConfigStrategyPtrOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigStrategyPtrOutput {
+	return ComputeQuotaResourceSharingConfigStrategy(e).ToComputeQuotaResourceSharingConfigStrategyOutputWithContext(ctx).ToComputeQuotaResourceSharingConfigStrategyPtrOutputWithContext(ctx)
+}
+
+func (e ComputeQuotaResourceSharingConfigStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeQuotaResourceSharingConfigStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeQuotaResourceSharingConfigStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeQuotaResourceSharingConfigStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeQuotaResourceSharingConfigStrategyOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaResourceSharingConfigStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaResourceSharingConfigStrategy)(nil)).Elem()
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyOutput) ToComputeQuotaResourceSharingConfigStrategyOutput() ComputeQuotaResourceSharingConfigStrategyOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyOutput) ToComputeQuotaResourceSharingConfigStrategyOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigStrategyOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyOutput) ToComputeQuotaResourceSharingConfigStrategyPtrOutput() ComputeQuotaResourceSharingConfigStrategyPtrOutput {
+	return o.ToComputeQuotaResourceSharingConfigStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyOutput) ToComputeQuotaResourceSharingConfigStrategyPtrOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeQuotaResourceSharingConfigStrategy) *ComputeQuotaResourceSharingConfigStrategy {
+		return &v
+	}).(ComputeQuotaResourceSharingConfigStrategyPtrOutput)
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaResourceSharingConfigStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaResourceSharingConfigStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeQuotaResourceSharingConfigStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaResourceSharingConfigStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaResourceSharingConfigStrategy)(nil)).Elem()
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyPtrOutput) ToComputeQuotaResourceSharingConfigStrategyPtrOutput() ComputeQuotaResourceSharingConfigStrategyPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyPtrOutput) ToComputeQuotaResourceSharingConfigStrategyPtrOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigStrategyPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyPtrOutput) Elem() ComputeQuotaResourceSharingConfigStrategyOutput {
+	return o.ApplyT(func(v *ComputeQuotaResourceSharingConfigStrategy) ComputeQuotaResourceSharingConfigStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeQuotaResourceSharingConfigStrategy
+		return ret
+	}).(ComputeQuotaResourceSharingConfigStrategyOutput)
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaResourceSharingConfigStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeQuotaResourceSharingConfigStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeQuotaResourceSharingConfigStrategyInput is an input type that accepts values of the ComputeQuotaResourceSharingConfigStrategy enum
+// A concrete instance of `ComputeQuotaResourceSharingConfigStrategyInput` can be one of the following:
+//
+//	ComputeQuotaResourceSharingConfigStrategyLend
+//	ComputeQuotaResourceSharingConfigStrategyDontLend
+//	ComputeQuotaResourceSharingConfigStrategyLendAndBorrow
+type ComputeQuotaResourceSharingConfigStrategyInput interface {
+	pulumi.Input
+
+	ToComputeQuotaResourceSharingConfigStrategyOutput() ComputeQuotaResourceSharingConfigStrategyOutput
+	ToComputeQuotaResourceSharingConfigStrategyOutputWithContext(context.Context) ComputeQuotaResourceSharingConfigStrategyOutput
+}
+
+var computeQuotaResourceSharingConfigStrategyPtrType = reflect.TypeOf((**ComputeQuotaResourceSharingConfigStrategy)(nil)).Elem()
+
+type ComputeQuotaResourceSharingConfigStrategyPtrInput interface {
+	pulumi.Input
+
+	ToComputeQuotaResourceSharingConfigStrategyPtrOutput() ComputeQuotaResourceSharingConfigStrategyPtrOutput
+	ToComputeQuotaResourceSharingConfigStrategyPtrOutputWithContext(context.Context) ComputeQuotaResourceSharingConfigStrategyPtrOutput
+}
+
+type computeQuotaResourceSharingConfigStrategyPtr string
+
+func ComputeQuotaResourceSharingConfigStrategyPtr(v string) ComputeQuotaResourceSharingConfigStrategyPtrInput {
+	return (*computeQuotaResourceSharingConfigStrategyPtr)(&v)
+}
+
+func (*computeQuotaResourceSharingConfigStrategyPtr) ElementType() reflect.Type {
+	return computeQuotaResourceSharingConfigStrategyPtrType
+}
+
+func (in *computeQuotaResourceSharingConfigStrategyPtr) ToComputeQuotaResourceSharingConfigStrategyPtrOutput() ComputeQuotaResourceSharingConfigStrategyPtrOutput {
+	return pulumi.ToOutput(in).(ComputeQuotaResourceSharingConfigStrategyPtrOutput)
+}
+
+func (in *computeQuotaResourceSharingConfigStrategyPtr) ToComputeQuotaResourceSharingConfigStrategyPtrOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeQuotaResourceSharingConfigStrategyPtrOutput)
+}
+
+// The current lifecycle status of the compute allocation definition.
+type ComputeQuotaStatus string
+
+const (
+	ComputeQuotaStatusCreating             = ComputeQuotaStatus("Creating")
+	ComputeQuotaStatusCreated              = ComputeQuotaStatus("Created")
+	ComputeQuotaStatusCreateFailed         = ComputeQuotaStatus("CreateFailed")
+	ComputeQuotaStatusCreateRollbackFailed = ComputeQuotaStatus("CreateRollbackFailed")
+	ComputeQuotaStatusUpdating             = ComputeQuotaStatus("Updating")
+	ComputeQuotaStatusUpdated              = ComputeQuotaStatus("Updated")
+	ComputeQuotaStatusUpdateFailed         = ComputeQuotaStatus("UpdateFailed")
+	ComputeQuotaStatusUpdateRollbackFailed = ComputeQuotaStatus("UpdateRollbackFailed")
+	ComputeQuotaStatusDeleting             = ComputeQuotaStatus("Deleting")
+	ComputeQuotaStatusDeleted              = ComputeQuotaStatus("Deleted")
+	ComputeQuotaStatusDeleteFailed         = ComputeQuotaStatus("DeleteFailed")
+	ComputeQuotaStatusDeleteRollbackFailed = ComputeQuotaStatus("DeleteRollbackFailed")
+)
+
+type ComputeQuotaStatusOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaStatus)(nil)).Elem()
+}
+
+func (o ComputeQuotaStatusOutput) ToComputeQuotaStatusOutput() ComputeQuotaStatusOutput {
+	return o
+}
+
+func (o ComputeQuotaStatusOutput) ToComputeQuotaStatusOutputWithContext(ctx context.Context) ComputeQuotaStatusOutput {
+	return o
+}
+
+func (o ComputeQuotaStatusOutput) ToComputeQuotaStatusPtrOutput() ComputeQuotaStatusPtrOutput {
+	return o.ToComputeQuotaStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaStatusOutput) ToComputeQuotaStatusPtrOutputWithContext(ctx context.Context) ComputeQuotaStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeQuotaStatus) *ComputeQuotaStatus {
+		return &v
+	}).(ComputeQuotaStatusPtrOutput)
+}
+
+func (o ComputeQuotaStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeQuotaStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeQuotaStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeQuotaStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaStatus)(nil)).Elem()
+}
+
+func (o ComputeQuotaStatusPtrOutput) ToComputeQuotaStatusPtrOutput() ComputeQuotaStatusPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaStatusPtrOutput) ToComputeQuotaStatusPtrOutputWithContext(ctx context.Context) ComputeQuotaStatusPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaStatusPtrOutput) Elem() ComputeQuotaStatusOutput {
+	return o.ApplyT(func(v *ComputeQuotaStatus) ComputeQuotaStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeQuotaStatus
+		return ret
+	}).(ComputeQuotaStatusOutput)
+}
+
+func (o ComputeQuotaStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeQuotaStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type DataQualityJobDefinitionBatchTransformInputS3DataDistributionType string
 
@@ -26868,6 +27687,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigNodeTypePtrInput)(nil)).Elem(), ClusterSlurmConfigNodeType("Controller"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigModeInput)(nil)).Elem(), ClusterTieredStorageConfigMode("Enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigModePtrInput)(nil)).Elem(), ClusterTieredStorageConfigMode("Enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaAcceleratorPartitionConfigTypeInput)(nil)).Elem(), ComputeQuotaAcceleratorPartitionConfigType("mig-1g.5gb"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaAcceleratorPartitionConfigTypePtrInput)(nil)).Elem(), ComputeQuotaAcceleratorPartitionConfigType("mig-1g.5gb"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaActivationStateInput)(nil)).Elem(), ComputeQuotaActivationState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaActivationStatePtrInput)(nil)).Elem(), ComputeQuotaActivationState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaConfigPreemptTeamTasksInput)(nil)).Elem(), ComputeQuotaConfigPreemptTeamTasks("Never"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaConfigPreemptTeamTasksPtrInput)(nil)).Elem(), ComputeQuotaConfigPreemptTeamTasks("Never"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaResourceSharingConfigStrategyInput)(nil)).Elem(), ComputeQuotaResourceSharingConfigStrategy("Lend"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaResourceSharingConfigStrategyPtrInput)(nil)).Elem(), ComputeQuotaResourceSharingConfigStrategy("Lend"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
@@ -27163,6 +27990,16 @@ func init() {
 	pulumi.RegisterOutputType(ClusterStatusPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTieredStorageConfigModeOutput{})
 	pulumi.RegisterOutputType(ClusterTieredStorageConfigModePtrOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaAcceleratorPartitionConfigTypeOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaAcceleratorPartitionConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaActivationStateOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaActivationStatePtrOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaConfigPreemptTeamTasksOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaConfigPreemptTeamTasksPtrOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaResourceSharingConfigStrategyOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaResourceSharingConfigStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaStatusOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3InputModeOutput{})

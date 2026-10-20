@@ -8,6 +8,163 @@ using Pulumi;
 namespace Pulumi.AwsNative.Smsvoice
 {
     [EnumType]
+    public readonly struct NotifyConfigurationEnabledChannelsItem : IEquatable<NotifyConfigurationEnabledChannelsItem>
+    {
+        private readonly string _value;
+
+        private NotifyConfigurationEnabledChannelsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotifyConfigurationEnabledChannelsItem Sms { get; } = new NotifyConfigurationEnabledChannelsItem("SMS");
+        public static NotifyConfigurationEnabledChannelsItem Voice { get; } = new NotifyConfigurationEnabledChannelsItem("VOICE");
+        public static NotifyConfigurationEnabledChannelsItem Mms { get; } = new NotifyConfigurationEnabledChannelsItem("MMS");
+        public static NotifyConfigurationEnabledChannelsItem Rcs { get; } = new NotifyConfigurationEnabledChannelsItem("RCS");
+
+        public static bool operator ==(NotifyConfigurationEnabledChannelsItem left, NotifyConfigurationEnabledChannelsItem right) => left.Equals(right);
+        public static bool operator !=(NotifyConfigurationEnabledChannelsItem left, NotifyConfigurationEnabledChannelsItem right) => !left.Equals(right);
+
+        public static explicit operator string(NotifyConfigurationEnabledChannelsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotifyConfigurationEnabledChannelsItem other && Equals(other);
+        public bool Equals(NotifyConfigurationEnabledChannelsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the notify configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotifyConfigurationStatus : IEquatable<NotifyConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private NotifyConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotifyConfigurationStatus Pending { get; } = new NotifyConfigurationStatus("PENDING");
+        public static NotifyConfigurationStatus Active { get; } = new NotifyConfigurationStatus("ACTIVE");
+        public static NotifyConfigurationStatus Rejected { get; } = new NotifyConfigurationStatus("REJECTED");
+        public static NotifyConfigurationStatus RequiresVerification { get; } = new NotifyConfigurationStatus("REQUIRES_VERIFICATION");
+
+        public static bool operator ==(NotifyConfigurationStatus left, NotifyConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(NotifyConfigurationStatus left, NotifyConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(NotifyConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotifyConfigurationStatus other && Equals(other);
+        public bool Equals(NotifyConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The tier of the notify configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotifyConfigurationTier : IEquatable<NotifyConfigurationTier>
+    {
+        private readonly string _value;
+
+        private NotifyConfigurationTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotifyConfigurationTier Basic { get; } = new NotifyConfigurationTier("BASIC");
+        public static NotifyConfigurationTier Advanced { get; } = new NotifyConfigurationTier("ADVANCED");
+
+        public static bool operator ==(NotifyConfigurationTier left, NotifyConfigurationTier right) => left.Equals(right);
+        public static bool operator !=(NotifyConfigurationTier left, NotifyConfigurationTier right) => !left.Equals(right);
+
+        public static explicit operator string(NotifyConfigurationTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotifyConfigurationTier other && Equals(other);
+        public bool Equals(NotifyConfigurationTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The tier upgrade status of the notify configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotifyConfigurationTierUpgradeStatus : IEquatable<NotifyConfigurationTierUpgradeStatus>
+    {
+        private readonly string _value;
+
+        private NotifyConfigurationTierUpgradeStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotifyConfigurationTierUpgradeStatus Basic { get; } = new NotifyConfigurationTierUpgradeStatus("BASIC");
+        public static NotifyConfigurationTierUpgradeStatus PendingUpgrade { get; } = new NotifyConfigurationTierUpgradeStatus("PENDING_UPGRADE");
+        public static NotifyConfigurationTierUpgradeStatus Advanced { get; } = new NotifyConfigurationTierUpgradeStatus("ADVANCED");
+        public static NotifyConfigurationTierUpgradeStatus Rejected { get; } = new NotifyConfigurationTierUpgradeStatus("REJECTED");
+
+        public static bool operator ==(NotifyConfigurationTierUpgradeStatus left, NotifyConfigurationTierUpgradeStatus right) => left.Equals(right);
+        public static bool operator !=(NotifyConfigurationTierUpgradeStatus left, NotifyConfigurationTierUpgradeStatus right) => !left.Equals(right);
+
+        public static explicit operator string(NotifyConfigurationTierUpgradeStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotifyConfigurationTierUpgradeStatus other && Equals(other);
+        public bool Equals(NotifyConfigurationTierUpgradeStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The use case for the notify configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotifyConfigurationUseCase : IEquatable<NotifyConfigurationUseCase>
+    {
+        private readonly string _value;
+
+        private NotifyConfigurationUseCase(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotifyConfigurationUseCase CodeVerification { get; } = new NotifyConfigurationUseCase("CODE_VERIFICATION");
+
+        public static bool operator ==(NotifyConfigurationUseCase left, NotifyConfigurationUseCase right) => left.Equals(right);
+        public static bool operator !=(NotifyConfigurationUseCase left, NotifyConfigurationUseCase right) => !left.Equals(right);
+
+        public static explicit operator string(NotifyConfigurationUseCase value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotifyConfigurationUseCase other && Equals(other);
+        public bool Equals(NotifyConfigurationUseCase other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PhoneNumberNumberCapabilitiesItem : IEquatable<PhoneNumberNumberCapabilitiesItem>
     {
         private readonly string _value;
@@ -159,6 +316,73 @@ namespace Pulumi.AwsNative.Smsvoice
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProtectConfigurationCountryRuleProtectStatus other && Equals(other);
         public bool Equals(ProtectConfigurationCountryRuleProtectStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the RCS agent. CREATED means the agent exists but no registration has been submitted. PENDING means a registration is awaiting processing. TESTING means the testing registration is approved and the agent can message registered test devices. PARTIAL means at least one country launch is active. ACTIVE means all submitted country launches are active. DELETED means the agent has been deleted.
+    /// </summary>
+    [EnumType]
+    public readonly struct RcsAgentStatus : IEquatable<RcsAgentStatus>
+    {
+        private readonly string _value;
+
+        private RcsAgentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RcsAgentStatus Created { get; } = new RcsAgentStatus("CREATED");
+        public static RcsAgentStatus Pending { get; } = new RcsAgentStatus("PENDING");
+        public static RcsAgentStatus Testing { get; } = new RcsAgentStatus("TESTING");
+        public static RcsAgentStatus Partial { get; } = new RcsAgentStatus("PARTIAL");
+        public static RcsAgentStatus Active { get; } = new RcsAgentStatus("ACTIVE");
+        public static RcsAgentStatus Deleted { get; } = new RcsAgentStatus("DELETED");
+
+        public static bool operator ==(RcsAgentStatus left, RcsAgentStatus right) => left.Equals(right);
+        public static bool operator !=(RcsAgentStatus left, RcsAgentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RcsAgentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RcsAgentStatus other && Equals(other);
+        public bool Equals(RcsAgentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+    /// </summary>
+    [EnumType]
+    public readonly struct RcsAgentTestingAgentInformationTestingAgentStatus : IEquatable<RcsAgentTestingAgentInformationTestingAgentStatus>
+    {
+        private readonly string _value;
+
+        private RcsAgentTestingAgentInformationTestingAgentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RcsAgentTestingAgentInformationTestingAgentStatus Created { get; } = new RcsAgentTestingAgentInformationTestingAgentStatus("CREATED");
+        public static RcsAgentTestingAgentInformationTestingAgentStatus Pending { get; } = new RcsAgentTestingAgentInformationTestingAgentStatus("PENDING");
+        public static RcsAgentTestingAgentInformationTestingAgentStatus Active { get; } = new RcsAgentTestingAgentInformationTestingAgentStatus("ACTIVE");
+
+        public static bool operator ==(RcsAgentTestingAgentInformationTestingAgentStatus left, RcsAgentTestingAgentInformationTestingAgentStatus right) => left.Equals(right);
+        public static bool operator !=(RcsAgentTestingAgentInformationTestingAgentStatus left, RcsAgentTestingAgentInformationTestingAgentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RcsAgentTestingAgentInformationTestingAgentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RcsAgentTestingAgentInformationTestingAgentStatus other && Equals(other);
+        public bool Equals(RcsAgentTestingAgentInformationTestingAgentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

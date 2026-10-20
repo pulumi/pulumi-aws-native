@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.DevOpsAgent
 {
     /// <summary>
+    /// The external identity provider type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentSpaceIdpAuthConfigurationProvider : IEquatable<AgentSpaceIdpAuthConfigurationProvider>
+    {
+        private readonly string _value;
+
+        private AgentSpaceIdpAuthConfigurationProvider(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentSpaceIdpAuthConfigurationProvider Okta { get; } = new AgentSpaceIdpAuthConfigurationProvider("okta");
+        public static AgentSpaceIdpAuthConfigurationProvider Entra { get; } = new AgentSpaceIdpAuthConfigurationProvider("entra");
+
+        public static bool operator ==(AgentSpaceIdpAuthConfigurationProvider left, AgentSpaceIdpAuthConfigurationProvider right) => left.Equals(right);
+        public static bool operator !=(AgentSpaceIdpAuthConfigurationProvider left, AgentSpaceIdpAuthConfigurationProvider right) => !left.Equals(right);
+
+        public static explicit operator string(AgentSpaceIdpAuthConfigurationProvider value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentSpaceIdpAuthConfigurationProvider other && Equals(other);
+        public bool Equals(AgentSpaceIdpAuthConfigurationProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Account Type 'monitor' for DevOpsAgent monitoring
     /// </summary>
     [EnumType]
@@ -274,6 +305,38 @@ namespace Pulumi.AwsNative.DevOpsAgent
     }
 
     /// <summary>
+    /// Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceGitHubAppVerificationDetailsAppVariant : IEquatable<ServiceGitHubAppVerificationDetailsAppVariant>
+    {
+        private readonly string _value;
+
+        private ServiceGitHubAppVerificationDetailsAppVariant(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceGitHubAppVerificationDetailsAppVariant ReadOnly { get; } = new ServiceGitHubAppVerificationDetailsAppVariant("READ_ONLY");
+        public static ServiceGitHubAppVerificationDetailsAppVariant ReadWrite { get; } = new ServiceGitHubAppVerificationDetailsAppVariant("READ_WRITE");
+        public static ServiceGitHubAppVerificationDetailsAppVariant CustomApp { get; } = new ServiceGitHubAppVerificationDetailsAppVariant("CUSTOM_APP");
+
+        public static bool operator ==(ServiceGitHubAppVerificationDetailsAppVariant left, ServiceGitHubAppVerificationDetailsAppVariant right) => left.Equals(right);
+        public static bool operator !=(ServiceGitHubAppVerificationDetailsAppVariant left, ServiceGitHubAppVerificationDetailsAppVariant right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceGitHubAppVerificationDetailsAppVariant value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceGitHubAppVerificationDetailsAppVariant other && Equals(other);
+        public bool Equals(ServiceGitHubAppVerificationDetailsAppVariant other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of GitLab access token
     /// </summary>
     [EnumType]
@@ -328,6 +391,132 @@ namespace Pulumi.AwsNative.DevOpsAgent
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceNewRelicApiKeyConfigRegion other && Equals(other);
         public bool Equals(ServiceNewRelicApiKeyConfigRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The GitHub App variant the service was registered with
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceRegisteredGitHubServiceDetailsAppVariant : IEquatable<ServiceRegisteredGitHubServiceDetailsAppVariant>
+    {
+        private readonly string _value;
+
+        private ServiceRegisteredGitHubServiceDetailsAppVariant(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceRegisteredGitHubServiceDetailsAppVariant ReadOnly { get; } = new ServiceRegisteredGitHubServiceDetailsAppVariant("READ_ONLY");
+        public static ServiceRegisteredGitHubServiceDetailsAppVariant ReadWrite { get; } = new ServiceRegisteredGitHubServiceDetailsAppVariant("READ_WRITE");
+        public static ServiceRegisteredGitHubServiceDetailsAppVariant CustomApp { get; } = new ServiceRegisteredGitHubServiceDetailsAppVariant("CUSTOM_APP");
+
+        public static bool operator ==(ServiceRegisteredGitHubServiceDetailsAppVariant left, ServiceRegisteredGitHubServiceDetailsAppVariant right) => left.Equals(right);
+        public static bool operator !=(ServiceRegisteredGitHubServiceDetailsAppVariant left, ServiceRegisteredGitHubServiceDetailsAppVariant right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceRegisteredGitHubServiceDetailsAppVariant value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceRegisteredGitHubServiceDetailsAppVariant other && Equals(other);
+        public bool Equals(ServiceRegisteredGitHubServiceDetailsAppVariant other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How the service authenticates against the GitHub API: app after AppVerification, pat after DirectAccess
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceRegisteredGitHubServiceDetailsAuthMode : IEquatable<ServiceRegisteredGitHubServiceDetailsAuthMode>
+    {
+        private readonly string _value;
+
+        private ServiceRegisteredGitHubServiceDetailsAuthMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceRegisteredGitHubServiceDetailsAuthMode App { get; } = new ServiceRegisteredGitHubServiceDetailsAuthMode("app");
+        public static ServiceRegisteredGitHubServiceDetailsAuthMode Pat { get; } = new ServiceRegisteredGitHubServiceDetailsAuthMode("pat");
+
+        public static bool operator ==(ServiceRegisteredGitHubServiceDetailsAuthMode left, ServiceRegisteredGitHubServiceDetailsAuthMode right) => left.Equals(right);
+        public static bool operator !=(ServiceRegisteredGitHubServiceDetailsAuthMode left, ServiceRegisteredGitHubServiceDetailsAuthMode right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceRegisteredGitHubServiceDetailsAuthMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceRegisteredGitHubServiceDetailsAuthMode other && Equals(other);
+        public bool Equals(ServiceRegisteredGitHubServiceDetailsAuthMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The GitHub hosting type the service was registered with
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceRegisteredGitHubServiceDetailsHostingType : IEquatable<ServiceRegisteredGitHubServiceDetailsHostingType>
+    {
+        private readonly string _value;
+
+        private ServiceRegisteredGitHubServiceDetailsHostingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceRegisteredGitHubServiceDetailsHostingType Saas { get; } = new ServiceRegisteredGitHubServiceDetailsHostingType("SAAS");
+        public static ServiceRegisteredGitHubServiceDetailsHostingType SelfManaged { get; } = new ServiceRegisteredGitHubServiceDetailsHostingType("SELF_MANAGED");
+        public static ServiceRegisteredGitHubServiceDetailsHostingType Dedicated { get; } = new ServiceRegisteredGitHubServiceDetailsHostingType("DEDICATED");
+
+        public static bool operator ==(ServiceRegisteredGitHubServiceDetailsHostingType left, ServiceRegisteredGitHubServiceDetailsHostingType right) => left.Equals(right);
+        public static bool operator !=(ServiceRegisteredGitHubServiceDetailsHostingType left, ServiceRegisteredGitHubServiceDetailsHostingType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceRegisteredGitHubServiceDetailsHostingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceRegisteredGitHubServiceDetailsHostingType other && Equals(other);
+        public bool Equals(ServiceRegisteredGitHubServiceDetailsHostingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of repository owner
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceRegisteredGitHubServiceDetailsOwnerType : IEquatable<ServiceRegisteredGitHubServiceDetailsOwnerType>
+    {
+        private readonly string _value;
+
+        private ServiceRegisteredGitHubServiceDetailsOwnerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceRegisteredGitHubServiceDetailsOwnerType Organization { get; } = new ServiceRegisteredGitHubServiceDetailsOwnerType("organization");
+        public static ServiceRegisteredGitHubServiceDetailsOwnerType User { get; } = new ServiceRegisteredGitHubServiceDetailsOwnerType("user");
+
+        public static bool operator ==(ServiceRegisteredGitHubServiceDetailsOwnerType left, ServiceRegisteredGitHubServiceDetailsOwnerType right) => left.Equals(right);
+        public static bool operator !=(ServiceRegisteredGitHubServiceDetailsOwnerType left, ServiceRegisteredGitHubServiceDetailsOwnerType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceRegisteredGitHubServiceDetailsOwnerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceRegisteredGitHubServiceDetailsOwnerType other && Equals(other);
+        public bool Equals(ServiceRegisteredGitHubServiceDetailsOwnerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -477,6 +666,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
         public static ServiceType Mcpserversplunk { get; } = new ServiceType("mcpserversplunk");
         public static ServiceType Mcpservernewrelic { get; } = new ServiceType("mcpservernewrelic");
         public static ServiceType Gitlab { get; } = new ServiceType("gitlab");
+        public static ServiceType Github { get; } = new ServiceType("github");
         public static ServiceType Servicenow { get; } = new ServiceType("servicenow");
         public static ServiceType Pagerduty { get; } = new ServiceType("pagerduty");
         public static ServiceType Azureidentity { get; } = new ServiceType("azureidentity");

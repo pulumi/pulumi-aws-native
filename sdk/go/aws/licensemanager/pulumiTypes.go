@@ -1563,6 +1563,242 @@ func (o LicenseBorrowConfigurationPtrOutput) MaxTimeToLiveInMinutes() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Describes product information for a license configuration.
+type LicenseConfigurationProductInformation struct {
+	// A product information filter list.
+	ProductInformationFilterList []LicenseConfigurationProductInformationFilter `pulumi:"productInformationFilterList"`
+	// Resource type. The possible values are SSM_MANAGED | RDS.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// LicenseConfigurationProductInformationInput is an input type that accepts LicenseConfigurationProductInformationArgs and LicenseConfigurationProductInformationOutput values.
+// You can construct a concrete instance of `LicenseConfigurationProductInformationInput` via:
+//
+//	LicenseConfigurationProductInformationArgs{...}
+type LicenseConfigurationProductInformationInput interface {
+	pulumi.Input
+
+	ToLicenseConfigurationProductInformationOutput() LicenseConfigurationProductInformationOutput
+	ToLicenseConfigurationProductInformationOutputWithContext(context.Context) LicenseConfigurationProductInformationOutput
+}
+
+// Describes product information for a license configuration.
+type LicenseConfigurationProductInformationArgs struct {
+	// A product information filter list.
+	ProductInformationFilterList LicenseConfigurationProductInformationFilterArrayInput `pulumi:"productInformationFilterList"`
+	// Resource type. The possible values are SSM_MANAGED | RDS.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (LicenseConfigurationProductInformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseConfigurationProductInformation)(nil)).Elem()
+}
+
+func (i LicenseConfigurationProductInformationArgs) ToLicenseConfigurationProductInformationOutput() LicenseConfigurationProductInformationOutput {
+	return i.ToLicenseConfigurationProductInformationOutputWithContext(context.Background())
+}
+
+func (i LicenseConfigurationProductInformationArgs) ToLicenseConfigurationProductInformationOutputWithContext(ctx context.Context) LicenseConfigurationProductInformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationProductInformationOutput)
+}
+
+// LicenseConfigurationProductInformationArrayInput is an input type that accepts LicenseConfigurationProductInformationArray and LicenseConfigurationProductInformationArrayOutput values.
+// You can construct a concrete instance of `LicenseConfigurationProductInformationArrayInput` via:
+//
+//	LicenseConfigurationProductInformationArray{ LicenseConfigurationProductInformationArgs{...} }
+type LicenseConfigurationProductInformationArrayInput interface {
+	pulumi.Input
+
+	ToLicenseConfigurationProductInformationArrayOutput() LicenseConfigurationProductInformationArrayOutput
+	ToLicenseConfigurationProductInformationArrayOutputWithContext(context.Context) LicenseConfigurationProductInformationArrayOutput
+}
+
+type LicenseConfigurationProductInformationArray []LicenseConfigurationProductInformationInput
+
+func (LicenseConfigurationProductInformationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseConfigurationProductInformation)(nil)).Elem()
+}
+
+func (i LicenseConfigurationProductInformationArray) ToLicenseConfigurationProductInformationArrayOutput() LicenseConfigurationProductInformationArrayOutput {
+	return i.ToLicenseConfigurationProductInformationArrayOutputWithContext(context.Background())
+}
+
+func (i LicenseConfigurationProductInformationArray) ToLicenseConfigurationProductInformationArrayOutputWithContext(ctx context.Context) LicenseConfigurationProductInformationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationProductInformationArrayOutput)
+}
+
+// Describes product information for a license configuration.
+type LicenseConfigurationProductInformationOutput struct{ *pulumi.OutputState }
+
+func (LicenseConfigurationProductInformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseConfigurationProductInformation)(nil)).Elem()
+}
+
+func (o LicenseConfigurationProductInformationOutput) ToLicenseConfigurationProductInformationOutput() LicenseConfigurationProductInformationOutput {
+	return o
+}
+
+func (o LicenseConfigurationProductInformationOutput) ToLicenseConfigurationProductInformationOutputWithContext(ctx context.Context) LicenseConfigurationProductInformationOutput {
+	return o
+}
+
+// A product information filter list.
+func (o LicenseConfigurationProductInformationOutput) ProductInformationFilterList() LicenseConfigurationProductInformationFilterArrayOutput {
+	return o.ApplyT(func(v LicenseConfigurationProductInformation) []LicenseConfigurationProductInformationFilter {
+		return v.ProductInformationFilterList
+	}).(LicenseConfigurationProductInformationFilterArrayOutput)
+}
+
+// Resource type. The possible values are SSM_MANAGED | RDS.
+func (o LicenseConfigurationProductInformationOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v LicenseConfigurationProductInformation) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type LicenseConfigurationProductInformationArrayOutput struct{ *pulumi.OutputState }
+
+func (LicenseConfigurationProductInformationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseConfigurationProductInformation)(nil)).Elem()
+}
+
+func (o LicenseConfigurationProductInformationArrayOutput) ToLicenseConfigurationProductInformationArrayOutput() LicenseConfigurationProductInformationArrayOutput {
+	return o
+}
+
+func (o LicenseConfigurationProductInformationArrayOutput) ToLicenseConfigurationProductInformationArrayOutputWithContext(ctx context.Context) LicenseConfigurationProductInformationArrayOutput {
+	return o
+}
+
+func (o LicenseConfigurationProductInformationArrayOutput) Index(i pulumi.IntInput) LicenseConfigurationProductInformationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LicenseConfigurationProductInformation {
+		return vs[0].([]LicenseConfigurationProductInformation)[vs[1].(int)]
+	}).(LicenseConfigurationProductInformationOutput)
+}
+
+// Describes a product information filter.
+type LicenseConfigurationProductInformationFilter struct {
+	// Logical operator.
+	ProductInformationFilterComparator string `pulumi:"productInformationFilterComparator"`
+	// Filter name.
+	ProductInformationFilterName string `pulumi:"productInformationFilterName"`
+	// Filter value.
+	ProductInformationFilterValue []string `pulumi:"productInformationFilterValue"`
+}
+
+// LicenseConfigurationProductInformationFilterInput is an input type that accepts LicenseConfigurationProductInformationFilterArgs and LicenseConfigurationProductInformationFilterOutput values.
+// You can construct a concrete instance of `LicenseConfigurationProductInformationFilterInput` via:
+//
+//	LicenseConfigurationProductInformationFilterArgs{...}
+type LicenseConfigurationProductInformationFilterInput interface {
+	pulumi.Input
+
+	ToLicenseConfigurationProductInformationFilterOutput() LicenseConfigurationProductInformationFilterOutput
+	ToLicenseConfigurationProductInformationFilterOutputWithContext(context.Context) LicenseConfigurationProductInformationFilterOutput
+}
+
+// Describes a product information filter.
+type LicenseConfigurationProductInformationFilterArgs struct {
+	// Logical operator.
+	ProductInformationFilterComparator pulumi.StringInput `pulumi:"productInformationFilterComparator"`
+	// Filter name.
+	ProductInformationFilterName pulumi.StringInput `pulumi:"productInformationFilterName"`
+	// Filter value.
+	ProductInformationFilterValue pulumi.StringArrayInput `pulumi:"productInformationFilterValue"`
+}
+
+func (LicenseConfigurationProductInformationFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseConfigurationProductInformationFilter)(nil)).Elem()
+}
+
+func (i LicenseConfigurationProductInformationFilterArgs) ToLicenseConfigurationProductInformationFilterOutput() LicenseConfigurationProductInformationFilterOutput {
+	return i.ToLicenseConfigurationProductInformationFilterOutputWithContext(context.Background())
+}
+
+func (i LicenseConfigurationProductInformationFilterArgs) ToLicenseConfigurationProductInformationFilterOutputWithContext(ctx context.Context) LicenseConfigurationProductInformationFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationProductInformationFilterOutput)
+}
+
+// LicenseConfigurationProductInformationFilterArrayInput is an input type that accepts LicenseConfigurationProductInformationFilterArray and LicenseConfigurationProductInformationFilterArrayOutput values.
+// You can construct a concrete instance of `LicenseConfigurationProductInformationFilterArrayInput` via:
+//
+//	LicenseConfigurationProductInformationFilterArray{ LicenseConfigurationProductInformationFilterArgs{...} }
+type LicenseConfigurationProductInformationFilterArrayInput interface {
+	pulumi.Input
+
+	ToLicenseConfigurationProductInformationFilterArrayOutput() LicenseConfigurationProductInformationFilterArrayOutput
+	ToLicenseConfigurationProductInformationFilterArrayOutputWithContext(context.Context) LicenseConfigurationProductInformationFilterArrayOutput
+}
+
+type LicenseConfigurationProductInformationFilterArray []LicenseConfigurationProductInformationFilterInput
+
+func (LicenseConfigurationProductInformationFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseConfigurationProductInformationFilter)(nil)).Elem()
+}
+
+func (i LicenseConfigurationProductInformationFilterArray) ToLicenseConfigurationProductInformationFilterArrayOutput() LicenseConfigurationProductInformationFilterArrayOutput {
+	return i.ToLicenseConfigurationProductInformationFilterArrayOutputWithContext(context.Background())
+}
+
+func (i LicenseConfigurationProductInformationFilterArray) ToLicenseConfigurationProductInformationFilterArrayOutputWithContext(ctx context.Context) LicenseConfigurationProductInformationFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationProductInformationFilterArrayOutput)
+}
+
+// Describes a product information filter.
+type LicenseConfigurationProductInformationFilterOutput struct{ *pulumi.OutputState }
+
+func (LicenseConfigurationProductInformationFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseConfigurationProductInformationFilter)(nil)).Elem()
+}
+
+func (o LicenseConfigurationProductInformationFilterOutput) ToLicenseConfigurationProductInformationFilterOutput() LicenseConfigurationProductInformationFilterOutput {
+	return o
+}
+
+func (o LicenseConfigurationProductInformationFilterOutput) ToLicenseConfigurationProductInformationFilterOutputWithContext(ctx context.Context) LicenseConfigurationProductInformationFilterOutput {
+	return o
+}
+
+// Logical operator.
+func (o LicenseConfigurationProductInformationFilterOutput) ProductInformationFilterComparator() pulumi.StringOutput {
+	return o.ApplyT(func(v LicenseConfigurationProductInformationFilter) string {
+		return v.ProductInformationFilterComparator
+	}).(pulumi.StringOutput)
+}
+
+// Filter name.
+func (o LicenseConfigurationProductInformationFilterOutput) ProductInformationFilterName() pulumi.StringOutput {
+	return o.ApplyT(func(v LicenseConfigurationProductInformationFilter) string { return v.ProductInformationFilterName }).(pulumi.StringOutput)
+}
+
+// Filter value.
+func (o LicenseConfigurationProductInformationFilterOutput) ProductInformationFilterValue() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LicenseConfigurationProductInformationFilter) []string { return v.ProductInformationFilterValue }).(pulumi.StringArrayOutput)
+}
+
+type LicenseConfigurationProductInformationFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (LicenseConfigurationProductInformationFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseConfigurationProductInformationFilter)(nil)).Elem()
+}
+
+func (o LicenseConfigurationProductInformationFilterArrayOutput) ToLicenseConfigurationProductInformationFilterArrayOutput() LicenseConfigurationProductInformationFilterArrayOutput {
+	return o
+}
+
+func (o LicenseConfigurationProductInformationFilterArrayOutput) ToLicenseConfigurationProductInformationFilterArrayOutputWithContext(ctx context.Context) LicenseConfigurationProductInformationFilterArrayOutput {
+	return o
+}
+
+func (o LicenseConfigurationProductInformationFilterArrayOutput) Index(i pulumi.IntInput) LicenseConfigurationProductInformationFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LicenseConfigurationProductInformationFilter {
+		return vs[0].([]LicenseConfigurationProductInformationFilter)[vs[1].(int)]
+	}).(LicenseConfigurationProductInformationFilterOutput)
+}
+
+type LicenseConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type LicenseConsumptionConfiguration struct {
 	// Details about a borrow configuration.
 	BorrowConfiguration *LicenseBorrowConfiguration `pulumi:"borrowConfiguration"`
@@ -2315,6 +2551,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetRuleStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseBorrowConfigurationInput)(nil)).Elem(), LicenseBorrowConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseBorrowConfigurationPtrInput)(nil)).Elem(), LicenseBorrowConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationProductInformationInput)(nil)).Elem(), LicenseConfigurationProductInformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationProductInformationArrayInput)(nil)).Elem(), LicenseConfigurationProductInformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationProductInformationFilterInput)(nil)).Elem(), LicenseConfigurationProductInformationFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationProductInformationFilterArrayInput)(nil)).Elem(), LicenseConfigurationProductInformationFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConsumptionConfigurationInput)(nil)).Elem(), LicenseConsumptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseEntitlementInput)(nil)).Elem(), LicenseEntitlementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseEntitlementArrayInput)(nil)).Elem(), LicenseEntitlementArray{})
@@ -2346,6 +2586,10 @@ func init() {
 	pulumi.RegisterOutputType(LicenseAssetRuleSetRuleStatementOutput{})
 	pulumi.RegisterOutputType(LicenseBorrowConfigurationOutput{})
 	pulumi.RegisterOutputType(LicenseBorrowConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LicenseConfigurationProductInformationOutput{})
+	pulumi.RegisterOutputType(LicenseConfigurationProductInformationArrayOutput{})
+	pulumi.RegisterOutputType(LicenseConfigurationProductInformationFilterOutput{})
+	pulumi.RegisterOutputType(LicenseConfigurationProductInformationFilterArrayOutput{})
 	pulumi.RegisterOutputType(LicenseConsumptionConfigurationOutput{})
 	pulumi.RegisterOutputType(LicenseConsumptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LicenseEntitlementOutput{})

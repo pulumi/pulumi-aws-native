@@ -1753,7 +1753,7 @@ class ImagePipelineImageScanningConfiguration(dict):
         Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
 
         :param 'ImagePipelineEcrConfiguration' ecr_configuration: Contains ECR settings for vulnerability scans.
-        :param _builtins.bool image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        :param _builtins.bool image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
         """
         if ecr_configuration is not None:
             pulumi.set(__self__, "ecr_configuration", ecr_configuration)
@@ -1772,7 +1772,7 @@ class ImagePipelineImageScanningConfiguration(dict):
     @pulumi.getter(name="imageScanningEnabled")
     def image_scanning_enabled(self) -> Optional[_builtins.bool]:
         """
-        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
         """
         return pulumi.get(self, "image_scanning_enabled")
 
@@ -2573,7 +2573,7 @@ class ImageScanningConfiguration(dict):
         Contains settings for Image Builder image resource and container image scans.
 
         :param 'ImageEcrConfiguration' ecr_configuration: Contains ECR settings for vulnerability scans.
-        :param _builtins.bool image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        :param _builtins.bool image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
         """
         if ecr_configuration is not None:
             pulumi.set(__self__, "ecr_configuration", ecr_configuration)
@@ -2592,7 +2592,7 @@ class ImageScanningConfiguration(dict):
     @pulumi.getter(name="imageScanningEnabled")
     def image_scanning_enabled(self) -> Optional[_builtins.bool]:
         """
-        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
         """
         return pulumi.get(self, "image_scanning_enabled")
 

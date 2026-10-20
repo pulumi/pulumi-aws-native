@@ -6105,7 +6105,9 @@ func (o FlowNdiDiscoveryServerConfigArrayOutput) Index(i pulumi.IntInput) FlowNd
 }
 
 type FlowNdiSourceSettings struct {
-	SourceName *string `pulumi:"sourceName"`
+	// The audio reference level of the NDI sender, in dBFS.
+	AudioReferenceLevel *int    `pulumi:"audioReferenceLevel"`
+	SourceName          *string `pulumi:"sourceName"`
 }
 
 // FlowNdiSourceSettingsInput is an input type that accepts FlowNdiSourceSettingsArgs and FlowNdiSourceSettingsOutput values.
@@ -6120,7 +6122,9 @@ type FlowNdiSourceSettingsInput interface {
 }
 
 type FlowNdiSourceSettingsArgs struct {
-	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+	// The audio reference level of the NDI sender, in dBFS.
+	AudioReferenceLevel pulumi.IntPtrInput    `pulumi:"audioReferenceLevel"`
+	SourceName          pulumi.StringPtrInput `pulumi:"sourceName"`
 }
 
 func (FlowNdiSourceSettingsArgs) ElementType() reflect.Type {
@@ -6200,6 +6204,11 @@ func (o FlowNdiSourceSettingsOutput) ToFlowNdiSourceSettingsPtrOutputWithContext
 	}).(FlowNdiSourceSettingsPtrOutput)
 }
 
+// The audio reference level of the NDI sender, in dBFS.
+func (o FlowNdiSourceSettingsOutput) AudioReferenceLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowNdiSourceSettings) *int { return v.AudioReferenceLevel }).(pulumi.IntPtrOutput)
+}
+
 func (o FlowNdiSourceSettingsOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowNdiSourceSettings) *string { return v.SourceName }).(pulumi.StringPtrOutput)
 }
@@ -6226,6 +6235,16 @@ func (o FlowNdiSourceSettingsPtrOutput) Elem() FlowNdiSourceSettingsOutput {
 		var ret FlowNdiSourceSettings
 		return ret
 	}).(FlowNdiSourceSettingsOutput)
+}
+
+// The audio reference level of the NDI sender, in dBFS.
+func (o FlowNdiSourceSettingsPtrOutput) AudioReferenceLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowNdiSourceSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AudioReferenceLevel
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o FlowNdiSourceSettingsPtrOutput) SourceName() pulumi.StringPtrOutput {

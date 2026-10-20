@@ -58,7 +58,7 @@ export interface GetImagePipelineResult {
      */
     readonly imageRecipeArn?: string;
     /**
-     * Contains settings for vulnerability scans.
+     * Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
      */
     readonly imageScanningConfiguration?: outputs.imagebuilder.ImagePipelineImageScanningConfiguration;
     /**

@@ -59,6 +59,14 @@ namespace Pulumi.AwsNative.Deadline.Inputs
         [Input("rootEbsVolume")]
         public Input<Inputs.FleetEc2EbsVolumeArgs>? RootEbsVolume { get; set; }
 
+        [Input("softwareAddOns")]
+        private InputList<Inputs.FleetSoftwareAddOnArgs>? _softwareAddOns;
+        public InputList<Inputs.FleetSoftwareAddOnArgs> SoftwareAddOns
+        {
+            get => _softwareAddOns ?? (_softwareAddOns = new InputList<Inputs.FleetSoftwareAddOnArgs>());
+            set => _softwareAddOns = value;
+        }
+
         [Input("vCpuCount", required: true)]
         public Input<Inputs.FleetVCpuCountRangeArgs> VCpuCount { get; set; } = null!;
 

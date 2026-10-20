@@ -139,7 +139,10 @@ __all__ = [
     'ReceiptRuleStopAction',
     'ReceiptRuleWorkmailAction',
     'Template',
+    'TenantReputationEntity',
+    'TenantReputationPolicy',
     'TenantResourceAssociation',
+    'TenantSuppressionAttributes',
     'VdmAttributesDashboardAttributes',
     'VdmAttributesGuardianAttributes',
 ]
@@ -4694,6 +4697,64 @@ class Template(dict):
 
 
 @pulumi.output_type
+class TenantReputationEntity(dict):
+    """
+    The reputation configuration for the tenant.
+    """
+    def __init__(__self__, *,
+                 policy: 'outputs.TenantReputationPolicy'):
+        """
+        The reputation configuration for the tenant.
+        """
+        pulumi.set(__self__, "policy", policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> 'outputs.TenantReputationPolicy':
+        return pulumi.get(self, "policy")
+
+
+@pulumi.output_type
+class TenantReputationPolicy(dict):
+    """
+    The reputation policy for the tenant.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reputationEntityPolicy":
+            suggest = "reputation_entity_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TenantReputationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TenantReputationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TenantReputationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reputation_entity_policy: _builtins.str):
+        """
+        The reputation policy for the tenant.
+
+        :param _builtins.str reputation_entity_policy: The ARN of an SES-managed reputation policy.
+        """
+        pulumi.set(__self__, "reputation_entity_policy", reputation_entity_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="reputationEntityPolicy")
+    def reputation_entity_policy(self) -> _builtins.str:
+        """
+        The ARN of an SES-managed reputation policy.
+        """
+        return pulumi.get(self, "reputation_entity_policy")
+
+
+@pulumi.output_type
 class TenantResourceAssociation(dict):
     """
     The resource to associate with the tenant
@@ -4731,6 +4792,59 @@ class TenantResourceAssociation(dict):
         The ARN of the resource to associate with the tenant
         """
         return pulumi.get(self, "resource_arn")
+
+
+@pulumi.output_type
+class TenantSuppressionAttributes(dict):
+    """
+    The suppression attributes for the tenant.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "suppressedReasons":
+            suggest = "suppressed_reasons"
+        elif key == "suppressionScope":
+            suggest = "suppression_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TenantSuppressionAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TenantSuppressionAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TenantSuppressionAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 suppressed_reasons: Sequence['TenantSuppressionAttributesSuppressedReasonsItem'],
+                 suppression_scope: 'TenantSuppressionAttributesSuppressionScope'):
+        """
+        The suppression attributes for the tenant.
+
+        :param Sequence['TenantSuppressionAttributesSuppressedReasonsItem'] suppressed_reasons: The reasons that cause messages to be added to the suppression list.
+        :param 'TenantSuppressionAttributesSuppressionScope' suppression_scope: The scope of the suppression list for the tenant.
+        """
+        pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+        pulumi.set(__self__, "suppression_scope", suppression_scope)
+
+    @_builtins.property
+    @pulumi.getter(name="suppressedReasons")
+    def suppressed_reasons(self) -> Sequence['TenantSuppressionAttributesSuppressedReasonsItem']:
+        """
+        The reasons that cause messages to be added to the suppression list.
+        """
+        return pulumi.get(self, "suppressed_reasons")
+
+    @_builtins.property
+    @pulumi.getter(name="suppressionScope")
+    def suppression_scope(self) -> 'TenantSuppressionAttributesSuppressionScope':
+        """
+        The scope of the suppression list for the tenant.
+        """
+        return pulumi.get(self, "suppression_scope")
 
 
 @pulumi.output_type

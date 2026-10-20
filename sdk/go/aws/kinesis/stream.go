@@ -24,6 +24,8 @@ type Stream struct {
 	MaxRecordSizeInKiB pulumi.IntPtrOutput `pulumi:"maxRecordSizeInKiB"`
 	// The name of the Kinesis stream.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+	RecordDistributionStrategy StreamRecordDistributionStrategyPtrOutput `pulumi:"recordDistributionStrategy"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours pulumi.IntPtrOutput `pulumi:"retentionPeriodHours"`
 	// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
@@ -90,6 +92,8 @@ type streamArgs struct {
 	MaxRecordSizeInKiB *int `pulumi:"maxRecordSizeInKiB"`
 	// The name of the Kinesis stream.
 	Name *string `pulumi:"name"`
+	// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+	RecordDistributionStrategy *StreamRecordDistributionStrategy `pulumi:"recordDistributionStrategy"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours *int `pulumi:"retentionPeriodHours"`
 	// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
@@ -112,6 +116,8 @@ type StreamArgs struct {
 	MaxRecordSizeInKiB pulumi.IntPtrInput
 	// The name of the Kinesis stream.
 	Name pulumi.StringPtrInput
+	// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+	RecordDistributionStrategy StreamRecordDistributionStrategyPtrInput
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours pulumi.IntPtrInput
 	// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
@@ -181,6 +187,11 @@ func (o StreamOutput) MaxRecordSizeInKiB() pulumi.IntPtrOutput {
 // The name of the Kinesis stream.
 func (o StreamOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+func (o StreamOutput) RecordDistributionStrategy() StreamRecordDistributionStrategyPtrOutput {
+	return o.ApplyT(func(v *Stream) StreamRecordDistributionStrategyPtrOutput { return v.RecordDistributionStrategy }).(StreamRecordDistributionStrategyPtrOutput)
 }
 
 // The number of hours for the data records that are stored in shards to remain accessible.

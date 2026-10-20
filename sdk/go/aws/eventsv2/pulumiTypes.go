@@ -1669,224 +1669,224 @@ func (o SubscriberFilterConfigurationPtrOutput) Language() SubscriberFilterConfi
 }
 
 // Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
-type SubscriberInvokeConfigurationProperties struct {
+type SubscriberInvokeConfiguration struct {
 	// Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
-	EventBusV2Parameters *SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties `pulumi:"eventBusV2Parameters"`
+	EventBusV2Parameters *SubscriberInvokeConfigurationEventBusV2ParametersProperties `pulumi:"eventBusV2Parameters"`
 	// Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
-	HttpParameters *SubscriberInvokeConfigurationPropertiesHttpParametersProperties `pulumi:"httpParameters"`
+	HttpParameters *SubscriberInvokeConfigurationHttpParametersProperties `pulumi:"httpParameters"`
 	// Parameters for writing events to an Amazon Kinesis Data Streams target.
-	KinesisParameters *SubscriberInvokeConfigurationPropertiesKinesisParametersProperties `pulumi:"kinesisParameters"`
+	KinesisParameters *SubscriberInvokeConfigurationKinesisParametersProperties `pulumi:"kinesisParameters"`
 	// Parameters for invoking an AWS Lambda function target.
-	LambdaParameters *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties `pulumi:"lambdaParameters"`
+	LambdaParameters *SubscriberInvokeConfigurationLambdaParametersProperties `pulumi:"lambdaParameters"`
 	// The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
 	RoleArn string `pulumi:"roleArn"`
 	// Parameters for publishing events to an Amazon SNS topic target.
-	SnsParameters *SubscriberInvokeConfigurationPropertiesSnsParametersProperties `pulumi:"snsParameters"`
+	SnsParameters *SubscriberInvokeConfigurationSnsParametersProperties `pulumi:"snsParameters"`
 	// Parameters for sending events to an Amazon SQS queue target.
-	SqsParameters *SubscriberInvokeConfigurationPropertiesSqsParametersProperties `pulumi:"sqsParameters"`
+	SqsParameters *SubscriberInvokeConfigurationSqsParametersProperties `pulumi:"sqsParameters"`
 	// Parameters for starting an AWS Step Functions state machine execution target.
-	StepFunctionsParameters *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties `pulumi:"stepFunctionsParameters"`
+	StepFunctionsParameters *SubscriberInvokeConfigurationStepFunctionsParametersProperties `pulumi:"stepFunctionsParameters"`
 	// The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
 	TargetArn string `pulumi:"targetArn"`
 	// Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-	UniversalTargetParameters *SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties `pulumi:"universalTargetParameters"`
+	UniversalTargetParameters *SubscriberInvokeConfigurationUniversalTargetParametersProperties `pulumi:"universalTargetParameters"`
 }
 
-// SubscriberInvokeConfigurationPropertiesInput is an input type that accepts SubscriberInvokeConfigurationPropertiesArgs and SubscriberInvokeConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesInput` via:
+// SubscriberInvokeConfigurationInput is an input type that accepts SubscriberInvokeConfigurationArgs and SubscriberInvokeConfigurationOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationInput` via:
 //
-//	SubscriberInvokeConfigurationPropertiesArgs{...}
-type SubscriberInvokeConfigurationPropertiesInput interface {
+//	SubscriberInvokeConfigurationArgs{...}
+type SubscriberInvokeConfigurationInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesOutput() SubscriberInvokeConfigurationPropertiesOutput
-	ToSubscriberInvokeConfigurationPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesOutput
+	ToSubscriberInvokeConfigurationOutput() SubscriberInvokeConfigurationOutput
+	ToSubscriberInvokeConfigurationOutputWithContext(context.Context) SubscriberInvokeConfigurationOutput
 }
 
 // Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
-type SubscriberInvokeConfigurationPropertiesArgs struct {
+type SubscriberInvokeConfigurationArgs struct {
 	// Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
-	EventBusV2Parameters SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrInput `pulumi:"eventBusV2Parameters"`
+	EventBusV2Parameters SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrInput `pulumi:"eventBusV2Parameters"`
 	// Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
-	HttpParameters SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrInput `pulumi:"httpParameters"`
+	HttpParameters SubscriberInvokeConfigurationHttpParametersPropertiesPtrInput `pulumi:"httpParameters"`
 	// Parameters for writing events to an Amazon Kinesis Data Streams target.
-	KinesisParameters SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrInput `pulumi:"kinesisParameters"`
+	KinesisParameters SubscriberInvokeConfigurationKinesisParametersPropertiesPtrInput `pulumi:"kinesisParameters"`
 	// Parameters for invoking an AWS Lambda function target.
-	LambdaParameters SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrInput `pulumi:"lambdaParameters"`
+	LambdaParameters SubscriberInvokeConfigurationLambdaParametersPropertiesPtrInput `pulumi:"lambdaParameters"`
 	// The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Parameters for publishing events to an Amazon SNS topic target.
-	SnsParameters SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrInput `pulumi:"snsParameters"`
+	SnsParameters SubscriberInvokeConfigurationSnsParametersPropertiesPtrInput `pulumi:"snsParameters"`
 	// Parameters for sending events to an Amazon SQS queue target.
-	SqsParameters SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrInput `pulumi:"sqsParameters"`
+	SqsParameters SubscriberInvokeConfigurationSqsParametersPropertiesPtrInput `pulumi:"sqsParameters"`
 	// Parameters for starting an AWS Step Functions state machine execution target.
-	StepFunctionsParameters SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrInput `pulumi:"stepFunctionsParameters"`
+	StepFunctionsParameters SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrInput `pulumi:"stepFunctionsParameters"`
 	// The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
 	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 	// Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-	UniversalTargetParameters SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrInput `pulumi:"universalTargetParameters"`
+	UniversalTargetParameters SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrInput `pulumi:"universalTargetParameters"`
 }
 
-func (SubscriberInvokeConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfiguration)(nil)).Elem()
 }
 
-func (i SubscriberInvokeConfigurationPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesOutput() SubscriberInvokeConfigurationPropertiesOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationArgs) ToSubscriberInvokeConfigurationOutput() SubscriberInvokeConfigurationOutput {
+	return i.ToSubscriberInvokeConfigurationOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesOutput)
+func (i SubscriberInvokeConfigurationArgs) ToSubscriberInvokeConfigurationOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationOutput)
 }
 
 // Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
-type SubscriberInvokeConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfiguration)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesOutput() SubscriberInvokeConfigurationPropertiesOutput {
+func (o SubscriberInvokeConfigurationOutput) ToSubscriberInvokeConfigurationOutput() SubscriberInvokeConfigurationOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesOutput {
+func (o SubscriberInvokeConfigurationOutput) ToSubscriberInvokeConfigurationOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationOutput {
 	return o
 }
 
 // Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
-func (o SubscriberInvokeConfigurationPropertiesOutput) EventBusV2Parameters() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties {
+func (o SubscriberInvokeConfigurationOutput) EventBusV2Parameters() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationEventBusV2ParametersProperties {
 		return v.EventBusV2Parameters
-	}).(SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput)
 }
 
 // Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
-func (o SubscriberInvokeConfigurationPropertiesOutput) HttpParameters() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesHttpParametersProperties {
+func (o SubscriberInvokeConfigurationOutput) HttpParameters() SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationHttpParametersProperties {
 		return v.HttpParameters
-	}).(SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput)
 }
 
 // Parameters for writing events to an Amazon Kinesis Data Streams target.
-func (o SubscriberInvokeConfigurationPropertiesOutput) KinesisParameters() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesKinesisParametersProperties {
+func (o SubscriberInvokeConfigurationOutput) KinesisParameters() SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationKinesisParametersProperties {
 		return v.KinesisParameters
-	}).(SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput)
 }
 
 // Parameters for invoking an AWS Lambda function target.
-func (o SubscriberInvokeConfigurationPropertiesOutput) LambdaParameters() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties {
+func (o SubscriberInvokeConfigurationOutput) LambdaParameters() SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationLambdaParametersProperties {
 		return v.LambdaParameters
-	}).(SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput)
 }
 
 // The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
-func (o SubscriberInvokeConfigurationPropertiesOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o SubscriberInvokeConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // Parameters for publishing events to an Amazon SNS topic target.
-func (o SubscriberInvokeConfigurationPropertiesOutput) SnsParameters() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesSnsParametersProperties {
+func (o SubscriberInvokeConfigurationOutput) SnsParameters() SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationSnsParametersProperties {
 		return v.SnsParameters
-	}).(SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput)
 }
 
 // Parameters for sending events to an Amazon SQS queue target.
-func (o SubscriberInvokeConfigurationPropertiesOutput) SqsParameters() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesSqsParametersProperties {
+func (o SubscriberInvokeConfigurationOutput) SqsParameters() SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationSqsParametersProperties {
 		return v.SqsParameters
-	}).(SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput)
 }
 
 // Parameters for starting an AWS Step Functions state machine execution target.
-func (o SubscriberInvokeConfigurationPropertiesOutput) StepFunctionsParameters() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties {
+func (o SubscriberInvokeConfigurationOutput) StepFunctionsParameters() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationStepFunctionsParametersProperties {
 		return v.StepFunctionsParameters
-	}).(SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-func (o SubscriberInvokeConfigurationPropertiesOutput) TargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) string { return v.TargetArn }).(pulumi.StringOutput)
+func (o SubscriberInvokeConfigurationOutput) TargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) string { return v.TargetArn }).(pulumi.StringOutput)
 }
 
 // Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-func (o SubscriberInvokeConfigurationPropertiesOutput) UniversalTargetParameters() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties {
+func (o SubscriberInvokeConfigurationOutput) UniversalTargetParameters() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationUniversalTargetParametersProperties {
 		return v.UniversalTargetParameters
-	}).(SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput)
 }
 
-type SubscriberInvokeConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfiguration)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationPtrOutput) ToSubscriberInvokeConfigurationPtrOutput() SubscriberInvokeConfigurationPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationPtrOutput) ToSubscriberInvokeConfigurationPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) SubscriberInvokeConfigurationProperties {
+func (o SubscriberInvokeConfigurationPtrOutput) Elem() SubscriberInvokeConfigurationOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) SubscriberInvokeConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriberInvokeConfigurationProperties
+		var ret SubscriberInvokeConfiguration
 		return ret
-	}).(SubscriberInvokeConfigurationPropertiesOutput)
+	}).(SubscriberInvokeConfigurationOutput)
 }
 
 // Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) EventBusV2Parameters() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties {
+func (o SubscriberInvokeConfigurationPtrOutput) EventBusV2Parameters() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationEventBusV2ParametersProperties {
 		if v == nil {
 			return nil
 		}
 		return v.EventBusV2Parameters
-	}).(SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput)
 }
 
 // Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) HttpParameters() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesHttpParametersProperties {
+func (o SubscriberInvokeConfigurationPtrOutput) HttpParameters() SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationHttpParametersProperties {
 		if v == nil {
 			return nil
 		}
 		return v.HttpParameters
-	}).(SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput)
 }
 
 // Parameters for writing events to an Amazon Kinesis Data Streams target.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) KinesisParameters() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesKinesisParametersProperties {
+func (o SubscriberInvokeConfigurationPtrOutput) KinesisParameters() SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationKinesisParametersProperties {
 		if v == nil {
 			return nil
 		}
 		return v.KinesisParameters
-	}).(SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput)
 }
 
 // Parameters for invoking an AWS Lambda function target.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) LambdaParameters() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties {
+func (o SubscriberInvokeConfigurationPtrOutput) LambdaParameters() SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationLambdaParametersProperties {
 		if v == nil {
 			return nil
 		}
 		return v.LambdaParameters
-	}).(SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput)
 }
 
 // The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *string {
+func (o SubscriberInvokeConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1895,38 +1895,38 @@ func (o SubscriberInvokeConfigurationPropertiesPtrOutput) RoleArn() pulumi.Strin
 }
 
 // Parameters for publishing events to an Amazon SNS topic target.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) SnsParameters() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesSnsParametersProperties {
+func (o SubscriberInvokeConfigurationPtrOutput) SnsParameters() SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationSnsParametersProperties {
 		if v == nil {
 			return nil
 		}
 		return v.SnsParameters
-	}).(SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput)
 }
 
 // Parameters for sending events to an Amazon SQS queue target.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) SqsParameters() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesSqsParametersProperties {
+func (o SubscriberInvokeConfigurationPtrOutput) SqsParameters() SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationSqsParametersProperties {
 		if v == nil {
 			return nil
 		}
 		return v.SqsParameters
-	}).(SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput)
 }
 
 // Parameters for starting an AWS Step Functions state machine execution target.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) StepFunctionsParameters() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties {
+func (o SubscriberInvokeConfigurationPtrOutput) StepFunctionsParameters() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationStepFunctionsParametersProperties {
 		if v == nil {
 			return nil
 		}
 		return v.StepFunctionsParameters
-	}).(SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) TargetArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *string {
+func (o SubscriberInvokeConfigurationPtrOutput) TargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1935,17 +1935,17 @@ func (o SubscriberInvokeConfigurationPropertiesPtrOutput) TargetArn() pulumi.Str
 }
 
 // Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-func (o SubscriberInvokeConfigurationPropertiesPtrOutput) UniversalTargetParameters() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationProperties) *SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties {
+func (o SubscriberInvokeConfigurationPtrOutput) UniversalTargetParameters() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationUniversalTargetParametersProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UniversalTargetParameters
-	}).(SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput)
 }
 
 // Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
-type SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties struct {
+type SubscriberInvokeConfigurationEventBusV2ParametersProperties struct {
 	// Deduplication settings applied to the forwarded events on the downstream event bus.
 	DeduplicationConfiguration *SubscriberDeduplicationConfiguration `pulumi:"deduplicationConfiguration"`
 	// Metadata forwarded with each event, as key-value string pairs.
@@ -1954,19 +1954,19 @@ type SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties struc
 	SystemMetadata *SubscriberEventBusV2SystemMetadata `pulumi:"systemMetadata"`
 }
 
-// SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs and SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesInput` via:
+// SubscriberInvokeConfigurationEventBusV2ParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs and SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationEventBusV2ParametersPropertiesInput` via:
 //
-//	SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs{...}
-type SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesInput interface {
+//	SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs{...}
+type SubscriberInvokeConfigurationEventBusV2ParametersPropertiesInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput
-	ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput
 }
 
 // Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
-type SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs struct {
+type SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs struct {
 	// Deduplication settings applied to the forwarded events on the downstream event bus.
 	DeduplicationConfiguration SubscriberDeduplicationConfigurationPtrInput `pulumi:"deduplicationConfiguration"`
 	// Metadata forwarded with each event, as key-value string pairs.
@@ -1975,132 +1975,132 @@ type SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs s
 	SystemMetadata SubscriberEventBusV2SystemMetadataPtrInput `pulumi:"systemMetadata"`
 }
 
-func (SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationEventBusV2ParametersProperties)(nil)).Elem()
 }
 
-func (i SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput {
+	return i.ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput)
+func (i SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput)
 }
 
-func (i SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput).ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutputWithContext(ctx)
+func (i SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput).ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutputWithContext(ctx)
 }
 
-// SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs, SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtr and SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrInput` via:
+// SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs, SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtr and SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrInput` via:
 //
-//	        SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs{...}
+//	        SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrInput interface {
+type SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput
-	ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput
 }
 
-type subscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrType SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs
+type subscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrType SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs
 
-func SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtr(v *SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrInput {
-	return (*subscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrType)(v)
+func SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtr(v *SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs) SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrInput {
+	return (*subscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrType)(v)
 }
 
-func (*subscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties)(nil)).Elem()
+func (*subscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationEventBusV2ParametersProperties)(nil)).Elem()
 }
 
-func (i *subscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *subscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrType) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *subscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput)
+func (i *subscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrType) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput)
 }
 
 // Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
-type SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationEventBusV2ParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
-	return o.ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutputWithContext(context.Background())
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
+	return o.ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties) *SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationEventBusV2ParametersProperties) *SubscriberInvokeConfigurationEventBusV2ParametersProperties {
 		return &v
-	}).(SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput)
 }
 
 // Deduplication settings applied to the forwarded events on the downstream event bus.
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput) DeduplicationConfiguration() SubscriberDeduplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties) *SubscriberDeduplicationConfiguration {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput) DeduplicationConfiguration() SubscriberDeduplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationEventBusV2ParametersProperties) *SubscriberDeduplicationConfiguration {
 		return v.DeduplicationConfiguration
 	}).(SubscriberDeduplicationConfigurationPtrOutput)
 }
 
 // Metadata forwarded with each event, as key-value string pairs.
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties) map[string]string {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationEventBusV2ParametersProperties) map[string]string {
 		return v.Metadata
 	}).(pulumi.StringMapOutput)
 }
 
 // System metadata attached to each forwarded event, controlling FIFO ordering and deduplication on the downstream event bus.
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput) SystemMetadata() SubscriberEventBusV2SystemMetadataPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties) *SubscriberEventBusV2SystemMetadata {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput) SystemMetadata() SubscriberEventBusV2SystemMetadataPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationEventBusV2ParametersProperties) *SubscriberEventBusV2SystemMetadata {
 		return v.SystemMetadata
 	}).(SubscriberEventBusV2SystemMetadataPtrOutput)
 }
 
-type SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationEventBusV2ParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties) SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationEventBusV2ParametersProperties) SubscriberInvokeConfigurationEventBusV2ParametersProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties
+		var ret SubscriberInvokeConfigurationEventBusV2ParametersProperties
 		return ret
-	}).(SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput)
+	}).(SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput)
 }
 
 // Deduplication settings applied to the forwarded events on the downstream event bus.
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput) DeduplicationConfiguration() SubscriberDeduplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties) *SubscriberDeduplicationConfiguration {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput) DeduplicationConfiguration() SubscriberDeduplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationEventBusV2ParametersProperties) *SubscriberDeduplicationConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -2109,8 +2109,8 @@ func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtr
 }
 
 // Metadata forwarded with each event, as key-value string pairs.
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties) map[string]string {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationEventBusV2ParametersProperties) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -2119,8 +2119,8 @@ func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtr
 }
 
 // System metadata attached to each forwarded event, controlling FIFO ordering and deduplication on the downstream event bus.
-func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput) SystemMetadata() SubscriberEventBusV2SystemMetadataPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties) *SubscriberEventBusV2SystemMetadata {
+func (o SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput) SystemMetadata() SubscriberEventBusV2SystemMetadataPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationEventBusV2ParametersProperties) *SubscriberEventBusV2SystemMetadata {
 		if v == nil {
 			return nil
 		}
@@ -2129,7 +2129,7 @@ func (o SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtr
 }
 
 // Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
-type SubscriberInvokeConfigurationPropertiesHttpParametersProperties struct {
+type SubscriberInvokeConfigurationHttpParametersProperties struct {
 	// HTTP headers to add to the request.
 	HeaderParameters map[string]string `pulumi:"headerParameters"`
 	// The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
@@ -2140,19 +2140,19 @@ type SubscriberInvokeConfigurationPropertiesHttpParametersProperties struct {
 	QueryStringParameters map[string]string `pulumi:"queryStringParameters"`
 }
 
-// SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs and SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesInput` via:
+// SubscriberInvokeConfigurationHttpParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationHttpParametersPropertiesArgs and SubscriberInvokeConfigurationHttpParametersPropertiesOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationHttpParametersPropertiesInput` via:
 //
-//	SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs{...}
-type SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesInput interface {
+//	SubscriberInvokeConfigurationHttpParametersPropertiesArgs{...}
+type SubscriberInvokeConfigurationHttpParametersPropertiesInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput
-	ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationHttpParametersPropertiesOutput() SubscriberInvokeConfigurationHttpParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationHttpParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationHttpParametersPropertiesOutput
 }
 
 // Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
-type SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs struct {
+type SubscriberInvokeConfigurationHttpParametersPropertiesArgs struct {
 	// HTTP headers to add to the request.
 	HeaderParameters pulumi.StringMapInput `pulumi:"headerParameters"`
 	// The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
@@ -2163,139 +2163,137 @@ type SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs struct 
 	QueryStringParameters pulumi.StringMapInput `pulumi:"queryStringParameters"`
 }
 
-func (SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesHttpParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationHttpParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationHttpParametersProperties)(nil)).Elem()
 }
 
-func (i SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationHttpParametersPropertiesArgs) ToSubscriberInvokeConfigurationHttpParametersPropertiesOutput() SubscriberInvokeConfigurationHttpParametersPropertiesOutput {
+	return i.ToSubscriberInvokeConfigurationHttpParametersPropertiesOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput)
+func (i SubscriberInvokeConfigurationHttpParametersPropertiesArgs) ToSubscriberInvokeConfigurationHttpParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationHttpParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationHttpParametersPropertiesOutput)
 }
 
-func (i SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationHttpParametersPropertiesArgs) ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput).ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutputWithContext(ctx)
+func (i SubscriberInvokeConfigurationHttpParametersPropertiesArgs) ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationHttpParametersPropertiesOutput).ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutputWithContext(ctx)
 }
 
-// SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs, SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtr and SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrInput` via:
+// SubscriberInvokeConfigurationHttpParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationHttpParametersPropertiesArgs, SubscriberInvokeConfigurationHttpParametersPropertiesPtr and SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationHttpParametersPropertiesPtrInput` via:
 //
-//	        SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs{...}
+//	        SubscriberInvokeConfigurationHttpParametersPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrInput interface {
+type SubscriberInvokeConfigurationHttpParametersPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput
-	ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput
 }
 
-type subscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrType SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs
+type subscriberInvokeConfigurationHttpParametersPropertiesPtrType SubscriberInvokeConfigurationHttpParametersPropertiesArgs
 
-func SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtr(v *SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs) SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrInput {
-	return (*subscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrType)(v)
+func SubscriberInvokeConfigurationHttpParametersPropertiesPtr(v *SubscriberInvokeConfigurationHttpParametersPropertiesArgs) SubscriberInvokeConfigurationHttpParametersPropertiesPtrInput {
+	return (*subscriberInvokeConfigurationHttpParametersPropertiesPtrType)(v)
 }
 
-func (*subscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesHttpParametersProperties)(nil)).Elem()
+func (*subscriberInvokeConfigurationHttpParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationHttpParametersProperties)(nil)).Elem()
 }
 
-func (i *subscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *subscriberInvokeConfigurationHttpParametersPropertiesPtrType) ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *subscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput)
+func (i *subscriberInvokeConfigurationHttpParametersPropertiesPtrType) ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput)
 }
 
 // Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
-type SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationHttpParametersPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesHttpParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationHttpParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationHttpParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesOutput) ToSubscriberInvokeConfigurationHttpParametersPropertiesOutput() SubscriberInvokeConfigurationHttpParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesOutput) ToSubscriberInvokeConfigurationHttpParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationHttpParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
-	return o.ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutputWithContext(context.Background())
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesOutput) ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
+	return o.ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationPropertiesHttpParametersProperties) *SubscriberInvokeConfigurationPropertiesHttpParametersProperties {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesOutput) ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationHttpParametersProperties) *SubscriberInvokeConfigurationHttpParametersProperties {
 		return &v
-	}).(SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput)
 }
 
 // HTTP headers to add to the request.
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput) HeaderParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesHttpParametersProperties) map[string]string {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationHttpParametersProperties) map[string]string {
 		return v.HeaderParameters
 	}).(pulumi.StringMapOutput)
 }
 
 // The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesHttpParametersProperties) *string {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationHttpParametersProperties) *string {
 		return v.InvocationTimeoutSeconds
 	}).(pulumi.StringPtrOutput)
 }
 
 // Values for the path parameters (wildcards) in the target URL, in order.
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput) PathParameterValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesHttpParametersProperties) []string {
-		return v.PathParameterValues
-	}).(pulumi.StringArrayOutput)
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesOutput) PathParameterValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationHttpParametersProperties) []string { return v.PathParameterValues }).(pulumi.StringArrayOutput)
 }
 
 // Query string parameters to add to the request.
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput) QueryStringParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesHttpParametersProperties) map[string]string {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationHttpParametersProperties) map[string]string {
 		return v.QueryStringParameters
 	}).(pulumi.StringMapOutput)
 }
 
-type SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesHttpParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationHttpParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput() SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationHttpParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesHttpParametersProperties) SubscriberInvokeConfigurationPropertiesHttpParametersProperties {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationHttpParametersPropertiesOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationHttpParametersProperties) SubscriberInvokeConfigurationHttpParametersProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriberInvokeConfigurationPropertiesHttpParametersProperties
+		var ret SubscriberInvokeConfigurationHttpParametersProperties
 		return ret
-	}).(SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput)
+	}).(SubscriberInvokeConfigurationHttpParametersPropertiesOutput)
 }
 
 // HTTP headers to add to the request.
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput) HeaderParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesHttpParametersProperties) map[string]string {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationHttpParametersProperties) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -2304,8 +2302,8 @@ func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput
 }
 
 // The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesHttpParametersProperties) *string {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationHttpParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2314,8 +2312,8 @@ func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput
 }
 
 // Values for the path parameters (wildcards) in the target URL, in order.
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput) PathParameterValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesHttpParametersProperties) []string {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput) PathParameterValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationHttpParametersProperties) []string {
 		if v == nil {
 			return nil
 		}
@@ -2324,8 +2322,8 @@ func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput
 }
 
 // Query string parameters to add to the request.
-func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput) QueryStringParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesHttpParametersProperties) map[string]string {
+func (o SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationHttpParametersProperties) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -2334,151 +2332,147 @@ func (o SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput
 }
 
 // Parameters for writing events to an Amazon Kinesis Data Streams target.
-type SubscriberInvokeConfigurationPropertiesKinesisParametersProperties struct {
+type SubscriberInvokeConfigurationKinesisParametersProperties struct {
 	// An explicit hash key that overrides the partition key's shard assignment. Accepts a literal value or a JSONata expression.
 	ExplicitHashKey *string `pulumi:"explicitHashKey"`
 	// The partition key that determines which shard each record is written to. Accepts a literal value or a JSONata expression.
 	PartitionKey *string `pulumi:"partitionKey"`
 }
 
-// SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs and SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesInput` via:
+// SubscriberInvokeConfigurationKinesisParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationKinesisParametersPropertiesArgs and SubscriberInvokeConfigurationKinesisParametersPropertiesOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationKinesisParametersPropertiesInput` via:
 //
-//	SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs{...}
-type SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesInput interface {
+//	SubscriberInvokeConfigurationKinesisParametersPropertiesArgs{...}
+type SubscriberInvokeConfigurationKinesisParametersPropertiesInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput
-	ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationKinesisParametersPropertiesOutput() SubscriberInvokeConfigurationKinesisParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationKinesisParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationKinesisParametersPropertiesOutput
 }
 
 // Parameters for writing events to an Amazon Kinesis Data Streams target.
-type SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs struct {
+type SubscriberInvokeConfigurationKinesisParametersPropertiesArgs struct {
 	// An explicit hash key that overrides the partition key's shard assignment. Accepts a literal value or a JSONata expression.
 	ExplicitHashKey pulumi.StringPtrInput `pulumi:"explicitHashKey"`
 	// The partition key that determines which shard each record is written to. Accepts a literal value or a JSONata expression.
 	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
 }
 
-func (SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesKinesisParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationKinesisParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationKinesisParametersProperties)(nil)).Elem()
 }
 
-func (i SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationKinesisParametersPropertiesArgs) ToSubscriberInvokeConfigurationKinesisParametersPropertiesOutput() SubscriberInvokeConfigurationKinesisParametersPropertiesOutput {
+	return i.ToSubscriberInvokeConfigurationKinesisParametersPropertiesOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput)
+func (i SubscriberInvokeConfigurationKinesisParametersPropertiesArgs) ToSubscriberInvokeConfigurationKinesisParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationKinesisParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationKinesisParametersPropertiesOutput)
 }
 
-func (i SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationKinesisParametersPropertiesArgs) ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput).ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutputWithContext(ctx)
+func (i SubscriberInvokeConfigurationKinesisParametersPropertiesArgs) ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationKinesisParametersPropertiesOutput).ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutputWithContext(ctx)
 }
 
-// SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs, SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtr and SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrInput` via:
+// SubscriberInvokeConfigurationKinesisParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationKinesisParametersPropertiesArgs, SubscriberInvokeConfigurationKinesisParametersPropertiesPtr and SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationKinesisParametersPropertiesPtrInput` via:
 //
-//	        SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs{...}
+//	        SubscriberInvokeConfigurationKinesisParametersPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrInput interface {
+type SubscriberInvokeConfigurationKinesisParametersPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput
-	ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput
 }
 
-type subscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrType SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs
+type subscriberInvokeConfigurationKinesisParametersPropertiesPtrType SubscriberInvokeConfigurationKinesisParametersPropertiesArgs
 
-func SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtr(v *SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs) SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrInput {
-	return (*subscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrType)(v)
+func SubscriberInvokeConfigurationKinesisParametersPropertiesPtr(v *SubscriberInvokeConfigurationKinesisParametersPropertiesArgs) SubscriberInvokeConfigurationKinesisParametersPropertiesPtrInput {
+	return (*subscriberInvokeConfigurationKinesisParametersPropertiesPtrType)(v)
 }
 
-func (*subscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesKinesisParametersProperties)(nil)).Elem()
+func (*subscriberInvokeConfigurationKinesisParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationKinesisParametersProperties)(nil)).Elem()
 }
 
-func (i *subscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *subscriberInvokeConfigurationKinesisParametersPropertiesPtrType) ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *subscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput)
+func (i *subscriberInvokeConfigurationKinesisParametersPropertiesPtrType) ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput)
 }
 
 // Parameters for writing events to an Amazon Kinesis Data Streams target.
-type SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationKinesisParametersPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesKinesisParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationKinesisParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationKinesisParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesOutput) ToSubscriberInvokeConfigurationKinesisParametersPropertiesOutput() SubscriberInvokeConfigurationKinesisParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesOutput) ToSubscriberInvokeConfigurationKinesisParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationKinesisParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
-	return o.ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutputWithContext(context.Background())
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesOutput) ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
+	return o.ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationPropertiesKinesisParametersProperties) *SubscriberInvokeConfigurationPropertiesKinesisParametersProperties {
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesOutput) ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationKinesisParametersProperties) *SubscriberInvokeConfigurationKinesisParametersProperties {
 		return &v
-	}).(SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput)
 }
 
 // An explicit hash key that overrides the partition key's shard assignment. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput) ExplicitHashKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesKinesisParametersProperties) *string {
-		return v.ExplicitHashKey
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesOutput) ExplicitHashKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationKinesisParametersProperties) *string { return v.ExplicitHashKey }).(pulumi.StringPtrOutput)
 }
 
 // The partition key that determines which shard each record is written to. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput) PartitionKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesKinesisParametersProperties) *string {
-		return v.PartitionKey
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationKinesisParametersProperties) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
 }
 
-type SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesKinesisParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationKinesisParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput() SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesKinesisParametersProperties) SubscriberInvokeConfigurationPropertiesKinesisParametersProperties {
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationKinesisParametersPropertiesOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationKinesisParametersProperties) SubscriberInvokeConfigurationKinesisParametersProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriberInvokeConfigurationPropertiesKinesisParametersProperties
+		var ret SubscriberInvokeConfigurationKinesisParametersProperties
 		return ret
-	}).(SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput)
+	}).(SubscriberInvokeConfigurationKinesisParametersPropertiesOutput)
 }
 
 // An explicit hash key that overrides the partition key's shard assignment. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput) ExplicitHashKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesKinesisParametersProperties) *string {
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput) ExplicitHashKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationKinesisParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2487,8 +2481,8 @@ func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOut
 }
 
 // The partition key that determines which shard each record is written to. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput) PartitionKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesKinesisParametersProperties) *string {
+func (o SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationKinesisParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2497,7 +2491,7 @@ func (o SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOut
 }
 
 // Parameters for invoking an AWS Lambda function target.
-type SubscriberInvokeConfigurationPropertiesLambdaParametersProperties struct {
+type SubscriberInvokeConfigurationLambdaParametersProperties struct {
 	// A unique name for a durable function execution. Accepts a literal value or a JSONata expression.
 	DurableExecutionName *string `pulumi:"durableExecutionName"`
 	// The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
@@ -2510,19 +2504,19 @@ type SubscriberInvokeConfigurationPropertiesLambdaParametersProperties struct {
 	TenantId *string `pulumi:"tenantId"`
 }
 
-// SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs and SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesInput` via:
+// SubscriberInvokeConfigurationLambdaParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationLambdaParametersPropertiesArgs and SubscriberInvokeConfigurationLambdaParametersPropertiesOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationLambdaParametersPropertiesInput` via:
 //
-//	SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs{...}
-type SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesInput interface {
+//	SubscriberInvokeConfigurationLambdaParametersPropertiesArgs{...}
+type SubscriberInvokeConfigurationLambdaParametersPropertiesInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput
-	ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationLambdaParametersPropertiesOutput() SubscriberInvokeConfigurationLambdaParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationLambdaParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationLambdaParametersPropertiesOutput
 }
 
 // Parameters for invoking an AWS Lambda function target.
-type SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs struct {
+type SubscriberInvokeConfigurationLambdaParametersPropertiesArgs struct {
 	// A unique name for a durable function execution. Accepts a literal value or a JSONata expression.
 	DurableExecutionName pulumi.StringPtrInput `pulumi:"durableExecutionName"`
 	// The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
@@ -2535,142 +2529,138 @@ type SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs struc
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
-func (SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesLambdaParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationLambdaParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationLambdaParametersProperties)(nil)).Elem()
 }
 
-func (i SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationLambdaParametersPropertiesArgs) ToSubscriberInvokeConfigurationLambdaParametersPropertiesOutput() SubscriberInvokeConfigurationLambdaParametersPropertiesOutput {
+	return i.ToSubscriberInvokeConfigurationLambdaParametersPropertiesOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput)
+func (i SubscriberInvokeConfigurationLambdaParametersPropertiesArgs) ToSubscriberInvokeConfigurationLambdaParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationLambdaParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationLambdaParametersPropertiesOutput)
 }
 
-func (i SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationLambdaParametersPropertiesArgs) ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput).ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutputWithContext(ctx)
+func (i SubscriberInvokeConfigurationLambdaParametersPropertiesArgs) ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationLambdaParametersPropertiesOutput).ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutputWithContext(ctx)
 }
 
-// SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs, SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtr and SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrInput` via:
+// SubscriberInvokeConfigurationLambdaParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationLambdaParametersPropertiesArgs, SubscriberInvokeConfigurationLambdaParametersPropertiesPtr and SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationLambdaParametersPropertiesPtrInput` via:
 //
-//	        SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs{...}
+//	        SubscriberInvokeConfigurationLambdaParametersPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrInput interface {
+type SubscriberInvokeConfigurationLambdaParametersPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput
-	ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput
 }
 
-type subscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrType SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs
+type subscriberInvokeConfigurationLambdaParametersPropertiesPtrType SubscriberInvokeConfigurationLambdaParametersPropertiesArgs
 
-func SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtr(v *SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs) SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrInput {
-	return (*subscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrType)(v)
+func SubscriberInvokeConfigurationLambdaParametersPropertiesPtr(v *SubscriberInvokeConfigurationLambdaParametersPropertiesArgs) SubscriberInvokeConfigurationLambdaParametersPropertiesPtrInput {
+	return (*subscriberInvokeConfigurationLambdaParametersPropertiesPtrType)(v)
 }
 
-func (*subscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesLambdaParametersProperties)(nil)).Elem()
+func (*subscriberInvokeConfigurationLambdaParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationLambdaParametersProperties)(nil)).Elem()
 }
 
-func (i *subscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *subscriberInvokeConfigurationLambdaParametersPropertiesPtrType) ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *subscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput)
+func (i *subscriberInvokeConfigurationLambdaParametersPropertiesPtrType) ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput)
 }
 
 // Parameters for invoking an AWS Lambda function target.
-type SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationLambdaParametersPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesLambdaParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationLambdaParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) ToSubscriberInvokeConfigurationLambdaParametersPropertiesOutput() SubscriberInvokeConfigurationLambdaParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) ToSubscriberInvokeConfigurationLambdaParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationLambdaParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
-	return o.ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutputWithContext(context.Background())
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
+	return o.ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationLambdaParametersProperties) *SubscriberInvokeConfigurationLambdaParametersProperties {
 		return &v
-	}).(SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput)
 }
 
 // A unique name for a durable function execution. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) DurableExecutionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string {
-		return v.DurableExecutionName
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) DurableExecutionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationLambdaParametersProperties) *string { return v.DurableExecutionName }).(pulumi.StringPtrOutput)
 }
 
 // The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationLambdaParametersProperties) *string {
 		return v.InvocationTimeoutSeconds
 	}).(pulumi.StringPtrOutput)
 }
 
 // How the function is invoked: EVENT (asynchronous) or REQUEST_RESPONSE (synchronous).
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) InvocationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string {
-		return v.InvocationType
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) InvocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationLambdaParametersProperties) *string { return v.InvocationType }).(pulumi.StringPtrOutput)
 }
 
 // The version or alias of the Lambda function to invoke. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) Qualifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationLambdaParametersProperties) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
 }
 
 // The tenant identifier for multi-tenant Lambda functions. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationLambdaParametersProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-type SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesLambdaParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationLambdaParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput() SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) SubscriberInvokeConfigurationPropertiesLambdaParametersProperties {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationLambdaParametersPropertiesOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationLambdaParametersProperties) SubscriberInvokeConfigurationLambdaParametersProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriberInvokeConfigurationPropertiesLambdaParametersProperties
+		var ret SubscriberInvokeConfigurationLambdaParametersProperties
 		return ret
-	}).(SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput)
+	}).(SubscriberInvokeConfigurationLambdaParametersPropertiesOutput)
 }
 
 // A unique name for a durable function execution. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput) DurableExecutionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) DurableExecutionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationLambdaParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2679,8 +2669,8 @@ func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutp
 }
 
 // The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationLambdaParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2689,8 +2679,8 @@ func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutp
 }
 
 // How the function is invoked: EVENT (asynchronous) or REQUEST_RESPONSE (synchronous).
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput) InvocationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) InvocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationLambdaParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2699,8 +2689,8 @@ func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutp
 }
 
 // The version or alias of the Lambda function to invoke. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput) Qualifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationLambdaParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2709,8 +2699,8 @@ func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutp
 }
 
 // The tenant identifier for multi-tenant Lambda functions. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesLambdaParametersProperties) *string {
+func (o SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationLambdaParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2719,7 +2709,7 @@ func (o SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutp
 }
 
 // Parameters for publishing events to an Amazon SNS topic target.
-type SubscriberInvokeConfigurationPropertiesSnsParametersProperties struct {
+type SubscriberInvokeConfigurationSnsParametersProperties struct {
 	// Custom message attributes to attach to each message; Amazon SNS subscription filter policies can match on them.
 	MessageAttributes map[string]SubscriberMessageAttributeValue `pulumi:"messageAttributes"`
 	// The message deduplication ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
@@ -2732,19 +2722,19 @@ type SubscriberInvokeConfigurationPropertiesSnsParametersProperties struct {
 	Subject *string `pulumi:"subject"`
 }
 
-// SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs and SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesInput` via:
+// SubscriberInvokeConfigurationSnsParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationSnsParametersPropertiesArgs and SubscriberInvokeConfigurationSnsParametersPropertiesOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationSnsParametersPropertiesInput` via:
 //
-//	SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs{...}
-type SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesInput interface {
+//	SubscriberInvokeConfigurationSnsParametersPropertiesArgs{...}
+type SubscriberInvokeConfigurationSnsParametersPropertiesInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput
-	ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationSnsParametersPropertiesOutput() SubscriberInvokeConfigurationSnsParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationSnsParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationSnsParametersPropertiesOutput
 }
 
 // Parameters for publishing events to an Amazon SNS topic target.
-type SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs struct {
+type SubscriberInvokeConfigurationSnsParametersPropertiesArgs struct {
 	// Custom message attributes to attach to each message; Amazon SNS subscription filter policies can match on them.
 	MessageAttributes SubscriberMessageAttributeValueMapInput `pulumi:"messageAttributes"`
 	// The message deduplication ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
@@ -2757,144 +2747,138 @@ type SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs struct {
 	Subject pulumi.StringPtrInput `pulumi:"subject"`
 }
 
-func (SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesSnsParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationSnsParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationSnsParametersProperties)(nil)).Elem()
 }
 
-func (i SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationSnsParametersPropertiesArgs) ToSubscriberInvokeConfigurationSnsParametersPropertiesOutput() SubscriberInvokeConfigurationSnsParametersPropertiesOutput {
+	return i.ToSubscriberInvokeConfigurationSnsParametersPropertiesOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput)
+func (i SubscriberInvokeConfigurationSnsParametersPropertiesArgs) ToSubscriberInvokeConfigurationSnsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSnsParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationSnsParametersPropertiesOutput)
 }
 
-func (i SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationSnsParametersPropertiesArgs) ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput).ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutputWithContext(ctx)
+func (i SubscriberInvokeConfigurationSnsParametersPropertiesArgs) ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationSnsParametersPropertiesOutput).ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutputWithContext(ctx)
 }
 
-// SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs, SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtr and SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrInput` via:
+// SubscriberInvokeConfigurationSnsParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationSnsParametersPropertiesArgs, SubscriberInvokeConfigurationSnsParametersPropertiesPtr and SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationSnsParametersPropertiesPtrInput` via:
 //
-//	        SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs{...}
+//	        SubscriberInvokeConfigurationSnsParametersPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrInput interface {
+type SubscriberInvokeConfigurationSnsParametersPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput
-	ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput
 }
 
-type subscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrType SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs
+type subscriberInvokeConfigurationSnsParametersPropertiesPtrType SubscriberInvokeConfigurationSnsParametersPropertiesArgs
 
-func SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtr(v *SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs) SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrInput {
-	return (*subscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrType)(v)
+func SubscriberInvokeConfigurationSnsParametersPropertiesPtr(v *SubscriberInvokeConfigurationSnsParametersPropertiesArgs) SubscriberInvokeConfigurationSnsParametersPropertiesPtrInput {
+	return (*subscriberInvokeConfigurationSnsParametersPropertiesPtrType)(v)
 }
 
-func (*subscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesSnsParametersProperties)(nil)).Elem()
+func (*subscriberInvokeConfigurationSnsParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationSnsParametersProperties)(nil)).Elem()
 }
 
-func (i *subscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *subscriberInvokeConfigurationSnsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *subscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput)
+func (i *subscriberInvokeConfigurationSnsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput)
 }
 
 // Parameters for publishing events to an Amazon SNS topic target.
-type SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationSnsParametersPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesSnsParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationSnsParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationSnsParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesOutput) ToSubscriberInvokeConfigurationSnsParametersPropertiesOutput() SubscriberInvokeConfigurationSnsParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesOutput) ToSubscriberInvokeConfigurationSnsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSnsParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
-	return o.ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutputWithContext(context.Background())
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesOutput) ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
+	return o.ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationPropertiesSnsParametersProperties) *SubscriberInvokeConfigurationPropertiesSnsParametersProperties {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesOutput) ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationSnsParametersProperties) *SubscriberInvokeConfigurationSnsParametersProperties {
 		return &v
-	}).(SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput)
 }
 
 // Custom message attributes to attach to each message; Amazon SNS subscription filter policies can match on them.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) MessageAttributes() SubscriberMessageAttributeValueMapOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSnsParametersProperties) map[string]SubscriberMessageAttributeValue {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesOutput) MessageAttributes() SubscriberMessageAttributeValueMapOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSnsParametersProperties) map[string]SubscriberMessageAttributeValue {
 		return v.MessageAttributes
 	}).(SubscriberMessageAttributeValueMapOutput)
 }
 
 // The message deduplication ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSnsParametersProperties) *string {
-		return v.MessageDeduplicationId
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSnsParametersProperties) *string { return v.MessageDeduplicationId }).(pulumi.StringPtrOutput)
 }
 
 // The message group ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) MessageGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSnsParametersProperties) *string {
-		return v.MessageGroupId
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesOutput) MessageGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSnsParametersProperties) *string { return v.MessageGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Set to json to send a different message per delivery protocol. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) MessageStructure() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSnsParametersProperties) *string {
-		return v.MessageStructure
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesOutput) MessageStructure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSnsParametersProperties) *string { return v.MessageStructure }).(pulumi.StringPtrOutput)
 }
 
 // The subject line to use for email-protocol subscriptions. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSnsParametersProperties) *string { return v.Subject }).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSnsParametersProperties) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
 
-type SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesSnsParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationSnsParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationSnsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSnsParametersProperties) SubscriberInvokeConfigurationPropertiesSnsParametersProperties {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationSnsParametersPropertiesOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSnsParametersProperties) SubscriberInvokeConfigurationSnsParametersProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriberInvokeConfigurationPropertiesSnsParametersProperties
+		var ret SubscriberInvokeConfigurationSnsParametersProperties
 		return ret
-	}).(SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput)
+	}).(SubscriberInvokeConfigurationSnsParametersPropertiesOutput)
 }
 
 // Custom message attributes to attach to each message; Amazon SNS subscription filter policies can match on them.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput) MessageAttributes() SubscriberMessageAttributeValueMapOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSnsParametersProperties) map[string]SubscriberMessageAttributeValue {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput) MessageAttributes() SubscriberMessageAttributeValueMapOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSnsParametersProperties) map[string]SubscriberMessageAttributeValue {
 		if v == nil {
 			return nil
 		}
@@ -2903,8 +2887,8 @@ func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput)
 }
 
 // The message deduplication ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSnsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSnsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2913,8 +2897,8 @@ func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput)
 }
 
 // The message group ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSnsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSnsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2923,8 +2907,8 @@ func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput)
 }
 
 // Set to json to send a different message per delivery protocol. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput) MessageStructure() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSnsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput) MessageStructure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSnsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2933,8 +2917,8 @@ func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput)
 }
 
 // The subject line to use for email-protocol subscriptions. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSnsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSnsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -2943,7 +2927,7 @@ func (o SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput)
 }
 
 // Parameters for sending events to an Amazon SQS queue target.
-type SubscriberInvokeConfigurationPropertiesSqsParametersProperties struct {
+type SubscriberInvokeConfigurationSqsParametersProperties struct {
 	// The delay in seconds for the message, written as a string. Accepts a literal value or a JSONata expression.
 	DelaySeconds *string `pulumi:"delaySeconds"`
 	// Custom message attributes to attach to each message.
@@ -2956,19 +2940,19 @@ type SubscriberInvokeConfigurationPropertiesSqsParametersProperties struct {
 	MessageSystemAttributes map[string]SubscriberMessageAttributeValue `pulumi:"messageSystemAttributes"`
 }
 
-// SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs and SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesInput` via:
+// SubscriberInvokeConfigurationSqsParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationSqsParametersPropertiesArgs and SubscriberInvokeConfigurationSqsParametersPropertiesOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationSqsParametersPropertiesInput` via:
 //
-//	SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs{...}
-type SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesInput interface {
+//	SubscriberInvokeConfigurationSqsParametersPropertiesArgs{...}
+type SubscriberInvokeConfigurationSqsParametersPropertiesInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput
-	ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationSqsParametersPropertiesOutput() SubscriberInvokeConfigurationSqsParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationSqsParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationSqsParametersPropertiesOutput
 }
 
 // Parameters for sending events to an Amazon SQS queue target.
-type SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs struct {
+type SubscriberInvokeConfigurationSqsParametersPropertiesArgs struct {
 	// The delay in seconds for the message, written as a string. Accepts a literal value or a JSONata expression.
 	DelaySeconds pulumi.StringPtrInput `pulumi:"delaySeconds"`
 	// Custom message attributes to attach to each message.
@@ -2981,144 +2965,140 @@ type SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs struct {
 	MessageSystemAttributes SubscriberMessageAttributeValueMapInput `pulumi:"messageSystemAttributes"`
 }
 
-func (SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesSqsParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationSqsParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationSqsParametersProperties)(nil)).Elem()
 }
 
-func (i SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationSqsParametersPropertiesArgs) ToSubscriberInvokeConfigurationSqsParametersPropertiesOutput() SubscriberInvokeConfigurationSqsParametersPropertiesOutput {
+	return i.ToSubscriberInvokeConfigurationSqsParametersPropertiesOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput)
+func (i SubscriberInvokeConfigurationSqsParametersPropertiesArgs) ToSubscriberInvokeConfigurationSqsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSqsParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationSqsParametersPropertiesOutput)
 }
 
-func (i SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationSqsParametersPropertiesArgs) ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput).ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutputWithContext(ctx)
+func (i SubscriberInvokeConfigurationSqsParametersPropertiesArgs) ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationSqsParametersPropertiesOutput).ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutputWithContext(ctx)
 }
 
-// SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs, SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtr and SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrInput` via:
+// SubscriberInvokeConfigurationSqsParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationSqsParametersPropertiesArgs, SubscriberInvokeConfigurationSqsParametersPropertiesPtr and SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationSqsParametersPropertiesPtrInput` via:
 //
-//	        SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs{...}
+//	        SubscriberInvokeConfigurationSqsParametersPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrInput interface {
+type SubscriberInvokeConfigurationSqsParametersPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput
-	ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput
 }
 
-type subscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrType SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs
+type subscriberInvokeConfigurationSqsParametersPropertiesPtrType SubscriberInvokeConfigurationSqsParametersPropertiesArgs
 
-func SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtr(v *SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs) SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrInput {
-	return (*subscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrType)(v)
+func SubscriberInvokeConfigurationSqsParametersPropertiesPtr(v *SubscriberInvokeConfigurationSqsParametersPropertiesArgs) SubscriberInvokeConfigurationSqsParametersPropertiesPtrInput {
+	return (*subscriberInvokeConfigurationSqsParametersPropertiesPtrType)(v)
 }
 
-func (*subscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesSqsParametersProperties)(nil)).Elem()
+func (*subscriberInvokeConfigurationSqsParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationSqsParametersProperties)(nil)).Elem()
 }
 
-func (i *subscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *subscriberInvokeConfigurationSqsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *subscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput)
+func (i *subscriberInvokeConfigurationSqsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput)
 }
 
 // Parameters for sending events to an Amazon SQS queue target.
-type SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationSqsParametersPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesSqsParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationSqsParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationSqsParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesOutput) ToSubscriberInvokeConfigurationSqsParametersPropertiesOutput() SubscriberInvokeConfigurationSqsParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesOutput) ToSubscriberInvokeConfigurationSqsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSqsParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
-	return o.ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutputWithContext(context.Background())
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesOutput) ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
+	return o.ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationPropertiesSqsParametersProperties) *SubscriberInvokeConfigurationPropertiesSqsParametersProperties {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesOutput) ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationSqsParametersProperties) *SubscriberInvokeConfigurationSqsParametersProperties {
 		return &v
-	}).(SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput)
 }
 
 // The delay in seconds for the message, written as a string. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) DelaySeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSqsParametersProperties) *string { return v.DelaySeconds }).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesOutput) DelaySeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSqsParametersProperties) *string { return v.DelaySeconds }).(pulumi.StringPtrOutput)
 }
 
 // Custom message attributes to attach to each message.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) MessageAttributes() SubscriberMessageAttributeValueMapOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSqsParametersProperties) map[string]SubscriberMessageAttributeValue {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesOutput) MessageAttributes() SubscriberMessageAttributeValueMapOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSqsParametersProperties) map[string]SubscriberMessageAttributeValue {
 		return v.MessageAttributes
 	}).(SubscriberMessageAttributeValueMapOutput)
 }
 
 // The message deduplication ID to use when the target is a FIFO queue. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSqsParametersProperties) *string {
-		return v.MessageDeduplicationId
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSqsParametersProperties) *string { return v.MessageDeduplicationId }).(pulumi.StringPtrOutput)
 }
 
 // The message group ID to use when the target is a FIFO queue. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) MessageGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSqsParametersProperties) *string {
-		return v.MessageGroupId
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesOutput) MessageGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSqsParametersProperties) *string { return v.MessageGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Message system attributes to attach to each message, such as AWSTraceHeader.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput) MessageSystemAttributes() SubscriberMessageAttributeValueMapOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesSqsParametersProperties) map[string]SubscriberMessageAttributeValue {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesOutput) MessageSystemAttributes() SubscriberMessageAttributeValueMapOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationSqsParametersProperties) map[string]SubscriberMessageAttributeValue {
 		return v.MessageSystemAttributes
 	}).(SubscriberMessageAttributeValueMapOutput)
 }
 
-type SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesSqsParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationSqsParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationSqsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSqsParametersProperties) SubscriberInvokeConfigurationPropertiesSqsParametersProperties {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationSqsParametersPropertiesOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSqsParametersProperties) SubscriberInvokeConfigurationSqsParametersProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriberInvokeConfigurationPropertiesSqsParametersProperties
+		var ret SubscriberInvokeConfigurationSqsParametersProperties
 		return ret
-	}).(SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput)
+	}).(SubscriberInvokeConfigurationSqsParametersPropertiesOutput)
 }
 
 // The delay in seconds for the message, written as a string. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput) DelaySeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSqsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput) DelaySeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSqsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3127,8 +3107,8 @@ func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput)
 }
 
 // Custom message attributes to attach to each message.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput) MessageAttributes() SubscriberMessageAttributeValueMapOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSqsParametersProperties) map[string]SubscriberMessageAttributeValue {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput) MessageAttributes() SubscriberMessageAttributeValueMapOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSqsParametersProperties) map[string]SubscriberMessageAttributeValue {
 		if v == nil {
 			return nil
 		}
@@ -3137,8 +3117,8 @@ func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput)
 }
 
 // The message deduplication ID to use when the target is a FIFO queue. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSqsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSqsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3147,8 +3127,8 @@ func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput)
 }
 
 // The message group ID to use when the target is a FIFO queue. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSqsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSqsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3157,8 +3137,8 @@ func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput)
 }
 
 // Message system attributes to attach to each message, such as AWSTraceHeader.
-func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput) MessageSystemAttributes() SubscriberMessageAttributeValueMapOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesSqsParametersProperties) map[string]SubscriberMessageAttributeValue {
+func (o SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput) MessageSystemAttributes() SubscriberMessageAttributeValueMapOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationSqsParametersProperties) map[string]SubscriberMessageAttributeValue {
 		if v == nil {
 			return nil
 		}
@@ -3167,7 +3147,7 @@ func (o SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput)
 }
 
 // Parameters for starting an AWS Step Functions state machine execution target.
-type SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties struct {
+type SubscriberInvokeConfigurationStepFunctionsParametersProperties struct {
 	// The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
 	InvocationTimeoutSeconds *string `pulumi:"invocationTimeoutSeconds"`
 	// How the execution is started: EVENT (StartExecution, asynchronous) or REQUEST_RESPONSE (StartSyncExecution, synchronous).
@@ -3178,19 +3158,19 @@ type SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties st
 	TraceHeader *string `pulumi:"traceHeader"`
 }
 
-// SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs and SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesInput` via:
+// SubscriberInvokeConfigurationStepFunctionsParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs and SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationStepFunctionsParametersPropertiesInput` via:
 //
-//	SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs{...}
-type SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesInput interface {
+//	SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs{...}
+type SubscriberInvokeConfigurationStepFunctionsParametersPropertiesInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput
-	ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput
 }
 
 // Parameters for starting an AWS Step Functions state machine execution target.
-type SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs struct {
+type SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs struct {
 	// The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
 	InvocationTimeoutSeconds pulumi.StringPtrInput `pulumi:"invocationTimeoutSeconds"`
 	// How the execution is started: EVENT (StartExecution, asynchronous) or REQUEST_RESPONSE (StartSyncExecution, synchronous).
@@ -3201,139 +3181,135 @@ type SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArg
 	TraceHeader pulumi.StringPtrInput `pulumi:"traceHeader"`
 }
 
-func (SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationStepFunctionsParametersProperties)(nil)).Elem()
 }
 
-func (i SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput {
+	return i.ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput)
+func (i SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput)
 }
 
-func (i SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput).ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutputWithContext(ctx)
+func (i SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput).ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutputWithContext(ctx)
 }
 
-// SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs, SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtr and SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrInput` via:
+// SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs, SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtr and SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrInput` via:
 //
-//	        SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs{...}
+//	        SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrInput interface {
+type SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput
-	ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput
 }
 
-type subscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrType SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs
+type subscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrType SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs
 
-func SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtr(v *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrInput {
-	return (*subscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrType)(v)
+func SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtr(v *SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs) SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrInput {
+	return (*subscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrType)(v)
 }
 
-func (*subscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties)(nil)).Elem()
+func (*subscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationStepFunctionsParametersProperties)(nil)).Elem()
 }
 
-func (i *subscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *subscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *subscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput)
+func (i *subscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrType) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput)
 }
 
 // Parameters for starting an AWS Step Functions state machine execution target.
-type SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationStepFunctionsParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
-	return o.ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutputWithContext(context.Background())
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
+	return o.ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationStepFunctionsParametersProperties) *SubscriberInvokeConfigurationStepFunctionsParametersProperties {
 		return &v
-	}).(SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput)
 }
 
 // The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationStepFunctionsParametersProperties) *string {
 		return v.InvocationTimeoutSeconds
 	}).(pulumi.StringPtrOutput)
 }
 
 // How the execution is started: EVENT (StartExecution, asynchronous) or REQUEST_RESPONSE (StartSyncExecution, synchronous).
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput) InvocationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput) InvocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationStepFunctionsParametersProperties) *string {
 		return v.InvocationType
 	}).(pulumi.StringPtrOutput)
 }
 
 // A name for the execution. Must be unique for the account, Region, and state machine. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationStepFunctionsParametersProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The AWS X-Ray trace header for distributed tracing. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput) TraceHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) *string {
-		return v.TraceHeader
-	}).(pulumi.StringPtrOutput)
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput) TraceHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationStepFunctionsParametersProperties) *string { return v.TraceHeader }).(pulumi.StringPtrOutput)
 }
 
-type SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationStepFunctionsParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationStepFunctionsParametersProperties) SubscriberInvokeConfigurationStepFunctionsParametersProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties
+		var ret SubscriberInvokeConfigurationStepFunctionsParametersProperties
 		return ret
-	}).(SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput)
+	}).(SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput)
 }
 
 // The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationStepFunctionsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3342,8 +3318,8 @@ func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties
 }
 
 // How the execution is started: EVENT (StartExecution, asynchronous) or REQUEST_RESPONSE (StartSyncExecution, synchronous).
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput) InvocationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput) InvocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationStepFunctionsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3352,8 +3328,8 @@ func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties
 }
 
 // A name for the execution. Must be unique for the account, Region, and state machine. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationStepFunctionsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3362,8 +3338,8 @@ func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties
 }
 
 // The AWS X-Ray trace header for distributed tracing. Accepts a literal value or a JSONata expression.
-func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput) TraceHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties) *string {
+func (o SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput) TraceHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationStepFunctionsParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3372,151 +3348,149 @@ func (o SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties
 }
 
 // Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-type SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties struct {
+type SubscriberInvokeConfigurationUniversalTargetParametersProperties struct {
 	// JSON string or JSONata expression that produces the API request. Supports {% ... %} JSONata expressions for dynamic values from the event.
 	Input string `pulumi:"input"`
 	// Timeout in seconds for each invocation of the target (1-30, default 30). Must be a literal integer written as a string; JSONata expressions are not supported for this field.
 	InvocationTimeoutSeconds *string `pulumi:"invocationTimeoutSeconds"`
 }
 
-// SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs and SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesInput` via:
+// SubscriberInvokeConfigurationUniversalTargetParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs and SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationUniversalTargetParametersPropertiesInput` via:
 //
-//	SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs{...}
-type SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesInput interface {
+//	SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs{...}
+type SubscriberInvokeConfigurationUniversalTargetParametersPropertiesInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput
-	ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput
 }
 
 // Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-type SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs struct {
+type SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs struct {
 	// JSON string or JSONata expression that produces the API request. Supports {% ... %} JSONata expressions for dynamic values from the event.
 	Input pulumi.StringInput `pulumi:"input"`
 	// Timeout in seconds for each invocation of the target (1-30, default 30). Must be a literal integer written as a string; JSONata expressions are not supported for this field.
 	InvocationTimeoutSeconds pulumi.StringPtrInput `pulumi:"invocationTimeoutSeconds"`
 }
 
-func (SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationUniversalTargetParametersProperties)(nil)).Elem()
 }
 
-func (i SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput {
+	return i.ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput)
+func (i SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput)
 }
 
-func (i SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutputWithContext(context.Background())
+func (i SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput).ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutputWithContext(ctx)
+func (i SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput).ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutputWithContext(ctx)
 }
 
-// SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs, SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtr and SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrInput` via:
+// SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs, SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtr and SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrInput` via:
 //
-//	        SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs{...}
+//	        SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrInput interface {
+type SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput
-	ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput
 }
 
-type subscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrType SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs
+type subscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrType SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs
 
-func SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtr(v *SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrInput {
-	return (*subscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrType)(v)
+func SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtr(v *SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs) SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrInput {
+	return (*subscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrType)(v)
 }
 
-func (*subscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties)(nil)).Elem()
+func (*subscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationUniversalTargetParametersProperties)(nil)).Elem()
 }
 
-func (i *subscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
-	return i.ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *subscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrType) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *subscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrType) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput)
+func (i *subscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrType) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput)
 }
 
 // Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-type SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationUniversalTargetParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput {
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
-	return o.ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutputWithContext(context.Background())
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
+	return o.ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties) *SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties {
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationUniversalTargetParametersProperties) *SubscriberInvokeConfigurationUniversalTargetParametersProperties {
 		return &v
-	}).(SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput)
+	}).(SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput)
 }
 
 // JSON string or JSONata expression that produces the API request. Supports {% ... %} JSONata expressions for dynamic values from the event.
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput) Input() pulumi.StringOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties) string {
-		return v.Input
-	}).(pulumi.StringOutput)
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput) Input() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationUniversalTargetParametersProperties) string { return v.Input }).(pulumi.StringOutput)
 }
 
 // Timeout in seconds for each invocation of the target (1-30, default 30). Must be a literal integer written as a string; JSONata expressions are not supported for this field.
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties) *string {
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationUniversalTargetParametersProperties) *string {
 		return v.InvocationTimeoutSeconds
 	}).(pulumi.StringPtrOutput)
 }
 
-type SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties)(nil)).Elem()
+func (SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationUniversalTargetParametersProperties)(nil)).Elem()
 }
 
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput {
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput {
 	return o
 }
 
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties) SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties {
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationUniversalTargetParametersProperties) SubscriberInvokeConfigurationUniversalTargetParametersProperties {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties
+		var ret SubscriberInvokeConfigurationUniversalTargetParametersProperties
 		return ret
-	}).(SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput)
+	}).(SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput)
 }
 
 // JSON string or JSONata expression that produces the API request. Supports {% ... %} JSONata expressions for dynamic values from the event.
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput) Input() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties) *string {
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput) Input() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationUniversalTargetParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -3525,8 +3499,8 @@ func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperti
 }
 
 // Timeout in seconds for each invocation of the target (1-30, default 30). Must be a literal integer written as a string; JSONata expressions are not supported for this field.
-func (o SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties) *string {
+func (o SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput) InvocationTimeoutSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationUniversalTargetParametersProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -4638,23 +4612,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberFilterArrayInput)(nil)).Elem(), SubscriberFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberFilterConfigurationInput)(nil)).Elem(), SubscriberFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberFilterConfigurationPtrInput)(nil)).Elem(), SubscriberFilterConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationInput)(nil)).Elem(), SubscriberInvokeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationEventBusV2ParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationHttpParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationHttpParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationHttpParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationHttpParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationKinesisParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationKinesisParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationKinesisParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationKinesisParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationLambdaParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationLambdaParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationLambdaParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationLambdaParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationSnsParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationSnsParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationSnsParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationSnsParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationSqsParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationSqsParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationSqsParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationSqsParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationStepFunctionsParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationUniversalTargetParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberJsonataConfigurationInput)(nil)).Elem(), SubscriberJsonataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberJsonataConfigurationPtrInput)(nil)).Elem(), SubscriberJsonataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberLogConfigurationInput)(nil)).Elem(), SubscriberLogConfigurationArgs{})
@@ -4691,24 +4665,24 @@ func init() {
 	pulumi.RegisterOutputType(SubscriberFilterArrayOutput{})
 	pulumi.RegisterOutputType(SubscriberFilterConfigurationOutput{})
 	pulumi.RegisterOutputType(SubscriberFilterConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationEventBusV2ParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationEventBusV2ParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationHttpParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationHttpParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationKinesisParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationLambdaParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationSnsParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationSqsParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationSqsParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationStepFunctionsParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationStepFunctionsParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationUniversalTargetParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationUniversalTargetParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberJsonataConfigurationOutput{})
 	pulumi.RegisterOutputType(SubscriberJsonataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberLogConfigurationOutput{})

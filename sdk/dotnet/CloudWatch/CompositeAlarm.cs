@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.CloudWatch
     public partial class CompositeAlarm : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Configuration that applies to the notifications this alarm sends when it performs its actions.
+        /// </summary>
+        [Output("actionConfiguration")]
+        public Output<Outputs.CompositeAlarmActionConfiguration?> ActionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         /// </summary>
         [Output("actionsEnabled")]
@@ -136,6 +142,12 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class CompositeAlarmArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration that applies to the notifications this alarm sends when it performs its actions.
+        /// </summary>
+        [Input("actionConfiguration")]
+        public Input<Inputs.CompositeAlarmActionConfigurationArgs>? ActionConfiguration { get; set; }
+
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         /// </summary>

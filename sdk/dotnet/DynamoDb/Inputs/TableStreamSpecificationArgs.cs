@@ -35,6 +35,11 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
         [Input("tags")]
         private InputList<Inputs.TableTagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+        ///  For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+        /// </summary>
         public InputList<Inputs.TableTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.TableTagArgs>());

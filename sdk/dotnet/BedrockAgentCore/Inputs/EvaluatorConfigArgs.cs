@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("codeBased")]
         public Input<Inputs.EvaluatorCodeBasedEvaluatorConfigArgs>? CodeBased { get; set; }
 
+        [Input("derived")]
+        public Input<Inputs.EvaluatorDerivedEvaluatorConfigArgs>? Derived { get; set; }
+
         [Input("llmAsAJudge")]
         public Input<Inputs.EvaluatorLlmAsAJudgeEvaluatorConfigArgs>? LlmAsAJudge { get; set; }
 

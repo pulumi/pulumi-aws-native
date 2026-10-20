@@ -38,6 +38,10 @@ export interface GetServiceResult {
      */
     readonly arn?: string;
     /**
+     * The display name for the service registration.
+     */
+    readonly name?: string;
+    /**
      * The unique identifier of the service
      */
     readonly serviceId?: string;

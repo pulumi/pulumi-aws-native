@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CodeInterpreterCustom{}
 	case "aws-native:bedrockagentcore:ConfigurationBundle":
 		r = &ConfigurationBundle{}
+	case "aws-native:bedrockagentcore:ConsentPortal":
+		r = &ConsentPortal{}
 	case "aws-native:bedrockagentcore:Dataset":
 		r = &Dataset{}
 	case "aws-native:bedrockagentcore:Evaluator":

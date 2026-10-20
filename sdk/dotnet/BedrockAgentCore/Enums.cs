@@ -472,6 +472,65 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ConsentPortalSourceType : IEquatable<ConsentPortalSourceType>
+    {
+        private readonly string _value;
+
+        private ConsentPortalSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConsentPortalSourceType AgentcoreGateway { get; } = new ConsentPortalSourceType("agentcore-gateway");
+
+        public static bool operator ==(ConsentPortalSourceType left, ConsentPortalSourceType right) => left.Equals(right);
+        public static bool operator !=(ConsentPortalSourceType left, ConsentPortalSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(ConsentPortalSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConsentPortalSourceType other && Equals(other);
+        public bool Equals(ConsentPortalSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConsentPortalStatus : IEquatable<ConsentPortalStatus>
+    {
+        private readonly string _value;
+
+        private ConsentPortalStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConsentPortalStatus Creating { get; } = new ConsentPortalStatus("CREATING");
+        public static ConsentPortalStatus Active { get; } = new ConsentPortalStatus("ACTIVE");
+        public static ConsentPortalStatus Updating { get; } = new ConsentPortalStatus("UPDATING");
+        public static ConsentPortalStatus UpdateFailed { get; } = new ConsentPortalStatus("UPDATE_FAILED");
+        public static ConsentPortalStatus Deleting { get; } = new ConsentPortalStatus("DELETING");
+        public static ConsentPortalStatus Failed { get; } = new ConsentPortalStatus("FAILED");
+
+        public static bool operator ==(ConsentPortalStatus left, ConsentPortalStatus right) => left.Equals(right);
+        public static bool operator !=(ConsentPortalStatus left, ConsentPortalStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConsentPortalStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConsentPortalStatus other && Equals(other);
+        public bool Equals(ConsentPortalStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Versioned schema type governing the structure of examples. Immutable after creation.
     /// </summary>
@@ -487,6 +546,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static DatasetSchemaType AgentcoreEvaluationPredefinedV1 { get; } = new DatasetSchemaType("AGENTCORE_EVALUATION_PREDEFINED_V1");
         public static DatasetSchemaType AgentcoreEvaluationSimulatedV1 { get; } = new DatasetSchemaType("AGENTCORE_EVALUATION_SIMULATED_V1");
+        public static DatasetSchemaType GenericEvaluationPredefinedV1 { get; } = new DatasetSchemaType("GENERIC_EVALUATION_PREDEFINED_V1");
+        public static DatasetSchemaType ThirdPartyEvaluationV1 { get; } = new DatasetSchemaType("THIRD_PARTY_EVALUATION_V1");
 
         public static bool operator ==(DatasetSchemaType left, DatasetSchemaType right) => left.Equals(right);
         public static bool operator !=(DatasetSchemaType left, DatasetSchemaType right) => !left.Equals(right);
@@ -568,6 +629,39 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Where the evaluator's logic comes from: AWS for AWS-authored evaluators, DeepEval or AutoEval for the corresponding third-party libraries, or Custom for an evaluator that you authored.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluatorProvider : IEquatable<EvaluatorProvider>
+    {
+        private readonly string _value;
+
+        private EvaluatorProvider(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluatorProvider Aws { get; } = new EvaluatorProvider("AWS");
+        public static EvaluatorProvider DeepEval { get; } = new EvaluatorProvider("DeepEval");
+        public static EvaluatorProvider AutoEval { get; } = new EvaluatorProvider("AutoEval");
+        public static EvaluatorProvider Custom { get; } = new EvaluatorProvider("Custom");
+
+        public static bool operator ==(EvaluatorProvider left, EvaluatorProvider right) => left.Equals(right);
+        public static bool operator !=(EvaluatorProvider left, EvaluatorProvider right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluatorProvider value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluatorProvider other && Equals(other);
+        public bool Equals(EvaluatorProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct EvaluatorStatus : IEquatable<EvaluatorStatus>
     {
@@ -593,6 +687,40 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EvaluatorStatus other && Equals(other);
         public bool Equals(EvaluatorStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluatorType : IEquatable<EvaluatorType>
+    {
+        private readonly string _value;
+
+        private EvaluatorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluatorType Builtin { get; } = new EvaluatorType("Builtin");
+        public static EvaluatorType ThirdParty { get; } = new EvaluatorType("ThirdParty");
+        public static EvaluatorType Custom { get; } = new EvaluatorType("Custom");
+        public static EvaluatorType CustomCode { get; } = new EvaluatorType("CustomCode");
+        public static EvaluatorType CustomDerived { get; } = new EvaluatorType("CustomDerived");
+
+        public static bool operator ==(EvaluatorType left, EvaluatorType right) => left.Equals(right);
+        public static bool operator !=(EvaluatorType left, EvaluatorType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluatorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluatorType other && Equals(other);
+        public bool Equals(EvaluatorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2898,6 +3026,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static OnlineEvaluationConfigStatus Updating { get; } = new OnlineEvaluationConfigStatus("UPDATING");
         public static OnlineEvaluationConfigStatus UpdateFailed { get; } = new OnlineEvaluationConfigStatus("UPDATE_FAILED");
         public static OnlineEvaluationConfigStatus Deleting { get; } = new OnlineEvaluationConfigStatus("DELETING");
+        public static OnlineEvaluationConfigStatus Error { get; } = new OnlineEvaluationConfigStatus("ERROR");
 
         public static bool operator ==(OnlineEvaluationConfigStatus left, OnlineEvaluationConfigStatus right) => left.Equals(right);
         public static bool operator !=(OnlineEvaluationConfigStatus left, OnlineEvaluationConfigStatus right) => !left.Equals(right);

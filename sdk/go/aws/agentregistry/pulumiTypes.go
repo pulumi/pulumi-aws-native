@@ -740,6 +740,167 @@ func (o RegistryCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration that defines a typed metadata schema for a registry. A default schema and per-record-type schema overrides are both optional. Schema evolution is additive only: you can add fields and enum values, but you cannot remove fields, change types, or remove enum values.
+type RegistryCustomMetadataSchemaConfiguration struct {
+	// The default JSON Schema that applies to record types without a specific override. Supported property types are string, string with an enum constraint, string with a uri format, and boolean.
+	DefaultSchema *string `pulumi:"defaultSchema"`
+	// A list of per-record-type schema overrides. When a record's type matches an override, that override's schema is used instead of the default schema for validation.
+	RecordTypeSchemaOverrides []RegistryRecordTypeSchemaOverride `pulumi:"recordTypeSchemaOverrides"`
+}
+
+// RegistryCustomMetadataSchemaConfigurationInput is an input type that accepts RegistryCustomMetadataSchemaConfigurationArgs and RegistryCustomMetadataSchemaConfigurationOutput values.
+// You can construct a concrete instance of `RegistryCustomMetadataSchemaConfigurationInput` via:
+//
+//	RegistryCustomMetadataSchemaConfigurationArgs{...}
+type RegistryCustomMetadataSchemaConfigurationInput interface {
+	pulumi.Input
+
+	ToRegistryCustomMetadataSchemaConfigurationOutput() RegistryCustomMetadataSchemaConfigurationOutput
+	ToRegistryCustomMetadataSchemaConfigurationOutputWithContext(context.Context) RegistryCustomMetadataSchemaConfigurationOutput
+}
+
+// Configuration that defines a typed metadata schema for a registry. A default schema and per-record-type schema overrides are both optional. Schema evolution is additive only: you can add fields and enum values, but you cannot remove fields, change types, or remove enum values.
+type RegistryCustomMetadataSchemaConfigurationArgs struct {
+	// The default JSON Schema that applies to record types without a specific override. Supported property types are string, string with an enum constraint, string with a uri format, and boolean.
+	DefaultSchema pulumi.StringPtrInput `pulumi:"defaultSchema"`
+	// A list of per-record-type schema overrides. When a record's type matches an override, that override's schema is used instead of the default schema for validation.
+	RecordTypeSchemaOverrides RegistryRecordTypeSchemaOverrideArrayInput `pulumi:"recordTypeSchemaOverrides"`
+}
+
+func (RegistryCustomMetadataSchemaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryCustomMetadataSchemaConfiguration)(nil)).Elem()
+}
+
+func (i RegistryCustomMetadataSchemaConfigurationArgs) ToRegistryCustomMetadataSchemaConfigurationOutput() RegistryCustomMetadataSchemaConfigurationOutput {
+	return i.ToRegistryCustomMetadataSchemaConfigurationOutputWithContext(context.Background())
+}
+
+func (i RegistryCustomMetadataSchemaConfigurationArgs) ToRegistryCustomMetadataSchemaConfigurationOutputWithContext(ctx context.Context) RegistryCustomMetadataSchemaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryCustomMetadataSchemaConfigurationOutput)
+}
+
+func (i RegistryCustomMetadataSchemaConfigurationArgs) ToRegistryCustomMetadataSchemaConfigurationPtrOutput() RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return i.ToRegistryCustomMetadataSchemaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryCustomMetadataSchemaConfigurationArgs) ToRegistryCustomMetadataSchemaConfigurationPtrOutputWithContext(ctx context.Context) RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryCustomMetadataSchemaConfigurationOutput).ToRegistryCustomMetadataSchemaConfigurationPtrOutputWithContext(ctx)
+}
+
+// RegistryCustomMetadataSchemaConfigurationPtrInput is an input type that accepts RegistryCustomMetadataSchemaConfigurationArgs, RegistryCustomMetadataSchemaConfigurationPtr and RegistryCustomMetadataSchemaConfigurationPtrOutput values.
+// You can construct a concrete instance of `RegistryCustomMetadataSchemaConfigurationPtrInput` via:
+//
+//	        RegistryCustomMetadataSchemaConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryCustomMetadataSchemaConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRegistryCustomMetadataSchemaConfigurationPtrOutput() RegistryCustomMetadataSchemaConfigurationPtrOutput
+	ToRegistryCustomMetadataSchemaConfigurationPtrOutputWithContext(context.Context) RegistryCustomMetadataSchemaConfigurationPtrOutput
+}
+
+type registryCustomMetadataSchemaConfigurationPtrType RegistryCustomMetadataSchemaConfigurationArgs
+
+func RegistryCustomMetadataSchemaConfigurationPtr(v *RegistryCustomMetadataSchemaConfigurationArgs) RegistryCustomMetadataSchemaConfigurationPtrInput {
+	return (*registryCustomMetadataSchemaConfigurationPtrType)(v)
+}
+
+func (*registryCustomMetadataSchemaConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryCustomMetadataSchemaConfiguration)(nil)).Elem()
+}
+
+func (i *registryCustomMetadataSchemaConfigurationPtrType) ToRegistryCustomMetadataSchemaConfigurationPtrOutput() RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return i.ToRegistryCustomMetadataSchemaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *registryCustomMetadataSchemaConfigurationPtrType) ToRegistryCustomMetadataSchemaConfigurationPtrOutputWithContext(ctx context.Context) RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryCustomMetadataSchemaConfigurationPtrOutput)
+}
+
+// Configuration that defines a typed metadata schema for a registry. A default schema and per-record-type schema overrides are both optional. Schema evolution is additive only: you can add fields and enum values, but you cannot remove fields, change types, or remove enum values.
+type RegistryCustomMetadataSchemaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RegistryCustomMetadataSchemaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryCustomMetadataSchemaConfiguration)(nil)).Elem()
+}
+
+func (o RegistryCustomMetadataSchemaConfigurationOutput) ToRegistryCustomMetadataSchemaConfigurationOutput() RegistryCustomMetadataSchemaConfigurationOutput {
+	return o
+}
+
+func (o RegistryCustomMetadataSchemaConfigurationOutput) ToRegistryCustomMetadataSchemaConfigurationOutputWithContext(ctx context.Context) RegistryCustomMetadataSchemaConfigurationOutput {
+	return o
+}
+
+func (o RegistryCustomMetadataSchemaConfigurationOutput) ToRegistryCustomMetadataSchemaConfigurationPtrOutput() RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return o.ToRegistryCustomMetadataSchemaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryCustomMetadataSchemaConfigurationOutput) ToRegistryCustomMetadataSchemaConfigurationPtrOutputWithContext(ctx context.Context) RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryCustomMetadataSchemaConfiguration) *RegistryCustomMetadataSchemaConfiguration {
+		return &v
+	}).(RegistryCustomMetadataSchemaConfigurationPtrOutput)
+}
+
+// The default JSON Schema that applies to record types without a specific override. Supported property types are string, string with an enum constraint, string with a uri format, and boolean.
+func (o RegistryCustomMetadataSchemaConfigurationOutput) DefaultSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryCustomMetadataSchemaConfiguration) *string { return v.DefaultSchema }).(pulumi.StringPtrOutput)
+}
+
+// A list of per-record-type schema overrides. When a record's type matches an override, that override's schema is used instead of the default schema for validation.
+func (o RegistryCustomMetadataSchemaConfigurationOutput) RecordTypeSchemaOverrides() RegistryRecordTypeSchemaOverrideArrayOutput {
+	return o.ApplyT(func(v RegistryCustomMetadataSchemaConfiguration) []RegistryRecordTypeSchemaOverride {
+		return v.RecordTypeSchemaOverrides
+	}).(RegistryRecordTypeSchemaOverrideArrayOutput)
+}
+
+type RegistryCustomMetadataSchemaConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryCustomMetadataSchemaConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryCustomMetadataSchemaConfiguration)(nil)).Elem()
+}
+
+func (o RegistryCustomMetadataSchemaConfigurationPtrOutput) ToRegistryCustomMetadataSchemaConfigurationPtrOutput() RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryCustomMetadataSchemaConfigurationPtrOutput) ToRegistryCustomMetadataSchemaConfigurationPtrOutputWithContext(ctx context.Context) RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryCustomMetadataSchemaConfigurationPtrOutput) Elem() RegistryCustomMetadataSchemaConfigurationOutput {
+	return o.ApplyT(func(v *RegistryCustomMetadataSchemaConfiguration) RegistryCustomMetadataSchemaConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryCustomMetadataSchemaConfiguration
+		return ret
+	}).(RegistryCustomMetadataSchemaConfigurationOutput)
+}
+
+// The default JSON Schema that applies to record types without a specific override. Supported property types are string, string with an enum constraint, string with a uri format, and boolean.
+func (o RegistryCustomMetadataSchemaConfigurationPtrOutput) DefaultSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryCustomMetadataSchemaConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSchema
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of per-record-type schema overrides. When a record's type matches an override, that override's schema is used instead of the default schema for validation.
+func (o RegistryCustomMetadataSchemaConfigurationPtrOutput) RecordTypeSchemaOverrides() RegistryRecordTypeSchemaOverrideArrayOutput {
+	return o.ApplyT(func(v *RegistryCustomMetadataSchemaConfiguration) []RegistryRecordTypeSchemaOverride {
+		if v == nil {
+			return nil
+		}
+		return v.RecordTypeSchemaOverrides
+	}).(RegistryRecordTypeSchemaOverrideArrayOutput)
+}
+
 // Discovery configuration for the registry. Controls how consumers are authorized to search the registry and invoke its MCP endpoint.
 type RegistryDiscoveryConfiguration struct {
 	AuthorizerConfiguration *RegistryAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
@@ -4117,6 +4278,117 @@ type RegistryRecordTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A schema override for a specific record type within a custom metadata schema configuration.
+type RegistryRecordTypeSchemaOverride struct {
+	// The record type that this schema override applies to.
+	RecordType RegistryRecordTypeSchemaOverrideRecordType `pulumi:"recordType"`
+	// The JSON Schema for the specified record type. Must follow the same structural rules as the default schema.
+	Schema string `pulumi:"schema"`
+}
+
+// RegistryRecordTypeSchemaOverrideInput is an input type that accepts RegistryRecordTypeSchemaOverrideArgs and RegistryRecordTypeSchemaOverrideOutput values.
+// You can construct a concrete instance of `RegistryRecordTypeSchemaOverrideInput` via:
+//
+//	RegistryRecordTypeSchemaOverrideArgs{...}
+type RegistryRecordTypeSchemaOverrideInput interface {
+	pulumi.Input
+
+	ToRegistryRecordTypeSchemaOverrideOutput() RegistryRecordTypeSchemaOverrideOutput
+	ToRegistryRecordTypeSchemaOverrideOutputWithContext(context.Context) RegistryRecordTypeSchemaOverrideOutput
+}
+
+// A schema override for a specific record type within a custom metadata schema configuration.
+type RegistryRecordTypeSchemaOverrideArgs struct {
+	// The record type that this schema override applies to.
+	RecordType RegistryRecordTypeSchemaOverrideRecordTypeInput `pulumi:"recordType"`
+	// The JSON Schema for the specified record type. Must follow the same structural rules as the default schema.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (RegistryRecordTypeSchemaOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordTypeSchemaOverride)(nil)).Elem()
+}
+
+func (i RegistryRecordTypeSchemaOverrideArgs) ToRegistryRecordTypeSchemaOverrideOutput() RegistryRecordTypeSchemaOverrideOutput {
+	return i.ToRegistryRecordTypeSchemaOverrideOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordTypeSchemaOverrideArgs) ToRegistryRecordTypeSchemaOverrideOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordTypeSchemaOverrideOutput)
+}
+
+// RegistryRecordTypeSchemaOverrideArrayInput is an input type that accepts RegistryRecordTypeSchemaOverrideArray and RegistryRecordTypeSchemaOverrideArrayOutput values.
+// You can construct a concrete instance of `RegistryRecordTypeSchemaOverrideArrayInput` via:
+//
+//	RegistryRecordTypeSchemaOverrideArray{ RegistryRecordTypeSchemaOverrideArgs{...} }
+type RegistryRecordTypeSchemaOverrideArrayInput interface {
+	pulumi.Input
+
+	ToRegistryRecordTypeSchemaOverrideArrayOutput() RegistryRecordTypeSchemaOverrideArrayOutput
+	ToRegistryRecordTypeSchemaOverrideArrayOutputWithContext(context.Context) RegistryRecordTypeSchemaOverrideArrayOutput
+}
+
+type RegistryRecordTypeSchemaOverrideArray []RegistryRecordTypeSchemaOverrideInput
+
+func (RegistryRecordTypeSchemaOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryRecordTypeSchemaOverride)(nil)).Elem()
+}
+
+func (i RegistryRecordTypeSchemaOverrideArray) ToRegistryRecordTypeSchemaOverrideArrayOutput() RegistryRecordTypeSchemaOverrideArrayOutput {
+	return i.ToRegistryRecordTypeSchemaOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordTypeSchemaOverrideArray) ToRegistryRecordTypeSchemaOverrideArrayOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordTypeSchemaOverrideArrayOutput)
+}
+
+// A schema override for a specific record type within a custom metadata schema configuration.
+type RegistryRecordTypeSchemaOverrideOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordTypeSchemaOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordTypeSchemaOverride)(nil)).Elem()
+}
+
+func (o RegistryRecordTypeSchemaOverrideOutput) ToRegistryRecordTypeSchemaOverrideOutput() RegistryRecordTypeSchemaOverrideOutput {
+	return o
+}
+
+func (o RegistryRecordTypeSchemaOverrideOutput) ToRegistryRecordTypeSchemaOverrideOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideOutput {
+	return o
+}
+
+// The record type that this schema override applies to.
+func (o RegistryRecordTypeSchemaOverrideOutput) RecordType() RegistryRecordTypeSchemaOverrideRecordTypeOutput {
+	return o.ApplyT(func(v RegistryRecordTypeSchemaOverride) RegistryRecordTypeSchemaOverrideRecordType {
+		return v.RecordType
+	}).(RegistryRecordTypeSchemaOverrideRecordTypeOutput)
+}
+
+// The JSON Schema for the specified record type. Must follow the same structural rules as the default schema.
+func (o RegistryRecordTypeSchemaOverrideOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryRecordTypeSchemaOverride) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+type RegistryRecordTypeSchemaOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordTypeSchemaOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryRecordTypeSchemaOverride)(nil)).Elem()
+}
+
+func (o RegistryRecordTypeSchemaOverrideArrayOutput) ToRegistryRecordTypeSchemaOverrideArrayOutput() RegistryRecordTypeSchemaOverrideArrayOutput {
+	return o
+}
+
+func (o RegistryRecordTypeSchemaOverrideArrayOutput) ToRegistryRecordTypeSchemaOverrideArrayOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideArrayOutput {
+	return o
+}
+
+func (o RegistryRecordTypeSchemaOverrideArrayOutput) Index(i pulumi.IntInput) RegistryRecordTypeSchemaOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryRecordTypeSchemaOverride {
+		return vs[0].([]RegistryRecordTypeSchemaOverride)[vs[1].(int)]
+	}).(RegistryRecordTypeSchemaOverrideOutput)
+}
+
 // A tag to assign to the registry.
 type RegistryTag struct {
 	// The key of the tag.
@@ -4136,6 +4408,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryCustomClaimValidationTypeArrayInput)(nil)).Elem(), RegistryCustomClaimValidationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), RegistryCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), RegistryCustomJwtAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryCustomMetadataSchemaConfigurationInput)(nil)).Elem(), RegistryCustomMetadataSchemaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryCustomMetadataSchemaConfigurationPtrInput)(nil)).Elem(), RegistryCustomMetadataSchemaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationInput)(nil)).Elem(), RegistryDiscoveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationPtrInput)(nil)).Elem(), RegistryDiscoveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionConfigurationInput)(nil)).Elem(), RegistryEncryptionConfigurationArgs{})
@@ -4180,6 +4454,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourcePtrInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceFromUrlInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordTypeSchemaOverrideInput)(nil)).Elem(), RegistryRecordTypeSchemaOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordTypeSchemaOverrideArrayInput)(nil)).Elem(), RegistryRecordTypeSchemaOverrideArray{})
 	pulumi.RegisterOutputType(RegistryApprovalConfigurationOutput{})
 	pulumi.RegisterOutputType(RegistryApprovalConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryAuthorizerConfigurationOutput{})
@@ -4190,6 +4466,8 @@ func init() {
 	pulumi.RegisterOutputType(RegistryCustomClaimValidationTypeArrayOutput{})
 	pulumi.RegisterOutputType(RegistryCustomJwtAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RegistryCustomJwtAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RegistryCustomMetadataSchemaConfigurationOutput{})
+	pulumi.RegisterOutputType(RegistryCustomMetadataSchemaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationOutput{})
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryEncryptionConfigurationOutput{})
@@ -4235,4 +4513,6 @@ func init() {
 	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourcePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordTypeSchemaOverrideOutput{})
+	pulumi.RegisterOutputType(RegistryRecordTypeSchemaOverrideArrayOutput{})
 }

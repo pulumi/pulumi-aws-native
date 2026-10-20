@@ -23,6 +23,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
             set => _categorical = value;
         }
 
+        [Input("multiDimensional")]
+        private InputList<Inputs.EvaluatorEvaluationDimensionArgs>? _multiDimensional;
+
+        /// <summary>
+        /// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+        /// </summary>
+        public InputList<Inputs.EvaluatorEvaluationDimensionArgs> MultiDimensional
+        {
+            get => _multiDimensional ?? (_multiDimensional = new InputList<Inputs.EvaluatorEvaluationDimensionArgs>());
+            set => _multiDimensional = value;
+        }
+
         [Input("numerical")]
         private InputList<Inputs.EvaluatorNumericalScaleDefinitionArgs>? _numerical;
         public InputList<Inputs.EvaluatorNumericalScaleDefinitionArgs> Numerical

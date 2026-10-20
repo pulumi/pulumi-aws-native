@@ -84,6 +84,25 @@ export const PlaybackConfigurationAvailSuppressionMode = {
  */
 export type PlaybackConfigurationAvailSuppressionMode = (typeof PlaybackConfigurationAvailSuppressionMode)[keyof typeof PlaybackConfigurationAvailSuppressionMode];
 
+export const PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem = {
+    Mute: "MUTE",
+    Unmute: "UNMUTE",
+    Pause: "PAUSE",
+    Skip: "SKIP",
+} as const;
+
+export type PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem = (typeof PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem)[keyof typeof PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem];
+
+export const PlaybackConfigurationClientSideBeaconingConfigurationReportingMode = {
+    Disabled: "DISABLED",
+    Insights: "INSIGHTS",
+} as const;
+
+/**
+ * Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+ */
+export type PlaybackConfigurationClientSideBeaconingConfigurationReportingMode = (typeof PlaybackConfigurationClientSideBeaconingConfigurationReportingMode)[keyof typeof PlaybackConfigurationClientSideBeaconingConfigurationReportingMode];
+
 export const PlaybackConfigurationDashConfigurationOriginManifestType = {
     SinglePeriod: "SINGLE_PERIOD",
     MultiPeriod: "MULTI_PERIOD",

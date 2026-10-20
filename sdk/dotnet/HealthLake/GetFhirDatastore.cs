@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.HealthLake
     [OutputType]
     public sealed class GetFhirDatastoreResult
     {
+        public readonly Outputs.FhirDatastoreAnalyticsConfiguration? AnalyticsConfiguration;
         public readonly Outputs.FhirDatastoreCreatedAt? CreatedAt;
         /// <summary>
         /// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
@@ -77,9 +78,19 @@ namespace Pulumi.AwsNative.HealthLake
         /// </summary>
         public readonly string? DatastoreId;
         /// <summary>
+        /// The data store name (user-generated).
+        /// </summary>
+        public readonly string? DatastoreName;
+        /// <summary>
         /// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
         /// </summary>
         public readonly Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreStatus? DatastoreStatus;
+        /// <summary>
+        /// The identity provider configuration selected when the data store was created.
+        /// </summary>
+        public readonly Outputs.FhirDatastoreIdentityProviderConfiguration? IdentityProviderConfiguration;
+        public readonly Outputs.FhirDatastoreNlpConfiguration? NlpConfiguration;
+        public readonly Outputs.FhirDatastoreProfileConfiguration? ProfileConfiguration;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// 
@@ -89,6 +100,8 @@ namespace Pulumi.AwsNative.HealthLake
 
         [OutputConstructor]
         private GetFhirDatastoreResult(
+            Outputs.FhirDatastoreAnalyticsConfiguration? analyticsConfiguration,
+
             Outputs.FhirDatastoreCreatedAt? createdAt,
 
             string? datastoreArn,
@@ -97,15 +110,28 @@ namespace Pulumi.AwsNative.HealthLake
 
             string? datastoreId,
 
+            string? datastoreName,
+
             Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreStatus? datastoreStatus,
+
+            Outputs.FhirDatastoreIdentityProviderConfiguration? identityProviderConfiguration,
+
+            Outputs.FhirDatastoreNlpConfiguration? nlpConfiguration,
+
+            Outputs.FhirDatastoreProfileConfiguration? profileConfiguration,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AnalyticsConfiguration = analyticsConfiguration;
             CreatedAt = createdAt;
             DatastoreArn = datastoreArn;
             DatastoreEndpoint = datastoreEndpoint;
             DatastoreId = datastoreId;
+            DatastoreName = datastoreName;
             DatastoreStatus = datastoreStatus;
+            IdentityProviderConfiguration = identityProviderConfiguration;
+            NlpConfiguration = nlpConfiguration;
+            ProfileConfiguration = profileConfiguration;
             Tags = tags;
         }
     }

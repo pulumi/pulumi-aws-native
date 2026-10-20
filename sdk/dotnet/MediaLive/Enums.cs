@@ -290,6 +290,244 @@ namespace Pulumi.AwsNative.MediaLive
     }
 
     /// <summary>
+    /// Placeholder documentation for Algorithm
+    /// </summary>
+    [EnumType]
+    public readonly struct InputAlgorithm : IEquatable<InputAlgorithm>
+    {
+        private readonly string _value;
+
+        private InputAlgorithm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InputAlgorithm Aes128 { get; } = new InputAlgorithm("AES128");
+        public static InputAlgorithm Aes192 { get; } = new InputAlgorithm("AES192");
+        public static InputAlgorithm Aes256 { get; } = new InputAlgorithm("AES256");
+
+        public static bool operator ==(InputAlgorithm left, InputAlgorithm right) => left.Equals(right);
+        public static bool operator !=(InputAlgorithm left, InputAlgorithm right) => !left.Equals(right);
+
+        public static explicit operator string(InputAlgorithm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InputAlgorithm other && Equals(other);
+        public bool Equals(InputAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A standard input has two sources and a single pipeline input only has one.
+    /// </summary>
+    [EnumType]
+    public readonly struct InputClass : IEquatable<InputClass>
+    {
+        private readonly string _value;
+
+        private InputClass(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InputClass Standard { get; } = new InputClass("STANDARD");
+        public static InputClass SinglePipeline { get; } = new InputClass("SINGLE_PIPELINE");
+
+        public static bool operator ==(InputClass left, InputClass right) => left.Equals(right);
+        public static bool operator !=(InputClass left, InputClass right) => !left.Equals(right);
+
+        public static explicit operator string(InputClass value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InputClass other && Equals(other);
+        public bool Equals(InputClass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// With the introduction of MediaLive Anywhere, a MediaLive input can now exist in two different places: AWS or
+    /// inside an on-premises datacenter. By default all inputs will continue to be AWS inputs.
+    /// </summary>
+    [EnumType]
+    public readonly struct InputNetworkLocation : IEquatable<InputNetworkLocation>
+    {
+        private readonly string _value;
+
+        private InputNetworkLocation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InputNetworkLocation Aws { get; } = new InputNetworkLocation("AWS");
+        public static InputNetworkLocation OnPremises { get; } = new InputNetworkLocation("ON_PREMISES");
+
+        public static bool operator ==(InputNetworkLocation left, InputNetworkLocation right) => left.Equals(right);
+        public static bool operator !=(InputNetworkLocation left, InputNetworkLocation right) => !left.Equals(right);
+
+        public static explicit operator string(InputNetworkLocation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InputNetworkLocation other && Equals(other);
+        public bool Equals(InputNetworkLocation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+    /// </summary>
+    [EnumType]
+    public readonly struct InputRouterSettingsEncryptionType : IEquatable<InputRouterSettingsEncryptionType>
+    {
+        private readonly string _value;
+
+        private InputRouterSettingsEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InputRouterSettingsEncryptionType Automatic { get; } = new InputRouterSettingsEncryptionType("AUTOMATIC");
+        public static InputRouterSettingsEncryptionType SecretsManager { get; } = new InputRouterSettingsEncryptionType("SECRETS_MANAGER");
+
+        public static bool operator ==(InputRouterSettingsEncryptionType left, InputRouterSettingsEncryptionType right) => left.Equals(right);
+        public static bool operator !=(InputRouterSettingsEncryptionType left, InputRouterSettingsEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(InputRouterSettingsEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InputRouterSettingsEncryptionType other && Equals(other);
+        public bool Equals(InputRouterSettingsEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// There are two types of input sources, static and dynamic. If an input source is dynamic you can
+    /// change the source url of the input dynamically using an input switch action. Currently, two input types
+    /// support a dynamic url at this time, MP4_FILE and TS_FILE. By default all input sources are static.
+    /// </summary>
+    [EnumType]
+    public readonly struct InputSourceType : IEquatable<InputSourceType>
+    {
+        private readonly string _value;
+
+        private InputSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InputSourceType Static { get; } = new InputSourceType("STATIC");
+        public static InputSourceType Dynamic { get; } = new InputSourceType("DYNAMIC");
+
+        public static bool operator ==(InputSourceType left, InputSourceType right) => left.Equals(right);
+        public static bool operator !=(InputSourceType left, InputSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(InputSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InputSourceType other && Equals(other);
+        public bool Equals(InputSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Placeholder documentation for InputState
+    /// </summary>
+    [EnumType]
+    public readonly struct InputState : IEquatable<InputState>
+    {
+        private readonly string _value;
+
+        private InputState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InputState Creating { get; } = new InputState("CREATING");
+        public static InputState Detached { get; } = new InputState("DETACHED");
+        public static InputState Attached { get; } = new InputState("ATTACHED");
+        public static InputState Deleting { get; } = new InputState("DELETING");
+        public static InputState Deleted { get; } = new InputState("DELETED");
+
+        public static bool operator ==(InputState left, InputState right) => left.Equals(right);
+        public static bool operator !=(InputState left, InputState right) => !left.Equals(right);
+
+        public static explicit operator string(InputState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InputState other && Equals(other);
+        public bool Equals(InputState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The different types of inputs that AWS Elemental MediaLive supports.
+    /// </summary>
+    [EnumType]
+    public readonly struct InputType : IEquatable<InputType>
+    {
+        private readonly string _value;
+
+        private InputType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InputType UdpPush { get; } = new InputType("UDP_PUSH");
+        public static InputType RtpPush { get; } = new InputType("RTP_PUSH");
+        public static InputType RtmpPush { get; } = new InputType("RTMP_PUSH");
+        public static InputType RtmpPull { get; } = new InputType("RTMP_PULL");
+        public static InputType UrlPull { get; } = new InputType("URL_PULL");
+        public static InputType Mp4File { get; } = new InputType("MP4_FILE");
+        public static InputType Mediaconnect { get; } = new InputType("MEDIACONNECT");
+        public static InputType InputDevice { get; } = new InputType("INPUT_DEVICE");
+        public static InputType AwsCdi { get; } = new InputType("AWS_CDI");
+        public static InputType TsFile { get; } = new InputType("TS_FILE");
+        public static InputType SrtCaller { get; } = new InputType("SRT_CALLER");
+        public static InputType Multicast { get; } = new InputType("MULTICAST");
+        public static InputType Smpte2110ReceiverGroup { get; } = new InputType("SMPTE_2110_RECEIVER_GROUP");
+        public static InputType Sdi { get; } = new InputType("SDI");
+        public static InputType MediaconnectRouter { get; } = new InputType("MEDIACONNECT_ROUTER");
+        public static InputType SrtListener { get; } = new InputType("SRT_LISTENER");
+
+        public static bool operator ==(InputType left, InputType right) => left.Equals(right);
+        public static bool operator !=(InputType left, InputType right) => !left.Equals(right);
+
+        public static explicit operator string(InputType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InputType other && Equals(other);
+        public bool Equals(InputType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The current state of the multiplex.
     /// </summary>
     [EnumType]

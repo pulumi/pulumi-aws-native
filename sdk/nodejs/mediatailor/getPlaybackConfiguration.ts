@@ -47,6 +47,10 @@ export interface GetPlaybackConfigurationResult {
      */
     readonly availSuppression?: outputs.mediatailor.PlaybackConfigurationAvailSuppression;
     /**
+     * The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+     */
+    readonly beaconingConfiguration?: outputs.mediatailor.PlaybackConfigurationBeaconingConfiguration;
+    /**
      * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
      */
     readonly bumper?: outputs.mediatailor.PlaybackConfigurationBumper;

@@ -114,7 +114,7 @@
       "permissions" : [ "bedrock-agentcore:UpdateHarnessEndpoint", "bedrock-agentcore:GetHarnessEndpoint", "bedrock-agentcore:GetHarness", "bedrock-agentcore:CreateAgentRuntimeEndpoint", "bedrock-agentcore:GetAgentRuntimeEndpoint", "bedrock-agentcore:UpdateAgentRuntimeEndpoint", "bedrock-agentcore:ListTagsForResource", "bedrock-agentcore:TagResource", "bedrock-agentcore:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "bedrock-agentcore:DeleteHarnessEndpoint", "bedrock-agentcore:GetHarnessEndpoint", "bedrock-agentcore:GetAgentRuntimeEndpoint", "bedrock-agentcore:DeleteAgentRuntimeEndpoint" ]
+      "permissions" : [ "bedrock-agentcore:DeleteHarnessEndpoint", "bedrock-agentcore:GetHarnessEndpoint", "bedrock-agentcore:ListTagsForResource", "bedrock-agentcore:GetAgentRuntimeEndpoint", "bedrock-agentcore:DeleteAgentRuntimeEndpoint" ]
     },
     "list" : {
       "handlerSchema" : {

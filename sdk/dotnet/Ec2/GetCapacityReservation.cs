@@ -154,6 +154,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? State;
         /// <summary>
+        /// The tags to apply to the Capacity Reservation during launch.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CapacityReservationTagSpecification> TagSpecifications;
+        /// <summary>
         /// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
         /// </summary>
         public readonly int? TotalInstanceCount;
@@ -192,6 +196,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? state,
 
+            ImmutableArray<Outputs.CapacityReservationTagSpecification> tagSpecifications,
+
             int? totalInstanceCount)
         {
             AvailableInstanceCount = availableInstanceCount;
@@ -210,6 +216,7 @@ namespace Pulumi.AwsNative.Ec2
             ReservationType = reservationType;
             StartDate = startDate;
             State = state;
+            TagSpecifications = tagSpecifications;
             TotalInstanceCount = totalInstanceCount;
         }
     }

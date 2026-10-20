@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:storagegateway:NfsFileShare":
+		r = &NfsFileShare{}
+	case "aws-native:storagegateway:SmbFileShare":
+		r = &SmbFileShare{}
 	case "aws-native:storagegateway:Tape":
 		r = &Tape{}
 	case "aws-native:storagegateway:TapePool":

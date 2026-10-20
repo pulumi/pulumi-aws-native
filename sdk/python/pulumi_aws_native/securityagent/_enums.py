@@ -8,6 +8,9 @@ from enum import Enum
 
 __all__ = [
     'ArtifactType',
+    'IntegrationGitLabInputTokenType',
+    'IntegrationProviderEnum',
+    'IntegrationProviderType',
     'PentestAuthenticationProviderType',
     'PentestCleanUpStrategy',
     'PentestCodeRemediationStrategy',
@@ -37,6 +40,35 @@ class ArtifactType(_builtins.str, Enum):
     DOC = "DOC"
     JSON = "JSON"
     YAML = "YAML"
+
+
+@pulumi.type_token("aws-native:securityagent:IntegrationGitLabInputTokenType")
+class IntegrationGitLabInputTokenType(_builtins.str, Enum):
+    """
+    The type of GitLab access token.
+    """
+    PERSONAL = "PERSONAL"
+    GROUP = "GROUP"
+
+
+@pulumi.type_token("aws-native:securityagent:IntegrationProviderEnum")
+class IntegrationProviderEnum(_builtins.str, Enum):
+    """
+    The integration provider.
+    """
+    GITHUB = "GITHUB"
+    GITLAB = "GITLAB"
+    BITBUCKET = "BITBUCKET"
+    CONFLUENCE = "CONFLUENCE"
+
+
+@pulumi.type_token("aws-native:securityagent:IntegrationProviderType")
+class IntegrationProviderType(_builtins.str, Enum):
+    """
+    The type of the integration provider.
+    """
+    SOURCE_CODE = "SOURCE_CODE"
+    DOCUMENTATION = "DOCUMENTATION"
 
 
 @pulumi.type_token("aws-native:securityagent:PentestAuthenticationProviderType")

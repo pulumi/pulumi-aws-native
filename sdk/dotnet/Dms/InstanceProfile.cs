@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Dms
         public Output<string> InstanceProfileCreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+        /// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         /// </summary>
         [Output("instanceProfileIdentifier")]
         public Output<string?> InstanceProfileIdentifier { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.AwsNative.Dms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+        /// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         /// </summary>
         [Input("instanceProfileIdentifier")]
         public Input<string>? InstanceProfileIdentifier { get; set; }

@@ -177,7 +177,7 @@ func (in *channelInputTypePtr) ToChannelInputTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelInputTypePtrOutput)
 }
 
-// <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_SINGLE</code> – One tile at full resolution. Use this to serve a single source as a standard stream.</p> </li> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EB</code> – Three tiles of equal size, with two on top and one below.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
+// <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
 type ChannelMultiviewLayoutType string
 
 const (
@@ -1221,6 +1221,173 @@ func (in *originEndpointContainerTypePtr) ToOriginEndpointContainerTypePtrOutput
 
 func (in *originEndpointContainerTypePtr) ToOriginEndpointContainerTypePtrOutputWithContext(ctx context.Context) OriginEndpointContainerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointContainerTypePtrOutput)
+}
+
+type OriginEndpointContentKeyPeriodTiming string
+
+const (
+	OriginEndpointContentKeyPeriodTimingIndexOnly         = OriginEndpointContentKeyPeriodTiming("INDEX_ONLY")
+	OriginEndpointContentKeyPeriodTimingStartEndOnly      = OriginEndpointContentKeyPeriodTiming("START_END_ONLY")
+	OriginEndpointContentKeyPeriodTimingIndexWithStartEnd = OriginEndpointContentKeyPeriodTiming("INDEX_WITH_START_END")
+)
+
+func (OriginEndpointContentKeyPeriodTiming) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointContentKeyPeriodTiming)(nil)).Elem()
+}
+
+func (e OriginEndpointContentKeyPeriodTiming) ToOriginEndpointContentKeyPeriodTimingOutput() OriginEndpointContentKeyPeriodTimingOutput {
+	return pulumi.ToOutput(e).(OriginEndpointContentKeyPeriodTimingOutput)
+}
+
+func (e OriginEndpointContentKeyPeriodTiming) ToOriginEndpointContentKeyPeriodTimingOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodTimingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointContentKeyPeriodTimingOutput)
+}
+
+func (e OriginEndpointContentKeyPeriodTiming) ToOriginEndpointContentKeyPeriodTimingPtrOutput() OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return e.ToOriginEndpointContentKeyPeriodTimingPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointContentKeyPeriodTiming) ToOriginEndpointContentKeyPeriodTimingPtrOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return OriginEndpointContentKeyPeriodTiming(e).ToOriginEndpointContentKeyPeriodTimingOutputWithContext(ctx).ToOriginEndpointContentKeyPeriodTimingPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointContentKeyPeriodTiming) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointContentKeyPeriodTiming) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointContentKeyPeriodTiming) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointContentKeyPeriodTiming) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointContentKeyPeriodTimingOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointContentKeyPeriodTimingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointContentKeyPeriodTiming)(nil)).Elem()
+}
+
+func (o OriginEndpointContentKeyPeriodTimingOutput) ToOriginEndpointContentKeyPeriodTimingOutput() OriginEndpointContentKeyPeriodTimingOutput {
+	return o
+}
+
+func (o OriginEndpointContentKeyPeriodTimingOutput) ToOriginEndpointContentKeyPeriodTimingOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodTimingOutput {
+	return o
+}
+
+func (o OriginEndpointContentKeyPeriodTimingOutput) ToOriginEndpointContentKeyPeriodTimingPtrOutput() OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return o.ToOriginEndpointContentKeyPeriodTimingPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointContentKeyPeriodTimingOutput) ToOriginEndpointContentKeyPeriodTimingPtrOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointContentKeyPeriodTiming) *OriginEndpointContentKeyPeriodTiming {
+		return &v
+	}).(OriginEndpointContentKeyPeriodTimingPtrOutput)
+}
+
+func (o OriginEndpointContentKeyPeriodTimingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointContentKeyPeriodTimingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointContentKeyPeriodTiming) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointContentKeyPeriodTimingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointContentKeyPeriodTimingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointContentKeyPeriodTiming) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointContentKeyPeriodTimingPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointContentKeyPeriodTimingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointContentKeyPeriodTiming)(nil)).Elem()
+}
+
+func (o OriginEndpointContentKeyPeriodTimingPtrOutput) ToOriginEndpointContentKeyPeriodTimingPtrOutput() OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return o
+}
+
+func (o OriginEndpointContentKeyPeriodTimingPtrOutput) ToOriginEndpointContentKeyPeriodTimingPtrOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return o
+}
+
+func (o OriginEndpointContentKeyPeriodTimingPtrOutput) Elem() OriginEndpointContentKeyPeriodTimingOutput {
+	return o.ApplyT(func(v *OriginEndpointContentKeyPeriodTiming) OriginEndpointContentKeyPeriodTiming {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointContentKeyPeriodTiming
+		return ret
+	}).(OriginEndpointContentKeyPeriodTimingOutput)
+}
+
+func (o OriginEndpointContentKeyPeriodTimingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointContentKeyPeriodTimingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointContentKeyPeriodTiming) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointContentKeyPeriodTimingInput is an input type that accepts values of the OriginEndpointContentKeyPeriodTiming enum
+// A concrete instance of `OriginEndpointContentKeyPeriodTimingInput` can be one of the following:
+//
+//	OriginEndpointContentKeyPeriodTimingIndexOnly
+//	OriginEndpointContentKeyPeriodTimingStartEndOnly
+//	OriginEndpointContentKeyPeriodTimingIndexWithStartEnd
+type OriginEndpointContentKeyPeriodTimingInput interface {
+	pulumi.Input
+
+	ToOriginEndpointContentKeyPeriodTimingOutput() OriginEndpointContentKeyPeriodTimingOutput
+	ToOriginEndpointContentKeyPeriodTimingOutputWithContext(context.Context) OriginEndpointContentKeyPeriodTimingOutput
+}
+
+var originEndpointContentKeyPeriodTimingPtrType = reflect.TypeOf((**OriginEndpointContentKeyPeriodTiming)(nil)).Elem()
+
+type OriginEndpointContentKeyPeriodTimingPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointContentKeyPeriodTimingPtrOutput() OriginEndpointContentKeyPeriodTimingPtrOutput
+	ToOriginEndpointContentKeyPeriodTimingPtrOutputWithContext(context.Context) OriginEndpointContentKeyPeriodTimingPtrOutput
+}
+
+type originEndpointContentKeyPeriodTimingPtr string
+
+func OriginEndpointContentKeyPeriodTimingPtr(v string) OriginEndpointContentKeyPeriodTimingPtrInput {
+	return (*originEndpointContentKeyPeriodTimingPtr)(&v)
+}
+
+func (*originEndpointContentKeyPeriodTimingPtr) ElementType() reflect.Type {
+	return originEndpointContentKeyPeriodTimingPtrType
+}
+
+func (in *originEndpointContentKeyPeriodTimingPtr) ToOriginEndpointContentKeyPeriodTimingPtrOutput() OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointContentKeyPeriodTimingPtrOutput)
+}
+
+func (in *originEndpointContentKeyPeriodTimingPtr) ToOriginEndpointContentKeyPeriodTimingPtrOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointContentKeyPeriodTimingPtrOutput)
 }
 
 type OriginEndpointCustomAdType string
@@ -3613,6 +3780,180 @@ func (in *originEndpointMssManifestLayoutPtr) ToOriginEndpointMssManifestLayoutP
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointMssManifestLayoutPtrOutput)
 }
 
+// <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
+type OriginEndpointMultiviewLayoutType string
+
+const (
+	OriginEndpointMultiviewLayoutTypeLayout2eh = OriginEndpointMultiviewLayoutType("LAYOUT_2EH")
+	OriginEndpointMultiviewLayoutTypeLayout2pl = OriginEndpointMultiviewLayoutType("LAYOUT_2PL")
+	OriginEndpointMultiviewLayoutTypeLayout3el = OriginEndpointMultiviewLayoutType("LAYOUT_3EL")
+	OriginEndpointMultiviewLayoutTypeLayout3pl = OriginEndpointMultiviewLayoutType("LAYOUT_3PL")
+	OriginEndpointMultiviewLayoutTypeLayout4e  = OriginEndpointMultiviewLayoutType("LAYOUT_4E")
+	OriginEndpointMultiviewLayoutTypeLayout4pl = OriginEndpointMultiviewLayoutType("LAYOUT_4PL")
+)
+
+func (OriginEndpointMultiviewLayoutType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMultiviewLayoutType)(nil)).Elem()
+}
+
+func (e OriginEndpointMultiviewLayoutType) ToOriginEndpointMultiviewLayoutTypeOutput() OriginEndpointMultiviewLayoutTypeOutput {
+	return pulumi.ToOutput(e).(OriginEndpointMultiviewLayoutTypeOutput)
+}
+
+func (e OriginEndpointMultiviewLayoutType) ToOriginEndpointMultiviewLayoutTypeOutputWithContext(ctx context.Context) OriginEndpointMultiviewLayoutTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointMultiviewLayoutTypeOutput)
+}
+
+func (e OriginEndpointMultiviewLayoutType) ToOriginEndpointMultiviewLayoutTypePtrOutput() OriginEndpointMultiviewLayoutTypePtrOutput {
+	return e.ToOriginEndpointMultiviewLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointMultiviewLayoutType) ToOriginEndpointMultiviewLayoutTypePtrOutputWithContext(ctx context.Context) OriginEndpointMultiviewLayoutTypePtrOutput {
+	return OriginEndpointMultiviewLayoutType(e).ToOriginEndpointMultiviewLayoutTypeOutputWithContext(ctx).ToOriginEndpointMultiviewLayoutTypePtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointMultiviewLayoutType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointMultiviewLayoutType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointMultiviewLayoutType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointMultiviewLayoutType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointMultiviewLayoutTypeOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMultiviewLayoutTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMultiviewLayoutType)(nil)).Elem()
+}
+
+func (o OriginEndpointMultiviewLayoutTypeOutput) ToOriginEndpointMultiviewLayoutTypeOutput() OriginEndpointMultiviewLayoutTypeOutput {
+	return o
+}
+
+func (o OriginEndpointMultiviewLayoutTypeOutput) ToOriginEndpointMultiviewLayoutTypeOutputWithContext(ctx context.Context) OriginEndpointMultiviewLayoutTypeOutput {
+	return o
+}
+
+func (o OriginEndpointMultiviewLayoutTypeOutput) ToOriginEndpointMultiviewLayoutTypePtrOutput() OriginEndpointMultiviewLayoutTypePtrOutput {
+	return o.ToOriginEndpointMultiviewLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMultiviewLayoutTypeOutput) ToOriginEndpointMultiviewLayoutTypePtrOutputWithContext(ctx context.Context) OriginEndpointMultiviewLayoutTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointMultiviewLayoutType) *OriginEndpointMultiviewLayoutType {
+		return &v
+	}).(OriginEndpointMultiviewLayoutTypePtrOutput)
+}
+
+func (o OriginEndpointMultiviewLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMultiviewLayoutTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointMultiviewLayoutType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointMultiviewLayoutTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMultiviewLayoutTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointMultiviewLayoutType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointMultiviewLayoutTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMultiviewLayoutTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointMultiviewLayoutType)(nil)).Elem()
+}
+
+func (o OriginEndpointMultiviewLayoutTypePtrOutput) ToOriginEndpointMultiviewLayoutTypePtrOutput() OriginEndpointMultiviewLayoutTypePtrOutput {
+	return o
+}
+
+func (o OriginEndpointMultiviewLayoutTypePtrOutput) ToOriginEndpointMultiviewLayoutTypePtrOutputWithContext(ctx context.Context) OriginEndpointMultiviewLayoutTypePtrOutput {
+	return o
+}
+
+func (o OriginEndpointMultiviewLayoutTypePtrOutput) Elem() OriginEndpointMultiviewLayoutTypeOutput {
+	return o.ApplyT(func(v *OriginEndpointMultiviewLayoutType) OriginEndpointMultiviewLayoutType {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointMultiviewLayoutType
+		return ret
+	}).(OriginEndpointMultiviewLayoutTypeOutput)
+}
+
+func (o OriginEndpointMultiviewLayoutTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMultiviewLayoutTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointMultiviewLayoutType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointMultiviewLayoutTypeInput is an input type that accepts values of the OriginEndpointMultiviewLayoutType enum
+// A concrete instance of `OriginEndpointMultiviewLayoutTypeInput` can be one of the following:
+//
+//	OriginEndpointMultiviewLayoutTypeLayout2eh
+//	OriginEndpointMultiviewLayoutTypeLayout2pl
+//	OriginEndpointMultiviewLayoutTypeLayout3el
+//	OriginEndpointMultiviewLayoutTypeLayout3pl
+//	OriginEndpointMultiviewLayoutTypeLayout4e
+//	OriginEndpointMultiviewLayoutTypeLayout4pl
+type OriginEndpointMultiviewLayoutTypeInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMultiviewLayoutTypeOutput() OriginEndpointMultiviewLayoutTypeOutput
+	ToOriginEndpointMultiviewLayoutTypeOutputWithContext(context.Context) OriginEndpointMultiviewLayoutTypeOutput
+}
+
+var originEndpointMultiviewLayoutTypePtrType = reflect.TypeOf((**OriginEndpointMultiviewLayoutType)(nil)).Elem()
+
+type OriginEndpointMultiviewLayoutTypePtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMultiviewLayoutTypePtrOutput() OriginEndpointMultiviewLayoutTypePtrOutput
+	ToOriginEndpointMultiviewLayoutTypePtrOutputWithContext(context.Context) OriginEndpointMultiviewLayoutTypePtrOutput
+}
+
+type originEndpointMultiviewLayoutTypePtr string
+
+func OriginEndpointMultiviewLayoutTypePtr(v string) OriginEndpointMultiviewLayoutTypePtrInput {
+	return (*originEndpointMultiviewLayoutTypePtr)(&v)
+}
+
+func (*originEndpointMultiviewLayoutTypePtr) ElementType() reflect.Type {
+	return originEndpointMultiviewLayoutTypePtrType
+}
+
+func (in *originEndpointMultiviewLayoutTypePtr) ToOriginEndpointMultiviewLayoutTypePtrOutput() OriginEndpointMultiviewLayoutTypePtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointMultiviewLayoutTypePtrOutput)
+}
+
+func (in *originEndpointMultiviewLayoutTypePtr) ToOriginEndpointMultiviewLayoutTypePtrOutputWithContext(ctx context.Context) OriginEndpointMultiviewLayoutTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointMultiviewLayoutTypePtrOutput)
+}
+
 type OriginEndpointOutputTimestampMode string
 
 const (
@@ -4706,6 +5047,171 @@ func (in *originEndpointScteInSegmentsPtr) ToOriginEndpointScteInSegmentsPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointScteInSegmentsPtrOutput)
 }
 
+type OriginEndpointSpekeVersion string
+
+const (
+	OriginEndpointSpekeVersionV20 = OriginEndpointSpekeVersion("V2_0")
+	OriginEndpointSpekeVersionV21 = OriginEndpointSpekeVersion("V2_1")
+)
+
+func (OriginEndpointSpekeVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointSpekeVersion)(nil)).Elem()
+}
+
+func (e OriginEndpointSpekeVersion) ToOriginEndpointSpekeVersionOutput() OriginEndpointSpekeVersionOutput {
+	return pulumi.ToOutput(e).(OriginEndpointSpekeVersionOutput)
+}
+
+func (e OriginEndpointSpekeVersion) ToOriginEndpointSpekeVersionOutputWithContext(ctx context.Context) OriginEndpointSpekeVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointSpekeVersionOutput)
+}
+
+func (e OriginEndpointSpekeVersion) ToOriginEndpointSpekeVersionPtrOutput() OriginEndpointSpekeVersionPtrOutput {
+	return e.ToOriginEndpointSpekeVersionPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointSpekeVersion) ToOriginEndpointSpekeVersionPtrOutputWithContext(ctx context.Context) OriginEndpointSpekeVersionPtrOutput {
+	return OriginEndpointSpekeVersion(e).ToOriginEndpointSpekeVersionOutputWithContext(ctx).ToOriginEndpointSpekeVersionPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointSpekeVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointSpekeVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointSpekeVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointSpekeVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointSpekeVersionOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointSpekeVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointSpekeVersion)(nil)).Elem()
+}
+
+func (o OriginEndpointSpekeVersionOutput) ToOriginEndpointSpekeVersionOutput() OriginEndpointSpekeVersionOutput {
+	return o
+}
+
+func (o OriginEndpointSpekeVersionOutput) ToOriginEndpointSpekeVersionOutputWithContext(ctx context.Context) OriginEndpointSpekeVersionOutput {
+	return o
+}
+
+func (o OriginEndpointSpekeVersionOutput) ToOriginEndpointSpekeVersionPtrOutput() OriginEndpointSpekeVersionPtrOutput {
+	return o.ToOriginEndpointSpekeVersionPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointSpekeVersionOutput) ToOriginEndpointSpekeVersionPtrOutputWithContext(ctx context.Context) OriginEndpointSpekeVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointSpekeVersion) *OriginEndpointSpekeVersion {
+		return &v
+	}).(OriginEndpointSpekeVersionPtrOutput)
+}
+
+func (o OriginEndpointSpekeVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointSpekeVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointSpekeVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointSpekeVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointSpekeVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointSpekeVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointSpekeVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointSpekeVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointSpekeVersion)(nil)).Elem()
+}
+
+func (o OriginEndpointSpekeVersionPtrOutput) ToOriginEndpointSpekeVersionPtrOutput() OriginEndpointSpekeVersionPtrOutput {
+	return o
+}
+
+func (o OriginEndpointSpekeVersionPtrOutput) ToOriginEndpointSpekeVersionPtrOutputWithContext(ctx context.Context) OriginEndpointSpekeVersionPtrOutput {
+	return o
+}
+
+func (o OriginEndpointSpekeVersionPtrOutput) Elem() OriginEndpointSpekeVersionOutput {
+	return o.ApplyT(func(v *OriginEndpointSpekeVersion) OriginEndpointSpekeVersion {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointSpekeVersion
+		return ret
+	}).(OriginEndpointSpekeVersionOutput)
+}
+
+func (o OriginEndpointSpekeVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointSpekeVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointSpekeVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointSpekeVersionInput is an input type that accepts values of the OriginEndpointSpekeVersion enum
+// A concrete instance of `OriginEndpointSpekeVersionInput` can be one of the following:
+//
+//	OriginEndpointSpekeVersionV20
+//	OriginEndpointSpekeVersionV21
+type OriginEndpointSpekeVersionInput interface {
+	pulumi.Input
+
+	ToOriginEndpointSpekeVersionOutput() OriginEndpointSpekeVersionOutput
+	ToOriginEndpointSpekeVersionOutputWithContext(context.Context) OriginEndpointSpekeVersionOutput
+}
+
+var originEndpointSpekeVersionPtrType = reflect.TypeOf((**OriginEndpointSpekeVersion)(nil)).Elem()
+
+type OriginEndpointSpekeVersionPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointSpekeVersionPtrOutput() OriginEndpointSpekeVersionPtrOutput
+	ToOriginEndpointSpekeVersionPtrOutputWithContext(context.Context) OriginEndpointSpekeVersionPtrOutput
+}
+
+type originEndpointSpekeVersionPtr string
+
+func OriginEndpointSpekeVersionPtr(v string) OriginEndpointSpekeVersionPtrInput {
+	return (*originEndpointSpekeVersionPtr)(&v)
+}
+
+func (*originEndpointSpekeVersionPtr) ElementType() reflect.Type {
+	return originEndpointSpekeVersionPtrType
+}
+
+func (in *originEndpointSpekeVersionPtr) ToOriginEndpointSpekeVersionPtrOutput() OriginEndpointSpekeVersionPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointSpekeVersionPtrOutput)
+}
+
+func (in *originEndpointSpekeVersionPtr) ToOriginEndpointSpekeVersionPtrOutputWithContext(ctx context.Context) OriginEndpointSpekeVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointSpekeVersionPtrOutput)
+}
+
 type OriginEndpointStreamNameOutputMode string
 
 const (
@@ -5382,6 +5888,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCmafEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointCmafEncryptionMethod("CENC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContainerTypeInput)(nil)).Elem(), OriginEndpointContainerType("TS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContainerTypePtrInput)(nil)).Elem(), OriginEndpointContainerType("TS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContentKeyPeriodTimingInput)(nil)).Elem(), OriginEndpointContentKeyPeriodTiming("INDEX_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContentKeyPeriodTimingPtrInput)(nil)).Elem(), OriginEndpointContentKeyPeriodTiming("INDEX_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypeInput)(nil)).Elem(), OriginEndpointCustomAdType("PROGRAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypePtrInput)(nil)).Elem(), OriginEndpointCustomAdType("PROGRAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypeArrayInput)(nil)).Elem(), OriginEndpointCustomAdTypeArray{})
@@ -5413,6 +5921,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointIsmEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointIsmEncryptionMethod("CENC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestLayoutInput)(nil)).Elem(), OriginEndpointMssManifestLayout("FULL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestLayoutPtrInput)(nil)).Elem(), OriginEndpointMssManifestLayout("FULL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMultiviewLayoutTypeInput)(nil)).Elem(), OriginEndpointMultiviewLayoutType("LAYOUT_2EH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMultiviewLayoutTypePtrInput)(nil)).Elem(), OriginEndpointMultiviewLayoutType("LAYOUT_2EH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointOutputTimestampModeInput)(nil)).Elem(), OriginEndpointOutputTimestampMode("PASSTHROUGH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointOutputTimestampModePtrInput)(nil)).Elem(), OriginEndpointOutputTimestampMode("PASSTHROUGH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20AudioInput)(nil)).Elem(), OriginEndpointPresetSpeke20Audio("PRESET_AUDIO_1"))
@@ -5426,6 +5936,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInManifestsPtrInput)(nil)).Elem(), OriginEndpointScteInManifests("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInSegmentsInput)(nil)).Elem(), OriginEndpointScteInSegments("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInSegmentsPtrInput)(nil)).Elem(), OriginEndpointScteInSegments("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSpekeVersionInput)(nil)).Elem(), OriginEndpointSpekeVersion("V2_0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSpekeVersionPtrInput)(nil)).Elem(), OriginEndpointSpekeVersion("V2_0"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointStreamNameOutputModeInput)(nil)).Elem(), OriginEndpointStreamNameOutputMode("INDEX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointStreamNameOutputModePtrInput)(nil)).Elem(), OriginEndpointStreamNameOutputMode("INDEX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTsEncryptionMethodInput)(nil)).Elem(), OriginEndpointTsEncryptionMethod("AES_128"))
@@ -5449,6 +5961,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointCmafEncryptionMethodPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointContainerTypeOutput{})
 	pulumi.RegisterOutputType(OriginEndpointContainerTypePtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointContentKeyPeriodTimingOutput{})
+	pulumi.RegisterOutputType(OriginEndpointContentKeyPeriodTimingPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointCustomAdTypeOutput{})
 	pulumi.RegisterOutputType(OriginEndpointCustomAdTypePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointCustomAdTypeArrayOutput{})
@@ -5480,6 +5994,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointIsmEncryptionMethodPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointMssManifestLayoutOutput{})
 	pulumi.RegisterOutputType(OriginEndpointMssManifestLayoutPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMultiviewLayoutTypeOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMultiviewLayoutTypePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointOutputTimestampModeOutput{})
 	pulumi.RegisterOutputType(OriginEndpointOutputTimestampModePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20AudioOutput{})
@@ -5493,6 +6009,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointScteInManifestsPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteInSegmentsOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteInSegmentsPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointSpekeVersionOutput{})
+	pulumi.RegisterOutputType(OriginEndpointSpekeVersionPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointStreamNameOutputModeOutput{})
 	pulumi.RegisterOutputType(OriginEndpointStreamNameOutputModePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointTsEncryptionMethodOutput{})

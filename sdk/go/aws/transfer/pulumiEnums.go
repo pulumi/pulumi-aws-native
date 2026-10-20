@@ -2299,6 +2299,172 @@ func (o ConnectorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+type HostKeyStorageType string
+
+const (
+	HostKeyStorageTypeServiceManaged = HostKeyStorageType("SERVICE_MANAGED")
+	HostKeyStorageTypeSecretsManager = HostKeyStorageType("SECRETS_MANAGER")
+)
+
+func (HostKeyStorageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostKeyStorageType)(nil)).Elem()
+}
+
+func (e HostKeyStorageType) ToHostKeyStorageTypeOutput() HostKeyStorageTypeOutput {
+	return pulumi.ToOutput(e).(HostKeyStorageTypeOutput)
+}
+
+func (e HostKeyStorageType) ToHostKeyStorageTypeOutputWithContext(ctx context.Context) HostKeyStorageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostKeyStorageTypeOutput)
+}
+
+func (e HostKeyStorageType) ToHostKeyStorageTypePtrOutput() HostKeyStorageTypePtrOutput {
+	return e.ToHostKeyStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (e HostKeyStorageType) ToHostKeyStorageTypePtrOutputWithContext(ctx context.Context) HostKeyStorageTypePtrOutput {
+	return HostKeyStorageType(e).ToHostKeyStorageTypeOutputWithContext(ctx).ToHostKeyStorageTypePtrOutputWithContext(ctx)
+}
+
+func (e HostKeyStorageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostKeyStorageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostKeyStorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HostKeyStorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HostKeyStorageTypeOutput struct{ *pulumi.OutputState }
+
+func (HostKeyStorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostKeyStorageType)(nil)).Elem()
+}
+
+func (o HostKeyStorageTypeOutput) ToHostKeyStorageTypeOutput() HostKeyStorageTypeOutput {
+	return o
+}
+
+func (o HostKeyStorageTypeOutput) ToHostKeyStorageTypeOutputWithContext(ctx context.Context) HostKeyStorageTypeOutput {
+	return o
+}
+
+func (o HostKeyStorageTypeOutput) ToHostKeyStorageTypePtrOutput() HostKeyStorageTypePtrOutput {
+	return o.ToHostKeyStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o HostKeyStorageTypeOutput) ToHostKeyStorageTypePtrOutputWithContext(ctx context.Context) HostKeyStorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostKeyStorageType) *HostKeyStorageType {
+		return &v
+	}).(HostKeyStorageTypePtrOutput)
+}
+
+func (o HostKeyStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HostKeyStorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostKeyStorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HostKeyStorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostKeyStorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostKeyStorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HostKeyStorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HostKeyStorageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostKeyStorageType)(nil)).Elem()
+}
+
+func (o HostKeyStorageTypePtrOutput) ToHostKeyStorageTypePtrOutput() HostKeyStorageTypePtrOutput {
+	return o
+}
+
+func (o HostKeyStorageTypePtrOutput) ToHostKeyStorageTypePtrOutputWithContext(ctx context.Context) HostKeyStorageTypePtrOutput {
+	return o
+}
+
+func (o HostKeyStorageTypePtrOutput) Elem() HostKeyStorageTypeOutput {
+	return o.ApplyT(func(v *HostKeyStorageType) HostKeyStorageType {
+		if v != nil {
+			return *v
+		}
+		var ret HostKeyStorageType
+		return ret
+	}).(HostKeyStorageTypeOutput)
+}
+
+func (o HostKeyStorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostKeyStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostKeyStorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostKeyStorageTypeInput is an input type that accepts values of the HostKeyStorageType enum
+// A concrete instance of `HostKeyStorageTypeInput` can be one of the following:
+//
+//	HostKeyStorageTypeServiceManaged
+//	HostKeyStorageTypeSecretsManager
+type HostKeyStorageTypeInput interface {
+	pulumi.Input
+
+	ToHostKeyStorageTypeOutput() HostKeyStorageTypeOutput
+	ToHostKeyStorageTypeOutputWithContext(context.Context) HostKeyStorageTypeOutput
+}
+
+var hostKeyStorageTypePtrType = reflect.TypeOf((**HostKeyStorageType)(nil)).Elem()
+
+type HostKeyStorageTypePtrInput interface {
+	pulumi.Input
+
+	ToHostKeyStorageTypePtrOutput() HostKeyStorageTypePtrOutput
+	ToHostKeyStorageTypePtrOutputWithContext(context.Context) HostKeyStorageTypePtrOutput
+}
+
+type hostKeyStorageTypePtr string
+
+func HostKeyStorageTypePtr(v string) HostKeyStorageTypePtrInput {
+	return (*hostKeyStorageTypePtr)(&v)
+}
+
+func (*hostKeyStorageTypePtr) ElementType() reflect.Type {
+	return hostKeyStorageTypePtrType
+}
+
+func (in *hostKeyStorageTypePtr) ToHostKeyStorageTypePtrOutput() HostKeyStorageTypePtrOutput {
+	return pulumi.ToOutput(in).(HostKeyStorageTypePtrOutput)
+}
+
+func (in *hostKeyStorageTypePtr) ToHostKeyStorageTypePtrOutputWithContext(ctx context.Context) HostKeyStorageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostKeyStorageTypePtrOutput)
+}
+
 // Enum specifying whether the profile is local or associated with a trading partner.
 type ProfileType string
 
@@ -5832,6 +5998,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressTypePtrInput)(nil)).Elem(), ConnectorEgressType("SERVICE_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorIpAddressTypeInput)(nil)).Elem(), ConnectorIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorIpAddressTypePtrInput)(nil)).Elem(), ConnectorIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostKeyStorageTypeInput)(nil)).Elem(), HostKeyStorageType("SERVICE_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostKeyStorageTypePtrInput)(nil)).Elem(), HostKeyStorageType("SERVICE_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypeInput)(nil)).Elem(), ProfileType("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypePtrInput)(nil)).Elem(), ProfileType("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportInput)(nil)).Elem(), ServerAs2Transport("HTTP"))
@@ -5904,6 +6072,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorStatusOutput{})
 	pulumi.RegisterOutputType(ConnectorStatusPtrOutput{})
+	pulumi.RegisterOutputType(HostKeyStorageTypeOutput{})
+	pulumi.RegisterOutputType(HostKeyStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(ProfileTypeOutput{})
 	pulumi.RegisterOutputType(ProfileTypePtrOutput{})
 	pulumi.RegisterOutputType(ServerAs2TransportOutput{})

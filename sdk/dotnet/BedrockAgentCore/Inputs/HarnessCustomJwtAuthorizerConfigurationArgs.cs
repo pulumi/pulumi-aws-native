@@ -12,6 +12,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class HarnessCustomJwtAuthorizerConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("advertisedScopeMapping")]
+        private InputMap<string>? _advertisedScopeMapping;
+
+        /// <summary>
+        /// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+        /// </summary>
+        public InputMap<string> AdvertisedScopeMapping
+        {
+            get => _advertisedScopeMapping ?? (_advertisedScopeMapping = new InputMap<string>());
+            set => _advertisedScopeMapping = value;
+        }
+
         [Input("allowedAudience")]
         private InputList<string>? _allowedAudience;
         public InputList<string> AllowedAudience

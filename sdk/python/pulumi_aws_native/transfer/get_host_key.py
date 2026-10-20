@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetHostKeyResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetHostKeyResult:
-    def __init__(__self__, arn=None, date_imported=None, description=None, host_key_fingerprint=None, host_key_id=None, tags=None, type=None):
+    def __init__(__self__, arn=None, date_imported=None, description=None, host_key_fingerprint=None, host_key_id=None, secret_id=None, storage_type=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +41,12 @@ class GetHostKeyResult:
         if host_key_id and not isinstance(host_key_id, str):
             raise TypeError("Expected argument 'host_key_id' to be a str")
         pulumi.set(__self__, "host_key_id", host_key_id)
+        if secret_id and not isinstance(secret_id, str):
+            raise TypeError("Expected argument 'secret_id' to be a str")
+        pulumi.set(__self__, "secret_id", secret_id)
+        if storage_type and not isinstance(storage_type, str):
+            raise TypeError("Expected argument 'storage_type' to be a str")
+        pulumi.set(__self__, "storage_type", storage_type)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -88,6 +95,22 @@ class GetHostKeyResult:
         return pulumi.get(self, "host_key_id")
 
     @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional['HostKeyStorageType']:
+        """
+        The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -115,6 +138,8 @@ class AwaitableGetHostKeyResult(GetHostKeyResult):
             description=self.description,
             host_key_fingerprint=self.host_key_fingerprint,
             host_key_id=self.host_key_id,
+            secret_id=self.secret_id,
+            storage_type=self.storage_type,
             tags=self.tags,
             type=self.type)
 
@@ -137,6 +162,8 @@ def get_host_key(arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         host_key_fingerprint=pulumi.get(__ret__, 'host_key_fingerprint'),
         host_key_id=pulumi.get(__ret__, 'host_key_id'),
+        secret_id=pulumi.get(__ret__, 'secret_id'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_host_key_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -156,5 +183,7 @@ def get_host_key_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         host_key_fingerprint=pulumi.get(__response__, 'host_key_fingerprint'),
         host_key_id=pulumi.get(__response__, 'host_key_id'),
+        secret_id=pulumi.get(__response__, 'secret_id'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

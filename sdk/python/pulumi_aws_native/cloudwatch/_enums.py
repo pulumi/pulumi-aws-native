@@ -9,6 +9,8 @@ from enum import Enum
 __all__ = [
     'AlarmMuteRuleStatus',
     'InsightRuleRuleState',
+    'IntegrationStatus',
+    'IntegrationType',
     'OTelEnrichmentStatus',
     'ViewType',
 ]
@@ -31,6 +33,29 @@ class InsightRuleRuleState(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:IntegrationStatus")
+class IntegrationStatus(_builtins.str, Enum):
+    """
+    Lifecycle status of the integration.
+    """
+    PENDING = "PENDING"
+    PENDING_OAUTH = "PENDING_OAUTH"
+    ACTIVE = "ACTIVE"
+    ERROR = "ERROR"
+    FAILED = "FAILED"
+    DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:IntegrationType")
+class IntegrationType(_builtins.str, Enum):
+    """
+    The type of integration. Immutable after creation.
+    """
+    AWS_CONFIG_SLREC = "AWS_CONFIG_SLREC"
+    AWS_INTEGRATION = "AWS_INTEGRATION"
+    EXTERNAL_AGENT = "EXTERNAL_AGENT"
 
 
 @pulumi.type_token("aws-native:cloudwatch:OTelEnrichmentStatus")

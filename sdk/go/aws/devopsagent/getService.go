@@ -35,6 +35,8 @@ type LookupServiceResult struct {
 	AdditionalServiceDetails *ServiceAdditionalServiceDetails `pulumi:"additionalServiceDetails"`
 	// The Amazon Resource Name (ARN) of the Service.
 	Arn *string `pulumi:"arn"`
+	// The display name for the service registration.
+	Name *string `pulumi:"name"`
 	// The unique identifier of the service
 	ServiceId *string `pulumi:"serviceId"`
 	// An array of key-value pairs to apply to this resource.
@@ -82,6 +84,11 @@ func (o LookupServiceResultOutput) AdditionalServiceDetails() ServiceAdditionalS
 // The Amazon Resource Name (ARN) of the Service.
 func (o LookupServiceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The display name for the service registration.
+func (o LookupServiceResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of the service

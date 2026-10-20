@@ -25,7 +25,7 @@ __all__ = ['SubscriberArgs', 'Subscriber']
 class SubscriberArgs:
     def __init__(__self__, *,
                  event_bus_arn: pulumi.Input[_builtins.str],
-                 invoke_configuration: pulumi.Input['SubscriberInvokeConfigurationPropertiesArgs'],
+                 invoke_configuration: pulumi.Input['SubscriberInvokeConfigurationArgs'],
                  batch_configuration: pulumi.Input[Optional['SubscriberBatchConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_configuration: pulumi.Input[Optional['SubscriberFilterConfigurationArgs']] = None,
@@ -44,7 +44,7 @@ class SubscriberArgs:
         The set of arguments for constructing a Subscriber resource.
 
         :param pulumi.Input[_builtins.str] event_bus_arn: The ARN of the event bus this subscriber belongs to.
-        :param pulumi.Input['SubscriberInvokeConfigurationPropertiesArgs'] invoke_configuration: Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
+        :param pulumi.Input['SubscriberInvokeConfigurationArgs'] invoke_configuration: Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
         :param pulumi.Input['SubscriberBatchConfigurationArgs'] batch_configuration: Configuration for batching events into a single delivery to the target.
         :param pulumi.Input[_builtins.str] description: A description of the subscriber. Control characters and Unicode line separators are not allowed.
         :param pulumi.Input['SubscriberFilterConfigurationArgs'] filter_configuration: Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
@@ -105,14 +105,14 @@ class SubscriberArgs:
 
     @_builtins.property
     @pulumi.getter(name="invokeConfiguration")
-    def invoke_configuration(self) -> pulumi.Input['SubscriberInvokeConfigurationPropertiesArgs']:
+    def invoke_configuration(self) -> pulumi.Input['SubscriberInvokeConfigurationArgs']:
         """
         Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
         """
         return pulumi.get(self, "invoke_configuration")
 
     @invoke_configuration.setter
-    def invoke_configuration(self, value: pulumi.Input['SubscriberInvokeConfigurationPropertiesArgs']):
+    def invoke_configuration(self, value: pulumi.Input['SubscriberInvokeConfigurationArgs']):
         pulumi.set(self, "invoke_configuration", value)
 
     @_builtins.property
@@ -294,7 +294,7 @@ class Subscriber(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_bus_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_configuration: pulumi.Input[Optional[Union['SubscriberFilterConfigurationArgs', 'SubscriberFilterConfigurationArgsDict']]] = None,
-                 invoke_configuration: pulumi.Input[Optional[Union['SubscriberInvokeConfigurationPropertiesArgs', 'SubscriberInvokeConfigurationPropertiesArgsDict']]] = None,
+                 invoke_configuration: pulumi.Input[Optional[Union['SubscriberInvokeConfigurationArgs', 'SubscriberInvokeConfigurationArgsDict']]] = None,
                  log_configuration: pulumi.Input[Optional[Union['SubscriberLogConfigurationArgs', 'SubscriberLogConfigurationArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  on_failure_configuration: pulumi.Input[Optional[Union['SubscriberOnFailureConfigurationArgs', 'SubscriberOnFailureConfigurationArgsDict']]] = None,
@@ -316,7 +316,7 @@ class Subscriber(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the subscriber. Control characters and Unicode line separators are not allowed.
         :param pulumi.Input[_builtins.str] event_bus_arn: The ARN of the event bus this subscriber belongs to.
         :param pulumi.Input[Union['SubscriberFilterConfigurationArgs', 'SubscriberFilterConfigurationArgsDict']] filter_configuration: Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
-        :param pulumi.Input[Union['SubscriberInvokeConfigurationPropertiesArgs', 'SubscriberInvokeConfigurationPropertiesArgsDict']] invoke_configuration: Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
+        :param pulumi.Input[Union['SubscriberInvokeConfigurationArgs', 'SubscriberInvokeConfigurationArgsDict']] invoke_configuration: Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
         :param pulumi.Input[Union['SubscriberLogConfigurationArgs', 'SubscriberLogConfigurationArgsDict']] log_configuration: Delivery logging configuration for the subscriber.
         :param pulumi.Input[_builtins.str] name: The name of the subscriber. The first character must be alphanumeric; the remaining characters may also include '.', '-', and '_'.
         :param pulumi.Input[Union['SubscriberOnFailureConfigurationArgs', 'SubscriberOnFailureConfigurationArgsDict']] on_failure_configuration: The destination for events that could not be delivered to the target.
@@ -357,7 +357,7 @@ class Subscriber(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_bus_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_configuration: pulumi.Input[Optional[Union['SubscriberFilterConfigurationArgs', 'SubscriberFilterConfigurationArgsDict']]] = None,
-                 invoke_configuration: pulumi.Input[Optional[Union['SubscriberInvokeConfigurationPropertiesArgs', 'SubscriberInvokeConfigurationPropertiesArgsDict']]] = None,
+                 invoke_configuration: pulumi.Input[Optional[Union['SubscriberInvokeConfigurationArgs', 'SubscriberInvokeConfigurationArgsDict']]] = None,
                  log_configuration: pulumi.Input[Optional[Union['SubscriberLogConfigurationArgs', 'SubscriberLogConfigurationArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  on_failure_configuration: pulumi.Input[Optional[Union['SubscriberOnFailureConfigurationArgs', 'SubscriberOnFailureConfigurationArgsDict']]] = None,
@@ -402,7 +402,7 @@ class Subscriber(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["subscriber_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["eventBusArn", "name", "pointInTimeConfiguration", "startingPosition", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["eventBusArn", "invokeConfiguration.targetArn", "name", "pointInTimeConfiguration", "startingPosition", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Subscriber, __self__).__init__(
             'aws-native:eventsv2:Subscriber',
@@ -498,7 +498,7 @@ class Subscriber(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="invokeConfiguration")
-    def invoke_configuration(self) -> pulumi.Output['outputs.SubscriberInvokeConfigurationProperties']:
+    def invoke_configuration(self) -> pulumi.Output['outputs.SubscriberInvokeConfiguration']:
         """
         Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
         """

@@ -216,6 +216,7 @@ class BucketInventoryConfigurationOptionalFieldsItem(_builtins.str, Enum):
     OBJECT_ACCESS_CONTROL_LIST = "ObjectAccessControlList"
     OBJECT_OWNER = "ObjectOwner"
     LIFECYCLE_EXPIRATION_DATE = "LifecycleExpirationDate"
+    INTELLIGENT_TIERING_REFERENCE_DATE = "IntelligentTieringReferenceDate"
 
 
 @pulumi.type_token("aws-native:s3:BucketInventoryConfigurationScheduleFrequency")

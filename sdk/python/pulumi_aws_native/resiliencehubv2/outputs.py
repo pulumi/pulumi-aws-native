@@ -26,6 +26,8 @@ __all__ = [
     'ServiceCrossAccountRoleConfiguration',
     'ServiceDisasterRecoverySource',
     'ServiceEffectivePolicyValues',
+    'ServiceEksLabelSelector',
+    'ServiceEksLabelSelectorRequirement',
     'ServiceEksSource',
     'ServiceInputSourceDefinition',
     'ServicePermissionModel',
@@ -477,12 +479,115 @@ class ServiceEffectivePolicyValues(dict):
 
 
 @pulumi.output_type
+class ServiceEksLabelSelector(dict):
+    """
+    Kubernetes label selector that scopes discovery to matching objects in the specified namespaces. An object must satisfy both MatchLabels and MatchExpressions. Specify at least one of them; a selector carrying neither is treated as though no selector were supplied, and all supported objects in the specified namespaces are discovered.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchExpressions":
+            suggest = "match_expressions"
+        elif key == "matchLabels":
+            suggest = "match_labels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEksLabelSelector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEksLabelSelector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEksLabelSelector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_expressions: Optional[Sequence['outputs.ServiceEksLabelSelectorRequirement']] = None,
+                 match_labels: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        Kubernetes label selector that scopes discovery to matching objects in the specified namespaces. An object must satisfy both MatchLabels and MatchExpressions. Specify at least one of them; a selector carrying neither is treated as though no selector were supplied, and all supported objects in the specified namespaces are discovered.
+
+        :param Sequence['ServiceEksLabelSelectorRequirement'] match_expressions: Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+        :param Mapping[str, _builtins.str] match_labels: Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+        """
+        if match_expressions is not None:
+            pulumi.set(__self__, "match_expressions", match_expressions)
+        if match_labels is not None:
+            pulumi.set(__self__, "match_labels", match_labels)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> Optional[Sequence['outputs.ServiceEksLabelSelectorRequirement']]:
+        """
+        Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @_builtins.property
+    @pulumi.getter(name="matchLabels")
+    def match_labels(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+        """
+        return pulumi.get(self, "match_labels")
+
+
+@pulumi.output_type
+class ServiceEksLabelSelectorRequirement(dict):
+    """
+    A single label selector requirement. Specify Values when Operator is IN or NOT_IN, and omit Values when Operator is EXISTS or DOES_NOT_EXIST.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 operator: 'ServiceEksLabelSelectorRequirementOperator',
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        A single label selector requirement. Specify Values when Operator is IN or NOT_IN, and omit Values when Operator is EXISTS or DOES_NOT_EXIST.
+
+        :param _builtins.str key: Label key the requirement applies to.
+        :param 'ServiceEksLabelSelectorRequirementOperator' operator: Operator applied to the label key.
+        :param Sequence[_builtins.str] values: Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Label key the requirement applies to.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> 'ServiceEksLabelSelectorRequirementOperator':
+        """
+        Operator applied to the label key.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class ServiceEksSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "clusterArn":
             suggest = "cluster_arn"
+        elif key == "labelSelector":
+            suggest = "label_selector"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceEksSource. Access the value via the '{suggest}' property getter instead.")
@@ -497,13 +602,16 @@ class ServiceEksSource(dict):
 
     def __init__(__self__, *,
                  cluster_arn: _builtins.str,
-                 namespaces: Sequence[_builtins.str]):
+                 namespaces: Sequence[_builtins.str],
+                 label_selector: Optional['outputs.ServiceEksLabelSelector'] = None):
         """
         :param _builtins.str cluster_arn: ARN of the EKS cluster.
         :param Sequence[_builtins.str] namespaces: EKS namespaces.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "namespaces", namespaces)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
@@ -520,6 +628,11 @@ class ServiceEksSource(dict):
         EKS namespaces.
         """
         return pulumi.get(self, "namespaces")
+
+    @_builtins.property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional['outputs.ServiceEksLabelSelector']:
+        return pulumi.get(self, "label_selector")
 
 
 @pulumi.output_type

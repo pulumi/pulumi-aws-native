@@ -87,7 +87,7 @@
     "SchemaType" : {
       "type" : "string",
       "description" : "Versioned schema type governing the structure of examples. Immutable after creation.",
-      "enum" : [ "AGENTCORE_EVALUATION_PREDEFINED_V1", "AGENTCORE_EVALUATION_SIMULATED_V1" ]
+      "enum" : [ "AGENTCORE_EVALUATION_PREDEFINED_V1", "AGENTCORE_EVALUATION_SIMULATED_V1", "GENERIC_EVALUATION_PREDEFINED_V1", "THIRD_PARTY_EVALUATION_V1" ]
     },
     "Source" : {
       "$ref" : "#/definitions/DataSourceType"

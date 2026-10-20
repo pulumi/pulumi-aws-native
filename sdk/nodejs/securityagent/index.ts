@@ -35,6 +35,11 @@ export const getArtifact: typeof import("./getArtifact").getArtifact = null as a
 export const getArtifactOutput: typeof import("./getArtifact").getArtifactOutput = null as any;
 utilities.lazyLoad(exports, ["getArtifact","getArtifactOutput"], () => require("./getArtifact"));
 
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
+
 export { GetPentestArgs, GetPentestResult, GetPentestOutputArgs } from "./getPentest";
 export const getPentest: typeof import("./getPentest").getPentest = null as any;
 export const getPentestOutput: typeof import("./getPentest").getPentestOutput = null as any;
@@ -49,6 +54,11 @@ export { GetTargetDomainArgs, GetTargetDomainResult, GetTargetDomainOutputArgs }
 export const getTargetDomain: typeof import("./getTargetDomain").getTargetDomain = null as any;
 export const getTargetDomainOutput: typeof import("./getTargetDomain").getTargetDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getTargetDomain","getTargetDomainOutput"], () => require("./getTargetDomain"));
+
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
 export { PentestArgs } from "./pentest";
 export type Pentest = import("./pentest").Pentest;
@@ -79,6 +89,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "aws-native:securityagent:Artifact":
                 return new Artifact(name, <any>undefined, { urn })
+            case "aws-native:securityagent:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws-native:securityagent:Pentest":
                 return new Pentest(name, <any>undefined, { urn })
             case "aws-native:securityagent:SecurityRequirementPack":

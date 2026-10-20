@@ -51,7 +51,7 @@
           "minItems" : 1
         },
         "SecurityGroupIds" : {
-          "description" : "The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.",
+          "description" : "The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.",
           "type" : "array",
           "insertionOrder" : false,
           "items" : {
@@ -60,7 +60,7 @@
             "minLength" : 0,
             "pattern" : "^sg-[0-9a-zA-Z]*$"
           },
-          "maxItems" : 5,
+          "maxItems" : 16,
           "minItems" : 0
         },
         "NetworkProtocol" : {

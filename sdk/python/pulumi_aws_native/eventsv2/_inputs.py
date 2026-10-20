@@ -38,24 +38,24 @@ __all__ = [
     'SubscriberFilterArgsDict',
     'SubscriberFilterConfigurationArgs',
     'SubscriberFilterConfigurationArgsDict',
-    'SubscriberInvokeConfigurationPropertiesArgs',
-    'SubscriberInvokeConfigurationPropertiesArgsDict',
-    'SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs',
-    'SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgsDict',
-    'SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs',
-    'SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgsDict',
-    'SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs',
-    'SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgsDict',
-    'SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs',
-    'SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgsDict',
-    'SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs',
-    'SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgsDict',
-    'SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs',
-    'SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgsDict',
-    'SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs',
-    'SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgsDict',
-    'SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs',
-    'SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgsDict',
+    'SubscriberInvokeConfigurationArgs',
+    'SubscriberInvokeConfigurationArgsDict',
+    'SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs',
+    'SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgsDict',
+    'SubscriberInvokeConfigurationHttpParametersPropertiesArgs',
+    'SubscriberInvokeConfigurationHttpParametersPropertiesArgsDict',
+    'SubscriberInvokeConfigurationKinesisParametersPropertiesArgs',
+    'SubscriberInvokeConfigurationKinesisParametersPropertiesArgsDict',
+    'SubscriberInvokeConfigurationLambdaParametersPropertiesArgs',
+    'SubscriberInvokeConfigurationLambdaParametersPropertiesArgsDict',
+    'SubscriberInvokeConfigurationSnsParametersPropertiesArgs',
+    'SubscriberInvokeConfigurationSnsParametersPropertiesArgsDict',
+    'SubscriberInvokeConfigurationSqsParametersPropertiesArgs',
+    'SubscriberInvokeConfigurationSqsParametersPropertiesArgsDict',
+    'SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs',
+    'SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgsDict',
+    'SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs',
+    'SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgsDict',
     'SubscriberJsonataConfigurationArgs',
     'SubscriberJsonataConfigurationArgsDict',
     'SubscriberLogConfigurationArgs',
@@ -640,7 +640,7 @@ class SubscriberFilterConfigurationArgs:
         pulumi.set(self, "language", value)
 
 
-class SubscriberInvokeConfigurationPropertiesArgsDict(TypedDict):
+class SubscriberInvokeConfigurationArgsDict(TypedDict):
     """
     Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
     """
@@ -652,65 +652,65 @@ class SubscriberInvokeConfigurationPropertiesArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
     """
-    event_bus_v2_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgsDict']]]
+    event_bus_v2_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgsDict']]]
     """
     Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
     """
-    http_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgsDict']]]
+    http_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationHttpParametersPropertiesArgsDict']]]
     """
     Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
     """
-    kinesis_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgsDict']]]
+    kinesis_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationKinesisParametersPropertiesArgsDict']]]
     """
     Parameters for writing events to an Amazon Kinesis Data Streams target.
     """
-    lambda_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgsDict']]]
+    lambda_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationLambdaParametersPropertiesArgsDict']]]
     """
     Parameters for invoking an AWS Lambda function target.
     """
-    sns_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgsDict']]]
+    sns_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationSnsParametersPropertiesArgsDict']]]
     """
     Parameters for publishing events to an Amazon SNS topic target.
     """
-    sqs_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgsDict']]]
+    sqs_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationSqsParametersPropertiesArgsDict']]]
     """
     Parameters for sending events to an Amazon SQS queue target.
     """
-    step_functions_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgsDict']]]
+    step_functions_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgsDict']]]
     """
     Parameters for starting an AWS Step Functions state machine execution target.
     """
-    universal_target_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgsDict']]]
+    universal_target_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgsDict']]]
     """
     Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
     """
 
 @pulumi.input_type
-class SubscriberInvokeConfigurationPropertiesArgs:
+class SubscriberInvokeConfigurationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  target_arn: pulumi.Input[_builtins.str],
-                 event_bus_v2_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs']] = None,
-                 http_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs']] = None,
-                 kinesis_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs']] = None,
-                 lambda_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs']] = None,
-                 sns_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs']] = None,
-                 sqs_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs']] = None,
-                 step_functions_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs']] = None,
-                 universal_target_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs']] = None):
+                 event_bus_v2_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs']] = None,
+                 http_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationHttpParametersPropertiesArgs']] = None,
+                 kinesis_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationKinesisParametersPropertiesArgs']] = None,
+                 lambda_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationLambdaParametersPropertiesArgs']] = None,
+                 sns_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationSnsParametersPropertiesArgs']] = None,
+                 sqs_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationSqsParametersPropertiesArgs']] = None,
+                 step_functions_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs']] = None,
+                 universal_target_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs']] = None):
         """
         Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
 
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
         :param pulumi.Input[_builtins.str] target_arn: The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-        :param pulumi.Input['SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs'] event_bus_v2_parameters: Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
-        :param pulumi.Input['SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs'] http_parameters: Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
-        :param pulumi.Input['SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs'] kinesis_parameters: Parameters for writing events to an Amazon Kinesis Data Streams target.
-        :param pulumi.Input['SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs'] lambda_parameters: Parameters for invoking an AWS Lambda function target.
-        :param pulumi.Input['SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs'] sns_parameters: Parameters for publishing events to an Amazon SNS topic target.
-        :param pulumi.Input['SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs'] sqs_parameters: Parameters for sending events to an Amazon SQS queue target.
-        :param pulumi.Input['SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs'] step_functions_parameters: Parameters for starting an AWS Step Functions state machine execution target.
-        :param pulumi.Input['SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs'] universal_target_parameters: Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
+        :param pulumi.Input['SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs'] event_bus_v2_parameters: Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
+        :param pulumi.Input['SubscriberInvokeConfigurationHttpParametersPropertiesArgs'] http_parameters: Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
+        :param pulumi.Input['SubscriberInvokeConfigurationKinesisParametersPropertiesArgs'] kinesis_parameters: Parameters for writing events to an Amazon Kinesis Data Streams target.
+        :param pulumi.Input['SubscriberInvokeConfigurationLambdaParametersPropertiesArgs'] lambda_parameters: Parameters for invoking an AWS Lambda function target.
+        :param pulumi.Input['SubscriberInvokeConfigurationSnsParametersPropertiesArgs'] sns_parameters: Parameters for publishing events to an Amazon SNS topic target.
+        :param pulumi.Input['SubscriberInvokeConfigurationSqsParametersPropertiesArgs'] sqs_parameters: Parameters for sending events to an Amazon SQS queue target.
+        :param pulumi.Input['SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs'] step_functions_parameters: Parameters for starting an AWS Step Functions state machine execution target.
+        :param pulumi.Input['SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs'] universal_target_parameters: Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "target_arn", target_arn)
@@ -757,102 +757,102 @@ class SubscriberInvokeConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventBusV2Parameters")
-    def event_bus_v2_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs']]:
+    def event_bus_v2_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs']]:
         """
         Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
         """
         return pulumi.get(self, "event_bus_v2_parameters")
 
     @event_bus_v2_parameters.setter
-    def event_bus_v2_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs']]):
+    def event_bus_v2_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs']]):
         pulumi.set(self, "event_bus_v2_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="httpParameters")
-    def http_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs']]:
+    def http_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationHttpParametersPropertiesArgs']]:
         """
         Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
         """
         return pulumi.get(self, "http_parameters")
 
     @http_parameters.setter
-    def http_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs']]):
+    def http_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationHttpParametersPropertiesArgs']]):
         pulumi.set(self, "http_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisParameters")
-    def kinesis_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs']]:
+    def kinesis_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationKinesisParametersPropertiesArgs']]:
         """
         Parameters for writing events to an Amazon Kinesis Data Streams target.
         """
         return pulumi.get(self, "kinesis_parameters")
 
     @kinesis_parameters.setter
-    def kinesis_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs']]):
+    def kinesis_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationKinesisParametersPropertiesArgs']]):
         pulumi.set(self, "kinesis_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaParameters")
-    def lambda_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs']]:
+    def lambda_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationLambdaParametersPropertiesArgs']]:
         """
         Parameters for invoking an AWS Lambda function target.
         """
         return pulumi.get(self, "lambda_parameters")
 
     @lambda_parameters.setter
-    def lambda_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs']]):
+    def lambda_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationLambdaParametersPropertiesArgs']]):
         pulumi.set(self, "lambda_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="snsParameters")
-    def sns_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs']]:
+    def sns_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationSnsParametersPropertiesArgs']]:
         """
         Parameters for publishing events to an Amazon SNS topic target.
         """
         return pulumi.get(self, "sns_parameters")
 
     @sns_parameters.setter
-    def sns_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs']]):
+    def sns_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationSnsParametersPropertiesArgs']]):
         pulumi.set(self, "sns_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsParameters")
-    def sqs_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs']]:
+    def sqs_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationSqsParametersPropertiesArgs']]:
         """
         Parameters for sending events to an Amazon SQS queue target.
         """
         return pulumi.get(self, "sqs_parameters")
 
     @sqs_parameters.setter
-    def sqs_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs']]):
+    def sqs_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationSqsParametersPropertiesArgs']]):
         pulumi.set(self, "sqs_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="stepFunctionsParameters")
-    def step_functions_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs']]:
+    def step_functions_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs']]:
         """
         Parameters for starting an AWS Step Functions state machine execution target.
         """
         return pulumi.get(self, "step_functions_parameters")
 
     @step_functions_parameters.setter
-    def step_functions_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs']]):
+    def step_functions_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs']]):
         pulumi.set(self, "step_functions_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="universalTargetParameters")
-    def universal_target_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs']]:
+    def universal_target_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs']]:
         """
         Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
         """
         return pulumi.get(self, "universal_target_parameters")
 
     @universal_target_parameters.setter
-    def universal_target_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs']]):
+    def universal_target_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs']]):
         pulumi.set(self, "universal_target_parameters", value)
 
 
-class SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgsDict(TypedDict):
+class SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgsDict(TypedDict):
     """
     Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
     """
@@ -870,7 +870,7 @@ class SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgsD
     """
 
 @pulumi.input_type
-class SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs:
+class SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs:
     def __init__(__self__, *,
                  deduplication_configuration: pulumi.Input[Optional['SubscriberDeduplicationConfigurationArgs']] = None,
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -926,7 +926,7 @@ class SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs:
         pulumi.set(self, "system_metadata", value)
 
 
-class SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgsDict(TypedDict):
+class SubscriberInvokeConfigurationHttpParametersPropertiesArgsDict(TypedDict):
     """
     Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
     """
@@ -948,7 +948,7 @@ class SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgsDict(Ty
     """
 
 @pulumi.input_type
-class SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs:
+class SubscriberInvokeConfigurationHttpParametersPropertiesArgs:
     def __init__(__self__, *,
                  header_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  invocation_timeout_seconds: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1020,7 +1020,7 @@ class SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs:
         pulumi.set(self, "query_string_parameters", value)
 
 
-class SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgsDict(TypedDict):
+class SubscriberInvokeConfigurationKinesisParametersPropertiesArgsDict(TypedDict):
     """
     Parameters for writing events to an Amazon Kinesis Data Streams target.
     """
@@ -1034,7 +1034,7 @@ class SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgsDict
     """
 
 @pulumi.input_type
-class SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs:
+class SubscriberInvokeConfigurationKinesisParametersPropertiesArgs:
     def __init__(__self__, *,
                  explicit_hash_key: pulumi.Input[Optional[_builtins.str]] = None,
                  partition_key: pulumi.Input[Optional[_builtins.str]] = None):
@@ -1074,7 +1074,7 @@ class SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs:
         pulumi.set(self, "partition_key", value)
 
 
-class SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgsDict(TypedDict):
+class SubscriberInvokeConfigurationLambdaParametersPropertiesArgsDict(TypedDict):
     """
     Parameters for invoking an AWS Lambda function target.
     """
@@ -1100,7 +1100,7 @@ class SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgsDict(
     """
 
 @pulumi.input_type
-class SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs:
+class SubscriberInvokeConfigurationLambdaParametersPropertiesArgs:
     def __init__(__self__, *,
                  durable_execution_name: pulumi.Input[Optional[_builtins.str]] = None,
                  invocation_timeout_seconds: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1188,7 +1188,7 @@ class SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-class SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgsDict(TypedDict):
+class SubscriberInvokeConfigurationSnsParametersPropertiesArgsDict(TypedDict):
     """
     Parameters for publishing events to an Amazon SNS topic target.
     """
@@ -1214,7 +1214,7 @@ class SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgsDict(Typ
     """
 
 @pulumi.input_type
-class SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs:
+class SubscriberInvokeConfigurationSnsParametersPropertiesArgs:
     def __init__(__self__, *,
                  message_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input['SubscriberMessageAttributeValueArgs']]]] = None,
                  message_deduplication_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1302,7 +1302,7 @@ class SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs:
         pulumi.set(self, "subject", value)
 
 
-class SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgsDict(TypedDict):
+class SubscriberInvokeConfigurationSqsParametersPropertiesArgsDict(TypedDict):
     """
     Parameters for sending events to an Amazon SQS queue target.
     """
@@ -1328,7 +1328,7 @@ class SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgsDict(Typ
     """
 
 @pulumi.input_type
-class SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs:
+class SubscriberInvokeConfigurationSqsParametersPropertiesArgs:
     def __init__(__self__, *,
                  delay_seconds: pulumi.Input[Optional[_builtins.str]] = None,
                  message_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input['SubscriberMessageAttributeValueArgs']]]] = None,
@@ -1416,7 +1416,7 @@ class SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs:
         pulumi.set(self, "message_system_attributes", value)
 
 
-class SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgsDict(TypedDict):
+class SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgsDict(TypedDict):
     """
     Parameters for starting an AWS Step Functions state machine execution target.
     """
@@ -1438,7 +1438,7 @@ class SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesAr
     """
 
 @pulumi.input_type
-class SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs:
+class SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs:
     def __init__(__self__, *,
                  invocation_timeout_seconds: pulumi.Input[Optional[_builtins.str]] = None,
                  invocation_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1510,7 +1510,7 @@ class SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesAr
         pulumi.set(self, "trace_header", value)
 
 
-class SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgsDict(TypedDict):
+class SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgsDict(TypedDict):
     """
     Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
     """
@@ -1524,7 +1524,7 @@ class SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties
     """
 
 @pulumi.input_type
-class SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs:
+class SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs:
     def __init__(__self__, *,
                  input: pulumi.Input[_builtins.str],
                  invocation_timeout_seconds: pulumi.Input[Optional[_builtins.str]] = None):

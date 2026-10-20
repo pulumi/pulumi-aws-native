@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'LicenseAssetGroupConfigurationArgs',
@@ -37,6 +38,10 @@ __all__ = [
     'LicenseAssetRuleSetRuleStatementArgsDict',
     'LicenseBorrowConfigurationArgs',
     'LicenseBorrowConfigurationArgsDict',
+    'LicenseConfigurationProductInformationArgs',
+    'LicenseConfigurationProductInformationArgsDict',
+    'LicenseConfigurationProductInformationFilterArgs',
+    'LicenseConfigurationProductInformationFilterArgsDict',
     'LicenseConsumptionConfigurationArgs',
     'LicenseConsumptionConfigurationArgsDict',
     'LicenseEntitlementArgs',
@@ -505,6 +510,130 @@ class LicenseBorrowConfigurationArgs:
     @max_time_to_live_in_minutes.setter
     def max_time_to_live_in_minutes(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "max_time_to_live_in_minutes", value)
+
+
+class LicenseConfigurationProductInformationArgsDict(TypedDict):
+    """
+    Describes product information for a license configuration.
+    """
+    product_information_filter_list: pulumi.Input[Sequence[pulumi.Input['LicenseConfigurationProductInformationFilterArgsDict']]]
+    """
+    A product information filter list.
+    """
+    resource_type: pulumi.Input[_builtins.str]
+    """
+    Resource type. The possible values are SSM_MANAGED | RDS.
+    """
+
+@pulumi.input_type
+class LicenseConfigurationProductInformationArgs:
+    def __init__(__self__, *,
+                 product_information_filter_list: pulumi.Input[Sequence[pulumi.Input['LicenseConfigurationProductInformationFilterArgs']]],
+                 resource_type: pulumi.Input[_builtins.str]):
+        """
+        Describes product information for a license configuration.
+
+        :param pulumi.Input[Sequence[pulumi.Input['LicenseConfigurationProductInformationFilterArgs']]] product_information_filter_list: A product information filter list.
+        :param pulumi.Input[_builtins.str] resource_type: Resource type. The possible values are SSM_MANAGED | RDS.
+        """
+        pulumi.set(__self__, "product_information_filter_list", product_information_filter_list)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="productInformationFilterList")
+    def product_information_filter_list(self) -> pulumi.Input[Sequence[pulumi.Input['LicenseConfigurationProductInformationFilterArgs']]]:
+        """
+        A product information filter list.
+        """
+        return pulumi.get(self, "product_information_filter_list")
+
+    @product_information_filter_list.setter
+    def product_information_filter_list(self, value: pulumi.Input[Sequence[pulumi.Input['LicenseConfigurationProductInformationFilterArgs']]]):
+        pulumi.set(self, "product_information_filter_list", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Resource type. The possible values are SSM_MANAGED | RDS.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_type", value)
+
+
+class LicenseConfigurationProductInformationFilterArgsDict(TypedDict):
+    """
+    Describes a product information filter.
+    """
+    product_information_filter_comparator: pulumi.Input[_builtins.str]
+    """
+    Logical operator.
+    """
+    product_information_filter_name: pulumi.Input[_builtins.str]
+    """
+    Filter name.
+    """
+    product_information_filter_value: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Filter value.
+    """
+
+@pulumi.input_type
+class LicenseConfigurationProductInformationFilterArgs:
+    def __init__(__self__, *,
+                 product_information_filter_comparator: pulumi.Input[_builtins.str],
+                 product_information_filter_name: pulumi.Input[_builtins.str],
+                 product_information_filter_value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Describes a product information filter.
+
+        :param pulumi.Input[_builtins.str] product_information_filter_comparator: Logical operator.
+        :param pulumi.Input[_builtins.str] product_information_filter_name: Filter name.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] product_information_filter_value: Filter value.
+        """
+        pulumi.set(__self__, "product_information_filter_comparator", product_information_filter_comparator)
+        pulumi.set(__self__, "product_information_filter_name", product_information_filter_name)
+        if product_information_filter_value is not None:
+            pulumi.set(__self__, "product_information_filter_value", product_information_filter_value)
+
+    @_builtins.property
+    @pulumi.getter(name="productInformationFilterComparator")
+    def product_information_filter_comparator(self) -> pulumi.Input[_builtins.str]:
+        """
+        Logical operator.
+        """
+        return pulumi.get(self, "product_information_filter_comparator")
+
+    @product_information_filter_comparator.setter
+    def product_information_filter_comparator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "product_information_filter_comparator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productInformationFilterName")
+    def product_information_filter_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Filter name.
+        """
+        return pulumi.get(self, "product_information_filter_name")
+
+    @product_information_filter_name.setter
+    def product_information_filter_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "product_information_filter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productInformationFilterValue")
+    def product_information_filter_value(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Filter value.
+        """
+        return pulumi.get(self, "product_information_filter_value")
+
+    @product_information_filter_value.setter
+    def product_information_filter_value(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "product_information_filter_value", value)
 
 
 class LicenseConsumptionConfigurationArgsDict(TypedDict):

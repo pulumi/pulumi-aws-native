@@ -13,6 +13,7 @@ from .capacity_reservation import *
 from .capacity_reservation_fleet import *
 from .carrier_gateway import *
 from .client_vpn_authorization_rule import *
+from .client_vpn_route import *
 from .customer_gateway import *
 from .dhcp_options import *
 from .ec2_fleet import *
@@ -29,6 +30,7 @@ from .get_capacity_reservation import *
 from .get_capacity_reservation_fleet import *
 from .get_carrier_gateway import *
 from .get_client_vpn_authorization_rule import *
+from .get_client_vpn_route import *
 from .get_customer_gateway import *
 from .get_dhcp_options import *
 from .get_ec2_fleet import *
@@ -49,6 +51,7 @@ from .get_ip_pool_route_table_association import *
 from .get_ipam import *
 from .get_ipam_allocation import *
 from .get_ipam_external_resource_verification_token import *
+from .get_ipam_internet_registry_association import *
 from .get_ipam_pool import *
 from .get_ipam_pool_cidr import *
 from .get_ipam_prefix_list_resolver import *
@@ -141,6 +144,7 @@ from .ip_pool_route_table_association import *
 from .ipam import *
 from .ipam_allocation import *
 from .ipam_external_resource_verification_token import *
+from .ipam_internet_registry_association import *
 from .ipam_pool import *
 from .ipam_pool_cidr import *
 from .ipam_prefix_list_resolver import *

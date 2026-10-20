@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+ * Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
  */
 export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
     /**

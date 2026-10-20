@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.Eks.Inputs
         public Input<Inputs.CapabilityAwsIdcArgs> AwsIdc { get; set; } = null!;
 
         /// <summary>
+        /// An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+        /// </summary>
+        [Input("endpointPrefix")]
+        public Input<string>? EndpointPrefix { get; set; }
+
+        /// <summary>
         /// The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
         /// </summary>
         [Input("namespace")]

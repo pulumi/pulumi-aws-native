@@ -2082,12 +2082,271 @@ func (o CodeInterpreterCustomCodeInterpreterStatusPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConsentPortalSourceType string
+
+const (
+	ConsentPortalSourceTypeAgentcoreGateway = ConsentPortalSourceType("agentcore-gateway")
+)
+
+func (ConsentPortalSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalSourceType)(nil)).Elem()
+}
+
+func (e ConsentPortalSourceType) ToConsentPortalSourceTypeOutput() ConsentPortalSourceTypeOutput {
+	return pulumi.ToOutput(e).(ConsentPortalSourceTypeOutput)
+}
+
+func (e ConsentPortalSourceType) ToConsentPortalSourceTypeOutputWithContext(ctx context.Context) ConsentPortalSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConsentPortalSourceTypeOutput)
+}
+
+func (e ConsentPortalSourceType) ToConsentPortalSourceTypePtrOutput() ConsentPortalSourceTypePtrOutput {
+	return e.ToConsentPortalSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConsentPortalSourceType) ToConsentPortalSourceTypePtrOutputWithContext(ctx context.Context) ConsentPortalSourceTypePtrOutput {
+	return ConsentPortalSourceType(e).ToConsentPortalSourceTypeOutputWithContext(ctx).ToConsentPortalSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e ConsentPortalSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConsentPortalSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConsentPortalSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConsentPortalSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConsentPortalSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalSourceType)(nil)).Elem()
+}
+
+func (o ConsentPortalSourceTypeOutput) ToConsentPortalSourceTypeOutput() ConsentPortalSourceTypeOutput {
+	return o
+}
+
+func (o ConsentPortalSourceTypeOutput) ToConsentPortalSourceTypeOutputWithContext(ctx context.Context) ConsentPortalSourceTypeOutput {
+	return o
+}
+
+func (o ConsentPortalSourceTypeOutput) ToConsentPortalSourceTypePtrOutput() ConsentPortalSourceTypePtrOutput {
+	return o.ToConsentPortalSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConsentPortalSourceTypeOutput) ToConsentPortalSourceTypePtrOutputWithContext(ctx context.Context) ConsentPortalSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsentPortalSourceType) *ConsentPortalSourceType {
+		return &v
+	}).(ConsentPortalSourceTypePtrOutput)
+}
+
+func (o ConsentPortalSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConsentPortalSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConsentPortalSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConsentPortalSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConsentPortalSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConsentPortalSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConsentPortalSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConsentPortalSourceType)(nil)).Elem()
+}
+
+func (o ConsentPortalSourceTypePtrOutput) ToConsentPortalSourceTypePtrOutput() ConsentPortalSourceTypePtrOutput {
+	return o
+}
+
+func (o ConsentPortalSourceTypePtrOutput) ToConsentPortalSourceTypePtrOutputWithContext(ctx context.Context) ConsentPortalSourceTypePtrOutput {
+	return o
+}
+
+func (o ConsentPortalSourceTypePtrOutput) Elem() ConsentPortalSourceTypeOutput {
+	return o.ApplyT(func(v *ConsentPortalSourceType) ConsentPortalSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret ConsentPortalSourceType
+		return ret
+	}).(ConsentPortalSourceTypeOutput)
+}
+
+func (o ConsentPortalSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConsentPortalSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConsentPortalSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConsentPortalSourceTypeInput is an input type that accepts values of the ConsentPortalSourceType enum
+// A concrete instance of `ConsentPortalSourceTypeInput` can be one of the following:
+//
+//	ConsentPortalSourceTypeAgentcoreGateway
+type ConsentPortalSourceTypeInput interface {
+	pulumi.Input
+
+	ToConsentPortalSourceTypeOutput() ConsentPortalSourceTypeOutput
+	ToConsentPortalSourceTypeOutputWithContext(context.Context) ConsentPortalSourceTypeOutput
+}
+
+var consentPortalSourceTypePtrType = reflect.TypeOf((**ConsentPortalSourceType)(nil)).Elem()
+
+type ConsentPortalSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToConsentPortalSourceTypePtrOutput() ConsentPortalSourceTypePtrOutput
+	ToConsentPortalSourceTypePtrOutputWithContext(context.Context) ConsentPortalSourceTypePtrOutput
+}
+
+type consentPortalSourceTypePtr string
+
+func ConsentPortalSourceTypePtr(v string) ConsentPortalSourceTypePtrInput {
+	return (*consentPortalSourceTypePtr)(&v)
+}
+
+func (*consentPortalSourceTypePtr) ElementType() reflect.Type {
+	return consentPortalSourceTypePtrType
+}
+
+func (in *consentPortalSourceTypePtr) ToConsentPortalSourceTypePtrOutput() ConsentPortalSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(ConsentPortalSourceTypePtrOutput)
+}
+
+func (in *consentPortalSourceTypePtr) ToConsentPortalSourceTypePtrOutputWithContext(ctx context.Context) ConsentPortalSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConsentPortalSourceTypePtrOutput)
+}
+
+type ConsentPortalStatus string
+
+const (
+	ConsentPortalStatusCreating     = ConsentPortalStatus("CREATING")
+	ConsentPortalStatusActive       = ConsentPortalStatus("ACTIVE")
+	ConsentPortalStatusUpdating     = ConsentPortalStatus("UPDATING")
+	ConsentPortalStatusUpdateFailed = ConsentPortalStatus("UPDATE_FAILED")
+	ConsentPortalStatusDeleting     = ConsentPortalStatus("DELETING")
+	ConsentPortalStatusFailed       = ConsentPortalStatus("FAILED")
+)
+
+type ConsentPortalStatusOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalStatus)(nil)).Elem()
+}
+
+func (o ConsentPortalStatusOutput) ToConsentPortalStatusOutput() ConsentPortalStatusOutput {
+	return o
+}
+
+func (o ConsentPortalStatusOutput) ToConsentPortalStatusOutputWithContext(ctx context.Context) ConsentPortalStatusOutput {
+	return o
+}
+
+func (o ConsentPortalStatusOutput) ToConsentPortalStatusPtrOutput() ConsentPortalStatusPtrOutput {
+	return o.ToConsentPortalStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ConsentPortalStatusOutput) ToConsentPortalStatusPtrOutputWithContext(ctx context.Context) ConsentPortalStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsentPortalStatus) *ConsentPortalStatus {
+		return &v
+	}).(ConsentPortalStatusPtrOutput)
+}
+
+func (o ConsentPortalStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConsentPortalStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConsentPortalStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConsentPortalStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConsentPortalStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConsentPortalStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConsentPortalStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConsentPortalStatus)(nil)).Elem()
+}
+
+func (o ConsentPortalStatusPtrOutput) ToConsentPortalStatusPtrOutput() ConsentPortalStatusPtrOutput {
+	return o
+}
+
+func (o ConsentPortalStatusPtrOutput) ToConsentPortalStatusPtrOutputWithContext(ctx context.Context) ConsentPortalStatusPtrOutput {
+	return o
+}
+
+func (o ConsentPortalStatusPtrOutput) Elem() ConsentPortalStatusOutput {
+	return o.ApplyT(func(v *ConsentPortalStatus) ConsentPortalStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ConsentPortalStatus
+		return ret
+	}).(ConsentPortalStatusOutput)
+}
+
+func (o ConsentPortalStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConsentPortalStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConsentPortalStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Versioned schema type governing the structure of examples. Immutable after creation.
 type DatasetSchemaType string
 
 const (
 	DatasetSchemaTypeAgentcoreEvaluationPredefinedV1 = DatasetSchemaType("AGENTCORE_EVALUATION_PREDEFINED_V1")
 	DatasetSchemaTypeAgentcoreEvaluationSimulatedV1  = DatasetSchemaType("AGENTCORE_EVALUATION_SIMULATED_V1")
+	DatasetSchemaTypeGenericEvaluationPredefinedV1   = DatasetSchemaType("GENERIC_EVALUATION_PREDEFINED_V1")
+	DatasetSchemaTypeThirdPartyEvaluationV1          = DatasetSchemaType("THIRD_PARTY_EVALUATION_V1")
 )
 
 func (DatasetSchemaType) ElementType() reflect.Type {
@@ -2214,6 +2473,8 @@ func (o DatasetSchemaTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 //
 //	DatasetSchemaTypeAgentcoreEvaluationPredefinedV1
 //	DatasetSchemaTypeAgentcoreEvaluationSimulatedV1
+//	DatasetSchemaTypeGenericEvaluationPredefinedV1
+//	DatasetSchemaTypeThirdPartyEvaluationV1
 type DatasetSchemaTypeInput interface {
 	pulumi.Input
 
@@ -2511,6 +2772,99 @@ func (in *evaluatorLevelPtr) ToEvaluatorLevelPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluatorLevelPtrOutput)
 }
 
+// Where the evaluator's logic comes from: AWS for AWS-authored evaluators, DeepEval or AutoEval for the corresponding third-party libraries, or Custom for an evaluator that you authored.
+type EvaluatorProvider string
+
+const (
+	EvaluatorProviderAws      = EvaluatorProvider("AWS")
+	EvaluatorProviderDeepEval = EvaluatorProvider("DeepEval")
+	EvaluatorProviderAutoEval = EvaluatorProvider("AutoEval")
+	EvaluatorProviderCustom   = EvaluatorProvider("Custom")
+)
+
+type EvaluatorProviderOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorProvider)(nil)).Elem()
+}
+
+func (o EvaluatorProviderOutput) ToEvaluatorProviderOutput() EvaluatorProviderOutput {
+	return o
+}
+
+func (o EvaluatorProviderOutput) ToEvaluatorProviderOutputWithContext(ctx context.Context) EvaluatorProviderOutput {
+	return o
+}
+
+func (o EvaluatorProviderOutput) ToEvaluatorProviderPtrOutput() EvaluatorProviderPtrOutput {
+	return o.ToEvaluatorProviderPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorProviderOutput) ToEvaluatorProviderPtrOutputWithContext(ctx context.Context) EvaluatorProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorProvider) *EvaluatorProvider {
+		return &v
+	}).(EvaluatorProviderPtrOutput)
+}
+
+func (o EvaluatorProviderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluatorProviderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluatorProvider) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluatorProviderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorProviderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluatorProvider) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluatorProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorProvider)(nil)).Elem()
+}
+
+func (o EvaluatorProviderPtrOutput) ToEvaluatorProviderPtrOutput() EvaluatorProviderPtrOutput {
+	return o
+}
+
+func (o EvaluatorProviderPtrOutput) ToEvaluatorProviderPtrOutputWithContext(ctx context.Context) EvaluatorProviderPtrOutput {
+	return o
+}
+
+func (o EvaluatorProviderPtrOutput) Elem() EvaluatorProviderOutput {
+	return o.ApplyT(func(v *EvaluatorProvider) EvaluatorProvider {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorProvider
+		return ret
+	}).(EvaluatorProviderOutput)
+}
+
+func (o EvaluatorProviderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorProviderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluatorProvider) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type EvaluatorStatus string
 
 const (
@@ -2597,6 +2951,100 @@ func (o EvaluatorStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (o EvaluatorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluatorStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+type EvaluatorType string
+
+const (
+	EvaluatorTypeBuiltin       = EvaluatorType("Builtin")
+	EvaluatorTypeThirdParty    = EvaluatorType("ThirdParty")
+	EvaluatorTypeCustom        = EvaluatorType("Custom")
+	EvaluatorTypeCustomCode    = EvaluatorType("CustomCode")
+	EvaluatorTypeCustomDerived = EvaluatorType("CustomDerived")
+)
+
+type EvaluatorTypeOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorType)(nil)).Elem()
+}
+
+func (o EvaluatorTypeOutput) ToEvaluatorTypeOutput() EvaluatorTypeOutput {
+	return o
+}
+
+func (o EvaluatorTypeOutput) ToEvaluatorTypeOutputWithContext(ctx context.Context) EvaluatorTypeOutput {
+	return o
+}
+
+func (o EvaluatorTypeOutput) ToEvaluatorTypePtrOutput() EvaluatorTypePtrOutput {
+	return o.ToEvaluatorTypePtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorTypeOutput) ToEvaluatorTypePtrOutputWithContext(ctx context.Context) EvaluatorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorType) *EvaluatorType {
+		return &v
+	}).(EvaluatorTypePtrOutput)
+}
+
+func (o EvaluatorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluatorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluatorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluatorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluatorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluatorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorType)(nil)).Elem()
+}
+
+func (o EvaluatorTypePtrOutput) ToEvaluatorTypePtrOutput() EvaluatorTypePtrOutput {
+	return o
+}
+
+func (o EvaluatorTypePtrOutput) ToEvaluatorTypePtrOutputWithContext(ctx context.Context) EvaluatorTypePtrOutput {
+	return o
+}
+
+func (o EvaluatorTypePtrOutput) Elem() EvaluatorTypeOutput {
+	return o.ApplyT(func(v *EvaluatorType) EvaluatorType {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorType
+		return ret
+	}).(EvaluatorTypeOutput)
+}
+
+func (o EvaluatorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluatorType) *string {
 		if e == nil {
 			return nil
 		}
@@ -14408,6 +14856,7 @@ const (
 	OnlineEvaluationConfigStatusUpdating     = OnlineEvaluationConfigStatus("UPDATING")
 	OnlineEvaluationConfigStatusUpdateFailed = OnlineEvaluationConfigStatus("UPDATE_FAILED")
 	OnlineEvaluationConfigStatusDeleting     = OnlineEvaluationConfigStatus("DELETING")
+	OnlineEvaluationConfigStatusError        = OnlineEvaluationConfigStatus("ERROR")
 )
 
 type OnlineEvaluationConfigStatusOutput struct{ *pulumi.OutputState }
@@ -17589,6 +18038,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderRootVolumeConfigurationVolumeTypePtrInput)(nil)).Elem(), CapacityProviderRootVolumeConfigurationVolumeType("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModeInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModePtrInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsentPortalSourceTypeInput)(nil)).Elem(), ConsentPortalSourceType("agentcore-gateway"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsentPortalSourceTypePtrInput)(nil)).Elem(), ConsentPortalSourceType("agentcore-gateway"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSchemaTypeInput)(nil)).Elem(), DatasetSchemaType("AGENTCORE_EVALUATION_PREDEFINED_V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSchemaTypePtrInput)(nil)).Elem(), DatasetSchemaType("AGENTCORE_EVALUATION_PREDEFINED_V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLevelInput)(nil)).Elem(), EvaluatorLevel("TOOL_CALL"))
@@ -17781,14 +18232,22 @@ func init() {
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkModePtrOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterStatusOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterStatusPtrOutput{})
+	pulumi.RegisterOutputType(ConsentPortalSourceTypeOutput{})
+	pulumi.RegisterOutputType(ConsentPortalSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(ConsentPortalStatusOutput{})
+	pulumi.RegisterOutputType(ConsentPortalStatusPtrOutput{})
 	pulumi.RegisterOutputType(DatasetSchemaTypeOutput{})
 	pulumi.RegisterOutputType(DatasetSchemaTypePtrOutput{})
 	pulumi.RegisterOutputType(DatasetStatusOutput{})
 	pulumi.RegisterOutputType(DatasetStatusPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorLevelOutput{})
 	pulumi.RegisterOutputType(EvaluatorLevelPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorProviderOutput{})
+	pulumi.RegisterOutputType(EvaluatorProviderPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorStatusOutput{})
 	pulumi.RegisterOutputType(EvaluatorStatusPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorTypeOutput{})
+	pulumi.RegisterOutputType(EvaluatorTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerTypeOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayClaimMatchOperatorTypeOutput{})

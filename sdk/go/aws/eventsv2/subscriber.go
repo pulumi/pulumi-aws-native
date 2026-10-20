@@ -30,7 +30,7 @@ type Subscriber struct {
 	// Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
 	FilterConfiguration SubscriberFilterConfigurationPtrOutput `pulumi:"filterConfiguration"`
 	// Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
-	InvokeConfiguration SubscriberInvokeConfigurationPropertiesOutput `pulumi:"invokeConfiguration"`
+	InvokeConfiguration SubscriberInvokeConfigurationOutput `pulumi:"invokeConfiguration"`
 	// Last-modification timestamp (ISO-8601), read-only.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// Delivery logging configuration for the subscriber.
@@ -74,6 +74,7 @@ func NewSubscriber(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"eventBusArn",
+		"invokeConfiguration.targetArn",
 		"name",
 		"pointInTimeConfiguration",
 		"startingPosition",
@@ -122,7 +123,7 @@ type subscriberArgs struct {
 	// Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
 	FilterConfiguration *SubscriberFilterConfiguration `pulumi:"filterConfiguration"`
 	// Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
-	InvokeConfiguration SubscriberInvokeConfigurationProperties `pulumi:"invokeConfiguration"`
+	InvokeConfiguration SubscriberInvokeConfiguration `pulumi:"invokeConfiguration"`
 	// Delivery logging configuration for the subscriber.
 	LogConfiguration *SubscriberLogConfiguration `pulumi:"logConfiguration"`
 	// The name of the subscriber. The first character must be alphanumeric; the remaining characters may also include '.', '-', and '_'.
@@ -158,7 +159,7 @@ type SubscriberArgs struct {
 	// Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
 	FilterConfiguration SubscriberFilterConfigurationPtrInput
 	// Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
-	InvokeConfiguration SubscriberInvokeConfigurationPropertiesInput
+	InvokeConfiguration SubscriberInvokeConfigurationInput
 	// Delivery logging configuration for the subscriber.
 	LogConfiguration SubscriberLogConfigurationPtrInput
 	// The name of the subscriber. The first character must be alphanumeric; the remaining characters may also include '.', '-', and '_'.
@@ -251,8 +252,8 @@ func (o SubscriberOutput) FilterConfiguration() SubscriberFilterConfigurationPtr
 }
 
 // Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
-func (o SubscriberOutput) InvokeConfiguration() SubscriberInvokeConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *Subscriber) SubscriberInvokeConfigurationPropertiesOutput { return v.InvokeConfiguration }).(SubscriberInvokeConfigurationPropertiesOutput)
+func (o SubscriberOutput) InvokeConfiguration() SubscriberInvokeConfigurationOutput {
+	return o.ApplyT(func(v *Subscriber) SubscriberInvokeConfigurationOutput { return v.InvokeConfiguration }).(SubscriberInvokeConfigurationOutput)
 }
 
 // Last-modification timestamp (ISO-8601), read-only.

@@ -23,13 +23,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubnetGroupResult:
-    def __init__(__self__, description=None, id=None, subnet_ids=None):
+    def __init__(__self__, description=None, subnet_ids=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -41,11 +38,6 @@ class GetSubnetGroupResult:
         The description of the subnet group.
         """
         return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
@@ -63,34 +55,35 @@ class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
             yield self
         return GetSubnetGroupResult(
             description=self.description,
-            id=self.id,
             subnet_ids=self.subnet_ids)
 
 
-def get_subnet_group(id: Optional[_builtins.str] = None,
+def get_subnet_group(subnet_group_name: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetGroupResult:
     """
-    Resource Type definition for AWS::DAX::SubnetGroup
+    Resource type definition for AWS::DAX::SubnetGroup
+
+    :param _builtins.str subnet_group_name: The name of the subnet group.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['subnetGroupName'] = subnet_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:dax:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult).value
 
     return AwaitableGetSubnetGroupResult(
         description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
-def get_subnet_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_subnet_group_output(subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
-    Resource Type definition for AWS::DAX::SubnetGroup
+    Resource type definition for AWS::DAX::SubnetGroup
+
+    :param _builtins.str subnet_group_name: The name of the subnet group.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['subnetGroupName'] = subnet_group_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:dax:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetSubnetGroupResult(
         description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids')))

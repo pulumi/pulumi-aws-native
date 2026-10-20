@@ -12443,6 +12443,13 @@ type IpamExternalResourceVerificationTokenTag struct {
 	Value string `pulumi:"value"`
 }
 
+type IpamInternetRegistryAssociationTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 // The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 type IpamOperatingRegion struct {
 	// The name of the region.
@@ -24258,6 +24265,153 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput) SecurityGroup
 	}).(pulumi.StringPtrOutput)
 }
 
+type NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry struct {
+	DestinationCidr      *string                           `pulumi:"destinationCidr"`
+	DestinationPortRange *NetworkInsightsAnalysisPortRange `pulumi:"destinationPortRange"`
+	Protocol             *string                           `pulumi:"protocol"`
+	RuleNumber           *int                              `pulumi:"ruleNumber"`
+	SourceCidr           *string                           `pulumi:"sourceCidr"`
+	SourcePortRange      *NetworkInsightsAnalysisPortRange `pulumi:"sourcePortRange"`
+	TargetRouteTableId   *string                           `pulumi:"targetRouteTableId"`
+}
+
+type NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) ToNetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput() NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) ToNetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) DestinationCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *string {
+		return v.DestinationCidr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) DestinationPortRange() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *NetworkInsightsAnalysisPortRange {
+		return v.DestinationPortRange
+	}).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) RuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *int { return v.RuleNumber }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) SourceCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *string { return v.SourceCidr }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) SourcePortRange() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *NetworkInsightsAnalysisPortRange {
+		return v.SourcePortRange
+	}).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput) TargetRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *string {
+		return v.TargetRouteTableId
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) ToNetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput() NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) ToNetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) Elem() NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry
+		return ret
+	}).(NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) DestinationCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationCidr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) DestinationPortRange() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *NetworkInsightsAnalysisPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPortRange
+	}).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) RuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) SourceCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceCidr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) SourcePortRange() NetworkInsightsAnalysisPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *NetworkInsightsAnalysisPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePortRange
+	}).(NetworkInsightsAnalysisPortRangePtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput) TargetRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetRouteTableId
+	}).(pulumi.StringPtrOutput)
+}
+
 type NetworkInsightsAnalysisExplanation struct {
 	// The network ACL.
 	Acl *NetworkInsightsAnalysisAnalysisComponent `pulumi:"acl"`
@@ -24349,7 +24503,9 @@ type NetworkInsightsAnalysisExplanation struct {
 	// The transit gateway.
 	TransitGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"transitGateway"`
 	// The transit gateway attachment.
-	TransitGatewayAttachment *NetworkInsightsAnalysisAnalysisComponent `pulumi:"transitGatewayAttachment"`
+	TransitGatewayAttachment       *NetworkInsightsAnalysisAnalysisComponent                      `pulumi:"transitGatewayAttachment"`
+	TransitGatewayPolicyTable      *NetworkInsightsAnalysisAnalysisComponent                      `pulumi:"transitGatewayPolicyTable"`
+	TransitGatewayPolicyTableEntry *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry `pulumi:"transitGatewayPolicyTableEntry"`
 	// The transit gateway route table.
 	TransitGatewayRouteTable *NetworkInsightsAnalysisAnalysisComponent `pulumi:"transitGatewayRouteTable"`
 	// The transit gateway route table route.
@@ -24651,6 +24807,18 @@ func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayAttachment() Net
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
+func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayPolicyTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.TransitGatewayPolicyTable
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayPolicyTableEntry() NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry {
+		return v.TransitGatewayPolicyTableEntry
+	}).(NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput)
+}
+
 // The transit gateway route table.
 func (o NetworkInsightsAnalysisExplanationOutput) TransitGatewayRouteTable() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
@@ -24748,7 +24916,8 @@ type NetworkInsightsAnalysisPathComponent struct {
 	// The subnet.
 	Subnet *NetworkInsightsAnalysisAnalysisComponent `pulumi:"subnet"`
 	// The transit gateway.
-	TransitGateway *NetworkInsightsAnalysisAnalysisComponent `pulumi:"transitGateway"`
+	TransitGateway                 *NetworkInsightsAnalysisAnalysisComponent                      `pulumi:"transitGateway"`
+	TransitGatewayPolicyTableEntry *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry `pulumi:"transitGatewayPolicyTableEntry"`
 	// The route in a transit gateway route table.
 	TransitGatewayRouteTableRoute *NetworkInsightsAnalysisTransitGatewayRouteTableRoute `pulumi:"transitGatewayRouteTableRoute"`
 	// The component VPC.
@@ -24866,6 +25035,12 @@ func (o NetworkInsightsAnalysisPathComponentOutput) TransitGateway() NetworkInsi
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.TransitGateway
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisPathComponentOutput) TransitGatewayPolicyTableEntry() NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry {
+		return v.TransitGatewayPolicyTableEntry
+	}).(NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput)
 }
 
 // The route in a transit gateway route table.
@@ -42429,6 +42604,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntryPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisExplanationOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisExplanationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisPathComponentOutput{})

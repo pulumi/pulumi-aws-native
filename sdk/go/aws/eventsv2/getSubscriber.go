@@ -40,7 +40,7 @@ type LookupSubscriberResult struct {
 	// Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
 	FilterConfiguration *SubscriberFilterConfiguration `pulumi:"filterConfiguration"`
 	// Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
-	InvokeConfiguration *SubscriberInvokeConfigurationProperties `pulumi:"invokeConfiguration"`
+	InvokeConfiguration *SubscriberInvokeConfiguration `pulumi:"invokeConfiguration"`
 	// Last-modification timestamp (ISO-8601), read-only.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// Delivery logging configuration for the subscriber.
@@ -113,8 +113,8 @@ func (o LookupSubscriberResultOutput) FilterConfiguration() SubscriberFilterConf
 }
 
 // Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
-func (o LookupSubscriberResultOutput) InvokeConfiguration() SubscriberInvokeConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v LookupSubscriberResult) *SubscriberInvokeConfigurationProperties { return v.InvokeConfiguration }).(SubscriberInvokeConfigurationPropertiesPtrOutput)
+func (o LookupSubscriberResultOutput) InvokeConfiguration() SubscriberInvokeConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupSubscriberResult) *SubscriberInvokeConfiguration { return v.InvokeConfiguration }).(SubscriberInvokeConfigurationPtrOutput)
 }
 
 // Last-modification timestamp (ISO-8601), read-only.

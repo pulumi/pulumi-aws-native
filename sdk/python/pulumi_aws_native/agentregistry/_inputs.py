@@ -28,6 +28,8 @@ __all__ = [
     'RegistryCustomClaimValidationTypeArgsDict',
     'RegistryCustomJwtAuthorizerConfigurationArgs',
     'RegistryCustomJwtAuthorizerConfigurationArgsDict',
+    'RegistryCustomMetadataSchemaConfigurationArgs',
+    'RegistryCustomMetadataSchemaConfigurationArgsDict',
     'RegistryDiscoveryConfigurationArgs',
     'RegistryDiscoveryConfigurationArgsDict',
     'RegistryEncryptionConfigurationArgs',
@@ -74,6 +76,8 @@ __all__ = [
     'RegistryRecordSourceOnlyDescriptorSourceArgsDict',
     'RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs',
     'RegistryRecordSourceOnlyDescriptorSourceFromUrlArgsDict',
+    'RegistryRecordTypeSchemaOverrideArgs',
+    'RegistryRecordTypeSchemaOverrideArgsDict',
 ]
 
 class RegistryApprovalConfigurationArgsDict(TypedDict):
@@ -371,6 +375,60 @@ class RegistryCustomJwtAuthorizerConfigurationArgs:
     @custom_claims.setter
     def custom_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryCustomClaimValidationTypeArgs']]]]):
         pulumi.set(self, "custom_claims", value)
+
+
+class RegistryCustomMetadataSchemaConfigurationArgsDict(TypedDict):
+    """
+    Configuration that defines a typed metadata schema for a registry. A default schema and per-record-type schema overrides are both optional. Schema evolution is additive only: you can add fields and enum values, but you cannot remove fields, change types, or remove enum values.
+    """
+    default_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The default JSON Schema that applies to record types without a specific override. Supported property types are string, string with an enum constraint, string with a uri format, and boolean.
+    """
+    record_type_schema_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRecordTypeSchemaOverrideArgsDict']]]]]
+    """
+    A list of per-record-type schema overrides. When a record's type matches an override, that override's schema is used instead of the default schema for validation.
+    """
+
+@pulumi.input_type
+class RegistryCustomMetadataSchemaConfigurationArgs:
+    def __init__(__self__, *,
+                 default_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_type_schema_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRecordTypeSchemaOverrideArgs']]]] = None):
+        """
+        Configuration that defines a typed metadata schema for a registry. A default schema and per-record-type schema overrides are both optional. Schema evolution is additive only: you can add fields and enum values, but you cannot remove fields, change types, or remove enum values.
+
+        :param pulumi.Input[_builtins.str] default_schema: The default JSON Schema that applies to record types without a specific override. Supported property types are string, string with an enum constraint, string with a uri format, and boolean.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryRecordTypeSchemaOverrideArgs']]] record_type_schema_overrides: A list of per-record-type schema overrides. When a record's type matches an override, that override's schema is used instead of the default schema for validation.
+        """
+        if default_schema is not None:
+            pulumi.set(__self__, "default_schema", default_schema)
+        if record_type_schema_overrides is not None:
+            pulumi.set(__self__, "record_type_schema_overrides", record_type_schema_overrides)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultSchema")
+    def default_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The default JSON Schema that applies to record types without a specific override. Supported property types are string, string with an enum constraint, string with a uri format, and boolean.
+        """
+        return pulumi.get(self, "default_schema")
+
+    @default_schema.setter
+    def default_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordTypeSchemaOverrides")
+    def record_type_schema_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRecordTypeSchemaOverrideArgs']]]]:
+        """
+        A list of per-record-type schema overrides. When a record's type matches an override, that override's schema is used instead of the default schema for validation.
+        """
+        return pulumi.get(self, "record_type_schema_overrides")
+
+    @record_type_schema_overrides.setter
+    def record_type_schema_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRecordTypeSchemaOverrideArgs']]]]):
+        pulumi.set(self, "record_type_schema_overrides", value)
 
 
 class RegistryDiscoveryConfigurationArgsDict(TypedDict):
@@ -1384,5 +1442,57 @@ class RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs:
     @url.setter
     def url(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "url", value)
+
+
+class RegistryRecordTypeSchemaOverrideArgsDict(TypedDict):
+    """
+    A schema override for a specific record type within a custom metadata schema configuration.
+    """
+    record_type: pulumi.Input['RegistryRecordTypeSchemaOverrideRecordType']
+    """
+    The record type that this schema override applies to.
+    """
+    schema: pulumi.Input[_builtins.str]
+    """
+    The JSON Schema for the specified record type. Must follow the same structural rules as the default schema.
+    """
+
+@pulumi.input_type
+class RegistryRecordTypeSchemaOverrideArgs:
+    def __init__(__self__, *,
+                 record_type: pulumi.Input['RegistryRecordTypeSchemaOverrideRecordType'],
+                 schema: pulumi.Input[_builtins.str]):
+        """
+        A schema override for a specific record type within a custom metadata schema configuration.
+
+        :param pulumi.Input['RegistryRecordTypeSchemaOverrideRecordType'] record_type: The record type that this schema override applies to.
+        :param pulumi.Input[_builtins.str] schema: The JSON Schema for the specified record type. Must follow the same structural rules as the default schema.
+        """
+        pulumi.set(__self__, "record_type", record_type)
+        pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter(name="recordType")
+    def record_type(self) -> pulumi.Input['RegistryRecordTypeSchemaOverrideRecordType']:
+        """
+        The record type that this schema override applies to.
+        """
+        return pulumi.get(self, "record_type")
+
+    @record_type.setter
+    def record_type(self, value: pulumi.Input['RegistryRecordTypeSchemaOverrideRecordType']):
+        pulumi.set(self, "record_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> pulumi.Input[_builtins.str]:
+        """
+        The JSON Schema for the specified record type. Must follow the same structural rules as the default schema.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "schema", value)
 
 

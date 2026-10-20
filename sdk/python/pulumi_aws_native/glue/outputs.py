@@ -111,6 +111,18 @@ __all__ = [
     'SessionCommand',
     'SessionConnectionsList',
     'SourceProcessingPropertiesProperties',
+    'TableColumn',
+    'TableIcebergInput',
+    'TableIcebergPartitionField',
+    'TableIcebergPartitionSpec',
+    'TableIcebergSchema',
+    'TableIcebergSortField',
+    'TableIcebergSortOrder',
+    'TableIcebergStructField',
+    'TableIcebergTableInput',
+    'TableIdentifier',
+    'TableInput',
+    'TableOpenTableFormatInput',
     'TableOptimizerCompactionConfiguration',
     'TableOptimizerConfiguration',
     'TableOptimizerIcebergCompactionConfiguration',
@@ -119,6 +131,14 @@ __all__ = [
     'TableOptimizerOrphanFileDeletionConfiguration',
     'TableOptimizerRetentionConfiguration',
     'TableOptimizerVpcConfiguration',
+    'TableOrder',
+    'TableSchemaId',
+    'TableSchemaReference',
+    'TableSerdeInfo',
+    'TableSkewedInfo',
+    'TableStorageDescriptor',
+    'TableViewDefinition',
+    'TableViewRepresentation',
     'TargetProcessingPropertiesProperties',
     'TriggerAction',
     'TriggerCondition',
@@ -6574,6 +6594,914 @@ class SourceProcessingPropertiesProperties(dict):
 
 
 @pulumi.output_type
+class TableColumn(dict):
+    """
+    A column in a Table.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 comment: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        A column in a Table.
+
+        :param _builtins.str name: The name of the Column.
+        :param _builtins.str comment: A free-form text comment.
+        :param _builtins.str type: The data type of the Column.
+        """
+        pulumi.set(__self__, "name", name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the Column.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        A free-form text comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The data type of the Column.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TableIcebergInput(dict):
+    """
+    Specifies an input structure that defines an Apache Iceberg metadata table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergTableInput":
+            suggest = "iceberg_table_input"
+        elif key == "metadataOperation":
+            suggest = "metadata_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_table_input: Optional['outputs.TableIcebergTableInput'] = None,
+                 metadata_operation: Optional[_builtins.str] = None,
+                 version: Optional[_builtins.str] = None):
+        """
+        Specifies an input structure that defines an Apache Iceberg metadata table.
+
+        :param 'TableIcebergTableInput' iceberg_table_input: Specifies the Iceberg table configuration.
+        :param _builtins.str metadata_operation: A required metadata operation. Can only be set to CREATE.
+        :param _builtins.str version: The table version of the Iceberg table. Defaults to 2.
+        """
+        if iceberg_table_input is not None:
+            pulumi.set(__self__, "iceberg_table_input", iceberg_table_input)
+        if metadata_operation is not None:
+            pulumi.set(__self__, "metadata_operation", metadata_operation)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableInput")
+    def iceberg_table_input(self) -> Optional['outputs.TableIcebergTableInput']:
+        """
+        Specifies the Iceberg table configuration.
+        """
+        return pulumi.get(self, "iceberg_table_input")
+
+    @_builtins.property
+    @pulumi.getter(name="metadataOperation")
+    def metadata_operation(self) -> Optional[_builtins.str]:
+        """
+        A required metadata operation. Can only be set to CREATE.
+        """
+        return pulumi.get(self, "metadata_operation")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        The table version of the Iceberg table. Defaults to 2.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class TableIcebergPartitionField(dict):
+    """
+    A partition field in an Iceberg partition spec.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceId":
+            suggest = "source_id"
+        elif key == "fieldId":
+            suggest = "field_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergPartitionField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergPartitionField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergPartitionField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 source_id: _builtins.int,
+                 transform: _builtins.str,
+                 field_id: Optional[_builtins.int] = None):
+        """
+        A partition field in an Iceberg partition spec.
+
+        :param _builtins.str name: The partition field name.
+        :param _builtins.int source_id: The source field ID.
+        :param _builtins.str transform: The transform to apply.
+        :param _builtins.int field_id: The partition field ID.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The partition field name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> _builtins.int:
+        """
+        The source field ID.
+        """
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> _builtins.str:
+        """
+        The transform to apply.
+        """
+        return pulumi.get(self, "transform")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[_builtins.int]:
+        """
+        The partition field ID.
+        """
+        return pulumi.get(self, "field_id")
+
+
+@pulumi.output_type
+class TableIcebergPartitionSpec(dict):
+    """
+    The partition spec for an Iceberg table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specId":
+            suggest = "spec_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergPartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergPartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergPartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.TableIcebergPartitionField'],
+                 spec_id: Optional[_builtins.int] = None):
+        """
+        The partition spec for an Iceberg table.
+
+        :param Sequence['TableIcebergPartitionField'] fields: The partition fields.
+        :param _builtins.int spec_id: The spec ID.
+        """
+        pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.TableIcebergPartitionField']:
+        """
+        The partition fields.
+        """
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> Optional[_builtins.int]:
+        """
+        The spec ID.
+        """
+        return pulumi.get(self, "spec_id")
+
+
+@pulumi.output_type
+class TableIcebergSchema(dict):
+    """
+    The schema for an Iceberg table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identifierFieldIds":
+            suggest = "identifier_field_ids"
+        elif key == "schemaId":
+            suggest = "schema_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.TableIcebergStructField'],
+                 identifier_field_ids: Optional[Sequence[_builtins.int]] = None,
+                 schema_id: Optional[_builtins.int] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        The schema for an Iceberg table.
+
+        :param Sequence['TableIcebergStructField'] fields: The fields in the schema.
+        :param Sequence[_builtins.int] identifier_field_ids: The identifier field IDs.
+        :param _builtins.int schema_id: The schema ID.
+        :param _builtins.str type: The type of the schema.
+        """
+        pulumi.set(__self__, "fields", fields)
+        if identifier_field_ids is not None:
+            pulumi.set(__self__, "identifier_field_ids", identifier_field_ids)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.TableIcebergStructField']:
+        """
+        The fields in the schema.
+        """
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="identifierFieldIds")
+    def identifier_field_ids(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        The identifier field IDs.
+        """
+        return pulumi.get(self, "identifier_field_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional[_builtins.int]:
+        """
+        The schema ID.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type of the schema.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TableIcebergSortField(dict):
+    """
+    A sort field in an Iceberg sort order.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullOrder":
+            suggest = "null_order"
+        elif key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergSortField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergSortField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergSortField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 direction: _builtins.str,
+                 null_order: _builtins.str,
+                 source_id: _builtins.int,
+                 transform: _builtins.str):
+        """
+        A sort field in an Iceberg sort order.
+
+        :param _builtins.str direction: The sort direction.
+        :param _builtins.str null_order: The null ordering.
+        :param _builtins.int source_id: The source field ID.
+        :param _builtins.str transform: The transform to apply.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "null_order", null_order)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter
+    def direction(self) -> _builtins.str:
+        """
+        The sort direction.
+        """
+        return pulumi.get(self, "direction")
+
+    @_builtins.property
+    @pulumi.getter(name="nullOrder")
+    def null_order(self) -> _builtins.str:
+        """
+        The null ordering.
+        """
+        return pulumi.get(self, "null_order")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> _builtins.int:
+        """
+        The source field ID.
+        """
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> _builtins.str:
+        """
+        The transform to apply.
+        """
+        return pulumi.get(self, "transform")
+
+
+@pulumi.output_type
+class TableIcebergSortOrder(dict):
+    """
+    The sort order for an Iceberg table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orderId":
+            suggest = "order_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergSortOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergSortOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergSortOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.TableIcebergSortField'],
+                 order_id: _builtins.int):
+        """
+        The sort order for an Iceberg table.
+
+        :param Sequence['TableIcebergSortField'] fields: The sort fields.
+        :param _builtins.int order_id: The order ID.
+        """
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "order_id", order_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.TableIcebergSortField']:
+        """
+        The sort fields.
+        """
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="orderId")
+    def order_id(self) -> _builtins.int:
+        """
+        The order ID.
+        """
+        return pulumi.get(self, "order_id")
+
+
+@pulumi.output_type
+class TableIcebergStructField(dict):
+    """
+    A field in an Iceberg schema.
+    """
+    def __init__(__self__, *,
+                 id: _builtins.int,
+                 name: _builtins.str,
+                 required: _builtins.bool,
+                 type: _builtins.str,
+                 doc: Optional[_builtins.str] = None):
+        """
+        A field in an Iceberg schema.
+
+        :param _builtins.int id: The field ID.
+        :param _builtins.str name: The field name.
+        :param _builtins.bool required: Whether the field is required.
+        :param _builtins.str type: The field type.
+        :param _builtins.str doc: Documentation for the field.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        The field ID.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The field name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> _builtins.bool:
+        """
+        Whether the field is required.
+        """
+        return pulumi.get(self, "required")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The field type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def doc(self) -> Optional[_builtins.str]:
+        """
+        Documentation for the field.
+        """
+        return pulumi.get(self, "doc")
+
+
+@pulumi.output_type
+class TableIcebergTableInput(dict):
+    """
+    Specifies the Iceberg table configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionSpec":
+            suggest = "partition_spec"
+        elif key == "writeOrder":
+            suggest = "write_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergTableInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergTableInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergTableInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: _builtins.str,
+                 schema: 'outputs.TableIcebergSchema',
+                 partition_spec: Optional['outputs.TableIcebergPartitionSpec'] = None,
+                 properties: Optional[Mapping[str, _builtins.str]] = None,
+                 write_order: Optional['outputs.TableIcebergSortOrder'] = None):
+        """
+        Specifies the Iceberg table configuration.
+
+        :param _builtins.str location: The location of the Iceberg table.
+        :param 'TableIcebergSchema' schema: The schema for the Iceberg table.
+        :param 'TableIcebergPartitionSpec' partition_spec: The partition spec for the Iceberg table.
+        :param Mapping[str, _builtins.str] properties: The properties for the Iceberg table.
+        :param 'TableIcebergSortOrder' write_order: The write order for the Iceberg table.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "schema", schema)
+        if partition_spec is not None:
+            pulumi.set(__self__, "partition_spec", partition_spec)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if write_order is not None:
+            pulumi.set(__self__, "write_order", write_order)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        The location of the Iceberg table.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> 'outputs.TableIcebergSchema':
+        """
+        The schema for the Iceberg table.
+        """
+        return pulumi.get(self, "schema")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpec")
+    def partition_spec(self) -> Optional['outputs.TableIcebergPartitionSpec']:
+        """
+        The partition spec for the Iceberg table.
+        """
+        return pulumi.get(self, "partition_spec")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The properties for the Iceberg table.
+        """
+        return pulumi.get(self, "properties")
+
+    @_builtins.property
+    @pulumi.getter(name="writeOrder")
+    def write_order(self) -> Optional['outputs.TableIcebergSortOrder']:
+        """
+        The write order for the Iceberg table.
+        """
+        return pulumi.get(self, "write_order")
+
+
+@pulumi.output_type
+class TableIdentifier(dict):
+    """
+    A structure that describes a target table for resource linking.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIdentifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIdentifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIdentifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_id: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None):
+        """
+        A structure that describes a target table for resource linking.
+
+        :param _builtins.str catalog_id: The ID of the Data Catalog in which the table resides.
+        :param _builtins.str database_name: The name of the catalog database that contains the target table.
+        :param _builtins.str name: The name of the target table.
+        :param _builtins.str region: The Region of the table.
+        """
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Data Catalog in which the table resides.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the catalog database that contains the target table.
+        """
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the target table.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        """
+        The Region of the table.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class TableInput(dict):
+    """
+    A structure used to define a table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionKeys":
+            suggest = "partition_keys"
+        elif key == "storageDescriptor":
+            suggest = "storage_descriptor"
+        elif key == "tableType":
+            suggest = "table_type"
+        elif key == "targetTable":
+            suggest = "target_table"
+        elif key == "viewDefinition":
+            suggest = "view_definition"
+        elif key == "viewExpandedText":
+            suggest = "view_expanded_text"
+        elif key == "viewOriginalText":
+            suggest = "view_original_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 parameters: Optional[Any] = None,
+                 partition_keys: Optional[Sequence['outputs.TableColumn']] = None,
+                 retention: Optional[_builtins.int] = None,
+                 storage_descriptor: Optional['outputs.TableStorageDescriptor'] = None,
+                 table_type: Optional[_builtins.str] = None,
+                 target_table: Optional['outputs.TableIdentifier'] = None,
+                 view_definition: Optional['outputs.TableViewDefinition'] = None,
+                 view_expanded_text: Optional[_builtins.str] = None,
+                 view_original_text: Optional[_builtins.str] = None):
+        """
+        A structure used to define a table.
+
+        :param _builtins.str description: A description of the table.
+        :param _builtins.str name: The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+        :param _builtins.str owner: The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        :param Any parameters: These key-value pairs define properties associated with the table.
+        :param Sequence['TableColumn'] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        :param _builtins.int retention: The retention time for this table.
+        :param 'TableStorageDescriptor' storage_descriptor: A storage descriptor containing information about the physical storage of this table.
+        :param _builtins.str table_type: The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+        :param 'TableIdentifier' target_table: A TableIdentifier structure that describes a target table for resource linking.
+        :param 'TableViewDefinition' view_definition: The view definition for the table.
+        :param _builtins.str view_expanded_text: Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        :param _builtins.str view_original_text: Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if partition_keys is not None:
+            pulumi.set(__self__, "partition_keys", partition_keys)
+        if retention is not None:
+            pulumi.set(__self__, "retention", retention)
+        if storage_descriptor is not None:
+            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+        if table_type is not None:
+            pulumi.set(__self__, "table_type", table_type)
+        if target_table is not None:
+            pulumi.set(__self__, "target_table", target_table)
+        if view_definition is not None:
+            pulumi.set(__self__, "view_definition", view_definition)
+        if view_expanded_text is not None:
+            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+        if view_original_text is not None:
+            pulumi.set(__self__, "view_original_text", view_original_text)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A description of the table.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        """
+        The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        """
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        These key-value pairs define properties associated with the table.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> Optional[Sequence['outputs.TableColumn']]:
+        """
+        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        """
+        return pulumi.get(self, "partition_keys")
+
+    @_builtins.property
+    @pulumi.getter
+    def retention(self) -> Optional[_builtins.int]:
+        """
+        The retention time for this table.
+        """
+        return pulumi.get(self, "retention")
+
+    @_builtins.property
+    @pulumi.getter(name="storageDescriptor")
+    def storage_descriptor(self) -> Optional['outputs.TableStorageDescriptor']:
+        """
+        A storage descriptor containing information about the physical storage of this table.
+        """
+        return pulumi.get(self, "storage_descriptor")
+
+    @_builtins.property
+    @pulumi.getter(name="tableType")
+    def table_type(self) -> Optional[_builtins.str]:
+        """
+        The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+        """
+        return pulumi.get(self, "table_type")
+
+    @_builtins.property
+    @pulumi.getter(name="targetTable")
+    def target_table(self) -> Optional['outputs.TableIdentifier']:
+        """
+        A TableIdentifier structure that describes a target table for resource linking.
+        """
+        return pulumi.get(self, "target_table")
+
+    @_builtins.property
+    @pulumi.getter(name="viewDefinition")
+    def view_definition(self) -> Optional['outputs.TableViewDefinition']:
+        """
+        The view definition for the table.
+        """
+        return pulumi.get(self, "view_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="viewExpandedText")
+    def view_expanded_text(self) -> Optional[_builtins.str]:
+        """
+        Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        """
+        return pulumi.get(self, "view_expanded_text")
+
+    @_builtins.property
+    @pulumi.getter(name="viewOriginalText")
+    def view_original_text(self) -> Optional[_builtins.str]:
+        """
+        Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        """
+        return pulumi.get(self, "view_original_text")
+
+
+@pulumi.output_type
+class TableOpenTableFormatInput(dict):
+    """
+    Specifies an OpenTableFormatInput structure when creating an open format table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergInput":
+            suggest = "iceberg_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOpenTableFormatInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOpenTableFormatInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOpenTableFormatInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_input: Optional['outputs.TableIcebergInput'] = None):
+        """
+        Specifies an OpenTableFormatInput structure when creating an open format table.
+
+        :param 'TableIcebergInput' iceberg_input: Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+        """
+        if iceberg_input is not None:
+            pulumi.set(__self__, "iceberg_input", iceberg_input)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergInput")
+    def iceberg_input(self) -> Optional['outputs.TableIcebergInput']:
+        """
+        Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+        """
+        return pulumi.get(self, "iceberg_input")
+
+
+@pulumi.output_type
 class TableOptimizerCompactionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6977,6 +7905,704 @@ class TableOptimizerVpcConfiguration(dict):
         The name of the AWS Glue connection used for the VPC for the table optimizer.
         """
         return pulumi.get(self, "glue_connection_name")
+
+
+@pulumi.output_type
+class TableOrder(dict):
+    """
+    Specifies the sort order of a sorted column.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortOrder":
+            suggest = "sort_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column: _builtins.str,
+                 sort_order: _builtins.int):
+        """
+        Specifies the sort order of a sorted column.
+
+        :param _builtins.str column: The name of the column.
+        :param _builtins.int sort_order: Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "sort_order", sort_order)
+
+    @_builtins.property
+    @pulumi.getter
+    def column(self) -> _builtins.str:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "column")
+
+    @_builtins.property
+    @pulumi.getter(name="sortOrder")
+    def sort_order(self) -> _builtins.int:
+        """
+        Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+        """
+        return pulumi.get(self, "sort_order")
+
+
+@pulumi.output_type
+class TableSchemaId(dict):
+    """
+    A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryName":
+            suggest = "registry_name"
+        elif key == "schemaArn":
+            suggest = "schema_arn"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSchemaId. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSchemaId.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSchemaId.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registry_name: Optional[_builtins.str] = None,
+                 schema_arn: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        """
+        A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+
+        :param _builtins.str registry_name: The name of the schema registry that contains the schema.
+        :param _builtins.str schema_arn: The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+        :param _builtins.str schema_name: The name of the schema. One of SchemaArn or SchemaName has to be provided.
+        """
+        if registry_name is not None:
+            pulumi.set(__self__, "registry_name", registry_name)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the schema registry that contains the schema.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaArn")
+    def schema_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+        """
+        return pulumi.get(self, "schema_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the schema. One of SchemaArn or SchemaName has to be provided.
+        """
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class TableSchemaReference(dict):
+    """
+    An object that references a schema stored in the AWS Glue Schema Registry.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "schemaId":
+            suggest = "schema_id"
+        elif key == "schemaVersionId":
+            suggest = "schema_version_id"
+        elif key == "schemaVersionNumber":
+            suggest = "schema_version_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSchemaReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSchemaReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSchemaReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schema_id: Optional['outputs.TableSchemaId'] = None,
+                 schema_version_id: Optional[_builtins.str] = None,
+                 schema_version_number: Optional[_builtins.int] = None):
+        """
+        An object that references a schema stored in the AWS Glue Schema Registry.
+
+        :param 'TableSchemaId' schema_id: A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+        :param _builtins.str schema_version_id: The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+        :param _builtins.int schema_version_number: The version number of the schema.
+        """
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if schema_version_id is not None:
+            pulumi.set(__self__, "schema_version_id", schema_version_id)
+        if schema_version_number is not None:
+            pulumi.set(__self__, "schema_version_number", schema_version_number)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional['outputs.TableSchemaId']:
+        """
+        A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaVersionId")
+    def schema_version_id(self) -> Optional[_builtins.str]:
+        """
+        The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+        """
+        return pulumi.get(self, "schema_version_id")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaVersionNumber")
+    def schema_version_number(self) -> Optional[_builtins.int]:
+        """
+        The version number of the schema.
+        """
+        return pulumi.get(self, "schema_version_number")
+
+
+@pulumi.output_type
+class TableSerdeInfo(dict):
+    """
+    Information about a serialization/deserialization program (SerDe) that serves as an extractor an loader.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serializationLibrary":
+            suggest = "serialization_library"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSerdeInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSerdeInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSerdeInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 parameters: Optional[Any] = None,
+                 serialization_library: Optional[_builtins.str] = None):
+        """
+        Information about a serialization/deserialization program (SerDe) that serves as an extractor an loader.
+
+        :param _builtins.str name: Name of the SerDe.
+        :param Any parameters: These key-value pairs define initialization parameters for the SerDe.
+        :param _builtins.str serialization_library: Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if serialization_library is not None:
+            pulumi.set(__self__, "serialization_library", serialization_library)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the SerDe.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        These key-value pairs define initialization parameters for the SerDe.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="serializationLibrary")
+    def serialization_library(self) -> Optional[_builtins.str]:
+        """
+        Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        """
+        return pulumi.get(self, "serialization_library")
+
+
+@pulumi.output_type
+class TableSkewedInfo(dict):
+    """
+    Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skewedColumnNames":
+            suggest = "skewed_column_names"
+        elif key == "skewedColumnValueLocationMaps":
+            suggest = "skewed_column_value_location_maps"
+        elif key == "skewedColumnValues":
+            suggest = "skewed_column_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSkewedInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSkewedInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSkewedInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 skewed_column_names: Optional[Sequence[_builtins.str]] = None,
+                 skewed_column_value_location_maps: Optional[Any] = None,
+                 skewed_column_values: Optional[Sequence[_builtins.str]] = None):
+        """
+        Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+
+        :param Sequence[_builtins.str] skewed_column_names: A list of names of columns that contain skewed values.
+        :param Any skewed_column_value_location_maps: A mapping of skewed values to the columns that contain them.
+        :param Sequence[_builtins.str] skewed_column_values: A list of names of columns that contain skewed values.
+        """
+        if skewed_column_names is not None:
+            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+        if skewed_column_value_location_maps is not None:
+            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+        if skewed_column_values is not None:
+            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+
+    @_builtins.property
+    @pulumi.getter(name="skewedColumnNames")
+    def skewed_column_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of names of columns that contain skewed values.
+        """
+        return pulumi.get(self, "skewed_column_names")
+
+    @_builtins.property
+    @pulumi.getter(name="skewedColumnValueLocationMaps")
+    def skewed_column_value_location_maps(self) -> Optional[Any]:
+        """
+        A mapping of skewed values to the columns that contain them.
+        """
+        return pulumi.get(self, "skewed_column_value_location_maps")
+
+    @_builtins.property
+    @pulumi.getter(name="skewedColumnValues")
+    def skewed_column_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of names of columns that contain skewed values.
+        """
+        return pulumi.get(self, "skewed_column_values")
+
+
+@pulumi.output_type
+class TableStorageDescriptor(dict):
+    """
+    Describes the physical storage of table data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketColumns":
+            suggest = "bucket_columns"
+        elif key == "inputFormat":
+            suggest = "input_format"
+        elif key == "numberOfBuckets":
+            suggest = "number_of_buckets"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "schemaReference":
+            suggest = "schema_reference"
+        elif key == "serdeInfo":
+            suggest = "serde_info"
+        elif key == "skewedInfo":
+            suggest = "skewed_info"
+        elif key == "sortColumns":
+            suggest = "sort_columns"
+        elif key == "storedAsSubDirectories":
+            suggest = "stored_as_sub_directories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableStorageDescriptor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableStorageDescriptor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableStorageDescriptor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_columns: Optional[Sequence[_builtins.str]] = None,
+                 columns: Optional[Sequence['outputs.TableColumn']] = None,
+                 compressed: Optional[_builtins.bool] = None,
+                 input_format: Optional[_builtins.str] = None,
+                 location: Optional[_builtins.str] = None,
+                 number_of_buckets: Optional[_builtins.int] = None,
+                 output_format: Optional[_builtins.str] = None,
+                 parameters: Optional[Any] = None,
+                 schema_reference: Optional['outputs.TableSchemaReference'] = None,
+                 serde_info: Optional['outputs.TableSerdeInfo'] = None,
+                 skewed_info: Optional['outputs.TableSkewedInfo'] = None,
+                 sort_columns: Optional[Sequence['outputs.TableOrder']] = None,
+                 stored_as_sub_directories: Optional[_builtins.bool] = None):
+        """
+        Describes the physical storage of table data.
+
+        :param Sequence[_builtins.str] bucket_columns: A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        :param Sequence['TableColumn'] columns: A list of the Columns in the table.
+        :param _builtins.bool compressed: True if the data in the table is compressed, or False if not.
+        :param _builtins.str input_format: The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        :param _builtins.str location: The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        :param _builtins.int number_of_buckets: Must be specified if the table contains any dimension columns.
+        :param _builtins.str output_format: The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        :param Any parameters: The user-supplied properties in key-value form.
+        :param 'TableSchemaReference' schema_reference: An object that references a schema stored in the AWS Glue Schema Registry.
+        :param 'TableSerdeInfo' serde_info: The serialization/deserialization (SerDe) information.
+        :param 'TableSkewedInfo' skewed_info: The information about values that appear frequently in a column (skewed values).
+        :param Sequence['TableOrder'] sort_columns: A list specifying the sort order of each bucket in the table.
+        :param _builtins.bool stored_as_sub_directories: True if the table data is stored in subdirectories, or False if not.
+        """
+        if bucket_columns is not None:
+            pulumi.set(__self__, "bucket_columns", bucket_columns)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if compressed is not None:
+            pulumi.set(__self__, "compressed", compressed)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if number_of_buckets is not None:
+            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema_reference is not None:
+            pulumi.set(__self__, "schema_reference", schema_reference)
+        if serde_info is not None:
+            pulumi.set(__self__, "serde_info", serde_info)
+        if skewed_info is not None:
+            pulumi.set(__self__, "skewed_info", skewed_info)
+        if sort_columns is not None:
+            pulumi.set(__self__, "sort_columns", sort_columns)
+        if stored_as_sub_directories is not None:
+            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketColumns")
+    def bucket_columns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        """
+        return pulumi.get(self, "bucket_columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.TableColumn']]:
+        """
+        A list of the Columns in the table.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def compressed(self) -> Optional[_builtins.bool]:
+        """
+        True if the data in the table is compressed, or False if not.
+        """
+        return pulumi.get(self, "compressed")
+
+    @_builtins.property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[_builtins.str]:
+        """
+        The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        """
+        return pulumi.get(self, "input_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[_builtins.str]:
+        """
+        The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfBuckets")
+    def number_of_buckets(self) -> Optional[_builtins.int]:
+        """
+        Must be specified if the table contains any dimension columns.
+        """
+        return pulumi.get(self, "number_of_buckets")
+
+    @_builtins.property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[_builtins.str]:
+        """
+        The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        """
+        return pulumi.get(self, "output_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        The user-supplied properties in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaReference")
+    def schema_reference(self) -> Optional['outputs.TableSchemaReference']:
+        """
+        An object that references a schema stored in the AWS Glue Schema Registry.
+        """
+        return pulumi.get(self, "schema_reference")
+
+    @_builtins.property
+    @pulumi.getter(name="serdeInfo")
+    def serde_info(self) -> Optional['outputs.TableSerdeInfo']:
+        """
+        The serialization/deserialization (SerDe) information.
+        """
+        return pulumi.get(self, "serde_info")
+
+    @_builtins.property
+    @pulumi.getter(name="skewedInfo")
+    def skewed_info(self) -> Optional['outputs.TableSkewedInfo']:
+        """
+        The information about values that appear frequently in a column (skewed values).
+        """
+        return pulumi.get(self, "skewed_info")
+
+    @_builtins.property
+    @pulumi.getter(name="sortColumns")
+    def sort_columns(self) -> Optional[Sequence['outputs.TableOrder']]:
+        """
+        A list specifying the sort order of each bucket in the table.
+        """
+        return pulumi.get(self, "sort_columns")
+
+    @_builtins.property
+    @pulumi.getter(name="storedAsSubDirectories")
+    def stored_as_sub_directories(self) -> Optional[_builtins.bool]:
+        """
+        True if the table data is stored in subdirectories, or False if not.
+        """
+        return pulumi.get(self, "stored_as_sub_directories")
+
+
+@pulumi.output_type
+class TableViewDefinition(dict):
+    """
+    A structure that defines the view.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isProtected":
+            suggest = "is_protected"
+        elif key == "subObjects":
+            suggest = "sub_objects"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableViewDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableViewDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableViewDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 definer: Optional[_builtins.str] = None,
+                 is_protected: Optional[_builtins.bool] = None,
+                 representations: Optional[Sequence['outputs.TableViewRepresentation']] = None,
+                 sub_objects: Optional[Sequence[_builtins.str]] = None):
+        """
+        A structure that defines the view.
+
+        :param _builtins.str definer: The definer of the view.
+        :param _builtins.bool is_protected: Indicates whether the view is protected.
+        :param Sequence['TableViewRepresentation'] representations: The representations of the view.
+        :param Sequence[_builtins.str] sub_objects: The sub-objects of the view.
+        """
+        if definer is not None:
+            pulumi.set(__self__, "definer", definer)
+        if is_protected is not None:
+            pulumi.set(__self__, "is_protected", is_protected)
+        if representations is not None:
+            pulumi.set(__self__, "representations", representations)
+        if sub_objects is not None:
+            pulumi.set(__self__, "sub_objects", sub_objects)
+
+    @_builtins.property
+    @pulumi.getter
+    def definer(self) -> Optional[_builtins.str]:
+        """
+        The definer of the view.
+        """
+        return pulumi.get(self, "definer")
+
+    @_builtins.property
+    @pulumi.getter(name="isProtected")
+    def is_protected(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether the view is protected.
+        """
+        return pulumi.get(self, "is_protected")
+
+    @_builtins.property
+    @pulumi.getter
+    def representations(self) -> Optional[Sequence['outputs.TableViewRepresentation']]:
+        """
+        The representations of the view.
+        """
+        return pulumi.get(self, "representations")
+
+    @_builtins.property
+    @pulumi.getter(name="subObjects")
+    def sub_objects(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The sub-objects of the view.
+        """
+        return pulumi.get(self, "sub_objects")
+
+
+@pulumi.output_type
+class TableViewRepresentation(dict):
+    """
+    A structure that defines a view representation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dialectVersion":
+            suggest = "dialect_version"
+        elif key == "validationConnection":
+            suggest = "validation_connection"
+        elif key == "viewExpandedText":
+            suggest = "view_expanded_text"
+        elif key == "viewOriginalText":
+            suggest = "view_original_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableViewRepresentation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableViewRepresentation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableViewRepresentation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dialect: Optional[_builtins.str] = None,
+                 dialect_version: Optional[_builtins.str] = None,
+                 validation_connection: Optional[_builtins.str] = None,
+                 view_expanded_text: Optional[_builtins.str] = None,
+                 view_original_text: Optional[_builtins.str] = None):
+        """
+        A structure that defines a view representation.
+
+        :param _builtins.str dialect: The dialect of the view representation.
+        :param _builtins.str dialect_version: The version of the dialect.
+        :param _builtins.str validation_connection: The connection used for validation.
+        :param _builtins.str view_expanded_text: The expanded text of the view.
+        :param _builtins.str view_original_text: The original text of the view.
+        """
+        if dialect is not None:
+            pulumi.set(__self__, "dialect", dialect)
+        if dialect_version is not None:
+            pulumi.set(__self__, "dialect_version", dialect_version)
+        if validation_connection is not None:
+            pulumi.set(__self__, "validation_connection", validation_connection)
+        if view_expanded_text is not None:
+            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+        if view_original_text is not None:
+            pulumi.set(__self__, "view_original_text", view_original_text)
+
+    @_builtins.property
+    @pulumi.getter
+    def dialect(self) -> Optional[_builtins.str]:
+        """
+        The dialect of the view representation.
+        """
+        return pulumi.get(self, "dialect")
+
+    @_builtins.property
+    @pulumi.getter(name="dialectVersion")
+    def dialect_version(self) -> Optional[_builtins.str]:
+        """
+        The version of the dialect.
+        """
+        return pulumi.get(self, "dialect_version")
+
+    @_builtins.property
+    @pulumi.getter(name="validationConnection")
+    def validation_connection(self) -> Optional[_builtins.str]:
+        """
+        The connection used for validation.
+        """
+        return pulumi.get(self, "validation_connection")
+
+    @_builtins.property
+    @pulumi.getter(name="viewExpandedText")
+    def view_expanded_text(self) -> Optional[_builtins.str]:
+        """
+        The expanded text of the view.
+        """
+        return pulumi.get(self, "view_expanded_text")
+
+    @_builtins.property
+    @pulumi.getter(name="viewOriginalText")
+    def view_original_text(self) -> Optional[_builtins.str]:
+        """
+        The original text of the view.
+        """
+        return pulumi.get(self, "view_original_text")
 
 
 @pulumi.output_type

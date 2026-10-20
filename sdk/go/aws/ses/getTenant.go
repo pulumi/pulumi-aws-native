@@ -31,8 +31,12 @@ type LookupTenantArgs struct {
 type LookupTenantResult struct {
 	// Amazon Resource Name (ARN) of the tenant.
 	Arn *string `pulumi:"arn"`
+	// The reputation configuration for the tenant. Sending status remains managed by SES.
+	ReputationEntity *TenantReputationEntity `pulumi:"reputationEntity"`
 	// The list of resources to associate with the tenant.
 	ResourceAssociations []TenantResourceAssociation `pulumi:"resourceAssociations"`
+	// The suppression attributes for the tenant.
+	SuppressionAttributes *TenantSuppressionAttributes `pulumi:"suppressionAttributes"`
 	// The tags (keys and values) associated with the tenant.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -70,9 +74,19 @@ func (o LookupTenantResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTenantResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The reputation configuration for the tenant. Sending status remains managed by SES.
+func (o LookupTenantResultOutput) ReputationEntity() TenantReputationEntityPtrOutput {
+	return o.ApplyT(func(v LookupTenantResult) *TenantReputationEntity { return v.ReputationEntity }).(TenantReputationEntityPtrOutput)
+}
+
 // The list of resources to associate with the tenant.
 func (o LookupTenantResultOutput) ResourceAssociations() TenantResourceAssociationArrayOutput {
 	return o.ApplyT(func(v LookupTenantResult) []TenantResourceAssociation { return v.ResourceAssociations }).(TenantResourceAssociationArrayOutput)
+}
+
+// The suppression attributes for the tenant.
+func (o LookupTenantResultOutput) SuppressionAttributes() TenantSuppressionAttributesPtrOutput {
+	return o.ApplyT(func(v LookupTenantResult) *TenantSuppressionAttributes { return v.SuppressionAttributes }).(TenantSuppressionAttributesPtrOutput)
 }
 
 // The tags (keys and values) associated with the tenant.

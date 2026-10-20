@@ -30,9 +30,17 @@ export interface GetTenantResult {
      */
     readonly arn?: string;
     /**
+     * The reputation configuration for the tenant. Sending status remains managed by SES.
+     */
+    readonly reputationEntity?: outputs.ses.TenantReputationEntity;
+    /**
      * The list of resources to associate with the tenant.
      */
     readonly resourceAssociations?: outputs.ses.TenantResourceAssociation[];
+    /**
+     * The suppression attributes for the tenant.
+     */
+    readonly suppressionAttributes?: outputs.ses.TenantSuppressionAttributes;
     /**
      * The tags (keys and values) associated with the tenant.
      */

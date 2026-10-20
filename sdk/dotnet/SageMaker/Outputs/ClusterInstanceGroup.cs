@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string ExecutionRole;
         public readonly string? ImageId;
         /// <summary>
+        /// The version of the HyperPod-managed AMI for the instance group, in semantic version format MAJOR.MINOR.PATCH (for example, 1.2.3). Supported only for EKS-orchestrated clusters. If omitted at creation, the latest available version is used (or the version of an existing same-architecture instance group when adding a group). Changing this value on an existing instance group triggers a software update via UpdateClusterSoftware. Automatic patching (AutoPatchConfig) and out-of-band software updates can advance the running version past this value; CloudFormation does not revert such changes and may report the property as drifted. Only an explicit change to this value in the template triggers an update.
+        /// </summary>
+        public readonly string? ImageReleaseVersion;
+        /// <summary>
         /// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
         /// </summary>
         public readonly int InstanceCount;
@@ -64,6 +68,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? imageId,
 
+            string? imageReleaseVersion,
+
             int instanceCount,
 
             string instanceGroupName,
@@ -99,6 +105,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             CurrentCount = currentCount;
             ExecutionRole = executionRole;
             ImageId = imageId;
+            ImageReleaseVersion = imageReleaseVersion;
             InstanceCount = instanceCount;
             InstanceGroupName = instanceGroupName;
             InstanceRequirements = instanceRequirements;

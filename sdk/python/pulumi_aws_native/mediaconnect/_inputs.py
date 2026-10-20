@@ -3039,14 +3039,36 @@ class FlowNdiDiscoveryServerConfigArgs:
 
 
 class FlowNdiSourceSettingsArgsDict(TypedDict):
+    audio_reference_level: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The audio reference level of the NDI sender, in dBFS.
+    """
     source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FlowNdiSourceSettingsArgs:
     def __init__(__self__, *,
+                 audio_reference_level: pulumi.Input[Optional[_builtins.int]] = None,
                  source_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] audio_reference_level: The audio reference level of the NDI sender, in dBFS.
+        """
+        if audio_reference_level is not None:
+            pulumi.set(__self__, "audio_reference_level", audio_reference_level)
         if source_name is not None:
             pulumi.set(__self__, "source_name", source_name)
+
+    @_builtins.property
+    @pulumi.getter(name="audioReferenceLevel")
+    def audio_reference_level(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The audio reference level of the NDI sender, in dBFS.
+        """
+        return pulumi.get(self, "audio_reference_level")
+
+    @audio_reference_level.setter
+    def audio_reference_level(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "audio_reference_level", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceName")

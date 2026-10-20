@@ -1646,6 +1646,77 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The Regional Internet Registry to associate with. The service returns these values in upper case, so the enum uses the round-tripping form.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamInternetRegistryAssociationRir : IEquatable<IpamInternetRegistryAssociationRir>
+    {
+        private readonly string _value;
+
+        private IpamInternetRegistryAssociationRir(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamInternetRegistryAssociationRir Ripe { get; } = new IpamInternetRegistryAssociationRir("RIPE");
+        public static IpamInternetRegistryAssociationRir Apnic { get; } = new IpamInternetRegistryAssociationRir("APNIC");
+        public static IpamInternetRegistryAssociationRir Arin { get; } = new IpamInternetRegistryAssociationRir("ARIN");
+        public static IpamInternetRegistryAssociationRir Lacnic { get; } = new IpamInternetRegistryAssociationRir("LACNIC");
+
+        public static bool operator ==(IpamInternetRegistryAssociationRir left, IpamInternetRegistryAssociationRir right) => left.Equals(right);
+        public static bool operator !=(IpamInternetRegistryAssociationRir left, IpamInternetRegistryAssociationRir right) => !left.Equals(right);
+
+        public static explicit operator string(IpamInternetRegistryAssociationRir value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamInternetRegistryAssociationRir other && Equals(other);
+        public bool Equals(IpamInternetRegistryAssociationRir other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of the internet registry association.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamInternetRegistryAssociationState : IEquatable<IpamInternetRegistryAssociationState>
+    {
+        private readonly string _value;
+
+        private IpamInternetRegistryAssociationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamInternetRegistryAssociationState PendingEnable { get; } = new IpamInternetRegistryAssociationState("pending-enable");
+        public static IpamInternetRegistryAssociationState CreateInProgress { get; } = new IpamInternetRegistryAssociationState("create-in-progress");
+        public static IpamInternetRegistryAssociationState CreateFailed { get; } = new IpamInternetRegistryAssociationState("create-failed");
+        public static IpamInternetRegistryAssociationState EnableInProgress { get; } = new IpamInternetRegistryAssociationState("enable-in-progress");
+        public static IpamInternetRegistryAssociationState EnableComplete { get; } = new IpamInternetRegistryAssociationState("enable-complete");
+        public static IpamInternetRegistryAssociationState EnableFailed { get; } = new IpamInternetRegistryAssociationState("enable-failed");
+        public static IpamInternetRegistryAssociationState DeleteInProgress { get; } = new IpamInternetRegistryAssociationState("delete-in-progress");
+        public static IpamInternetRegistryAssociationState DeleteComplete { get; } = new IpamInternetRegistryAssociationState("delete-complete");
+        public static IpamInternetRegistryAssociationState DeleteFailed { get; } = new IpamInternetRegistryAssociationState("delete-failed");
+
+        public static bool operator ==(IpamInternetRegistryAssociationState left, IpamInternetRegistryAssociationState right) => left.Equals(right);
+        public static bool operator !=(IpamInternetRegistryAssociationState left, IpamInternetRegistryAssociationState right) => !left.Equals(right);
+
+        public static explicit operator string(IpamInternetRegistryAssociationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamInternetRegistryAssociationState other && Equals(other);
+        public bool Equals(IpamInternetRegistryAssociationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A metered account is an account that is charged for active IP addresses managed in IPAM
     /// </summary>
     [EnumType]

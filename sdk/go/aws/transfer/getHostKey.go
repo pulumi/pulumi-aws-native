@@ -39,6 +39,10 @@ type LookupHostKeyResult struct {
 	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
 	// A unique identifier for the host key.
 	HostKeyId *string `pulumi:"hostKeyId"`
+	// The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+	SecretId *string `pulumi:"secretId"`
+	// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+	StorageType *HostKeyStorageType `pulumi:"storageType"`
 	// Key-value pairs that can be used to group and search for host keys.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The encryption algorithm that is used for the host key.
@@ -96,6 +100,16 @@ func (o LookupHostKeyResultOutput) HostKeyFingerprint() pulumi.StringPtrOutput {
 // A unique identifier for the host key.
 func (o LookupHostKeyResultOutput) HostKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHostKeyResult) *string { return v.HostKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+func (o LookupHostKeyResultOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostKeyResult) *string { return v.SecretId }).(pulumi.StringPtrOutput)
+}
+
+// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+func (o LookupHostKeyResultOutput) StorageType() HostKeyStorageTypePtrOutput {
+	return o.ApplyT(func(v LookupHostKeyResult) *HostKeyStorageType { return v.StorageType }).(HostKeyStorageTypePtrOutput)
 }
 
 // Key-value pairs that can be used to group and search for host keys.

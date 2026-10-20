@@ -28,15 +28,15 @@ __all__ = [
     'SubscriberEventBusV2SystemMetadata',
     'SubscriberFilter',
     'SubscriberFilterConfiguration',
-    'SubscriberInvokeConfigurationProperties',
-    'SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties',
-    'SubscriberInvokeConfigurationPropertiesHttpParametersProperties',
-    'SubscriberInvokeConfigurationPropertiesKinesisParametersProperties',
-    'SubscriberInvokeConfigurationPropertiesLambdaParametersProperties',
-    'SubscriberInvokeConfigurationPropertiesSnsParametersProperties',
-    'SubscriberInvokeConfigurationPropertiesSqsParametersProperties',
-    'SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties',
-    'SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties',
+    'SubscriberInvokeConfiguration',
+    'SubscriberInvokeConfigurationEventBusV2ParametersProperties',
+    'SubscriberInvokeConfigurationHttpParametersProperties',
+    'SubscriberInvokeConfigurationKinesisParametersProperties',
+    'SubscriberInvokeConfigurationLambdaParametersProperties',
+    'SubscriberInvokeConfigurationSnsParametersProperties',
+    'SubscriberInvokeConfigurationSqsParametersProperties',
+    'SubscriberInvokeConfigurationStepFunctionsParametersProperties',
+    'SubscriberInvokeConfigurationUniversalTargetParametersProperties',
     'SubscriberJsonataConfiguration',
     'SubscriberLogConfiguration',
     'SubscriberMessageAttributeValue',
@@ -573,7 +573,7 @@ class SubscriberFilterConfiguration(dict):
 
 
 @pulumi.output_type
-class SubscriberInvokeConfigurationProperties(dict):
+class SubscriberInvokeConfiguration(dict):
     """
     Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
     """
@@ -602,40 +602,40 @@ class SubscriberInvokeConfigurationProperties(dict):
             suggest = "universal_target_parameters"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberInvokeConfigurationProperties.__key_warning(key)
+        SubscriberInvokeConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberInvokeConfigurationProperties.__key_warning(key)
+        SubscriberInvokeConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  role_arn: _builtins.str,
                  target_arn: _builtins.str,
-                 event_bus_v2_parameters: Optional['outputs.SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties'] = None,
-                 http_parameters: Optional['outputs.SubscriberInvokeConfigurationPropertiesHttpParametersProperties'] = None,
-                 kinesis_parameters: Optional['outputs.SubscriberInvokeConfigurationPropertiesKinesisParametersProperties'] = None,
-                 lambda_parameters: Optional['outputs.SubscriberInvokeConfigurationPropertiesLambdaParametersProperties'] = None,
-                 sns_parameters: Optional['outputs.SubscriberInvokeConfigurationPropertiesSnsParametersProperties'] = None,
-                 sqs_parameters: Optional['outputs.SubscriberInvokeConfigurationPropertiesSqsParametersProperties'] = None,
-                 step_functions_parameters: Optional['outputs.SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties'] = None,
-                 universal_target_parameters: Optional['outputs.SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties'] = None):
+                 event_bus_v2_parameters: Optional['outputs.SubscriberInvokeConfigurationEventBusV2ParametersProperties'] = None,
+                 http_parameters: Optional['outputs.SubscriberInvokeConfigurationHttpParametersProperties'] = None,
+                 kinesis_parameters: Optional['outputs.SubscriberInvokeConfigurationKinesisParametersProperties'] = None,
+                 lambda_parameters: Optional['outputs.SubscriberInvokeConfigurationLambdaParametersProperties'] = None,
+                 sns_parameters: Optional['outputs.SubscriberInvokeConfigurationSnsParametersProperties'] = None,
+                 sqs_parameters: Optional['outputs.SubscriberInvokeConfigurationSqsParametersProperties'] = None,
+                 step_functions_parameters: Optional['outputs.SubscriberInvokeConfigurationStepFunctionsParametersProperties'] = None,
+                 universal_target_parameters: Optional['outputs.SubscriberInvokeConfigurationUniversalTargetParametersProperties'] = None):
         """
         Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
 
         :param _builtins.str role_arn: The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
         :param _builtins.str target_arn: The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
-        :param 'SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties' event_bus_v2_parameters: Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
-        :param 'SubscriberInvokeConfigurationPropertiesHttpParametersProperties' http_parameters: Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
-        :param 'SubscriberInvokeConfigurationPropertiesKinesisParametersProperties' kinesis_parameters: Parameters for writing events to an Amazon Kinesis Data Streams target.
-        :param 'SubscriberInvokeConfigurationPropertiesLambdaParametersProperties' lambda_parameters: Parameters for invoking an AWS Lambda function target.
-        :param 'SubscriberInvokeConfigurationPropertiesSnsParametersProperties' sns_parameters: Parameters for publishing events to an Amazon SNS topic target.
-        :param 'SubscriberInvokeConfigurationPropertiesSqsParametersProperties' sqs_parameters: Parameters for sending events to an Amazon SQS queue target.
-        :param 'SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties' step_functions_parameters: Parameters for starting an AWS Step Functions state machine execution target.
-        :param 'SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties' universal_target_parameters: Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
+        :param 'SubscriberInvokeConfigurationEventBusV2ParametersProperties' event_bus_v2_parameters: Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
+        :param 'SubscriberInvokeConfigurationHttpParametersProperties' http_parameters: Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
+        :param 'SubscriberInvokeConfigurationKinesisParametersProperties' kinesis_parameters: Parameters for writing events to an Amazon Kinesis Data Streams target.
+        :param 'SubscriberInvokeConfigurationLambdaParametersProperties' lambda_parameters: Parameters for invoking an AWS Lambda function target.
+        :param 'SubscriberInvokeConfigurationSnsParametersProperties' sns_parameters: Parameters for publishing events to an Amazon SNS topic target.
+        :param 'SubscriberInvokeConfigurationSqsParametersProperties' sqs_parameters: Parameters for sending events to an Amazon SQS queue target.
+        :param 'SubscriberInvokeConfigurationStepFunctionsParametersProperties' step_functions_parameters: Parameters for starting an AWS Step Functions state machine execution target.
+        :param 'SubscriberInvokeConfigurationUniversalTargetParametersProperties' universal_target_parameters: Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "target_arn", target_arn)
@@ -674,7 +674,7 @@ class SubscriberInvokeConfigurationProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="eventBusV2Parameters")
-    def event_bus_v2_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties']:
+    def event_bus_v2_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationEventBusV2ParametersProperties']:
         """
         Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
         """
@@ -682,7 +682,7 @@ class SubscriberInvokeConfigurationProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="httpParameters")
-    def http_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationPropertiesHttpParametersProperties']:
+    def http_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationHttpParametersProperties']:
         """
         Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
         """
@@ -690,7 +690,7 @@ class SubscriberInvokeConfigurationProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="kinesisParameters")
-    def kinesis_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationPropertiesKinesisParametersProperties']:
+    def kinesis_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationKinesisParametersProperties']:
         """
         Parameters for writing events to an Amazon Kinesis Data Streams target.
         """
@@ -698,7 +698,7 @@ class SubscriberInvokeConfigurationProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="lambdaParameters")
-    def lambda_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationPropertiesLambdaParametersProperties']:
+    def lambda_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationLambdaParametersProperties']:
         """
         Parameters for invoking an AWS Lambda function target.
         """
@@ -706,7 +706,7 @@ class SubscriberInvokeConfigurationProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="snsParameters")
-    def sns_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationPropertiesSnsParametersProperties']:
+    def sns_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationSnsParametersProperties']:
         """
         Parameters for publishing events to an Amazon SNS topic target.
         """
@@ -714,7 +714,7 @@ class SubscriberInvokeConfigurationProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="sqsParameters")
-    def sqs_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationPropertiesSqsParametersProperties']:
+    def sqs_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationSqsParametersProperties']:
         """
         Parameters for sending events to an Amazon SQS queue target.
         """
@@ -722,7 +722,7 @@ class SubscriberInvokeConfigurationProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="stepFunctionsParameters")
-    def step_functions_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties']:
+    def step_functions_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationStepFunctionsParametersProperties']:
         """
         Parameters for starting an AWS Step Functions state machine execution target.
         """
@@ -730,7 +730,7 @@ class SubscriberInvokeConfigurationProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="universalTargetParameters")
-    def universal_target_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties']:
+    def universal_target_parameters(self) -> Optional['outputs.SubscriberInvokeConfigurationUniversalTargetParametersProperties']:
         """
         Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
         """
@@ -738,7 +738,7 @@ class SubscriberInvokeConfigurationProperties(dict):
 
 
 @pulumi.output_type
-class SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties(dict):
+class SubscriberInvokeConfigurationEventBusV2ParametersProperties(dict):
     """
     Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
     """
@@ -751,14 +751,14 @@ class SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties(dict
             suggest = "system_metadata"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationEventBusV2ParametersProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationEventBusV2ParametersProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationEventBusV2ParametersProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -805,7 +805,7 @@ class SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties(dict
 
 
 @pulumi.output_type
-class SubscriberInvokeConfigurationPropertiesHttpParametersProperties(dict):
+class SubscriberInvokeConfigurationHttpParametersProperties(dict):
     """
     Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
     """
@@ -822,14 +822,14 @@ class SubscriberInvokeConfigurationPropertiesHttpParametersProperties(dict):
             suggest = "query_string_parameters"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationPropertiesHttpParametersProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationHttpParametersProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberInvokeConfigurationPropertiesHttpParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationHttpParametersProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberInvokeConfigurationPropertiesHttpParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationHttpParametersProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -888,7 +888,7 @@ class SubscriberInvokeConfigurationPropertiesHttpParametersProperties(dict):
 
 
 @pulumi.output_type
-class SubscriberInvokeConfigurationPropertiesKinesisParametersProperties(dict):
+class SubscriberInvokeConfigurationKinesisParametersProperties(dict):
     """
     Parameters for writing events to an Amazon Kinesis Data Streams target.
     """
@@ -901,14 +901,14 @@ class SubscriberInvokeConfigurationPropertiesKinesisParametersProperties(dict):
             suggest = "partition_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationPropertiesKinesisParametersProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationKinesisParametersProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberInvokeConfigurationPropertiesKinesisParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationKinesisParametersProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberInvokeConfigurationPropertiesKinesisParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationKinesisParametersProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -943,7 +943,7 @@ class SubscriberInvokeConfigurationPropertiesKinesisParametersProperties(dict):
 
 
 @pulumi.output_type
-class SubscriberInvokeConfigurationPropertiesLambdaParametersProperties(dict):
+class SubscriberInvokeConfigurationLambdaParametersProperties(dict):
     """
     Parameters for invoking an AWS Lambda function target.
     """
@@ -960,14 +960,14 @@ class SubscriberInvokeConfigurationPropertiesLambdaParametersProperties(dict):
             suggest = "tenant_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationPropertiesLambdaParametersProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationLambdaParametersProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberInvokeConfigurationPropertiesLambdaParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationLambdaParametersProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberInvokeConfigurationPropertiesLambdaParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationLambdaParametersProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1038,7 +1038,7 @@ class SubscriberInvokeConfigurationPropertiesLambdaParametersProperties(dict):
 
 
 @pulumi.output_type
-class SubscriberInvokeConfigurationPropertiesSnsParametersProperties(dict):
+class SubscriberInvokeConfigurationSnsParametersProperties(dict):
     """
     Parameters for publishing events to an Amazon SNS topic target.
     """
@@ -1055,14 +1055,14 @@ class SubscriberInvokeConfigurationPropertiesSnsParametersProperties(dict):
             suggest = "message_structure"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationPropertiesSnsParametersProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationSnsParametersProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberInvokeConfigurationPropertiesSnsParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationSnsParametersProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberInvokeConfigurationPropertiesSnsParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationSnsParametersProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1133,7 +1133,7 @@ class SubscriberInvokeConfigurationPropertiesSnsParametersProperties(dict):
 
 
 @pulumi.output_type
-class SubscriberInvokeConfigurationPropertiesSqsParametersProperties(dict):
+class SubscriberInvokeConfigurationSqsParametersProperties(dict):
     """
     Parameters for sending events to an Amazon SQS queue target.
     """
@@ -1152,14 +1152,14 @@ class SubscriberInvokeConfigurationPropertiesSqsParametersProperties(dict):
             suggest = "message_system_attributes"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationPropertiesSqsParametersProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationSqsParametersProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberInvokeConfigurationPropertiesSqsParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationSqsParametersProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberInvokeConfigurationPropertiesSqsParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationSqsParametersProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1230,7 +1230,7 @@ class SubscriberInvokeConfigurationPropertiesSqsParametersProperties(dict):
 
 
 @pulumi.output_type
-class SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties(dict):
+class SubscriberInvokeConfigurationStepFunctionsParametersProperties(dict):
     """
     Parameters for starting an AWS Step Functions state machine execution target.
     """
@@ -1245,14 +1245,14 @@ class SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties(d
             suggest = "trace_header"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationStepFunctionsParametersProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationStepFunctionsParametersProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationStepFunctionsParametersProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1311,7 +1311,7 @@ class SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties(d
 
 
 @pulumi.output_type
-class SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties(dict):
+class SubscriberInvokeConfigurationUniversalTargetParametersProperties(dict):
     """
     Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
     """
@@ -1322,14 +1322,14 @@ class SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties
             suggest = "invocation_timeout_seconds"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SubscriberInvokeConfigurationUniversalTargetParametersProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationUniversalTargetParametersProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties.__key_warning(key)
+        SubscriberInvokeConfigurationUniversalTargetParametersProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -1659,6 +1659,172 @@ func (in *streamModeDetailsStreamModePtr) ToStreamModeDetailsStreamModePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(StreamModeDetailsStreamModePtrOutput)
 }
 
+// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+type StreamRecordDistributionStrategy string
+
+const (
+	StreamRecordDistributionStrategyAuto             = StreamRecordDistributionStrategy("AUTO")
+	StreamRecordDistributionStrategyUserPartitionKey = StreamRecordDistributionStrategy("USER_PARTITION_KEY")
+)
+
+func (StreamRecordDistributionStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamRecordDistributionStrategy)(nil)).Elem()
+}
+
+func (e StreamRecordDistributionStrategy) ToStreamRecordDistributionStrategyOutput() StreamRecordDistributionStrategyOutput {
+	return pulumi.ToOutput(e).(StreamRecordDistributionStrategyOutput)
+}
+
+func (e StreamRecordDistributionStrategy) ToStreamRecordDistributionStrategyOutputWithContext(ctx context.Context) StreamRecordDistributionStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StreamRecordDistributionStrategyOutput)
+}
+
+func (e StreamRecordDistributionStrategy) ToStreamRecordDistributionStrategyPtrOutput() StreamRecordDistributionStrategyPtrOutput {
+	return e.ToStreamRecordDistributionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e StreamRecordDistributionStrategy) ToStreamRecordDistributionStrategyPtrOutputWithContext(ctx context.Context) StreamRecordDistributionStrategyPtrOutput {
+	return StreamRecordDistributionStrategy(e).ToStreamRecordDistributionStrategyOutputWithContext(ctx).ToStreamRecordDistributionStrategyPtrOutputWithContext(ctx)
+}
+
+func (e StreamRecordDistributionStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StreamRecordDistributionStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StreamRecordDistributionStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StreamRecordDistributionStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StreamRecordDistributionStrategyOutput struct{ *pulumi.OutputState }
+
+func (StreamRecordDistributionStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamRecordDistributionStrategy)(nil)).Elem()
+}
+
+func (o StreamRecordDistributionStrategyOutput) ToStreamRecordDistributionStrategyOutput() StreamRecordDistributionStrategyOutput {
+	return o
+}
+
+func (o StreamRecordDistributionStrategyOutput) ToStreamRecordDistributionStrategyOutputWithContext(ctx context.Context) StreamRecordDistributionStrategyOutput {
+	return o
+}
+
+func (o StreamRecordDistributionStrategyOutput) ToStreamRecordDistributionStrategyPtrOutput() StreamRecordDistributionStrategyPtrOutput {
+	return o.ToStreamRecordDistributionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o StreamRecordDistributionStrategyOutput) ToStreamRecordDistributionStrategyPtrOutputWithContext(ctx context.Context) StreamRecordDistributionStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamRecordDistributionStrategy) *StreamRecordDistributionStrategy {
+		return &v
+	}).(StreamRecordDistributionStrategyPtrOutput)
+}
+
+func (o StreamRecordDistributionStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StreamRecordDistributionStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamRecordDistributionStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StreamRecordDistributionStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StreamRecordDistributionStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamRecordDistributionStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamRecordDistributionStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamRecordDistributionStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamRecordDistributionStrategy)(nil)).Elem()
+}
+
+func (o StreamRecordDistributionStrategyPtrOutput) ToStreamRecordDistributionStrategyPtrOutput() StreamRecordDistributionStrategyPtrOutput {
+	return o
+}
+
+func (o StreamRecordDistributionStrategyPtrOutput) ToStreamRecordDistributionStrategyPtrOutputWithContext(ctx context.Context) StreamRecordDistributionStrategyPtrOutput {
+	return o
+}
+
+func (o StreamRecordDistributionStrategyPtrOutput) Elem() StreamRecordDistributionStrategyOutput {
+	return o.ApplyT(func(v *StreamRecordDistributionStrategy) StreamRecordDistributionStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret StreamRecordDistributionStrategy
+		return ret
+	}).(StreamRecordDistributionStrategyOutput)
+}
+
+func (o StreamRecordDistributionStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StreamRecordDistributionStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StreamRecordDistributionStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StreamRecordDistributionStrategyInput is an input type that accepts values of the StreamRecordDistributionStrategy enum
+// A concrete instance of `StreamRecordDistributionStrategyInput` can be one of the following:
+//
+//	StreamRecordDistributionStrategyAuto
+//	StreamRecordDistributionStrategyUserPartitionKey
+type StreamRecordDistributionStrategyInput interface {
+	pulumi.Input
+
+	ToStreamRecordDistributionStrategyOutput() StreamRecordDistributionStrategyOutput
+	ToStreamRecordDistributionStrategyOutputWithContext(context.Context) StreamRecordDistributionStrategyOutput
+}
+
+var streamRecordDistributionStrategyPtrType = reflect.TypeOf((**StreamRecordDistributionStrategy)(nil)).Elem()
+
+type StreamRecordDistributionStrategyPtrInput interface {
+	pulumi.Input
+
+	ToStreamRecordDistributionStrategyPtrOutput() StreamRecordDistributionStrategyPtrOutput
+	ToStreamRecordDistributionStrategyPtrOutputWithContext(context.Context) StreamRecordDistributionStrategyPtrOutput
+}
+
+type streamRecordDistributionStrategyPtr string
+
+func StreamRecordDistributionStrategyPtr(v string) StreamRecordDistributionStrategyPtrInput {
+	return (*streamRecordDistributionStrategyPtr)(&v)
+}
+
+func (*streamRecordDistributionStrategyPtr) ElementType() reflect.Type {
+	return streamRecordDistributionStrategyPtrType
+}
+
+func (in *streamRecordDistributionStrategyPtr) ToStreamRecordDistributionStrategyPtrOutput() StreamRecordDistributionStrategyPtrOutput {
+	return pulumi.ToOutput(in).(StreamRecordDistributionStrategyPtrOutput)
+}
+
+func (in *streamRecordDistributionStrategyPtr) ToStreamRecordDistributionStrategyPtrOutputWithContext(ctx context.Context) StreamRecordDistributionStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StreamRecordDistributionStrategyPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncryptionConfigurationEncryptionTypeInput)(nil)).Elem(), ChannelEncryptionConfigurationEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncryptionConfigurationEncryptionTypePtrInput)(nil)).Elem(), ChannelEncryptionConfigurationEncryptionType("KMS"))
@@ -1679,6 +1845,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEnhancedMetricArrayInput)(nil)).Elem(), StreamEnhancedMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsStreamModeInput)(nil)).Elem(), StreamModeDetailsStreamMode("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsStreamModePtrInput)(nil)).Elem(), StreamModeDetailsStreamMode("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamRecordDistributionStrategyInput)(nil)).Elem(), StreamRecordDistributionStrategy("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamRecordDistributionStrategyPtrInput)(nil)).Elem(), StreamRecordDistributionStrategy("AUTO"))
 	pulumi.RegisterOutputType(ChannelEncryptionConfigurationEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(ChannelEncryptionConfigurationEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(ChannelPartitionFieldTransformOutput{})
@@ -1700,4 +1868,6 @@ func init() {
 	pulumi.RegisterOutputType(StreamEnhancedMetricArrayOutput{})
 	pulumi.RegisterOutputType(StreamModeDetailsStreamModeOutput{})
 	pulumi.RegisterOutputType(StreamModeDetailsStreamModePtrOutput{})
+	pulumi.RegisterOutputType(StreamRecordDistributionStrategyOutput{})
+	pulumi.RegisterOutputType(StreamRecordDistributionStrategyPtrOutput{})
 }

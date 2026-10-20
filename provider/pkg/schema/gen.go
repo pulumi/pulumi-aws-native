@@ -2049,6 +2049,10 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 		typName = "QBusinessIndexStatus"
 	case "AWS::ARCZonalShift::AutoshiftObserverNotificationStatus:AutoshiftObserverNotificationStatus":
 		typName = "AutoshiftObserverNotificationStatusEnum" // enumName matches typName which causes a conflict
+	case "AWS::SecurityAgent::Integration:Provider":
+		// The Go SDK derives an IntegrationProviderInput interface for this enum, which collides with
+		// the IntegrationProviderInput object type generated from the ProviderInput definition.
+		typName = "IntegrationProviderEnum"
 	}
 
 	tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)

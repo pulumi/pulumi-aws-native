@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
-    /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+    /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalog:CloudFormationProvisionedProduct")]
     public partial class CloudFormationProvisionedProduct : global::Pulumi.CustomResource

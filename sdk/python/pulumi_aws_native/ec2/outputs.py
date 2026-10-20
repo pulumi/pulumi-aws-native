@@ -160,6 +160,7 @@ __all__ = [
     'NetworkInsightsAnalysisAnalysisPacketHeader',
     'NetworkInsightsAnalysisAnalysisRouteTableRoute',
     'NetworkInsightsAnalysisAnalysisSecurityGroupRule',
+    'NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry',
     'NetworkInsightsAnalysisExplanation',
     'NetworkInsightsAnalysisPathComponent',
     'NetworkInsightsAnalysisPortRange',
@@ -10684,6 +10685,94 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
 
 
 @pulumi.output_type
+class NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationCidr":
+            suggest = "destination_cidr"
+        elif key == "destinationPortRange":
+            suggest = "destination_port_range"
+        elif key == "ruleNumber":
+            suggest = "rule_number"
+        elif key == "sourceCidr":
+            suggest = "source_cidr"
+        elif key == "sourcePortRange":
+            suggest = "source_port_range"
+        elif key == "targetRouteTableId":
+            suggest = "target_route_table_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_cidr: Optional[_builtins.str] = None,
+                 destination_port_range: Optional['outputs.NetworkInsightsAnalysisPortRange'] = None,
+                 protocol: Optional[_builtins.str] = None,
+                 rule_number: Optional[_builtins.int] = None,
+                 source_cidr: Optional[_builtins.str] = None,
+                 source_port_range: Optional['outputs.NetworkInsightsAnalysisPortRange'] = None,
+                 target_route_table_id: Optional[_builtins.str] = None):
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rule_number is not None:
+            pulumi.set(__self__, "rule_number", rule_number)
+        if source_cidr is not None:
+            pulumi.set(__self__, "source_cidr", source_cidr)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+        if target_route_table_id is not None:
+            pulumi.set(__self__, "target_route_table_id", target_route_table_id)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationCidr")
+    def destination_cidr(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "destination_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional['outputs.NetworkInsightsAnalysisPortRange']:
+        return pulumi.get(self, "destination_port_range")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "rule_number")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceCidr")
+    def source_cidr(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional['outputs.NetworkInsightsAnalysisPortRange']:
+        return pulumi.get(self, "source_port_range")
+
+    @_builtins.property
+    @pulumi.getter(name="targetRouteTableId")
+    def target_route_table_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "target_route_table_id")
+
+
+@pulumi.output_type
 class NetworkInsightsAnalysisExplanation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -10754,6 +10843,10 @@ class NetworkInsightsAnalysisExplanation(dict):
             suggest = "transit_gateway"
         elif key == "transitGatewayAttachment":
             suggest = "transit_gateway_attachment"
+        elif key == "transitGatewayPolicyTable":
+            suggest = "transit_gateway_policy_table"
+        elif key == "transitGatewayPolicyTableEntry":
+            suggest = "transit_gateway_policy_table_entry"
         elif key == "transitGatewayRouteTable":
             suggest = "transit_gateway_route_table"
         elif key == "transitGatewayRouteTableRoute":
@@ -10823,6 +10916,8 @@ class NetworkInsightsAnalysisExplanation(dict):
                  subnet_route_table: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  transit_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  transit_gateway_attachment: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 transit_gateway_policy_table: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 transit_gateway_policy_table_entry: Optional['outputs.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry'] = None,
                  transit_gateway_route_table: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  transit_gateway_route_table_route: Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute'] = None,
                  vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
@@ -10974,6 +11069,10 @@ class NetworkInsightsAnalysisExplanation(dict):
             pulumi.set(__self__, "transit_gateway", transit_gateway)
         if transit_gateway_attachment is not None:
             pulumi.set(__self__, "transit_gateway_attachment", transit_gateway_attachment)
+        if transit_gateway_policy_table is not None:
+            pulumi.set(__self__, "transit_gateway_policy_table", transit_gateway_policy_table)
+        if transit_gateway_policy_table_entry is not None:
+            pulumi.set(__self__, "transit_gateway_policy_table_entry", transit_gateway_policy_table_entry)
         if transit_gateway_route_table is not None:
             pulumi.set(__self__, "transit_gateway_route_table", transit_gateway_route_table)
         if transit_gateway_route_table_route is not None:
@@ -11345,6 +11444,16 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "transit_gateway_attachment")
 
     @_builtins.property
+    @pulumi.getter(name="transitGatewayPolicyTable")
+    def transit_gateway_policy_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        return pulumi.get(self, "transit_gateway_policy_table")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayPolicyTableEntry")
+    def transit_gateway_policy_table_entry(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry']:
+        return pulumi.get(self, "transit_gateway_policy_table_entry")
+
+    @_builtins.property
     @pulumi.getter(name="transitGatewayRouteTable")
     def transit_gateway_route_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
@@ -11430,6 +11539,8 @@ class NetworkInsightsAnalysisPathComponent(dict):
             suggest = "source_vpc"
         elif key == "transitGateway":
             suggest = "transit_gateway"
+        elif key == "transitGatewayPolicyTableEntry":
+            suggest = "transit_gateway_policy_table_entry"
         elif key == "transitGatewayRouteTableRoute":
             suggest = "transit_gateway_route_table_route"
 
@@ -11460,6 +11571,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
                  source_vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  subnet: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  transit_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 transit_gateway_policy_table_entry: Optional['outputs.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry'] = None,
                  transit_gateway_route_table_route: Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute'] = None,
                  vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
         """
@@ -11511,6 +11623,8 @@ class NetworkInsightsAnalysisPathComponent(dict):
             pulumi.set(__self__, "subnet", subnet)
         if transit_gateway is not None:
             pulumi.set(__self__, "transit_gateway", transit_gateway)
+        if transit_gateway_policy_table_entry is not None:
+            pulumi.set(__self__, "transit_gateway_policy_table_entry", transit_gateway_policy_table_entry)
         if transit_gateway_route_table_route is not None:
             pulumi.set(__self__, "transit_gateway_route_table_route", transit_gateway_route_table_route)
         if vpc is not None:
@@ -11635,6 +11749,11 @@ class NetworkInsightsAnalysisPathComponent(dict):
         The transit gateway.
         """
         return pulumi.get(self, "transit_gateway")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayPolicyTableEntry")
+    def transit_gateway_policy_table_entry(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry']:
+        return pulumi.get(self, "transit_gateway_policy_table_entry")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayRouteTableRoute")

@@ -22,6 +22,8 @@ __all__ = [
     'ChannelMultiviewConfigurationArgsDict',
     'ChannelOutputHeaderConfigurationArgs',
     'ChannelOutputHeaderConfigurationArgsDict',
+    'OriginEndpointContentKeyPeriodConfigurationArgs',
+    'OriginEndpointContentKeyPeriodConfigurationArgsDict',
     'OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs',
     'OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgsDict',
     'OriginEndpointDashBaseUrlArgs',
@@ -54,10 +56,16 @@ __all__ = [
     'OriginEndpointForceEndpointErrorConfigurationArgsDict',
     'OriginEndpointHlsManifestConfigurationArgs',
     'OriginEndpointHlsManifestConfigurationArgsDict',
+    'OriginEndpointLowLatencyHlsFilterConfigurationArgs',
+    'OriginEndpointLowLatencyHlsFilterConfigurationArgsDict',
     'OriginEndpointLowLatencyHlsManifestConfigurationArgs',
     'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict',
+    'OriginEndpointMssFilterConfigurationArgs',
+    'OriginEndpointMssFilterConfigurationArgsDict',
     'OriginEndpointMssManifestConfigurationArgs',
     'OriginEndpointMssManifestConfigurationArgsDict',
+    'OriginEndpointMultiviewFilterConfigurationArgs',
+    'OriginEndpointMultiviewFilterConfigurationArgsDict',
     'OriginEndpointPolicyCdnAuthConfigurationArgs',
     'OriginEndpointPolicyCdnAuthConfigurationArgsDict',
     'OriginEndpointScteArgs',
@@ -212,6 +220,32 @@ class ChannelOutputHeaderConfigurationArgs:
     @publish_mqcs.setter
     def publish_mqcs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_mqcs", value)
+
+
+class OriginEndpointContentKeyPeriodConfigurationArgsDict(TypedDict):
+    """
+    <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>
+    """
+    content_key_period_timing: NotRequired[pulumi.Input[Optional['OriginEndpointContentKeyPeriodTiming']]]
+
+@pulumi.input_type
+class OriginEndpointContentKeyPeriodConfigurationArgs:
+    def __init__(__self__, *,
+                 content_key_period_timing: pulumi.Input[Optional['OriginEndpointContentKeyPeriodTiming']] = None):
+        """
+        <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>
+        """
+        if content_key_period_timing is not None:
+            pulumi.set(__self__, "content_key_period_timing", content_key_period_timing)
+
+    @_builtins.property
+    @pulumi.getter(name="contentKeyPeriodTiming")
+    def content_key_period_timing(self) -> pulumi.Input[Optional['OriginEndpointContentKeyPeriodTiming']]:
+        return pulumi.get(self, "content_key_period_timing")
+
+    @content_key_period_timing.setter
+    def content_key_period_timing(self, value: pulumi.Input[Optional['OriginEndpointContentKeyPeriodTiming']]):
+        pulumi.set(self, "content_key_period_timing", value)
 
 
 class OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgsDict(TypedDict):
@@ -1493,6 +1527,7 @@ class OriginEndpointFilterConfigurationArgsDict(TypedDict):
     """
     <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
     """
+    multiview: NotRequired[pulumi.Input[Optional['OriginEndpointMultiviewFilterConfigurationArgsDict']]]
     start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
@@ -1509,6 +1544,7 @@ class OriginEndpointFilterConfigurationArgs:
                  drm_settings: pulumi.Input[Optional[_builtins.str]] = None,
                  end: pulumi.Input[Optional[_builtins.str]] = None,
                  manifest_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiview: pulumi.Input[Optional['OriginEndpointMultiviewFilterConfigurationArgs']] = None,
                  start: pulumi.Input[Optional[_builtins.str]] = None,
                  time_delay_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
@@ -1529,6 +1565,8 @@ class OriginEndpointFilterConfigurationArgs:
             pulumi.set(__self__, "end", end)
         if manifest_filter is not None:
             pulumi.set(__self__, "manifest_filter", manifest_filter)
+        if multiview is not None:
+            pulumi.set(__self__, "multiview", multiview)
         if start is not None:
             pulumi.set(__self__, "start", start)
         if time_delay_seconds is not None:
@@ -1581,6 +1619,15 @@ class OriginEndpointFilterConfigurationArgs:
     @manifest_filter.setter
     def manifest_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manifest_filter", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def multiview(self) -> pulumi.Input[Optional['OriginEndpointMultiviewFilterConfigurationArgs']]:
+        return pulumi.get(self, "multiview")
+
+    @multiview.setter
+    def multiview(self, value: pulumi.Input[Optional['OriginEndpointMultiviewFilterConfigurationArgs']]):
+        pulumi.set(self, "multiview", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1847,6 +1894,140 @@ class OriginEndpointHlsManifestConfigurationArgs:
         pulumi.set(self, "url_encode_child_manifest", value)
 
 
+class OriginEndpointLowLatencyHlsFilterConfigurationArgsDict(TypedDict):
+    """
+    <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+    """
+    clip_start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+    """
+    drm_settings: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+    """
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+    """
+    manifest_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+    """
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+    """
+    time_delay_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+    """
+
+@pulumi.input_type
+class OriginEndpointLowLatencyHlsFilterConfigurationArgs:
+    def __init__(__self__, *,
+                 clip_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 drm_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_delay_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+
+        :param pulumi.Input[_builtins.str] clip_start_time: <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.str] drm_settings: <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.str] end: <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.str] manifest_filter: <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.str] start: <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.int] time_delay_seconds: <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+        """
+        if clip_start_time is not None:
+            pulumi.set(__self__, "clip_start_time", clip_start_time)
+        if drm_settings is not None:
+            pulumi.set(__self__, "drm_settings", drm_settings)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if manifest_filter is not None:
+            pulumi.set(__self__, "manifest_filter", manifest_filter)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+        if time_delay_seconds is not None:
+            pulumi.set(__self__, "time_delay_seconds", time_delay_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="clipStartTime")
+    def clip_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "clip_start_time")
+
+    @clip_start_time.setter
+    def clip_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "clip_start_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="drmSettings")
+    def drm_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "drm_settings")
+
+    @drm_settings.setter
+    def drm_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "drm_settings", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "end")
+
+    @end.setter
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "end", value)
+
+    @_builtins.property
+    @pulumi.getter(name="manifestFilter")
+    def manifest_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "manifest_filter")
+
+    @manifest_filter.setter
+    def manifest_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "manifest_filter", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeDelaySeconds")
+    def time_delay_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "time_delay_seconds")
+
+    @time_delay_seconds.setter
+    def time_delay_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "time_delay_seconds", value)
+
+
 class OriginEndpointLowLatencyHlsManifestConfigurationArgsDict(TypedDict):
     """
     <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
@@ -1859,7 +2040,7 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgsDict(TypedDict):
     """
     <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
     """
-    filter_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointFilterConfigurationArgsDict']]]
+    filter_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointLowLatencyHlsFilterConfigurationArgsDict']]]
     """
     Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
     """
@@ -1894,7 +2075,7 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     def __init__(__self__, *,
                  manifest_name: pulumi.Input[_builtins.str],
                  child_manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter_configuration: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']] = None,
+                 filter_configuration: pulumi.Input[Optional['OriginEndpointLowLatencyHlsFilterConfigurationArgs']] = None,
                  manifest_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  program_date_time_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  scte_hls: pulumi.Input[Optional['OriginEndpointScteHlsArgs']] = None,
@@ -1907,7 +2088,7 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
 
         :param pulumi.Input[_builtins.str] manifest_name: <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param pulumi.Input[_builtins.str] child_manifest_name: <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
-        :param pulumi.Input['OriginEndpointFilterConfigurationArgs'] filter_configuration: Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        :param pulumi.Input['OriginEndpointLowLatencyHlsFilterConfigurationArgs'] filter_configuration: Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         :param pulumi.Input[_builtins.int] manifest_window_seconds: <p>The total duration (in seconds) of the manifest's content.</p>
         :param pulumi.Input[_builtins.int] program_date_time_interval_seconds: <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         :param pulumi.Input['OriginEndpointScteHlsArgs'] scte_hls: The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
@@ -1961,14 +2142,14 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['OriginEndpointLowLatencyHlsFilterConfigurationArgs']]:
         """
         Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['OriginEndpointLowLatencyHlsFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
     @_builtins.property
@@ -2053,6 +2234,140 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
         pulumi.set(self, "url_encode_child_manifest", value)
 
 
+class OriginEndpointMssFilterConfigurationArgsDict(TypedDict):
+    """
+    <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+    """
+    clip_start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+    """
+    drm_settings: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+    """
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+    """
+    manifest_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+    """
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+    """
+    time_delay_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+    """
+
+@pulumi.input_type
+class OriginEndpointMssFilterConfigurationArgs:
+    def __init__(__self__, *,
+                 clip_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 drm_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_delay_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+
+        :param pulumi.Input[_builtins.str] clip_start_time: <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.str] drm_settings: <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.str] end: <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.str] manifest_filter: <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.str] start: <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.int] time_delay_seconds: <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+        """
+        if clip_start_time is not None:
+            pulumi.set(__self__, "clip_start_time", clip_start_time)
+        if drm_settings is not None:
+            pulumi.set(__self__, "drm_settings", drm_settings)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if manifest_filter is not None:
+            pulumi.set(__self__, "manifest_filter", manifest_filter)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+        if time_delay_seconds is not None:
+            pulumi.set(__self__, "time_delay_seconds", time_delay_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="clipStartTime")
+    def clip_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "clip_start_time")
+
+    @clip_start_time.setter
+    def clip_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "clip_start_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="drmSettings")
+    def drm_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "drm_settings")
+
+    @drm_settings.setter
+    def drm_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "drm_settings", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "end")
+
+    @end.setter
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "end", value)
+
+    @_builtins.property
+    @pulumi.getter(name="manifestFilter")
+    def manifest_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "manifest_filter")
+
+    @manifest_filter.setter
+    def manifest_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "manifest_filter", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeDelaySeconds")
+    def time_delay_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "time_delay_seconds")
+
+    @time_delay_seconds.setter
+    def time_delay_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "time_delay_seconds", value)
+
+
 class OriginEndpointMssManifestConfigurationArgsDict(TypedDict):
     """
     <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
@@ -2061,7 +2376,7 @@ class OriginEndpointMssManifestConfigurationArgsDict(TypedDict):
     """
     <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
     """
-    filter_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointFilterConfigurationArgsDict']]]
+    filter_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointMssFilterConfigurationArgsDict']]]
     manifest_layout: NotRequired[pulumi.Input[Optional['OriginEndpointMssManifestLayout']]]
     manifest_window_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -2072,7 +2387,7 @@ class OriginEndpointMssManifestConfigurationArgsDict(TypedDict):
 class OriginEndpointMssManifestConfigurationArgs:
     def __init__(__self__, *,
                  manifest_name: pulumi.Input[_builtins.str],
-                 filter_configuration: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']] = None,
+                 filter_configuration: pulumi.Input[Optional['OriginEndpointMssFilterConfigurationArgs']] = None,
                  manifest_layout: pulumi.Input[Optional['OriginEndpointMssManifestLayout']] = None,
                  manifest_window_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
@@ -2103,11 +2418,11 @@ class OriginEndpointMssManifestConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['OriginEndpointMssFilterConfigurationArgs']]:
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: pulumi.Input[Optional['OriginEndpointFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['OriginEndpointMssFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
     @_builtins.property
@@ -2130,6 +2445,51 @@ class OriginEndpointMssManifestConfigurationArgs:
     @manifest_window_seconds.setter
     def manifest_window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "manifest_window_seconds", value)
+
+
+class OriginEndpointMultiviewFilterConfigurationArgsDict(TypedDict):
+    """
+    <p>The multiview combination for a pinned manifest. MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+    """
+    layout: pulumi.Input['OriginEndpointMultiviewLayoutType']
+    sources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+    """
+
+@pulumi.input_type
+class OriginEndpointMultiviewFilterConfigurationArgs:
+    def __init__(__self__, *,
+                 layout: pulumi.Input['OriginEndpointMultiviewLayoutType'],
+                 sources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        <p>The multiview combination for a pinned manifest. MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sources: <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+        """
+        pulumi.set(__self__, "layout", layout)
+        pulumi.set(__self__, "sources", sources)
+
+    @_builtins.property
+    @pulumi.getter
+    def layout(self) -> pulumi.Input['OriginEndpointMultiviewLayoutType']:
+        return pulumi.get(self, "layout")
+
+    @layout.setter
+    def layout(self, value: pulumi.Input['OriginEndpointMultiviewLayoutType']):
+        pulumi.set(self, "layout", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sources(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+        """
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "sources", value)
 
 
 class OriginEndpointPolicyCdnAuthConfigurationArgsDict(TypedDict):
@@ -2577,6 +2937,8 @@ class OriginEndpointSpekeKeyProviderArgsDict(TypedDict):
     """
     <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
     """
+    content_key_period_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointContentKeyPeriodConfigurationArgsDict']]]
+    speke_version: NotRequired[pulumi.Input[Optional['OriginEndpointSpekeVersion']]]
 
 @pulumi.input_type
 class OriginEndpointSpekeKeyProviderArgs:
@@ -2586,7 +2948,9 @@ class OriginEndpointSpekeKeyProviderArgs:
                  resource_id: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_key_period_configuration: pulumi.Input[Optional['OriginEndpointContentKeyPeriodConfigurationArgs']] = None,
+                 speke_version: pulumi.Input[Optional['OriginEndpointSpekeVersion']] = None):
         """
         <p>The parameters for the SPEKE key provider.</p>
 
@@ -2604,6 +2968,10 @@ class OriginEndpointSpekeKeyProviderArgs:
         pulumi.set(__self__, "url", url)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if content_key_period_configuration is not None:
+            pulumi.set(__self__, "content_key_period_configuration", content_key_period_configuration)
+        if speke_version is not None:
+            pulumi.set(__self__, "speke_version", speke_version)
 
     @_builtins.property
     @pulumi.getter(name="drmSystems")
@@ -2676,6 +3044,24 @@ class OriginEndpointSpekeKeyProviderArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentKeyPeriodConfiguration")
+    def content_key_period_configuration(self) -> pulumi.Input[Optional['OriginEndpointContentKeyPeriodConfigurationArgs']]:
+        return pulumi.get(self, "content_key_period_configuration")
+
+    @content_key_period_configuration.setter
+    def content_key_period_configuration(self, value: pulumi.Input[Optional['OriginEndpointContentKeyPeriodConfigurationArgs']]):
+        pulumi.set(self, "content_key_period_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spekeVersion")
+    def speke_version(self) -> pulumi.Input[Optional['OriginEndpointSpekeVersion']]:
+        return pulumi.get(self, "speke_version")
+
+    @speke_version.setter
+    def speke_version(self, value: pulumi.Input[Optional['OriginEndpointSpekeVersion']]):
+        pulumi.set(self, "speke_version", value)
 
 
 class OriginEndpointStartTagArgsDict(TypedDict):

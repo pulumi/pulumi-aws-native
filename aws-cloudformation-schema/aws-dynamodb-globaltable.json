@@ -18,7 +18,7 @@
       "permissions" : [ "dynamodb:CreateTable", "dynamodb:CreateTableReplica", "dynamodb:Describe*", "dynamodb:UpdateTable", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContributorInsights", "dynamodb:UpdateContinuousBackups", "dynamodb:ListTagsOfResource", "dynamodb:Query", "dynamodb:Scan", "dynamodb:UpdateItem", "dynamodb:PutItem", "dynamodb:GetItem", "dynamodb:DeleteItem", "dynamodb:BatchWriteItem", "dynamodb:TagResource", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "dynamodb:UpdateTableReplicaAutoScaling", "dynamodb:GetResourcePolicy", "dynamodb:PutResourcePolicy", "application-autoscaling:DeleteScalingPolicy", "application-autoscaling:DeleteScheduledAction", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:Describe*", "application-autoscaling:PutScalingPolicy", "application-autoscaling:PutScheduledAction", "application-autoscaling:RegisterScalableTarget", "kinesis:ListStreams", "kinesis:DescribeStream", "kinesis:PutRecords", "kms:CreateGrant", "kms:DescribeKey", "kms:ListAliases", "kms:Decrypt", "kms:RevokeGrant", "cloudwatch:PutMetricData", "iam:CreateServiceLinkedRole" ]
     },
     "update" : {
-      "permissions" : [ "dynamodb:Describe*", "dynamodb:CreateTableReplica", "dynamodb:UpdateTable", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContinuousBackups", "dynamodb:UpdateContributorInsights", "dynamodb:ListTagsOfResource", "dynamodb:Query", "dynamodb:Scan", "dynamodb:UpdateItem", "dynamodb:PutItem", "dynamodb:GetItem", "dynamodb:DeleteItem", "dynamodb:BatchWriteItem", "dynamodb:DeleteTable", "dynamodb:DeleteTableReplica", "dynamodb:UpdateItem", "dynamodb:TagResource", "dynamodb:UntagResource", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "dynamodb:UpdateTableReplicaAutoScaling", "dynamodb:UpdateKinesisStreamingDestination", "dynamodb:GetResourcePolicy", "dynamodb:PutResourcePolicy", "dynamodb:DeleteResourcePolicy", "application-autoscaling:DeleteScalingPolicy", "application-autoscaling:DeleteScheduledAction", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:Describe*", "application-autoscaling:PutScalingPolicy", "application-autoscaling:PutScheduledAction", "application-autoscaling:RegisterScalableTarget", "kinesis:ListStreams", "kinesis:DescribeStream", "kinesis:PutRecords", "kms:CreateGrant", "kms:DescribeKey", "kms:ListAliases", "kms:RevokeGrant", "cloudwatch:PutMetricData" ],
+      "permissions" : [ "dynamodb:Describe*", "dynamodb:CreateTableReplica", "dynamodb:UpdateTable", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContinuousBackups", "dynamodb:UpdateContributorInsights", "dynamodb:ListTagsOfResource", "dynamodb:Query", "dynamodb:Scan", "dynamodb:UpdateItem", "dynamodb:PutItem", "dynamodb:GetItem", "dynamodb:DeleteItem", "dynamodb:BatchWriteItem", "dynamodb:DeleteTable", "dynamodb:DeleteTableReplica", "dynamodb:DisassociateTableReplica", "dynamodb:UpdateItem", "dynamodb:TagResource", "dynamodb:UntagResource", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "dynamodb:UpdateTableReplicaAutoScaling", "dynamodb:UpdateKinesisStreamingDestination", "dynamodb:GetResourcePolicy", "dynamodb:PutResourcePolicy", "dynamodb:DeleteResourcePolicy", "application-autoscaling:DeleteScalingPolicy", "application-autoscaling:DeleteScheduledAction", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:Describe*", "application-autoscaling:PutScalingPolicy", "application-autoscaling:PutScheduledAction", "application-autoscaling:RegisterScalableTarget", "kinesis:ListStreams", "kinesis:DescribeStream", "kinesis:PutRecords", "kms:CreateGrant", "kms:DescribeKey", "kms:ListAliases", "kms:RevokeGrant", "cloudwatch:PutMetricData" ],
       "timeoutInMinutes" : 1200
     },
     "list" : {
@@ -32,6 +32,20 @@
   "writeOnlyProperties" : [ "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/Replicas/*/GlobalSecondaryIndexes/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity", "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity", "/properties/GlobalTableSourceArn" ],
   "additionalProperties" : false,
   "definitions" : {
+    "SearchSchemaElement" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AttributeName" : {
+          "type" : "string"
+        },
+        "SearchSchemaElementType" : {
+          "type" : "string",
+          "enum" : [ "HASH", "INLINE_FILTER" ]
+        }
+      },
+      "required" : [ "AttributeName", "SearchSchemaElementType" ]
+    },
     "LocalSecondaryIndex" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -54,6 +68,16 @@
         }
       },
       "required" : [ "IndexName", "Projection", "KeySchema" ]
+    },
+    "VectorAttribute" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AttributeName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "AttributeName" ]
     },
     "ReplicaSpecification" : {
       "additionalProperties" : false,
@@ -233,6 +257,40 @@
           "$ref" : "#/definitions/CapacityAutoScalingSettings"
         }
       }
+    },
+    "VectorIndex" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "IndexName" : {
+          "type" : "string"
+        },
+        "VectorAttribute" : {
+          "$ref" : "#/definitions/VectorAttribute"
+        },
+        "Projection" : {
+          "$ref" : "#/definitions/Projection"
+        },
+        "Dimensions" : {
+          "maximum" : 4096,
+          "type" : "integer",
+          "minimum" : 1
+        },
+        "SearchSchema" : {
+          "minItems" : 1,
+          "uniqueItems" : true,
+          "insertionOrder" : false,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SearchSchemaElement"
+          }
+        },
+        "DistanceFunction" : {
+          "type" : "string",
+          "enum" : [ "COSINE", "DOT_PRODUCT", "EUCLIDEAN" ]
+        }
+      },
+      "required" : [ "IndexName", "VectorAttribute", "Projection", "Dimensions", "DistanceFunction" ]
     },
     "WriteOnDemandThroughputSettings" : {
       "additionalProperties" : false,
@@ -516,6 +574,15 @@
     },
     "WarmThroughput" : {
       "$ref" : "#/definitions/WarmThroughput"
+    },
+    "VectorIndexes" : {
+      "minItems" : 1,
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/VectorIndex"
+      }
     },
     "Replicas" : {
       "minItems" : 1,

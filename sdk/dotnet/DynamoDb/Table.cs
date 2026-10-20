@@ -336,7 +336,7 @@ namespace Pulumi.AwsNative.DynamoDb
         /// <summary>
         /// A list of attributes that describe the key schema for the table and indexes.
         ///  This property is required to create a DDB table.
-        ///  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+        ///  You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
         /// </summary>
         [Output("attributeDefinitions")]
         public Output<ImmutableArray<Outputs.TableAttributeDefinition>> AttributeDefinitions { get; private set; } = null!;
@@ -475,6 +475,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("timeToLiveSpecification")]
         public Output<Outputs.TableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
 
+        [Output("vectorIndexes")]
+        public Output<ImmutableArray<Outputs.TableVectorIndex>> VectorIndexes { get; private set; } = null!;
+
         /// <summary>
         /// Represents the warm throughput (in read units per second and write units per second) for creating a table.
         /// </summary>
@@ -537,7 +540,7 @@ namespace Pulumi.AwsNative.DynamoDb
         /// <summary>
         /// A list of attributes that describe the key schema for the table and indexes.
         ///  This property is required to create a DDB table.
-        ///  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+        ///  You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
         /// </summary>
         public InputList<Inputs.TableAttributeDefinitionArgs> AttributeDefinitions
         {
@@ -688,6 +691,14 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         [Input("timeToLiveSpecification")]
         public Input<Inputs.TableTimeToLiveSpecificationArgs>? TimeToLiveSpecification { get; set; }
+
+        [Input("vectorIndexes")]
+        private InputList<Inputs.TableVectorIndexArgs>? _vectorIndexes;
+        public InputList<Inputs.TableVectorIndexArgs> VectorIndexes
+        {
+            get => _vectorIndexes ?? (_vectorIndexes = new InputList<Inputs.TableVectorIndexArgs>());
+            set => _vectorIndexes = value;
+        }
 
         /// <summary>
         /// Represents the warm throughput (in read units per second and write units per second) for creating a table.

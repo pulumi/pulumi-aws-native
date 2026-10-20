@@ -27,6 +27,7 @@ class StreamArgs:
                  desired_shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
                  max_record_size_in_ki_b: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_distribution_strategy: pulumi.Input[Optional['StreamRecordDistributionStrategy']] = None,
                  retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
                  stream_encryption: pulumi.Input[Optional['StreamEncryptionArgs']] = None,
@@ -39,6 +40,7 @@ class StreamArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]] desired_shard_level_metrics: The final list of shard-level metrics
         :param pulumi.Input[_builtins.int] max_record_size_in_ki_b: Maximum size of a data record in KiB allowed to be put into Kinesis stream.
         :param pulumi.Input[_builtins.str] name: The name of the Kinesis stream.
+        :param pulumi.Input['StreamRecordDistributionStrategy'] record_distribution_strategy: The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
         :param pulumi.Input[_builtins.int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
         :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         :param pulumi.Input['StreamEncryptionArgs'] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
@@ -52,6 +54,8 @@ class StreamArgs:
             pulumi.set(__self__, "max_record_size_in_ki_b", max_record_size_in_ki_b)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if record_distribution_strategy is not None:
+            pulumi.set(__self__, "record_distribution_strategy", record_distribution_strategy)
         if retention_period_hours is not None:
             pulumi.set(__self__, "retention_period_hours", retention_period_hours)
         if shard_count is not None:
@@ -100,6 +104,18 @@ class StreamArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordDistributionStrategy")
+    def record_distribution_strategy(self) -> pulumi.Input[Optional['StreamRecordDistributionStrategy']]:
+        """
+        The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+        """
+        return pulumi.get(self, "record_distribution_strategy")
+
+    @record_distribution_strategy.setter
+    def record_distribution_strategy(self, value: pulumi.Input[Optional['StreamRecordDistributionStrategy']]):
+        pulumi.set(self, "record_distribution_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodHours")
@@ -183,6 +199,7 @@ class Stream(pulumi.CustomResource):
                  desired_shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
                  max_record_size_in_ki_b: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_distribution_strategy: pulumi.Input[Optional['StreamRecordDistributionStrategy']] = None,
                  retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
                  stream_encryption: pulumi.Input[Optional[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
@@ -198,6 +215,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]] desired_shard_level_metrics: The final list of shard-level metrics
         :param pulumi.Input[_builtins.int] max_record_size_in_ki_b: Maximum size of a data record in KiB allowed to be put into Kinesis stream.
         :param pulumi.Input[_builtins.str] name: The name of the Kinesis stream.
+        :param pulumi.Input['StreamRecordDistributionStrategy'] record_distribution_strategy: The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
         :param pulumi.Input[_builtins.int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
         :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         :param pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
@@ -232,6 +250,7 @@ class Stream(pulumi.CustomResource):
                  desired_shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
                  max_record_size_in_ki_b: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_distribution_strategy: pulumi.Input[Optional['StreamRecordDistributionStrategy']] = None,
                  retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
                  stream_encryption: pulumi.Input[Optional[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
@@ -250,6 +269,7 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["desired_shard_level_metrics"] = desired_shard_level_metrics
             __props__.__dict__["max_record_size_in_ki_b"] = max_record_size_in_ki_b
             __props__.__dict__["name"] = name
+            __props__.__dict__["record_distribution_strategy"] = record_distribution_strategy
             __props__.__dict__["retention_period_hours"] = retention_period_hours
             __props__.__dict__["shard_count"] = shard_count
             __props__.__dict__["stream_encryption"] = stream_encryption
@@ -286,6 +306,7 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["desired_shard_level_metrics"] = None
         __props__.__dict__["max_record_size_in_ki_b"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["record_distribution_strategy"] = None
         __props__.__dict__["retention_period_hours"] = None
         __props__.__dict__["shard_count"] = None
         __props__.__dict__["stream_encryption"] = None
@@ -326,6 +347,14 @@ class Stream(pulumi.CustomResource):
         The name of the Kinesis stream.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDistributionStrategy")
+    def record_distribution_strategy(self) -> pulumi.Output[Optional['StreamRecordDistributionStrategy']]:
+        """
+        The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+        """
+        return pulumi.get(self, "record_distribution_strategy")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodHours")

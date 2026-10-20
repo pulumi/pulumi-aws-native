@@ -2126,7 +2126,7 @@ type StackSetDeploymentTargets struct {
 	AccountFilterType *StackSetDeploymentTargetsAccountFilterType `pulumi:"accountFilterType"`
 	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts []string `pulumi:"accounts"`
-	// Returns the value of the AccountsUrl property.
+	// Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
 	AccountsUrl *string `pulumi:"accountsUrl"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	OrganizationalUnitIds []string `pulumi:"organizationalUnitIds"`
@@ -2149,7 +2149,7 @@ type StackSetDeploymentTargetsArgs struct {
 	AccountFilterType StackSetDeploymentTargetsAccountFilterTypePtrInput `pulumi:"accountFilterType"`
 	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// Returns the value of the AccountsUrl property.
+	// Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
 	AccountsUrl pulumi.StringPtrInput `pulumi:"accountsUrl"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	OrganizationalUnitIds pulumi.StringArrayInput `pulumi:"organizationalUnitIds"`
@@ -2194,7 +2194,7 @@ func (o StackSetDeploymentTargetsOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetDeploymentTargets) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// Returns the value of the AccountsUrl property.
+// Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
 func (o StackSetDeploymentTargetsOutput) AccountsUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackSetDeploymentTargets) *string { return v.AccountsUrl }).(pulumi.StringPtrOutput)
 }

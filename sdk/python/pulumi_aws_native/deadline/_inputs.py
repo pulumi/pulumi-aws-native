@@ -62,6 +62,8 @@ __all__ = [
     'FleetServiceManagedEc2InstanceCapabilitiesArgsDict',
     'FleetServiceManagedEc2InstanceMarketOptionsArgs',
     'FleetServiceManagedEc2InstanceMarketOptionsArgsDict',
+    'FleetSoftwareAddOnArgs',
+    'FleetSoftwareAddOnArgsDict',
     'FleetVCpuCountRangeArgs',
     'FleetVCpuCountRangeArgsDict',
     'FleetVpcConfigurationArgs',
@@ -1157,6 +1159,7 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgsDict(TypedDict):
     custom_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgsDict']]]]]
     excluded_instance_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     root_ebs_volume: NotRequired[pulumi.Input[Optional['FleetEc2EbsVolumeArgsDict']]]
+    software_add_ons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetSoftwareAddOnArgsDict']]]]]
 
 @pulumi.input_type
 class FleetServiceManagedEc2InstanceCapabilitiesArgs:
@@ -1170,7 +1173,8 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgs:
                  custom_amounts: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]] = None,
                  custom_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]] = None,
                  excluded_instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 root_ebs_volume: pulumi.Input[Optional['FleetEc2EbsVolumeArgs']] = None):
+                 root_ebs_volume: pulumi.Input[Optional['FleetEc2EbsVolumeArgs']] = None,
+                 software_add_ons: pulumi.Input[Optional[Sequence[pulumi.Input['FleetSoftwareAddOnArgs']]]] = None):
         pulumi.set(__self__, "cpu_architecture_type", cpu_architecture_type)
         pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         pulumi.set(__self__, "os_family", os_family)
@@ -1187,6 +1191,8 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgs:
             pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
         if root_ebs_volume is not None:
             pulumi.set(__self__, "root_ebs_volume", root_ebs_volume)
+        if software_add_ons is not None:
+            pulumi.set(__self__, "software_add_ons", software_add_ons)
 
     @_builtins.property
     @pulumi.getter(name="cpuArchitectureType")
@@ -1278,6 +1284,15 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgs:
     def root_ebs_volume(self, value: pulumi.Input[Optional['FleetEc2EbsVolumeArgs']]):
         pulumi.set(self, "root_ebs_volume", value)
 
+    @_builtins.property
+    @pulumi.getter(name="softwareAddOns")
+    def software_add_ons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetSoftwareAddOnArgs']]]]:
+        return pulumi.get(self, "software_add_ons")
+
+    @software_add_ons.setter
+    def software_add_ons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetSoftwareAddOnArgs']]]]):
+        pulumi.set(self, "software_add_ons", value)
+
 
 class FleetServiceManagedEc2InstanceMarketOptionsArgsDict(TypedDict):
     type: pulumi.Input['FleetEc2MarketType']
@@ -1296,6 +1311,25 @@ class FleetServiceManagedEc2InstanceMarketOptionsArgs:
     @type.setter
     def type(self, value: pulumi.Input['FleetEc2MarketType']):
         pulumi.set(self, "type", value)
+
+
+class FleetSoftwareAddOnArgsDict(TypedDict):
+    name: pulumi.Input['FleetSoftwareAddOnName']
+
+@pulumi.input_type
+class FleetSoftwareAddOnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input['FleetSoftwareAddOnName']):
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input['FleetSoftwareAddOnName']:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input['FleetSoftwareAddOnName']):
+        pulumi.set(self, "name", value)
 
 
 class FleetVCpuCountRangeArgsDict(TypedDict):

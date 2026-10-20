@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// Provider-specific parameters passed through to the model provider unchanged.
         /// </summary>
         public readonly object? AdditionalParams;
+        /// <summary>
+        /// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+        /// </summary>
+        public readonly string? ApiBase;
         public readonly Pulumi.AwsNative.BedrockAgentCore.HarnessOpenAiModelConfigApiFormat? ApiFormat;
         public readonly string ApiKeyArn;
         public readonly int? MaxTokens;
@@ -27,6 +31,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         [OutputConstructor]
         private HarnessOpenAiModelConfig(
             object? additionalParams,
+
+            string? apiBase,
 
             Pulumi.AwsNative.BedrockAgentCore.HarnessOpenAiModelConfigApiFormat? apiFormat,
 
@@ -41,6 +47,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             double? topP)
         {
             AdditionalParams = additionalParams;
+            ApiBase = apiBase;
             ApiFormat = apiFormat;
             ApiKeyArn = apiKeyArn;
             MaxTokens = maxTokens;

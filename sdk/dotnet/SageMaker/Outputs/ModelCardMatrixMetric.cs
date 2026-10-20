@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string Name;
         public readonly string? Notes;
         public readonly Pulumi.AwsNative.SageMaker.ModelCardMatrixMetricType Type;
-        public readonly ImmutableArray<ImmutableArray<double>> Value;
+        public readonly ImmutableArray<ImmutableArray<Union<double, string>>> Value;
         public readonly ImmutableArray<string> XAxisName;
         public readonly ImmutableArray<string> YAxisName;
 
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Pulumi.AwsNative.SageMaker.ModelCardMatrixMetricType type,
 
-            ImmutableArray<ImmutableArray<double>> value,
+            ImmutableArray<ImmutableArray<Union<double, string>>> value,
 
             ImmutableArray<string> xAxisName,
 

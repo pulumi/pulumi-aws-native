@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.DevOpsAgent
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The display name for the service registration.
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
         /// The unique identifier of the service
         /// </summary>
         public readonly string? ServiceId;
@@ -92,6 +96,8 @@ namespace Pulumi.AwsNative.DevOpsAgent
 
             string? arn,
 
+            string? name,
+
             string? serviceId,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -99,6 +105,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
             AccessibleResources = accessibleResources;
             AdditionalServiceDetails = additionalServiceDetails;
             Arn = arn;
+            Name = name;
             ServiceId = serviceId;
             Tags = tags;
         }

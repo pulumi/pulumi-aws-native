@@ -1249,6 +1249,979 @@ func (in *eventBridgeRuleTemplateEventTypePtr) ToEventBridgeRuleTemplateEventTyp
 	return pulumi.ToOutputWithContext(ctx, in).(EventBridgeRuleTemplateEventTypePtrOutput)
 }
 
+// Placeholder documentation for Algorithm
+type InputAlgorithm string
+
+const (
+	InputAlgorithmAes128 = InputAlgorithm("AES128")
+	InputAlgorithmAes192 = InputAlgorithm("AES192")
+	InputAlgorithmAes256 = InputAlgorithm("AES256")
+)
+
+func (InputAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputAlgorithm)(nil)).Elem()
+}
+
+func (e InputAlgorithm) ToInputAlgorithmOutput() InputAlgorithmOutput {
+	return pulumi.ToOutput(e).(InputAlgorithmOutput)
+}
+
+func (e InputAlgorithm) ToInputAlgorithmOutputWithContext(ctx context.Context) InputAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InputAlgorithmOutput)
+}
+
+func (e InputAlgorithm) ToInputAlgorithmPtrOutput() InputAlgorithmPtrOutput {
+	return e.ToInputAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (e InputAlgorithm) ToInputAlgorithmPtrOutputWithContext(ctx context.Context) InputAlgorithmPtrOutput {
+	return InputAlgorithm(e).ToInputAlgorithmOutputWithContext(ctx).ToInputAlgorithmPtrOutputWithContext(ctx)
+}
+
+func (e InputAlgorithm) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InputAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InputAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InputAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InputAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (InputAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputAlgorithm)(nil)).Elem()
+}
+
+func (o InputAlgorithmOutput) ToInputAlgorithmOutput() InputAlgorithmOutput {
+	return o
+}
+
+func (o InputAlgorithmOutput) ToInputAlgorithmOutputWithContext(ctx context.Context) InputAlgorithmOutput {
+	return o
+}
+
+func (o InputAlgorithmOutput) ToInputAlgorithmPtrOutput() InputAlgorithmPtrOutput {
+	return o.ToInputAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (o InputAlgorithmOutput) ToInputAlgorithmPtrOutputWithContext(ctx context.Context) InputAlgorithmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputAlgorithm) *InputAlgorithm {
+		return &v
+	}).(InputAlgorithmPtrOutput)
+}
+
+func (o InputAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InputAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputAlgorithm) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InputAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputAlgorithm) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InputAlgorithmPtrOutput struct{ *pulumi.OutputState }
+
+func (InputAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputAlgorithm)(nil)).Elem()
+}
+
+func (o InputAlgorithmPtrOutput) ToInputAlgorithmPtrOutput() InputAlgorithmPtrOutput {
+	return o
+}
+
+func (o InputAlgorithmPtrOutput) ToInputAlgorithmPtrOutputWithContext(ctx context.Context) InputAlgorithmPtrOutput {
+	return o
+}
+
+func (o InputAlgorithmPtrOutput) Elem() InputAlgorithmOutput {
+	return o.ApplyT(func(v *InputAlgorithm) InputAlgorithm {
+		if v != nil {
+			return *v
+		}
+		var ret InputAlgorithm
+		return ret
+	}).(InputAlgorithmOutput)
+}
+
+func (o InputAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InputAlgorithm) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InputAlgorithmInput is an input type that accepts values of the InputAlgorithm enum
+// A concrete instance of `InputAlgorithmInput` can be one of the following:
+//
+//	InputAlgorithmAes128
+//	InputAlgorithmAes192
+//	InputAlgorithmAes256
+type InputAlgorithmInput interface {
+	pulumi.Input
+
+	ToInputAlgorithmOutput() InputAlgorithmOutput
+	ToInputAlgorithmOutputWithContext(context.Context) InputAlgorithmOutput
+}
+
+var inputAlgorithmPtrType = reflect.TypeOf((**InputAlgorithm)(nil)).Elem()
+
+type InputAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToInputAlgorithmPtrOutput() InputAlgorithmPtrOutput
+	ToInputAlgorithmPtrOutputWithContext(context.Context) InputAlgorithmPtrOutput
+}
+
+type inputAlgorithmPtr string
+
+func InputAlgorithmPtr(v string) InputAlgorithmPtrInput {
+	return (*inputAlgorithmPtr)(&v)
+}
+
+func (*inputAlgorithmPtr) ElementType() reflect.Type {
+	return inputAlgorithmPtrType
+}
+
+func (in *inputAlgorithmPtr) ToInputAlgorithmPtrOutput() InputAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(InputAlgorithmPtrOutput)
+}
+
+func (in *inputAlgorithmPtr) ToInputAlgorithmPtrOutputWithContext(ctx context.Context) InputAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InputAlgorithmPtrOutput)
+}
+
+// A standard input has two sources and a single pipeline input only has one.
+type InputClass string
+
+const (
+	InputClassStandard       = InputClass("STANDARD")
+	InputClassSinglePipeline = InputClass("SINGLE_PIPELINE")
+)
+
+type InputClassOutput struct{ *pulumi.OutputState }
+
+func (InputClassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputClass)(nil)).Elem()
+}
+
+func (o InputClassOutput) ToInputClassOutput() InputClassOutput {
+	return o
+}
+
+func (o InputClassOutput) ToInputClassOutputWithContext(ctx context.Context) InputClassOutput {
+	return o
+}
+
+func (o InputClassOutput) ToInputClassPtrOutput() InputClassPtrOutput {
+	return o.ToInputClassPtrOutputWithContext(context.Background())
+}
+
+func (o InputClassOutput) ToInputClassPtrOutputWithContext(ctx context.Context) InputClassPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputClass) *InputClass {
+		return &v
+	}).(InputClassPtrOutput)
+}
+
+func (o InputClassOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InputClassOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputClass) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InputClassOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputClassOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputClass) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InputClassPtrOutput struct{ *pulumi.OutputState }
+
+func (InputClassPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputClass)(nil)).Elem()
+}
+
+func (o InputClassPtrOutput) ToInputClassPtrOutput() InputClassPtrOutput {
+	return o
+}
+
+func (o InputClassPtrOutput) ToInputClassPtrOutputWithContext(ctx context.Context) InputClassPtrOutput {
+	return o
+}
+
+func (o InputClassPtrOutput) Elem() InputClassOutput {
+	return o.ApplyT(func(v *InputClass) InputClass {
+		if v != nil {
+			return *v
+		}
+		var ret InputClass
+		return ret
+	}).(InputClassOutput)
+}
+
+func (o InputClassPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InputClass) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// With the introduction of MediaLive Anywhere, a MediaLive input can now exist in two different places: AWS or
+// inside an on-premises datacenter. By default all inputs will continue to be AWS inputs.
+type InputNetworkLocation string
+
+const (
+	InputNetworkLocationAws        = InputNetworkLocation("AWS")
+	InputNetworkLocationOnPremises = InputNetworkLocation("ON_PREMISES")
+)
+
+func (InputNetworkLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputNetworkLocation)(nil)).Elem()
+}
+
+func (e InputNetworkLocation) ToInputNetworkLocationOutput() InputNetworkLocationOutput {
+	return pulumi.ToOutput(e).(InputNetworkLocationOutput)
+}
+
+func (e InputNetworkLocation) ToInputNetworkLocationOutputWithContext(ctx context.Context) InputNetworkLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InputNetworkLocationOutput)
+}
+
+func (e InputNetworkLocation) ToInputNetworkLocationPtrOutput() InputNetworkLocationPtrOutput {
+	return e.ToInputNetworkLocationPtrOutputWithContext(context.Background())
+}
+
+func (e InputNetworkLocation) ToInputNetworkLocationPtrOutputWithContext(ctx context.Context) InputNetworkLocationPtrOutput {
+	return InputNetworkLocation(e).ToInputNetworkLocationOutputWithContext(ctx).ToInputNetworkLocationPtrOutputWithContext(ctx)
+}
+
+func (e InputNetworkLocation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InputNetworkLocation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InputNetworkLocation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InputNetworkLocation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InputNetworkLocationOutput struct{ *pulumi.OutputState }
+
+func (InputNetworkLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputNetworkLocation)(nil)).Elem()
+}
+
+func (o InputNetworkLocationOutput) ToInputNetworkLocationOutput() InputNetworkLocationOutput {
+	return o
+}
+
+func (o InputNetworkLocationOutput) ToInputNetworkLocationOutputWithContext(ctx context.Context) InputNetworkLocationOutput {
+	return o
+}
+
+func (o InputNetworkLocationOutput) ToInputNetworkLocationPtrOutput() InputNetworkLocationPtrOutput {
+	return o.ToInputNetworkLocationPtrOutputWithContext(context.Background())
+}
+
+func (o InputNetworkLocationOutput) ToInputNetworkLocationPtrOutputWithContext(ctx context.Context) InputNetworkLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputNetworkLocation) *InputNetworkLocation {
+		return &v
+	}).(InputNetworkLocationPtrOutput)
+}
+
+func (o InputNetworkLocationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InputNetworkLocationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputNetworkLocation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InputNetworkLocationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputNetworkLocationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputNetworkLocation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InputNetworkLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (InputNetworkLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputNetworkLocation)(nil)).Elem()
+}
+
+func (o InputNetworkLocationPtrOutput) ToInputNetworkLocationPtrOutput() InputNetworkLocationPtrOutput {
+	return o
+}
+
+func (o InputNetworkLocationPtrOutput) ToInputNetworkLocationPtrOutputWithContext(ctx context.Context) InputNetworkLocationPtrOutput {
+	return o
+}
+
+func (o InputNetworkLocationPtrOutput) Elem() InputNetworkLocationOutput {
+	return o.ApplyT(func(v *InputNetworkLocation) InputNetworkLocation {
+		if v != nil {
+			return *v
+		}
+		var ret InputNetworkLocation
+		return ret
+	}).(InputNetworkLocationOutput)
+}
+
+func (o InputNetworkLocationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputNetworkLocationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InputNetworkLocation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InputNetworkLocationInput is an input type that accepts values of the InputNetworkLocation enum
+// A concrete instance of `InputNetworkLocationInput` can be one of the following:
+//
+//	InputNetworkLocationAws
+//	InputNetworkLocationOnPremises
+type InputNetworkLocationInput interface {
+	pulumi.Input
+
+	ToInputNetworkLocationOutput() InputNetworkLocationOutput
+	ToInputNetworkLocationOutputWithContext(context.Context) InputNetworkLocationOutput
+}
+
+var inputNetworkLocationPtrType = reflect.TypeOf((**InputNetworkLocation)(nil)).Elem()
+
+type InputNetworkLocationPtrInput interface {
+	pulumi.Input
+
+	ToInputNetworkLocationPtrOutput() InputNetworkLocationPtrOutput
+	ToInputNetworkLocationPtrOutputWithContext(context.Context) InputNetworkLocationPtrOutput
+}
+
+type inputNetworkLocationPtr string
+
+func InputNetworkLocationPtr(v string) InputNetworkLocationPtrInput {
+	return (*inputNetworkLocationPtr)(&v)
+}
+
+func (*inputNetworkLocationPtr) ElementType() reflect.Type {
+	return inputNetworkLocationPtrType
+}
+
+func (in *inputNetworkLocationPtr) ToInputNetworkLocationPtrOutput() InputNetworkLocationPtrOutput {
+	return pulumi.ToOutput(in).(InputNetworkLocationPtrOutput)
+}
+
+func (in *inputNetworkLocationPtr) ToInputNetworkLocationPtrOutputWithContext(ctx context.Context) InputNetworkLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InputNetworkLocationPtrOutput)
+}
+
+// Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+type InputRouterSettingsEncryptionType string
+
+const (
+	InputRouterSettingsEncryptionTypeAutomatic      = InputRouterSettingsEncryptionType("AUTOMATIC")
+	InputRouterSettingsEncryptionTypeSecretsManager = InputRouterSettingsEncryptionType("SECRETS_MANAGER")
+)
+
+func (InputRouterSettingsEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputRouterSettingsEncryptionType)(nil)).Elem()
+}
+
+func (e InputRouterSettingsEncryptionType) ToInputRouterSettingsEncryptionTypeOutput() InputRouterSettingsEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(InputRouterSettingsEncryptionTypeOutput)
+}
+
+func (e InputRouterSettingsEncryptionType) ToInputRouterSettingsEncryptionTypeOutputWithContext(ctx context.Context) InputRouterSettingsEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InputRouterSettingsEncryptionTypeOutput)
+}
+
+func (e InputRouterSettingsEncryptionType) ToInputRouterSettingsEncryptionTypePtrOutput() InputRouterSettingsEncryptionTypePtrOutput {
+	return e.ToInputRouterSettingsEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e InputRouterSettingsEncryptionType) ToInputRouterSettingsEncryptionTypePtrOutputWithContext(ctx context.Context) InputRouterSettingsEncryptionTypePtrOutput {
+	return InputRouterSettingsEncryptionType(e).ToInputRouterSettingsEncryptionTypeOutputWithContext(ctx).ToInputRouterSettingsEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e InputRouterSettingsEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InputRouterSettingsEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InputRouterSettingsEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InputRouterSettingsEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InputRouterSettingsEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (InputRouterSettingsEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputRouterSettingsEncryptionType)(nil)).Elem()
+}
+
+func (o InputRouterSettingsEncryptionTypeOutput) ToInputRouterSettingsEncryptionTypeOutput() InputRouterSettingsEncryptionTypeOutput {
+	return o
+}
+
+func (o InputRouterSettingsEncryptionTypeOutput) ToInputRouterSettingsEncryptionTypeOutputWithContext(ctx context.Context) InputRouterSettingsEncryptionTypeOutput {
+	return o
+}
+
+func (o InputRouterSettingsEncryptionTypeOutput) ToInputRouterSettingsEncryptionTypePtrOutput() InputRouterSettingsEncryptionTypePtrOutput {
+	return o.ToInputRouterSettingsEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o InputRouterSettingsEncryptionTypeOutput) ToInputRouterSettingsEncryptionTypePtrOutputWithContext(ctx context.Context) InputRouterSettingsEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputRouterSettingsEncryptionType) *InputRouterSettingsEncryptionType {
+		return &v
+	}).(InputRouterSettingsEncryptionTypePtrOutput)
+}
+
+func (o InputRouterSettingsEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InputRouterSettingsEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputRouterSettingsEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InputRouterSettingsEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputRouterSettingsEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputRouterSettingsEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InputRouterSettingsEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InputRouterSettingsEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputRouterSettingsEncryptionType)(nil)).Elem()
+}
+
+func (o InputRouterSettingsEncryptionTypePtrOutput) ToInputRouterSettingsEncryptionTypePtrOutput() InputRouterSettingsEncryptionTypePtrOutput {
+	return o
+}
+
+func (o InputRouterSettingsEncryptionTypePtrOutput) ToInputRouterSettingsEncryptionTypePtrOutputWithContext(ctx context.Context) InputRouterSettingsEncryptionTypePtrOutput {
+	return o
+}
+
+func (o InputRouterSettingsEncryptionTypePtrOutput) Elem() InputRouterSettingsEncryptionTypeOutput {
+	return o.ApplyT(func(v *InputRouterSettingsEncryptionType) InputRouterSettingsEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret InputRouterSettingsEncryptionType
+		return ret
+	}).(InputRouterSettingsEncryptionTypeOutput)
+}
+
+func (o InputRouterSettingsEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputRouterSettingsEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InputRouterSettingsEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InputRouterSettingsEncryptionTypeInput is an input type that accepts values of the InputRouterSettingsEncryptionType enum
+// A concrete instance of `InputRouterSettingsEncryptionTypeInput` can be one of the following:
+//
+//	InputRouterSettingsEncryptionTypeAutomatic
+//	InputRouterSettingsEncryptionTypeSecretsManager
+type InputRouterSettingsEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToInputRouterSettingsEncryptionTypeOutput() InputRouterSettingsEncryptionTypeOutput
+	ToInputRouterSettingsEncryptionTypeOutputWithContext(context.Context) InputRouterSettingsEncryptionTypeOutput
+}
+
+var inputRouterSettingsEncryptionTypePtrType = reflect.TypeOf((**InputRouterSettingsEncryptionType)(nil)).Elem()
+
+type InputRouterSettingsEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToInputRouterSettingsEncryptionTypePtrOutput() InputRouterSettingsEncryptionTypePtrOutput
+	ToInputRouterSettingsEncryptionTypePtrOutputWithContext(context.Context) InputRouterSettingsEncryptionTypePtrOutput
+}
+
+type inputRouterSettingsEncryptionTypePtr string
+
+func InputRouterSettingsEncryptionTypePtr(v string) InputRouterSettingsEncryptionTypePtrInput {
+	return (*inputRouterSettingsEncryptionTypePtr)(&v)
+}
+
+func (*inputRouterSettingsEncryptionTypePtr) ElementType() reflect.Type {
+	return inputRouterSettingsEncryptionTypePtrType
+}
+
+func (in *inputRouterSettingsEncryptionTypePtr) ToInputRouterSettingsEncryptionTypePtrOutput() InputRouterSettingsEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(InputRouterSettingsEncryptionTypePtrOutput)
+}
+
+func (in *inputRouterSettingsEncryptionTypePtr) ToInputRouterSettingsEncryptionTypePtrOutputWithContext(ctx context.Context) InputRouterSettingsEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InputRouterSettingsEncryptionTypePtrOutput)
+}
+
+// There are two types of input sources, static and dynamic. If an input source is dynamic you can
+// change the source url of the input dynamically using an input switch action. Currently, two input types
+// support a dynamic url at this time, MP4_FILE and TS_FILE. By default all input sources are static.
+type InputSourceType string
+
+const (
+	InputSourceTypeStatic  = InputSourceType("STATIC")
+	InputSourceTypeDynamic = InputSourceType("DYNAMIC")
+)
+
+type InputSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (InputSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSourceType)(nil)).Elem()
+}
+
+func (o InputSourceTypeOutput) ToInputSourceTypeOutput() InputSourceTypeOutput {
+	return o
+}
+
+func (o InputSourceTypeOutput) ToInputSourceTypeOutputWithContext(ctx context.Context) InputSourceTypeOutput {
+	return o
+}
+
+func (o InputSourceTypeOutput) ToInputSourceTypePtrOutput() InputSourceTypePtrOutput {
+	return o.ToInputSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o InputSourceTypeOutput) ToInputSourceTypePtrOutputWithContext(ctx context.Context) InputSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputSourceType) *InputSourceType {
+		return &v
+	}).(InputSourceTypePtrOutput)
+}
+
+func (o InputSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InputSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InputSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InputSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InputSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSourceType)(nil)).Elem()
+}
+
+func (o InputSourceTypePtrOutput) ToInputSourceTypePtrOutput() InputSourceTypePtrOutput {
+	return o
+}
+
+func (o InputSourceTypePtrOutput) ToInputSourceTypePtrOutputWithContext(ctx context.Context) InputSourceTypePtrOutput {
+	return o
+}
+
+func (o InputSourceTypePtrOutput) Elem() InputSourceTypeOutput {
+	return o.ApplyT(func(v *InputSourceType) InputSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret InputSourceType
+		return ret
+	}).(InputSourceTypeOutput)
+}
+
+func (o InputSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InputSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Placeholder documentation for InputState
+type InputStateEnum string
+
+const (
+	InputStateEnumCreating = InputStateEnum("CREATING")
+	InputStateEnumDetached = InputStateEnum("DETACHED")
+	InputStateEnumAttached = InputStateEnum("ATTACHED")
+	InputStateEnumDeleting = InputStateEnum("DELETING")
+	InputStateEnumDeleted  = InputStateEnum("DELETED")
+)
+
+type InputStateEnumOutput struct{ *pulumi.OutputState }
+
+func (InputStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputStateEnum)(nil)).Elem()
+}
+
+func (o InputStateEnumOutput) ToInputStateEnumOutput() InputStateEnumOutput {
+	return o
+}
+
+func (o InputStateEnumOutput) ToInputStateEnumOutputWithContext(ctx context.Context) InputStateEnumOutput {
+	return o
+}
+
+func (o InputStateEnumOutput) ToInputStateEnumPtrOutput() InputStateEnumPtrOutput {
+	return o.ToInputStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o InputStateEnumOutput) ToInputStateEnumPtrOutputWithContext(ctx context.Context) InputStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputStateEnum) *InputStateEnum {
+		return &v
+	}).(InputStateEnumPtrOutput)
+}
+
+func (o InputStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InputStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InputStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InputStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (InputStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputStateEnum)(nil)).Elem()
+}
+
+func (o InputStateEnumPtrOutput) ToInputStateEnumPtrOutput() InputStateEnumPtrOutput {
+	return o
+}
+
+func (o InputStateEnumPtrOutput) ToInputStateEnumPtrOutputWithContext(ctx context.Context) InputStateEnumPtrOutput {
+	return o
+}
+
+func (o InputStateEnumPtrOutput) Elem() InputStateEnumOutput {
+	return o.ApplyT(func(v *InputStateEnum) InputStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret InputStateEnum
+		return ret
+	}).(InputStateEnumOutput)
+}
+
+func (o InputStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InputStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The different types of inputs that AWS Elemental MediaLive supports.
+type InputType string
+
+const (
+	InputTypeUdpPush                = InputType("UDP_PUSH")
+	InputTypeRtpPush                = InputType("RTP_PUSH")
+	InputTypeRtmpPush               = InputType("RTMP_PUSH")
+	InputTypeRtmpPull               = InputType("RTMP_PULL")
+	InputTypeUrlPull                = InputType("URL_PULL")
+	InputTypeMp4File                = InputType("MP4_FILE")
+	InputTypeMediaconnect           = InputType("MEDIACONNECT")
+	InputTypeInputDevice            = InputType("INPUT_DEVICE")
+	InputTypeAwsCdi                 = InputType("AWS_CDI")
+	InputTypeTsFile                 = InputType("TS_FILE")
+	InputTypeSrtCaller              = InputType("SRT_CALLER")
+	InputTypeMulticast              = InputType("MULTICAST")
+	InputTypeSmpte2110ReceiverGroup = InputType("SMPTE_2110_RECEIVER_GROUP")
+	InputTypeSdi                    = InputType("SDI")
+	InputTypeMediaconnectRouter     = InputType("MEDIACONNECT_ROUTER")
+	InputTypeSrtListener            = InputType("SRT_LISTENER")
+)
+
+func (InputType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputType)(nil)).Elem()
+}
+
+func (e InputType) ToInputTypeOutput() InputTypeOutput {
+	return pulumi.ToOutput(e).(InputTypeOutput)
+}
+
+func (e InputType) ToInputTypeOutputWithContext(ctx context.Context) InputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InputTypeOutput)
+}
+
+func (e InputType) ToInputTypePtrOutput() InputTypePtrOutput {
+	return e.ToInputTypePtrOutputWithContext(context.Background())
+}
+
+func (e InputType) ToInputTypePtrOutputWithContext(ctx context.Context) InputTypePtrOutput {
+	return InputType(e).ToInputTypeOutputWithContext(ctx).ToInputTypePtrOutputWithContext(ctx)
+}
+
+func (e InputType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InputType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InputType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InputType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InputTypeOutput struct{ *pulumi.OutputState }
+
+func (InputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputType)(nil)).Elem()
+}
+
+func (o InputTypeOutput) ToInputTypeOutput() InputTypeOutput {
+	return o
+}
+
+func (o InputTypeOutput) ToInputTypeOutputWithContext(ctx context.Context) InputTypeOutput {
+	return o
+}
+
+func (o InputTypeOutput) ToInputTypePtrOutput() InputTypePtrOutput {
+	return o.ToInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o InputTypeOutput) ToInputTypePtrOutputWithContext(ctx context.Context) InputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputType) *InputType {
+		return &v
+	}).(InputTypePtrOutput)
+}
+
+func (o InputTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InputTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InputTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InputType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputType)(nil)).Elem()
+}
+
+func (o InputTypePtrOutput) ToInputTypePtrOutput() InputTypePtrOutput {
+	return o
+}
+
+func (o InputTypePtrOutput) ToInputTypePtrOutputWithContext(ctx context.Context) InputTypePtrOutput {
+	return o
+}
+
+func (o InputTypePtrOutput) Elem() InputTypeOutput {
+	return o.ApplyT(func(v *InputType) InputType {
+		if v != nil {
+			return *v
+		}
+		var ret InputType
+		return ret
+	}).(InputTypeOutput)
+}
+
+func (o InputTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InputTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InputType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InputTypeInput is an input type that accepts values of the InputType enum
+// A concrete instance of `InputTypeInput` can be one of the following:
+//
+//	InputTypeUdpPush
+//	InputTypeRtpPush
+//	InputTypeRtmpPush
+//	InputTypeRtmpPull
+//	InputTypeUrlPull
+//	InputTypeMp4File
+//	InputTypeMediaconnect
+//	InputTypeInputDevice
+//	InputTypeAwsCdi
+//	InputTypeTsFile
+//	InputTypeSrtCaller
+//	InputTypeMulticast
+//	InputTypeSmpte2110ReceiverGroup
+//	InputTypeSdi
+//	InputTypeMediaconnectRouter
+//	InputTypeSrtListener
+type InputTypeInput interface {
+	pulumi.Input
+
+	ToInputTypeOutput() InputTypeOutput
+	ToInputTypeOutputWithContext(context.Context) InputTypeOutput
+}
+
+var inputTypePtrType = reflect.TypeOf((**InputType)(nil)).Elem()
+
+type InputTypePtrInput interface {
+	pulumi.Input
+
+	ToInputTypePtrOutput() InputTypePtrOutput
+	ToInputTypePtrOutputWithContext(context.Context) InputTypePtrOutput
+}
+
+type inputTypePtr string
+
+func InputTypePtr(v string) InputTypePtrInput {
+	return (*inputTypePtr)(&v)
+}
+
+func (*inputTypePtr) ElementType() reflect.Type {
+	return inputTypePtrType
+}
+
+func (in *inputTypePtr) ToInputTypePtrOutput() InputTypePtrOutput {
+	return pulumi.ToOutput(in).(InputTypePtrOutput)
+}
+
+func (in *inputTypePtr) ToInputTypePtrOutputWithContext(ctx context.Context) InputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InputTypePtrOutput)
+}
+
 // The current state of the multiplex.
 type MultiplexStateEnum string
 
@@ -2774,6 +3747,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTypePtrInput)(nil)).Elem(), ClusterType("ON_PREMISES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBridgeRuleTemplateEventTypeInput)(nil)).Elem(), EventBridgeRuleTemplateEventType("MEDIALIVE_MULTIPLEX_ALERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBridgeRuleTemplateEventTypePtrInput)(nil)).Elem(), EventBridgeRuleTemplateEventType("MEDIALIVE_MULTIPLEX_ALERT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputAlgorithmInput)(nil)).Elem(), InputAlgorithm("AES128"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputAlgorithmPtrInput)(nil)).Elem(), InputAlgorithm("AES128"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputNetworkLocationInput)(nil)).Elem(), InputNetworkLocation("AWS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputNetworkLocationPtrInput)(nil)).Elem(), InputNetworkLocation("AWS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputRouterSettingsEncryptionTypeInput)(nil)).Elem(), InputRouterSettingsEncryptionType("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputRouterSettingsEncryptionTypePtrInput)(nil)).Elem(), InputRouterSettingsEncryptionType("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputTypeInput)(nil)).Elem(), InputType("UDP_PUSH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputTypePtrInput)(nil)).Elem(), InputType("UDP_PUSH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramPreferredChannelPipelineInput)(nil)).Elem(), MultiplexprogramPreferredChannelPipeline("CURRENTLY_ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramPreferredChannelPipelinePtrInput)(nil)).Elem(), MultiplexprogramPreferredChannelPipeline("CURRENTLY_ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeInterfaceMappingNetworkInterfaceModeInput)(nil)).Elem(), NodeInterfaceMappingNetworkInterfaceMode("NAT"))
@@ -2800,6 +3781,20 @@ func init() {
 	pulumi.RegisterOutputType(ClusterTypePtrOutput{})
 	pulumi.RegisterOutputType(EventBridgeRuleTemplateEventTypeOutput{})
 	pulumi.RegisterOutputType(EventBridgeRuleTemplateEventTypePtrOutput{})
+	pulumi.RegisterOutputType(InputAlgorithmOutput{})
+	pulumi.RegisterOutputType(InputAlgorithmPtrOutput{})
+	pulumi.RegisterOutputType(InputClassOutput{})
+	pulumi.RegisterOutputType(InputClassPtrOutput{})
+	pulumi.RegisterOutputType(InputNetworkLocationOutput{})
+	pulumi.RegisterOutputType(InputNetworkLocationPtrOutput{})
+	pulumi.RegisterOutputType(InputRouterSettingsEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(InputRouterSettingsEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(InputSourceTypeOutput{})
+	pulumi.RegisterOutputType(InputSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(InputStateEnumOutput{})
+	pulumi.RegisterOutputType(InputStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(InputTypeOutput{})
+	pulumi.RegisterOutputType(InputTypePtrOutput{})
 	pulumi.RegisterOutputType(MultiplexStateEnumOutput{})
 	pulumi.RegisterOutputType(MultiplexStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramPreferredChannelPipelineOutput{})

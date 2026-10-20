@@ -41,6 +41,8 @@ type LookupPolicyResult struct {
 	MultiRegion *PolicyMultiRegionTargets `pulumi:"multiRegion"`
 	// The ARN of the policy.
 	PolicyArn *string `pulumi:"policyArn"`
+	// Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+	SharingEnabled *bool `pulumi:"sharingEnabled"`
 	// Tags assigned to the policy.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The timestamp when the policy was last updated.
@@ -109,6 +111,11 @@ func (o LookupPolicyResultOutput) MultiRegion() PolicyMultiRegionTargetsPtrOutpu
 // The ARN of the policy.
 func (o LookupPolicyResultOutput) PolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PolicyArn }).(pulumi.StringPtrOutput)
+}
+
+// Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+func (o LookupPolicyResultOutput) SharingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *bool { return v.SharingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Tags assigned to the policy.

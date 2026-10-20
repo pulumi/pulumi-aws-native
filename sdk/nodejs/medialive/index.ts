@@ -65,6 +65,16 @@ export const getEventBridgeRuleTemplateGroup: typeof import("./getEventBridgeRul
 export const getEventBridgeRuleTemplateGroupOutput: typeof import("./getEventBridgeRuleTemplateGroup").getEventBridgeRuleTemplateGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getEventBridgeRuleTemplateGroup","getEventBridgeRuleTemplateGroupOutput"], () => require("./getEventBridgeRuleTemplateGroup"));
 
+export { GetInputArgs, GetInputResult, GetInputOutputArgs } from "./getInput";
+export const getInput: typeof import("./getInput").getInput = null as any;
+export const getInputOutput: typeof import("./getInput").getInputOutput = null as any;
+utilities.lazyLoad(exports, ["getInput","getInputOutput"], () => require("./getInput"));
+
+export { GetInputSecurityGroupArgs, GetInputSecurityGroupResult, GetInputSecurityGroupOutputArgs } from "./getInputSecurityGroup";
+export const getInputSecurityGroup: typeof import("./getInputSecurityGroup").getInputSecurityGroup = null as any;
+export const getInputSecurityGroupOutput: typeof import("./getInputSecurityGroup").getInputSecurityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getInputSecurityGroup","getInputSecurityGroupOutput"], () => require("./getInputSecurityGroup"));
+
 export { GetMultiplexArgs, GetMultiplexResult, GetMultiplexOutputArgs } from "./getMultiplex";
 export const getMultiplex: typeof import("./getMultiplex").getMultiplex = null as any;
 export const getMultiplexOutput: typeof import("./getMultiplex").getMultiplexOutput = null as any;
@@ -94,6 +104,16 @@ export { GetSignalMapArgs, GetSignalMapResult, GetSignalMapOutputArgs } from "./
 export const getSignalMap: typeof import("./getSignalMap").getSignalMap = null as any;
 export const getSignalMapOutput: typeof import("./getSignalMap").getSignalMapOutput = null as any;
 utilities.lazyLoad(exports, ["getSignalMap","getSignalMapOutput"], () => require("./getSignalMap"));
+
+export { InputArgs } from "./input";
+export type Input = import("./input").Input;
+export const Input: typeof import("./input").Input = null as any;
+utilities.lazyLoad(exports, ["Input"], () => require("./input"));
+
+export { InputSecurityGroupArgs } from "./inputSecurityGroup";
+export type InputSecurityGroup = import("./inputSecurityGroup").InputSecurityGroup;
+export const InputSecurityGroup: typeof import("./inputSecurityGroup").InputSecurityGroup = null as any;
+utilities.lazyLoad(exports, ["InputSecurityGroup"], () => require("./inputSecurityGroup"));
 
 export { MultiplexArgs } from "./multiplex";
 export type Multiplex = import("./multiplex").Multiplex;
@@ -145,6 +165,10 @@ const _module = {
                 return new EventBridgeRuleTemplate(name, <any>undefined, { urn })
             case "aws-native:medialive:EventBridgeRuleTemplateGroup":
                 return new EventBridgeRuleTemplateGroup(name, <any>undefined, { urn })
+            case "aws-native:medialive:Input":
+                return new Input(name, <any>undefined, { urn })
+            case "aws-native:medialive:InputSecurityGroup":
+                return new InputSecurityGroup(name, <any>undefined, { urn })
             case "aws-native:medialive:Multiplex":
                 return new Multiplex(name, <any>undefined, { urn })
             case "aws-native:medialive:Multiplexprogram":

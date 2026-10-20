@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CarrierGateway{}
 	case "aws-native:ec2:ClientVpnAuthorizationRule":
 		r = &ClientVpnAuthorizationRule{}
+	case "aws-native:ec2:ClientVpnRoute":
+		r = &ClientVpnRoute{}
 	case "aws-native:ec2:CustomerGateway":
 		r = &CustomerGateway{}
 	case "aws-native:ec2:DhcpOptions":
@@ -73,6 +75,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IpamAllocation{}
 	case "aws-native:ec2:IpamExternalResourceVerificationToken":
 		r = &IpamExternalResourceVerificationToken{}
+	case "aws-native:ec2:IpamInternetRegistryAssociation":
+		r = &IpamInternetRegistryAssociation{}
 	case "aws-native:ec2:IpamPool":
 		r = &IpamPool{}
 	case "aws-native:ec2:IpamPoolCidr":

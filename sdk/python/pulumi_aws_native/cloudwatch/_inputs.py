@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AlarmActionConfigurationArgs',
+    'AlarmActionConfigurationArgsDict',
     'AlarmDimensionArgs',
     'AlarmDimensionArgsDict',
     'AlarmEvaluationCriteriaArgs',
@@ -30,10 +32,24 @@ __all__ = [
     'AlarmMetricStatArgsDict',
     'AlarmPromQlCriteriaArgs',
     'AlarmPromQlCriteriaArgsDict',
+    'AlarmTagsPropagationArgs',
+    'AlarmTagsPropagationArgsDict',
     'AlarmWallClockWindowArgs',
     'AlarmWallClockWindowArgsDict',
     'AlarmWarmUpConfigurationArgs',
     'AlarmWarmUpConfigurationArgsDict',
+    'CompositeAlarmActionConfigurationArgs',
+    'CompositeAlarmActionConfigurationArgsDict',
+    'CompositeAlarmAlarmTagsPropagationArgs',
+    'CompositeAlarmAlarmTagsPropagationArgsDict',
+    'IntegrationCredentialArgs',
+    'IntegrationCredentialArgsDict',
+    'IntegrationCredentialApiKeyCredentialPropertiesArgs',
+    'IntegrationCredentialApiKeyCredentialPropertiesArgsDict',
+    'LogAlarmActionConfigurationArgs',
+    'LogAlarmActionConfigurationArgsDict',
+    'LogAlarmAlarmTagsPropagationArgs',
+    'LogAlarmAlarmTagsPropagationArgsDict',
     'LogAlarmScheduleConfigurationArgs',
     'LogAlarmScheduleConfigurationArgsDict',
     'LogAlarmScheduledQueryConfigurationArgs',
@@ -59,6 +75,35 @@ __all__ = [
     'RulePropertiesSchedulePropertiesArgs',
     'RulePropertiesSchedulePropertiesArgsDict',
 ]
+
+class AlarmActionConfigurationArgsDict(TypedDict):
+    alarm_tags_propagation: NotRequired[pulumi.Input[Optional['AlarmTagsPropagationArgsDict']]]
+    """
+    Whether the alarm's tags are included in its action notifications and state-change events.
+    """
+
+@pulumi.input_type
+class AlarmActionConfigurationArgs:
+    def __init__(__self__, *,
+                 alarm_tags_propagation: pulumi.Input[Optional['AlarmTagsPropagationArgs']] = None):
+        """
+        :param pulumi.Input['AlarmTagsPropagationArgs'] alarm_tags_propagation: Whether the alarm's tags are included in its action notifications and state-change events.
+        """
+        if alarm_tags_propagation is not None:
+            pulumi.set(__self__, "alarm_tags_propagation", alarm_tags_propagation)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmTagsPropagation")
+    def alarm_tags_propagation(self) -> pulumi.Input[Optional['AlarmTagsPropagationArgs']]:
+        """
+        Whether the alarm's tags are included in its action notifications and state-change events.
+        """
+        return pulumi.get(self, "alarm_tags_propagation")
+
+    @alarm_tags_propagation.setter
+    def alarm_tags_propagation(self, value: pulumi.Input[Optional['AlarmTagsPropagationArgs']]):
+        pulumi.set(self, "alarm_tags_propagation", value)
+
 
 class AlarmDimensionArgsDict(TypedDict):
     """
@@ -625,6 +670,74 @@ class AlarmPromQlCriteriaArgs:
         pulumi.set(self, "recovery_period", value)
 
 
+class AlarmTagsPropagationArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the alarm's tags are included in its action notifications and state-change events.
+    """
+    excluded_tag_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+    """
+    included_tag_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+    """
+
+@pulumi.input_type
+class AlarmTagsPropagationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 excluded_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether the alarm's tags are included in its action notifications and state-change events.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_tag_keys: The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_tag_keys: The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if excluded_tag_keys is not None:
+            pulumi.set(__self__, "excluded_tag_keys", excluded_tag_keys)
+        if included_tag_keys is not None:
+            pulumi.set(__self__, "included_tag_keys", included_tag_keys)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the alarm's tags are included in its action notifications and state-change events.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedTagKeys")
+    def excluded_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+        """
+        return pulumi.get(self, "excluded_tag_keys")
+
+    @excluded_tag_keys.setter
+    def excluded_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "excluded_tag_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includedTagKeys")
+    def included_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+        """
+        return pulumi.get(self, "included_tag_keys")
+
+    @included_tag_keys.setter
+    def included_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "included_tag_keys", value)
+
+
 class AlarmWallClockWindowArgsDict(TypedDict):
     """
     An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
@@ -723,6 +836,278 @@ class AlarmWarmUpConfigurationArgs:
     @warm_up_period_duration_in_minutes.setter
     def warm_up_period_duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "warm_up_period_duration_in_minutes", value)
+
+
+class CompositeAlarmActionConfigurationArgsDict(TypedDict):
+    """
+    Configuration that applies to the notifications this alarm sends when it performs its actions.
+    """
+    alarm_tags_propagation: NotRequired[pulumi.Input[Optional['CompositeAlarmAlarmTagsPropagationArgsDict']]]
+    """
+    Whether the alarm's tags are included in its action notifications and state-change events.
+    """
+
+@pulumi.input_type
+class CompositeAlarmActionConfigurationArgs:
+    def __init__(__self__, *,
+                 alarm_tags_propagation: pulumi.Input[Optional['CompositeAlarmAlarmTagsPropagationArgs']] = None):
+        """
+        Configuration that applies to the notifications this alarm sends when it performs its actions.
+
+        :param pulumi.Input['CompositeAlarmAlarmTagsPropagationArgs'] alarm_tags_propagation: Whether the alarm's tags are included in its action notifications and state-change events.
+        """
+        if alarm_tags_propagation is not None:
+            pulumi.set(__self__, "alarm_tags_propagation", alarm_tags_propagation)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmTagsPropagation")
+    def alarm_tags_propagation(self) -> pulumi.Input[Optional['CompositeAlarmAlarmTagsPropagationArgs']]:
+        """
+        Whether the alarm's tags are included in its action notifications and state-change events.
+        """
+        return pulumi.get(self, "alarm_tags_propagation")
+
+    @alarm_tags_propagation.setter
+    def alarm_tags_propagation(self, value: pulumi.Input[Optional['CompositeAlarmAlarmTagsPropagationArgs']]):
+        pulumi.set(self, "alarm_tags_propagation", value)
+
+
+class CompositeAlarmAlarmTagsPropagationArgsDict(TypedDict):
+    """
+    Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the alarm's tags are included in its action notifications and state-change events.
+    """
+    excluded_tag_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+    """
+    included_tag_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+    """
+
+@pulumi.input_type
+class CompositeAlarmAlarmTagsPropagationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 excluded_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether the alarm's tags are included in its action notifications and state-change events.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_tag_keys: The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_tag_keys: The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if excluded_tag_keys is not None:
+            pulumi.set(__self__, "excluded_tag_keys", excluded_tag_keys)
+        if included_tag_keys is not None:
+            pulumi.set(__self__, "included_tag_keys", included_tag_keys)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the alarm's tags are included in its action notifications and state-change events.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedTagKeys")
+    def excluded_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+        """
+        return pulumi.get(self, "excluded_tag_keys")
+
+    @excluded_tag_keys.setter
+    def excluded_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "excluded_tag_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includedTagKeys")
+    def included_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+        """
+        return pulumi.get(self, "included_tag_keys")
+
+    @included_tag_keys.setter
+    def included_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "included_tag_keys", value)
+
+
+class IntegrationCredentialArgsDict(TypedDict):
+    """
+    Write-only API-key credential material for the integration. Stored encrypted and never returned on read.
+    """
+    api_key_credential: pulumi.Input['IntegrationCredentialApiKeyCredentialPropertiesArgsDict']
+    """
+    API-key credential material that can be rotated in place on update.
+    """
+
+@pulumi.input_type
+class IntegrationCredentialArgs:
+    def __init__(__self__, *,
+                 api_key_credential: pulumi.Input['IntegrationCredentialApiKeyCredentialPropertiesArgs']):
+        """
+        Write-only API-key credential material for the integration. Stored encrypted and never returned on read.
+
+        :param pulumi.Input['IntegrationCredentialApiKeyCredentialPropertiesArgs'] api_key_credential: API-key credential material that can be rotated in place on update.
+        """
+        pulumi.set(__self__, "api_key_credential", api_key_credential)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyCredential")
+    def api_key_credential(self) -> pulumi.Input['IntegrationCredentialApiKeyCredentialPropertiesArgs']:
+        """
+        API-key credential material that can be rotated in place on update.
+        """
+        return pulumi.get(self, "api_key_credential")
+
+    @api_key_credential.setter
+    def api_key_credential(self, value: pulumi.Input['IntegrationCredentialApiKeyCredentialPropertiesArgs']):
+        pulumi.set(self, "api_key_credential", value)
+
+
+class IntegrationCredentialApiKeyCredentialPropertiesArgsDict(TypedDict):
+    """
+    API-key credential material that can be rotated in place on update.
+    """
+    api_key_value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class IntegrationCredentialApiKeyCredentialPropertiesArgs:
+    def __init__(__self__, *,
+                 api_key_value: pulumi.Input[_builtins.str]):
+        """
+        API-key credential material that can be rotated in place on update.
+        """
+        pulumi.set(__self__, "api_key_value", api_key_value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyValue")
+    def api_key_value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "api_key_value")
+
+    @api_key_value.setter
+    def api_key_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_key_value", value)
+
+
+class LogAlarmActionConfigurationArgsDict(TypedDict):
+    """
+    Configuration that applies to the notifications this alarm sends when it performs its actions.
+    """
+    alarm_tags_propagation: NotRequired[pulumi.Input[Optional['LogAlarmAlarmTagsPropagationArgsDict']]]
+    """
+    Whether the alarm's tags are included in its action notifications and state-change events.
+    """
+
+@pulumi.input_type
+class LogAlarmActionConfigurationArgs:
+    def __init__(__self__, *,
+                 alarm_tags_propagation: pulumi.Input[Optional['LogAlarmAlarmTagsPropagationArgs']] = None):
+        """
+        Configuration that applies to the notifications this alarm sends when it performs its actions.
+
+        :param pulumi.Input['LogAlarmAlarmTagsPropagationArgs'] alarm_tags_propagation: Whether the alarm's tags are included in its action notifications and state-change events.
+        """
+        if alarm_tags_propagation is not None:
+            pulumi.set(__self__, "alarm_tags_propagation", alarm_tags_propagation)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmTagsPropagation")
+    def alarm_tags_propagation(self) -> pulumi.Input[Optional['LogAlarmAlarmTagsPropagationArgs']]:
+        """
+        Whether the alarm's tags are included in its action notifications and state-change events.
+        """
+        return pulumi.get(self, "alarm_tags_propagation")
+
+    @alarm_tags_propagation.setter
+    def alarm_tags_propagation(self, value: pulumi.Input[Optional['LogAlarmAlarmTagsPropagationArgs']]):
+        pulumi.set(self, "alarm_tags_propagation", value)
+
+
+class LogAlarmAlarmTagsPropagationArgsDict(TypedDict):
+    """
+    Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the alarm's tags are included in its action notifications and state-change events.
+    """
+    excluded_tag_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+    """
+    included_tag_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+    """
+
+@pulumi.input_type
+class LogAlarmAlarmTagsPropagationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 excluded_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether the alarm's tags are included in its action notifications and state-change events.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_tag_keys: The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_tag_keys: The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if excluded_tag_keys is not None:
+            pulumi.set(__self__, "excluded_tag_keys", excluded_tag_keys)
+        if included_tag_keys is not None:
+            pulumi.set(__self__, "included_tag_keys", included_tag_keys)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the alarm's tags are included in its action notifications and state-change events.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedTagKeys")
+    def excluded_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+        """
+        return pulumi.get(self, "excluded_tag_keys")
+
+    @excluded_tag_keys.setter
+    def excluded_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "excluded_tag_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includedTagKeys")
+    def included_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+        """
+        return pulumi.get(self, "included_tag_keys")
+
+    @included_tag_keys.setter
+    def included_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "included_tag_keys", value)
 
 
 class LogAlarmScheduleConfigurationArgsDict(TypedDict):

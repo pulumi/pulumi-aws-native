@@ -1759,6 +1759,386 @@ func (in *playbackConfigurationAvailSuppressionModePtr) ToPlaybackConfigurationA
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationAvailSuppressionModePtrOutput)
 }
 
+type PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem string
+
+const (
+	PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemMute   = PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("MUTE")
+	PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemUnmute = PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("UNMUTE")
+	PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPause  = PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("PAUSE")
+	PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemSkip   = PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("SKIP")
+)
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem)(nil)).Elem()
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput {
+	return e.ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput {
+	return PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem(e).ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutputWithContext(ctx).ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput {
+	return o.ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) *PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem {
+		return &v
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput)
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput) Elem() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem
+		return ret
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput)
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemInput is an input type that accepts values of the PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem enum
+// A concrete instance of `PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemInput` can be one of the following:
+//
+//	PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemMute
+//	PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemUnmute
+//	PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPause
+//	PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemSkip
+type PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput
+	ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutputWithContext(context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput
+}
+
+var playbackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrType = reflect.TypeOf((**PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem)(nil)).Elem()
+
+type PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput
+	ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutputWithContext(context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput
+}
+
+type playbackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtr string
+
+func PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtr(v string) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrInput {
+	return (*playbackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtr)(&v)
+}
+
+func (*playbackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtr) ElementType() reflect.Type {
+	return playbackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrType
+}
+
+func (in *playbackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtr) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput)
+}
+
+func (in *playbackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtr) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput)
+}
+
+// PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayInput is an input type that accepts PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArray and PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayInput` via:
+//
+//	PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArray{ PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArgs{...} }
+type PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput
+	ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutputWithContext(context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput
+}
+
+type PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArray []PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArray) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput {
+	return i.ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArray) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput)
+}
+
+type PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput) Index(i pulumi.IntInput) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem {
+		return vs[0].([]PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem)[vs[1].(int)]
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput)
+}
+
+// Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+type PlaybackConfigurationClientSideBeaconingConfigurationReportingMode string
+
+const (
+	PlaybackConfigurationClientSideBeaconingConfigurationReportingModeDisabled = PlaybackConfigurationClientSideBeaconingConfigurationReportingMode("DISABLED")
+	PlaybackConfigurationClientSideBeaconingConfigurationReportingModeInsights = PlaybackConfigurationClientSideBeaconingConfigurationReportingMode("INSIGHTS")
+)
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationReportingMode)(nil)).Elem()
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput() PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput {
+	return e.ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput {
+	return PlaybackConfigurationClientSideBeaconingConfigurationReportingMode(e).ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutputWithContext(ctx).ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutputWithContext(ctx)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationReportingMode)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput() PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput {
+	return o.ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) *PlaybackConfigurationClientSideBeaconingConfigurationReportingMode {
+		return &v
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput)
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationClientSideBeaconingConfigurationReportingMode)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput) Elem() PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) PlaybackConfigurationClientSideBeaconingConfigurationReportingMode {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationClientSideBeaconingConfigurationReportingMode
+		return ret
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput)
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationClientSideBeaconingConfigurationReportingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlaybackConfigurationClientSideBeaconingConfigurationReportingModeInput is an input type that accepts values of the PlaybackConfigurationClientSideBeaconingConfigurationReportingMode enum
+// A concrete instance of `PlaybackConfigurationClientSideBeaconingConfigurationReportingModeInput` can be one of the following:
+//
+//	PlaybackConfigurationClientSideBeaconingConfigurationReportingModeDisabled
+//	PlaybackConfigurationClientSideBeaconingConfigurationReportingModeInsights
+type PlaybackConfigurationClientSideBeaconingConfigurationReportingModeInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput() PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput
+	ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutputWithContext(context.Context) PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput
+}
+
+var playbackConfigurationClientSideBeaconingConfigurationReportingModePtrType = reflect.TypeOf((**PlaybackConfigurationClientSideBeaconingConfigurationReportingMode)(nil)).Elem()
+
+type PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput
+	ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutputWithContext(context.Context) PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput
+}
+
+type playbackConfigurationClientSideBeaconingConfigurationReportingModePtr string
+
+func PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtr(v string) PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrInput {
+	return (*playbackConfigurationClientSideBeaconingConfigurationReportingModePtr)(&v)
+}
+
+func (*playbackConfigurationClientSideBeaconingConfigurationReportingModePtr) ElementType() reflect.Type {
+	return playbackConfigurationClientSideBeaconingConfigurationReportingModePtrType
+}
+
+func (in *playbackConfigurationClientSideBeaconingConfigurationReportingModePtr) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput)
+}
+
+func (in *playbackConfigurationClientSideBeaconingConfigurationReportingModePtr) ToPlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput)
+}
+
 // The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
 type PlaybackConfigurationDashConfigurationOriginManifestType string
 
@@ -4272,6 +4652,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionFillPolicyPtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionFillPolicy("PARTIAL_AVAIL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModeInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModePtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemInput)(nil)).Elem(), PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("MUTE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrInput)(nil)).Elem(), PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("MUTE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayInput)(nil)).Elem(), PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationReportingModeInput)(nil)).Elem(), PlaybackConfigurationClientSideBeaconingConfigurationReportingMode("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrInput)(nil)).Elem(), PlaybackConfigurationClientSideBeaconingConfigurationReportingMode("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypeInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypePtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHttpRequestCompressRequestInput)(nil)).Elem(), PlaybackConfigurationHttpRequestCompressRequest("NONE"))
@@ -4324,6 +4709,11 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModePtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationHttpRequestCompressRequestOutput{})

@@ -314,6 +314,40 @@ namespace Pulumi.AwsNative.AgentRegistry
     }
 
     /// <summary>
+    /// The record type that this schema override applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryRecordTypeSchemaOverrideRecordType : IEquatable<RegistryRecordTypeSchemaOverrideRecordType>
+    {
+        private readonly string _value;
+
+        private RegistryRecordTypeSchemaOverrideRecordType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistryRecordTypeSchemaOverrideRecordType Mcp { get; } = new RegistryRecordTypeSchemaOverrideRecordType("MCP");
+        public static RegistryRecordTypeSchemaOverrideRecordType Agent { get; } = new RegistryRecordTypeSchemaOverrideRecordType("AGENT");
+        public static RegistryRecordTypeSchemaOverrideRecordType Skill { get; } = new RegistryRecordTypeSchemaOverrideRecordType("SKILL");
+        public static RegistryRecordTypeSchemaOverrideRecordType Gateway { get; } = new RegistryRecordTypeSchemaOverrideRecordType("GATEWAY");
+        public static RegistryRecordTypeSchemaOverrideRecordType Custom { get; } = new RegistryRecordTypeSchemaOverrideRecordType("CUSTOM");
+
+        public static bool operator ==(RegistryRecordTypeSchemaOverrideRecordType left, RegistryRecordTypeSchemaOverrideRecordType right) => left.Equals(right);
+        public static bool operator !=(RegistryRecordTypeSchemaOverrideRecordType left, RegistryRecordTypeSchemaOverrideRecordType right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryRecordTypeSchemaOverrideRecordType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryRecordTypeSchemaOverrideRecordType other && Equals(other);
+        public bool Equals(RegistryRecordTypeSchemaOverrideRecordType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the registry.
     /// </summary>
     [EnumType]

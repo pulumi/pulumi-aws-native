@@ -82,6 +82,11 @@ __all__ = [
     'ClusterTieredStorageConfig',
     'ClusterVpcConfig',
     'CodeRepositoryGitConfig',
+    'ComputeQuotaAcceleratorPartitionConfig',
+    'ComputeQuotaConfig',
+    'ComputeQuotaResourceConfig',
+    'ComputeQuotaResourceSharingConfig',
+    'ComputeQuotaTarget',
     'DataQualityJobDefinitionBatchTransformInput',
     'DataQualityJobDefinitionClusterConfig',
     'DataQualityJobDefinitionConstraintsResource',
@@ -2642,6 +2647,8 @@ class ClusterInstanceGroup(dict):
             suggest = "current_count"
         elif key == "imageId":
             suggest = "image_id"
+        elif key == "imageReleaseVersion":
+            suggest = "image_release_version"
         elif key == "instanceRequirements":
             suggest = "instance_requirements"
         elif key == "instanceStorageConfigs":
@@ -2688,6 +2695,7 @@ class ClusterInstanceGroup(dict):
                  capacity_requirements: Optional['outputs.ClusterCapacityRequirements'] = None,
                  current_count: Optional[_builtins.int] = None,
                  image_id: Optional[_builtins.str] = None,
+                 image_release_version: Optional[_builtins.str] = None,
                  instance_requirements: Optional['outputs.ClusterInstanceRequirements'] = None,
                  instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
                  instance_type: Optional[_builtins.str] = None,
@@ -2706,6 +2714,7 @@ class ClusterInstanceGroup(dict):
 
         :param _builtins.int instance_count: The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
         :param _builtins.int current_count: The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+        :param _builtins.str image_release_version: The version of the HyperPod-managed AMI for the instance group, in semantic version format MAJOR.MINOR.PATCH (for example, 1.2.3). Supported only for EKS-orchestrated clusters. If omitted at creation, the latest available version is used (or the version of an existing same-architecture instance group when adding a group). Changing this value on an existing instance group triggers a software update via UpdateClusterSoftware. Automatic patching (AutoPatchConfig) and out-of-band software updates can advance the running version past this value; CloudFormation does not revert such changes and may report the property as drifted. Only an explicit change to this value in the template triggers an update.
         :param _builtins.int min_instance_count: The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
         :param _builtins.int threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
         :param _builtins.str training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
@@ -2721,6 +2730,8 @@ class ClusterInstanceGroup(dict):
             pulumi.set(__self__, "current_count", current_count)
         if image_id is not None:
             pulumi.set(__self__, "image_id", image_id)
+        if image_release_version is not None:
+            pulumi.set(__self__, "image_release_version", image_release_version)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_storage_configs is not None:
@@ -2788,6 +2799,14 @@ class ClusterInstanceGroup(dict):
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "image_id")
+
+    @_builtins.property
+    @pulumi.getter(name="imageReleaseVersion")
+    def image_release_version(self) -> Optional[_builtins.str]:
+        """
+        The version of the HyperPod-managed AMI for the instance group, in semantic version format MAJOR.MINOR.PATCH (for example, 1.2.3). Supported only for EKS-orchestrated clusters. If omitted at creation, the latest available version is used (or the version of an existing same-architecture instance group when adding a group). Changing this value on an existing instance group triggers a software update via UpdateClusterSoftware. Automatic patching (AutoPatchConfig) and out-of-band software updates can advance the running version past this value; CloudFormation does not revert such changes and may report the property as drifted. Only an explicit change to this value in the template triggers an update.
+        """
+        return pulumi.get(self, "image_release_version")
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
@@ -3937,6 +3956,335 @@ class CodeRepositoryGitConfig(dict):
         The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
         """
         return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class ComputeQuotaAcceleratorPartitionConfig(dict):
+    """
+    Multi-instance GPU (MIG) partition profile and count for fractional accelerator allocation.
+    """
+    def __init__(__self__, *,
+                 count: _builtins.int,
+                 type: 'ComputeQuotaAcceleratorPartitionConfigType'):
+        """
+        Multi-instance GPU (MIG) partition profile and count for fractional accelerator allocation.
+
+        :param _builtins.int count: The number of MIG partitions of the specified Type allocated to the team.
+        :param 'ComputeQuotaAcceleratorPartitionConfigType' type: MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> _builtins.int:
+        """
+        The number of MIG partitions of the specified Type allocated to the team.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'ComputeQuotaAcceleratorPartitionConfigType':
+        """
+        MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ComputeQuotaConfig(dict):
+    """
+    Compute allocation rules: per-resource quotas, idle-borrowing strategy, and team-task preemption policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuotaResources":
+            suggest = "compute_quota_resources"
+        elif key == "preemptTeamTasks":
+            suggest = "preempt_team_tasks"
+        elif key == "resourceSharingConfig":
+            suggest = "resource_sharing_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeQuotaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeQuotaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeQuotaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_quota_resources: Optional[Sequence['outputs.ComputeQuotaResourceConfig']] = None,
+                 preempt_team_tasks: Optional['ComputeQuotaConfigPreemptTeamTasks'] = None,
+                 resource_sharing_config: Optional['outputs.ComputeQuotaResourceSharingConfig'] = None):
+        """
+        Compute allocation rules: per-resource quotas, idle-borrowing strategy, and team-task preemption policy.
+
+        :param Sequence['ComputeQuotaResourceConfig'] compute_quota_resources: Per-instance-type compute quotas for the team. When VCpu / MemoryInGiB / Accelerators are partially specified, SageMaker auto-fills the remaining fields ratio-proportionally to the underlying instance — Read may return values the customer did not supply (drift may flag this).
+        :param 'ComputeQuotaConfigPreemptTeamTasks' preempt_team_tasks: Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+        :param 'ComputeQuotaResourceSharingConfig' resource_sharing_config: Idle-resource-sharing strategy for this team's quota. When omitted, the service applies defaults (Strategy=LendAndBorrow, BorrowLimit=50).
+        """
+        if compute_quota_resources is not None:
+            pulumi.set(__self__, "compute_quota_resources", compute_quota_resources)
+        if preempt_team_tasks is not None:
+            pulumi.set(__self__, "preempt_team_tasks", preempt_team_tasks)
+        if resource_sharing_config is not None:
+            pulumi.set(__self__, "resource_sharing_config", resource_sharing_config)
+
+    @_builtins.property
+    @pulumi.getter(name="computeQuotaResources")
+    def compute_quota_resources(self) -> Optional[Sequence['outputs.ComputeQuotaResourceConfig']]:
+        """
+        Per-instance-type compute quotas for the team. When VCpu / MemoryInGiB / Accelerators are partially specified, SageMaker auto-fills the remaining fields ratio-proportionally to the underlying instance — Read may return values the customer did not supply (drift may flag this).
+        """
+        return pulumi.get(self, "compute_quota_resources")
+
+    @_builtins.property
+    @pulumi.getter(name="preemptTeamTasks")
+    def preempt_team_tasks(self) -> Optional['ComputeQuotaConfigPreemptTeamTasks']:
+        """
+        Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+        """
+        return pulumi.get(self, "preempt_team_tasks")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceSharingConfig")
+    def resource_sharing_config(self) -> Optional['outputs.ComputeQuotaResourceSharingConfig']:
+        """
+        Idle-resource-sharing strategy for this team's quota. When omitted, the service applies defaults (Strategy=LendAndBorrow, BorrowLimit=50).
+        """
+        return pulumi.get(self, "resource_sharing_config")
+
+
+@pulumi.output_type
+class ComputeQuotaResourceConfig(dict):
+    """
+    Per-instance-type compute quota element. Reused under ComputeQuotaConfig.ComputeQuotaResources and ResourceSharingConfig.AbsoluteBorrowLimits.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "acceleratorPartition":
+            suggest = "accelerator_partition"
+        elif key == "memoryInGiB":
+            suggest = "memory_in_gi_b"
+        elif key == "vCpu":
+            suggest = "v_cpu"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeQuotaResourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeQuotaResourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeQuotaResourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: _builtins.str,
+                 accelerator_partition: Optional['outputs.ComputeQuotaAcceleratorPartitionConfig'] = None,
+                 accelerators: Optional[_builtins.int] = None,
+                 count: Optional[_builtins.int] = None,
+                 memory_in_gi_b: Optional[_builtins.float] = None,
+                 v_cpu: Optional[_builtins.float] = None):
+        """
+        Per-instance-type compute quota element. Reused under ComputeQuotaConfig.ComputeQuotaResources and ResourceSharingConfig.AbsoluteBorrowLimits.
+
+        :param _builtins.str instance_type: The cluster instance type the quota applies to (e.g., 'ml.m5.xlarge', 'ml.p5.48xlarge'). Validated by the service against the supported HyperPod instance types.
+        :param 'ComputeQuotaAcceleratorPartitionConfig' accelerator_partition: Multi-instance GPU (MIG) partition profile and count, for fractional accelerator allocation. Service rejects MIG profiles that the chosen InstanceType does not support.
+        :param _builtins.int accelerators: The number of accelerators (e.g., GPUs) of this type allocated to the team. SageMaker auto-fills VCpu / MemoryInGiB ratio-proportionally if only this is set.
+        :param _builtins.int count: The number of instances of this type allocated to the team.
+        :param _builtins.float memory_in_gi_b: The memory in GiB allocated to the team. Floating-point. SageMaker auto-fills Accelerators / VCpu ratio-proportionally if only this is set.
+        :param _builtins.float v_cpu: The number of vCPUs allocated to the team. Floating-point. SageMaker auto-fills Accelerators / MemoryInGiB ratio-proportionally if only this is set.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        if accelerator_partition is not None:
+            pulumi.set(__self__, "accelerator_partition", accelerator_partition)
+        if accelerators is not None:
+            pulumi.set(__self__, "accelerators", accelerators)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if memory_in_gi_b is not None:
+            pulumi.set(__self__, "memory_in_gi_b", memory_in_gi_b)
+        if v_cpu is not None:
+            pulumi.set(__self__, "v_cpu", v_cpu)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        The cluster instance type the quota applies to (e.g., 'ml.m5.xlarge', 'ml.p5.48xlarge'). Validated by the service against the supported HyperPod instance types.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="acceleratorPartition")
+    def accelerator_partition(self) -> Optional['outputs.ComputeQuotaAcceleratorPartitionConfig']:
+        """
+        Multi-instance GPU (MIG) partition profile and count, for fractional accelerator allocation. Service rejects MIG profiles that the chosen InstanceType does not support.
+        """
+        return pulumi.get(self, "accelerator_partition")
+
+    @_builtins.property
+    @pulumi.getter
+    def accelerators(self) -> Optional[_builtins.int]:
+        """
+        The number of accelerators (e.g., GPUs) of this type allocated to the team. SageMaker auto-fills VCpu / MemoryInGiB ratio-proportionally if only this is set.
+        """
+        return pulumi.get(self, "accelerators")
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[_builtins.int]:
+        """
+        The number of instances of this type allocated to the team.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryInGiB")
+    def memory_in_gi_b(self) -> Optional[_builtins.float]:
+        """
+        The memory in GiB allocated to the team. Floating-point. SageMaker auto-fills Accelerators / VCpu ratio-proportionally if only this is set.
+        """
+        return pulumi.get(self, "memory_in_gi_b")
+
+    @_builtins.property
+    @pulumi.getter(name="vCpu")
+    def v_cpu(self) -> Optional[_builtins.float]:
+        """
+        The number of vCPUs allocated to the team. Floating-point. SageMaker auto-fills Accelerators / MemoryInGiB ratio-proportionally if only this is set.
+        """
+        return pulumi.get(self, "v_cpu")
+
+
+@pulumi.output_type
+class ComputeQuotaResourceSharingConfig(dict):
+    """
+    Idle-resource-sharing strategy for this team's quota.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "absoluteBorrowLimits":
+            suggest = "absolute_borrow_limits"
+        elif key == "borrowLimit":
+            suggest = "borrow_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeQuotaResourceSharingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeQuotaResourceSharingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeQuotaResourceSharingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 strategy: 'ComputeQuotaResourceSharingConfigStrategy',
+                 absolute_borrow_limits: Optional[Sequence['outputs.ComputeQuotaResourceConfig']] = None,
+                 borrow_limit: Optional[_builtins.int] = None):
+        """
+        Idle-resource-sharing strategy for this team's quota.
+
+        :param 'ComputeQuotaResourceSharingConfigStrategy' strategy: How this team participates in idle-resource sharing.
+        :param Sequence['ComputeQuotaResourceConfig'] absolute_borrow_limits: Per-instance-type absolute caps on resources this team can borrow.
+        :param _builtins.int borrow_limit: Maximum percentage of the team's idle quota that can be borrowed by other teams. Smithy admits 0..10000; in practice the service-documented operational range is 1..500. Defaults service-side to 50 when omitted on Create.
+        """
+        pulumi.set(__self__, "strategy", strategy)
+        if absolute_borrow_limits is not None:
+            pulumi.set(__self__, "absolute_borrow_limits", absolute_borrow_limits)
+        if borrow_limit is not None:
+            pulumi.set(__self__, "borrow_limit", borrow_limit)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> 'ComputeQuotaResourceSharingConfigStrategy':
+        """
+        How this team participates in idle-resource sharing.
+        """
+        return pulumi.get(self, "strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="absoluteBorrowLimits")
+    def absolute_borrow_limits(self) -> Optional[Sequence['outputs.ComputeQuotaResourceConfig']]:
+        """
+        Per-instance-type absolute caps on resources this team can borrow.
+        """
+        return pulumi.get(self, "absolute_borrow_limits")
+
+    @_builtins.property
+    @pulumi.getter(name="borrowLimit")
+    def borrow_limit(self) -> Optional[_builtins.int]:
+        """
+        Maximum percentage of the team's idle quota that can be borrowed by other teams. Smithy admits 0..10000; in practice the service-documented operational range is 1..500. Defaults service-side to 50 when omitted on Create.
+        """
+        return pulumi.get(self, "borrow_limit")
+
+
+@pulumi.output_type
+class ComputeQuotaTarget(dict):
+    """
+    The team this compute allocation rule applies to.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "teamName":
+            suggest = "team_name"
+        elif key == "fairShareWeight":
+            suggest = "fair_share_weight"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeQuotaTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeQuotaTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeQuotaTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 team_name: _builtins.str,
+                 fair_share_weight: Optional[_builtins.int] = None):
+        """
+        The team this compute allocation rule applies to.
+
+        :param _builtins.str team_name: The name of the team. Materialized as Kubernetes namespace 'hyperpod-ns-<TeamName>' on the EKS cluster, so the value must satisfy RFC 1123 namespace constraints. Reassignment is not supported (createOnly).
+        :param _builtins.int fair_share_weight: Relative fair-share weight when fair-share scheduling is enabled on the parent ClusterSchedulerConfig. Defaults service-side to 0 when omitted.
+        """
+        pulumi.set(__self__, "team_name", team_name)
+        if fair_share_weight is not None:
+            pulumi.set(__self__, "fair_share_weight", fair_share_weight)
+
+    @_builtins.property
+    @pulumi.getter(name="teamName")
+    def team_name(self) -> _builtins.str:
+        """
+        The name of the team. Materialized as Kubernetes namespace 'hyperpod-ns-<TeamName>' on the EKS cluster, so the value must satisfy RFC 1123 namespace constraints. Reassignment is not supported (createOnly).
+        """
+        return pulumi.get(self, "team_name")
+
+    @_builtins.property
+    @pulumi.getter(name="fairShareWeight")
+    def fair_share_weight(self) -> Optional[_builtins.int]:
+        """
+        Relative fair-share weight when fair-share scheduling is enabled on the parent ClusterSchedulerConfig. Defaults service-side to 0 when omitted.
+        """
+        return pulumi.get(self, "fair_share_weight")
 
 
 @pulumi.output_type
@@ -12794,7 +13142,7 @@ class ModelCardBarChartMetric(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: 'ModelCardBarChartMetricType',
-                 value: Sequence[_builtins.float],
+                 value: Sequence[Any],
                  notes: Optional[_builtins.str] = None,
                  x_axis_name: Optional[Sequence[_builtins.str]] = None,
                  y_axis_name: Optional[_builtins.str] = None):
@@ -12820,7 +13168,7 @@ class ModelCardBarChartMetric(dict):
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Sequence[_builtins.float]:
+    def value(self) -> Sequence[Any]:
         return pulumi.get(self, "value")
 
     @_builtins.property
@@ -13326,7 +13674,7 @@ class ModelCardLinearGraphMetric(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: 'ModelCardLinearGraphMetricType',
-                 value: Sequence[Sequence[_builtins.float]],
+                 value: Sequence[Sequence[Any]],
                  notes: Optional[_builtins.str] = None,
                  x_axis_name: Optional[_builtins.str] = None,
                  y_axis_name: Optional[_builtins.str] = None):
@@ -13355,7 +13703,7 @@ class ModelCardLinearGraphMetric(dict):
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Sequence[Sequence[_builtins.float]]:
+    def value(self) -> Sequence[Sequence[Any]]:
         return pulumi.get(self, "value")
 
     @_builtins.property
@@ -13398,7 +13746,7 @@ class ModelCardMatrixMetric(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: 'ModelCardMatrixMetricType',
-                 value: Sequence[Sequence[_builtins.float]],
+                 value: Sequence[Sequence[Any]],
                  notes: Optional[_builtins.str] = None,
                  x_axis_name: Optional[Sequence[_builtins.str]] = None,
                  y_axis_name: Optional[Sequence[_builtins.str]] = None):
@@ -13424,7 +13772,7 @@ class ModelCardMatrixMetric(dict):
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Sequence[Sequence[_builtins.float]]:
+    def value(self) -> Sequence[Sequence[Any]]:
         return pulumi.get(self, "value")
 
     @_builtins.property

@@ -41,6 +41,7 @@ export const PlanExecutionBlockType = {
     RdsPromoteReadReplica: "RdsPromoteReadReplica",
     RdsSwitchoverReadReplica: "RdsSwitchoverReadReplica",
     Route53HealthCheck: "Route53HealthCheck",
+    SsmSendCommand: "SSMSendCommand",
 } as const;
 
 export type PlanExecutionBlockType = (typeof PlanExecutionBlockType)[keyof typeof PlanExecutionBlockType];
@@ -98,6 +99,12 @@ export const PlanRoutingControlStateChange = {
 } as const;
 
 export type PlanRoutingControlStateChange = (typeof PlanRoutingControlStateChange)[keyof typeof PlanRoutingControlStateChange];
+
+export const PlanSsmSendCommandUngracefulBehavior = {
+    Skip: "skip",
+} as const;
+
+export type PlanSsmSendCommandUngracefulBehavior = (typeof PlanSsmSendCommandUngracefulBehavior)[keyof typeof PlanSsmSendCommandUngracefulBehavior];
 
 export const PlanWaitElbTargetGroupHealthy = {
     Enabled: "enabled",

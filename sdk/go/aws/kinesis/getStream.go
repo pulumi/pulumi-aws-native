@@ -35,6 +35,8 @@ type LookupStreamResult struct {
 	DesiredShardLevelMetrics []StreamEnhancedMetric `pulumi:"desiredShardLevelMetrics"`
 	// Maximum size of a data record in KiB allowed to be put into Kinesis stream.
 	MaxRecordSizeInKiB *int `pulumi:"maxRecordSizeInKiB"`
+	// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+	RecordDistributionStrategy *StreamRecordDistributionStrategy `pulumi:"recordDistributionStrategy"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours *int `pulumi:"retentionPeriodHours"`
 	// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
@@ -90,6 +92,11 @@ func (o LookupStreamResultOutput) DesiredShardLevelMetrics() StreamEnhancedMetri
 // Maximum size of a data record in KiB allowed to be put into Kinesis stream.
 func (o LookupStreamResultOutput) MaxRecordSizeInKiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupStreamResult) *int { return v.MaxRecordSizeInKiB }).(pulumi.IntPtrOutput)
+}
+
+// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+func (o LookupStreamResultOutput) RecordDistributionStrategy() StreamRecordDistributionStrategyPtrOutput {
+	return o.ApplyT(func(v LookupStreamResult) *StreamRecordDistributionStrategy { return v.RecordDistributionStrategy }).(StreamRecordDistributionStrategyPtrOutput)
 }
 
 // The number of hours for the data records that are stored in shards to remain accessible.

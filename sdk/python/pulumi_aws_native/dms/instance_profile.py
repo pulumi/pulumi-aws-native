@@ -37,7 +37,7 @@ class InstanceProfileArgs:
 
         :param pulumi.Input[_builtins.str] availability_zone: The property describes an availability zone of the instance profile.
         :param pulumi.Input[_builtins.str] description: The optional description of the instance profile.
-        :param pulumi.Input[_builtins.str] instance_profile_identifier: The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+        :param pulumi.Input[_builtins.str] instance_profile_identifier: [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         :param pulumi.Input[_builtins.str] instance_profile_name: The property describes a name for the instance profile.
         :param pulumi.Input[_builtins.str] kms_key_arn: The property describes kms key arn for the instance profile.
         :param pulumi.Input['InstanceProfileNetworkType'] network_type: The property describes a network type for the instance profile.
@@ -95,7 +95,7 @@ class InstanceProfileArgs:
     @pulumi.getter(name="instanceProfileIdentifier")
     def instance_profile_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+        [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         """
         return pulumi.get(self, "instance_profile_identifier")
 
@@ -212,7 +212,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The property describes an availability zone of the instance profile.
         :param pulumi.Input[_builtins.str] description: The optional description of the instance profile.
-        :param pulumi.Input[_builtins.str] instance_profile_identifier: The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+        :param pulumi.Input[_builtins.str] instance_profile_identifier: [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         :param pulumi.Input[_builtins.str] instance_profile_name: The property describes a name for the instance profile.
         :param pulumi.Input[_builtins.str] kms_key_arn: The property describes kms key arn for the instance profile.
         :param pulumi.Input['InstanceProfileNetworkType'] network_type: The property describes a network type for the instance profile.
@@ -348,7 +348,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter(name="instanceProfileIdentifier")
     def instance_profile_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+        [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         """
         return pulumi.get(self, "instance_profile_identifier")
 

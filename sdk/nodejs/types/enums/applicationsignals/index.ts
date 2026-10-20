@@ -2,6 +2,36 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const InstrumentationConfigCodeLocationLanguage = {
+    Java: "Java",
+    Python: "Python",
+    Javascript: "Javascript",
+} as const;
+
+/**
+ * The programming language for this instrumentation point.
+ */
+export type InstrumentationConfigCodeLocationLanguage = (typeof InstrumentationConfigCodeLocationLanguage)[keyof typeof InstrumentationConfigCodeLocationLanguage];
+
+export const InstrumentationConfigInstrumentationType = {
+    Breakpoint: "BREAKPOINT",
+    Probe: "PROBE",
+} as const;
+
+/**
+ * Type of instrumentation: BREAKPOINT (temporary, expires after 24 hours) or PROBE (permanent, persists until deleted).
+ */
+export type InstrumentationConfigInstrumentationType = (typeof InstrumentationConfigInstrumentationType)[keyof typeof InstrumentationConfigInstrumentationType];
+
+export const InstrumentationConfigSignalType = {
+    Snapshot: "SNAPSHOT",
+} as const;
+
+/**
+ * The telemetry signal type to emit for this instrumentation. The supported value is SNAPSHOT.
+ */
+export type InstrumentationConfigSignalType = (typeof InstrumentationConfigSignalType)[keyof typeof InstrumentationConfigSignalType];
+
 export const ServiceLevelObjectiveDurationUnit = {
     Minute: "MINUTE",
     Hour: "HOUR",

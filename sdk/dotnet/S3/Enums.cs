@@ -509,6 +509,7 @@ namespace Pulumi.AwsNative.S3
         public static BucketInventoryConfigurationOptionalFieldsItem ObjectAccessControlList { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectAccessControlList");
         public static BucketInventoryConfigurationOptionalFieldsItem ObjectOwner { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectOwner");
         public static BucketInventoryConfigurationOptionalFieldsItem LifecycleExpirationDate { get; } = new BucketInventoryConfigurationOptionalFieldsItem("LifecycleExpirationDate");
+        public static BucketInventoryConfigurationOptionalFieldsItem IntelligentTieringReferenceDate { get; } = new BucketInventoryConfigurationOptionalFieldsItem("IntelligentTieringReferenceDate");
 
         public static bool operator ==(BucketInventoryConfigurationOptionalFieldsItem left, BucketInventoryConfigurationOptionalFieldsItem right) => left.Equals(right);
         public static bool operator !=(BucketInventoryConfigurationOptionalFieldsItem left, BucketInventoryConfigurationOptionalFieldsItem right) => !left.Equals(right);

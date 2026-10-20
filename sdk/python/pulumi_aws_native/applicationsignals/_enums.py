@@ -7,6 +7,9 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'InstrumentationConfigCodeLocationLanguage',
+    'InstrumentationConfigInstrumentationType',
+    'InstrumentationConfigSignalType',
     'ServiceLevelObjectiveDurationUnit',
     'ServiceLevelObjectiveEvaluationType',
     'ServiceLevelObjectiveRequestBasedSliComparisonOperator',
@@ -15,6 +18,33 @@ __all__ = [
     'ServiceLevelObjectiveSliComparisonOperator',
     'ServiceLevelObjectiveSliMetricMetricType',
 ]
+
+
+@pulumi.type_token("aws-native:applicationsignals:InstrumentationConfigCodeLocationLanguage")
+class InstrumentationConfigCodeLocationLanguage(_builtins.str, Enum):
+    """
+    The programming language for this instrumentation point.
+    """
+    JAVA = "Java"
+    PYTHON = "Python"
+    JAVASCRIPT = "Javascript"
+
+
+@pulumi.type_token("aws-native:applicationsignals:InstrumentationConfigInstrumentationType")
+class InstrumentationConfigInstrumentationType(_builtins.str, Enum):
+    """
+    Type of instrumentation: BREAKPOINT (temporary, expires after 24 hours) or PROBE (permanent, persists until deleted).
+    """
+    BREAKPOINT = "BREAKPOINT"
+    PROBE = "PROBE"
+
+
+@pulumi.type_token("aws-native:applicationsignals:InstrumentationConfigSignalType")
+class InstrumentationConfigSignalType(_builtins.str, Enum):
+    """
+    The telemetry signal type to emit for this instrumentation. The supported value is SNAPSHOT.
+    """
+    SNAPSHOT = "SNAPSHOT"
 
 
 @pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjectiveDurationUnit")

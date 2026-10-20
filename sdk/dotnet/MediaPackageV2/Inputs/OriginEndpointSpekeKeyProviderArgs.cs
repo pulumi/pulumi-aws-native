@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
+        [Input("contentKeyPeriodConfiguration")]
+        public Input<Inputs.OriginEndpointContentKeyPeriodConfigurationArgs>? ContentKeyPeriodConfiguration { get; set; }
+
         [Input("drmSystems", required: true)]
         private InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDrmSystem>? _drmSystems;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
+
+        [Input("spekeVersion")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointSpekeVersion>? SpekeVersion { get; set; }
 
         /// <summary>
         /// &lt;p&gt;The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.&lt;/p&gt; &lt;p&gt;The following example shows a URL: &lt;code&gt;https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection&lt;/code&gt; &lt;/p&gt;

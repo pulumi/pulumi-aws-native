@@ -45,6 +45,11 @@ export type CodeRepository = import("./codeRepository").CodeRepository;
 export const CodeRepository: typeof import("./codeRepository").CodeRepository = null as any;
 utilities.lazyLoad(exports, ["CodeRepository"], () => require("./codeRepository"));
 
+export { ComputeQuotaArgs } from "./computeQuota";
+export type ComputeQuota = import("./computeQuota").ComputeQuota;
+export const ComputeQuota: typeof import("./computeQuota").ComputeQuota = null as any;
+utilities.lazyLoad(exports, ["ComputeQuota"], () => require("./computeQuota"));
+
 export { ContextArgs } from "./context";
 export type Context = import("./context").Context;
 export const Context: typeof import("./context").Context = null as any;
@@ -134,6 +139,11 @@ export { GetCodeRepositoryArgs, GetCodeRepositoryResult, GetCodeRepositoryOutput
 export const getCodeRepository: typeof import("./getCodeRepository").getCodeRepository = null as any;
 export const getCodeRepositoryOutput: typeof import("./getCodeRepository").getCodeRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getCodeRepository","getCodeRepositoryOutput"], () => require("./getCodeRepository"));
+
+export { GetComputeQuotaArgs, GetComputeQuotaResult, GetComputeQuotaOutputArgs } from "./getComputeQuota";
+export const getComputeQuota: typeof import("./getComputeQuota").getComputeQuota = null as any;
+export const getComputeQuotaOutput: typeof import("./getComputeQuota").getComputeQuotaOutput = null as any;
+utilities.lazyLoad(exports, ["getComputeQuota","getComputeQuotaOutput"], () => require("./getComputeQuota"));
 
 export { GetContextArgs, GetContextResult, GetContextOutputArgs } from "./getContext";
 export const getContext: typeof import("./getContext").getContext = null as any;
@@ -484,6 +494,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws-native:sagemaker:CodeRepository":
                 return new CodeRepository(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:ComputeQuota":
+                return new ComputeQuota(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Context":
                 return new Context(name, <any>undefined, { urn })
             case "aws-native:sagemaker:DataQualityJobDefinition":

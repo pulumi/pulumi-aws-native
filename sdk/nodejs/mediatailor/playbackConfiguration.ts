@@ -59,6 +59,10 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
      */
     declare public readonly availSuppression: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAvailSuppression | undefined>;
     /**
+     * The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+     */
+    declare public readonly beaconingConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationBeaconingConfiguration | undefined>;
+    /**
      * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
      */
     declare public readonly bumper: pulumi.Output<outputs.mediatailor.PlaybackConfigurationBumper | undefined>;
@@ -158,6 +162,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["adsPersonalizationConcurrency"] = args?.adsPersonalizationConcurrency;
             resourceInputs["adsPersonalizationTimeouts"] = args?.adsPersonalizationTimeouts;
             resourceInputs["availSuppression"] = args?.availSuppression;
+            resourceInputs["beaconingConfiguration"] = args?.beaconingConfiguration;
             resourceInputs["bumper"] = args?.bumper;
             resourceInputs["cdnConfiguration"] = args?.cdnConfiguration;
             resourceInputs["configurationAliases"] = args?.configurationAliases;
@@ -184,6 +189,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["adsPersonalizationConcurrency"] = undefined /*out*/;
             resourceInputs["adsPersonalizationTimeouts"] = undefined /*out*/;
             resourceInputs["availSuppression"] = undefined /*out*/;
+            resourceInputs["beaconingConfiguration"] = undefined /*out*/;
             resourceInputs["bumper"] = undefined /*out*/;
             resourceInputs["cdnConfiguration"] = undefined /*out*/;
             resourceInputs["configurationAliases"] = undefined /*out*/;
@@ -236,6 +242,10 @@ export interface PlaybackConfigurationArgs {
      * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */
     availSuppression?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAvailSuppressionArgs | undefined>;
+    /**
+     * The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+     */
+    beaconingConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationBeaconingConfigurationArgs | undefined>;
     /**
      * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
      */

@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.AgentRegistry
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("customMetadataSchemaConfiguration")]
+        public Output<Outputs.RegistryCustomMetadataSchemaConfiguration?> CustomMetadataSchemaConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The description of the registry.
         /// </summary>
@@ -148,6 +151,9 @@ namespace Pulumi.AwsNative.AgentRegistry
 
         [Input("autoDetectionScope")]
         public Input<Pulumi.AwsNative.AgentRegistry.RegistryAutoDetectionScope>? AutoDetectionScope { get; set; }
+
+        [Input("customMetadataSchemaConfiguration")]
+        public Input<Inputs.RegistryCustomMetadataSchemaConfigurationArgs>? CustomMetadataSchemaConfiguration { get; set; }
 
         /// <summary>
         /// The description of the registry.

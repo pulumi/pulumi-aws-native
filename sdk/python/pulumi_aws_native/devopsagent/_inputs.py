@@ -20,6 +20,8 @@ __all__ = [
     'AgentSpaceIamAuthConfigurationArgsDict',
     'AgentSpaceIdcAuthConfigurationArgs',
     'AgentSpaceIdcAuthConfigurationArgsDict',
+    'AgentSpaceIdpAuthConfigurationArgs',
+    'AgentSpaceIdpAuthConfigurationArgsDict',
     'AgentSpaceOperatorAppArgs',
     'AgentSpaceOperatorAppArgsDict',
     'AgentSpacePreferencesArgs',
@@ -60,6 +62,8 @@ __all__ = [
     'AssociationServiceConfigurationArgsDict',
     'AssociationServiceNowConfigurationArgs',
     'AssociationServiceNowConfigurationArgsDict',
+    'AssociationSlackBidirectionalConfigurationArgs',
+    'AssociationSlackBidirectionalConfigurationArgsDict',
     'AssociationSlackChannelArgs',
     'AssociationSlackChannelArgsDict',
     'AssociationSlackConfigurationArgs',
@@ -86,6 +90,12 @@ __all__ = [
     'ServiceDynatraceAuthorizationConfigArgsDict',
     'ServiceDynatraceServiceDetailsArgs',
     'ServiceDynatraceServiceDetailsArgsDict',
+    'ServiceGitHubAppVerificationDetailsArgs',
+    'ServiceGitHubAppVerificationDetailsArgsDict',
+    'ServiceGitHubDetailsArgs',
+    'ServiceGitHubDetailsArgsDict',
+    'ServiceGitHubPatDetailsArgs',
+    'ServiceGitHubPatDetailsArgsDict',
     'ServiceGitLabDetailsArgs',
     'ServiceGitLabDetailsArgsDict',
     'ServiceMcpServerAuthorizationConfigArgs',
@@ -243,19 +253,178 @@ class AgentSpaceIdcAuthConfigurationArgs:
         pulumi.set(self, "updated_at", value)
 
 
+class AgentSpaceIdpAuthConfigurationArgsDict(TypedDict):
+    """
+    External identity provider configuration for the Operator App.
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The OIDC client identifier for the external identity provider application.
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    The OIDC client secret for the external identity provider application. Use a Secrets Manager dynamic reference to avoid storing the secret in the template.
+    """
+    issuer_url: pulumi.Input[_builtins.str]
+    """
+    The OIDC issuer URL for the external identity provider.
+    """
+    operator_app_role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role that Operator App users assume to access DevOps Agent APIs.
+    """
+    provider: pulumi.Input['AgentSpaceIdpAuthConfigurationProvider']
+    """
+    The external identity provider type.
+    """
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_id_claim: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identity claim used to identify users. This value is selected by the service for the configured provider.
+    """
+
+@pulumi.input_type
+class AgentSpaceIdpAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str],
+                 issuer_url: pulumi.Input[_builtins.str],
+                 operator_app_role_arn: pulumi.Input[_builtins.str],
+                 provider: pulumi.Input['AgentSpaceIdpAuthConfigurationProvider'],
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id_claim: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        External identity provider configuration for the Operator App.
+
+        :param pulumi.Input[_builtins.str] client_id: The OIDC client identifier for the external identity provider application.
+        :param pulumi.Input[_builtins.str] client_secret: The OIDC client secret for the external identity provider application. Use a Secrets Manager dynamic reference to avoid storing the secret in the template.
+        :param pulumi.Input[_builtins.str] issuer_url: The OIDC issuer URL for the external identity provider.
+        :param pulumi.Input[_builtins.str] operator_app_role_arn: The IAM role that Operator App users assume to access DevOps Agent APIs.
+        :param pulumi.Input['AgentSpaceIdpAuthConfigurationProvider'] provider: The external identity provider type.
+        :param pulumi.Input[_builtins.str] user_id_claim: The identity claim used to identify users. This value is selected by the service for the configured provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "issuer_url", issuer_url)
+        pulumi.set(__self__, "operator_app_role_arn", operator_app_role_arn)
+        pulumi.set(__self__, "provider", provider)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+        if user_id_claim is not None:
+            pulumi.set(__self__, "user_id_claim", user_id_claim)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The OIDC client identifier for the external identity provider application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        """
+        The OIDC client secret for the external identity provider application. Use a Secrets Manager dynamic reference to avoid storing the secret in the template.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="issuerUrl")
+    def issuer_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        The OIDC issuer URL for the external identity provider.
+        """
+        return pulumi.get(self, "issuer_url")
+
+    @issuer_url.setter
+    def issuer_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "issuer_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="operatorAppRoleArn")
+    def operator_app_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IAM role that Operator App users assume to access DevOps Agent APIs.
+        """
+        return pulumi.get(self, "operator_app_role_arn")
+
+    @operator_app_role_arn.setter
+    def operator_app_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator_app_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input['AgentSpaceIdpAuthConfigurationProvider']:
+        """
+        The external identity provider type.
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input['AgentSpaceIdpAuthConfigurationProvider']):
+        pulumi.set(self, "provider", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "updated_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userIdClaim")
+    def user_id_claim(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identity claim used to identify users. This value is selected by the service for the configured provider.
+        """
+        return pulumi.get(self, "user_id_claim")
+
+    @user_id_claim.setter
+    def user_id_claim(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_id_claim", value)
+
+
 class AgentSpaceOperatorAppArgsDict(TypedDict):
     iam: NotRequired[pulumi.Input[Optional['AgentSpaceIamAuthConfigurationArgsDict']]]
     idc: NotRequired[pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgsDict']]]
+    idp: NotRequired[pulumi.Input[Optional['AgentSpaceIdpAuthConfigurationArgsDict']]]
 
 @pulumi.input_type
 class AgentSpaceOperatorAppArgs:
     def __init__(__self__, *,
                  iam: pulumi.Input[Optional['AgentSpaceIamAuthConfigurationArgs']] = None,
-                 idc: pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgs']] = None):
+                 idc: pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgs']] = None,
+                 idp: pulumi.Input[Optional['AgentSpaceIdpAuthConfigurationArgs']] = None):
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if idc is not None:
             pulumi.set(__self__, "idc", idc)
+        if idp is not None:
+            pulumi.set(__self__, "idp", idp)
 
     @_builtins.property
     @pulumi.getter
@@ -274,6 +443,15 @@ class AgentSpaceOperatorAppArgs:
     @idc.setter
     def idc(self, value: pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgs']]):
         pulumi.set(self, "idc", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def idp(self) -> pulumi.Input[Optional['AgentSpaceIdpAuthConfigurationArgs']]:
+        return pulumi.get(self, "idp")
+
+    @idp.setter
+    def idp(self, value: pulumi.Input[Optional['AgentSpaceIdpAuthConfigurationArgs']]):
+        pulumi.set(self, "idp", value)
 
 
 class AgentSpacePreferencesArgsDict(TypedDict):
@@ -419,6 +597,10 @@ class AssociationAwsConfigurationArgsDict(TypedDict):
     """
     Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
     """
+    agent_elevated_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+    """
     resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgsDict']]]]]
     tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgsDict']]]]]
 
@@ -428,6 +610,7 @@ class AssociationAwsConfigurationArgs:
                  account_id: pulumi.Input[_builtins.str],
                  account_type: pulumi.Input['AssociationAwsConfigurationAccountType'],
                  assumable_role_arn: pulumi.Input[_builtins.str],
+                 agent_elevated_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  resources: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgs']]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgs']]]] = None):
         """
@@ -436,10 +619,13 @@ class AssociationAwsConfigurationArgs:
         :param pulumi.Input[_builtins.str] account_id: AWS Account Id corresponding to provided resources
         :param pulumi.Input['AssociationAwsConfigurationAccountType'] account_type: Account Type 'monitor' for DevOpsAgent monitoring
         :param pulumi.Input[_builtins.str] assumable_role_arn: Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        :param pulumi.Input[_builtins.str] agent_elevated_role_arn: The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "account_type", account_type)
         pulumi.set(__self__, "assumable_role_arn", assumable_role_arn)
+        if agent_elevated_role_arn is not None:
+            pulumi.set(__self__, "agent_elevated_role_arn", agent_elevated_role_arn)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
         if tags is not None:
@@ -480,6 +666,18 @@ class AssociationAwsConfigurationArgs:
     @assumable_role_arn.setter
     def assumable_role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "assumable_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentElevatedRoleArn")
+    def agent_elevated_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+        """
+        return pulumi.get(self, "agent_elevated_role_arn")
+
+    @agent_elevated_role_arn.setter
+    def agent_elevated_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "agent_elevated_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1057,6 +1255,10 @@ class AssociationMcpServerDatadogConfigurationArgsDict(TypedDict):
     """
     When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
     """
+    enabled_elevated_tools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
+    """
     endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     MCP server endpoint URL
@@ -1071,6 +1273,7 @@ class AssociationMcpServerDatadogConfigurationArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_elevated_tools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -1078,6 +1281,7 @@ class AssociationMcpServerDatadogConfigurationArgs:
 
         :param pulumi.Input[_builtins.str] description: The description of the MCP server
         :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_elevated_tools: The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
         :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
         :param pulumi.Input[_builtins.str] name: The name of the MCP server
         """
@@ -1085,6 +1289,8 @@ class AssociationMcpServerDatadogConfigurationArgs:
             pulumi.set(__self__, "description", description)
         if enable_webhook_updates is not None:
             pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if enabled_elevated_tools is not None:
+            pulumi.set(__self__, "enabled_elevated_tools", enabled_elevated_tools)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if name is not None:
@@ -1113,6 +1319,18 @@ class AssociationMcpServerDatadogConfigurationArgs:
     @enable_webhook_updates.setter
     def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_webhook_updates", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enabledElevatedTools")
+    def enabled_elevated_tools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
+        """
+        return pulumi.get(self, "enabled_elevated_tools")
+
+    @enabled_elevated_tools.setter
+    def enabled_elevated_tools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "enabled_elevated_tools", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1151,6 +1369,10 @@ class AssociationMcpServerGrafanaConfigurationArgsDict(TypedDict):
     """
     When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
     """
+    enabled_elevated_tools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
+    """
     tools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationMcpServerGrafanaConfigurationToolsItem']]]]]
     """
     List of tool categories to enable for the Grafana MCP server
@@ -1161,17 +1383,21 @@ class AssociationMcpServerGrafanaConfigurationArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
                  enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_elevated_tools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tools: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationMcpServerGrafanaConfigurationToolsItem']]]] = None):
         """
         Grafana MCP server configuration
 
         :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
         :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_elevated_tools: The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationMcpServerGrafanaConfigurationToolsItem']]] tools: List of tool categories to enable for the Grafana MCP server
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if enable_webhook_updates is not None:
             pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if enabled_elevated_tools is not None:
+            pulumi.set(__self__, "enabled_elevated_tools", enabled_elevated_tools)
         if tools is not None:
             pulumi.set(__self__, "tools", tools)
 
@@ -1198,6 +1424,18 @@ class AssociationMcpServerGrafanaConfigurationArgs:
     @enable_webhook_updates.setter
     def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_webhook_updates", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enabledElevatedTools")
+    def enabled_elevated_tools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
+        """
+        return pulumi.get(self, "enabled_elevated_tools")
+
+    @enabled_elevated_tools.setter
+    def enabled_elevated_tools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "enabled_elevated_tools", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1738,6 +1976,59 @@ class AssociationServiceNowConfigurationArgs:
         pulumi.set(self, "instance_id", value)
 
 
+class AssociationSlackBidirectionalConfigurationArgsDict(TypedDict):
+    """
+    Optional bidirectional communication configuration. Supply this configuration and set Enabled to true so you can interact with the agent directly from Slack
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace on behalf of this association
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether bidirectional communication is enabled for this association. When set to true, you can mention the agent in a configured Slack channel and it responds in that channel. When omitted or set to false, the agent ignores mentions and only sends notifications
+    """
+
+@pulumi.input_type
+class AssociationSlackBidirectionalConfigurationArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[_builtins.str],
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Optional bidirectional communication configuration. Supply this configuration and set Enabled to true so you can interact with the agent directly from Slack
+
+        :param pulumi.Input[_builtins.str] role_arn: IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace on behalf of this association
+        :param pulumi.Input[_builtins.bool] enabled: Whether bidirectional communication is enabled for this association. When set to true, you can mention the agent in a configured Slack channel and it responds in that channel. When omitted or set to false, the agent ignores mentions and only sends notifications
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace on behalf of this association
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether bidirectional communication is enabled for this association. When set to true, you can mention the agent in a configured Slack channel and it responds in that channel. When omitted or set to false, the agent ignores mentions and only sends notifications
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
 class AssociationSlackChannelArgsDict(TypedDict):
     """
     Slack channel configuration
@@ -1804,13 +2095,15 @@ class AssociationSlackConfigurationArgsDict(TypedDict):
     """
     Associated Slack workspace name
     """
+    bidirectional: NotRequired[pulumi.Input[Optional['AssociationSlackBidirectionalConfigurationArgsDict']]]
 
 @pulumi.input_type
 class AssociationSlackConfigurationArgs:
     def __init__(__self__, *,
                  transmission_target: pulumi.Input['AssociationSlackTransmissionTargetArgs'],
                  workspace_id: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 bidirectional: pulumi.Input[Optional['AssociationSlackBidirectionalConfigurationArgs']] = None):
         """
         Slack workspace integration configuration
 
@@ -1820,6 +2113,8 @@ class AssociationSlackConfigurationArgs:
         pulumi.set(__self__, "transmission_target", transmission_target)
         pulumi.set(__self__, "workspace_id", workspace_id)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if bidirectional is not None:
+            pulumi.set(__self__, "bidirectional", bidirectional)
 
     @_builtins.property
     @pulumi.getter(name="transmissionTarget")
@@ -1853,6 +2148,15 @@ class AssociationSlackConfigurationArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bidirectional(self) -> pulumi.Input[Optional['AssociationSlackBidirectionalConfigurationArgs']]:
+        return pulumi.get(self, "bidirectional")
+
+    @bidirectional.setter
+    def bidirectional(self, value: pulumi.Input[Optional['AssociationSlackBidirectionalConfigurationArgs']]):
+        pulumi.set(self, "bidirectional", value)
 
 
 class AssociationSlackTransmissionTargetArgsDict(TypedDict):
@@ -1904,6 +2208,10 @@ class AssociationSourceAwsConfigurationArgsDict(TypedDict):
     """
     Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
     """
+    agent_elevated_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+    """
     resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgsDict']]]]]
     tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgsDict']]]]]
 
@@ -1913,6 +2221,7 @@ class AssociationSourceAwsConfigurationArgs:
                  account_id: pulumi.Input[_builtins.str],
                  account_type: pulumi.Input['AssociationSourceAwsConfigurationAccountType'],
                  assumable_role_arn: pulumi.Input[_builtins.str],
+                 agent_elevated_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  resources: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgs']]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgs']]]] = None):
         """
@@ -1921,10 +2230,13 @@ class AssociationSourceAwsConfigurationArgs:
         :param pulumi.Input[_builtins.str] account_id: AWS Account Id corresponding to provided resources
         :param pulumi.Input['AssociationSourceAwsConfigurationAccountType'] account_type: Account Type 'source' for DevOpsAgent monitoring
         :param pulumi.Input[_builtins.str] assumable_role_arn: Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        :param pulumi.Input[_builtins.str] agent_elevated_role_arn: The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "account_type", account_type)
         pulumi.set(__self__, "assumable_role_arn", assumable_role_arn)
+        if agent_elevated_role_arn is not None:
+            pulumi.set(__self__, "agent_elevated_role_arn", agent_elevated_role_arn)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
         if tags is not None:
@@ -1965,6 +2277,18 @@ class AssociationSourceAwsConfigurationArgs:
     @assumable_role_arn.setter
     def assumable_role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "assumable_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentElevatedRoleArn")
+    def agent_elevated_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+        """
+        return pulumi.get(self, "agent_elevated_role_arn")
+
+    @agent_elevated_role_arn.setter
+    def agent_elevated_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "agent_elevated_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2464,10 +2788,11 @@ class ServiceBearerTokenDetailsArgs:
 
 class ServiceDetailsArgsDict(TypedDict):
     """
-    Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
+    Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields, including GitHub, require replacement when modified
     """
     azure_identity: NotRequired[pulumi.Input[Optional['ServiceAzureIdentityServiceDetailsArgsDict']]]
     dynatrace: NotRequired[pulumi.Input[Optional['ServiceDynatraceServiceDetailsArgsDict']]]
+    git_hub: NotRequired[pulumi.Input[Optional['ServiceGitHubDetailsArgsDict']]]
     git_lab: NotRequired[pulumi.Input[Optional['ServiceGitLabDetailsArgsDict']]]
     mcp_server: NotRequired[pulumi.Input[Optional['ServiceMcpServerDetailsArgsDict']]]
     mcp_server_grafana: NotRequired[pulumi.Input[Optional['ServiceMcpServerGrafanaDetailsArgsDict']]]
@@ -2482,6 +2807,7 @@ class ServiceDetailsArgs:
     def __init__(__self__, *,
                  azure_identity: pulumi.Input[Optional['ServiceAzureIdentityServiceDetailsArgs']] = None,
                  dynatrace: pulumi.Input[Optional['ServiceDynatraceServiceDetailsArgs']] = None,
+                 git_hub: pulumi.Input[Optional['ServiceGitHubDetailsArgs']] = None,
                  git_lab: pulumi.Input[Optional['ServiceGitLabDetailsArgs']] = None,
                  mcp_server: pulumi.Input[Optional['ServiceMcpServerDetailsArgs']] = None,
                  mcp_server_grafana: pulumi.Input[Optional['ServiceMcpServerGrafanaDetailsArgs']] = None,
@@ -2491,12 +2817,14 @@ class ServiceDetailsArgs:
                  pager_duty: pulumi.Input[Optional['ServicePagerDutyDetailsArgs']] = None,
                  service_now: pulumi.Input[Optional['ServiceNowServiceDetailsArgs']] = None):
         """
-        Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
+        Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields, including GitHub, require replacement when modified
         """
         if azure_identity is not None:
             pulumi.set(__self__, "azure_identity", azure_identity)
         if dynatrace is not None:
             pulumi.set(__self__, "dynatrace", dynatrace)
+        if git_hub is not None:
+            pulumi.set(__self__, "git_hub", git_hub)
         if git_lab is not None:
             pulumi.set(__self__, "git_lab", git_lab)
         if mcp_server is not None:
@@ -2531,6 +2859,15 @@ class ServiceDetailsArgs:
     @dynatrace.setter
     def dynatrace(self, value: pulumi.Input[Optional['ServiceDynatraceServiceDetailsArgs']]):
         pulumi.set(self, "dynatrace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gitHub")
+    def git_hub(self) -> pulumi.Input[Optional['ServiceGitHubDetailsArgs']]:
+        return pulumi.get(self, "git_hub")
+
+    @git_hub.setter
+    def git_hub(self, value: pulumi.Input[Optional['ServiceGitHubDetailsArgs']]):
+        pulumi.set(self, "git_hub", value)
 
     @_builtins.property
     @pulumi.getter(name="gitLab")
@@ -2675,6 +3012,210 @@ class ServiceDynatraceServiceDetailsArgs:
     @authorization_config.setter
     def authorization_config(self, value: pulumi.Input[Optional['ServiceDynatraceAuthorizationConfigArgs']]):
         pulumi.set(self, "authorization_config", value)
+
+
+class ServiceGitHubAppVerificationDetailsArgsDict(TypedDict):
+    """
+    The token verifies an existing DevOps Agent GitHub App installation on github.com and is then discarded. Not supported for GitHub Enterprise Server
+    """
+    app_variant: pulumi.Input['ServiceGitHubAppVerificationDetailsAppVariant']
+    """
+    Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+    """
+    token_value: pulumi.Input[_builtins.str]
+    """
+    GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+    """
+    organization_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+    """
+    target_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+    """
+
+@pulumi.input_type
+class ServiceGitHubAppVerificationDetailsArgs:
+    def __init__(__self__, *,
+                 app_variant: pulumi.Input['ServiceGitHubAppVerificationDetailsAppVariant'],
+                 token_value: pulumi.Input[_builtins.str],
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The token verifies an existing DevOps Agent GitHub App installation on github.com and is then discarded. Not supported for GitHub Enterprise Server
+
+        :param pulumi.Input['ServiceGitHubAppVerificationDetailsAppVariant'] app_variant: Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+        :param pulumi.Input[_builtins.str] token_value: GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+        :param pulumi.Input[_builtins.str] organization_name: GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+        :param pulumi.Input[_builtins.str] target_url: GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+        """
+        pulumi.set(__self__, "app_variant", app_variant)
+        pulumi.set(__self__, "token_value", token_value)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if target_url is not None:
+            pulumi.set(__self__, "target_url", target_url)
+
+    @_builtins.property
+    @pulumi.getter(name="appVariant")
+    def app_variant(self) -> pulumi.Input['ServiceGitHubAppVerificationDetailsAppVariant']:
+        """
+        Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+        """
+        return pulumi.get(self, "app_variant")
+
+    @app_variant.setter
+    def app_variant(self, value: pulumi.Input['ServiceGitHubAppVerificationDetailsAppVariant']):
+        pulumi.set(self, "app_variant", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenValue")
+    def token_value(self) -> pulumi.Input[_builtins.str]:
+        """
+        GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+        """
+        return pulumi.get(self, "token_value")
+
+    @token_value.setter
+    def token_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+        """
+        return pulumi.get(self, "organization_name")
+
+    @organization_name.setter
+    def organization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organization_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+        """
+        return pulumi.get(self, "target_url")
+
+    @target_url.setter
+    def target_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_url", value)
+
+
+class ServiceGitHubDetailsArgsDict(TypedDict):
+    """
+    GitHub personal access token (PAT) service configuration. Exactly one of AppVerification or DirectAccess selects how the token is used
+    """
+    app_verification: NotRequired[pulumi.Input[Optional['ServiceGitHubAppVerificationDetailsArgsDict']]]
+    direct_access: NotRequired[pulumi.Input[Optional['ServiceGitHubPatDetailsArgsDict']]]
+
+@pulumi.input_type
+class ServiceGitHubDetailsArgs:
+    def __init__(__self__, *,
+                 app_verification: pulumi.Input[Optional['ServiceGitHubAppVerificationDetailsArgs']] = None,
+                 direct_access: pulumi.Input[Optional['ServiceGitHubPatDetailsArgs']] = None):
+        """
+        GitHub personal access token (PAT) service configuration. Exactly one of AppVerification or DirectAccess selects how the token is used
+        """
+        if app_verification is not None:
+            pulumi.set(__self__, "app_verification", app_verification)
+        if direct_access is not None:
+            pulumi.set(__self__, "direct_access", direct_access)
+
+    @_builtins.property
+    @pulumi.getter(name="appVerification")
+    def app_verification(self) -> pulumi.Input[Optional['ServiceGitHubAppVerificationDetailsArgs']]:
+        return pulumi.get(self, "app_verification")
+
+    @app_verification.setter
+    def app_verification(self, value: pulumi.Input[Optional['ServiceGitHubAppVerificationDetailsArgs']]):
+        pulumi.set(self, "app_verification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directAccess")
+    def direct_access(self) -> pulumi.Input[Optional['ServiceGitHubPatDetailsArgs']]:
+        return pulumi.get(self, "direct_access")
+
+    @direct_access.setter
+    def direct_access(self, value: pulumi.Input[Optional['ServiceGitHubPatDetailsArgs']]):
+        pulumi.set(self, "direct_access", value)
+
+
+class ServiceGitHubPatDetailsArgsDict(TypedDict):
+    """
+    The token is stored and used as the long-lived credential for GitHub API access
+    """
+    token_value: pulumi.Input[_builtins.str]
+    """
+    GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+    """
+    organization_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+    """
+    target_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+    """
+
+@pulumi.input_type
+class ServiceGitHubPatDetailsArgs:
+    def __init__(__self__, *,
+                 token_value: pulumi.Input[_builtins.str],
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The token is stored and used as the long-lived credential for GitHub API access
+
+        :param pulumi.Input[_builtins.str] token_value: GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+        :param pulumi.Input[_builtins.str] organization_name: GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+        :param pulumi.Input[_builtins.str] target_url: GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+        """
+        pulumi.set(__self__, "token_value", token_value)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if target_url is not None:
+            pulumi.set(__self__, "target_url", target_url)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenValue")
+    def token_value(self) -> pulumi.Input[_builtins.str]:
+        """
+        GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+        """
+        return pulumi.get(self, "token_value")
+
+    @token_value.setter
+    def token_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+        """
+        return pulumi.get(self, "organization_name")
+
+    @organization_name.setter
+    def organization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organization_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+        """
+        return pulumi.get(self, "target_url")
+
+    @target_url.setter
+    def target_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_url", value)
 
 
 class ServiceGitLabDetailsArgsDict(TypedDict):

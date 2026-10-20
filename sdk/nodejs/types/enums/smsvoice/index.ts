@@ -2,6 +2,58 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const NotifyConfigurationEnabledChannelsItem = {
+    Sms: "SMS",
+    Voice: "VOICE",
+    Mms: "MMS",
+    Rcs: "RCS",
+} as const;
+
+export type NotifyConfigurationEnabledChannelsItem = (typeof NotifyConfigurationEnabledChannelsItem)[keyof typeof NotifyConfigurationEnabledChannelsItem];
+
+export const NotifyConfigurationStatus = {
+    Pending: "PENDING",
+    Active: "ACTIVE",
+    Rejected: "REJECTED",
+    RequiresVerification: "REQUIRES_VERIFICATION",
+} as const;
+
+/**
+ * The current status of the notify configuration.
+ */
+export type NotifyConfigurationStatus = (typeof NotifyConfigurationStatus)[keyof typeof NotifyConfigurationStatus];
+
+export const NotifyConfigurationTier = {
+    Basic: "BASIC",
+    Advanced: "ADVANCED",
+} as const;
+
+/**
+ * The tier of the notify configuration.
+ */
+export type NotifyConfigurationTier = (typeof NotifyConfigurationTier)[keyof typeof NotifyConfigurationTier];
+
+export const NotifyConfigurationTierUpgradeStatus = {
+    Basic: "BASIC",
+    PendingUpgrade: "PENDING_UPGRADE",
+    Advanced: "ADVANCED",
+    Rejected: "REJECTED",
+} as const;
+
+/**
+ * The tier upgrade status of the notify configuration.
+ */
+export type NotifyConfigurationTierUpgradeStatus = (typeof NotifyConfigurationTierUpgradeStatus)[keyof typeof NotifyConfigurationTierUpgradeStatus];
+
+export const NotifyConfigurationUseCase = {
+    CodeVerification: "CODE_VERIFICATION",
+} as const;
+
+/**
+ * The use case for the notify configuration.
+ */
+export type NotifyConfigurationUseCase = (typeof NotifyConfigurationUseCase)[keyof typeof NotifyConfigurationUseCase];
+
 export const PhoneNumberNumberCapabilitiesItem = {
     Sms: "SMS",
     Voice: "VOICE",
@@ -55,6 +107,31 @@ export const ProtectConfigurationCountryRuleProtectStatus = {
  * The types of protection that can be used.
  */
 export type ProtectConfigurationCountryRuleProtectStatus = (typeof ProtectConfigurationCountryRuleProtectStatus)[keyof typeof ProtectConfigurationCountryRuleProtectStatus];
+
+export const RcsAgentStatus = {
+    Created: "CREATED",
+    Pending: "PENDING",
+    Testing: "TESTING",
+    Partial: "PARTIAL",
+    Active: "ACTIVE",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * The current status of the RCS agent. CREATED means the agent exists but no registration has been submitted. PENDING means a registration is awaiting processing. TESTING means the testing registration is approved and the agent can message registered test devices. PARTIAL means at least one country launch is active. ACTIVE means all submitted country launches are active. DELETED means the agent has been deleted.
+ */
+export type RcsAgentStatus = (typeof RcsAgentStatus)[keyof typeof RcsAgentStatus];
+
+export const RcsAgentTestingAgentInformationTestingAgentStatus = {
+    Created: "CREATED",
+    Pending: "PENDING",
+    Active: "ACTIVE",
+} as const;
+
+/**
+ * The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+ */
+export type RcsAgentTestingAgentInformationTestingAgentStatus = (typeof RcsAgentTestingAgentInformationTestingAgentStatus)[keyof typeof RcsAgentTestingAgentInformationTestingAgentStatus];
 
 export const RegistrationAttachmentAttachmentStatus = {
     UploadInProgress: "UPLOAD_IN_PROGRESS",

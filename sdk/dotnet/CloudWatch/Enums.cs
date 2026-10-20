@@ -71,6 +71,73 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
     /// <summary>
+    /// Lifecycle status of the integration.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationStatus : IEquatable<IntegrationStatus>
+    {
+        private readonly string _value;
+
+        private IntegrationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationStatus Pending { get; } = new IntegrationStatus("PENDING");
+        public static IntegrationStatus PendingOauth { get; } = new IntegrationStatus("PENDING_OAUTH");
+        public static IntegrationStatus Active { get; } = new IntegrationStatus("ACTIVE");
+        public static IntegrationStatus Error { get; } = new IntegrationStatus("ERROR");
+        public static IntegrationStatus Failed { get; } = new IntegrationStatus("FAILED");
+        public static IntegrationStatus Deleted { get; } = new IntegrationStatus("DELETED");
+
+        public static bool operator ==(IntegrationStatus left, IntegrationStatus right) => left.Equals(right);
+        public static bool operator !=(IntegrationStatus left, IntegrationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationStatus other && Equals(other);
+        public bool Equals(IntegrationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of integration. Immutable after creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationType : IEquatable<IntegrationType>
+    {
+        private readonly string _value;
+
+        private IntegrationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationType AwsConfigSlrec { get; } = new IntegrationType("AWS_CONFIG_SLREC");
+        public static IntegrationType AwsIntegration { get; } = new IntegrationType("AWS_INTEGRATION");
+        public static IntegrationType ExternalAgent { get; } = new IntegrationType("EXTERNAL_AGENT");
+
+        public static bool operator ==(IntegrationType left, IntegrationType right) => left.Equals(right);
+        public static bool operator !=(IntegrationType left, IntegrationType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationType other && Equals(other);
+        public bool Equals(IntegrationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Current status of OTel enrichment (RUNNING or STOPPED).
     /// </summary>
     [EnumType]

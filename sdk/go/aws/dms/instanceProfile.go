@@ -24,7 +24,7 @@ type InstanceProfile struct {
 	InstanceProfileArn pulumi.StringOutput `pulumi:"instanceProfileArn"`
 	// The property describes a creating time of the instance profile.
 	InstanceProfileCreationTime pulumi.StringOutput `pulumi:"instanceProfileCreationTime"`
-	// The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	InstanceProfileIdentifier pulumi.StringPtrOutput `pulumi:"instanceProfileIdentifier"`
 	// The property describes a name for the instance profile.
 	InstanceProfileName pulumi.StringPtrOutput `pulumi:"instanceProfileName"`
@@ -86,7 +86,7 @@ type instanceProfileArgs struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The optional description of the instance profile.
 	Description *string `pulumi:"description"`
-	// The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	InstanceProfileIdentifier *string `pulumi:"instanceProfileIdentifier"`
 	// The property describes a name for the instance profile.
 	InstanceProfileName *string `pulumi:"instanceProfileName"`
@@ -110,7 +110,7 @@ type InstanceProfileArgs struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The optional description of the instance profile.
 	Description pulumi.StringPtrInput
-	// The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	InstanceProfileIdentifier pulumi.StringPtrInput
 	// The property describes a name for the instance profile.
 	InstanceProfileName pulumi.StringPtrInput
@@ -185,7 +185,7 @@ func (o InstanceProfileOutput) InstanceProfileCreationTime() pulumi.StringOutput
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.InstanceProfileCreationTime }).(pulumi.StringOutput)
 }
 
-// The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 func (o InstanceProfileOutput) InstanceProfileIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.InstanceProfileIdentifier }).(pulumi.StringPtrOutput)
 }

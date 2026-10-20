@@ -23,6 +23,7 @@ __all__ = ['AlarmArgs', 'Alarm']
 @pulumi.input_type
 class AlarmArgs:
     def __init__(__self__, *,
+                 action_configuration: pulumi.Input[Optional['AlarmActionConfigurationArgs']] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -94,6 +95,8 @@ class AlarmArgs:
         :param pulumi.Input['AlarmWarmUpConfigurationArgs'] warm_up_configuration: The warm-up configuration for the alarm. A warm-up period delays alarm evaluation after you create or update the alarm. During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
                 For more information, see [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the *Amazon CloudWatch User Guide*.
         """
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
         if alarm_actions is not None:
@@ -146,6 +149,15 @@ class AlarmArgs:
             pulumi.set(__self__, "unit", unit)
         if warm_up_configuration is not None:
             pulumi.set(__self__, "warm_up_configuration", warm_up_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> pulumi.Input[Optional['AlarmActionConfigurationArgs']]:
+        return pulumi.get(self, "action_configuration")
+
+    @action_configuration.setter
+    def action_configuration(self, value: pulumi.Input[Optional['AlarmActionConfigurationArgs']]):
+        pulumi.set(self, "action_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -481,6 +493,7 @@ class Alarm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_configuration: pulumi.Input[Optional[Union['AlarmActionConfigurationArgs', 'AlarmActionConfigurationArgsDict']]] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -583,6 +596,7 @@ class Alarm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_configuration: pulumi.Input[Optional[Union['AlarmActionConfigurationArgs', 'AlarmActionConfigurationArgsDict']]] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -618,6 +632,7 @@ class Alarm(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlarmArgs.__new__(AlarmArgs)
 
+            __props__.__dict__["action_configuration"] = action_configuration
             __props__.__dict__["actions_enabled"] = actions_enabled
             __props__.__dict__["alarm_actions"] = alarm_actions
             __props__.__dict__["alarm_description"] = alarm_description
@@ -669,6 +684,7 @@ class Alarm(pulumi.CustomResource):
 
         __props__ = AlarmArgs.__new__(AlarmArgs)
 
+        __props__.__dict__["action_configuration"] = None
         __props__.__dict__["actions_enabled"] = None
         __props__.__dict__["alarm_actions"] = None
         __props__.__dict__["alarm_description"] = None
@@ -697,6 +713,11 @@ class Alarm(pulumi.CustomResource):
         __props__.__dict__["unit"] = None
         __props__.__dict__["warm_up_configuration"] = None
         return Alarm(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> pulumi.Output[Optional['outputs.AlarmActionConfiguration']]:
+        return pulumi.get(self, "action_configuration")
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")

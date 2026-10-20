@@ -23,6 +23,31 @@ export const InsightRuleRuleState = {
  */
 export type InsightRuleRuleState = (typeof InsightRuleRuleState)[keyof typeof InsightRuleRuleState];
 
+export const IntegrationStatus = {
+    Pending: "PENDING",
+    PendingOauth: "PENDING_OAUTH",
+    Active: "ACTIVE",
+    Error: "ERROR",
+    Failed: "FAILED",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * Lifecycle status of the integration.
+ */
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
+
+export const IntegrationType = {
+    AwsConfigSlrec: "AWS_CONFIG_SLREC",
+    AwsIntegration: "AWS_INTEGRATION",
+    ExternalAgent: "EXTERNAL_AGENT",
+} as const;
+
+/**
+ * The type of integration. Immutable after creation.
+ */
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
+
 export const OTelEnrichmentStatus = {
     Running: "RUNNING",
     Stopped: "STOPPED",

@@ -3506,7 +3506,7 @@ class NetworkConnectorVpcEgressConfigurationArgsDict(TypedDict):
     """
     security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+    The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
     """
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
@@ -3525,7 +3525,7 @@ class NetworkConnectorVpcEgressConfigurationArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]] associated_compute_resource_types: The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
         :param pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol'] network_protocol: The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
         """
         pulumi.set(__self__, "associated_compute_resource_types", associated_compute_resource_types)
@@ -3561,7 +3561,7 @@ class NetworkConnectorVpcEgressConfigurationArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -3590,6 +3590,10 @@ class ServiceConfigPropertiesArgsDict(TypedDict):
     """
     The ARN of the execution role.
     """
+    egress_network_connector_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The versioned ARN of the network connector used for outbound network access from the revision.
+    """
     environment_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Environment variables for the function.
@@ -3611,6 +3615,7 @@ class ServiceConfigPropertiesArgsDict(TypedDict):
 class ServiceConfigPropertiesArgs:
     def __init__(__self__, *,
                  execution_role_arn: pulumi.Input[_builtins.str],
+                 egress_network_connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  max_concurrency_per_environment: pulumi.Input[Optional[_builtins.int]] = None,
                  telemetry_config: pulumi.Input[Optional['ServiceConfigPropertiesTelemetryConfigPropertiesArgs']] = None,
@@ -3619,12 +3624,15 @@ class ServiceConfigPropertiesArgs:
         The service configuration for the revision.
 
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the execution role.
+        :param pulumi.Input[_builtins.str] egress_network_connector_arn: The versioned ARN of the network connector used for outbound network access from the revision.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the function.
         :param pulumi.Input[_builtins.int] max_concurrency_per_environment: The maximum concurrency per environment.
         :param pulumi.Input['ServiceConfigPropertiesTelemetryConfigPropertiesArgs'] telemetry_config: The telemetry configuration.
         :param pulumi.Input[_builtins.int] timeout_seconds: The function timeout in seconds.
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if egress_network_connector_arn is not None:
+            pulumi.set(__self__, "egress_network_connector_arn", egress_network_connector_arn)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if max_concurrency_per_environment is not None:
@@ -3645,6 +3653,18 @@ class ServiceConfigPropertiesArgs:
     @execution_role_arn.setter
     def execution_role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "execution_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="egressNetworkConnectorArn")
+    def egress_network_connector_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The versioned ARN of the network connector used for outbound network access from the revision.
+        """
+        return pulumi.get(self, "egress_network_connector_arn")
+
+    @egress_network_connector_arn.setter
+    def egress_network_connector_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "egress_network_connector_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")

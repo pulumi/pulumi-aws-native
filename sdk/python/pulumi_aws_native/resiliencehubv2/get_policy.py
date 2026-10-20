@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyResult:
-    def __init__(__self__, associated_service_count=None, availability_slo=None, created_at=None, data_recovery=None, description=None, multi_az=None, multi_region=None, policy_arn=None, tags=None, updated_at=None):
+    def __init__(__self__, associated_service_count=None, availability_slo=None, created_at=None, data_recovery=None, description=None, multi_az=None, multi_region=None, policy_arn=None, sharing_enabled=None, tags=None, updated_at=None):
         if associated_service_count and not isinstance(associated_service_count, int):
             raise TypeError("Expected argument 'associated_service_count' to be a int")
         pulumi.set(__self__, "associated_service_count", associated_service_count)
@@ -51,6 +51,9 @@ class GetPolicyResult:
         if policy_arn and not isinstance(policy_arn, str):
             raise TypeError("Expected argument 'policy_arn' to be a str")
         pulumi.set(__self__, "policy_arn", policy_arn)
+        if sharing_enabled and not isinstance(sharing_enabled, bool):
+            raise TypeError("Expected argument 'sharing_enabled' to be a bool")
+        pulumi.set(__self__, "sharing_enabled", sharing_enabled)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -111,6 +114,14 @@ class GetPolicyResult:
         return pulumi.get(self, "policy_arn")
 
     @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+        """
+        return pulumi.get(self, "sharing_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -141,6 +152,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             multi_az=self.multi_az,
             multi_region=self.multi_region,
             policy_arn=self.policy_arn,
+            sharing_enabled=self.sharing_enabled,
             tags=self.tags,
             updated_at=self.updated_at)
 
@@ -166,6 +178,7 @@ def get_policy(policy_arn: Optional[_builtins.str] = None,
         multi_az=pulumi.get(__ret__, 'multi_az'),
         multi_region=pulumi.get(__ret__, 'multi_region'),
         policy_arn=pulumi.get(__ret__, 'policy_arn'),
+        sharing_enabled=pulumi.get(__ret__, 'sharing_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_policy_output(policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -188,5 +201,6 @@ def get_policy_output(policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
         multi_az=pulumi.get(__response__, 'multi_az'),
         multi_region=pulumi.get(__response__, 'multi_region'),
         policy_arn=pulumi.get(__response__, 'policy_arn'),
+        sharing_enabled=pulumi.get(__response__, 'sharing_enabled'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at')))

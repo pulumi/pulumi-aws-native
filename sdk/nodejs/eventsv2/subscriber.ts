@@ -64,7 +64,7 @@ export class Subscriber extends pulumi.CustomResource {
     /**
      * Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
      */
-    declare public readonly invokeConfiguration: pulumi.Output<outputs.eventsv2.SubscriberInvokeConfigurationProperties>;
+    declare public readonly invokeConfiguration: pulumi.Output<outputs.eventsv2.SubscriberInvokeConfiguration>;
     /**
      * Last-modification timestamp (ISO-8601), read-only.
      */
@@ -178,7 +178,7 @@ export class Subscriber extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["eventBusArn", "name", "pointInTimeConfiguration", "startingPosition", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["eventBusArn", "invokeConfiguration.targetArn", "name", "pointInTimeConfiguration", "startingPosition", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Subscriber.__pulumiType, name, resourceInputs, opts);
     }
@@ -207,7 +207,7 @@ export interface SubscriberArgs {
     /**
      * Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
      */
-    invokeConfiguration: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesArgs>;
+    invokeConfiguration: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationArgs>;
     /**
      * Delivery logging configuration for the subscriber.
      */

@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("manifestFilter")]
         public Input<string>? ManifestFilter { get; set; }
 
+        [Input("multiview")]
+        public Input<Inputs.OriginEndpointMultiviewFilterConfigurationArgs>? Multiview { get; set; }
+
         /// <summary>
         /// &lt;p&gt;Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.&lt;/p&gt;
         /// </summary>

@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Dashboard{}
 	case "aws-native:cloudwatch:InsightRule":
 		r = &InsightRule{}
+	case "aws-native:cloudwatch:Integration":
+		r = &Integration{}
 	case "aws-native:cloudwatch:LogAlarm":
 		r = &LogAlarm{}
 	case "aws-native:cloudwatch:MetricStream":

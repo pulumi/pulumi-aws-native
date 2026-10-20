@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
 {
 
     /// <summary>
-    /// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
+    /// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields, including GitHub, require replacement when modified
     /// </summary>
     public sealed class ServiceDetailsArgs : global::Pulumi.ResourceArgs
     {
@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
 
         [Input("dynatrace")]
         public Input<Inputs.ServiceDynatraceServiceDetailsArgs>? Dynatrace { get; set; }
+
+        [Input("gitHub")]
+        public Input<Inputs.ServiceGitHubDetailsArgs>? GitHub { get; set; }
 
         [Input("gitLab")]
         public Input<Inputs.ServiceGitLabDetailsArgs>? GitLab { get; set; }

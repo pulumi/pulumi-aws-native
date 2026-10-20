@@ -17,6 +17,8 @@ import (
 type CompositeAlarm struct {
 	pulumi.CustomResourceState
 
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration CompositeAlarmActionConfigurationPtrOutput `pulumi:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled pulumi.BoolPtrOutput `pulumi:"actionsEnabled"`
 	// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
@@ -90,6 +92,8 @@ func (CompositeAlarmState) ElementType() reflect.Type {
 }
 
 type compositeAlarmArgs struct {
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration *CompositeAlarmActionConfiguration `pulumi:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
 	// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
@@ -116,6 +120,8 @@ type compositeAlarmArgs struct {
 
 // The set of arguments for constructing a CompositeAlarm resource.
 type CompositeAlarmArgs struct {
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration CompositeAlarmActionConfigurationPtrInput
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled pulumi.BoolPtrInput
 	// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
@@ -175,6 +181,11 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutput() CompositeAlarmOutput {
 
 func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Context) CompositeAlarmOutput {
 	return o
+}
+
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+func (o CompositeAlarmOutput) ActionConfiguration() CompositeAlarmActionConfigurationPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) CompositeAlarmActionConfigurationPtrOutput { return v.ActionConfiguration }).(CompositeAlarmActionConfigurationPtrOutput)
 }
 
 // Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.

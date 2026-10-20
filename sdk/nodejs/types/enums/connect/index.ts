@@ -670,6 +670,16 @@ export const RuleReferenceType = {
  */
 export type RuleReferenceType = (typeof RuleReferenceType)[keyof typeof RuleReferenceType];
 
+export const RuleSendInAppNotificationActionPriority = {
+    High: "HIGH",
+    Low: "LOW",
+} as const;
+
+/**
+ * The priority of the notification.
+ */
+export type RuleSendInAppNotificationActionPriority = (typeof RuleSendInAppNotificationActionPriority)[keyof typeof RuleSendInAppNotificationActionPriority];
+
 export const RuleSendNotificationActionContentType = {
     PlainText: "PLAIN_TEXT",
 } as const;

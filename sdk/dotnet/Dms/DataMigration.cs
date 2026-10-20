@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Dms
         public Output<string> DataMigrationCreateTime { get; private set; } = null!;
 
         /// <summary>
-        /// The property describes an ARN of the data migration.
+        /// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         /// </summary>
         [Output("dataMigrationIdentifier")]
         public Output<string?> DataMigrationIdentifier { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.Dms
     public sealed class DataMigrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The property describes an ARN of the data migration.
+        /// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         /// </summary>
         [Input("dataMigrationIdentifier")]
         public Input<string>? DataMigrationIdentifier { get; set; }

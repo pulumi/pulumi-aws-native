@@ -220,7 +220,6 @@
   "required" : [ "FunctionName", "EndpointName", "EndpointType", "AuthType" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/EndpointArn" ],
-  "additionalIdentifiers" : [ [ "/properties/FunctionName", "/properties/EndpointName" ] ],
   "readOnlyProperties" : [ "/properties/FunctionArn", "/properties/EndpointArn", "/properties/DomainName", "/properties/State", "/properties/StateReason", "/properties/UpdateStatus", "/properties/UpdateStatusReason", "/properties/RegionalEndpoints", "/properties/CreatedAt", "/properties/UpdatedAt" ],
   "createOnlyProperties" : [ "/properties/FunctionName", "/properties/EndpointName", "/properties/EndpointType", "/properties/Regions" ],
   "tagging" : {

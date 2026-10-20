@@ -124,6 +124,7 @@ export class GlobalTable extends pulumi.CustomResource {
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */
     declare public readonly timeToLiveSpecification: pulumi.Output<outputs.dynamodb.GlobalTableTimeToLiveSpecification | undefined>;
+    declare public readonly vectorIndexes: pulumi.Output<outputs.dynamodb.GlobalTableVectorIndex[] | undefined>;
     /**
      * Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
      */
@@ -166,6 +167,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["streamSpecification"] = args?.streamSpecification;
             resourceInputs["tableName"] = args?.tableName;
             resourceInputs["timeToLiveSpecification"] = args?.timeToLiveSpecification;
+            resourceInputs["vectorIndexes"] = args?.vectorIndexes;
             resourceInputs["warmThroughput"] = args?.warmThroughput;
             resourceInputs["writeOnDemandThroughputSettings"] = args?.writeOnDemandThroughputSettings;
             resourceInputs["writeProvisionedThroughputSettings"] = args?.writeProvisionedThroughputSettings;
@@ -191,6 +193,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["tableId"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["timeToLiveSpecification"] = undefined /*out*/;
+            resourceInputs["vectorIndexes"] = undefined /*out*/;
             resourceInputs["warmThroughput"] = undefined /*out*/;
             resourceInputs["writeOnDemandThroughputSettings"] = undefined /*out*/;
             resourceInputs["writeProvisionedThroughputSettings"] = undefined /*out*/;
@@ -279,6 +282,7 @@ export interface GlobalTableArgs {
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableTimeToLiveSpecificationArgs | undefined>;
+    vectorIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableVectorIndexArgs>[] | undefined>;
     /**
      * Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
      */

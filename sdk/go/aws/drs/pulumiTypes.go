@@ -161,6 +161,11 @@ type LaunchConfigurationTemplateTag struct {
 	Value string `pulumi:"value"`
 }
 
+type RecoveryPlanTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type ReplicationConfigurationTemplatePitPolicyRule struct {
 	// Whether this rule is enabled or not.
 	Enabled *bool `pulumi:"enabled"`

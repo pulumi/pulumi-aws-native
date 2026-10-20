@@ -258,6 +258,10 @@ export class Server extends pulumi.CustomResource {
      */
     declare public readonly certificate: pulumi.Output<string | undefined>;
     /**
+     * When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients. When set to `false`, clients will not be able to establish an SFTP session until you import one or more host keys (see AWS::Transfer::HostKey). This property cannot be changed after resource creation. Default: `true`.
+     */
+    declare public readonly createWithHostKey: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.
      */
     declare public readonly domain: pulumi.Output<enums.transfer.ServerDomain | undefined>;
@@ -405,6 +409,7 @@ export class Server extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["createWithHostKey"] = args?.createWithHostKey;
             resourceInputs["domain"] = args?.domain;
             resourceInputs["endpointDetails"] = args?.endpointDetails;
             resourceInputs["endpointType"] = args?.endpointType;
@@ -429,6 +434,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["as2ServiceManagedEgressIpAddresses"] = undefined /*out*/;
             resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["createWithHostKey"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["endpointDetails"] = undefined /*out*/;
             resourceInputs["endpointType"] = undefined /*out*/;
@@ -479,6 +485,10 @@ export interface ServerArgs {
      * > The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.
      */
     certificate?: pulumi.Input<string | undefined>;
+    /**
+     * When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients. When set to `false`, clients will not be able to establish an SFTP session until you import one or more host keys (see AWS::Transfer::HostKey). This property cannot be changed after resource creation. Default: `true`.
+     */
+    createWithHostKey?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.
      */

@@ -344,6 +344,97 @@ func (in *launchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtr) ToL
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput)
 }
 
+// The status of the Recovery Plan. ACTIVE means executable. INVALID means the plan has no SERVER type steps and cannot be executed.
+type RecoveryPlanStatus string
+
+const (
+	RecoveryPlanStatusActive  = RecoveryPlanStatus("ACTIVE")
+	RecoveryPlanStatusInvalid = RecoveryPlanStatus("INVALID")
+)
+
+type RecoveryPlanStatusOutput struct{ *pulumi.OutputState }
+
+func (RecoveryPlanStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecoveryPlanStatus)(nil)).Elem()
+}
+
+func (o RecoveryPlanStatusOutput) ToRecoveryPlanStatusOutput() RecoveryPlanStatusOutput {
+	return o
+}
+
+func (o RecoveryPlanStatusOutput) ToRecoveryPlanStatusOutputWithContext(ctx context.Context) RecoveryPlanStatusOutput {
+	return o
+}
+
+func (o RecoveryPlanStatusOutput) ToRecoveryPlanStatusPtrOutput() RecoveryPlanStatusPtrOutput {
+	return o.ToRecoveryPlanStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RecoveryPlanStatusOutput) ToRecoveryPlanStatusPtrOutputWithContext(ctx context.Context) RecoveryPlanStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecoveryPlanStatus) *RecoveryPlanStatus {
+		return &v
+	}).(RecoveryPlanStatusPtrOutput)
+}
+
+func (o RecoveryPlanStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecoveryPlanStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecoveryPlanStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecoveryPlanStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecoveryPlanStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecoveryPlanStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecoveryPlanStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RecoveryPlanStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecoveryPlanStatus)(nil)).Elem()
+}
+
+func (o RecoveryPlanStatusPtrOutput) ToRecoveryPlanStatusPtrOutput() RecoveryPlanStatusPtrOutput {
+	return o
+}
+
+func (o RecoveryPlanStatusPtrOutput) ToRecoveryPlanStatusPtrOutputWithContext(ctx context.Context) RecoveryPlanStatusPtrOutput {
+	return o
+}
+
+func (o RecoveryPlanStatusPtrOutput) Elem() RecoveryPlanStatusOutput {
+	return o.ApplyT(func(v *RecoveryPlanStatus) RecoveryPlanStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RecoveryPlanStatus
+		return ret
+	}).(RecoveryPlanStatusOutput)
+}
+
+func (o RecoveryPlanStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecoveryPlanStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecoveryPlanStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The data plane routing mechanism that will be used for replication.
 type ReplicationConfigurationTemplateDataPlaneRouting string
 
@@ -1201,6 +1292,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchConfigurationTemplateLaunchDispositionPtrOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput{})
+	pulumi.RegisterOutputType(RecoveryPlanStatusOutput{})
+	pulumi.RegisterOutputType(RecoveryPlanStatusPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTemplateDataPlaneRoutingOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput{})

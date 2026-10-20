@@ -2944,7 +2944,8 @@ type FilterCriteria struct {
 	// Details of the Amazon ECR image architecture types used to filter findings.
 	EcrImageArchitecture []FilterStringFilter `pulumi:"ecrImageArchitecture"`
 	// Details of the Amazon ECR image hashes used to filter findings.
-	EcrImageHash []FilterStringFilter `pulumi:"ecrImageHash"`
+	EcrImageHash       []FilterStringFilter `pulumi:"ecrImageHash"`
+	EcrImageInUseCount []FilterNumberFilter `pulumi:"ecrImageInUseCount"`
 	// Details on the Amazon ECR image push date and time used to filter findings.
 	EcrImagePushedAt []FilterDateFilter `pulumi:"ecrImagePushedAt"`
 	// Details on the Amazon ECR registry used to filter findings.
@@ -3031,7 +3032,8 @@ type FilterCriteriaArgs struct {
 	// Details of the Amazon ECR image architecture types used to filter findings.
 	EcrImageArchitecture FilterStringFilterArrayInput `pulumi:"ecrImageArchitecture"`
 	// Details of the Amazon ECR image hashes used to filter findings.
-	EcrImageHash FilterStringFilterArrayInput `pulumi:"ecrImageHash"`
+	EcrImageHash       FilterStringFilterArrayInput `pulumi:"ecrImageHash"`
+	EcrImageInUseCount FilterNumberFilterArrayInput `pulumi:"ecrImageInUseCount"`
 	// Details on the Amazon ECR image push date and time used to filter findings.
 	EcrImagePushedAt FilterDateFilterArrayInput `pulumi:"ecrImagePushedAt"`
 	// Details on the Amazon ECR registry used to filter findings.
@@ -3164,6 +3166,10 @@ func (o FilterCriteriaOutput) EcrImageArchitecture() FilterStringFilterArrayOutp
 // Details of the Amazon ECR image hashes used to filter findings.
 func (o FilterCriteriaOutput) EcrImageHash() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.EcrImageHash }).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaOutput) EcrImageInUseCount() FilterNumberFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterNumberFilter { return v.EcrImageInUseCount }).(FilterNumberFilterArrayOutput)
 }
 
 // Details on the Amazon ECR image push date and time used to filter findings.
@@ -3442,6 +3448,15 @@ func (o FilterCriteriaPtrOutput) EcrImageHash() FilterStringFilterArrayOutput {
 		}
 		return v.EcrImageHash
 	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) EcrImageInUseCount() FilterNumberFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.EcrImageInUseCount
+	}).(FilterNumberFilterArrayOutput)
 }
 
 // Details on the Amazon ECR image push date and time used to filter findings.

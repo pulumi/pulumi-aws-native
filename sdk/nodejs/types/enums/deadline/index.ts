@@ -75,6 +75,12 @@ export const FleetServiceManagedFleetOperatingSystemFamily = {
 
 export type FleetServiceManagedFleetOperatingSystemFamily = (typeof FleetServiceManagedFleetOperatingSystemFamily)[keyof typeof FleetServiceManagedFleetOperatingSystemFamily];
 
+export const FleetSoftwareAddOnName = {
+    Docker: "docker",
+} as const;
+
+export type FleetSoftwareAddOnName = (typeof FleetSoftwareAddOnName)[keyof typeof FleetSoftwareAddOnName];
+
 export const FleetStatus = {
     Active: "ACTIVE",
     CreateInProgress: "CREATE_IN_PROGRESS",

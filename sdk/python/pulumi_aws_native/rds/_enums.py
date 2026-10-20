@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'CustomDbEngineVersionStatus',
+    'DbClusterEndpointCustomEndpointType',
     'DbInstanceProcessorFeatureName',
     'DbProxyAuthFormatAuthScheme',
     'DbProxyAuthFormatClientPasswordAuthType',
@@ -32,6 +33,16 @@ class CustomDbEngineVersionStatus(_builtins.str, Enum):
     INACTIVE = "inactive"
     INACTIVE_EXCEPT_RESTORE = "inactive-except-restore"
     PENDING_VALIDATION = "pending-validation"
+
+
+@pulumi.type_token("aws-native:rds:DbClusterEndpointCustomEndpointType")
+class DbClusterEndpointCustomEndpointType(_builtins.str, Enum):
+    """
+    The type of the custom endpoint.
+    """
+    READER = "READER"
+    WRITER = "WRITER"
+    ANY = "ANY"
 
 
 @pulumi.type_token("aws-native:rds:DbInstanceProcessorFeatureName")

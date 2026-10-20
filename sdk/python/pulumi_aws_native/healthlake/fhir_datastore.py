@@ -25,9 +25,12 @@ __all__ = ['FhirDatastoreArgs', 'FhirDatastore']
 class FhirDatastoreArgs:
     def __init__(__self__, *,
                  datastore_type_version: pulumi.Input['FhirDatastoreDatastoreTypeVersion'],
+                 analytics_configuration: pulumi.Input[Optional['FhirDatastoreAnalyticsConfigurationArgs']] = None,
                  datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_provider_configuration: pulumi.Input[Optional['FhirDatastoreIdentityProviderConfigurationArgs']] = None,
+                 nlp_configuration: pulumi.Input[Optional['FhirDatastoreNlpConfigurationArgs']] = None,
                  preload_data_config: pulumi.Input[Optional['FhirDatastorePreloadDataConfigArgs']] = None,
+                 profile_configuration: pulumi.Input[Optional['FhirDatastoreProfileConfigurationArgs']] = None,
                  sse_configuration: pulumi.Input[Optional['FhirDatastoreSseConfigurationArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -43,12 +46,18 @@ class FhirDatastoreArgs:
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "datastore_type_version", datastore_type_version)
+        if analytics_configuration is not None:
+            pulumi.set(__self__, "analytics_configuration", analytics_configuration)
         if datastore_name is not None:
             pulumi.set(__self__, "datastore_name", datastore_name)
         if identity_provider_configuration is not None:
             pulumi.set(__self__, "identity_provider_configuration", identity_provider_configuration)
+        if nlp_configuration is not None:
+            pulumi.set(__self__, "nlp_configuration", nlp_configuration)
         if preload_data_config is not None:
             pulumi.set(__self__, "preload_data_config", preload_data_config)
+        if profile_configuration is not None:
+            pulumi.set(__self__, "profile_configuration", profile_configuration)
         if sse_configuration is not None:
             pulumi.set(__self__, "sse_configuration", sse_configuration)
         if tags is not None:
@@ -65,6 +74,15 @@ class FhirDatastoreArgs:
     @datastore_type_version.setter
     def datastore_type_version(self, value: pulumi.Input['FhirDatastoreDatastoreTypeVersion']):
         pulumi.set(self, "datastore_type_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="analyticsConfiguration")
+    def analytics_configuration(self) -> pulumi.Input[Optional['FhirDatastoreAnalyticsConfigurationArgs']]:
+        return pulumi.get(self, "analytics_configuration")
+
+    @analytics_configuration.setter
+    def analytics_configuration(self, value: pulumi.Input[Optional['FhirDatastoreAnalyticsConfigurationArgs']]):
+        pulumi.set(self, "analytics_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="datastoreName")
@@ -91,6 +109,15 @@ class FhirDatastoreArgs:
         pulumi.set(self, "identity_provider_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="nlpConfiguration")
+    def nlp_configuration(self) -> pulumi.Input[Optional['FhirDatastoreNlpConfigurationArgs']]:
+        return pulumi.get(self, "nlp_configuration")
+
+    @nlp_configuration.setter
+    def nlp_configuration(self, value: pulumi.Input[Optional['FhirDatastoreNlpConfigurationArgs']]):
+        pulumi.set(self, "nlp_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="preloadDataConfig")
     def preload_data_config(self) -> pulumi.Input[Optional['FhirDatastorePreloadDataConfigArgs']]:
         """
@@ -101,6 +128,15 @@ class FhirDatastoreArgs:
     @preload_data_config.setter
     def preload_data_config(self, value: pulumi.Input[Optional['FhirDatastorePreloadDataConfigArgs']]):
         pulumi.set(self, "preload_data_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileConfiguration")
+    def profile_configuration(self) -> pulumi.Input[Optional['FhirDatastoreProfileConfigurationArgs']]:
+        return pulumi.get(self, "profile_configuration")
+
+    @profile_configuration.setter
+    def profile_configuration(self, value: pulumi.Input[Optional['FhirDatastoreProfileConfigurationArgs']]):
+        pulumi.set(self, "profile_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sseConfiguration")
@@ -135,10 +171,13 @@ class FhirDatastore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytics_configuration: pulumi.Input[Optional[Union['FhirDatastoreAnalyticsConfigurationArgs', 'FhirDatastoreAnalyticsConfigurationArgsDict']]] = None,
                  datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
                  datastore_type_version: pulumi.Input[Optional['FhirDatastoreDatastoreTypeVersion']] = None,
                  identity_provider_configuration: pulumi.Input[Optional[Union['FhirDatastoreIdentityProviderConfigurationArgs', 'FhirDatastoreIdentityProviderConfigurationArgsDict']]] = None,
+                 nlp_configuration: pulumi.Input[Optional[Union['FhirDatastoreNlpConfigurationArgs', 'FhirDatastoreNlpConfigurationArgsDict']]] = None,
                  preload_data_config: pulumi.Input[Optional[Union['FhirDatastorePreloadDataConfigArgs', 'FhirDatastorePreloadDataConfigArgsDict']]] = None,
+                 profile_configuration: pulumi.Input[Optional[Union['FhirDatastoreProfileConfigurationArgs', 'FhirDatastoreProfileConfigurationArgsDict']]] = None,
                  sse_configuration: pulumi.Input[Optional[Union['FhirDatastoreSseConfigurationArgs', 'FhirDatastoreSseConfigurationArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -180,10 +219,13 @@ class FhirDatastore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytics_configuration: pulumi.Input[Optional[Union['FhirDatastoreAnalyticsConfigurationArgs', 'FhirDatastoreAnalyticsConfigurationArgsDict']]] = None,
                  datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
                  datastore_type_version: pulumi.Input[Optional['FhirDatastoreDatastoreTypeVersion']] = None,
                  identity_provider_configuration: pulumi.Input[Optional[Union['FhirDatastoreIdentityProviderConfigurationArgs', 'FhirDatastoreIdentityProviderConfigurationArgsDict']]] = None,
+                 nlp_configuration: pulumi.Input[Optional[Union['FhirDatastoreNlpConfigurationArgs', 'FhirDatastoreNlpConfigurationArgsDict']]] = None,
                  preload_data_config: pulumi.Input[Optional[Union['FhirDatastorePreloadDataConfigArgs', 'FhirDatastorePreloadDataConfigArgsDict']]] = None,
+                 profile_configuration: pulumi.Input[Optional[Union['FhirDatastoreProfileConfigurationArgs', 'FhirDatastoreProfileConfigurationArgsDict']]] = None,
                  sse_configuration: pulumi.Input[Optional[Union['FhirDatastoreSseConfigurationArgs', 'FhirDatastoreSseConfigurationArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -195,12 +237,15 @@ class FhirDatastore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FhirDatastoreArgs.__new__(FhirDatastoreArgs)
 
+            __props__.__dict__["analytics_configuration"] = analytics_configuration
             __props__.__dict__["datastore_name"] = datastore_name
             if datastore_type_version is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore_type_version'")
             __props__.__dict__["datastore_type_version"] = datastore_type_version
             __props__.__dict__["identity_provider_configuration"] = identity_provider_configuration
+            __props__.__dict__["nlp_configuration"] = nlp_configuration
             __props__.__dict__["preload_data_config"] = preload_data_config
+            __props__.__dict__["profile_configuration"] = profile_configuration
             __props__.__dict__["sse_configuration"] = sse_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
@@ -208,7 +253,7 @@ class FhirDatastore(pulumi.CustomResource):
             __props__.__dict__["datastore_endpoint"] = None
             __props__.__dict__["datastore_id"] = None
             __props__.__dict__["datastore_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastoreName", "datastoreTypeVersion", "identityProviderConfiguration", "preloadDataConfig", "sseConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastoreTypeVersion", "preloadDataConfig", "sseConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FhirDatastore, __self__).__init__(
             'aws-native:healthlake:FhirDatastore',
@@ -232,6 +277,7 @@ class FhirDatastore(pulumi.CustomResource):
 
         __props__ = FhirDatastoreArgs.__new__(FhirDatastoreArgs)
 
+        __props__.__dict__["analytics_configuration"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["datastore_arn"] = None
         __props__.__dict__["datastore_endpoint"] = None
@@ -240,10 +286,17 @@ class FhirDatastore(pulumi.CustomResource):
         __props__.__dict__["datastore_status"] = None
         __props__.__dict__["datastore_type_version"] = None
         __props__.__dict__["identity_provider_configuration"] = None
+        __props__.__dict__["nlp_configuration"] = None
         __props__.__dict__["preload_data_config"] = None
+        __props__.__dict__["profile_configuration"] = None
         __props__.__dict__["sse_configuration"] = None
         __props__.__dict__["tags"] = None
         return FhirDatastore(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="analyticsConfiguration")
+    def analytics_configuration(self) -> pulumi.Output[Optional['outputs.FhirDatastoreAnalyticsConfiguration']]:
+        return pulumi.get(self, "analytics_configuration")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -307,12 +360,22 @@ class FhirDatastore(pulumi.CustomResource):
         return pulumi.get(self, "identity_provider_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="nlpConfiguration")
+    def nlp_configuration(self) -> pulumi.Output[Optional['outputs.FhirDatastoreNlpConfiguration']]:
+        return pulumi.get(self, "nlp_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="preloadDataConfig")
     def preload_data_config(self) -> pulumi.Output[Optional['outputs.FhirDatastorePreloadDataConfig']]:
         """
         The preloaded Synthea data configuration for the data store.
         """
         return pulumi.get(self, "preload_data_config")
+
+    @_builtins.property
+    @pulumi.getter(name="profileConfiguration")
+    def profile_configuration(self) -> pulumi.Output[Optional['outputs.FhirDatastoreProfileConfiguration']]:
+        return pulumi.get(self, "profile_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sseConfiguration")

@@ -15646,6 +15646,2109 @@ func (o SourceProcessingPropertiesPropertiesPtrOutput) RoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// A column in a Table.
+type TableColumn struct {
+	// A free-form text comment.
+	Comment *string `pulumi:"comment"`
+	// The name of the Column.
+	Name string `pulumi:"name"`
+	// The data type of the Column.
+	Type *string `pulumi:"type"`
+}
+
+// TableColumnInput is an input type that accepts TableColumnArgs and TableColumnOutput values.
+// You can construct a concrete instance of `TableColumnInput` via:
+//
+//	TableColumnArgs{...}
+type TableColumnInput interface {
+	pulumi.Input
+
+	ToTableColumnOutput() TableColumnOutput
+	ToTableColumnOutputWithContext(context.Context) TableColumnOutput
+}
+
+// A column in a Table.
+type TableColumnArgs struct {
+	// A free-form text comment.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The name of the Column.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The data type of the Column.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (TableColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableColumn)(nil)).Elem()
+}
+
+func (i TableColumnArgs) ToTableColumnOutput() TableColumnOutput {
+	return i.ToTableColumnOutputWithContext(context.Background())
+}
+
+func (i TableColumnArgs) ToTableColumnOutputWithContext(ctx context.Context) TableColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableColumnOutput)
+}
+
+// TableColumnArrayInput is an input type that accepts TableColumnArray and TableColumnArrayOutput values.
+// You can construct a concrete instance of `TableColumnArrayInput` via:
+//
+//	TableColumnArray{ TableColumnArgs{...} }
+type TableColumnArrayInput interface {
+	pulumi.Input
+
+	ToTableColumnArrayOutput() TableColumnArrayOutput
+	ToTableColumnArrayOutputWithContext(context.Context) TableColumnArrayOutput
+}
+
+type TableColumnArray []TableColumnInput
+
+func (TableColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableColumn)(nil)).Elem()
+}
+
+func (i TableColumnArray) ToTableColumnArrayOutput() TableColumnArrayOutput {
+	return i.ToTableColumnArrayOutputWithContext(context.Background())
+}
+
+func (i TableColumnArray) ToTableColumnArrayOutputWithContext(ctx context.Context) TableColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableColumnArrayOutput)
+}
+
+// A column in a Table.
+type TableColumnOutput struct{ *pulumi.OutputState }
+
+func (TableColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableColumn)(nil)).Elem()
+}
+
+func (o TableColumnOutput) ToTableColumnOutput() TableColumnOutput {
+	return o
+}
+
+func (o TableColumnOutput) ToTableColumnOutputWithContext(ctx context.Context) TableColumnOutput {
+	return o
+}
+
+// A free-form text comment.
+func (o TableColumnOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Column.
+func (o TableColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data type of the Column.
+func (o TableColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type TableColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (TableColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableColumn)(nil)).Elem()
+}
+
+func (o TableColumnArrayOutput) ToTableColumnArrayOutput() TableColumnArrayOutput {
+	return o
+}
+
+func (o TableColumnArrayOutput) ToTableColumnArrayOutputWithContext(ctx context.Context) TableColumnArrayOutput {
+	return o
+}
+
+func (o TableColumnArrayOutput) Index(i pulumi.IntInput) TableColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableColumn {
+		return vs[0].([]TableColumn)[vs[1].(int)]
+	}).(TableColumnOutput)
+}
+
+// Specifies an input structure that defines an Apache Iceberg metadata table.
+type TableIcebergInput struct {
+	// Specifies the Iceberg table configuration.
+	IcebergTableInput *TableIcebergTableInput `pulumi:"icebergTableInput"`
+	// A required metadata operation. Can only be set to CREATE.
+	MetadataOperation *string `pulumi:"metadataOperation"`
+	// The table version of the Iceberg table. Defaults to 2.
+	Version *string `pulumi:"version"`
+}
+
+// TableIcebergInputInput is an input type that accepts TableIcebergInputArgs and TableIcebergInputOutput values.
+// You can construct a concrete instance of `TableIcebergInputInput` via:
+//
+//	TableIcebergInputArgs{...}
+type TableIcebergInputInput interface {
+	pulumi.Input
+
+	ToTableIcebergInputOutput() TableIcebergInputOutput
+	ToTableIcebergInputOutputWithContext(context.Context) TableIcebergInputOutput
+}
+
+// Specifies an input structure that defines an Apache Iceberg metadata table.
+type TableIcebergInputArgs struct {
+	// Specifies the Iceberg table configuration.
+	IcebergTableInput TableIcebergTableInputPtrInput `pulumi:"icebergTableInput"`
+	// A required metadata operation. Can only be set to CREATE.
+	MetadataOperation pulumi.StringPtrInput `pulumi:"metadataOperation"`
+	// The table version of the Iceberg table. Defaults to 2.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (TableIcebergInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergInput)(nil)).Elem()
+}
+
+func (i TableIcebergInputArgs) ToTableIcebergInputOutput() TableIcebergInputOutput {
+	return i.ToTableIcebergInputOutputWithContext(context.Background())
+}
+
+func (i TableIcebergInputArgs) ToTableIcebergInputOutputWithContext(ctx context.Context) TableIcebergInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergInputOutput)
+}
+
+func (i TableIcebergInputArgs) ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput {
+	return i.ToTableIcebergInputPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergInputArgs) ToTableIcebergInputPtrOutputWithContext(ctx context.Context) TableIcebergInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergInputOutput).ToTableIcebergInputPtrOutputWithContext(ctx)
+}
+
+// TableIcebergInputPtrInput is an input type that accepts TableIcebergInputArgs, TableIcebergInputPtr and TableIcebergInputPtrOutput values.
+// You can construct a concrete instance of `TableIcebergInputPtrInput` via:
+//
+//	        TableIcebergInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergInputPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput
+	ToTableIcebergInputPtrOutputWithContext(context.Context) TableIcebergInputPtrOutput
+}
+
+type tableIcebergInputPtrType TableIcebergInputArgs
+
+func TableIcebergInputPtr(v *TableIcebergInputArgs) TableIcebergInputPtrInput {
+	return (*tableIcebergInputPtrType)(v)
+}
+
+func (*tableIcebergInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergInput)(nil)).Elem()
+}
+
+func (i *tableIcebergInputPtrType) ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput {
+	return i.ToTableIcebergInputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergInputPtrType) ToTableIcebergInputPtrOutputWithContext(ctx context.Context) TableIcebergInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergInputPtrOutput)
+}
+
+// Specifies an input structure that defines an Apache Iceberg metadata table.
+type TableIcebergInputOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergInput)(nil)).Elem()
+}
+
+func (o TableIcebergInputOutput) ToTableIcebergInputOutput() TableIcebergInputOutput {
+	return o
+}
+
+func (o TableIcebergInputOutput) ToTableIcebergInputOutputWithContext(ctx context.Context) TableIcebergInputOutput {
+	return o
+}
+
+func (o TableIcebergInputOutput) ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput {
+	return o.ToTableIcebergInputPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergInputOutput) ToTableIcebergInputPtrOutputWithContext(ctx context.Context) TableIcebergInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergInput) *TableIcebergInput {
+		return &v
+	}).(TableIcebergInputPtrOutput)
+}
+
+// Specifies the Iceberg table configuration.
+func (o TableIcebergInputOutput) IcebergTableInput() TableIcebergTableInputPtrOutput {
+	return o.ApplyT(func(v TableIcebergInput) *TableIcebergTableInput { return v.IcebergTableInput }).(TableIcebergTableInputPtrOutput)
+}
+
+// A required metadata operation. Can only be set to CREATE.
+func (o TableIcebergInputOutput) MetadataOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIcebergInput) *string { return v.MetadataOperation }).(pulumi.StringPtrOutput)
+}
+
+// The table version of the Iceberg table. Defaults to 2.
+func (o TableIcebergInputOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIcebergInput) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type TableIcebergInputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergInput)(nil)).Elem()
+}
+
+func (o TableIcebergInputPtrOutput) ToTableIcebergInputPtrOutput() TableIcebergInputPtrOutput {
+	return o
+}
+
+func (o TableIcebergInputPtrOutput) ToTableIcebergInputPtrOutputWithContext(ctx context.Context) TableIcebergInputPtrOutput {
+	return o
+}
+
+func (o TableIcebergInputPtrOutput) Elem() TableIcebergInputOutput {
+	return o.ApplyT(func(v *TableIcebergInput) TableIcebergInput {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergInput
+		return ret
+	}).(TableIcebergInputOutput)
+}
+
+// Specifies the Iceberg table configuration.
+func (o TableIcebergInputPtrOutput) IcebergTableInput() TableIcebergTableInputPtrOutput {
+	return o.ApplyT(func(v *TableIcebergInput) *TableIcebergTableInput {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergTableInput
+	}).(TableIcebergTableInputPtrOutput)
+}
+
+// A required metadata operation. Can only be set to CREATE.
+func (o TableIcebergInputPtrOutput) MetadataOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIcebergInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataOperation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The table version of the Iceberg table. Defaults to 2.
+func (o TableIcebergInputPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIcebergInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// A partition field in an Iceberg partition spec.
+type TableIcebergPartitionField struct {
+	// The partition field ID.
+	FieldId *int `pulumi:"fieldId"`
+	// The partition field name.
+	Name string `pulumi:"name"`
+	// The source field ID.
+	SourceId int `pulumi:"sourceId"`
+	// The transform to apply.
+	Transform string `pulumi:"transform"`
+}
+
+// TableIcebergPartitionFieldInput is an input type that accepts TableIcebergPartitionFieldArgs and TableIcebergPartitionFieldOutput values.
+// You can construct a concrete instance of `TableIcebergPartitionFieldInput` via:
+//
+//	TableIcebergPartitionFieldArgs{...}
+type TableIcebergPartitionFieldInput interface {
+	pulumi.Input
+
+	ToTableIcebergPartitionFieldOutput() TableIcebergPartitionFieldOutput
+	ToTableIcebergPartitionFieldOutputWithContext(context.Context) TableIcebergPartitionFieldOutput
+}
+
+// A partition field in an Iceberg partition spec.
+type TableIcebergPartitionFieldArgs struct {
+	// The partition field ID.
+	FieldId pulumi.IntPtrInput `pulumi:"fieldId"`
+	// The partition field name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The source field ID.
+	SourceId pulumi.IntInput `pulumi:"sourceId"`
+	// The transform to apply.
+	Transform pulumi.StringInput `pulumi:"transform"`
+}
+
+func (TableIcebergPartitionFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergPartitionField)(nil)).Elem()
+}
+
+func (i TableIcebergPartitionFieldArgs) ToTableIcebergPartitionFieldOutput() TableIcebergPartitionFieldOutput {
+	return i.ToTableIcebergPartitionFieldOutputWithContext(context.Background())
+}
+
+func (i TableIcebergPartitionFieldArgs) ToTableIcebergPartitionFieldOutputWithContext(ctx context.Context) TableIcebergPartitionFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionFieldOutput)
+}
+
+// TableIcebergPartitionFieldArrayInput is an input type that accepts TableIcebergPartitionFieldArray and TableIcebergPartitionFieldArrayOutput values.
+// You can construct a concrete instance of `TableIcebergPartitionFieldArrayInput` via:
+//
+//	TableIcebergPartitionFieldArray{ TableIcebergPartitionFieldArgs{...} }
+type TableIcebergPartitionFieldArrayInput interface {
+	pulumi.Input
+
+	ToTableIcebergPartitionFieldArrayOutput() TableIcebergPartitionFieldArrayOutput
+	ToTableIcebergPartitionFieldArrayOutputWithContext(context.Context) TableIcebergPartitionFieldArrayOutput
+}
+
+type TableIcebergPartitionFieldArray []TableIcebergPartitionFieldInput
+
+func (TableIcebergPartitionFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergPartitionField)(nil)).Elem()
+}
+
+func (i TableIcebergPartitionFieldArray) ToTableIcebergPartitionFieldArrayOutput() TableIcebergPartitionFieldArrayOutput {
+	return i.ToTableIcebergPartitionFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TableIcebergPartitionFieldArray) ToTableIcebergPartitionFieldArrayOutputWithContext(ctx context.Context) TableIcebergPartitionFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionFieldArrayOutput)
+}
+
+// A partition field in an Iceberg partition spec.
+type TableIcebergPartitionFieldOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergPartitionFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergPartitionField)(nil)).Elem()
+}
+
+func (o TableIcebergPartitionFieldOutput) ToTableIcebergPartitionFieldOutput() TableIcebergPartitionFieldOutput {
+	return o
+}
+
+func (o TableIcebergPartitionFieldOutput) ToTableIcebergPartitionFieldOutputWithContext(ctx context.Context) TableIcebergPartitionFieldOutput {
+	return o
+}
+
+// The partition field ID.
+func (o TableIcebergPartitionFieldOutput) FieldId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableIcebergPartitionField) *int { return v.FieldId }).(pulumi.IntPtrOutput)
+}
+
+// The partition field name.
+func (o TableIcebergPartitionFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergPartitionField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The source field ID.
+func (o TableIcebergPartitionFieldOutput) SourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v TableIcebergPartitionField) int { return v.SourceId }).(pulumi.IntOutput)
+}
+
+// The transform to apply.
+func (o TableIcebergPartitionFieldOutput) Transform() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergPartitionField) string { return v.Transform }).(pulumi.StringOutput)
+}
+
+type TableIcebergPartitionFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergPartitionFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergPartitionField)(nil)).Elem()
+}
+
+func (o TableIcebergPartitionFieldArrayOutput) ToTableIcebergPartitionFieldArrayOutput() TableIcebergPartitionFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergPartitionFieldArrayOutput) ToTableIcebergPartitionFieldArrayOutputWithContext(ctx context.Context) TableIcebergPartitionFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergPartitionFieldArrayOutput) Index(i pulumi.IntInput) TableIcebergPartitionFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableIcebergPartitionField {
+		return vs[0].([]TableIcebergPartitionField)[vs[1].(int)]
+	}).(TableIcebergPartitionFieldOutput)
+}
+
+// The partition spec for an Iceberg table.
+type TableIcebergPartitionSpec struct {
+	// The partition fields.
+	Fields []TableIcebergPartitionField `pulumi:"fields"`
+	// The spec ID.
+	SpecId *int `pulumi:"specId"`
+}
+
+// TableIcebergPartitionSpecInput is an input type that accepts TableIcebergPartitionSpecArgs and TableIcebergPartitionSpecOutput values.
+// You can construct a concrete instance of `TableIcebergPartitionSpecInput` via:
+//
+//	TableIcebergPartitionSpecArgs{...}
+type TableIcebergPartitionSpecInput interface {
+	pulumi.Input
+
+	ToTableIcebergPartitionSpecOutput() TableIcebergPartitionSpecOutput
+	ToTableIcebergPartitionSpecOutputWithContext(context.Context) TableIcebergPartitionSpecOutput
+}
+
+// The partition spec for an Iceberg table.
+type TableIcebergPartitionSpecArgs struct {
+	// The partition fields.
+	Fields TableIcebergPartitionFieldArrayInput `pulumi:"fields"`
+	// The spec ID.
+	SpecId pulumi.IntPtrInput `pulumi:"specId"`
+}
+
+func (TableIcebergPartitionSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergPartitionSpec)(nil)).Elem()
+}
+
+func (i TableIcebergPartitionSpecArgs) ToTableIcebergPartitionSpecOutput() TableIcebergPartitionSpecOutput {
+	return i.ToTableIcebergPartitionSpecOutputWithContext(context.Background())
+}
+
+func (i TableIcebergPartitionSpecArgs) ToTableIcebergPartitionSpecOutputWithContext(ctx context.Context) TableIcebergPartitionSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionSpecOutput)
+}
+
+func (i TableIcebergPartitionSpecArgs) ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput {
+	return i.ToTableIcebergPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergPartitionSpecArgs) ToTableIcebergPartitionSpecPtrOutputWithContext(ctx context.Context) TableIcebergPartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionSpecOutput).ToTableIcebergPartitionSpecPtrOutputWithContext(ctx)
+}
+
+// TableIcebergPartitionSpecPtrInput is an input type that accepts TableIcebergPartitionSpecArgs, TableIcebergPartitionSpecPtr and TableIcebergPartitionSpecPtrOutput values.
+// You can construct a concrete instance of `TableIcebergPartitionSpecPtrInput` via:
+//
+//	        TableIcebergPartitionSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergPartitionSpecPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput
+	ToTableIcebergPartitionSpecPtrOutputWithContext(context.Context) TableIcebergPartitionSpecPtrOutput
+}
+
+type tableIcebergPartitionSpecPtrType TableIcebergPartitionSpecArgs
+
+func TableIcebergPartitionSpecPtr(v *TableIcebergPartitionSpecArgs) TableIcebergPartitionSpecPtrInput {
+	return (*tableIcebergPartitionSpecPtrType)(v)
+}
+
+func (*tableIcebergPartitionSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergPartitionSpec)(nil)).Elem()
+}
+
+func (i *tableIcebergPartitionSpecPtrType) ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput {
+	return i.ToTableIcebergPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergPartitionSpecPtrType) ToTableIcebergPartitionSpecPtrOutputWithContext(ctx context.Context) TableIcebergPartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionSpecPtrOutput)
+}
+
+// The partition spec for an Iceberg table.
+type TableIcebergPartitionSpecOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergPartitionSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergPartitionSpec)(nil)).Elem()
+}
+
+func (o TableIcebergPartitionSpecOutput) ToTableIcebergPartitionSpecOutput() TableIcebergPartitionSpecOutput {
+	return o
+}
+
+func (o TableIcebergPartitionSpecOutput) ToTableIcebergPartitionSpecOutputWithContext(ctx context.Context) TableIcebergPartitionSpecOutput {
+	return o
+}
+
+func (o TableIcebergPartitionSpecOutput) ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput {
+	return o.ToTableIcebergPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergPartitionSpecOutput) ToTableIcebergPartitionSpecPtrOutputWithContext(ctx context.Context) TableIcebergPartitionSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergPartitionSpec) *TableIcebergPartitionSpec {
+		return &v
+	}).(TableIcebergPartitionSpecPtrOutput)
+}
+
+// The partition fields.
+func (o TableIcebergPartitionSpecOutput) Fields() TableIcebergPartitionFieldArrayOutput {
+	return o.ApplyT(func(v TableIcebergPartitionSpec) []TableIcebergPartitionField { return v.Fields }).(TableIcebergPartitionFieldArrayOutput)
+}
+
+// The spec ID.
+func (o TableIcebergPartitionSpecOutput) SpecId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableIcebergPartitionSpec) *int { return v.SpecId }).(pulumi.IntPtrOutput)
+}
+
+type TableIcebergPartitionSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergPartitionSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergPartitionSpec)(nil)).Elem()
+}
+
+func (o TableIcebergPartitionSpecPtrOutput) ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput {
+	return o
+}
+
+func (o TableIcebergPartitionSpecPtrOutput) ToTableIcebergPartitionSpecPtrOutputWithContext(ctx context.Context) TableIcebergPartitionSpecPtrOutput {
+	return o
+}
+
+func (o TableIcebergPartitionSpecPtrOutput) Elem() TableIcebergPartitionSpecOutput {
+	return o.ApplyT(func(v *TableIcebergPartitionSpec) TableIcebergPartitionSpec {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergPartitionSpec
+		return ret
+	}).(TableIcebergPartitionSpecOutput)
+}
+
+// The partition fields.
+func (o TableIcebergPartitionSpecPtrOutput) Fields() TableIcebergPartitionFieldArrayOutput {
+	return o.ApplyT(func(v *TableIcebergPartitionSpec) []TableIcebergPartitionField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(TableIcebergPartitionFieldArrayOutput)
+}
+
+// The spec ID.
+func (o TableIcebergPartitionSpecPtrOutput) SpecId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableIcebergPartitionSpec) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpecId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The schema for an Iceberg table.
+type TableIcebergSchema struct {
+	// The fields in the schema.
+	Fields []TableIcebergStructField `pulumi:"fields"`
+	// The identifier field IDs.
+	IdentifierFieldIds []int `pulumi:"identifierFieldIds"`
+	// The schema ID.
+	SchemaId *int `pulumi:"schemaId"`
+	// The type of the schema.
+	Type *string `pulumi:"type"`
+}
+
+// TableIcebergSchemaInput is an input type that accepts TableIcebergSchemaArgs and TableIcebergSchemaOutput values.
+// You can construct a concrete instance of `TableIcebergSchemaInput` via:
+//
+//	TableIcebergSchemaArgs{...}
+type TableIcebergSchemaInput interface {
+	pulumi.Input
+
+	ToTableIcebergSchemaOutput() TableIcebergSchemaOutput
+	ToTableIcebergSchemaOutputWithContext(context.Context) TableIcebergSchemaOutput
+}
+
+// The schema for an Iceberg table.
+type TableIcebergSchemaArgs struct {
+	// The fields in the schema.
+	Fields TableIcebergStructFieldArrayInput `pulumi:"fields"`
+	// The identifier field IDs.
+	IdentifierFieldIds pulumi.IntArrayInput `pulumi:"identifierFieldIds"`
+	// The schema ID.
+	SchemaId pulumi.IntPtrInput `pulumi:"schemaId"`
+	// The type of the schema.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (TableIcebergSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSchema)(nil)).Elem()
+}
+
+func (i TableIcebergSchemaArgs) ToTableIcebergSchemaOutput() TableIcebergSchemaOutput {
+	return i.ToTableIcebergSchemaOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSchemaArgs) ToTableIcebergSchemaOutputWithContext(ctx context.Context) TableIcebergSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSchemaOutput)
+}
+
+func (i TableIcebergSchemaArgs) ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput {
+	return i.ToTableIcebergSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSchemaArgs) ToTableIcebergSchemaPtrOutputWithContext(ctx context.Context) TableIcebergSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSchemaOutput).ToTableIcebergSchemaPtrOutputWithContext(ctx)
+}
+
+// TableIcebergSchemaPtrInput is an input type that accepts TableIcebergSchemaArgs, TableIcebergSchemaPtr and TableIcebergSchemaPtrOutput values.
+// You can construct a concrete instance of `TableIcebergSchemaPtrInput` via:
+//
+//	        TableIcebergSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergSchemaPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput
+	ToTableIcebergSchemaPtrOutputWithContext(context.Context) TableIcebergSchemaPtrOutput
+}
+
+type tableIcebergSchemaPtrType TableIcebergSchemaArgs
+
+func TableIcebergSchemaPtr(v *TableIcebergSchemaArgs) TableIcebergSchemaPtrInput {
+	return (*tableIcebergSchemaPtrType)(v)
+}
+
+func (*tableIcebergSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSchema)(nil)).Elem()
+}
+
+func (i *tableIcebergSchemaPtrType) ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput {
+	return i.ToTableIcebergSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergSchemaPtrType) ToTableIcebergSchemaPtrOutputWithContext(ctx context.Context) TableIcebergSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSchemaPtrOutput)
+}
+
+// The schema for an Iceberg table.
+type TableIcebergSchemaOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSchema)(nil)).Elem()
+}
+
+func (o TableIcebergSchemaOutput) ToTableIcebergSchemaOutput() TableIcebergSchemaOutput {
+	return o
+}
+
+func (o TableIcebergSchemaOutput) ToTableIcebergSchemaOutputWithContext(ctx context.Context) TableIcebergSchemaOutput {
+	return o
+}
+
+func (o TableIcebergSchemaOutput) ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput {
+	return o.ToTableIcebergSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSchemaOutput) ToTableIcebergSchemaPtrOutputWithContext(ctx context.Context) TableIcebergSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergSchema) *TableIcebergSchema {
+		return &v
+	}).(TableIcebergSchemaPtrOutput)
+}
+
+// The fields in the schema.
+func (o TableIcebergSchemaOutput) Fields() TableIcebergStructFieldArrayOutput {
+	return o.ApplyT(func(v TableIcebergSchema) []TableIcebergStructField { return v.Fields }).(TableIcebergStructFieldArrayOutput)
+}
+
+// The identifier field IDs.
+func (o TableIcebergSchemaOutput) IdentifierFieldIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v TableIcebergSchema) []int { return v.IdentifierFieldIds }).(pulumi.IntArrayOutput)
+}
+
+// The schema ID.
+func (o TableIcebergSchemaOutput) SchemaId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableIcebergSchema) *int { return v.SchemaId }).(pulumi.IntPtrOutput)
+}
+
+// The type of the schema.
+func (o TableIcebergSchemaOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIcebergSchema) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type TableIcebergSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSchema)(nil)).Elem()
+}
+
+func (o TableIcebergSchemaPtrOutput) ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput {
+	return o
+}
+
+func (o TableIcebergSchemaPtrOutput) ToTableIcebergSchemaPtrOutputWithContext(ctx context.Context) TableIcebergSchemaPtrOutput {
+	return o
+}
+
+func (o TableIcebergSchemaPtrOutput) Elem() TableIcebergSchemaOutput {
+	return o.ApplyT(func(v *TableIcebergSchema) TableIcebergSchema {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergSchema
+		return ret
+	}).(TableIcebergSchemaOutput)
+}
+
+// The fields in the schema.
+func (o TableIcebergSchemaPtrOutput) Fields() TableIcebergStructFieldArrayOutput {
+	return o.ApplyT(func(v *TableIcebergSchema) []TableIcebergStructField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(TableIcebergStructFieldArrayOutput)
+}
+
+// The identifier field IDs.
+func (o TableIcebergSchemaPtrOutput) IdentifierFieldIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *TableIcebergSchema) []int {
+		if v == nil {
+			return nil
+		}
+		return v.IdentifierFieldIds
+	}).(pulumi.IntArrayOutput)
+}
+
+// The schema ID.
+func (o TableIcebergSchemaPtrOutput) SchemaId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableIcebergSchema) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The type of the schema.
+func (o TableIcebergSchemaPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIcebergSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// A sort field in an Iceberg sort order.
+type TableIcebergSortField struct {
+	// The sort direction.
+	Direction string `pulumi:"direction"`
+	// The null ordering.
+	NullOrder string `pulumi:"nullOrder"`
+	// The source field ID.
+	SourceId int `pulumi:"sourceId"`
+	// The transform to apply.
+	Transform string `pulumi:"transform"`
+}
+
+// TableIcebergSortFieldInput is an input type that accepts TableIcebergSortFieldArgs and TableIcebergSortFieldOutput values.
+// You can construct a concrete instance of `TableIcebergSortFieldInput` via:
+//
+//	TableIcebergSortFieldArgs{...}
+type TableIcebergSortFieldInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortFieldOutput() TableIcebergSortFieldOutput
+	ToTableIcebergSortFieldOutputWithContext(context.Context) TableIcebergSortFieldOutput
+}
+
+// A sort field in an Iceberg sort order.
+type TableIcebergSortFieldArgs struct {
+	// The sort direction.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The null ordering.
+	NullOrder pulumi.StringInput `pulumi:"nullOrder"`
+	// The source field ID.
+	SourceId pulumi.IntInput `pulumi:"sourceId"`
+	// The transform to apply.
+	Transform pulumi.StringInput `pulumi:"transform"`
+}
+
+func (TableIcebergSortFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortField)(nil)).Elem()
+}
+
+func (i TableIcebergSortFieldArgs) ToTableIcebergSortFieldOutput() TableIcebergSortFieldOutput {
+	return i.ToTableIcebergSortFieldOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSortFieldArgs) ToTableIcebergSortFieldOutputWithContext(ctx context.Context) TableIcebergSortFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortFieldOutput)
+}
+
+// TableIcebergSortFieldArrayInput is an input type that accepts TableIcebergSortFieldArray and TableIcebergSortFieldArrayOutput values.
+// You can construct a concrete instance of `TableIcebergSortFieldArrayInput` via:
+//
+//	TableIcebergSortFieldArray{ TableIcebergSortFieldArgs{...} }
+type TableIcebergSortFieldArrayInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortFieldArrayOutput() TableIcebergSortFieldArrayOutput
+	ToTableIcebergSortFieldArrayOutputWithContext(context.Context) TableIcebergSortFieldArrayOutput
+}
+
+type TableIcebergSortFieldArray []TableIcebergSortFieldInput
+
+func (TableIcebergSortFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergSortField)(nil)).Elem()
+}
+
+func (i TableIcebergSortFieldArray) ToTableIcebergSortFieldArrayOutput() TableIcebergSortFieldArrayOutput {
+	return i.ToTableIcebergSortFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSortFieldArray) ToTableIcebergSortFieldArrayOutputWithContext(ctx context.Context) TableIcebergSortFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortFieldArrayOutput)
+}
+
+// A sort field in an Iceberg sort order.
+type TableIcebergSortFieldOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortField)(nil)).Elem()
+}
+
+func (o TableIcebergSortFieldOutput) ToTableIcebergSortFieldOutput() TableIcebergSortFieldOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldOutput) ToTableIcebergSortFieldOutputWithContext(ctx context.Context) TableIcebergSortFieldOutput {
+	return o
+}
+
+// The sort direction.
+func (o TableIcebergSortFieldOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergSortField) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The null ordering.
+func (o TableIcebergSortFieldOutput) NullOrder() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergSortField) string { return v.NullOrder }).(pulumi.StringOutput)
+}
+
+// The source field ID.
+func (o TableIcebergSortFieldOutput) SourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v TableIcebergSortField) int { return v.SourceId }).(pulumi.IntOutput)
+}
+
+// The transform to apply.
+func (o TableIcebergSortFieldOutput) Transform() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergSortField) string { return v.Transform }).(pulumi.StringOutput)
+}
+
+type TableIcebergSortFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergSortField)(nil)).Elem()
+}
+
+func (o TableIcebergSortFieldArrayOutput) ToTableIcebergSortFieldArrayOutput() TableIcebergSortFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldArrayOutput) ToTableIcebergSortFieldArrayOutputWithContext(ctx context.Context) TableIcebergSortFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldArrayOutput) Index(i pulumi.IntInput) TableIcebergSortFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableIcebergSortField {
+		return vs[0].([]TableIcebergSortField)[vs[1].(int)]
+	}).(TableIcebergSortFieldOutput)
+}
+
+// The sort order for an Iceberg table.
+type TableIcebergSortOrder struct {
+	// The sort fields.
+	Fields []TableIcebergSortField `pulumi:"fields"`
+	// The order ID.
+	OrderId int `pulumi:"orderId"`
+}
+
+// TableIcebergSortOrderInput is an input type that accepts TableIcebergSortOrderArgs and TableIcebergSortOrderOutput values.
+// You can construct a concrete instance of `TableIcebergSortOrderInput` via:
+//
+//	TableIcebergSortOrderArgs{...}
+type TableIcebergSortOrderInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortOrderOutput() TableIcebergSortOrderOutput
+	ToTableIcebergSortOrderOutputWithContext(context.Context) TableIcebergSortOrderOutput
+}
+
+// The sort order for an Iceberg table.
+type TableIcebergSortOrderArgs struct {
+	// The sort fields.
+	Fields TableIcebergSortFieldArrayInput `pulumi:"fields"`
+	// The order ID.
+	OrderId pulumi.IntInput `pulumi:"orderId"`
+}
+
+func (TableIcebergSortOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortOrder)(nil)).Elem()
+}
+
+func (i TableIcebergSortOrderArgs) ToTableIcebergSortOrderOutput() TableIcebergSortOrderOutput {
+	return i.ToTableIcebergSortOrderOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSortOrderArgs) ToTableIcebergSortOrderOutputWithContext(ctx context.Context) TableIcebergSortOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortOrderOutput)
+}
+
+func (i TableIcebergSortOrderArgs) ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput {
+	return i.ToTableIcebergSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSortOrderArgs) ToTableIcebergSortOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortOrderOutput).ToTableIcebergSortOrderPtrOutputWithContext(ctx)
+}
+
+// TableIcebergSortOrderPtrInput is an input type that accepts TableIcebergSortOrderArgs, TableIcebergSortOrderPtr and TableIcebergSortOrderPtrOutput values.
+// You can construct a concrete instance of `TableIcebergSortOrderPtrInput` via:
+//
+//	        TableIcebergSortOrderArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergSortOrderPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput
+	ToTableIcebergSortOrderPtrOutputWithContext(context.Context) TableIcebergSortOrderPtrOutput
+}
+
+type tableIcebergSortOrderPtrType TableIcebergSortOrderArgs
+
+func TableIcebergSortOrderPtr(v *TableIcebergSortOrderArgs) TableIcebergSortOrderPtrInput {
+	return (*tableIcebergSortOrderPtrType)(v)
+}
+
+func (*tableIcebergSortOrderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSortOrder)(nil)).Elem()
+}
+
+func (i *tableIcebergSortOrderPtrType) ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput {
+	return i.ToTableIcebergSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergSortOrderPtrType) ToTableIcebergSortOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortOrderPtrOutput)
+}
+
+// The sort order for an Iceberg table.
+type TableIcebergSortOrderOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortOrder)(nil)).Elem()
+}
+
+func (o TableIcebergSortOrderOutput) ToTableIcebergSortOrderOutput() TableIcebergSortOrderOutput {
+	return o
+}
+
+func (o TableIcebergSortOrderOutput) ToTableIcebergSortOrderOutputWithContext(ctx context.Context) TableIcebergSortOrderOutput {
+	return o
+}
+
+func (o TableIcebergSortOrderOutput) ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput {
+	return o.ToTableIcebergSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortOrderOutput) ToTableIcebergSortOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortOrderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergSortOrder) *TableIcebergSortOrder {
+		return &v
+	}).(TableIcebergSortOrderPtrOutput)
+}
+
+// The sort fields.
+func (o TableIcebergSortOrderOutput) Fields() TableIcebergSortFieldArrayOutput {
+	return o.ApplyT(func(v TableIcebergSortOrder) []TableIcebergSortField { return v.Fields }).(TableIcebergSortFieldArrayOutput)
+}
+
+// The order ID.
+func (o TableIcebergSortOrderOutput) OrderId() pulumi.IntOutput {
+	return o.ApplyT(func(v TableIcebergSortOrder) int { return v.OrderId }).(pulumi.IntOutput)
+}
+
+type TableIcebergSortOrderPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSortOrder)(nil)).Elem()
+}
+
+func (o TableIcebergSortOrderPtrOutput) ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput {
+	return o
+}
+
+func (o TableIcebergSortOrderPtrOutput) ToTableIcebergSortOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortOrderPtrOutput {
+	return o
+}
+
+func (o TableIcebergSortOrderPtrOutput) Elem() TableIcebergSortOrderOutput {
+	return o.ApplyT(func(v *TableIcebergSortOrder) TableIcebergSortOrder {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergSortOrder
+		return ret
+	}).(TableIcebergSortOrderOutput)
+}
+
+// The sort fields.
+func (o TableIcebergSortOrderPtrOutput) Fields() TableIcebergSortFieldArrayOutput {
+	return o.ApplyT(func(v *TableIcebergSortOrder) []TableIcebergSortField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(TableIcebergSortFieldArrayOutput)
+}
+
+// The order ID.
+func (o TableIcebergSortOrderPtrOutput) OrderId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableIcebergSortOrder) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.OrderId
+	}).(pulumi.IntPtrOutput)
+}
+
+// A field in an Iceberg schema.
+type TableIcebergStructField struct {
+	// Documentation for the field.
+	Doc *string `pulumi:"doc"`
+	// The field ID.
+	Id int `pulumi:"id"`
+	// The field name.
+	Name string `pulumi:"name"`
+	// Whether the field is required.
+	Required bool `pulumi:"required"`
+	// The field type.
+	Type string `pulumi:"type"`
+}
+
+// TableIcebergStructFieldInput is an input type that accepts TableIcebergStructFieldArgs and TableIcebergStructFieldOutput values.
+// You can construct a concrete instance of `TableIcebergStructFieldInput` via:
+//
+//	TableIcebergStructFieldArgs{...}
+type TableIcebergStructFieldInput interface {
+	pulumi.Input
+
+	ToTableIcebergStructFieldOutput() TableIcebergStructFieldOutput
+	ToTableIcebergStructFieldOutputWithContext(context.Context) TableIcebergStructFieldOutput
+}
+
+// A field in an Iceberg schema.
+type TableIcebergStructFieldArgs struct {
+	// Documentation for the field.
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// The field ID.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The field name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether the field is required.
+	Required pulumi.BoolInput `pulumi:"required"`
+	// The field type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TableIcebergStructFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergStructField)(nil)).Elem()
+}
+
+func (i TableIcebergStructFieldArgs) ToTableIcebergStructFieldOutput() TableIcebergStructFieldOutput {
+	return i.ToTableIcebergStructFieldOutputWithContext(context.Background())
+}
+
+func (i TableIcebergStructFieldArgs) ToTableIcebergStructFieldOutputWithContext(ctx context.Context) TableIcebergStructFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergStructFieldOutput)
+}
+
+// TableIcebergStructFieldArrayInput is an input type that accepts TableIcebergStructFieldArray and TableIcebergStructFieldArrayOutput values.
+// You can construct a concrete instance of `TableIcebergStructFieldArrayInput` via:
+//
+//	TableIcebergStructFieldArray{ TableIcebergStructFieldArgs{...} }
+type TableIcebergStructFieldArrayInput interface {
+	pulumi.Input
+
+	ToTableIcebergStructFieldArrayOutput() TableIcebergStructFieldArrayOutput
+	ToTableIcebergStructFieldArrayOutputWithContext(context.Context) TableIcebergStructFieldArrayOutput
+}
+
+type TableIcebergStructFieldArray []TableIcebergStructFieldInput
+
+func (TableIcebergStructFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergStructField)(nil)).Elem()
+}
+
+func (i TableIcebergStructFieldArray) ToTableIcebergStructFieldArrayOutput() TableIcebergStructFieldArrayOutput {
+	return i.ToTableIcebergStructFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TableIcebergStructFieldArray) ToTableIcebergStructFieldArrayOutputWithContext(ctx context.Context) TableIcebergStructFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergStructFieldArrayOutput)
+}
+
+// A field in an Iceberg schema.
+type TableIcebergStructFieldOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergStructFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergStructField)(nil)).Elem()
+}
+
+func (o TableIcebergStructFieldOutput) ToTableIcebergStructFieldOutput() TableIcebergStructFieldOutput {
+	return o
+}
+
+func (o TableIcebergStructFieldOutput) ToTableIcebergStructFieldOutputWithContext(ctx context.Context) TableIcebergStructFieldOutput {
+	return o
+}
+
+// Documentation for the field.
+func (o TableIcebergStructFieldOutput) Doc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIcebergStructField) *string { return v.Doc }).(pulumi.StringPtrOutput)
+}
+
+// The field ID.
+func (o TableIcebergStructFieldOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v TableIcebergStructField) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The field name.
+func (o TableIcebergStructFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergStructField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the field is required.
+func (o TableIcebergStructFieldOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v TableIcebergStructField) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+// The field type.
+func (o TableIcebergStructFieldOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergStructField) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TableIcebergStructFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergStructFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergStructField)(nil)).Elem()
+}
+
+func (o TableIcebergStructFieldArrayOutput) ToTableIcebergStructFieldArrayOutput() TableIcebergStructFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergStructFieldArrayOutput) ToTableIcebergStructFieldArrayOutputWithContext(ctx context.Context) TableIcebergStructFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergStructFieldArrayOutput) Index(i pulumi.IntInput) TableIcebergStructFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableIcebergStructField {
+		return vs[0].([]TableIcebergStructField)[vs[1].(int)]
+	}).(TableIcebergStructFieldOutput)
+}
+
+// Specifies the Iceberg table configuration.
+type TableIcebergTableInput struct {
+	// The location of the Iceberg table.
+	Location string `pulumi:"location"`
+	// The partition spec for the Iceberg table.
+	PartitionSpec *TableIcebergPartitionSpec `pulumi:"partitionSpec"`
+	// The properties for the Iceberg table.
+	Properties map[string]string `pulumi:"properties"`
+	// The schema for the Iceberg table.
+	Schema TableIcebergSchema `pulumi:"schema"`
+	// The write order for the Iceberg table.
+	WriteOrder *TableIcebergSortOrder `pulumi:"writeOrder"`
+}
+
+// TableIcebergTableInputInput is an input type that accepts TableIcebergTableInputArgs and TableIcebergTableInputOutput values.
+// You can construct a concrete instance of `TableIcebergTableInputInput` via:
+//
+//	TableIcebergTableInputArgs{...}
+type TableIcebergTableInputInput interface {
+	pulumi.Input
+
+	ToTableIcebergTableInputOutput() TableIcebergTableInputOutput
+	ToTableIcebergTableInputOutputWithContext(context.Context) TableIcebergTableInputOutput
+}
+
+// Specifies the Iceberg table configuration.
+type TableIcebergTableInputArgs struct {
+	// The location of the Iceberg table.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The partition spec for the Iceberg table.
+	PartitionSpec TableIcebergPartitionSpecPtrInput `pulumi:"partitionSpec"`
+	// The properties for the Iceberg table.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// The schema for the Iceberg table.
+	Schema TableIcebergSchemaInput `pulumi:"schema"`
+	// The write order for the Iceberg table.
+	WriteOrder TableIcebergSortOrderPtrInput `pulumi:"writeOrder"`
+}
+
+func (TableIcebergTableInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergTableInput)(nil)).Elem()
+}
+
+func (i TableIcebergTableInputArgs) ToTableIcebergTableInputOutput() TableIcebergTableInputOutput {
+	return i.ToTableIcebergTableInputOutputWithContext(context.Background())
+}
+
+func (i TableIcebergTableInputArgs) ToTableIcebergTableInputOutputWithContext(ctx context.Context) TableIcebergTableInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergTableInputOutput)
+}
+
+func (i TableIcebergTableInputArgs) ToTableIcebergTableInputPtrOutput() TableIcebergTableInputPtrOutput {
+	return i.ToTableIcebergTableInputPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergTableInputArgs) ToTableIcebergTableInputPtrOutputWithContext(ctx context.Context) TableIcebergTableInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergTableInputOutput).ToTableIcebergTableInputPtrOutputWithContext(ctx)
+}
+
+// TableIcebergTableInputPtrInput is an input type that accepts TableIcebergTableInputArgs, TableIcebergTableInputPtr and TableIcebergTableInputPtrOutput values.
+// You can construct a concrete instance of `TableIcebergTableInputPtrInput` via:
+//
+//	        TableIcebergTableInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergTableInputPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergTableInputPtrOutput() TableIcebergTableInputPtrOutput
+	ToTableIcebergTableInputPtrOutputWithContext(context.Context) TableIcebergTableInputPtrOutput
+}
+
+type tableIcebergTableInputPtrType TableIcebergTableInputArgs
+
+func TableIcebergTableInputPtr(v *TableIcebergTableInputArgs) TableIcebergTableInputPtrInput {
+	return (*tableIcebergTableInputPtrType)(v)
+}
+
+func (*tableIcebergTableInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergTableInput)(nil)).Elem()
+}
+
+func (i *tableIcebergTableInputPtrType) ToTableIcebergTableInputPtrOutput() TableIcebergTableInputPtrOutput {
+	return i.ToTableIcebergTableInputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergTableInputPtrType) ToTableIcebergTableInputPtrOutputWithContext(ctx context.Context) TableIcebergTableInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergTableInputPtrOutput)
+}
+
+// Specifies the Iceberg table configuration.
+type TableIcebergTableInputOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergTableInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergTableInput)(nil)).Elem()
+}
+
+func (o TableIcebergTableInputOutput) ToTableIcebergTableInputOutput() TableIcebergTableInputOutput {
+	return o
+}
+
+func (o TableIcebergTableInputOutput) ToTableIcebergTableInputOutputWithContext(ctx context.Context) TableIcebergTableInputOutput {
+	return o
+}
+
+func (o TableIcebergTableInputOutput) ToTableIcebergTableInputPtrOutput() TableIcebergTableInputPtrOutput {
+	return o.ToTableIcebergTableInputPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergTableInputOutput) ToTableIcebergTableInputPtrOutputWithContext(ctx context.Context) TableIcebergTableInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergTableInput) *TableIcebergTableInput {
+		return &v
+	}).(TableIcebergTableInputPtrOutput)
+}
+
+// The location of the Iceberg table.
+func (o TableIcebergTableInputOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergTableInput) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The partition spec for the Iceberg table.
+func (o TableIcebergTableInputOutput) PartitionSpec() TableIcebergPartitionSpecPtrOutput {
+	return o.ApplyT(func(v TableIcebergTableInput) *TableIcebergPartitionSpec { return v.PartitionSpec }).(TableIcebergPartitionSpecPtrOutput)
+}
+
+// The properties for the Iceberg table.
+func (o TableIcebergTableInputOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TableIcebergTableInput) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// The schema for the Iceberg table.
+func (o TableIcebergTableInputOutput) Schema() TableIcebergSchemaOutput {
+	return o.ApplyT(func(v TableIcebergTableInput) TableIcebergSchema { return v.Schema }).(TableIcebergSchemaOutput)
+}
+
+// The write order for the Iceberg table.
+func (o TableIcebergTableInputOutput) WriteOrder() TableIcebergSortOrderPtrOutput {
+	return o.ApplyT(func(v TableIcebergTableInput) *TableIcebergSortOrder { return v.WriteOrder }).(TableIcebergSortOrderPtrOutput)
+}
+
+type TableIcebergTableInputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergTableInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergTableInput)(nil)).Elem()
+}
+
+func (o TableIcebergTableInputPtrOutput) ToTableIcebergTableInputPtrOutput() TableIcebergTableInputPtrOutput {
+	return o
+}
+
+func (o TableIcebergTableInputPtrOutput) ToTableIcebergTableInputPtrOutputWithContext(ctx context.Context) TableIcebergTableInputPtrOutput {
+	return o
+}
+
+func (o TableIcebergTableInputPtrOutput) Elem() TableIcebergTableInputOutput {
+	return o.ApplyT(func(v *TableIcebergTableInput) TableIcebergTableInput {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergTableInput
+		return ret
+	}).(TableIcebergTableInputOutput)
+}
+
+// The location of the Iceberg table.
+func (o TableIcebergTableInputPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIcebergTableInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// The partition spec for the Iceberg table.
+func (o TableIcebergTableInputPtrOutput) PartitionSpec() TableIcebergPartitionSpecPtrOutput {
+	return o.ApplyT(func(v *TableIcebergTableInput) *TableIcebergPartitionSpec {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionSpec
+	}).(TableIcebergPartitionSpecPtrOutput)
+}
+
+// The properties for the Iceberg table.
+func (o TableIcebergTableInputPtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TableIcebergTableInput) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// The schema for the Iceberg table.
+func (o TableIcebergTableInputPtrOutput) Schema() TableIcebergSchemaPtrOutput {
+	return o.ApplyT(func(v *TableIcebergTableInput) *TableIcebergSchema {
+		if v == nil {
+			return nil
+		}
+		return &v.Schema
+	}).(TableIcebergSchemaPtrOutput)
+}
+
+// The write order for the Iceberg table.
+func (o TableIcebergTableInputPtrOutput) WriteOrder() TableIcebergSortOrderPtrOutput {
+	return o.ApplyT(func(v *TableIcebergTableInput) *TableIcebergSortOrder {
+		if v == nil {
+			return nil
+		}
+		return v.WriteOrder
+	}).(TableIcebergSortOrderPtrOutput)
+}
+
+// A structure that describes a target table for resource linking.
+type TableIdentifier struct {
+	// The ID of the Data Catalog in which the table resides.
+	CatalogId *string `pulumi:"catalogId"`
+	// The name of the catalog database that contains the target table.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The name of the target table.
+	Name *string `pulumi:"name"`
+	// The Region of the table.
+	Region *string `pulumi:"region"`
+}
+
+// TableIdentifierInput is an input type that accepts TableIdentifierArgs and TableIdentifierOutput values.
+// You can construct a concrete instance of `TableIdentifierInput` via:
+//
+//	TableIdentifierArgs{...}
+type TableIdentifierInput interface {
+	pulumi.Input
+
+	ToTableIdentifierOutput() TableIdentifierOutput
+	ToTableIdentifierOutputWithContext(context.Context) TableIdentifierOutput
+}
+
+// A structure that describes a target table for resource linking.
+type TableIdentifierArgs struct {
+	// The ID of the Data Catalog in which the table resides.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// The name of the catalog database that contains the target table.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// The name of the target table.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The Region of the table.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (TableIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIdentifier)(nil)).Elem()
+}
+
+func (i TableIdentifierArgs) ToTableIdentifierOutput() TableIdentifierOutput {
+	return i.ToTableIdentifierOutputWithContext(context.Background())
+}
+
+func (i TableIdentifierArgs) ToTableIdentifierOutputWithContext(ctx context.Context) TableIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIdentifierOutput)
+}
+
+func (i TableIdentifierArgs) ToTableIdentifierPtrOutput() TableIdentifierPtrOutput {
+	return i.ToTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i TableIdentifierArgs) ToTableIdentifierPtrOutputWithContext(ctx context.Context) TableIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIdentifierOutput).ToTableIdentifierPtrOutputWithContext(ctx)
+}
+
+// TableIdentifierPtrInput is an input type that accepts TableIdentifierArgs, TableIdentifierPtr and TableIdentifierPtrOutput values.
+// You can construct a concrete instance of `TableIdentifierPtrInput` via:
+//
+//	        TableIdentifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToTableIdentifierPtrOutput() TableIdentifierPtrOutput
+	ToTableIdentifierPtrOutputWithContext(context.Context) TableIdentifierPtrOutput
+}
+
+type tableIdentifierPtrType TableIdentifierArgs
+
+func TableIdentifierPtr(v *TableIdentifierArgs) TableIdentifierPtrInput {
+	return (*tableIdentifierPtrType)(v)
+}
+
+func (*tableIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIdentifier)(nil)).Elem()
+}
+
+func (i *tableIdentifierPtrType) ToTableIdentifierPtrOutput() TableIdentifierPtrOutput {
+	return i.ToTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIdentifierPtrType) ToTableIdentifierPtrOutputWithContext(ctx context.Context) TableIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIdentifierPtrOutput)
+}
+
+// A structure that describes a target table for resource linking.
+type TableIdentifierOutput struct{ *pulumi.OutputState }
+
+func (TableIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIdentifier)(nil)).Elem()
+}
+
+func (o TableIdentifierOutput) ToTableIdentifierOutput() TableIdentifierOutput {
+	return o
+}
+
+func (o TableIdentifierOutput) ToTableIdentifierOutputWithContext(ctx context.Context) TableIdentifierOutput {
+	return o
+}
+
+func (o TableIdentifierOutput) ToTableIdentifierPtrOutput() TableIdentifierPtrOutput {
+	return o.ToTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o TableIdentifierOutput) ToTableIdentifierPtrOutputWithContext(ctx context.Context) TableIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIdentifier) *TableIdentifier {
+		return &v
+	}).(TableIdentifierPtrOutput)
+}
+
+// The ID of the Data Catalog in which the table resides.
+func (o TableIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the catalog database that contains the target table.
+func (o TableIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the target table.
+func (o TableIdentifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIdentifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The Region of the table.
+func (o TableIdentifierOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIdentifier) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type TableIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIdentifier)(nil)).Elem()
+}
+
+func (o TableIdentifierPtrOutput) ToTableIdentifierPtrOutput() TableIdentifierPtrOutput {
+	return o
+}
+
+func (o TableIdentifierPtrOutput) ToTableIdentifierPtrOutputWithContext(ctx context.Context) TableIdentifierPtrOutput {
+	return o
+}
+
+func (o TableIdentifierPtrOutput) Elem() TableIdentifierOutput {
+	return o.ApplyT(func(v *TableIdentifier) TableIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret TableIdentifier
+		return ret
+	}).(TableIdentifierOutput)
+}
+
+// The ID of the Data Catalog in which the table resides.
+func (o TableIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the catalog database that contains the target table.
+func (o TableIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the target table.
+func (o TableIdentifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Region of the table.
+func (o TableIdentifierPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// A structure used to define a table.
+type TableInputType struct {
+	// A description of the table.
+	Description *string `pulumi:"description"`
+	// The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+	Name *string `pulumi:"name"`
+	// The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+	Owner *string `pulumi:"owner"`
+	// These key-value pairs define properties associated with the table.
+	Parameters interface{} `pulumi:"parameters"`
+	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+	PartitionKeys []TableColumn `pulumi:"partitionKeys"`
+	// The retention time for this table.
+	Retention *int `pulumi:"retention"`
+	// A storage descriptor containing information about the physical storage of this table.
+	StorageDescriptor *TableStorageDescriptor `pulumi:"storageDescriptor"`
+	// The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+	TableType *string `pulumi:"tableType"`
+	// A TableIdentifier structure that describes a target table for resource linking.
+	TargetTable *TableIdentifier `pulumi:"targetTable"`
+	// The view definition for the table.
+	ViewDefinition *TableViewDefinition `pulumi:"viewDefinition"`
+	// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+	ViewExpandedText *string `pulumi:"viewExpandedText"`
+	// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+	ViewOriginalText *string `pulumi:"viewOriginalText"`
+}
+
+// TableInputTypeInput is an input type that accepts TableInputTypeArgs and TableInputTypeOutput values.
+// You can construct a concrete instance of `TableInputTypeInput` via:
+//
+//	TableInputTypeArgs{...}
+type TableInputTypeInput interface {
+	pulumi.Input
+
+	ToTableInputTypeOutput() TableInputTypeOutput
+	ToTableInputTypeOutputWithContext(context.Context) TableInputTypeOutput
+}
+
+// A structure used to define a table.
+type TableInputTypeArgs struct {
+	// A description of the table.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// These key-value pairs define properties associated with the table.
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+	PartitionKeys TableColumnArrayInput `pulumi:"partitionKeys"`
+	// The retention time for this table.
+	Retention pulumi.IntPtrInput `pulumi:"retention"`
+	// A storage descriptor containing information about the physical storage of this table.
+	StorageDescriptor TableStorageDescriptorPtrInput `pulumi:"storageDescriptor"`
+	// The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+	TableType pulumi.StringPtrInput `pulumi:"tableType"`
+	// A TableIdentifier structure that describes a target table for resource linking.
+	TargetTable TableIdentifierPtrInput `pulumi:"targetTable"`
+	// The view definition for the table.
+	ViewDefinition TableViewDefinitionPtrInput `pulumi:"viewDefinition"`
+	// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+	ViewExpandedText pulumi.StringPtrInput `pulumi:"viewExpandedText"`
+	// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+	ViewOriginalText pulumi.StringPtrInput `pulumi:"viewOriginalText"`
+}
+
+func (TableInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableInputType)(nil)).Elem()
+}
+
+func (i TableInputTypeArgs) ToTableInputTypeOutput() TableInputTypeOutput {
+	return i.ToTableInputTypeOutputWithContext(context.Background())
+}
+
+func (i TableInputTypeArgs) ToTableInputTypeOutputWithContext(ctx context.Context) TableInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableInputTypeOutput)
+}
+
+func (i TableInputTypeArgs) ToTableInputTypePtrOutput() TableInputTypePtrOutput {
+	return i.ToTableInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i TableInputTypeArgs) ToTableInputTypePtrOutputWithContext(ctx context.Context) TableInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableInputTypeOutput).ToTableInputTypePtrOutputWithContext(ctx)
+}
+
+// TableInputTypePtrInput is an input type that accepts TableInputTypeArgs, TableInputTypePtr and TableInputTypePtrOutput values.
+// You can construct a concrete instance of `TableInputTypePtrInput` via:
+//
+//	        TableInputTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableInputTypePtrInput interface {
+	pulumi.Input
+
+	ToTableInputTypePtrOutput() TableInputTypePtrOutput
+	ToTableInputTypePtrOutputWithContext(context.Context) TableInputTypePtrOutput
+}
+
+type tableInputTypePtrType TableInputTypeArgs
+
+func TableInputTypePtr(v *TableInputTypeArgs) TableInputTypePtrInput {
+	return (*tableInputTypePtrType)(v)
+}
+
+func (*tableInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableInputType)(nil)).Elem()
+}
+
+func (i *tableInputTypePtrType) ToTableInputTypePtrOutput() TableInputTypePtrOutput {
+	return i.ToTableInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *tableInputTypePtrType) ToTableInputTypePtrOutputWithContext(ctx context.Context) TableInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableInputTypePtrOutput)
+}
+
+// A structure used to define a table.
+type TableInputTypeOutput struct{ *pulumi.OutputState }
+
+func (TableInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableInputType)(nil)).Elem()
+}
+
+func (o TableInputTypeOutput) ToTableInputTypeOutput() TableInputTypeOutput {
+	return o
+}
+
+func (o TableInputTypeOutput) ToTableInputTypeOutputWithContext(ctx context.Context) TableInputTypeOutput {
+	return o
+}
+
+func (o TableInputTypeOutput) ToTableInputTypePtrOutput() TableInputTypePtrOutput {
+	return o.ToTableInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o TableInputTypeOutput) ToTableInputTypePtrOutputWithContext(ctx context.Context) TableInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableInputType) *TableInputType {
+		return &v
+	}).(TableInputTypePtrOutput)
+}
+
+// A description of the table.
+func (o TableInputTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+func (o TableInputTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+func (o TableInputTypeOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// These key-value pairs define properties associated with the table.
+func (o TableInputTypeOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableInputType) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+func (o TableInputTypeOutput) PartitionKeys() TableColumnArrayOutput {
+	return o.ApplyT(func(v TableInputType) []TableColumn { return v.PartitionKeys }).(TableColumnArrayOutput)
+}
+
+// The retention time for this table.
+func (o TableInputTypeOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableInputType) *int { return v.Retention }).(pulumi.IntPtrOutput)
+}
+
+// A storage descriptor containing information about the physical storage of this table.
+func (o TableInputTypeOutput) StorageDescriptor() TableStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v TableInputType) *TableStorageDescriptor { return v.StorageDescriptor }).(TableStorageDescriptorPtrOutput)
+}
+
+// The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+func (o TableInputTypeOutput) TableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.TableType }).(pulumi.StringPtrOutput)
+}
+
+// A TableIdentifier structure that describes a target table for resource linking.
+func (o TableInputTypeOutput) TargetTable() TableIdentifierPtrOutput {
+	return o.ApplyT(func(v TableInputType) *TableIdentifier { return v.TargetTable }).(TableIdentifierPtrOutput)
+}
+
+// The view definition for the table.
+func (o TableInputTypeOutput) ViewDefinition() TableViewDefinitionPtrOutput {
+	return o.ApplyT(func(v TableInputType) *TableViewDefinition { return v.ViewDefinition }).(TableViewDefinitionPtrOutput)
+}
+
+// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+func (o TableInputTypeOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
+}
+
+// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+func (o TableInputTypeOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
+}
+
+type TableInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TableInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableInputType)(nil)).Elem()
+}
+
+func (o TableInputTypePtrOutput) ToTableInputTypePtrOutput() TableInputTypePtrOutput {
+	return o
+}
+
+func (o TableInputTypePtrOutput) ToTableInputTypePtrOutputWithContext(ctx context.Context) TableInputTypePtrOutput {
+	return o
+}
+
+func (o TableInputTypePtrOutput) Elem() TableInputTypeOutput {
+	return o.ApplyT(func(v *TableInputType) TableInputType {
+		if v != nil {
+			return *v
+		}
+		var ret TableInputType
+		return ret
+	}).(TableInputTypeOutput)
+}
+
+// A description of the table.
+func (o TableInputTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+func (o TableInputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+func (o TableInputTypePtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+// These key-value pairs define properties associated with the table.
+func (o TableInputTypePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+func (o TableInputTypePtrOutput) PartitionKeys() TableColumnArrayOutput {
+	return o.ApplyT(func(v *TableInputType) []TableColumn {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKeys
+	}).(TableColumnArrayOutput)
+}
+
+// The retention time for this table.
+func (o TableInputTypePtrOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Retention
+	}).(pulumi.IntPtrOutput)
+}
+
+// A storage descriptor containing information about the physical storage of this table.
+func (o TableInputTypePtrOutput) StorageDescriptor() TableStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *TableStorageDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDescriptor
+	}).(TableStorageDescriptorPtrOutput)
+}
+
+// The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+func (o TableInputTypePtrOutput) TableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A TableIdentifier structure that describes a target table for resource linking.
+func (o TableInputTypePtrOutput) TargetTable() TableIdentifierPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *TableIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.TargetTable
+	}).(TableIdentifierPtrOutput)
+}
+
+// The view definition for the table.
+func (o TableInputTypePtrOutput) ViewDefinition() TableViewDefinitionPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *TableViewDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.ViewDefinition
+	}).(TableViewDefinitionPtrOutput)
+}
+
+// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+func (o TableInputTypePtrOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewExpandedText
+	}).(pulumi.StringPtrOutput)
+}
+
+// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+func (o TableInputTypePtrOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewOriginalText
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies an OpenTableFormatInput structure when creating an open format table.
+type TableOpenTableFormatInput struct {
+	// Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+	IcebergInput *TableIcebergInput `pulumi:"icebergInput"`
+}
+
+// TableOpenTableFormatInputInput is an input type that accepts TableOpenTableFormatInputArgs and TableOpenTableFormatInputOutput values.
+// You can construct a concrete instance of `TableOpenTableFormatInputInput` via:
+//
+//	TableOpenTableFormatInputArgs{...}
+type TableOpenTableFormatInputInput interface {
+	pulumi.Input
+
+	ToTableOpenTableFormatInputOutput() TableOpenTableFormatInputOutput
+	ToTableOpenTableFormatInputOutputWithContext(context.Context) TableOpenTableFormatInputOutput
+}
+
+// Specifies an OpenTableFormatInput structure when creating an open format table.
+type TableOpenTableFormatInputArgs struct {
+	// Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+	IcebergInput TableIcebergInputPtrInput `pulumi:"icebergInput"`
+}
+
+func (TableOpenTableFormatInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (i TableOpenTableFormatInputArgs) ToTableOpenTableFormatInputOutput() TableOpenTableFormatInputOutput {
+	return i.ToTableOpenTableFormatInputOutputWithContext(context.Background())
+}
+
+func (i TableOpenTableFormatInputArgs) ToTableOpenTableFormatInputOutputWithContext(ctx context.Context) TableOpenTableFormatInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOpenTableFormatInputOutput)
+}
+
+func (i TableOpenTableFormatInputArgs) ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput {
+	return i.ToTableOpenTableFormatInputPtrOutputWithContext(context.Background())
+}
+
+func (i TableOpenTableFormatInputArgs) ToTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) TableOpenTableFormatInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOpenTableFormatInputOutput).ToTableOpenTableFormatInputPtrOutputWithContext(ctx)
+}
+
+// TableOpenTableFormatInputPtrInput is an input type that accepts TableOpenTableFormatInputArgs, TableOpenTableFormatInputPtr and TableOpenTableFormatInputPtrOutput values.
+// You can construct a concrete instance of `TableOpenTableFormatInputPtrInput` via:
+//
+//	        TableOpenTableFormatInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOpenTableFormatInputPtrInput interface {
+	pulumi.Input
+
+	ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput
+	ToTableOpenTableFormatInputPtrOutputWithContext(context.Context) TableOpenTableFormatInputPtrOutput
+}
+
+type tableOpenTableFormatInputPtrType TableOpenTableFormatInputArgs
+
+func TableOpenTableFormatInputPtr(v *TableOpenTableFormatInputArgs) TableOpenTableFormatInputPtrInput {
+	return (*tableOpenTableFormatInputPtrType)(v)
+}
+
+func (*tableOpenTableFormatInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (i *tableOpenTableFormatInputPtrType) ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput {
+	return i.ToTableOpenTableFormatInputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOpenTableFormatInputPtrType) ToTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) TableOpenTableFormatInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOpenTableFormatInputPtrOutput)
+}
+
+// Specifies an OpenTableFormatInput structure when creating an open format table.
+type TableOpenTableFormatInputOutput struct{ *pulumi.OutputState }
+
+func (TableOpenTableFormatInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (o TableOpenTableFormatInputOutput) ToTableOpenTableFormatInputOutput() TableOpenTableFormatInputOutput {
+	return o
+}
+
+func (o TableOpenTableFormatInputOutput) ToTableOpenTableFormatInputOutputWithContext(ctx context.Context) TableOpenTableFormatInputOutput {
+	return o
+}
+
+func (o TableOpenTableFormatInputOutput) ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput {
+	return o.ToTableOpenTableFormatInputPtrOutputWithContext(context.Background())
+}
+
+func (o TableOpenTableFormatInputOutput) ToTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) TableOpenTableFormatInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOpenTableFormatInput) *TableOpenTableFormatInput {
+		return &v
+	}).(TableOpenTableFormatInputPtrOutput)
+}
+
+// Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+func (o TableOpenTableFormatInputOutput) IcebergInput() TableIcebergInputPtrOutput {
+	return o.ApplyT(func(v TableOpenTableFormatInput) *TableIcebergInput { return v.IcebergInput }).(TableIcebergInputPtrOutput)
+}
+
+type TableOpenTableFormatInputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOpenTableFormatInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (o TableOpenTableFormatInputPtrOutput) ToTableOpenTableFormatInputPtrOutput() TableOpenTableFormatInputPtrOutput {
+	return o
+}
+
+func (o TableOpenTableFormatInputPtrOutput) ToTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) TableOpenTableFormatInputPtrOutput {
+	return o
+}
+
+func (o TableOpenTableFormatInputPtrOutput) Elem() TableOpenTableFormatInputOutput {
+	return o.ApplyT(func(v *TableOpenTableFormatInput) TableOpenTableFormatInput {
+		if v != nil {
+			return *v
+		}
+		var ret TableOpenTableFormatInput
+		return ret
+	}).(TableOpenTableFormatInputOutput)
+}
+
+// Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+func (o TableOpenTableFormatInputPtrOutput) IcebergInput() TableIcebergInputPtrOutput {
+	return o.ApplyT(func(v *TableOpenTableFormatInput) *TableIcebergInput {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergInput
+	}).(TableIcebergInputPtrOutput)
+}
+
 type TableOptimizerCompactionConfiguration struct {
 	// The configuration for an Iceberg compaction optimizer.
 	IcebergConfiguration *TableOptimizerIcebergCompactionConfiguration `pulumi:"icebergConfiguration"`
@@ -16879,6 +18982,1528 @@ func (o TableOptimizerVpcConfigurationPtrOutput) GlueConnectionName() pulumi.Str
 		}
 		return v.GlueConnectionName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the sort order of a sorted column.
+type TableOrder struct {
+	// The name of the column.
+	Column string `pulumi:"column"`
+	// Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+	SortOrder int `pulumi:"sortOrder"`
+}
+
+// TableOrderInput is an input type that accepts TableOrderArgs and TableOrderOutput values.
+// You can construct a concrete instance of `TableOrderInput` via:
+//
+//	TableOrderArgs{...}
+type TableOrderInput interface {
+	pulumi.Input
+
+	ToTableOrderOutput() TableOrderOutput
+	ToTableOrderOutputWithContext(context.Context) TableOrderOutput
+}
+
+// Specifies the sort order of a sorted column.
+type TableOrderArgs struct {
+	// The name of the column.
+	Column pulumi.StringInput `pulumi:"column"`
+	// Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+	SortOrder pulumi.IntInput `pulumi:"sortOrder"`
+}
+
+func (TableOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOrder)(nil)).Elem()
+}
+
+func (i TableOrderArgs) ToTableOrderOutput() TableOrderOutput {
+	return i.ToTableOrderOutputWithContext(context.Background())
+}
+
+func (i TableOrderArgs) ToTableOrderOutputWithContext(ctx context.Context) TableOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOrderOutput)
+}
+
+// TableOrderArrayInput is an input type that accepts TableOrderArray and TableOrderArrayOutput values.
+// You can construct a concrete instance of `TableOrderArrayInput` via:
+//
+//	TableOrderArray{ TableOrderArgs{...} }
+type TableOrderArrayInput interface {
+	pulumi.Input
+
+	ToTableOrderArrayOutput() TableOrderArrayOutput
+	ToTableOrderArrayOutputWithContext(context.Context) TableOrderArrayOutput
+}
+
+type TableOrderArray []TableOrderInput
+
+func (TableOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableOrder)(nil)).Elem()
+}
+
+func (i TableOrderArray) ToTableOrderArrayOutput() TableOrderArrayOutput {
+	return i.ToTableOrderArrayOutputWithContext(context.Background())
+}
+
+func (i TableOrderArray) ToTableOrderArrayOutputWithContext(ctx context.Context) TableOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOrderArrayOutput)
+}
+
+// Specifies the sort order of a sorted column.
+type TableOrderOutput struct{ *pulumi.OutputState }
+
+func (TableOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOrder)(nil)).Elem()
+}
+
+func (o TableOrderOutput) ToTableOrderOutput() TableOrderOutput {
+	return o
+}
+
+func (o TableOrderOutput) ToTableOrderOutputWithContext(ctx context.Context) TableOrderOutput {
+	return o
+}
+
+// The name of the column.
+func (o TableOrderOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v TableOrder) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+func (o TableOrderOutput) SortOrder() pulumi.IntOutput {
+	return o.ApplyT(func(v TableOrder) int { return v.SortOrder }).(pulumi.IntOutput)
+}
+
+type TableOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (TableOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableOrder)(nil)).Elem()
+}
+
+func (o TableOrderArrayOutput) ToTableOrderArrayOutput() TableOrderArrayOutput {
+	return o
+}
+
+func (o TableOrderArrayOutput) ToTableOrderArrayOutputWithContext(ctx context.Context) TableOrderArrayOutput {
+	return o
+}
+
+func (o TableOrderArrayOutput) Index(i pulumi.IntInput) TableOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableOrder {
+		return vs[0].([]TableOrder)[vs[1].(int)]
+	}).(TableOrderOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+type TableSchemaId struct {
+	// The name of the schema registry that contains the schema.
+	RegistryName *string `pulumi:"registryName"`
+	// The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+	SchemaArn *string `pulumi:"schemaArn"`
+	// The name of the schema. One of SchemaArn or SchemaName has to be provided.
+	SchemaName *string `pulumi:"schemaName"`
+}
+
+// TableSchemaIdInput is an input type that accepts TableSchemaIdArgs and TableSchemaIdOutput values.
+// You can construct a concrete instance of `TableSchemaIdInput` via:
+//
+//	TableSchemaIdArgs{...}
+type TableSchemaIdInput interface {
+	pulumi.Input
+
+	ToTableSchemaIdOutput() TableSchemaIdOutput
+	ToTableSchemaIdOutputWithContext(context.Context) TableSchemaIdOutput
+}
+
+// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+type TableSchemaIdArgs struct {
+	// The name of the schema registry that contains the schema.
+	RegistryName pulumi.StringPtrInput `pulumi:"registryName"`
+	// The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+	SchemaArn pulumi.StringPtrInput `pulumi:"schemaArn"`
+	// The name of the schema. One of SchemaArn or SchemaName has to be provided.
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (TableSchemaIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaId)(nil)).Elem()
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdOutput() TableSchemaIdOutput {
+	return i.ToTableSchemaIdOutputWithContext(context.Background())
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdOutputWithContext(ctx context.Context) TableSchemaIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaIdOutput)
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return i.ToTableSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaIdOutput).ToTableSchemaIdPtrOutputWithContext(ctx)
+}
+
+// TableSchemaIdPtrInput is an input type that accepts TableSchemaIdArgs, TableSchemaIdPtr and TableSchemaIdPtrOutput values.
+// You can construct a concrete instance of `TableSchemaIdPtrInput` via:
+//
+//	        TableSchemaIdArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableSchemaIdPtrInput interface {
+	pulumi.Input
+
+	ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput
+	ToTableSchemaIdPtrOutputWithContext(context.Context) TableSchemaIdPtrOutput
+}
+
+type tableSchemaIdPtrType TableSchemaIdArgs
+
+func TableSchemaIdPtr(v *TableSchemaIdArgs) TableSchemaIdPtrInput {
+	return (*tableSchemaIdPtrType)(v)
+}
+
+func (*tableSchemaIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaId)(nil)).Elem()
+}
+
+func (i *tableSchemaIdPtrType) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return i.ToTableSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSchemaIdPtrType) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaIdPtrOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+type TableSchemaIdOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaId)(nil)).Elem()
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdOutput() TableSchemaIdOutput {
+	return o
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdOutputWithContext(ctx context.Context) TableSchemaIdOutput {
+	return o
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return o.ToTableSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSchemaId) *TableSchemaId {
+		return &v
+	}).(TableSchemaIdPtrOutput)
+}
+
+// The name of the schema registry that contains the schema.
+func (o TableSchemaIdOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+func (o TableSchemaIdOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the schema. One of SchemaArn or SchemaName has to be provided.
+func (o TableSchemaIdOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type TableSchemaIdPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaId)(nil)).Elem()
+}
+
+func (o TableSchemaIdPtrOutput) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return o
+}
+
+func (o TableSchemaIdPtrOutput) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return o
+}
+
+func (o TableSchemaIdPtrOutput) Elem() TableSchemaIdOutput {
+	return o.ApplyT(func(v *TableSchemaId) TableSchemaId {
+		if v != nil {
+			return *v
+		}
+		var ret TableSchemaId
+		return ret
+	}).(TableSchemaIdOutput)
+}
+
+// The name of the schema registry that contains the schema.
+func (o TableSchemaIdPtrOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+func (o TableSchemaIdPtrOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the schema. One of SchemaArn or SchemaName has to be provided.
+func (o TableSchemaIdPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+type TableSchemaReference struct {
+	// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+	SchemaId *TableSchemaId `pulumi:"schemaId"`
+	// The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+	SchemaVersionId *string `pulumi:"schemaVersionId"`
+	// The version number of the schema.
+	SchemaVersionNumber *int `pulumi:"schemaVersionNumber"`
+}
+
+// TableSchemaReferenceInput is an input type that accepts TableSchemaReferenceArgs and TableSchemaReferenceOutput values.
+// You can construct a concrete instance of `TableSchemaReferenceInput` via:
+//
+//	TableSchemaReferenceArgs{...}
+type TableSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToTableSchemaReferenceOutput() TableSchemaReferenceOutput
+	ToTableSchemaReferenceOutputWithContext(context.Context) TableSchemaReferenceOutput
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+type TableSchemaReferenceArgs struct {
+	// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+	SchemaId TableSchemaIdPtrInput `pulumi:"schemaId"`
+	// The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+	SchemaVersionId pulumi.StringPtrInput `pulumi:"schemaVersionId"`
+	// The version number of the schema.
+	SchemaVersionNumber pulumi.IntPtrInput `pulumi:"schemaVersionNumber"`
+}
+
+func (TableSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaReference)(nil)).Elem()
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferenceOutput() TableSchemaReferenceOutput {
+	return i.ToTableSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferenceOutputWithContext(ctx context.Context) TableSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaReferenceOutput)
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return i.ToTableSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaReferenceOutput).ToTableSchemaReferencePtrOutputWithContext(ctx)
+}
+
+// TableSchemaReferencePtrInput is an input type that accepts TableSchemaReferenceArgs, TableSchemaReferencePtr and TableSchemaReferencePtrOutput values.
+// You can construct a concrete instance of `TableSchemaReferencePtrInput` via:
+//
+//	        TableSchemaReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableSchemaReferencePtrInput interface {
+	pulumi.Input
+
+	ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput
+	ToTableSchemaReferencePtrOutputWithContext(context.Context) TableSchemaReferencePtrOutput
+}
+
+type tableSchemaReferencePtrType TableSchemaReferenceArgs
+
+func TableSchemaReferencePtr(v *TableSchemaReferenceArgs) TableSchemaReferencePtrInput {
+	return (*tableSchemaReferencePtrType)(v)
+}
+
+func (*tableSchemaReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaReference)(nil)).Elem()
+}
+
+func (i *tableSchemaReferencePtrType) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return i.ToTableSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *tableSchemaReferencePtrType) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaReferencePtrOutput)
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+type TableSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaReference)(nil)).Elem()
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferenceOutput() TableSchemaReferenceOutput {
+	return o
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferenceOutputWithContext(ctx context.Context) TableSchemaReferenceOutput {
+	return o
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return o.ToTableSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSchemaReference) *TableSchemaReference {
+		return &v
+	}).(TableSchemaReferencePtrOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+func (o TableSchemaReferenceOutput) SchemaId() TableSchemaIdPtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *TableSchemaId { return v.SchemaId }).(TableSchemaIdPtrOutput)
+}
+
+// The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+func (o TableSchemaReferenceOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *string { return v.SchemaVersionId }).(pulumi.StringPtrOutput)
+}
+
+// The version number of the schema.
+func (o TableSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *int { return v.SchemaVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type TableSchemaReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaReference)(nil)).Elem()
+}
+
+func (o TableSchemaReferencePtrOutput) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return o
+}
+
+func (o TableSchemaReferencePtrOutput) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return o
+}
+
+func (o TableSchemaReferencePtrOutput) Elem() TableSchemaReferenceOutput {
+	return o.ApplyT(func(v *TableSchemaReference) TableSchemaReference {
+		if v != nil {
+			return *v
+		}
+		var ret TableSchemaReference
+		return ret
+	}).(TableSchemaReferenceOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+func (o TableSchemaReferencePtrOutput) SchemaId() TableSchemaIdPtrOutput {
+	return o.ApplyT(func(v *TableSchemaReference) *TableSchemaId {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(TableSchemaIdPtrOutput)
+}
+
+// The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+func (o TableSchemaReferencePtrOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version number of the schema.
+func (o TableSchemaReferencePtrOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableSchemaReference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// Information about a serialization/deserialization program (SerDe) that serves as an extractor an loader.
+type TableSerdeInfo struct {
+	// Name of the SerDe.
+	Name *string `pulumi:"name"`
+	// These key-value pairs define initialization parameters for the SerDe.
+	Parameters interface{} `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	SerializationLibrary *string `pulumi:"serializationLibrary"`
+}
+
+// TableSerdeInfoInput is an input type that accepts TableSerdeInfoArgs and TableSerdeInfoOutput values.
+// You can construct a concrete instance of `TableSerdeInfoInput` via:
+//
+//	TableSerdeInfoArgs{...}
+type TableSerdeInfoInput interface {
+	pulumi.Input
+
+	ToTableSerdeInfoOutput() TableSerdeInfoOutput
+	ToTableSerdeInfoOutputWithContext(context.Context) TableSerdeInfoOutput
+}
+
+// Information about a serialization/deserialization program (SerDe) that serves as an extractor an loader.
+type TableSerdeInfoArgs struct {
+	// Name of the SerDe.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// These key-value pairs define initialization parameters for the SerDe.
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	SerializationLibrary pulumi.StringPtrInput `pulumi:"serializationLibrary"`
+}
+
+func (TableSerdeInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSerdeInfo)(nil)).Elem()
+}
+
+func (i TableSerdeInfoArgs) ToTableSerdeInfoOutput() TableSerdeInfoOutput {
+	return i.ToTableSerdeInfoOutputWithContext(context.Background())
+}
+
+func (i TableSerdeInfoArgs) ToTableSerdeInfoOutputWithContext(ctx context.Context) TableSerdeInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSerdeInfoOutput)
+}
+
+func (i TableSerdeInfoArgs) ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput {
+	return i.ToTableSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i TableSerdeInfoArgs) ToTableSerdeInfoPtrOutputWithContext(ctx context.Context) TableSerdeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSerdeInfoOutput).ToTableSerdeInfoPtrOutputWithContext(ctx)
+}
+
+// TableSerdeInfoPtrInput is an input type that accepts TableSerdeInfoArgs, TableSerdeInfoPtr and TableSerdeInfoPtrOutput values.
+// You can construct a concrete instance of `TableSerdeInfoPtrInput` via:
+//
+//	        TableSerdeInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableSerdeInfoPtrInput interface {
+	pulumi.Input
+
+	ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput
+	ToTableSerdeInfoPtrOutputWithContext(context.Context) TableSerdeInfoPtrOutput
+}
+
+type tableSerdeInfoPtrType TableSerdeInfoArgs
+
+func TableSerdeInfoPtr(v *TableSerdeInfoArgs) TableSerdeInfoPtrInput {
+	return (*tableSerdeInfoPtrType)(v)
+}
+
+func (*tableSerdeInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSerdeInfo)(nil)).Elem()
+}
+
+func (i *tableSerdeInfoPtrType) ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput {
+	return i.ToTableSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSerdeInfoPtrType) ToTableSerdeInfoPtrOutputWithContext(ctx context.Context) TableSerdeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSerdeInfoPtrOutput)
+}
+
+// Information about a serialization/deserialization program (SerDe) that serves as an extractor an loader.
+type TableSerdeInfoOutput struct{ *pulumi.OutputState }
+
+func (TableSerdeInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSerdeInfo)(nil)).Elem()
+}
+
+func (o TableSerdeInfoOutput) ToTableSerdeInfoOutput() TableSerdeInfoOutput {
+	return o
+}
+
+func (o TableSerdeInfoOutput) ToTableSerdeInfoOutputWithContext(ctx context.Context) TableSerdeInfoOutput {
+	return o
+}
+
+func (o TableSerdeInfoOutput) ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput {
+	return o.ToTableSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (o TableSerdeInfoOutput) ToTableSerdeInfoPtrOutputWithContext(ctx context.Context) TableSerdeInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSerdeInfo) *TableSerdeInfo {
+		return &v
+	}).(TableSerdeInfoPtrOutput)
+}
+
+// Name of the SerDe.
+func (o TableSerdeInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSerdeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// These key-value pairs define initialization parameters for the SerDe.
+func (o TableSerdeInfoOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableSerdeInfo) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+func (o TableSerdeInfoOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSerdeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
+}
+
+type TableSerdeInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSerdeInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSerdeInfo)(nil)).Elem()
+}
+
+func (o TableSerdeInfoPtrOutput) ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput {
+	return o
+}
+
+func (o TableSerdeInfoPtrOutput) ToTableSerdeInfoPtrOutputWithContext(ctx context.Context) TableSerdeInfoPtrOutput {
+	return o
+}
+
+func (o TableSerdeInfoPtrOutput) Elem() TableSerdeInfoOutput {
+	return o.ApplyT(func(v *TableSerdeInfo) TableSerdeInfo {
+		if v != nil {
+			return *v
+		}
+		var ret TableSerdeInfo
+		return ret
+	}).(TableSerdeInfoOutput)
+}
+
+// Name of the SerDe.
+func (o TableSerdeInfoPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSerdeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// These key-value pairs define initialization parameters for the SerDe.
+func (o TableSerdeInfoPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableSerdeInfo) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+func (o TableSerdeInfoPtrOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSerdeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerializationLibrary
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+type TableSkewedInfo struct {
+	// A list of names of columns that contain skewed values.
+	SkewedColumnNames []string `pulumi:"skewedColumnNames"`
+	// A mapping of skewed values to the columns that contain them.
+	SkewedColumnValueLocationMaps interface{} `pulumi:"skewedColumnValueLocationMaps"`
+	// A list of names of columns that contain skewed values.
+	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
+}
+
+// TableSkewedInfoInput is an input type that accepts TableSkewedInfoArgs and TableSkewedInfoOutput values.
+// You can construct a concrete instance of `TableSkewedInfoInput` via:
+//
+//	TableSkewedInfoArgs{...}
+type TableSkewedInfoInput interface {
+	pulumi.Input
+
+	ToTableSkewedInfoOutput() TableSkewedInfoOutput
+	ToTableSkewedInfoOutputWithContext(context.Context) TableSkewedInfoOutput
+}
+
+// Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+type TableSkewedInfoArgs struct {
+	// A list of names of columns that contain skewed values.
+	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
+	// A mapping of skewed values to the columns that contain them.
+	SkewedColumnValueLocationMaps pulumi.Input `pulumi:"skewedColumnValueLocationMaps"`
+	// A list of names of columns that contain skewed values.
+	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
+}
+
+func (TableSkewedInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSkewedInfo)(nil)).Elem()
+}
+
+func (i TableSkewedInfoArgs) ToTableSkewedInfoOutput() TableSkewedInfoOutput {
+	return i.ToTableSkewedInfoOutputWithContext(context.Background())
+}
+
+func (i TableSkewedInfoArgs) ToTableSkewedInfoOutputWithContext(ctx context.Context) TableSkewedInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSkewedInfoOutput)
+}
+
+func (i TableSkewedInfoArgs) ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput {
+	return i.ToTableSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i TableSkewedInfoArgs) ToTableSkewedInfoPtrOutputWithContext(ctx context.Context) TableSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSkewedInfoOutput).ToTableSkewedInfoPtrOutputWithContext(ctx)
+}
+
+// TableSkewedInfoPtrInput is an input type that accepts TableSkewedInfoArgs, TableSkewedInfoPtr and TableSkewedInfoPtrOutput values.
+// You can construct a concrete instance of `TableSkewedInfoPtrInput` via:
+//
+//	        TableSkewedInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableSkewedInfoPtrInput interface {
+	pulumi.Input
+
+	ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput
+	ToTableSkewedInfoPtrOutputWithContext(context.Context) TableSkewedInfoPtrOutput
+}
+
+type tableSkewedInfoPtrType TableSkewedInfoArgs
+
+func TableSkewedInfoPtr(v *TableSkewedInfoArgs) TableSkewedInfoPtrInput {
+	return (*tableSkewedInfoPtrType)(v)
+}
+
+func (*tableSkewedInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSkewedInfo)(nil)).Elem()
+}
+
+func (i *tableSkewedInfoPtrType) ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput {
+	return i.ToTableSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSkewedInfoPtrType) ToTableSkewedInfoPtrOutputWithContext(ctx context.Context) TableSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSkewedInfoPtrOutput)
+}
+
+// Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+type TableSkewedInfoOutput struct{ *pulumi.OutputState }
+
+func (TableSkewedInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSkewedInfo)(nil)).Elem()
+}
+
+func (o TableSkewedInfoOutput) ToTableSkewedInfoOutput() TableSkewedInfoOutput {
+	return o
+}
+
+func (o TableSkewedInfoOutput) ToTableSkewedInfoOutputWithContext(ctx context.Context) TableSkewedInfoOutput {
+	return o
+}
+
+func (o TableSkewedInfoOutput) ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput {
+	return o.ToTableSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (o TableSkewedInfoOutput) ToTableSkewedInfoPtrOutputWithContext(ctx context.Context) TableSkewedInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSkewedInfo) *TableSkewedInfo {
+		return &v
+	}).(TableSkewedInfoPtrOutput)
+}
+
+// A list of names of columns that contain skewed values.
+func (o TableSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// A mapping of skewed values to the columns that contain them.
+func (o TableSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableSkewedInfo) interface{} { return v.SkewedColumnValueLocationMaps }).(pulumi.AnyOutput)
+}
+
+// A list of names of columns that contain skewed values.
+func (o TableSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
+}
+
+type TableSkewedInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSkewedInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSkewedInfo)(nil)).Elem()
+}
+
+func (o TableSkewedInfoPtrOutput) ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput {
+	return o
+}
+
+func (o TableSkewedInfoPtrOutput) ToTableSkewedInfoPtrOutputWithContext(ctx context.Context) TableSkewedInfoPtrOutput {
+	return o
+}
+
+func (o TableSkewedInfoPtrOutput) Elem() TableSkewedInfoOutput {
+	return o.ApplyT(func(v *TableSkewedInfo) TableSkewedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret TableSkewedInfo
+		return ret
+	}).(TableSkewedInfoOutput)
+}
+
+// A list of names of columns that contain skewed values.
+func (o TableSkewedInfoPtrOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// A mapping of skewed values to the columns that contain them.
+func (o TableSkewedInfoPtrOutput) SkewedColumnValueLocationMaps() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableSkewedInfo) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValueLocationMaps
+	}).(pulumi.AnyOutput)
+}
+
+// A list of names of columns that contain skewed values.
+func (o TableSkewedInfoPtrOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// Describes the physical storage of table data.
+type TableStorageDescriptor struct {
+	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns []string `pulumi:"bucketColumns"`
+	// A list of the Columns in the table.
+	Columns []TableColumn `pulumi:"columns"`
+	// True if the data in the table is compressed, or False if not.
+	Compressed *bool `pulumi:"compressed"`
+	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat *string `pulumi:"inputFormat"`
+	// The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location *string `pulumi:"location"`
+	// Must be specified if the table contains any dimension columns.
+	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
+	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat *string `pulumi:"outputFormat"`
+	// The user-supplied properties in key-value form.
+	Parameters interface{} `pulumi:"parameters"`
+	// An object that references a schema stored in the AWS Glue Schema Registry.
+	SchemaReference *TableSchemaReference `pulumi:"schemaReference"`
+	// The serialization/deserialization (SerDe) information.
+	SerdeInfo *TableSerdeInfo `pulumi:"serdeInfo"`
+	// The information about values that appear frequently in a column (skewed values).
+	SkewedInfo *TableSkewedInfo `pulumi:"skewedInfo"`
+	// A list specifying the sort order of each bucket in the table.
+	SortColumns []TableOrder `pulumi:"sortColumns"`
+	// True if the table data is stored in subdirectories, or False if not.
+	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
+}
+
+// TableStorageDescriptorInput is an input type that accepts TableStorageDescriptorArgs and TableStorageDescriptorOutput values.
+// You can construct a concrete instance of `TableStorageDescriptorInput` via:
+//
+//	TableStorageDescriptorArgs{...}
+type TableStorageDescriptorInput interface {
+	pulumi.Input
+
+	ToTableStorageDescriptorOutput() TableStorageDescriptorOutput
+	ToTableStorageDescriptorOutputWithContext(context.Context) TableStorageDescriptorOutput
+}
+
+// Describes the physical storage of table data.
+type TableStorageDescriptorArgs struct {
+	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
+	// A list of the Columns in the table.
+	Columns TableColumnArrayInput `pulumi:"columns"`
+	// True if the data in the table is compressed, or False if not.
+	Compressed pulumi.BoolPtrInput `pulumi:"compressed"`
+	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
+	// The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Must be specified if the table contains any dimension columns.
+	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
+	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
+	// The user-supplied properties in key-value form.
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// An object that references a schema stored in the AWS Glue Schema Registry.
+	SchemaReference TableSchemaReferencePtrInput `pulumi:"schemaReference"`
+	// The serialization/deserialization (SerDe) information.
+	SerdeInfo TableSerdeInfoPtrInput `pulumi:"serdeInfo"`
+	// The information about values that appear frequently in a column (skewed values).
+	SkewedInfo TableSkewedInfoPtrInput `pulumi:"skewedInfo"`
+	// A list specifying the sort order of each bucket in the table.
+	SortColumns TableOrderArrayInput `pulumi:"sortColumns"`
+	// True if the table data is stored in subdirectories, or False if not.
+	StoredAsSubDirectories pulumi.BoolPtrInput `pulumi:"storedAsSubDirectories"`
+}
+
+func (TableStorageDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableStorageDescriptor)(nil)).Elem()
+}
+
+func (i TableStorageDescriptorArgs) ToTableStorageDescriptorOutput() TableStorageDescriptorOutput {
+	return i.ToTableStorageDescriptorOutputWithContext(context.Background())
+}
+
+func (i TableStorageDescriptorArgs) ToTableStorageDescriptorOutputWithContext(ctx context.Context) TableStorageDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableStorageDescriptorOutput)
+}
+
+func (i TableStorageDescriptorArgs) ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput {
+	return i.ToTableStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i TableStorageDescriptorArgs) ToTableStorageDescriptorPtrOutputWithContext(ctx context.Context) TableStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableStorageDescriptorOutput).ToTableStorageDescriptorPtrOutputWithContext(ctx)
+}
+
+// TableStorageDescriptorPtrInput is an input type that accepts TableStorageDescriptorArgs, TableStorageDescriptorPtr and TableStorageDescriptorPtrOutput values.
+// You can construct a concrete instance of `TableStorageDescriptorPtrInput` via:
+//
+//	        TableStorageDescriptorArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableStorageDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput
+	ToTableStorageDescriptorPtrOutputWithContext(context.Context) TableStorageDescriptorPtrOutput
+}
+
+type tableStorageDescriptorPtrType TableStorageDescriptorArgs
+
+func TableStorageDescriptorPtr(v *TableStorageDescriptorArgs) TableStorageDescriptorPtrInput {
+	return (*tableStorageDescriptorPtrType)(v)
+}
+
+func (*tableStorageDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableStorageDescriptor)(nil)).Elem()
+}
+
+func (i *tableStorageDescriptorPtrType) ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput {
+	return i.ToTableStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *tableStorageDescriptorPtrType) ToTableStorageDescriptorPtrOutputWithContext(ctx context.Context) TableStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableStorageDescriptorPtrOutput)
+}
+
+// Describes the physical storage of table data.
+type TableStorageDescriptorOutput struct{ *pulumi.OutputState }
+
+func (TableStorageDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableStorageDescriptor)(nil)).Elem()
+}
+
+func (o TableStorageDescriptorOutput) ToTableStorageDescriptorOutput() TableStorageDescriptorOutput {
+	return o
+}
+
+func (o TableStorageDescriptorOutput) ToTableStorageDescriptorOutputWithContext(ctx context.Context) TableStorageDescriptorOutput {
+	return o
+}
+
+func (o TableStorageDescriptorOutput) ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput {
+	return o.ToTableStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o TableStorageDescriptorOutput) ToTableStorageDescriptorPtrOutputWithContext(ctx context.Context) TableStorageDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableStorageDescriptor) *TableStorageDescriptor {
+		return &v
+	}).(TableStorageDescriptorPtrOutput)
+}
+
+// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+func (o TableStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
+}
+
+// A list of the Columns in the table.
+func (o TableStorageDescriptorOutput) Columns() TableColumnArrayOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) []TableColumn { return v.Columns }).(TableColumnArrayOutput)
+}
+
+// True if the data in the table is compressed, or False if not.
+func (o TableStorageDescriptorOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
+}
+
+// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+func (o TableStorageDescriptorOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
+}
+
+// The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+func (o TableStorageDescriptorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Must be specified if the table contains any dimension columns.
+func (o TableStorageDescriptorOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
+}
+
+// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+func (o TableStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
+}
+
+// The user-supplied properties in key-value form.
+func (o TableStorageDescriptorOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+func (o TableStorageDescriptorOutput) SchemaReference() TableSchemaReferencePtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *TableSchemaReference { return v.SchemaReference }).(TableSchemaReferencePtrOutput)
+}
+
+// The serialization/deserialization (SerDe) information.
+func (o TableStorageDescriptorOutput) SerdeInfo() TableSerdeInfoPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *TableSerdeInfo { return v.SerdeInfo }).(TableSerdeInfoPtrOutput)
+}
+
+// The information about values that appear frequently in a column (skewed values).
+func (o TableStorageDescriptorOutput) SkewedInfo() TableSkewedInfoPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *TableSkewedInfo { return v.SkewedInfo }).(TableSkewedInfoPtrOutput)
+}
+
+// A list specifying the sort order of each bucket in the table.
+func (o TableStorageDescriptorOutput) SortColumns() TableOrderArrayOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) []TableOrder { return v.SortColumns }).(TableOrderArrayOutput)
+}
+
+// True if the table data is stored in subdirectories, or False if not.
+func (o TableStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
+}
+
+type TableStorageDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (TableStorageDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableStorageDescriptor)(nil)).Elem()
+}
+
+func (o TableStorageDescriptorPtrOutput) ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o TableStorageDescriptorPtrOutput) ToTableStorageDescriptorPtrOutputWithContext(ctx context.Context) TableStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o TableStorageDescriptorPtrOutput) Elem() TableStorageDescriptorOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) TableStorageDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret TableStorageDescriptor
+		return ret
+	}).(TableStorageDescriptorOutput)
+}
+
+// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+func (o TableStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketColumns
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the Columns in the table.
+func (o TableStorageDescriptorPtrOutput) Columns() TableColumnArrayOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) []TableColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(TableColumnArrayOutput)
+}
+
+// True if the data in the table is compressed, or False if not.
+func (o TableStorageDescriptorPtrOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Compressed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+func (o TableStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+func (o TableStorageDescriptorPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// Must be specified if the table contains any dimension columns.
+func (o TableStorageDescriptorPtrOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+func (o TableStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user-supplied properties in key-value form.
+func (o TableStorageDescriptorPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+func (o TableStorageDescriptorPtrOutput) SchemaReference() TableSchemaReferencePtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *TableSchemaReference {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaReference
+	}).(TableSchemaReferencePtrOutput)
+}
+
+// The serialization/deserialization (SerDe) information.
+func (o TableStorageDescriptorPtrOutput) SerdeInfo() TableSerdeInfoPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *TableSerdeInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SerdeInfo
+	}).(TableSerdeInfoPtrOutput)
+}
+
+// The information about values that appear frequently in a column (skewed values).
+func (o TableStorageDescriptorPtrOutput) SkewedInfo() TableSkewedInfoPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *TableSkewedInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedInfo
+	}).(TableSkewedInfoPtrOutput)
+}
+
+// A list specifying the sort order of each bucket in the table.
+func (o TableStorageDescriptorPtrOutput) SortColumns() TableOrderArrayOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) []TableOrder {
+		if v == nil {
+			return nil
+		}
+		return v.SortColumns
+	}).(TableOrderArrayOutput)
+}
+
+// True if the table data is stored in subdirectories, or False if not.
+func (o TableStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StoredAsSubDirectories
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A structure that defines the view.
+type TableViewDefinition struct {
+	// The definer of the view.
+	Definer *string `pulumi:"definer"`
+	// Indicates whether the view is protected.
+	IsProtected *bool `pulumi:"isProtected"`
+	// The representations of the view.
+	Representations []TableViewRepresentation `pulumi:"representations"`
+	// The sub-objects of the view.
+	SubObjects []string `pulumi:"subObjects"`
+}
+
+// TableViewDefinitionInput is an input type that accepts TableViewDefinitionArgs and TableViewDefinitionOutput values.
+// You can construct a concrete instance of `TableViewDefinitionInput` via:
+//
+//	TableViewDefinitionArgs{...}
+type TableViewDefinitionInput interface {
+	pulumi.Input
+
+	ToTableViewDefinitionOutput() TableViewDefinitionOutput
+	ToTableViewDefinitionOutputWithContext(context.Context) TableViewDefinitionOutput
+}
+
+// A structure that defines the view.
+type TableViewDefinitionArgs struct {
+	// The definer of the view.
+	Definer pulumi.StringPtrInput `pulumi:"definer"`
+	// Indicates whether the view is protected.
+	IsProtected pulumi.BoolPtrInput `pulumi:"isProtected"`
+	// The representations of the view.
+	Representations TableViewRepresentationArrayInput `pulumi:"representations"`
+	// The sub-objects of the view.
+	SubObjects pulumi.StringArrayInput `pulumi:"subObjects"`
+}
+
+func (TableViewDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableViewDefinition)(nil)).Elem()
+}
+
+func (i TableViewDefinitionArgs) ToTableViewDefinitionOutput() TableViewDefinitionOutput {
+	return i.ToTableViewDefinitionOutputWithContext(context.Background())
+}
+
+func (i TableViewDefinitionArgs) ToTableViewDefinitionOutputWithContext(ctx context.Context) TableViewDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableViewDefinitionOutput)
+}
+
+func (i TableViewDefinitionArgs) ToTableViewDefinitionPtrOutput() TableViewDefinitionPtrOutput {
+	return i.ToTableViewDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i TableViewDefinitionArgs) ToTableViewDefinitionPtrOutputWithContext(ctx context.Context) TableViewDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableViewDefinitionOutput).ToTableViewDefinitionPtrOutputWithContext(ctx)
+}
+
+// TableViewDefinitionPtrInput is an input type that accepts TableViewDefinitionArgs, TableViewDefinitionPtr and TableViewDefinitionPtrOutput values.
+// You can construct a concrete instance of `TableViewDefinitionPtrInput` via:
+//
+//	        TableViewDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableViewDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToTableViewDefinitionPtrOutput() TableViewDefinitionPtrOutput
+	ToTableViewDefinitionPtrOutputWithContext(context.Context) TableViewDefinitionPtrOutput
+}
+
+type tableViewDefinitionPtrType TableViewDefinitionArgs
+
+func TableViewDefinitionPtr(v *TableViewDefinitionArgs) TableViewDefinitionPtrInput {
+	return (*tableViewDefinitionPtrType)(v)
+}
+
+func (*tableViewDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableViewDefinition)(nil)).Elem()
+}
+
+func (i *tableViewDefinitionPtrType) ToTableViewDefinitionPtrOutput() TableViewDefinitionPtrOutput {
+	return i.ToTableViewDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *tableViewDefinitionPtrType) ToTableViewDefinitionPtrOutputWithContext(ctx context.Context) TableViewDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableViewDefinitionPtrOutput)
+}
+
+// A structure that defines the view.
+type TableViewDefinitionOutput struct{ *pulumi.OutputState }
+
+func (TableViewDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableViewDefinition)(nil)).Elem()
+}
+
+func (o TableViewDefinitionOutput) ToTableViewDefinitionOutput() TableViewDefinitionOutput {
+	return o
+}
+
+func (o TableViewDefinitionOutput) ToTableViewDefinitionOutputWithContext(ctx context.Context) TableViewDefinitionOutput {
+	return o
+}
+
+func (o TableViewDefinitionOutput) ToTableViewDefinitionPtrOutput() TableViewDefinitionPtrOutput {
+	return o.ToTableViewDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o TableViewDefinitionOutput) ToTableViewDefinitionPtrOutputWithContext(ctx context.Context) TableViewDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableViewDefinition) *TableViewDefinition {
+		return &v
+	}).(TableViewDefinitionPtrOutput)
+}
+
+// The definer of the view.
+func (o TableViewDefinitionOutput) Definer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableViewDefinition) *string { return v.Definer }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the view is protected.
+func (o TableViewDefinitionOutput) IsProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableViewDefinition) *bool { return v.IsProtected }).(pulumi.BoolPtrOutput)
+}
+
+// The representations of the view.
+func (o TableViewDefinitionOutput) Representations() TableViewRepresentationArrayOutput {
+	return o.ApplyT(func(v TableViewDefinition) []TableViewRepresentation { return v.Representations }).(TableViewRepresentationArrayOutput)
+}
+
+// The sub-objects of the view.
+func (o TableViewDefinitionOutput) SubObjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableViewDefinition) []string { return v.SubObjects }).(pulumi.StringArrayOutput)
+}
+
+type TableViewDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (TableViewDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableViewDefinition)(nil)).Elem()
+}
+
+func (o TableViewDefinitionPtrOutput) ToTableViewDefinitionPtrOutput() TableViewDefinitionPtrOutput {
+	return o
+}
+
+func (o TableViewDefinitionPtrOutput) ToTableViewDefinitionPtrOutputWithContext(ctx context.Context) TableViewDefinitionPtrOutput {
+	return o
+}
+
+func (o TableViewDefinitionPtrOutput) Elem() TableViewDefinitionOutput {
+	return o.ApplyT(func(v *TableViewDefinition) TableViewDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret TableViewDefinition
+		return ret
+	}).(TableViewDefinitionOutput)
+}
+
+// The definer of the view.
+func (o TableViewDefinitionPtrOutput) Definer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableViewDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Definer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the view is protected.
+func (o TableViewDefinitionPtrOutput) IsProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableViewDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsProtected
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The representations of the view.
+func (o TableViewDefinitionPtrOutput) Representations() TableViewRepresentationArrayOutput {
+	return o.ApplyT(func(v *TableViewDefinition) []TableViewRepresentation {
+		if v == nil {
+			return nil
+		}
+		return v.Representations
+	}).(TableViewRepresentationArrayOutput)
+}
+
+// The sub-objects of the view.
+func (o TableViewDefinitionPtrOutput) SubObjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableViewDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubObjects
+	}).(pulumi.StringArrayOutput)
+}
+
+// A structure that defines a view representation.
+type TableViewRepresentation struct {
+	// The dialect of the view representation.
+	Dialect *string `pulumi:"dialect"`
+	// The version of the dialect.
+	DialectVersion *string `pulumi:"dialectVersion"`
+	// The connection used for validation.
+	ValidationConnection *string `pulumi:"validationConnection"`
+	// The expanded text of the view.
+	ViewExpandedText *string `pulumi:"viewExpandedText"`
+	// The original text of the view.
+	ViewOriginalText *string `pulumi:"viewOriginalText"`
+}
+
+// TableViewRepresentationInput is an input type that accepts TableViewRepresentationArgs and TableViewRepresentationOutput values.
+// You can construct a concrete instance of `TableViewRepresentationInput` via:
+//
+//	TableViewRepresentationArgs{...}
+type TableViewRepresentationInput interface {
+	pulumi.Input
+
+	ToTableViewRepresentationOutput() TableViewRepresentationOutput
+	ToTableViewRepresentationOutputWithContext(context.Context) TableViewRepresentationOutput
+}
+
+// A structure that defines a view representation.
+type TableViewRepresentationArgs struct {
+	// The dialect of the view representation.
+	Dialect pulumi.StringPtrInput `pulumi:"dialect"`
+	// The version of the dialect.
+	DialectVersion pulumi.StringPtrInput `pulumi:"dialectVersion"`
+	// The connection used for validation.
+	ValidationConnection pulumi.StringPtrInput `pulumi:"validationConnection"`
+	// The expanded text of the view.
+	ViewExpandedText pulumi.StringPtrInput `pulumi:"viewExpandedText"`
+	// The original text of the view.
+	ViewOriginalText pulumi.StringPtrInput `pulumi:"viewOriginalText"`
+}
+
+func (TableViewRepresentationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableViewRepresentation)(nil)).Elem()
+}
+
+func (i TableViewRepresentationArgs) ToTableViewRepresentationOutput() TableViewRepresentationOutput {
+	return i.ToTableViewRepresentationOutputWithContext(context.Background())
+}
+
+func (i TableViewRepresentationArgs) ToTableViewRepresentationOutputWithContext(ctx context.Context) TableViewRepresentationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableViewRepresentationOutput)
+}
+
+// TableViewRepresentationArrayInput is an input type that accepts TableViewRepresentationArray and TableViewRepresentationArrayOutput values.
+// You can construct a concrete instance of `TableViewRepresentationArrayInput` via:
+//
+//	TableViewRepresentationArray{ TableViewRepresentationArgs{...} }
+type TableViewRepresentationArrayInput interface {
+	pulumi.Input
+
+	ToTableViewRepresentationArrayOutput() TableViewRepresentationArrayOutput
+	ToTableViewRepresentationArrayOutputWithContext(context.Context) TableViewRepresentationArrayOutput
+}
+
+type TableViewRepresentationArray []TableViewRepresentationInput
+
+func (TableViewRepresentationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableViewRepresentation)(nil)).Elem()
+}
+
+func (i TableViewRepresentationArray) ToTableViewRepresentationArrayOutput() TableViewRepresentationArrayOutput {
+	return i.ToTableViewRepresentationArrayOutputWithContext(context.Background())
+}
+
+func (i TableViewRepresentationArray) ToTableViewRepresentationArrayOutputWithContext(ctx context.Context) TableViewRepresentationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableViewRepresentationArrayOutput)
+}
+
+// A structure that defines a view representation.
+type TableViewRepresentationOutput struct{ *pulumi.OutputState }
+
+func (TableViewRepresentationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableViewRepresentation)(nil)).Elem()
+}
+
+func (o TableViewRepresentationOutput) ToTableViewRepresentationOutput() TableViewRepresentationOutput {
+	return o
+}
+
+func (o TableViewRepresentationOutput) ToTableViewRepresentationOutputWithContext(ctx context.Context) TableViewRepresentationOutput {
+	return o
+}
+
+// The dialect of the view representation.
+func (o TableViewRepresentationOutput) Dialect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableViewRepresentation) *string { return v.Dialect }).(pulumi.StringPtrOutput)
+}
+
+// The version of the dialect.
+func (o TableViewRepresentationOutput) DialectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableViewRepresentation) *string { return v.DialectVersion }).(pulumi.StringPtrOutput)
+}
+
+// The connection used for validation.
+func (o TableViewRepresentationOutput) ValidationConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableViewRepresentation) *string { return v.ValidationConnection }).(pulumi.StringPtrOutput)
+}
+
+// The expanded text of the view.
+func (o TableViewRepresentationOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableViewRepresentation) *string { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
+}
+
+// The original text of the view.
+func (o TableViewRepresentationOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableViewRepresentation) *string { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
+}
+
+type TableViewRepresentationArrayOutput struct{ *pulumi.OutputState }
+
+func (TableViewRepresentationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableViewRepresentation)(nil)).Elem()
+}
+
+func (o TableViewRepresentationArrayOutput) ToTableViewRepresentationArrayOutput() TableViewRepresentationArrayOutput {
+	return o
+}
+
+func (o TableViewRepresentationArrayOutput) ToTableViewRepresentationArrayOutputWithContext(ctx context.Context) TableViewRepresentationArrayOutput {
+	return o
+}
+
+func (o TableViewRepresentationArrayOutput) Index(i pulumi.IntInput) TableViewRepresentationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableViewRepresentation {
+		return vs[0].([]TableViewRepresentation)[vs[1].(int)]
+	}).(TableViewRepresentationOutput)
 }
 
 // The resource properties associated with the integration target.
@@ -18378,6 +22003,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionConnectionsListPtrInput)(nil)).Elem(), SessionConnectionsListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceProcessingPropertiesPropertiesInput)(nil)).Elem(), SourceProcessingPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceProcessingPropertiesPropertiesPtrInput)(nil)).Elem(), SourceProcessingPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnInput)(nil)).Elem(), TableColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnArrayInput)(nil)).Elem(), TableColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergInputInput)(nil)).Elem(), TableIcebergInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergInputPtrInput)(nil)).Elem(), TableIcebergInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergPartitionFieldInput)(nil)).Elem(), TableIcebergPartitionFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergPartitionFieldArrayInput)(nil)).Elem(), TableIcebergPartitionFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergPartitionSpecInput)(nil)).Elem(), TableIcebergPartitionSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergPartitionSpecPtrInput)(nil)).Elem(), TableIcebergPartitionSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaInput)(nil)).Elem(), TableIcebergSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaPtrInput)(nil)).Elem(), TableIcebergSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldInput)(nil)).Elem(), TableIcebergSortFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldArrayInput)(nil)).Elem(), TableIcebergSortFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortOrderInput)(nil)).Elem(), TableIcebergSortOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortOrderPtrInput)(nil)).Elem(), TableIcebergSortOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergStructFieldInput)(nil)).Elem(), TableIcebergStructFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergStructFieldArrayInput)(nil)).Elem(), TableIcebergStructFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergTableInputInput)(nil)).Elem(), TableIcebergTableInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergTableInputPtrInput)(nil)).Elem(), TableIcebergTableInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIdentifierInput)(nil)).Elem(), TableIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIdentifierPtrInput)(nil)).Elem(), TableIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableInputTypeInput)(nil)).Elem(), TableInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableInputTypePtrInput)(nil)).Elem(), TableInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatInputInput)(nil)).Elem(), TableOpenTableFormatInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatInputPtrInput)(nil)).Elem(), TableOpenTableFormatInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerCompactionConfigurationInput)(nil)).Elem(), TableOptimizerCompactionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerCompactionConfigurationPtrInput)(nil)).Elem(), TableOptimizerCompactionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerConfigurationInput)(nil)).Elem(), TableOptimizerConfigurationArgs{})
@@ -18393,6 +22042,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerRetentionConfigurationPtrInput)(nil)).Elem(), TableOptimizerRetentionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerVpcConfigurationInput)(nil)).Elem(), TableOptimizerVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerVpcConfigurationPtrInput)(nil)).Elem(), TableOptimizerVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOrderInput)(nil)).Elem(), TableOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOrderArrayInput)(nil)).Elem(), TableOrderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaIdInput)(nil)).Elem(), TableSchemaIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaIdPtrInput)(nil)).Elem(), TableSchemaIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaReferenceInput)(nil)).Elem(), TableSchemaReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaReferencePtrInput)(nil)).Elem(), TableSchemaReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSerdeInfoInput)(nil)).Elem(), TableSerdeInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSerdeInfoPtrInput)(nil)).Elem(), TableSerdeInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSkewedInfoInput)(nil)).Elem(), TableSkewedInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSkewedInfoPtrInput)(nil)).Elem(), TableSkewedInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableStorageDescriptorInput)(nil)).Elem(), TableStorageDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableStorageDescriptorPtrInput)(nil)).Elem(), TableStorageDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableViewDefinitionInput)(nil)).Elem(), TableViewDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableViewDefinitionPtrInput)(nil)).Elem(), TableViewDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableViewRepresentationInput)(nil)).Elem(), TableViewRepresentationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableViewRepresentationArrayInput)(nil)).Elem(), TableViewRepresentationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetProcessingPropertiesPropertiesInput)(nil)).Elem(), TargetProcessingPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetProcessingPropertiesPropertiesPtrInput)(nil)).Elem(), TargetProcessingPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionInput)(nil)).Elem(), TriggerActionArgs{})
@@ -18597,6 +22262,30 @@ func init() {
 	pulumi.RegisterOutputType(SessionConnectionsListPtrOutput{})
 	pulumi.RegisterOutputType(SourceProcessingPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(SourceProcessingPropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TableColumnOutput{})
+	pulumi.RegisterOutputType(TableColumnArrayOutput{})
+	pulumi.RegisterOutputType(TableIcebergInputOutput{})
+	pulumi.RegisterOutputType(TableIcebergInputPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergPartitionFieldOutput{})
+	pulumi.RegisterOutputType(TableIcebergPartitionFieldArrayOutput{})
+	pulumi.RegisterOutputType(TableIcebergPartitionSpecOutput{})
+	pulumi.RegisterOutputType(TableIcebergPartitionSpecPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergSchemaOutput{})
+	pulumi.RegisterOutputType(TableIcebergSchemaPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortFieldOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortFieldArrayOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortOrderOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortOrderPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergStructFieldOutput{})
+	pulumi.RegisterOutputType(TableIcebergStructFieldArrayOutput{})
+	pulumi.RegisterOutputType(TableIcebergTableInputOutput{})
+	pulumi.RegisterOutputType(TableIcebergTableInputPtrOutput{})
+	pulumi.RegisterOutputType(TableIdentifierOutput{})
+	pulumi.RegisterOutputType(TableIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(TableInputTypeOutput{})
+	pulumi.RegisterOutputType(TableInputTypePtrOutput{})
+	pulumi.RegisterOutputType(TableOpenTableFormatInputOutput{})
+	pulumi.RegisterOutputType(TableOpenTableFormatInputPtrOutput{})
 	pulumi.RegisterOutputType(TableOptimizerCompactionConfigurationOutput{})
 	pulumi.RegisterOutputType(TableOptimizerCompactionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableOptimizerConfigurationOutput{})
@@ -18613,6 +22302,22 @@ func init() {
 	pulumi.RegisterOutputType(TableOptimizerRetentionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableOptimizerVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(TableOptimizerVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableOrderOutput{})
+	pulumi.RegisterOutputType(TableOrderArrayOutput{})
+	pulumi.RegisterOutputType(TableSchemaIdOutput{})
+	pulumi.RegisterOutputType(TableSchemaIdPtrOutput{})
+	pulumi.RegisterOutputType(TableSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(TableSchemaReferencePtrOutput{})
+	pulumi.RegisterOutputType(TableSerdeInfoOutput{})
+	pulumi.RegisterOutputType(TableSerdeInfoPtrOutput{})
+	pulumi.RegisterOutputType(TableSkewedInfoOutput{})
+	pulumi.RegisterOutputType(TableSkewedInfoPtrOutput{})
+	pulumi.RegisterOutputType(TableStorageDescriptorOutput{})
+	pulumi.RegisterOutputType(TableStorageDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(TableViewDefinitionOutput{})
+	pulumi.RegisterOutputType(TableViewDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(TableViewRepresentationOutput{})
+	pulumi.RegisterOutputType(TableViewRepresentationArrayOutput{})
 	pulumi.RegisterOutputType(TargetProcessingPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(TargetProcessingPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TriggerActionOutput{})

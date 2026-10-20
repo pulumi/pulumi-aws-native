@@ -524,6 +524,7 @@ const (
 	PlanExecutionBlockTypeRdsPromoteReadReplica       = PlanExecutionBlockType("RdsPromoteReadReplica")
 	PlanExecutionBlockTypeRdsSwitchoverReadReplica    = PlanExecutionBlockType("RdsSwitchoverReadReplica")
 	PlanExecutionBlockTypeRoute53HealthCheck          = PlanExecutionBlockType("Route53HealthCheck")
+	PlanExecutionBlockTypeSsmSendCommand              = PlanExecutionBlockType("SSMSendCommand")
 )
 
 func (PlanExecutionBlockType) ElementType() reflect.Type {
@@ -666,6 +667,7 @@ func (o PlanExecutionBlockTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 //	PlanExecutionBlockTypeRdsPromoteReadReplica
 //	PlanExecutionBlockTypeRdsSwitchoverReadReplica
 //	PlanExecutionBlockTypeRoute53HealthCheck
+//	PlanExecutionBlockTypeSsmSendCommand
 type PlanExecutionBlockTypeInput interface {
 	pulumi.Input
 
@@ -1858,6 +1860,169 @@ const (
 	PlanRoutingControlStateChangeOff = PlanRoutingControlStateChange("Off")
 )
 
+type PlanSsmSendCommandUngracefulBehavior string
+
+const (
+	PlanSsmSendCommandUngracefulBehaviorSkip = PlanSsmSendCommandUngracefulBehavior("skip")
+)
+
+func (PlanSsmSendCommandUngracefulBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanSsmSendCommandUngracefulBehavior)(nil)).Elem()
+}
+
+func (e PlanSsmSendCommandUngracefulBehavior) ToPlanSsmSendCommandUngracefulBehaviorOutput() PlanSsmSendCommandUngracefulBehaviorOutput {
+	return pulumi.ToOutput(e).(PlanSsmSendCommandUngracefulBehaviorOutput)
+}
+
+func (e PlanSsmSendCommandUngracefulBehavior) ToPlanSsmSendCommandUngracefulBehaviorOutputWithContext(ctx context.Context) PlanSsmSendCommandUngracefulBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlanSsmSendCommandUngracefulBehaviorOutput)
+}
+
+func (e PlanSsmSendCommandUngracefulBehavior) ToPlanSsmSendCommandUngracefulBehaviorPtrOutput() PlanSsmSendCommandUngracefulBehaviorPtrOutput {
+	return e.ToPlanSsmSendCommandUngracefulBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e PlanSsmSendCommandUngracefulBehavior) ToPlanSsmSendCommandUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanSsmSendCommandUngracefulBehaviorPtrOutput {
+	return PlanSsmSendCommandUngracefulBehavior(e).ToPlanSsmSendCommandUngracefulBehaviorOutputWithContext(ctx).ToPlanSsmSendCommandUngracefulBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e PlanSsmSendCommandUngracefulBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanSsmSendCommandUngracefulBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanSsmSendCommandUngracefulBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlanSsmSendCommandUngracefulBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlanSsmSendCommandUngracefulBehaviorOutput struct{ *pulumi.OutputState }
+
+func (PlanSsmSendCommandUngracefulBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanSsmSendCommandUngracefulBehavior)(nil)).Elem()
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorOutput) ToPlanSsmSendCommandUngracefulBehaviorOutput() PlanSsmSendCommandUngracefulBehaviorOutput {
+	return o
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorOutput) ToPlanSsmSendCommandUngracefulBehaviorOutputWithContext(ctx context.Context) PlanSsmSendCommandUngracefulBehaviorOutput {
+	return o
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorOutput) ToPlanSsmSendCommandUngracefulBehaviorPtrOutput() PlanSsmSendCommandUngracefulBehaviorPtrOutput {
+	return o.ToPlanSsmSendCommandUngracefulBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorOutput) ToPlanSsmSendCommandUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanSsmSendCommandUngracefulBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanSsmSendCommandUngracefulBehavior) *PlanSsmSendCommandUngracefulBehavior {
+		return &v
+	}).(PlanSsmSendCommandUngracefulBehaviorPtrOutput)
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanSsmSendCommandUngracefulBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanSsmSendCommandUngracefulBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlanSsmSendCommandUngracefulBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanSsmSendCommandUngracefulBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanSsmSendCommandUngracefulBehavior)(nil)).Elem()
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorPtrOutput) ToPlanSsmSendCommandUngracefulBehaviorPtrOutput() PlanSsmSendCommandUngracefulBehaviorPtrOutput {
+	return o
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorPtrOutput) ToPlanSsmSendCommandUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanSsmSendCommandUngracefulBehaviorPtrOutput {
+	return o
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorPtrOutput) Elem() PlanSsmSendCommandUngracefulBehaviorOutput {
+	return o.ApplyT(func(v *PlanSsmSendCommandUngracefulBehavior) PlanSsmSendCommandUngracefulBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret PlanSsmSendCommandUngracefulBehavior
+		return ret
+	}).(PlanSsmSendCommandUngracefulBehaviorOutput)
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanSsmSendCommandUngracefulBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlanSsmSendCommandUngracefulBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlanSsmSendCommandUngracefulBehaviorInput is an input type that accepts values of the PlanSsmSendCommandUngracefulBehavior enum
+// A concrete instance of `PlanSsmSendCommandUngracefulBehaviorInput` can be one of the following:
+//
+//	PlanSsmSendCommandUngracefulBehaviorSkip
+type PlanSsmSendCommandUngracefulBehaviorInput interface {
+	pulumi.Input
+
+	ToPlanSsmSendCommandUngracefulBehaviorOutput() PlanSsmSendCommandUngracefulBehaviorOutput
+	ToPlanSsmSendCommandUngracefulBehaviorOutputWithContext(context.Context) PlanSsmSendCommandUngracefulBehaviorOutput
+}
+
+var planSsmSendCommandUngracefulBehaviorPtrType = reflect.TypeOf((**PlanSsmSendCommandUngracefulBehavior)(nil)).Elem()
+
+type PlanSsmSendCommandUngracefulBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToPlanSsmSendCommandUngracefulBehaviorPtrOutput() PlanSsmSendCommandUngracefulBehaviorPtrOutput
+	ToPlanSsmSendCommandUngracefulBehaviorPtrOutputWithContext(context.Context) PlanSsmSendCommandUngracefulBehaviorPtrOutput
+}
+
+type planSsmSendCommandUngracefulBehaviorPtr string
+
+func PlanSsmSendCommandUngracefulBehaviorPtr(v string) PlanSsmSendCommandUngracefulBehaviorPtrInput {
+	return (*planSsmSendCommandUngracefulBehaviorPtr)(&v)
+}
+
+func (*planSsmSendCommandUngracefulBehaviorPtr) ElementType() reflect.Type {
+	return planSsmSendCommandUngracefulBehaviorPtrType
+}
+
+func (in *planSsmSendCommandUngracefulBehaviorPtr) ToPlanSsmSendCommandUngracefulBehaviorPtrOutput() PlanSsmSendCommandUngracefulBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(PlanSsmSendCommandUngracefulBehaviorPtrOutput)
+}
+
+func (in *planSsmSendCommandUngracefulBehaviorPtr) ToPlanSsmSendCommandUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanSsmSendCommandUngracefulBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlanSsmSendCommandUngracefulBehaviorPtrOutput)
+}
+
 type PlanWaitElbTargetGroupHealthy string
 
 const (
@@ -2213,6 +2378,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRecoveryApproachPtrInput)(nil)).Elem(), PlanRecoveryApproach("activeActive"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRegionToRunInInput)(nil)).Elem(), PlanRegionToRunIn("activatingRegion"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRegionToRunInPtrInput)(nil)).Elem(), PlanRegionToRunIn("activatingRegion"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanSsmSendCommandUngracefulBehaviorInput)(nil)).Elem(), PlanSsmSendCommandUngracefulBehavior("skip"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanSsmSendCommandUngracefulBehaviorPtrInput)(nil)).Elem(), PlanSsmSendCommandUngracefulBehavior("skip"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWaitElbTargetGroupHealthyInput)(nil)).Elem(), PlanWaitElbTargetGroupHealthy("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWaitElbTargetGroupHealthyPtrInput)(nil)).Elem(), PlanWaitElbTargetGroupHealthy("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowTargetActionInput)(nil)).Elem(), PlanWorkflowTargetAction("activate"))
@@ -2239,6 +2406,8 @@ func init() {
 	pulumi.RegisterOutputType(PlanRecoveryApproachPtrOutput{})
 	pulumi.RegisterOutputType(PlanRegionToRunInOutput{})
 	pulumi.RegisterOutputType(PlanRegionToRunInPtrOutput{})
+	pulumi.RegisterOutputType(PlanSsmSendCommandUngracefulBehaviorOutput{})
+	pulumi.RegisterOutputType(PlanSsmSendCommandUngracefulBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(PlanWaitElbTargetGroupHealthyOutput{})
 	pulumi.RegisterOutputType(PlanWaitElbTargetGroupHealthyPtrOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowTargetActionOutput{})

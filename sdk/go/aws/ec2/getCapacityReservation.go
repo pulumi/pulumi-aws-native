@@ -90,6 +90,8 @@ type LookupCapacityReservationResult struct {
 	// - `delayed` - ( *Future-dated Capacity Reservations* ) Amazon EC2 encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is unable to deliver the requested capacity by the requested start date and time.
 	// - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
 	State *string `pulumi:"state"`
+	// The tags to apply to the Capacity Reservation during launch.
+	TagSpecifications []CapacityReservationTagSpecification `pulumi:"tagSpecifications"`
 	// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
 	TotalInstanceCount *int `pulumi:"totalInstanceCount"`
 }
@@ -232,6 +234,13 @@ func (o LookupCapacityReservationResultOutput) StartDate() pulumi.StringPtrOutpu
 // - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
 func (o LookupCapacityReservationResultOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The tags to apply to the Capacity Reservation during launch.
+func (o LookupCapacityReservationResultOutput) TagSpecifications() CapacityReservationTagSpecificationArrayOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) []CapacityReservationTagSpecification {
+		return v.TagSpecifications
+	}).(CapacityReservationTagSpecificationArrayOutput)
 }
 
 // Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .

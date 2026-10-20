@@ -28,6 +28,7 @@ class LogAlarmArgs:
                  query_results_to_evaluate: pulumi.Input[_builtins.int],
                  scheduled_query_configuration: pulumi.Input['LogAlarmScheduledQueryConfigurationArgs'],
                  threshold: pulumi.Input[_builtins.float],
+                 action_configuration: pulumi.Input[Optional['LogAlarmActionConfigurationArgs']] = None,
                  action_log_line_count: pulumi.Input[Optional[_builtins.int]] = None,
                  action_log_line_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -47,6 +48,7 @@ class LogAlarmArgs:
         :param pulumi.Input[_builtins.int] query_results_to_evaluate: The number of query results over which data is compared to the specified threshold.
         :param pulumi.Input['LogAlarmScheduledQueryConfigurationArgs'] scheduled_query_configuration: The scheduled query configuration for the log alarm.
         :param pulumi.Input[_builtins.float] threshold: The value to compare against the results of the scheduled query evaluation.
+        :param pulumi.Input['LogAlarmActionConfigurationArgs'] action_configuration: Configuration that applies to the notifications this alarm sends when it performs its actions.
         :param pulumi.Input[_builtins.int] action_log_line_count: The number of log lines to include in alarm notifications. Valid values are 0 to 50.
         :param pulumi.Input[_builtins.str] action_log_line_role_arn: The ARN of the IAM role that grants CloudWatch permissions to fetch log lines for alarm notifications. Required when ActionLogLineCount is greater than 0.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
@@ -64,6 +66,8 @@ class LogAlarmArgs:
         pulumi.set(__self__, "query_results_to_evaluate", query_results_to_evaluate)
         pulumi.set(__self__, "scheduled_query_configuration", scheduled_query_configuration)
         pulumi.set(__self__, "threshold", threshold)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
         if action_log_line_count is not None:
             pulumi.set(__self__, "action_log_line_count", action_log_line_count)
         if action_log_line_role_arn is not None:
@@ -146,6 +150,18 @@ class LogAlarmArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> pulumi.Input[Optional['LogAlarmActionConfigurationArgs']]:
+        """
+        Configuration that applies to the notifications this alarm sends when it performs its actions.
+        """
+        return pulumi.get(self, "action_configuration")
+
+    @action_configuration.setter
+    def action_configuration(self, value: pulumi.Input[Optional['LogAlarmActionConfigurationArgs']]):
+        pulumi.set(self, "action_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="actionLogLineCount")
@@ -286,6 +302,7 @@ class LogAlarm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_configuration: pulumi.Input[Optional[Union['LogAlarmActionConfigurationArgs', 'LogAlarmActionConfigurationArgsDict']]] = None,
                  action_log_line_count: pulumi.Input[Optional[_builtins.int]] = None,
                  action_log_line_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -308,6 +325,7 @@ class LogAlarm(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['LogAlarmActionConfigurationArgs', 'LogAlarmActionConfigurationArgsDict']] action_configuration: Configuration that applies to the notifications this alarm sends when it performs its actions.
         :param pulumi.Input[_builtins.int] action_log_line_count: The number of log lines to include in alarm notifications. Valid values are 0 to 50.
         :param pulumi.Input[_builtins.str] action_log_line_role_arn: The ARN of the IAM role that grants CloudWatch permissions to fetch log lines for alarm notifications. Required when ActionLogLineCount is greater than 0.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
@@ -349,6 +367,7 @@ class LogAlarm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_configuration: pulumi.Input[Optional[Union['LogAlarmActionConfigurationArgs', 'LogAlarmActionConfigurationArgsDict']]] = None,
                  action_log_line_count: pulumi.Input[Optional[_builtins.int]] = None,
                  action_log_line_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -374,6 +393,7 @@ class LogAlarm(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogAlarmArgs.__new__(LogAlarmArgs)
 
+            __props__.__dict__["action_configuration"] = action_configuration
             __props__.__dict__["action_log_line_count"] = action_log_line_count
             __props__.__dict__["action_log_line_role_arn"] = action_log_line_role_arn
             __props__.__dict__["actions_enabled"] = actions_enabled
@@ -425,6 +445,7 @@ class LogAlarm(pulumi.CustomResource):
 
         __props__ = LogAlarmArgs.__new__(LogAlarmArgs)
 
+        __props__.__dict__["action_configuration"] = None
         __props__.__dict__["action_log_line_count"] = None
         __props__.__dict__["action_log_line_role_arn"] = None
         __props__.__dict__["actions_enabled"] = None
@@ -443,6 +464,14 @@ class LogAlarm(pulumi.CustomResource):
         __props__.__dict__["treat_missing_data"] = None
         __props__.__dict__["warm_up_configuration"] = None
         return LogAlarm(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> pulumi.Output[Optional['outputs.LogAlarmActionConfiguration']]:
+        """
+        Configuration that applies to the notifications this alarm sends when it performs its actions.
+        """
+        return pulumi.get(self, "action_configuration")
 
     @_builtins.property
     @pulumi.getter(name="actionLogLineCount")

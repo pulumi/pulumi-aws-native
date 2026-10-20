@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// </summary>
     public sealed class ServiceConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The versioned ARN of the network connector used for outbound network access from the revision.
+        /// </summary>
+        [Input("egressNetworkConnectorArn")]
+        public Input<string>? EgressNetworkConnectorArn { get; set; }
+
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
 

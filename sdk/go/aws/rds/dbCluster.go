@@ -147,8 +147,8 @@ type DbCluster struct {
 	EnableIamDatabaseAuthentication pulumi.BoolPtrOutput `pulumi:"enableIamDatabaseAuthentication"`
 	// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
 	//  Valid for: Aurora DB clusters only
-	EnableLocalWriteForwarding pulumi.BoolPtrOutput    `pulumi:"enableLocalWriteForwarding"`
-	Endpoint                   DbClusterEndpointOutput `pulumi:"endpoint"`
+	EnableLocalWriteForwarding pulumi.BoolPtrOutput        `pulumi:"enableLocalWriteForwarding"`
+	Endpoint                   DbClusterEndpointTypeOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster.
 	//  Valid Values:
 	//   +   ``aurora-mysql``
@@ -1471,8 +1471,8 @@ func (o DbClusterOutput) EnableLocalWriteForwarding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.EnableLocalWriteForwarding }).(pulumi.BoolPtrOutput)
 }
 
-func (o DbClusterOutput) Endpoint() DbClusterEndpointOutput {
-	return o.ApplyT(func(v *DbCluster) DbClusterEndpointOutput { return v.Endpoint }).(DbClusterEndpointOutput)
+func (o DbClusterOutput) Endpoint() DbClusterEndpointTypeOutput {
+	return o.ApplyT(func(v *DbCluster) DbClusterEndpointTypeOutput { return v.Endpoint }).(DbClusterEndpointTypeOutput)
 }
 
 // The name of the database engine to be used for this DB cluster.

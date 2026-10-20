@@ -522,6 +522,176 @@ func (in *serviceDependencyDiscoveryPtr) ToServiceDependencyDiscoveryPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceDependencyDiscoveryPtrOutput)
 }
 
+// Operator applied to the label key.
+type ServiceEksLabelSelectorRequirementOperator string
+
+const (
+	ServiceEksLabelSelectorRequirementOperatorIn           = ServiceEksLabelSelectorRequirementOperator("IN")
+	ServiceEksLabelSelectorRequirementOperatorNotIn        = ServiceEksLabelSelectorRequirementOperator("NOT_IN")
+	ServiceEksLabelSelectorRequirementOperatorExists       = ServiceEksLabelSelectorRequirementOperator("EXISTS")
+	ServiceEksLabelSelectorRequirementOperatorDoesNotExist = ServiceEksLabelSelectorRequirementOperator("DOES_NOT_EXIST")
+)
+
+func (ServiceEksLabelSelectorRequirementOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEksLabelSelectorRequirementOperator)(nil)).Elem()
+}
+
+func (e ServiceEksLabelSelectorRequirementOperator) ToServiceEksLabelSelectorRequirementOperatorOutput() ServiceEksLabelSelectorRequirementOperatorOutput {
+	return pulumi.ToOutput(e).(ServiceEksLabelSelectorRequirementOperatorOutput)
+}
+
+func (e ServiceEksLabelSelectorRequirementOperator) ToServiceEksLabelSelectorRequirementOperatorOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceEksLabelSelectorRequirementOperatorOutput)
+}
+
+func (e ServiceEksLabelSelectorRequirementOperator) ToServiceEksLabelSelectorRequirementOperatorPtrOutput() ServiceEksLabelSelectorRequirementOperatorPtrOutput {
+	return e.ToServiceEksLabelSelectorRequirementOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceEksLabelSelectorRequirementOperator) ToServiceEksLabelSelectorRequirementOperatorPtrOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementOperatorPtrOutput {
+	return ServiceEksLabelSelectorRequirementOperator(e).ToServiceEksLabelSelectorRequirementOperatorOutputWithContext(ctx).ToServiceEksLabelSelectorRequirementOperatorPtrOutputWithContext(ctx)
+}
+
+func (e ServiceEksLabelSelectorRequirementOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceEksLabelSelectorRequirementOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceEksLabelSelectorRequirementOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceEksLabelSelectorRequirementOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceEksLabelSelectorRequirementOperatorOutput struct{ *pulumi.OutputState }
+
+func (ServiceEksLabelSelectorRequirementOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEksLabelSelectorRequirementOperator)(nil)).Elem()
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorOutput) ToServiceEksLabelSelectorRequirementOperatorOutput() ServiceEksLabelSelectorRequirementOperatorOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorOutput) ToServiceEksLabelSelectorRequirementOperatorOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementOperatorOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorOutput) ToServiceEksLabelSelectorRequirementOperatorPtrOutput() ServiceEksLabelSelectorRequirementOperatorPtrOutput {
+	return o.ToServiceEksLabelSelectorRequirementOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorOutput) ToServiceEksLabelSelectorRequirementOperatorPtrOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEksLabelSelectorRequirementOperator) *ServiceEksLabelSelectorRequirementOperator {
+		return &v
+	}).(ServiceEksLabelSelectorRequirementOperatorPtrOutput)
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceEksLabelSelectorRequirementOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceEksLabelSelectorRequirementOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEksLabelSelectorRequirementOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEksLabelSelectorRequirementOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEksLabelSelectorRequirementOperator)(nil)).Elem()
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorPtrOutput) ToServiceEksLabelSelectorRequirementOperatorPtrOutput() ServiceEksLabelSelectorRequirementOperatorPtrOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorPtrOutput) ToServiceEksLabelSelectorRequirementOperatorPtrOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementOperatorPtrOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorPtrOutput) Elem() ServiceEksLabelSelectorRequirementOperatorOutput {
+	return o.ApplyT(func(v *ServiceEksLabelSelectorRequirementOperator) ServiceEksLabelSelectorRequirementOperator {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEksLabelSelectorRequirementOperator
+		return ret
+	}).(ServiceEksLabelSelectorRequirementOperatorOutput)
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEksLabelSelectorRequirementOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceEksLabelSelectorRequirementOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceEksLabelSelectorRequirementOperatorInput is an input type that accepts values of the ServiceEksLabelSelectorRequirementOperator enum
+// A concrete instance of `ServiceEksLabelSelectorRequirementOperatorInput` can be one of the following:
+//
+//	ServiceEksLabelSelectorRequirementOperatorIn
+//	ServiceEksLabelSelectorRequirementOperatorNotIn
+//	ServiceEksLabelSelectorRequirementOperatorExists
+//	ServiceEksLabelSelectorRequirementOperatorDoesNotExist
+type ServiceEksLabelSelectorRequirementOperatorInput interface {
+	pulumi.Input
+
+	ToServiceEksLabelSelectorRequirementOperatorOutput() ServiceEksLabelSelectorRequirementOperatorOutput
+	ToServiceEksLabelSelectorRequirementOperatorOutputWithContext(context.Context) ServiceEksLabelSelectorRequirementOperatorOutput
+}
+
+var serviceEksLabelSelectorRequirementOperatorPtrType = reflect.TypeOf((**ServiceEksLabelSelectorRequirementOperator)(nil)).Elem()
+
+type ServiceEksLabelSelectorRequirementOperatorPtrInput interface {
+	pulumi.Input
+
+	ToServiceEksLabelSelectorRequirementOperatorPtrOutput() ServiceEksLabelSelectorRequirementOperatorPtrOutput
+	ToServiceEksLabelSelectorRequirementOperatorPtrOutputWithContext(context.Context) ServiceEksLabelSelectorRequirementOperatorPtrOutput
+}
+
+type serviceEksLabelSelectorRequirementOperatorPtr string
+
+func ServiceEksLabelSelectorRequirementOperatorPtr(v string) ServiceEksLabelSelectorRequirementOperatorPtrInput {
+	return (*serviceEksLabelSelectorRequirementOperatorPtr)(&v)
+}
+
+func (*serviceEksLabelSelectorRequirementOperatorPtr) ElementType() reflect.Type {
+	return serviceEksLabelSelectorRequirementOperatorPtrType
+}
+
+func (in *serviceEksLabelSelectorRequirementOperatorPtr) ToServiceEksLabelSelectorRequirementOperatorPtrOutput() ServiceEksLabelSelectorRequirementOperatorPtrOutput {
+	return pulumi.ToOutput(in).(ServiceEksLabelSelectorRequirementOperatorPtrOutput)
+}
+
+func (in *serviceEksLabelSelectorRequirementOperatorPtr) ToServiceEksLabelSelectorRequirementOperatorPtrOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceEksLabelSelectorRequirementOperatorPtrOutput)
+}
+
 // The criticality of the service function.
 type ServiceFunctionCriticality string
 
@@ -786,6 +956,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyMultiRegionTargetsDisasterRecoveryApproachPtrInput)(nil)).Elem(), PolicyMultiRegionTargetsDisasterRecoveryApproach("ACTIVE_ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDiscoveryInput)(nil)).Elem(), ServiceDependencyDiscovery("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDiscoveryPtrInput)(nil)).Elem(), ServiceDependencyDiscovery("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksLabelSelectorRequirementOperatorInput)(nil)).Elem(), ServiceEksLabelSelectorRequirementOperator("IN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksLabelSelectorRequirementOperatorPtrInput)(nil)).Elem(), ServiceEksLabelSelectorRequirementOperator("IN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFunctionCriticalityInput)(nil)).Elem(), ServiceFunctionCriticality("PRIMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFunctionCriticalityPtrInput)(nil)).Elem(), ServiceFunctionCriticality("PRIMARY"))
 	pulumi.RegisterOutputType(PolicyMultiAzTargetsDisasterRecoveryApproachOutput{})
@@ -794,6 +966,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyMultiRegionTargetsDisasterRecoveryApproachPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDiscoveryOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDiscoveryPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEksLabelSelectorRequirementOperatorOutput{})
+	pulumi.RegisterOutputType(ServiceEksLabelSelectorRequirementOperatorPtrOutput{})
 	pulumi.RegisterOutputType(ServiceFunctionCriticalityOutput{})
 	pulumi.RegisterOutputType(ServiceFunctionCriticalityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceFunctionSourceOutput{})

@@ -66,6 +66,10 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly policyArn: pulumi.Output<string>;
     /**
+     * Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+     */
+    declare public readonly sharingEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * Tags assigned to the policy.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -92,6 +96,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["multiAz"] = args?.multiAz;
             resourceInputs["multiRegion"] = args?.multiRegion;
             resourceInputs["name"] = args?.name;
+            resourceInputs["sharingEnabled"] = args?.sharingEnabled;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedServiceCount"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -108,6 +113,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["multiRegion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyArn"] = undefined /*out*/;
+            resourceInputs["sharingEnabled"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
@@ -138,6 +144,10 @@ export interface PolicyArgs {
      * The name of the policy.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+     */
+    sharingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Tags assigned to the policy.
      */

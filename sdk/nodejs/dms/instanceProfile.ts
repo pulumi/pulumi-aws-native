@@ -54,7 +54,7 @@ export class InstanceProfile extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly instanceProfileCreationTime: pulumi.Output<string>;
     /**
-     * The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+     * [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
      */
     declare public readonly instanceProfileIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -141,7 +141,7 @@ export interface InstanceProfileArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
+     * [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
      */
     instanceProfileIdentifier?: pulumi.Input<string | undefined>;
     /**

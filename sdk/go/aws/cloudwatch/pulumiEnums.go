@@ -268,6 +268,269 @@ func (in *insightRuleRuleStatePtr) ToInsightRuleRuleStatePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(InsightRuleRuleStatePtrOutput)
 }
 
+// Lifecycle status of the integration.
+type IntegrationStatus string
+
+const (
+	IntegrationStatusPending      = IntegrationStatus("PENDING")
+	IntegrationStatusPendingOauth = IntegrationStatus("PENDING_OAUTH")
+	IntegrationStatusActive       = IntegrationStatus("ACTIVE")
+	IntegrationStatusError        = IntegrationStatus("ERROR")
+	IntegrationStatusFailed       = IntegrationStatus("FAILED")
+	IntegrationStatusDeleted      = IntegrationStatus("DELETED")
+)
+
+type IntegrationStatusOutput struct{ *pulumi.OutputState }
+
+func (IntegrationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationStatus)(nil)).Elem()
+}
+
+func (o IntegrationStatusOutput) ToIntegrationStatusOutput() IntegrationStatusOutput {
+	return o
+}
+
+func (o IntegrationStatusOutput) ToIntegrationStatusOutputWithContext(ctx context.Context) IntegrationStatusOutput {
+	return o
+}
+
+func (o IntegrationStatusOutput) ToIntegrationStatusPtrOutput() IntegrationStatusPtrOutput {
+	return o.ToIntegrationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationStatusOutput) ToIntegrationStatusPtrOutputWithContext(ctx context.Context) IntegrationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationStatus) *IntegrationStatus {
+		return &v
+	}).(IntegrationStatusPtrOutput)
+}
+
+func (o IntegrationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationStatus)(nil)).Elem()
+}
+
+func (o IntegrationStatusPtrOutput) ToIntegrationStatusPtrOutput() IntegrationStatusPtrOutput {
+	return o
+}
+
+func (o IntegrationStatusPtrOutput) ToIntegrationStatusPtrOutputWithContext(ctx context.Context) IntegrationStatusPtrOutput {
+	return o
+}
+
+func (o IntegrationStatusPtrOutput) Elem() IntegrationStatusOutput {
+	return o.ApplyT(func(v *IntegrationStatus) IntegrationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationStatus
+		return ret
+	}).(IntegrationStatusOutput)
+}
+
+func (o IntegrationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of integration. Immutable after creation.
+type IntegrationType string
+
+const (
+	IntegrationTypeAwsConfigSlrec = IntegrationType("AWS_CONFIG_SLREC")
+	IntegrationTypeAwsIntegration = IntegrationType("AWS_INTEGRATION")
+	IntegrationTypeExternalAgent  = IntegrationType("EXTERNAL_AGENT")
+)
+
+func (IntegrationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationType)(nil)).Elem()
+}
+
+func (e IntegrationType) ToIntegrationTypeOutput() IntegrationTypeOutput {
+	return pulumi.ToOutput(e).(IntegrationTypeOutput)
+}
+
+func (e IntegrationType) ToIntegrationTypeOutputWithContext(ctx context.Context) IntegrationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationTypeOutput)
+}
+
+func (e IntegrationType) ToIntegrationTypePtrOutput() IntegrationTypePtrOutput {
+	return e.ToIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationType) ToIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationTypePtrOutput {
+	return IntegrationType(e).ToIntegrationTypeOutputWithContext(ctx).ToIntegrationTypePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationType)(nil)).Elem()
+}
+
+func (o IntegrationTypeOutput) ToIntegrationTypeOutput() IntegrationTypeOutput {
+	return o
+}
+
+func (o IntegrationTypeOutput) ToIntegrationTypeOutputWithContext(ctx context.Context) IntegrationTypeOutput {
+	return o
+}
+
+func (o IntegrationTypeOutput) ToIntegrationTypePtrOutput() IntegrationTypePtrOutput {
+	return o.ToIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTypeOutput) ToIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationType) *IntegrationType {
+		return &v
+	}).(IntegrationTypePtrOutput)
+}
+
+func (o IntegrationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationType)(nil)).Elem()
+}
+
+func (o IntegrationTypePtrOutput) ToIntegrationTypePtrOutput() IntegrationTypePtrOutput {
+	return o
+}
+
+func (o IntegrationTypePtrOutput) ToIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationTypePtrOutput {
+	return o
+}
+
+func (o IntegrationTypePtrOutput) Elem() IntegrationTypeOutput {
+	return o.ApplyT(func(v *IntegrationType) IntegrationType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationType
+		return ret
+	}).(IntegrationTypeOutput)
+}
+
+func (o IntegrationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntegrationTypeInput is an input type that accepts values of the IntegrationType enum
+// A concrete instance of `IntegrationTypeInput` can be one of the following:
+//
+//	IntegrationTypeAwsConfigSlrec
+//	IntegrationTypeAwsIntegration
+//	IntegrationTypeExternalAgent
+type IntegrationTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationTypeOutput() IntegrationTypeOutput
+	ToIntegrationTypeOutputWithContext(context.Context) IntegrationTypeOutput
+}
+
+var integrationTypePtrType = reflect.TypeOf((**IntegrationType)(nil)).Elem()
+
+type IntegrationTypePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationTypePtrOutput() IntegrationTypePtrOutput
+	ToIntegrationTypePtrOutputWithContext(context.Context) IntegrationTypePtrOutput
+}
+
+type integrationTypePtr string
+
+func IntegrationTypePtr(v string) IntegrationTypePtrInput {
+	return (*integrationTypePtr)(&v)
+}
+
+func (*integrationTypePtr) ElementType() reflect.Type {
+	return integrationTypePtrType
+}
+
+func (in *integrationTypePtr) ToIntegrationTypePtrOutput() IntegrationTypePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationTypePtrOutput)
+}
+
+func (in *integrationTypePtr) ToIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationTypePtrOutput)
+}
+
 // Current status of OTel enrichment (RUNNING or STOPPED).
 type OTelEnrichmentStatus string
 
@@ -453,10 +716,16 @@ func (o ViewTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStateInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStatePtrInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTypeInput)(nil)).Elem(), IntegrationType("AWS_CONFIG_SLREC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTypePtrInput)(nil)).Elem(), IntegrationType("AWS_CONFIG_SLREC"))
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusOutput{})
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(InsightRuleRuleStateOutput{})
 	pulumi.RegisterOutputType(InsightRuleRuleStatePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationStatusOutput{})
+	pulumi.RegisterOutputType(IntegrationStatusPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationTypePtrOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(ViewTypeOutput{})

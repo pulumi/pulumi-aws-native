@@ -62,9 +62,21 @@ export class HostKey extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly hostKeyId: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+     */
+    declare public readonly kmsKey: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+     */
+    declare public /*out*/ readonly secretId: pulumi.Output<string>;
+    /**
      * The identifier of the server that contains the host key.
      */
     declare public readonly serverId: pulumi.Output<string>;
+    /**
+     * The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+     */
+    declare public readonly storageType: pulumi.Output<enums.transfer.HostKeyStorageType | undefined>;
     /**
      * Key-value pairs that can be used to group and search for host keys.
      */
@@ -90,12 +102,15 @@ export class HostKey extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args?.description;
             resourceInputs["hostKeyBody"] = args?.hostKeyBody;
+            resourceInputs["kmsKey"] = args?.kmsKey;
             resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["storageType"] = args?.storageType;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dateImported"] = undefined /*out*/;
             resourceInputs["hostKeyFingerprint"] = undefined /*out*/;
             resourceInputs["hostKeyId"] = undefined /*out*/;
+            resourceInputs["secretId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -104,7 +119,10 @@ export class HostKey extends pulumi.CustomResource {
             resourceInputs["hostKeyBody"] = undefined /*out*/;
             resourceInputs["hostKeyFingerprint"] = undefined /*out*/;
             resourceInputs["hostKeyId"] = undefined /*out*/;
+            resourceInputs["kmsKey"] = undefined /*out*/;
+            resourceInputs["secretId"] = undefined /*out*/;
             resourceInputs["serverId"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -128,9 +146,17 @@ export interface HostKeyArgs {
      */
     hostKeyBody?: pulumi.Input<string | undefined>;
     /**
+     * The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+     */
+    kmsKey?: pulumi.Input<string | undefined>;
+    /**
      * The identifier of the server that contains the host key.
      */
     serverId: pulumi.Input<string>;
+    /**
+     * The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+     */
+    storageType?: pulumi.Input<enums.transfer.HostKeyStorageType | undefined>;
     /**
      * Key-value pairs that can be used to group and search for host keys.
      */

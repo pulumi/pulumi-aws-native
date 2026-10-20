@@ -56,6 +56,8 @@ __all__ = [
     'InstancePrivateDnsNameOptionsHostnameType',
     'IpamExternalResourceVerificationTokenState',
     'IpamExternalResourceVerificationTokenStatus',
+    'IpamInternetRegistryAssociationRir',
+    'IpamInternetRegistryAssociationState',
     'IpamMeteredAccount',
     'IpamPoolAwsService',
     'IpamPoolIpamScopeType',
@@ -706,6 +708,33 @@ class IpamExternalResourceVerificationTokenStatus(_builtins.str, Enum):
     """
     VALID = "valid"
     EXPIRED = "expired"
+
+
+@pulumi.type_token("aws-native:ec2:IpamInternetRegistryAssociationRir")
+class IpamInternetRegistryAssociationRir(_builtins.str, Enum):
+    """
+    The Regional Internet Registry to associate with. The service returns these values in upper case, so the enum uses the round-tripping form.
+    """
+    RIPE = "RIPE"
+    APNIC = "APNIC"
+    ARIN = "ARIN"
+    LACNIC = "LACNIC"
+
+
+@pulumi.type_token("aws-native:ec2:IpamInternetRegistryAssociationState")
+class IpamInternetRegistryAssociationState(_builtins.str, Enum):
+    """
+    The state of the internet registry association.
+    """
+    PENDING_ENABLE = "pending-enable"
+    CREATE_IN_PROGRESS = "create-in-progress"
+    CREATE_FAILED = "create-failed"
+    ENABLE_IN_PROGRESS = "enable-in-progress"
+    ENABLE_COMPLETE = "enable-complete"
+    ENABLE_FAILED = "enable-failed"
+    DELETE_IN_PROGRESS = "delete-in-progress"
+    DELETE_COMPLETE = "delete-complete"
+    DELETE_FAILED = "delete-failed"
 
 
 @pulumi.type_token("aws-native:ec2:IpamMeteredAccount")

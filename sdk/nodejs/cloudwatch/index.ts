@@ -50,6 +50,11 @@ export const getInsightRule: typeof import("./getInsightRule").getInsightRule = 
 export const getInsightRuleOutput: typeof import("./getInsightRule").getInsightRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getInsightRule","getInsightRuleOutput"], () => require("./getInsightRule"));
 
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
+
 export { GetLogAlarmArgs, GetLogAlarmResult, GetLogAlarmOutputArgs } from "./getLogAlarm";
 export const getLogAlarm: typeof import("./getLogAlarm").getLogAlarm = null as any;
 export const getLogAlarmOutput: typeof import("./getLogAlarm").getLogAlarmOutput = null as any;
@@ -79,6 +84,11 @@ export { InsightRuleArgs } from "./insightRule";
 export type InsightRule = import("./insightRule").InsightRule;
 export const InsightRule: typeof import("./insightRule").InsightRule = null as any;
 utilities.lazyLoad(exports, ["InsightRule"], () => require("./insightRule"));
+
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
 export { LogAlarmArgs } from "./logAlarm";
 export type LogAlarm = import("./logAlarm").LogAlarm;
@@ -123,6 +133,8 @@ const _module = {
                 return new Dashboard(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:InsightRule":
                 return new InsightRule(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:LogAlarm":
                 return new LogAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:MetricStream":

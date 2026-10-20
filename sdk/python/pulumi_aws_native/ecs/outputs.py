@@ -5686,6 +5686,7 @@ class ServiceDeploymentConfiguration(dict):
         :param 'ServiceCanaryConfiguration' canary_configuration: Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
         :param 'ServiceDeploymentCircuitBreaker' deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
+        :param 'ServiceDeploymentEarlySuccessCriteria' early_success_criteria: The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
         :param Sequence['ServiceDeploymentLifecycleHook'] lifecycle_hooks: An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
         :param 'ServiceLinearConfiguration' linear_configuration: Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
         :param _builtins.int maximum_percent: If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
@@ -5778,6 +5779,9 @@ class ServiceDeploymentConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="earlySuccessCriteria")
     def early_success_criteria(self) -> Optional['outputs.ServiceDeploymentEarlySuccessCriteria']:
+        """
+        The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
+        """
         return pulumi.get(self, "early_success_criteria")
 
     @_builtins.property
@@ -5934,6 +5938,10 @@ class ServiceDeploymentController(dict):
 
 @pulumi.output_type
 class ServiceDeploymentEarlySuccessCriteria(dict):
+    """
+    You can use early success criteria only with rolling deployment strategy.
+      The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5957,6 +5965,18 @@ class ServiceDeploymentEarlySuccessCriteria(dict):
                  enable: Optional[_builtins.bool] = None,
                  healthy_percent: Optional[_builtins.int] = None,
                  source_service_revision_cleanup: Optional['ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup'] = None):
+        """
+        You can use early success criteria only with rolling deployment strategy.
+          The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
+
+        :param _builtins.bool enable: Specifies whether to use the early success criteria for the service deployment. When set to ``false``, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is ``false``.
+                When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
+        :param _builtins.int healthy_percent: The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's ``desiredCount`` and must be an integer between ``0`` and ``100``. This value must be greater than or equal to the ``minimumHealthyPercent`` value.
+                After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
+        :param 'ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup' source_service_revision_cleanup: The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+                 +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+                 +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
+        """
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if healthy_percent is not None:
@@ -5967,16 +5987,29 @@ class ServiceDeploymentEarlySuccessCriteria(dict):
     @_builtins.property
     @pulumi.getter
     def enable(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether to use the early success criteria for the service deployment. When set to ``false``, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is ``false``.
+         When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
+        """
         return pulumi.get(self, "enable")
 
     @_builtins.property
     @pulumi.getter(name="healthyPercent")
     def healthy_percent(self) -> Optional[_builtins.int]:
+        """
+        The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's ``desiredCount`` and must be an integer between ``0`` and ``100``. This value must be greater than or equal to the ``minimumHealthyPercent`` value.
+         After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
+        """
         return pulumi.get(self, "healthy_percent")
 
     @_builtins.property
     @pulumi.getter(name="sourceServiceRevisionCleanup")
     def source_service_revision_cleanup(self) -> Optional['ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup']:
+        """
+        The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+          +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+          +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
+        """
         return pulumi.get(self, "source_service_revision_cleanup")
 
 

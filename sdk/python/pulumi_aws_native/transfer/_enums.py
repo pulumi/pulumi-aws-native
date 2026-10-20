@@ -22,6 +22,7 @@ __all__ = [
     'ConnectorEgressType',
     'ConnectorIpAddressType',
     'ConnectorStatus',
+    'HostKeyStorageType',
     'ProfileType',
     'ServerAs2Transport',
     'ServerDirectoryListingOptimization',
@@ -187,6 +188,15 @@ class ConnectorStatus(_builtins.str, Enum):
     ACTIVE = "ACTIVE"
     PENDING = "PENDING"
     ERRORED = "ERRORED"
+
+
+@pulumi.type_token("aws-native:transfer:HostKeyStorageType")
+class HostKeyStorageType(_builtins.str, Enum):
+    """
+    The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+    """
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    SECRETS_MANAGER = "SECRETS_MANAGER"
 
 
 @pulumi.type_token("aws-native:transfer:ProfileType")

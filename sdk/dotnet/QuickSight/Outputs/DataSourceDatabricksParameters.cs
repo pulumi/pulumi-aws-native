@@ -16,10 +16,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSourceDatabricksParameters
     {
+        public readonly Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType? AuthenticationType;
         /// <summary>
         /// &lt;p&gt;The host name of the Databricks data source.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
+        public readonly Outputs.DataSourceOAuthParameters? OAuthParameters;
         /// <summary>
         /// &lt;p&gt;The port for the Databricks data source.&lt;/p&gt;
         /// </summary>
@@ -31,13 +33,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSourceDatabricksParameters(
+            Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType? authenticationType,
+
             string host,
+
+            Outputs.DataSourceOAuthParameters? oAuthParameters,
 
             double port,
 
             string sqlEndpointPath)
         {
+            AuthenticationType = authenticationType;
             Host = host;
+            OAuthParameters = oAuthParameters;
             Port = port;
             SqlEndpointPath = sqlEndpointPath;
         }

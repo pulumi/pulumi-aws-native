@@ -22,10 +22,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Pulumi.AwsNative.SageMaker.ModelCardBarChartMetricType> Type { get; set; } = null!;
 
         [Input("value", required: true)]
-        private InputList<double>? _value;
-        public InputList<double> Value
+        private InputList<Union<double, string>>? _value;
+        public InputList<Union<double, string>> Value
         {
-            get => _value ?? (_value = new InputList<double>());
+            get => _value ?? (_value = new InputList<Union<double, string>>());
             set => _value = value;
         }
 

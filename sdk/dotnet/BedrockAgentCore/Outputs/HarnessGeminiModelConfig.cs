@@ -13,6 +13,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class HarnessGeminiModelConfig
     {
+        /// <summary>
+        /// Provider-specific parameters passed through to the Gemini model provider unchanged.
+        /// </summary>
+        public readonly object? AdditionalParams;
         public readonly string ApiKeyArn;
         public readonly int? MaxTokens;
         public readonly string ModelId;
@@ -22,6 +26,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private HarnessGeminiModelConfig(
+            object? additionalParams,
+
             string apiKeyArn,
 
             int? maxTokens,
@@ -34,6 +40,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             double? topP)
         {
+            AdditionalParams = additionalParams;
             ApiKeyArn = apiKeyArn;
             MaxTokens = maxTokens;
             ModelId = modelId;

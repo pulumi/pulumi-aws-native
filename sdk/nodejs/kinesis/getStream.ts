@@ -38,6 +38,10 @@ export interface GetStreamResult {
      */
     readonly maxRecordSizeInKiB?: number;
     /**
+     * The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+     */
+    readonly recordDistributionStrategy?: enums.kinesis.StreamRecordDistributionStrategy;
+    /**
      * The number of hours for the data records that are stored in shards to remain accessible.
      */
     readonly retentionPeriodHours?: number;

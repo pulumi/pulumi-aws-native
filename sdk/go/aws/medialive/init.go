@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventBridgeRuleTemplate{}
 	case "aws-native:medialive:EventBridgeRuleTemplateGroup":
 		r = &EventBridgeRuleTemplateGroup{}
+	case "aws-native:medialive:Input":
+		r = &Input{}
+	case "aws-native:medialive:InputSecurityGroup":
+		r = &InputSecurityGroup{}
 	case "aws-native:medialive:Multiplex":
 		r = &Multiplex{}
 	case "aws-native:medialive:Multiplexprogram":

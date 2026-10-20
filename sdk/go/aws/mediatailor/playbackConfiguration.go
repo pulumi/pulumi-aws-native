@@ -28,6 +28,8 @@ type PlaybackConfiguration struct {
 	AdsPersonalizationTimeouts PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput `pulumi:"adsPersonalizationTimeouts"`
 	// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 	AvailSuppression PlaybackConfigurationAvailSuppressionPtrOutput `pulumi:"availSuppression"`
+	// The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+	BeaconingConfiguration PlaybackConfigurationBeaconingConfigurationPtrOutput `pulumi:"beaconingConfiguration"`
 	// The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
 	Bumper PlaybackConfigurationBumperPtrOutput `pulumi:"bumper"`
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
@@ -129,6 +131,8 @@ type playbackConfigurationArgs struct {
 	AdsPersonalizationTimeouts *PlaybackConfigurationAdsPersonalizationTimeouts `pulumi:"adsPersonalizationTimeouts"`
 	// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 	AvailSuppression *PlaybackConfigurationAvailSuppression `pulumi:"availSuppression"`
+	// The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+	BeaconingConfiguration *PlaybackConfigurationBeaconingConfiguration `pulumi:"beaconingConfiguration"`
 	// The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
 	Bumper *PlaybackConfigurationBumper `pulumi:"bumper"`
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
@@ -176,6 +180,8 @@ type PlaybackConfigurationArgs struct {
 	AdsPersonalizationTimeouts PlaybackConfigurationAdsPersonalizationTimeoutsPtrInput
 	// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 	AvailSuppression PlaybackConfigurationAvailSuppressionPtrInput
+	// The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+	BeaconingConfiguration PlaybackConfigurationBeaconingConfigurationPtrInput
 	// The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
 	Bumper PlaybackConfigurationBumperPtrInput
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
@@ -284,6 +290,13 @@ func (o PlaybackConfigurationOutput) AvailSuppression() PlaybackConfigurationAva
 	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationAvailSuppressionPtrOutput {
 		return v.AvailSuppression
 	}).(PlaybackConfigurationAvailSuppressionPtrOutput)
+}
+
+// The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+func (o PlaybackConfigurationOutput) BeaconingConfiguration() PlaybackConfigurationBeaconingConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationBeaconingConfigurationPtrOutput {
+		return v.BeaconingConfiguration
+	}).(PlaybackConfigurationBeaconingConfigurationPtrOutput)
 }
 
 // The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).

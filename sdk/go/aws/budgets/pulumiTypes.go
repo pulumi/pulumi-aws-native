@@ -13,6 +13,2599 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type BudgetAutoAdjustData struct {
+	// The string that defines whether your budget auto-adjusts based on historical or forecasted data.
+	AutoAdjustType string `pulumi:"autoAdjustType"`
+	// The parameters that define or describe the historical data that your auto-adjusting budget is based on.
+	HistoricalOptions *BudgetHistoricalOptions `pulumi:"historicalOptions"`
+}
+
+// BudgetAutoAdjustDataInput is an input type that accepts BudgetAutoAdjustDataArgs and BudgetAutoAdjustDataOutput values.
+// You can construct a concrete instance of `BudgetAutoAdjustDataInput` via:
+//
+//	BudgetAutoAdjustDataArgs{...}
+type BudgetAutoAdjustDataInput interface {
+	pulumi.Input
+
+	ToBudgetAutoAdjustDataOutput() BudgetAutoAdjustDataOutput
+	ToBudgetAutoAdjustDataOutputWithContext(context.Context) BudgetAutoAdjustDataOutput
+}
+
+type BudgetAutoAdjustDataArgs struct {
+	// The string that defines whether your budget auto-adjusts based on historical or forecasted data.
+	AutoAdjustType pulumi.StringInput `pulumi:"autoAdjustType"`
+	// The parameters that define or describe the historical data that your auto-adjusting budget is based on.
+	HistoricalOptions BudgetHistoricalOptionsPtrInput `pulumi:"historicalOptions"`
+}
+
+func (BudgetAutoAdjustDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetAutoAdjustData)(nil)).Elem()
+}
+
+func (i BudgetAutoAdjustDataArgs) ToBudgetAutoAdjustDataOutput() BudgetAutoAdjustDataOutput {
+	return i.ToBudgetAutoAdjustDataOutputWithContext(context.Background())
+}
+
+func (i BudgetAutoAdjustDataArgs) ToBudgetAutoAdjustDataOutputWithContext(ctx context.Context) BudgetAutoAdjustDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetAutoAdjustDataOutput)
+}
+
+func (i BudgetAutoAdjustDataArgs) ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput {
+	return i.ToBudgetAutoAdjustDataPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetAutoAdjustDataArgs) ToBudgetAutoAdjustDataPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetAutoAdjustDataOutput).ToBudgetAutoAdjustDataPtrOutputWithContext(ctx)
+}
+
+// BudgetAutoAdjustDataPtrInput is an input type that accepts BudgetAutoAdjustDataArgs, BudgetAutoAdjustDataPtr and BudgetAutoAdjustDataPtrOutput values.
+// You can construct a concrete instance of `BudgetAutoAdjustDataPtrInput` via:
+//
+//	        BudgetAutoAdjustDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetAutoAdjustDataPtrInput interface {
+	pulumi.Input
+
+	ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput
+	ToBudgetAutoAdjustDataPtrOutputWithContext(context.Context) BudgetAutoAdjustDataPtrOutput
+}
+
+type budgetAutoAdjustDataPtrType BudgetAutoAdjustDataArgs
+
+func BudgetAutoAdjustDataPtr(v *BudgetAutoAdjustDataArgs) BudgetAutoAdjustDataPtrInput {
+	return (*budgetAutoAdjustDataPtrType)(v)
+}
+
+func (*budgetAutoAdjustDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetAutoAdjustData)(nil)).Elem()
+}
+
+func (i *budgetAutoAdjustDataPtrType) ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput {
+	return i.ToBudgetAutoAdjustDataPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetAutoAdjustDataPtrType) ToBudgetAutoAdjustDataPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetAutoAdjustDataPtrOutput)
+}
+
+type BudgetAutoAdjustDataOutput struct{ *pulumi.OutputState }
+
+func (BudgetAutoAdjustDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetAutoAdjustData)(nil)).Elem()
+}
+
+func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataOutput() BudgetAutoAdjustDataOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataOutputWithContext(ctx context.Context) BudgetAutoAdjustDataOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput {
+	return o.ToBudgetAutoAdjustDataPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetAutoAdjustData) *BudgetAutoAdjustData {
+		return &v
+	}).(BudgetAutoAdjustDataPtrOutput)
+}
+
+// The string that defines whether your budget auto-adjusts based on historical or forecasted data.
+func (o BudgetAutoAdjustDataOutput) AutoAdjustType() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetAutoAdjustData) string { return v.AutoAdjustType }).(pulumi.StringOutput)
+}
+
+// The parameters that define or describe the historical data that your auto-adjusting budget is based on.
+func (o BudgetAutoAdjustDataOutput) HistoricalOptions() BudgetHistoricalOptionsPtrOutput {
+	return o.ApplyT(func(v BudgetAutoAdjustData) *BudgetHistoricalOptions { return v.HistoricalOptions }).(BudgetHistoricalOptionsPtrOutput)
+}
+
+type BudgetAutoAdjustDataPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetAutoAdjustDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetAutoAdjustData)(nil)).Elem()
+}
+
+func (o BudgetAutoAdjustDataPtrOutput) ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataPtrOutput) ToBudgetAutoAdjustDataPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataPtrOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataPtrOutput) Elem() BudgetAutoAdjustDataOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustData) BudgetAutoAdjustData {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetAutoAdjustData
+		return ret
+	}).(BudgetAutoAdjustDataOutput)
+}
+
+// The string that defines whether your budget auto-adjusts based on historical or forecasted data.
+func (o BudgetAutoAdjustDataPtrOutput) AutoAdjustType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoAdjustType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters that define or describe the historical data that your auto-adjusting budget is based on.
+func (o BudgetAutoAdjustDataPtrOutput) HistoricalOptions() BudgetHistoricalOptionsPtrOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustData) *BudgetHistoricalOptions {
+		if v == nil {
+			return nil
+		}
+		return v.HistoricalOptions
+	}).(BudgetHistoricalOptionsPtrOutput)
+}
+
+type BudgetCostCategoryValues struct {
+	// The unique name of the cost category.
+	Key *string `pulumi:"key"`
+	// The match options that you can use to filter your results.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// The specific value of the cost category.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetCostCategoryValuesInput is an input type that accepts BudgetCostCategoryValuesArgs and BudgetCostCategoryValuesOutput values.
+// You can construct a concrete instance of `BudgetCostCategoryValuesInput` via:
+//
+//	BudgetCostCategoryValuesArgs{...}
+type BudgetCostCategoryValuesInput interface {
+	pulumi.Input
+
+	ToBudgetCostCategoryValuesOutput() BudgetCostCategoryValuesOutput
+	ToBudgetCostCategoryValuesOutputWithContext(context.Context) BudgetCostCategoryValuesOutput
+}
+
+type BudgetCostCategoryValuesArgs struct {
+	// The unique name of the cost category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The match options that you can use to filter your results.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// The specific value of the cost category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetCostCategoryValuesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetCostCategoryValues)(nil)).Elem()
+}
+
+func (i BudgetCostCategoryValuesArgs) ToBudgetCostCategoryValuesOutput() BudgetCostCategoryValuesOutput {
+	return i.ToBudgetCostCategoryValuesOutputWithContext(context.Background())
+}
+
+func (i BudgetCostCategoryValuesArgs) ToBudgetCostCategoryValuesOutputWithContext(ctx context.Context) BudgetCostCategoryValuesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostCategoryValuesOutput)
+}
+
+func (i BudgetCostCategoryValuesArgs) ToBudgetCostCategoryValuesPtrOutput() BudgetCostCategoryValuesPtrOutput {
+	return i.ToBudgetCostCategoryValuesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetCostCategoryValuesArgs) ToBudgetCostCategoryValuesPtrOutputWithContext(ctx context.Context) BudgetCostCategoryValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostCategoryValuesOutput).ToBudgetCostCategoryValuesPtrOutputWithContext(ctx)
+}
+
+// BudgetCostCategoryValuesPtrInput is an input type that accepts BudgetCostCategoryValuesArgs, BudgetCostCategoryValuesPtr and BudgetCostCategoryValuesPtrOutput values.
+// You can construct a concrete instance of `BudgetCostCategoryValuesPtrInput` via:
+//
+//	        BudgetCostCategoryValuesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetCostCategoryValuesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetCostCategoryValuesPtrOutput() BudgetCostCategoryValuesPtrOutput
+	ToBudgetCostCategoryValuesPtrOutputWithContext(context.Context) BudgetCostCategoryValuesPtrOutput
+}
+
+type budgetCostCategoryValuesPtrType BudgetCostCategoryValuesArgs
+
+func BudgetCostCategoryValuesPtr(v *BudgetCostCategoryValuesArgs) BudgetCostCategoryValuesPtrInput {
+	return (*budgetCostCategoryValuesPtrType)(v)
+}
+
+func (*budgetCostCategoryValuesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetCostCategoryValues)(nil)).Elem()
+}
+
+func (i *budgetCostCategoryValuesPtrType) ToBudgetCostCategoryValuesPtrOutput() BudgetCostCategoryValuesPtrOutput {
+	return i.ToBudgetCostCategoryValuesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetCostCategoryValuesPtrType) ToBudgetCostCategoryValuesPtrOutputWithContext(ctx context.Context) BudgetCostCategoryValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostCategoryValuesPtrOutput)
+}
+
+type BudgetCostCategoryValuesOutput struct{ *pulumi.OutputState }
+
+func (BudgetCostCategoryValuesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetCostCategoryValues)(nil)).Elem()
+}
+
+func (o BudgetCostCategoryValuesOutput) ToBudgetCostCategoryValuesOutput() BudgetCostCategoryValuesOutput {
+	return o
+}
+
+func (o BudgetCostCategoryValuesOutput) ToBudgetCostCategoryValuesOutputWithContext(ctx context.Context) BudgetCostCategoryValuesOutput {
+	return o
+}
+
+func (o BudgetCostCategoryValuesOutput) ToBudgetCostCategoryValuesPtrOutput() BudgetCostCategoryValuesPtrOutput {
+	return o.ToBudgetCostCategoryValuesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetCostCategoryValuesOutput) ToBudgetCostCategoryValuesPtrOutputWithContext(ctx context.Context) BudgetCostCategoryValuesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetCostCategoryValues) *BudgetCostCategoryValues {
+		return &v
+	}).(BudgetCostCategoryValuesPtrOutput)
+}
+
+// The unique name of the cost category.
+func (o BudgetCostCategoryValuesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetCostCategoryValues) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The match options that you can use to filter your results.
+func (o BudgetCostCategoryValuesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetCostCategoryValues) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// The specific value of the cost category.
+func (o BudgetCostCategoryValuesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetCostCategoryValues) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetCostCategoryValuesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetCostCategoryValuesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetCostCategoryValues)(nil)).Elem()
+}
+
+func (o BudgetCostCategoryValuesPtrOutput) ToBudgetCostCategoryValuesPtrOutput() BudgetCostCategoryValuesPtrOutput {
+	return o
+}
+
+func (o BudgetCostCategoryValuesPtrOutput) ToBudgetCostCategoryValuesPtrOutputWithContext(ctx context.Context) BudgetCostCategoryValuesPtrOutput {
+	return o
+}
+
+func (o BudgetCostCategoryValuesPtrOutput) Elem() BudgetCostCategoryValuesOutput {
+	return o.ApplyT(func(v *BudgetCostCategoryValues) BudgetCostCategoryValues {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetCostCategoryValues
+		return ret
+	}).(BudgetCostCategoryValuesOutput)
+}
+
+// The unique name of the cost category.
+func (o BudgetCostCategoryValuesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetCostCategoryValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The match options that you can use to filter your results.
+func (o BudgetCostCategoryValuesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetCostCategoryValues) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The specific value of the cost category.
+func (o BudgetCostCategoryValuesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetCostCategoryValues) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetCostTypes struct {
+	// Specifies whether a budget includes credits.
+	//
+	// The default value is `true` .
+	IncludeCredit *bool `pulumi:"includeCredit"`
+	// Specifies whether a budget includes discounts.
+	//
+	// The default value is `true` .
+	IncludeDiscount *bool `pulumi:"includeDiscount"`
+	// Specifies whether a budget includes non-RI subscription costs.
+	//
+	// The default value is `true` .
+	IncludeOtherSubscription *bool `pulumi:"includeOtherSubscription"`
+	// Specifies whether a budget includes recurring fees such as monthly RI fees.
+	//
+	// The default value is `true` .
+	IncludeRecurring *bool `pulumi:"includeRecurring"`
+	// Specifies whether a budget includes refunds.
+	//
+	// The default value is `true` .
+	IncludeRefund *bool `pulumi:"includeRefund"`
+	// Specifies whether a budget includes subscriptions.
+	//
+	// The default value is `true` .
+	IncludeSubscription *bool `pulumi:"includeSubscription"`
+	// Specifies whether a budget includes support subscription fees.
+	//
+	// The default value is `true` .
+	IncludeSupport *bool `pulumi:"includeSupport"`
+	// Specifies whether a budget includes taxes.
+	//
+	// The default value is `true` .
+	IncludeTax *bool `pulumi:"includeTax"`
+	// Specifies whether a budget includes upfront RI costs.
+	//
+	// The default value is `true` .
+	IncludeUpfront *bool `pulumi:"includeUpfront"`
+	// Specifies whether a budget uses the amortized rate.
+	//
+	// The default value is `false` .
+	UseAmortized *bool `pulumi:"useAmortized"`
+	// Specifies whether a budget uses a blended rate.
+	//
+	// The default value is `false` .
+	UseBlended *bool `pulumi:"useBlended"`
+}
+
+// BudgetCostTypesInput is an input type that accepts BudgetCostTypesArgs and BudgetCostTypesOutput values.
+// You can construct a concrete instance of `BudgetCostTypesInput` via:
+//
+//	BudgetCostTypesArgs{...}
+type BudgetCostTypesInput interface {
+	pulumi.Input
+
+	ToBudgetCostTypesOutput() BudgetCostTypesOutput
+	ToBudgetCostTypesOutputWithContext(context.Context) BudgetCostTypesOutput
+}
+
+type BudgetCostTypesArgs struct {
+	// Specifies whether a budget includes credits.
+	//
+	// The default value is `true` .
+	IncludeCredit pulumi.BoolPtrInput `pulumi:"includeCredit"`
+	// Specifies whether a budget includes discounts.
+	//
+	// The default value is `true` .
+	IncludeDiscount pulumi.BoolPtrInput `pulumi:"includeDiscount"`
+	// Specifies whether a budget includes non-RI subscription costs.
+	//
+	// The default value is `true` .
+	IncludeOtherSubscription pulumi.BoolPtrInput `pulumi:"includeOtherSubscription"`
+	// Specifies whether a budget includes recurring fees such as monthly RI fees.
+	//
+	// The default value is `true` .
+	IncludeRecurring pulumi.BoolPtrInput `pulumi:"includeRecurring"`
+	// Specifies whether a budget includes refunds.
+	//
+	// The default value is `true` .
+	IncludeRefund pulumi.BoolPtrInput `pulumi:"includeRefund"`
+	// Specifies whether a budget includes subscriptions.
+	//
+	// The default value is `true` .
+	IncludeSubscription pulumi.BoolPtrInput `pulumi:"includeSubscription"`
+	// Specifies whether a budget includes support subscription fees.
+	//
+	// The default value is `true` .
+	IncludeSupport pulumi.BoolPtrInput `pulumi:"includeSupport"`
+	// Specifies whether a budget includes taxes.
+	//
+	// The default value is `true` .
+	IncludeTax pulumi.BoolPtrInput `pulumi:"includeTax"`
+	// Specifies whether a budget includes upfront RI costs.
+	//
+	// The default value is `true` .
+	IncludeUpfront pulumi.BoolPtrInput `pulumi:"includeUpfront"`
+	// Specifies whether a budget uses the amortized rate.
+	//
+	// The default value is `false` .
+	UseAmortized pulumi.BoolPtrInput `pulumi:"useAmortized"`
+	// Specifies whether a budget uses a blended rate.
+	//
+	// The default value is `false` .
+	UseBlended pulumi.BoolPtrInput `pulumi:"useBlended"`
+}
+
+func (BudgetCostTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetCostTypes)(nil)).Elem()
+}
+
+func (i BudgetCostTypesArgs) ToBudgetCostTypesOutput() BudgetCostTypesOutput {
+	return i.ToBudgetCostTypesOutputWithContext(context.Background())
+}
+
+func (i BudgetCostTypesArgs) ToBudgetCostTypesOutputWithContext(ctx context.Context) BudgetCostTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostTypesOutput)
+}
+
+func (i BudgetCostTypesArgs) ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput {
+	return i.ToBudgetCostTypesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetCostTypesArgs) ToBudgetCostTypesPtrOutputWithContext(ctx context.Context) BudgetCostTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostTypesOutput).ToBudgetCostTypesPtrOutputWithContext(ctx)
+}
+
+// BudgetCostTypesPtrInput is an input type that accepts BudgetCostTypesArgs, BudgetCostTypesPtr and BudgetCostTypesPtrOutput values.
+// You can construct a concrete instance of `BudgetCostTypesPtrInput` via:
+//
+//	        BudgetCostTypesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetCostTypesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput
+	ToBudgetCostTypesPtrOutputWithContext(context.Context) BudgetCostTypesPtrOutput
+}
+
+type budgetCostTypesPtrType BudgetCostTypesArgs
+
+func BudgetCostTypesPtr(v *BudgetCostTypesArgs) BudgetCostTypesPtrInput {
+	return (*budgetCostTypesPtrType)(v)
+}
+
+func (*budgetCostTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetCostTypes)(nil)).Elem()
+}
+
+func (i *budgetCostTypesPtrType) ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput {
+	return i.ToBudgetCostTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetCostTypesPtrType) ToBudgetCostTypesPtrOutputWithContext(ctx context.Context) BudgetCostTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostTypesPtrOutput)
+}
+
+type BudgetCostTypesOutput struct{ *pulumi.OutputState }
+
+func (BudgetCostTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetCostTypes)(nil)).Elem()
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesOutput() BudgetCostTypesOutput {
+	return o
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesOutputWithContext(ctx context.Context) BudgetCostTypesOutput {
+	return o
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput {
+	return o.ToBudgetCostTypesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesPtrOutputWithContext(ctx context.Context) BudgetCostTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetCostTypes) *BudgetCostTypes {
+		return &v
+	}).(BudgetCostTypesPtrOutput)
+}
+
+// Specifies whether a budget includes credits.
+//
+// The default value is `true` .
+func (o BudgetCostTypesOutput) IncludeCredit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeCredit }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes discounts.
+//
+// The default value is `true` .
+func (o BudgetCostTypesOutput) IncludeDiscount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeDiscount }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes non-RI subscription costs.
+//
+// The default value is `true` .
+func (o BudgetCostTypesOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeOtherSubscription }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes recurring fees such as monthly RI fees.
+//
+// The default value is `true` .
+func (o BudgetCostTypesOutput) IncludeRecurring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRecurring }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes refunds.
+//
+// The default value is `true` .
+func (o BudgetCostTypesOutput) IncludeRefund() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRefund }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes subscriptions.
+//
+// The default value is `true` .
+func (o BudgetCostTypesOutput) IncludeSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSubscription }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes support subscription fees.
+//
+// The default value is `true` .
+func (o BudgetCostTypesOutput) IncludeSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSupport }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes taxes.
+//
+// The default value is `true` .
+func (o BudgetCostTypesOutput) IncludeTax() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeTax }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes upfront RI costs.
+//
+// The default value is `true` .
+func (o BudgetCostTypesOutput) IncludeUpfront() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeUpfront }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget uses the amortized rate.
+//
+// The default value is `false` .
+func (o BudgetCostTypesOutput) UseAmortized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseAmortized }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget uses a blended rate.
+//
+// The default value is `false` .
+func (o BudgetCostTypesOutput) UseBlended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseBlended }).(pulumi.BoolPtrOutput)
+}
+
+type BudgetCostTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetCostTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetCostTypes)(nil)).Elem()
+}
+
+func (o BudgetCostTypesPtrOutput) ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput {
+	return o
+}
+
+func (o BudgetCostTypesPtrOutput) ToBudgetCostTypesPtrOutputWithContext(ctx context.Context) BudgetCostTypesPtrOutput {
+	return o
+}
+
+func (o BudgetCostTypesPtrOutput) Elem() BudgetCostTypesOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) BudgetCostTypes {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetCostTypes
+		return ret
+	}).(BudgetCostTypesOutput)
+}
+
+// Specifies whether a budget includes credits.
+//
+// The default value is `true` .
+func (o BudgetCostTypesPtrOutput) IncludeCredit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeCredit
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes discounts.
+//
+// The default value is `true` .
+func (o BudgetCostTypesPtrOutput) IncludeDiscount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDiscount
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes non-RI subscription costs.
+//
+// The default value is `true` .
+func (o BudgetCostTypesPtrOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOtherSubscription
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes recurring fees such as monthly RI fees.
+//
+// The default value is `true` .
+func (o BudgetCostTypesPtrOutput) IncludeRecurring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeRecurring
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes refunds.
+//
+// The default value is `true` .
+func (o BudgetCostTypesPtrOutput) IncludeRefund() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeRefund
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes subscriptions.
+//
+// The default value is `true` .
+func (o BudgetCostTypesPtrOutput) IncludeSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSubscription
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes support subscription fees.
+//
+// The default value is `true` .
+func (o BudgetCostTypesPtrOutput) IncludeSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes taxes.
+//
+// The default value is `true` .
+func (o BudgetCostTypesPtrOutput) IncludeTax() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTax
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget includes upfront RI costs.
+//
+// The default value is `true` .
+func (o BudgetCostTypesPtrOutput) IncludeUpfront() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeUpfront
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget uses the amortized rate.
+//
+// The default value is `false` .
+func (o BudgetCostTypesPtrOutput) UseAmortized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAmortized
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether a budget uses a blended rate.
+//
+// The default value is `false` .
+func (o BudgetCostTypesPtrOutput) UseBlended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseBlended
+	}).(pulumi.BoolPtrOutput)
+}
+
+type BudgetData struct {
+	// Determine the budget amount for an auto-adjusting budget.
+	AutoAdjustData *BudgetAutoAdjustData `pulumi:"autoAdjustData"`
+	BillingViewArn *string               `pulumi:"billingViewArn"`
+	// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
+	//
+	// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
+	BudgetLimit *BudgetSpend `pulumi:"budgetLimit"`
+	// The name of a budget. The value must be unique within an account. `BudgetName` can't include `:` and `\` characters. If you don't include value for `BudgetName` in the template, Billing and Cost Management assigns your budget a randomly generated name.
+	BudgetName *string `pulumi:"budgetName"`
+	// Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+	BudgetType string `pulumi:"budgetType"`
+	// The cost filters, such as `Region` , `Service` , `LinkedAccount` , `Tag` , or `CostCategory` , that are applied to a budget.
+	//
+	// AWS Budgets supports the following services as a `Service` filter for RI budgets:
+	//
+	// - Amazon EC2
+	// - Amazon Redshift
+	// - Amazon Relational Database Service
+	// - Amazon ElastiCache
+	// - Amazon OpenSearch Service
+	CostFilters interface{} `pulumi:"costFilters"`
+	// The types of costs that are included in this `COST` budget.
+	//
+	// `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes` .
+	CostTypes        *BudgetCostTypes  `pulumi:"costTypes"`
+	FilterExpression *BudgetExpression `pulumi:"filterExpression"`
+	Metrics          []string          `pulumi:"metrics"`
+	// A map containing multiple `BudgetLimit` , including current or future limits.
+	//
+	// `PlannedBudgetLimits` is available for cost or usage budget and supports both monthly and quarterly `TimeUnit` .
+	//
+	// For monthly budgets, provide 12 months of `PlannedBudgetLimits` values. This must start from the current month and include the next 11 months. The `key` is the start of the month, `UTC` in epoch seconds.
+	//
+	// For quarterly budgets, provide four quarters of `PlannedBudgetLimits` value entries in standard calendar quarter increments. This must start from the current quarter and include the next three quarters. The `key` is the start of the quarter, `UTC` in epoch seconds.
+	//
+	// If the planned budget expires before 12 months for monthly or four quarters for quarterly, provide the `PlannedBudgetLimits` values only for the remaining periods.
+	//
+	// If the budget begins at a date in the future, provide `PlannedBudgetLimits` values from the start date of the budget.
+	//
+	// After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit` . At that point, the planned budget provides the same experience as a fixed budget.
+	//
+	// `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets that are created with `PlannedBudgetLimits` . Budgets that are created without `PlannedBudgetLimits` only contain `BudgetLimit` . They don't contain `PlannedBudgetLimits` .
+	PlannedBudgetLimits interface{} `pulumi:"plannedBudgetLimits"`
+	// The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
+	//
+	// The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+	//
+	// You can change your start date with the `UpdateBudget` operation.
+	//
+	// After the end date, AWS deletes the budget and all associated notifications and subscribers.
+	TimePeriod *BudgetTimePeriod `pulumi:"timePeriod"`
+	// The length of time until a budget resets the actual and forecasted spend. `DAILY` is available only for `RI_UTILIZATION` and `RI_COVERAGE` budgets.
+	TimeUnit string `pulumi:"timeUnit"`
+}
+
+// BudgetDataInput is an input type that accepts BudgetDataArgs and BudgetDataOutput values.
+// You can construct a concrete instance of `BudgetDataInput` via:
+//
+//	BudgetDataArgs{...}
+type BudgetDataInput interface {
+	pulumi.Input
+
+	ToBudgetDataOutput() BudgetDataOutput
+	ToBudgetDataOutputWithContext(context.Context) BudgetDataOutput
+}
+
+type BudgetDataArgs struct {
+	// Determine the budget amount for an auto-adjusting budget.
+	AutoAdjustData BudgetAutoAdjustDataPtrInput `pulumi:"autoAdjustData"`
+	BillingViewArn pulumi.StringPtrInput        `pulumi:"billingViewArn"`
+	// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
+	//
+	// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
+	BudgetLimit BudgetSpendPtrInput `pulumi:"budgetLimit"`
+	// The name of a budget. The value must be unique within an account. `BudgetName` can't include `:` and `\` characters. If you don't include value for `BudgetName` in the template, Billing and Cost Management assigns your budget a randomly generated name.
+	BudgetName pulumi.StringPtrInput `pulumi:"budgetName"`
+	// Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+	BudgetType pulumi.StringInput `pulumi:"budgetType"`
+	// The cost filters, such as `Region` , `Service` , `LinkedAccount` , `Tag` , or `CostCategory` , that are applied to a budget.
+	//
+	// AWS Budgets supports the following services as a `Service` filter for RI budgets:
+	//
+	// - Amazon EC2
+	// - Amazon Redshift
+	// - Amazon Relational Database Service
+	// - Amazon ElastiCache
+	// - Amazon OpenSearch Service
+	CostFilters pulumi.Input `pulumi:"costFilters"`
+	// The types of costs that are included in this `COST` budget.
+	//
+	// `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes` .
+	CostTypes        BudgetCostTypesPtrInput  `pulumi:"costTypes"`
+	FilterExpression BudgetExpressionPtrInput `pulumi:"filterExpression"`
+	Metrics          pulumi.StringArrayInput  `pulumi:"metrics"`
+	// A map containing multiple `BudgetLimit` , including current or future limits.
+	//
+	// `PlannedBudgetLimits` is available for cost or usage budget and supports both monthly and quarterly `TimeUnit` .
+	//
+	// For monthly budgets, provide 12 months of `PlannedBudgetLimits` values. This must start from the current month and include the next 11 months. The `key` is the start of the month, `UTC` in epoch seconds.
+	//
+	// For quarterly budgets, provide four quarters of `PlannedBudgetLimits` value entries in standard calendar quarter increments. This must start from the current quarter and include the next three quarters. The `key` is the start of the quarter, `UTC` in epoch seconds.
+	//
+	// If the planned budget expires before 12 months for monthly or four quarters for quarterly, provide the `PlannedBudgetLimits` values only for the remaining periods.
+	//
+	// If the budget begins at a date in the future, provide `PlannedBudgetLimits` values from the start date of the budget.
+	//
+	// After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit` . At that point, the planned budget provides the same experience as a fixed budget.
+	//
+	// `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets that are created with `PlannedBudgetLimits` . Budgets that are created without `PlannedBudgetLimits` only contain `BudgetLimit` . They don't contain `PlannedBudgetLimits` .
+	PlannedBudgetLimits pulumi.Input `pulumi:"plannedBudgetLimits"`
+	// The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
+	//
+	// The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+	//
+	// You can change your start date with the `UpdateBudget` operation.
+	//
+	// After the end date, AWS deletes the budget and all associated notifications and subscribers.
+	TimePeriod BudgetTimePeriodPtrInput `pulumi:"timePeriod"`
+	// The length of time until a budget resets the actual and forecasted spend. `DAILY` is available only for `RI_UTILIZATION` and `RI_COVERAGE` budgets.
+	TimeUnit pulumi.StringInput `pulumi:"timeUnit"`
+}
+
+func (BudgetDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetData)(nil)).Elem()
+}
+
+func (i BudgetDataArgs) ToBudgetDataOutput() BudgetDataOutput {
+	return i.ToBudgetDataOutputWithContext(context.Background())
+}
+
+func (i BudgetDataArgs) ToBudgetDataOutputWithContext(ctx context.Context) BudgetDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetDataOutput)
+}
+
+type BudgetDataOutput struct{ *pulumi.OutputState }
+
+func (BudgetDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetData)(nil)).Elem()
+}
+
+func (o BudgetDataOutput) ToBudgetDataOutput() BudgetDataOutput {
+	return o
+}
+
+func (o BudgetDataOutput) ToBudgetDataOutputWithContext(ctx context.Context) BudgetDataOutput {
+	return o
+}
+
+// Determine the budget amount for an auto-adjusting budget.
+func (o BudgetDataOutput) AutoAdjustData() BudgetAutoAdjustDataPtrOutput {
+	return o.ApplyT(func(v BudgetData) *BudgetAutoAdjustData { return v.AutoAdjustData }).(BudgetAutoAdjustDataPtrOutput)
+}
+
+func (o BudgetDataOutput) BillingViewArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetData) *string { return v.BillingViewArn }).(pulumi.StringPtrOutput)
+}
+
+// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
+//
+// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
+func (o BudgetDataOutput) BudgetLimit() BudgetSpendPtrOutput {
+	return o.ApplyT(func(v BudgetData) *BudgetSpend { return v.BudgetLimit }).(BudgetSpendPtrOutput)
+}
+
+// The name of a budget. The value must be unique within an account. `BudgetName` can't include `:` and `\` characters. If you don't include value for `BudgetName` in the template, Billing and Cost Management assigns your budget a randomly generated name.
+func (o BudgetDataOutput) BudgetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetData) *string { return v.BudgetName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+func (o BudgetDataOutput) BudgetType() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetData) string { return v.BudgetType }).(pulumi.StringOutput)
+}
+
+// The cost filters, such as `Region` , `Service` , `LinkedAccount` , `Tag` , or `CostCategory` , that are applied to a budget.
+//
+// AWS Budgets supports the following services as a `Service` filter for RI budgets:
+//
+// - Amazon EC2
+// - Amazon Redshift
+// - Amazon Relational Database Service
+// - Amazon ElastiCache
+// - Amazon OpenSearch Service
+func (o BudgetDataOutput) CostFilters() pulumi.AnyOutput {
+	return o.ApplyT(func(v BudgetData) interface{} { return v.CostFilters }).(pulumi.AnyOutput)
+}
+
+// The types of costs that are included in this `COST` budget.
+//
+// `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes` .
+func (o BudgetDataOutput) CostTypes() BudgetCostTypesPtrOutput {
+	return o.ApplyT(func(v BudgetData) *BudgetCostTypes { return v.CostTypes }).(BudgetCostTypesPtrOutput)
+}
+
+func (o BudgetDataOutput) FilterExpression() BudgetExpressionPtrOutput {
+	return o.ApplyT(func(v BudgetData) *BudgetExpression { return v.FilterExpression }).(BudgetExpressionPtrOutput)
+}
+
+func (o BudgetDataOutput) Metrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetData) []string { return v.Metrics }).(pulumi.StringArrayOutput)
+}
+
+// A map containing multiple `BudgetLimit` , including current or future limits.
+//
+// `PlannedBudgetLimits` is available for cost or usage budget and supports both monthly and quarterly `TimeUnit` .
+//
+// For monthly budgets, provide 12 months of `PlannedBudgetLimits` values. This must start from the current month and include the next 11 months. The `key` is the start of the month, `UTC` in epoch seconds.
+//
+// For quarterly budgets, provide four quarters of `PlannedBudgetLimits` value entries in standard calendar quarter increments. This must start from the current quarter and include the next three quarters. The `key` is the start of the quarter, `UTC` in epoch seconds.
+//
+// If the planned budget expires before 12 months for monthly or four quarters for quarterly, provide the `PlannedBudgetLimits` values only for the remaining periods.
+//
+// If the budget begins at a date in the future, provide `PlannedBudgetLimits` values from the start date of the budget.
+//
+// After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit` . At that point, the planned budget provides the same experience as a fixed budget.
+//
+// `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets that are created with `PlannedBudgetLimits` . Budgets that are created without `PlannedBudgetLimits` only contain `BudgetLimit` . They don't contain `PlannedBudgetLimits` .
+func (o BudgetDataOutput) PlannedBudgetLimits() pulumi.AnyOutput {
+	return o.ApplyT(func(v BudgetData) interface{} { return v.PlannedBudgetLimits }).(pulumi.AnyOutput)
+}
+
+// The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
+//
+// The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+//
+// You can change your start date with the `UpdateBudget` operation.
+//
+// After the end date, AWS deletes the budget and all associated notifications and subscribers.
+func (o BudgetDataOutput) TimePeriod() BudgetTimePeriodPtrOutput {
+	return o.ApplyT(func(v BudgetData) *BudgetTimePeriod { return v.TimePeriod }).(BudgetTimePeriodPtrOutput)
+}
+
+// The length of time until a budget resets the actual and forecasted spend. `DAILY` is available only for `RI_UTILIZATION` and `RI_COVERAGE` budgets.
+func (o BudgetDataOutput) TimeUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetData) string { return v.TimeUnit }).(pulumi.StringOutput)
+}
+
+type BudgetDataPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetData)(nil)).Elem()
+}
+
+func (o BudgetDataPtrOutput) ToBudgetDataPtrOutput() BudgetDataPtrOutput {
+	return o
+}
+
+func (o BudgetDataPtrOutput) ToBudgetDataPtrOutputWithContext(ctx context.Context) BudgetDataPtrOutput {
+	return o
+}
+
+func (o BudgetDataPtrOutput) Elem() BudgetDataOutput {
+	return o.ApplyT(func(v *BudgetData) BudgetData {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetData
+		return ret
+	}).(BudgetDataOutput)
+}
+
+// Determine the budget amount for an auto-adjusting budget.
+func (o BudgetDataPtrOutput) AutoAdjustData() BudgetAutoAdjustDataPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *BudgetAutoAdjustData {
+		if v == nil {
+			return nil
+		}
+		return v.AutoAdjustData
+	}).(BudgetAutoAdjustDataPtrOutput)
+}
+
+func (o BudgetDataPtrOutput) BillingViewArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingViewArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
+//
+// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
+func (o BudgetDataPtrOutput) BudgetLimit() BudgetSpendPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *BudgetSpend {
+		if v == nil {
+			return nil
+		}
+		return v.BudgetLimit
+	}).(BudgetSpendPtrOutput)
+}
+
+// The name of a budget. The value must be unique within an account. `BudgetName` can't include `:` and `\` characters. If you don't include value for `BudgetName` in the template, Billing and Cost Management assigns your budget a randomly generated name.
+func (o BudgetDataPtrOutput) BudgetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BudgetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+func (o BudgetDataPtrOutput) BudgetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BudgetType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The cost filters, such as `Region` , `Service` , `LinkedAccount` , `Tag` , or `CostCategory` , that are applied to a budget.
+//
+// AWS Budgets supports the following services as a `Service` filter for RI budgets:
+//
+// - Amazon EC2
+// - Amazon Redshift
+// - Amazon Relational Database Service
+// - Amazon ElastiCache
+// - Amazon OpenSearch Service
+func (o BudgetDataPtrOutput) CostFilters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BudgetData) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.CostFilters
+	}).(pulumi.AnyOutput)
+}
+
+// The types of costs that are included in this `COST` budget.
+//
+// `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes` .
+func (o BudgetDataPtrOutput) CostTypes() BudgetCostTypesPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *BudgetCostTypes {
+		if v == nil {
+			return nil
+		}
+		return v.CostTypes
+	}).(BudgetCostTypesPtrOutput)
+}
+
+func (o BudgetDataPtrOutput) FilterExpression() BudgetExpressionPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *BudgetExpression {
+		if v == nil {
+			return nil
+		}
+		return v.FilterExpression
+	}).(BudgetExpressionPtrOutput)
+}
+
+func (o BudgetDataPtrOutput) Metrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetData) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Metrics
+	}).(pulumi.StringArrayOutput)
+}
+
+// A map containing multiple `BudgetLimit` , including current or future limits.
+//
+// `PlannedBudgetLimits` is available for cost or usage budget and supports both monthly and quarterly `TimeUnit` .
+//
+// For monthly budgets, provide 12 months of `PlannedBudgetLimits` values. This must start from the current month and include the next 11 months. The `key` is the start of the month, `UTC` in epoch seconds.
+//
+// For quarterly budgets, provide four quarters of `PlannedBudgetLimits` value entries in standard calendar quarter increments. This must start from the current quarter and include the next three quarters. The `key` is the start of the quarter, `UTC` in epoch seconds.
+//
+// If the planned budget expires before 12 months for monthly or four quarters for quarterly, provide the `PlannedBudgetLimits` values only for the remaining periods.
+//
+// If the budget begins at a date in the future, provide `PlannedBudgetLimits` values from the start date of the budget.
+//
+// After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit` . At that point, the planned budget provides the same experience as a fixed budget.
+//
+// `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets that are created with `PlannedBudgetLimits` . Budgets that are created without `PlannedBudgetLimits` only contain `BudgetLimit` . They don't contain `PlannedBudgetLimits` .
+func (o BudgetDataPtrOutput) PlannedBudgetLimits() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BudgetData) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PlannedBudgetLimits
+	}).(pulumi.AnyOutput)
+}
+
+// The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
+//
+// The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+//
+// You can change your start date with the `UpdateBudget` operation.
+//
+// After the end date, AWS deletes the budget and all associated notifications and subscribers.
+func (o BudgetDataPtrOutput) TimePeriod() BudgetTimePeriodPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *BudgetTimePeriod {
+		if v == nil {
+			return nil
+		}
+		return v.TimePeriod
+	}).(BudgetTimePeriodPtrOutput)
+}
+
+// The length of time until a budget resets the actual and forecasted spend. `DAILY` is available only for `RI_UTILIZATION` and `RI_COVERAGE` budgets.
+func (o BudgetDataPtrOutput) TimeUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+type BudgetExpression struct {
+	// Return results that match both Dimension objects.
+	And []BudgetExpression `pulumi:"and"`
+	// The filter that's based on CostCategoryValues.
+	CostCategories *BudgetCostCategoryValues `pulumi:"costCategories"`
+	// The specific Dimension to use for Expression.
+	Dimensions *BudgetExpressionDimensionValues `pulumi:"dimensions"`
+	// Return results that don't match a Dimension object.
+	Not *BudgetExpression `pulumi:"not"`
+	// Return results that match either Dimension object.
+	Or []BudgetExpression `pulumi:"or"`
+	// The specific Tag to use for Expression.
+	Tags *BudgetTagValues `pulumi:"tags"`
+}
+
+// BudgetExpressionInput is an input type that accepts BudgetExpressionArgs and BudgetExpressionOutput values.
+// You can construct a concrete instance of `BudgetExpressionInput` via:
+//
+//	BudgetExpressionArgs{...}
+type BudgetExpressionInput interface {
+	pulumi.Input
+
+	ToBudgetExpressionOutput() BudgetExpressionOutput
+	ToBudgetExpressionOutputWithContext(context.Context) BudgetExpressionOutput
+}
+
+type BudgetExpressionArgs struct {
+	// Return results that match both Dimension objects.
+	And BudgetExpressionArrayInput `pulumi:"and"`
+	// The filter that's based on CostCategoryValues.
+	CostCategories BudgetCostCategoryValuesPtrInput `pulumi:"costCategories"`
+	// The specific Dimension to use for Expression.
+	Dimensions BudgetExpressionDimensionValuesPtrInput `pulumi:"dimensions"`
+	// Return results that don't match a Dimension object.
+	Not BudgetExpressionPtrInput `pulumi:"not"`
+	// Return results that match either Dimension object.
+	Or BudgetExpressionArrayInput `pulumi:"or"`
+	// The specific Tag to use for Expression.
+	Tags BudgetTagValuesPtrInput `pulumi:"tags"`
+}
+
+func (BudgetExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetExpression)(nil)).Elem()
+}
+
+func (i BudgetExpressionArgs) ToBudgetExpressionOutput() BudgetExpressionOutput {
+	return i.ToBudgetExpressionOutputWithContext(context.Background())
+}
+
+func (i BudgetExpressionArgs) ToBudgetExpressionOutputWithContext(ctx context.Context) BudgetExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetExpressionOutput)
+}
+
+func (i BudgetExpressionArgs) ToBudgetExpressionPtrOutput() BudgetExpressionPtrOutput {
+	return i.ToBudgetExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetExpressionArgs) ToBudgetExpressionPtrOutputWithContext(ctx context.Context) BudgetExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetExpressionOutput).ToBudgetExpressionPtrOutputWithContext(ctx)
+}
+
+// BudgetExpressionPtrInput is an input type that accepts BudgetExpressionArgs, BudgetExpressionPtr and BudgetExpressionPtrOutput values.
+// You can construct a concrete instance of `BudgetExpressionPtrInput` via:
+//
+//	        BudgetExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetExpressionPtrInput interface {
+	pulumi.Input
+
+	ToBudgetExpressionPtrOutput() BudgetExpressionPtrOutput
+	ToBudgetExpressionPtrOutputWithContext(context.Context) BudgetExpressionPtrOutput
+}
+
+type budgetExpressionPtrType BudgetExpressionArgs
+
+func BudgetExpressionPtr(v *BudgetExpressionArgs) BudgetExpressionPtrInput {
+	return (*budgetExpressionPtrType)(v)
+}
+
+func (*budgetExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetExpression)(nil)).Elem()
+}
+
+func (i *budgetExpressionPtrType) ToBudgetExpressionPtrOutput() BudgetExpressionPtrOutput {
+	return i.ToBudgetExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetExpressionPtrType) ToBudgetExpressionPtrOutputWithContext(ctx context.Context) BudgetExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetExpressionPtrOutput)
+}
+
+// BudgetExpressionArrayInput is an input type that accepts BudgetExpressionArray and BudgetExpressionArrayOutput values.
+// You can construct a concrete instance of `BudgetExpressionArrayInput` via:
+//
+//	BudgetExpressionArray{ BudgetExpressionArgs{...} }
+type BudgetExpressionArrayInput interface {
+	pulumi.Input
+
+	ToBudgetExpressionArrayOutput() BudgetExpressionArrayOutput
+	ToBudgetExpressionArrayOutputWithContext(context.Context) BudgetExpressionArrayOutput
+}
+
+type BudgetExpressionArray []BudgetExpressionInput
+
+func (BudgetExpressionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetExpression)(nil)).Elem()
+}
+
+func (i BudgetExpressionArray) ToBudgetExpressionArrayOutput() BudgetExpressionArrayOutput {
+	return i.ToBudgetExpressionArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetExpressionArray) ToBudgetExpressionArrayOutputWithContext(ctx context.Context) BudgetExpressionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetExpressionArrayOutput)
+}
+
+type BudgetExpressionOutput struct{ *pulumi.OutputState }
+
+func (BudgetExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetExpression)(nil)).Elem()
+}
+
+func (o BudgetExpressionOutput) ToBudgetExpressionOutput() BudgetExpressionOutput {
+	return o
+}
+
+func (o BudgetExpressionOutput) ToBudgetExpressionOutputWithContext(ctx context.Context) BudgetExpressionOutput {
+	return o
+}
+
+func (o BudgetExpressionOutput) ToBudgetExpressionPtrOutput() BudgetExpressionPtrOutput {
+	return o.ToBudgetExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetExpressionOutput) ToBudgetExpressionPtrOutputWithContext(ctx context.Context) BudgetExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetExpression) *BudgetExpression {
+		return &v
+	}).(BudgetExpressionPtrOutput)
+}
+
+// Return results that match both Dimension objects.
+func (o BudgetExpressionOutput) And() BudgetExpressionArrayOutput {
+	return o.ApplyT(func(v BudgetExpression) []BudgetExpression { return v.And }).(BudgetExpressionArrayOutput)
+}
+
+// The filter that's based on CostCategoryValues.
+func (o BudgetExpressionOutput) CostCategories() BudgetCostCategoryValuesPtrOutput {
+	return o.ApplyT(func(v BudgetExpression) *BudgetCostCategoryValues { return v.CostCategories }).(BudgetCostCategoryValuesPtrOutput)
+}
+
+// The specific Dimension to use for Expression.
+func (o BudgetExpressionOutput) Dimensions() BudgetExpressionDimensionValuesPtrOutput {
+	return o.ApplyT(func(v BudgetExpression) *BudgetExpressionDimensionValues { return v.Dimensions }).(BudgetExpressionDimensionValuesPtrOutput)
+}
+
+// Return results that don't match a Dimension object.
+func (o BudgetExpressionOutput) Not() BudgetExpressionPtrOutput {
+	return o.ApplyT(func(v BudgetExpression) *BudgetExpression { return v.Not }).(BudgetExpressionPtrOutput)
+}
+
+// Return results that match either Dimension object.
+func (o BudgetExpressionOutput) Or() BudgetExpressionArrayOutput {
+	return o.ApplyT(func(v BudgetExpression) []BudgetExpression { return v.Or }).(BudgetExpressionArrayOutput)
+}
+
+// The specific Tag to use for Expression.
+func (o BudgetExpressionOutput) Tags() BudgetTagValuesPtrOutput {
+	return o.ApplyT(func(v BudgetExpression) *BudgetTagValues { return v.Tags }).(BudgetTagValuesPtrOutput)
+}
+
+type BudgetExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetExpression)(nil)).Elem()
+}
+
+func (o BudgetExpressionPtrOutput) ToBudgetExpressionPtrOutput() BudgetExpressionPtrOutput {
+	return o
+}
+
+func (o BudgetExpressionPtrOutput) ToBudgetExpressionPtrOutputWithContext(ctx context.Context) BudgetExpressionPtrOutput {
+	return o
+}
+
+func (o BudgetExpressionPtrOutput) Elem() BudgetExpressionOutput {
+	return o.ApplyT(func(v *BudgetExpression) BudgetExpression {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetExpression
+		return ret
+	}).(BudgetExpressionOutput)
+}
+
+// Return results that match both Dimension objects.
+func (o BudgetExpressionPtrOutput) And() BudgetExpressionArrayOutput {
+	return o.ApplyT(func(v *BudgetExpression) []BudgetExpression {
+		if v == nil {
+			return nil
+		}
+		return v.And
+	}).(BudgetExpressionArrayOutput)
+}
+
+// The filter that's based on CostCategoryValues.
+func (o BudgetExpressionPtrOutput) CostCategories() BudgetCostCategoryValuesPtrOutput {
+	return o.ApplyT(func(v *BudgetExpression) *BudgetCostCategoryValues {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategories
+	}).(BudgetCostCategoryValuesPtrOutput)
+}
+
+// The specific Dimension to use for Expression.
+func (o BudgetExpressionPtrOutput) Dimensions() BudgetExpressionDimensionValuesPtrOutput {
+	return o.ApplyT(func(v *BudgetExpression) *BudgetExpressionDimensionValues {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(BudgetExpressionDimensionValuesPtrOutput)
+}
+
+// Return results that don't match a Dimension object.
+func (o BudgetExpressionPtrOutput) Not() BudgetExpressionPtrOutput {
+	return o.ApplyT(func(v *BudgetExpression) *BudgetExpression {
+		if v == nil {
+			return nil
+		}
+		return v.Not
+	}).(BudgetExpressionPtrOutput)
+}
+
+// Return results that match either Dimension object.
+func (o BudgetExpressionPtrOutput) Or() BudgetExpressionArrayOutput {
+	return o.ApplyT(func(v *BudgetExpression) []BudgetExpression {
+		if v == nil {
+			return nil
+		}
+		return v.Or
+	}).(BudgetExpressionArrayOutput)
+}
+
+// The specific Tag to use for Expression.
+func (o BudgetExpressionPtrOutput) Tags() BudgetTagValuesPtrOutput {
+	return o.ApplyT(func(v *BudgetExpression) *BudgetTagValues {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(BudgetTagValuesPtrOutput)
+}
+
+type BudgetExpressionArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetExpressionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetExpression)(nil)).Elem()
+}
+
+func (o BudgetExpressionArrayOutput) ToBudgetExpressionArrayOutput() BudgetExpressionArrayOutput {
+	return o
+}
+
+func (o BudgetExpressionArrayOutput) ToBudgetExpressionArrayOutputWithContext(ctx context.Context) BudgetExpressionArrayOutput {
+	return o
+}
+
+func (o BudgetExpressionArrayOutput) Index(i pulumi.IntInput) BudgetExpressionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetExpression {
+		return vs[0].([]BudgetExpression)[vs[1].(int)]
+	}).(BudgetExpressionOutput)
+}
+
+type BudgetExpressionDimensionValues struct {
+	// The name of the dimension that you want to filter on.
+	Key *string `pulumi:"key"`
+	// The match options that you can use to filter your results. You can specify only one of these values in the array.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// The metadata values you can specify to filter upon, so that the results all match at least one of the specified values.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetExpressionDimensionValuesInput is an input type that accepts BudgetExpressionDimensionValuesArgs and BudgetExpressionDimensionValuesOutput values.
+// You can construct a concrete instance of `BudgetExpressionDimensionValuesInput` via:
+//
+//	BudgetExpressionDimensionValuesArgs{...}
+type BudgetExpressionDimensionValuesInput interface {
+	pulumi.Input
+
+	ToBudgetExpressionDimensionValuesOutput() BudgetExpressionDimensionValuesOutput
+	ToBudgetExpressionDimensionValuesOutputWithContext(context.Context) BudgetExpressionDimensionValuesOutput
+}
+
+type BudgetExpressionDimensionValuesArgs struct {
+	// The name of the dimension that you want to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The match options that you can use to filter your results. You can specify only one of these values in the array.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// The metadata values you can specify to filter upon, so that the results all match at least one of the specified values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetExpressionDimensionValuesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetExpressionDimensionValues)(nil)).Elem()
+}
+
+func (i BudgetExpressionDimensionValuesArgs) ToBudgetExpressionDimensionValuesOutput() BudgetExpressionDimensionValuesOutput {
+	return i.ToBudgetExpressionDimensionValuesOutputWithContext(context.Background())
+}
+
+func (i BudgetExpressionDimensionValuesArgs) ToBudgetExpressionDimensionValuesOutputWithContext(ctx context.Context) BudgetExpressionDimensionValuesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetExpressionDimensionValuesOutput)
+}
+
+func (i BudgetExpressionDimensionValuesArgs) ToBudgetExpressionDimensionValuesPtrOutput() BudgetExpressionDimensionValuesPtrOutput {
+	return i.ToBudgetExpressionDimensionValuesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetExpressionDimensionValuesArgs) ToBudgetExpressionDimensionValuesPtrOutputWithContext(ctx context.Context) BudgetExpressionDimensionValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetExpressionDimensionValuesOutput).ToBudgetExpressionDimensionValuesPtrOutputWithContext(ctx)
+}
+
+// BudgetExpressionDimensionValuesPtrInput is an input type that accepts BudgetExpressionDimensionValuesArgs, BudgetExpressionDimensionValuesPtr and BudgetExpressionDimensionValuesPtrOutput values.
+// You can construct a concrete instance of `BudgetExpressionDimensionValuesPtrInput` via:
+//
+//	        BudgetExpressionDimensionValuesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetExpressionDimensionValuesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetExpressionDimensionValuesPtrOutput() BudgetExpressionDimensionValuesPtrOutput
+	ToBudgetExpressionDimensionValuesPtrOutputWithContext(context.Context) BudgetExpressionDimensionValuesPtrOutput
+}
+
+type budgetExpressionDimensionValuesPtrType BudgetExpressionDimensionValuesArgs
+
+func BudgetExpressionDimensionValuesPtr(v *BudgetExpressionDimensionValuesArgs) BudgetExpressionDimensionValuesPtrInput {
+	return (*budgetExpressionDimensionValuesPtrType)(v)
+}
+
+func (*budgetExpressionDimensionValuesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetExpressionDimensionValues)(nil)).Elem()
+}
+
+func (i *budgetExpressionDimensionValuesPtrType) ToBudgetExpressionDimensionValuesPtrOutput() BudgetExpressionDimensionValuesPtrOutput {
+	return i.ToBudgetExpressionDimensionValuesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetExpressionDimensionValuesPtrType) ToBudgetExpressionDimensionValuesPtrOutputWithContext(ctx context.Context) BudgetExpressionDimensionValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetExpressionDimensionValuesPtrOutput)
+}
+
+type BudgetExpressionDimensionValuesOutput struct{ *pulumi.OutputState }
+
+func (BudgetExpressionDimensionValuesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetExpressionDimensionValues)(nil)).Elem()
+}
+
+func (o BudgetExpressionDimensionValuesOutput) ToBudgetExpressionDimensionValuesOutput() BudgetExpressionDimensionValuesOutput {
+	return o
+}
+
+func (o BudgetExpressionDimensionValuesOutput) ToBudgetExpressionDimensionValuesOutputWithContext(ctx context.Context) BudgetExpressionDimensionValuesOutput {
+	return o
+}
+
+func (o BudgetExpressionDimensionValuesOutput) ToBudgetExpressionDimensionValuesPtrOutput() BudgetExpressionDimensionValuesPtrOutput {
+	return o.ToBudgetExpressionDimensionValuesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetExpressionDimensionValuesOutput) ToBudgetExpressionDimensionValuesPtrOutputWithContext(ctx context.Context) BudgetExpressionDimensionValuesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetExpressionDimensionValues) *BudgetExpressionDimensionValues {
+		return &v
+	}).(BudgetExpressionDimensionValuesPtrOutput)
+}
+
+// The name of the dimension that you want to filter on.
+func (o BudgetExpressionDimensionValuesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetExpressionDimensionValues) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The match options that you can use to filter your results. You can specify only one of these values in the array.
+func (o BudgetExpressionDimensionValuesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetExpressionDimensionValues) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// The metadata values you can specify to filter upon, so that the results all match at least one of the specified values.
+func (o BudgetExpressionDimensionValuesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetExpressionDimensionValues) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetExpressionDimensionValuesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetExpressionDimensionValuesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetExpressionDimensionValues)(nil)).Elem()
+}
+
+func (o BudgetExpressionDimensionValuesPtrOutput) ToBudgetExpressionDimensionValuesPtrOutput() BudgetExpressionDimensionValuesPtrOutput {
+	return o
+}
+
+func (o BudgetExpressionDimensionValuesPtrOutput) ToBudgetExpressionDimensionValuesPtrOutputWithContext(ctx context.Context) BudgetExpressionDimensionValuesPtrOutput {
+	return o
+}
+
+func (o BudgetExpressionDimensionValuesPtrOutput) Elem() BudgetExpressionDimensionValuesOutput {
+	return o.ApplyT(func(v *BudgetExpressionDimensionValues) BudgetExpressionDimensionValues {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetExpressionDimensionValues
+		return ret
+	}).(BudgetExpressionDimensionValuesOutput)
+}
+
+// The name of the dimension that you want to filter on.
+func (o BudgetExpressionDimensionValuesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetExpressionDimensionValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The match options that you can use to filter your results. You can specify only one of these values in the array.
+func (o BudgetExpressionDimensionValuesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetExpressionDimensionValues) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The metadata values you can specify to filter upon, so that the results all match at least one of the specified values.
+func (o BudgetExpressionDimensionValuesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetExpressionDimensionValues) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetHistoricalOptions struct {
+	// The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the `TimeUnit` granularity of the budget:
+	//
+	// - For the `DAILY` granularity, the maximum value is `60` .
+	// - For the `MONTHLY` granularity, the maximum value is `12` .
+	// - For the `QUARTERLY` granularity, the maximum value is `4` .
+	// - For the `ANNUALLY` granularity, the maximum value is `1` .
+	BudgetAdjustmentPeriod int `pulumi:"budgetAdjustmentPeriod"`
+}
+
+// BudgetHistoricalOptionsInput is an input type that accepts BudgetHistoricalOptionsArgs and BudgetHistoricalOptionsOutput values.
+// You can construct a concrete instance of `BudgetHistoricalOptionsInput` via:
+//
+//	BudgetHistoricalOptionsArgs{...}
+type BudgetHistoricalOptionsInput interface {
+	pulumi.Input
+
+	ToBudgetHistoricalOptionsOutput() BudgetHistoricalOptionsOutput
+	ToBudgetHistoricalOptionsOutputWithContext(context.Context) BudgetHistoricalOptionsOutput
+}
+
+type BudgetHistoricalOptionsArgs struct {
+	// The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the `TimeUnit` granularity of the budget:
+	//
+	// - For the `DAILY` granularity, the maximum value is `60` .
+	// - For the `MONTHLY` granularity, the maximum value is `12` .
+	// - For the `QUARTERLY` granularity, the maximum value is `4` .
+	// - For the `ANNUALLY` granularity, the maximum value is `1` .
+	BudgetAdjustmentPeriod pulumi.IntInput `pulumi:"budgetAdjustmentPeriod"`
+}
+
+func (BudgetHistoricalOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetHistoricalOptions)(nil)).Elem()
+}
+
+func (i BudgetHistoricalOptionsArgs) ToBudgetHistoricalOptionsOutput() BudgetHistoricalOptionsOutput {
+	return i.ToBudgetHistoricalOptionsOutputWithContext(context.Background())
+}
+
+func (i BudgetHistoricalOptionsArgs) ToBudgetHistoricalOptionsOutputWithContext(ctx context.Context) BudgetHistoricalOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetHistoricalOptionsOutput)
+}
+
+func (i BudgetHistoricalOptionsArgs) ToBudgetHistoricalOptionsPtrOutput() BudgetHistoricalOptionsPtrOutput {
+	return i.ToBudgetHistoricalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetHistoricalOptionsArgs) ToBudgetHistoricalOptionsPtrOutputWithContext(ctx context.Context) BudgetHistoricalOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetHistoricalOptionsOutput).ToBudgetHistoricalOptionsPtrOutputWithContext(ctx)
+}
+
+// BudgetHistoricalOptionsPtrInput is an input type that accepts BudgetHistoricalOptionsArgs, BudgetHistoricalOptionsPtr and BudgetHistoricalOptionsPtrOutput values.
+// You can construct a concrete instance of `BudgetHistoricalOptionsPtrInput` via:
+//
+//	        BudgetHistoricalOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetHistoricalOptionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetHistoricalOptionsPtrOutput() BudgetHistoricalOptionsPtrOutput
+	ToBudgetHistoricalOptionsPtrOutputWithContext(context.Context) BudgetHistoricalOptionsPtrOutput
+}
+
+type budgetHistoricalOptionsPtrType BudgetHistoricalOptionsArgs
+
+func BudgetHistoricalOptionsPtr(v *BudgetHistoricalOptionsArgs) BudgetHistoricalOptionsPtrInput {
+	return (*budgetHistoricalOptionsPtrType)(v)
+}
+
+func (*budgetHistoricalOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetHistoricalOptions)(nil)).Elem()
+}
+
+func (i *budgetHistoricalOptionsPtrType) ToBudgetHistoricalOptionsPtrOutput() BudgetHistoricalOptionsPtrOutput {
+	return i.ToBudgetHistoricalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetHistoricalOptionsPtrType) ToBudgetHistoricalOptionsPtrOutputWithContext(ctx context.Context) BudgetHistoricalOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetHistoricalOptionsPtrOutput)
+}
+
+type BudgetHistoricalOptionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetHistoricalOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetHistoricalOptions)(nil)).Elem()
+}
+
+func (o BudgetHistoricalOptionsOutput) ToBudgetHistoricalOptionsOutput() BudgetHistoricalOptionsOutput {
+	return o
+}
+
+func (o BudgetHistoricalOptionsOutput) ToBudgetHistoricalOptionsOutputWithContext(ctx context.Context) BudgetHistoricalOptionsOutput {
+	return o
+}
+
+func (o BudgetHistoricalOptionsOutput) ToBudgetHistoricalOptionsPtrOutput() BudgetHistoricalOptionsPtrOutput {
+	return o.ToBudgetHistoricalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetHistoricalOptionsOutput) ToBudgetHistoricalOptionsPtrOutputWithContext(ctx context.Context) BudgetHistoricalOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetHistoricalOptions) *BudgetHistoricalOptions {
+		return &v
+	}).(BudgetHistoricalOptionsPtrOutput)
+}
+
+// The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the `TimeUnit` granularity of the budget:
+//
+// - For the `DAILY` granularity, the maximum value is `60` .
+// - For the `MONTHLY` granularity, the maximum value is `12` .
+// - For the `QUARTERLY` granularity, the maximum value is `4` .
+// - For the `ANNUALLY` granularity, the maximum value is `1` .
+func (o BudgetHistoricalOptionsOutput) BudgetAdjustmentPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v BudgetHistoricalOptions) int { return v.BudgetAdjustmentPeriod }).(pulumi.IntOutput)
+}
+
+type BudgetHistoricalOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetHistoricalOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetHistoricalOptions)(nil)).Elem()
+}
+
+func (o BudgetHistoricalOptionsPtrOutput) ToBudgetHistoricalOptionsPtrOutput() BudgetHistoricalOptionsPtrOutput {
+	return o
+}
+
+func (o BudgetHistoricalOptionsPtrOutput) ToBudgetHistoricalOptionsPtrOutputWithContext(ctx context.Context) BudgetHistoricalOptionsPtrOutput {
+	return o
+}
+
+func (o BudgetHistoricalOptionsPtrOutput) Elem() BudgetHistoricalOptionsOutput {
+	return o.ApplyT(func(v *BudgetHistoricalOptions) BudgetHistoricalOptions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetHistoricalOptions
+		return ret
+	}).(BudgetHistoricalOptionsOutput)
+}
+
+// The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the `TimeUnit` granularity of the budget:
+//
+// - For the `DAILY` granularity, the maximum value is `60` .
+// - For the `MONTHLY` granularity, the maximum value is `12` .
+// - For the `QUARTERLY` granularity, the maximum value is `4` .
+// - For the `ANNUALLY` granularity, the maximum value is `1` .
+func (o BudgetHistoricalOptionsPtrOutput) BudgetAdjustmentPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BudgetHistoricalOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BudgetAdjustmentPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+type BudgetNotification struct {
+	// The comparison that's used for this notification.
+	ComparisonOperator string `pulumi:"comparisonOperator"`
+	// Specifies whether the notification is for how much you have spent ( `ACTUAL` ) or for how much that you're forecasted to spend ( `FORECASTED` ).
+	NotificationType string `pulumi:"notificationType"`
+	// The threshold that's associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
+	Threshold float64 `pulumi:"threshold"`
+	// The type of threshold for a notification. For `ABSOLUTE_VALUE` thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For `PERCENTAGE` thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a `PERCENTAGE` threshold of 80%, AWS notifies you when you go over 160 dollars.
+	ThresholdType *string `pulumi:"thresholdType"`
+}
+
+// BudgetNotificationInput is an input type that accepts BudgetNotificationArgs and BudgetNotificationOutput values.
+// You can construct a concrete instance of `BudgetNotificationInput` via:
+//
+//	BudgetNotificationArgs{...}
+type BudgetNotificationInput interface {
+	pulumi.Input
+
+	ToBudgetNotificationOutput() BudgetNotificationOutput
+	ToBudgetNotificationOutputWithContext(context.Context) BudgetNotificationOutput
+}
+
+type BudgetNotificationArgs struct {
+	// The comparison that's used for this notification.
+	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
+	// Specifies whether the notification is for how much you have spent ( `ACTUAL` ) or for how much that you're forecasted to spend ( `FORECASTED` ).
+	NotificationType pulumi.StringInput `pulumi:"notificationType"`
+	// The threshold that's associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The type of threshold for a notification. For `ABSOLUTE_VALUE` thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For `PERCENTAGE` thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a `PERCENTAGE` threshold of 80%, AWS notifies you when you go over 160 dollars.
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
+}
+
+func (BudgetNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetNotification)(nil)).Elem()
+}
+
+func (i BudgetNotificationArgs) ToBudgetNotificationOutput() BudgetNotificationOutput {
+	return i.ToBudgetNotificationOutputWithContext(context.Background())
+}
+
+func (i BudgetNotificationArgs) ToBudgetNotificationOutputWithContext(ctx context.Context) BudgetNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetNotificationOutput)
+}
+
+type BudgetNotificationOutput struct{ *pulumi.OutputState }
+
+func (BudgetNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetNotification)(nil)).Elem()
+}
+
+func (o BudgetNotificationOutput) ToBudgetNotificationOutput() BudgetNotificationOutput {
+	return o
+}
+
+func (o BudgetNotificationOutput) ToBudgetNotificationOutputWithContext(ctx context.Context) BudgetNotificationOutput {
+	return o
+}
+
+// The comparison that's used for this notification.
+func (o BudgetNotificationOutput) ComparisonOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetNotification) string { return v.ComparisonOperator }).(pulumi.StringOutput)
+}
+
+// Specifies whether the notification is for how much you have spent ( `ACTUAL` ) or for how much that you're forecasted to spend ( `FORECASTED` ).
+func (o BudgetNotificationOutput) NotificationType() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetNotification) string { return v.NotificationType }).(pulumi.StringOutput)
+}
+
+// The threshold that's associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
+func (o BudgetNotificationOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v BudgetNotification) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// The type of threshold for a notification. For `ABSOLUTE_VALUE` thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For `PERCENTAGE` thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a `PERCENTAGE` threshold of 80%, AWS notifies you when you go over 160 dollars.
+func (o BudgetNotificationOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetNotification) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
+}
+
+type BudgetNotificationWithSubscribers struct {
+	// The notification that's associated with a budget.
+	Notification BudgetNotification `pulumi:"notification"`
+	// A list of subscribers who are subscribed to this notification.
+	Subscribers []BudgetSubscriber `pulumi:"subscribers"`
+}
+
+// BudgetNotificationWithSubscribersInput is an input type that accepts BudgetNotificationWithSubscribersArgs and BudgetNotificationWithSubscribersOutput values.
+// You can construct a concrete instance of `BudgetNotificationWithSubscribersInput` via:
+//
+//	BudgetNotificationWithSubscribersArgs{...}
+type BudgetNotificationWithSubscribersInput interface {
+	pulumi.Input
+
+	ToBudgetNotificationWithSubscribersOutput() BudgetNotificationWithSubscribersOutput
+	ToBudgetNotificationWithSubscribersOutputWithContext(context.Context) BudgetNotificationWithSubscribersOutput
+}
+
+type BudgetNotificationWithSubscribersArgs struct {
+	// The notification that's associated with a budget.
+	Notification BudgetNotificationInput `pulumi:"notification"`
+	// A list of subscribers who are subscribed to this notification.
+	Subscribers BudgetSubscriberArrayInput `pulumi:"subscribers"`
+}
+
+func (BudgetNotificationWithSubscribersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetNotificationWithSubscribers)(nil)).Elem()
+}
+
+func (i BudgetNotificationWithSubscribersArgs) ToBudgetNotificationWithSubscribersOutput() BudgetNotificationWithSubscribersOutput {
+	return i.ToBudgetNotificationWithSubscribersOutputWithContext(context.Background())
+}
+
+func (i BudgetNotificationWithSubscribersArgs) ToBudgetNotificationWithSubscribersOutputWithContext(ctx context.Context) BudgetNotificationWithSubscribersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetNotificationWithSubscribersOutput)
+}
+
+// BudgetNotificationWithSubscribersArrayInput is an input type that accepts BudgetNotificationWithSubscribersArray and BudgetNotificationWithSubscribersArrayOutput values.
+// You can construct a concrete instance of `BudgetNotificationWithSubscribersArrayInput` via:
+//
+//	BudgetNotificationWithSubscribersArray{ BudgetNotificationWithSubscribersArgs{...} }
+type BudgetNotificationWithSubscribersArrayInput interface {
+	pulumi.Input
+
+	ToBudgetNotificationWithSubscribersArrayOutput() BudgetNotificationWithSubscribersArrayOutput
+	ToBudgetNotificationWithSubscribersArrayOutputWithContext(context.Context) BudgetNotificationWithSubscribersArrayOutput
+}
+
+type BudgetNotificationWithSubscribersArray []BudgetNotificationWithSubscribersInput
+
+func (BudgetNotificationWithSubscribersArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetNotificationWithSubscribers)(nil)).Elem()
+}
+
+func (i BudgetNotificationWithSubscribersArray) ToBudgetNotificationWithSubscribersArrayOutput() BudgetNotificationWithSubscribersArrayOutput {
+	return i.ToBudgetNotificationWithSubscribersArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetNotificationWithSubscribersArray) ToBudgetNotificationWithSubscribersArrayOutputWithContext(ctx context.Context) BudgetNotificationWithSubscribersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetNotificationWithSubscribersArrayOutput)
+}
+
+type BudgetNotificationWithSubscribersOutput struct{ *pulumi.OutputState }
+
+func (BudgetNotificationWithSubscribersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetNotificationWithSubscribers)(nil)).Elem()
+}
+
+func (o BudgetNotificationWithSubscribersOutput) ToBudgetNotificationWithSubscribersOutput() BudgetNotificationWithSubscribersOutput {
+	return o
+}
+
+func (o BudgetNotificationWithSubscribersOutput) ToBudgetNotificationWithSubscribersOutputWithContext(ctx context.Context) BudgetNotificationWithSubscribersOutput {
+	return o
+}
+
+// The notification that's associated with a budget.
+func (o BudgetNotificationWithSubscribersOutput) Notification() BudgetNotificationOutput {
+	return o.ApplyT(func(v BudgetNotificationWithSubscribers) BudgetNotification { return v.Notification }).(BudgetNotificationOutput)
+}
+
+// A list of subscribers who are subscribed to this notification.
+func (o BudgetNotificationWithSubscribersOutput) Subscribers() BudgetSubscriberArrayOutput {
+	return o.ApplyT(func(v BudgetNotificationWithSubscribers) []BudgetSubscriber { return v.Subscribers }).(BudgetSubscriberArrayOutput)
+}
+
+type BudgetNotificationWithSubscribersArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetNotificationWithSubscribersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetNotificationWithSubscribers)(nil)).Elem()
+}
+
+func (o BudgetNotificationWithSubscribersArrayOutput) ToBudgetNotificationWithSubscribersArrayOutput() BudgetNotificationWithSubscribersArrayOutput {
+	return o
+}
+
+func (o BudgetNotificationWithSubscribersArrayOutput) ToBudgetNotificationWithSubscribersArrayOutputWithContext(ctx context.Context) BudgetNotificationWithSubscribersArrayOutput {
+	return o
+}
+
+func (o BudgetNotificationWithSubscribersArrayOutput) Index(i pulumi.IntInput) BudgetNotificationWithSubscribersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetNotificationWithSubscribers {
+		return vs[0].([]BudgetNotificationWithSubscribers)[vs[1].(int)]
+	}).(BudgetNotificationWithSubscribersOutput)
+}
+
+type BudgetResourceTag struct {
+	// The key that's associated with the tag.
+	Key string `pulumi:"key"`
+	// The value that's associated with the tag.
+	Value *string `pulumi:"value"`
+}
+
+type BudgetSpend struct {
+	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.
+	Amount float64 `pulumi:"amount"`
+	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold.
+	Unit string `pulumi:"unit"`
+}
+
+// BudgetSpendInput is an input type that accepts BudgetSpendArgs and BudgetSpendOutput values.
+// You can construct a concrete instance of `BudgetSpendInput` via:
+//
+//	BudgetSpendArgs{...}
+type BudgetSpendInput interface {
+	pulumi.Input
+
+	ToBudgetSpendOutput() BudgetSpendOutput
+	ToBudgetSpendOutputWithContext(context.Context) BudgetSpendOutput
+}
+
+type BudgetSpendArgs struct {
+	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.
+	Amount pulumi.Float64Input `pulumi:"amount"`
+	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (BudgetSpendArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSpend)(nil)).Elem()
+}
+
+func (i BudgetSpendArgs) ToBudgetSpendOutput() BudgetSpendOutput {
+	return i.ToBudgetSpendOutputWithContext(context.Background())
+}
+
+func (i BudgetSpendArgs) ToBudgetSpendOutputWithContext(ctx context.Context) BudgetSpendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSpendOutput)
+}
+
+func (i BudgetSpendArgs) ToBudgetSpendPtrOutput() BudgetSpendPtrOutput {
+	return i.ToBudgetSpendPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetSpendArgs) ToBudgetSpendPtrOutputWithContext(ctx context.Context) BudgetSpendPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSpendOutput).ToBudgetSpendPtrOutputWithContext(ctx)
+}
+
+// BudgetSpendPtrInput is an input type that accepts BudgetSpendArgs, BudgetSpendPtr and BudgetSpendPtrOutput values.
+// You can construct a concrete instance of `BudgetSpendPtrInput` via:
+//
+//	        BudgetSpendArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetSpendPtrInput interface {
+	pulumi.Input
+
+	ToBudgetSpendPtrOutput() BudgetSpendPtrOutput
+	ToBudgetSpendPtrOutputWithContext(context.Context) BudgetSpendPtrOutput
+}
+
+type budgetSpendPtrType BudgetSpendArgs
+
+func BudgetSpendPtr(v *BudgetSpendArgs) BudgetSpendPtrInput {
+	return (*budgetSpendPtrType)(v)
+}
+
+func (*budgetSpendPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetSpend)(nil)).Elem()
+}
+
+func (i *budgetSpendPtrType) ToBudgetSpendPtrOutput() BudgetSpendPtrOutput {
+	return i.ToBudgetSpendPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetSpendPtrType) ToBudgetSpendPtrOutputWithContext(ctx context.Context) BudgetSpendPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSpendPtrOutput)
+}
+
+type BudgetSpendOutput struct{ *pulumi.OutputState }
+
+func (BudgetSpendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSpend)(nil)).Elem()
+}
+
+func (o BudgetSpendOutput) ToBudgetSpendOutput() BudgetSpendOutput {
+	return o
+}
+
+func (o BudgetSpendOutput) ToBudgetSpendOutputWithContext(ctx context.Context) BudgetSpendOutput {
+	return o
+}
+
+func (o BudgetSpendOutput) ToBudgetSpendPtrOutput() BudgetSpendPtrOutput {
+	return o.ToBudgetSpendPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetSpendOutput) ToBudgetSpendPtrOutputWithContext(ctx context.Context) BudgetSpendPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSpend) *BudgetSpend {
+		return &v
+	}).(BudgetSpendPtrOutput)
+}
+
+// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.
+func (o BudgetSpendOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v BudgetSpend) float64 { return v.Amount }).(pulumi.Float64Output)
+}
+
+// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold.
+func (o BudgetSpendOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetSpend) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type BudgetSpendPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetSpendPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetSpend)(nil)).Elem()
+}
+
+func (o BudgetSpendPtrOutput) ToBudgetSpendPtrOutput() BudgetSpendPtrOutput {
+	return o
+}
+
+func (o BudgetSpendPtrOutput) ToBudgetSpendPtrOutputWithContext(ctx context.Context) BudgetSpendPtrOutput {
+	return o
+}
+
+func (o BudgetSpendPtrOutput) Elem() BudgetSpendOutput {
+	return o.ApplyT(func(v *BudgetSpend) BudgetSpend {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetSpend
+		return ret
+	}).(BudgetSpendOutput)
+}
+
+// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.
+func (o BudgetSpendPtrOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BudgetSpend) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Amount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold.
+func (o BudgetSpendPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetSpend) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+type BudgetSubscriber struct {
+	// The address that AWS sends budget notifications to, either an SNS topic or an email.
+	//
+	// When you create a subscriber, the value of `Address` can't contain line breaks.
+	Address string `pulumi:"address"`
+	// The type of notification that AWS sends to a subscriber.
+	SubscriptionType string `pulumi:"subscriptionType"`
+}
+
+// BudgetSubscriberInput is an input type that accepts BudgetSubscriberArgs and BudgetSubscriberOutput values.
+// You can construct a concrete instance of `BudgetSubscriberInput` via:
+//
+//	BudgetSubscriberArgs{...}
+type BudgetSubscriberInput interface {
+	pulumi.Input
+
+	ToBudgetSubscriberOutput() BudgetSubscriberOutput
+	ToBudgetSubscriberOutputWithContext(context.Context) BudgetSubscriberOutput
+}
+
+type BudgetSubscriberArgs struct {
+	// The address that AWS sends budget notifications to, either an SNS topic or an email.
+	//
+	// When you create a subscriber, the value of `Address` can't contain line breaks.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The type of notification that AWS sends to a subscriber.
+	SubscriptionType pulumi.StringInput `pulumi:"subscriptionType"`
+}
+
+func (BudgetSubscriberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSubscriber)(nil)).Elem()
+}
+
+func (i BudgetSubscriberArgs) ToBudgetSubscriberOutput() BudgetSubscriberOutput {
+	return i.ToBudgetSubscriberOutputWithContext(context.Background())
+}
+
+func (i BudgetSubscriberArgs) ToBudgetSubscriberOutputWithContext(ctx context.Context) BudgetSubscriberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriberOutput)
+}
+
+// BudgetSubscriberArrayInput is an input type that accepts BudgetSubscriberArray and BudgetSubscriberArrayOutput values.
+// You can construct a concrete instance of `BudgetSubscriberArrayInput` via:
+//
+//	BudgetSubscriberArray{ BudgetSubscriberArgs{...} }
+type BudgetSubscriberArrayInput interface {
+	pulumi.Input
+
+	ToBudgetSubscriberArrayOutput() BudgetSubscriberArrayOutput
+	ToBudgetSubscriberArrayOutputWithContext(context.Context) BudgetSubscriberArrayOutput
+}
+
+type BudgetSubscriberArray []BudgetSubscriberInput
+
+func (BudgetSubscriberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetSubscriber)(nil)).Elem()
+}
+
+func (i BudgetSubscriberArray) ToBudgetSubscriberArrayOutput() BudgetSubscriberArrayOutput {
+	return i.ToBudgetSubscriberArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetSubscriberArray) ToBudgetSubscriberArrayOutputWithContext(ctx context.Context) BudgetSubscriberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriberArrayOutput)
+}
+
+type BudgetSubscriberOutput struct{ *pulumi.OutputState }
+
+func (BudgetSubscriberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSubscriber)(nil)).Elem()
+}
+
+func (o BudgetSubscriberOutput) ToBudgetSubscriberOutput() BudgetSubscriberOutput {
+	return o
+}
+
+func (o BudgetSubscriberOutput) ToBudgetSubscriberOutputWithContext(ctx context.Context) BudgetSubscriberOutput {
+	return o
+}
+
+// The address that AWS sends budget notifications to, either an SNS topic or an email.
+//
+// When you create a subscriber, the value of `Address` can't contain line breaks.
+func (o BudgetSubscriberOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetSubscriber) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The type of notification that AWS sends to a subscriber.
+func (o BudgetSubscriberOutput) SubscriptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetSubscriber) string { return v.SubscriptionType }).(pulumi.StringOutput)
+}
+
+type BudgetSubscriberArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetSubscriberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetSubscriber)(nil)).Elem()
+}
+
+func (o BudgetSubscriberArrayOutput) ToBudgetSubscriberArrayOutput() BudgetSubscriberArrayOutput {
+	return o
+}
+
+func (o BudgetSubscriberArrayOutput) ToBudgetSubscriberArrayOutputWithContext(ctx context.Context) BudgetSubscriberArrayOutput {
+	return o
+}
+
+func (o BudgetSubscriberArrayOutput) Index(i pulumi.IntInput) BudgetSubscriberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetSubscriber {
+		return vs[0].([]BudgetSubscriber)[vs[1].(int)]
+	}).(BudgetSubscriberOutput)
+}
+
+type BudgetTagValues struct {
+	// The key for the tag.
+	Key *string `pulumi:"key"`
+	// The match options that you can use to filter your results.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// The specific value of the tag.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetTagValuesInput is an input type that accepts BudgetTagValuesArgs and BudgetTagValuesOutput values.
+// You can construct a concrete instance of `BudgetTagValuesInput` via:
+//
+//	BudgetTagValuesArgs{...}
+type BudgetTagValuesInput interface {
+	pulumi.Input
+
+	ToBudgetTagValuesOutput() BudgetTagValuesOutput
+	ToBudgetTagValuesOutputWithContext(context.Context) BudgetTagValuesOutput
+}
+
+type BudgetTagValuesArgs struct {
+	// The key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The match options that you can use to filter your results.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// The specific value of the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetTagValuesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTagValues)(nil)).Elem()
+}
+
+func (i BudgetTagValuesArgs) ToBudgetTagValuesOutput() BudgetTagValuesOutput {
+	return i.ToBudgetTagValuesOutputWithContext(context.Background())
+}
+
+func (i BudgetTagValuesArgs) ToBudgetTagValuesOutputWithContext(ctx context.Context) BudgetTagValuesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTagValuesOutput)
+}
+
+func (i BudgetTagValuesArgs) ToBudgetTagValuesPtrOutput() BudgetTagValuesPtrOutput {
+	return i.ToBudgetTagValuesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetTagValuesArgs) ToBudgetTagValuesPtrOutputWithContext(ctx context.Context) BudgetTagValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTagValuesOutput).ToBudgetTagValuesPtrOutputWithContext(ctx)
+}
+
+// BudgetTagValuesPtrInput is an input type that accepts BudgetTagValuesArgs, BudgetTagValuesPtr and BudgetTagValuesPtrOutput values.
+// You can construct a concrete instance of `BudgetTagValuesPtrInput` via:
+//
+//	        BudgetTagValuesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetTagValuesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetTagValuesPtrOutput() BudgetTagValuesPtrOutput
+	ToBudgetTagValuesPtrOutputWithContext(context.Context) BudgetTagValuesPtrOutput
+}
+
+type budgetTagValuesPtrType BudgetTagValuesArgs
+
+func BudgetTagValuesPtr(v *BudgetTagValuesArgs) BudgetTagValuesPtrInput {
+	return (*budgetTagValuesPtrType)(v)
+}
+
+func (*budgetTagValuesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTagValues)(nil)).Elem()
+}
+
+func (i *budgetTagValuesPtrType) ToBudgetTagValuesPtrOutput() BudgetTagValuesPtrOutput {
+	return i.ToBudgetTagValuesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetTagValuesPtrType) ToBudgetTagValuesPtrOutputWithContext(ctx context.Context) BudgetTagValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTagValuesPtrOutput)
+}
+
+type BudgetTagValuesOutput struct{ *pulumi.OutputState }
+
+func (BudgetTagValuesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTagValues)(nil)).Elem()
+}
+
+func (o BudgetTagValuesOutput) ToBudgetTagValuesOutput() BudgetTagValuesOutput {
+	return o
+}
+
+func (o BudgetTagValuesOutput) ToBudgetTagValuesOutputWithContext(ctx context.Context) BudgetTagValuesOutput {
+	return o
+}
+
+func (o BudgetTagValuesOutput) ToBudgetTagValuesPtrOutput() BudgetTagValuesPtrOutput {
+	return o.ToBudgetTagValuesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetTagValuesOutput) ToBudgetTagValuesPtrOutputWithContext(ctx context.Context) BudgetTagValuesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTagValues) *BudgetTagValues {
+		return &v
+	}).(BudgetTagValuesPtrOutput)
+}
+
+// The key for the tag.
+func (o BudgetTagValuesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetTagValues) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The match options that you can use to filter your results.
+func (o BudgetTagValuesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetTagValues) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// The specific value of the tag.
+func (o BudgetTagValuesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetTagValues) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetTagValuesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetTagValuesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTagValues)(nil)).Elem()
+}
+
+func (o BudgetTagValuesPtrOutput) ToBudgetTagValuesPtrOutput() BudgetTagValuesPtrOutput {
+	return o
+}
+
+func (o BudgetTagValuesPtrOutput) ToBudgetTagValuesPtrOutputWithContext(ctx context.Context) BudgetTagValuesPtrOutput {
+	return o
+}
+
+func (o BudgetTagValuesPtrOutput) Elem() BudgetTagValuesOutput {
+	return o.ApplyT(func(v *BudgetTagValues) BudgetTagValues {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetTagValues
+		return ret
+	}).(BudgetTagValuesOutput)
+}
+
+// The key for the tag.
+func (o BudgetTagValuesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetTagValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The match options that you can use to filter your results.
+func (o BudgetTagValuesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetTagValues) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The specific value of the tag.
+func (o BudgetTagValuesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetTagValues) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetTimePeriod struct {
+	// The end date for a budget. If you didn't specify an end date, AWS set your end date to `06/15/87 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+	//
+	// After the end date, AWS deletes the budget and all the associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
+	End *string `pulumi:"end"`
+	// The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+	//
+	// You can change your start date with the `UpdateBudget` operation.
+	//
+	// Valid values depend on the value of `BudgetType` :
+	//
+	// - If `BudgetType` is `COST` or `USAGE` : Valid values are `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+	// - If `BudgetType` is `RI_UTILIZATION` or `RI_COVERAGE` : Valid values are `DAILY` , `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+	Start *string `pulumi:"start"`
+}
+
+// BudgetTimePeriodInput is an input type that accepts BudgetTimePeriodArgs and BudgetTimePeriodOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodInput` via:
+//
+//	BudgetTimePeriodArgs{...}
+type BudgetTimePeriodInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodOutput() BudgetTimePeriodOutput
+	ToBudgetTimePeriodOutputWithContext(context.Context) BudgetTimePeriodOutput
+}
+
+type BudgetTimePeriodArgs struct {
+	// The end date for a budget. If you didn't specify an end date, AWS set your end date to `06/15/87 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+	//
+	// After the end date, AWS deletes the budget and all the associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+	//
+	// You can change your start date with the `UpdateBudget` operation.
+	//
+	// Valid values depend on the value of `BudgetType` :
+	//
+	// - If `BudgetType` is `COST` or `USAGE` : Valid values are `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+	// - If `BudgetType` is `RI_UTILIZATION` or `RI_COVERAGE` : Valid values are `DAILY` , `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (BudgetTimePeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriod)(nil)).Elem()
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodOutput() BudgetTimePeriodOutput {
+	return i.ToBudgetTimePeriodOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodOutputWithContext(ctx context.Context) BudgetTimePeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodOutput)
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return i.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodOutput).ToBudgetTimePeriodPtrOutputWithContext(ctx)
+}
+
+// BudgetTimePeriodPtrInput is an input type that accepts BudgetTimePeriodArgs, BudgetTimePeriodPtr and BudgetTimePeriodPtrOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodPtrInput` via:
+//
+//	        BudgetTimePeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetTimePeriodPtrInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput
+	ToBudgetTimePeriodPtrOutputWithContext(context.Context) BudgetTimePeriodPtrOutput
+}
+
+type budgetTimePeriodPtrType BudgetTimePeriodArgs
+
+func BudgetTimePeriodPtr(v *BudgetTimePeriodArgs) BudgetTimePeriodPtrInput {
+	return (*budgetTimePeriodPtrType)(v)
+}
+
+func (*budgetTimePeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTimePeriod)(nil)).Elem()
+}
+
+func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return i.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodPtrOutput)
+}
+
+type BudgetTimePeriodOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriod)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodOutput() BudgetTimePeriodOutput {
+	return o
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodOutputWithContext(ctx context.Context) BudgetTimePeriodOutput {
+	return o
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return o.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriod) *BudgetTimePeriod {
+		return &v
+	}).(BudgetTimePeriodPtrOutput)
+}
+
+// The end date for a budget. If you didn't specify an end date, AWS set your end date to `06/15/87 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+//
+// After the end date, AWS deletes the budget and all the associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
+func (o BudgetTimePeriodOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriod) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+//
+// You can change your start date with the `UpdateBudget` operation.
+//
+// Valid values depend on the value of `BudgetType` :
+//
+// - If `BudgetType` is `COST` or `USAGE` : Valid values are `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+// - If `BudgetType` is `RI_UTILIZATION` or `RI_COVERAGE` : Valid values are `DAILY` , `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+func (o BudgetTimePeriodOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriod) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type BudgetTimePeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTimePeriod)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return o
+}
+
+func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return o
+}
+
+func (o BudgetTimePeriodPtrOutput) Elem() BudgetTimePeriodOutput {
+	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetTimePeriod
+		return ret
+	}).(BudgetTimePeriodOutput)
+}
+
+// The end date for a budget. If you didn't specify an end date, AWS set your end date to `06/15/87 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+//
+// After the end date, AWS deletes the budget and all the associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
+func (o BudgetTimePeriodPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+//
+// You can change your start date with the `UpdateBudget` operation.
+//
+// Valid values depend on the value of `BudgetType` :
+//
+// - If `BudgetType` is `COST` or `USAGE` : Valid values are `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+// - If `BudgetType` is `RI_UTILIZATION` or `RI_COVERAGE` : Valid values are `DAILY` , `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+func (o BudgetTimePeriodPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
 type BudgetsActionActionThreshold struct {
 	// The type of threshold for a notification.
 	Type BudgetsActionActionThresholdType `pulumi:"type"`
@@ -887,6 +3480,31 @@ func (o BudgetsActionSubscriberArrayOutput) Index(i pulumi.IntInput) BudgetsActi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetAutoAdjustDataInput)(nil)).Elem(), BudgetAutoAdjustDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetAutoAdjustDataPtrInput)(nil)).Elem(), BudgetAutoAdjustDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostCategoryValuesInput)(nil)).Elem(), BudgetCostCategoryValuesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostCategoryValuesPtrInput)(nil)).Elem(), BudgetCostCategoryValuesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesInput)(nil)).Elem(), BudgetCostTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesPtrInput)(nil)).Elem(), BudgetCostTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetDataInput)(nil)).Elem(), BudgetDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetExpressionInput)(nil)).Elem(), BudgetExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetExpressionPtrInput)(nil)).Elem(), BudgetExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetExpressionArrayInput)(nil)).Elem(), BudgetExpressionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetExpressionDimensionValuesInput)(nil)).Elem(), BudgetExpressionDimensionValuesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetExpressionDimensionValuesPtrInput)(nil)).Elem(), BudgetExpressionDimensionValuesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetHistoricalOptionsInput)(nil)).Elem(), BudgetHistoricalOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetHistoricalOptionsPtrInput)(nil)).Elem(), BudgetHistoricalOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationInput)(nil)).Elem(), BudgetNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationWithSubscribersInput)(nil)).Elem(), BudgetNotificationWithSubscribersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationWithSubscribersArrayInput)(nil)).Elem(), BudgetNotificationWithSubscribersArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSpendInput)(nil)).Elem(), BudgetSpendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSpendPtrInput)(nil)).Elem(), BudgetSpendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriberInput)(nil)).Elem(), BudgetSubscriberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriberArrayInput)(nil)).Elem(), BudgetSubscriberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetTagValuesInput)(nil)).Elem(), BudgetTagValuesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetTagValuesPtrInput)(nil)).Elem(), BudgetTagValuesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetTimePeriodInput)(nil)).Elem(), BudgetTimePeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetTimePeriodPtrInput)(nil)).Elem(), BudgetTimePeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionActionThresholdInput)(nil)).Elem(), BudgetsActionActionThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionDefinitionInput)(nil)).Elem(), BudgetsActionDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionIamActionDefinitionInput)(nil)).Elem(), BudgetsActionIamActionDefinitionArgs{})
@@ -897,6 +3515,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionSsmActionDefinitionPtrInput)(nil)).Elem(), BudgetsActionSsmActionDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionSubscriberInput)(nil)).Elem(), BudgetsActionSubscriberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionSubscriberArrayInput)(nil)).Elem(), BudgetsActionSubscriberArray{})
+	pulumi.RegisterOutputType(BudgetAutoAdjustDataOutput{})
+	pulumi.RegisterOutputType(BudgetAutoAdjustDataPtrOutput{})
+	pulumi.RegisterOutputType(BudgetCostCategoryValuesOutput{})
+	pulumi.RegisterOutputType(BudgetCostCategoryValuesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetCostTypesOutput{})
+	pulumi.RegisterOutputType(BudgetCostTypesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetDataOutput{})
+	pulumi.RegisterOutputType(BudgetDataPtrOutput{})
+	pulumi.RegisterOutputType(BudgetExpressionOutput{})
+	pulumi.RegisterOutputType(BudgetExpressionPtrOutput{})
+	pulumi.RegisterOutputType(BudgetExpressionArrayOutput{})
+	pulumi.RegisterOutputType(BudgetExpressionDimensionValuesOutput{})
+	pulumi.RegisterOutputType(BudgetExpressionDimensionValuesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetHistoricalOptionsOutput{})
+	pulumi.RegisterOutputType(BudgetHistoricalOptionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetNotificationOutput{})
+	pulumi.RegisterOutputType(BudgetNotificationWithSubscribersOutput{})
+	pulumi.RegisterOutputType(BudgetNotificationWithSubscribersArrayOutput{})
+	pulumi.RegisterOutputType(BudgetSpendOutput{})
+	pulumi.RegisterOutputType(BudgetSpendPtrOutput{})
+	pulumi.RegisterOutputType(BudgetSubscriberOutput{})
+	pulumi.RegisterOutputType(BudgetSubscriberArrayOutput{})
+	pulumi.RegisterOutputType(BudgetTagValuesOutput{})
+	pulumi.RegisterOutputType(BudgetTagValuesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetTimePeriodOutput{})
+	pulumi.RegisterOutputType(BudgetTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(BudgetsActionActionThresholdOutput{})
 	pulumi.RegisterOutputType(BudgetsActionActionThresholdPtrOutput{})
 	pulumi.RegisterOutputType(BudgetsActionDefinitionOutput{})

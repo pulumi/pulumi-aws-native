@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Discovery{}
 	case "aws-native:applicationsignals:GroupingConfiguration":
 		r = &GroupingConfiguration{}
+	case "aws-native:applicationsignals:InstrumentationConfig":
+		r = &InstrumentationConfig{}
 	case "aws-native:applicationsignals:ServiceLevelObjective":
 		r = &ServiceLevelObjective{}
 	default:

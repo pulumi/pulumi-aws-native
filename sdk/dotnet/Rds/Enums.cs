@@ -41,6 +41,38 @@ namespace Pulumi.AwsNative.Rds
     }
 
     /// <summary>
+    /// The type of the custom endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct DbClusterEndpointCustomEndpointType : IEquatable<DbClusterEndpointCustomEndpointType>
+    {
+        private readonly string _value;
+
+        private DbClusterEndpointCustomEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DbClusterEndpointCustomEndpointType Reader { get; } = new DbClusterEndpointCustomEndpointType("READER");
+        public static DbClusterEndpointCustomEndpointType Writer { get; } = new DbClusterEndpointCustomEndpointType("WRITER");
+        public static DbClusterEndpointCustomEndpointType Any { get; } = new DbClusterEndpointCustomEndpointType("ANY");
+
+        public static bool operator ==(DbClusterEndpointCustomEndpointType left, DbClusterEndpointCustomEndpointType right) => left.Equals(right);
+        public static bool operator !=(DbClusterEndpointCustomEndpointType left, DbClusterEndpointCustomEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(DbClusterEndpointCustomEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DbClusterEndpointCustomEndpointType other && Equals(other);
+        public bool Equals(DbClusterEndpointCustomEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
     /// </summary>
     [EnumType]

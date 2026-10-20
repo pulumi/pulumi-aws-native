@@ -200,10 +200,16 @@ __all__ = [
     'RuleFieldArgsDict',
     'RuleFieldValueArgs',
     'RuleFieldValueArgsDict',
+    'RuleInAppNotificationRecipientTypeArgs',
+    'RuleInAppNotificationRecipientTypeArgsDict',
+    'RuleNotificationContentArgs',
+    'RuleNotificationContentArgsDict',
     'RuleNotificationRecipientTypeArgs',
     'RuleNotificationRecipientTypeArgsDict',
     'RuleReferenceArgs',
     'RuleReferenceArgsDict',
+    'RuleSendInAppNotificationActionArgs',
+    'RuleSendInAppNotificationActionArgsDict',
     'RuleSendNotificationActionArgs',
     'RuleSendNotificationActionArgsDict',
     'RuleSlaTargetFieldValueArgs',
@@ -5537,6 +5543,7 @@ class RuleActionsArgsDict(TypedDict):
     """
     Information about the EV action.
     """
+    send_in_app_notification_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleSendInAppNotificationActionArgsDict']]]]]
     send_notification_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleSendNotificationActionArgsDict']]]]]
     """
     Information about the send notification action.
@@ -5556,6 +5563,7 @@ class RuleActionsArgs:
                  create_case_actions: pulumi.Input[Optional[Sequence[pulumi.Input['RuleCreateCaseActionArgs']]]] = None,
                  end_associated_tasks_actions: pulumi.Input[Optional[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgs']]]] = None,
                  event_bridge_actions: pulumi.Input[Optional[Sequence[pulumi.Input['RuleEventBridgeActionArgs']]]] = None,
+                 send_in_app_notification_actions: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSendInAppNotificationActionArgs']]]] = None,
                  send_notification_actions: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSendNotificationActionArgs']]]] = None,
                  submit_auto_evaluation_actions: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSubmitAutoEvaluationActionArgs']]]] = None,
                  task_actions: pulumi.Input[Optional[Sequence[pulumi.Input['RuleTaskActionArgs']]]] = None,
@@ -5578,6 +5586,8 @@ class RuleActionsArgs:
             pulumi.set(__self__, "end_associated_tasks_actions", end_associated_tasks_actions)
         if event_bridge_actions is not None:
             pulumi.set(__self__, "event_bridge_actions", event_bridge_actions)
+        if send_in_app_notification_actions is not None:
+            pulumi.set(__self__, "send_in_app_notification_actions", send_in_app_notification_actions)
         if send_notification_actions is not None:
             pulumi.set(__self__, "send_notification_actions", send_notification_actions)
         if submit_auto_evaluation_actions is not None:
@@ -5637,6 +5647,15 @@ class RuleActionsArgs:
     @event_bridge_actions.setter
     def event_bridge_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleEventBridgeActionArgs']]]]):
         pulumi.set(self, "event_bridge_actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sendInAppNotificationActions")
+    def send_in_app_notification_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleSendInAppNotificationActionArgs']]]]:
+        return pulumi.get(self, "send_in_app_notification_actions")
+
+    @send_in_app_notification_actions.setter
+    def send_in_app_notification_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSendInAppNotificationActionArgs']]]]):
+        pulumi.set(self, "send_in_app_notification_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="sendNotificationActions")
@@ -6008,6 +6027,205 @@ class RuleFieldValueArgs:
         pulumi.set(self, "string_value", value)
 
 
+class RuleInAppNotificationRecipientTypeArgsDict(TypedDict):
+    user_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of recipients by user arns.
+    """
+    user_tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    The collection of recipients who are identified by user tags
+    """
+
+@pulumi.input_type
+class RuleInAppNotificationRecipientTypeArgs:
+    def __init__(__self__, *,
+                 user_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_arns: The list of recipients by user arns.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] user_tags: The collection of recipients who are identified by user tags
+        """
+        if user_arns is not None:
+            pulumi.set(__self__, "user_arns", user_arns)
+        if user_tags is not None:
+            pulumi.set(__self__, "user_tags", user_tags)
+
+    @_builtins.property
+    @pulumi.getter(name="userArns")
+    def user_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of recipients by user arns.
+        """
+        return pulumi.get(self, "user_arns")
+
+    @user_arns.setter
+    def user_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_arns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userTags")
+    def user_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The collection of recipients who are identified by user tags
+        """
+        return pulumi.get(self, "user_tags")
+
+    @user_tags.setter
+    def user_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_tags", value)
+
+
+class RuleNotificationContentArgsDict(TypedDict):
+    de_de: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    en_us: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    es_es: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    fr_fr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    id_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    it_it: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ja_jp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ko_kr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pt_br: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    zh_cn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    zh_tw: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class RuleNotificationContentArgs:
+    def __init__(__self__, *,
+                 de_de: pulumi.Input[Optional[_builtins.str]] = None,
+                 en_us: pulumi.Input[Optional[_builtins.str]] = None,
+                 es_es: pulumi.Input[Optional[_builtins.str]] = None,
+                 fr_fr: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 it_it: pulumi.Input[Optional[_builtins.str]] = None,
+                 ja_jp: pulumi.Input[Optional[_builtins.str]] = None,
+                 ko_kr: pulumi.Input[Optional[_builtins.str]] = None,
+                 pt_br: pulumi.Input[Optional[_builtins.str]] = None,
+                 zh_cn: pulumi.Input[Optional[_builtins.str]] = None,
+                 zh_tw: pulumi.Input[Optional[_builtins.str]] = None):
+        if de_de is not None:
+            pulumi.set(__self__, "de_de", de_de)
+        if en_us is not None:
+            pulumi.set(__self__, "en_us", en_us)
+        if es_es is not None:
+            pulumi.set(__self__, "es_es", es_es)
+        if fr_fr is not None:
+            pulumi.set(__self__, "fr_fr", fr_fr)
+        if id_id is not None:
+            pulumi.set(__self__, "id_id", id_id)
+        if it_it is not None:
+            pulumi.set(__self__, "it_it", it_it)
+        if ja_jp is not None:
+            pulumi.set(__self__, "ja_jp", ja_jp)
+        if ko_kr is not None:
+            pulumi.set(__self__, "ko_kr", ko_kr)
+        if pt_br is not None:
+            pulumi.set(__self__, "pt_br", pt_br)
+        if zh_cn is not None:
+            pulumi.set(__self__, "zh_cn", zh_cn)
+        if zh_tw is not None:
+            pulumi.set(__self__, "zh_tw", zh_tw)
+
+    @_builtins.property
+    @pulumi.getter(name="deDe")
+    def de_de(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "de_de")
+
+    @de_de.setter
+    def de_de(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "de_de", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enUs")
+    def en_us(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "en_us")
+
+    @en_us.setter
+    def en_us(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "en_us", value)
+
+    @_builtins.property
+    @pulumi.getter(name="esEs")
+    def es_es(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "es_es")
+
+    @es_es.setter
+    def es_es(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "es_es", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frFr")
+    def fr_fr(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "fr_fr")
+
+    @fr_fr.setter
+    def fr_fr(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fr_fr", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idId")
+    def id_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "id_id")
+
+    @id_id.setter
+    def id_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itIt")
+    def it_it(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "it_it")
+
+    @it_it.setter
+    def it_it(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "it_it", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jaJp")
+    def ja_jp(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "ja_jp")
+
+    @ja_jp.setter
+    def ja_jp(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ja_jp", value)
+
+    @_builtins.property
+    @pulumi.getter(name="koKr")
+    def ko_kr(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "ko_kr")
+
+    @ko_kr.setter
+    def ko_kr(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ko_kr", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ptBr")
+    def pt_br(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "pt_br")
+
+    @pt_br.setter
+    def pt_br(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pt_br", value)
+
+    @_builtins.property
+    @pulumi.getter(name="zhCn")
+    def zh_cn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "zh_cn")
+
+    @zh_cn.setter
+    def zh_cn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "zh_cn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="zhTw")
+    def zh_tw(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "zh_tw")
+
+    @zh_tw.setter
+    def zh_tw(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "zh_tw", value)
+
+
 class RuleNotificationRecipientTypeArgsDict(TypedDict):
     """
     The type of notification recipient.
@@ -6115,6 +6333,72 @@ class RuleReferenceArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+class RuleSendInAppNotificationActionArgsDict(TypedDict):
+    content: pulumi.Input['RuleNotificationContentArgsDict']
+    recipient: pulumi.Input['RuleInAppNotificationRecipientTypeArgsDict']
+    exclusion: NotRequired[pulumi.Input[Optional['RuleInAppNotificationRecipientTypeArgsDict']]]
+    priority: NotRequired[pulumi.Input[Optional['RuleSendInAppNotificationActionPriority']]]
+    """
+    The priority of the notification.
+    """
+
+@pulumi.input_type
+class RuleSendInAppNotificationActionArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input['RuleNotificationContentArgs'],
+                 recipient: pulumi.Input['RuleInAppNotificationRecipientTypeArgs'],
+                 exclusion: pulumi.Input[Optional['RuleInAppNotificationRecipientTypeArgs']] = None,
+                 priority: pulumi.Input[Optional['RuleSendInAppNotificationActionPriority']] = None):
+        """
+        :param pulumi.Input['RuleSendInAppNotificationActionPriority'] priority: The priority of the notification.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "recipient", recipient)
+        if exclusion is not None:
+            pulumi.set(__self__, "exclusion", exclusion)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+
+    @_builtins.property
+    @pulumi.getter
+    def content(self) -> pulumi.Input['RuleNotificationContentArgs']:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input['RuleNotificationContentArgs']):
+        pulumi.set(self, "content", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def recipient(self) -> pulumi.Input['RuleInAppNotificationRecipientTypeArgs']:
+        return pulumi.get(self, "recipient")
+
+    @recipient.setter
+    def recipient(self, value: pulumi.Input['RuleInAppNotificationRecipientTypeArgs']):
+        pulumi.set(self, "recipient", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def exclusion(self) -> pulumi.Input[Optional['RuleInAppNotificationRecipientTypeArgs']]:
+        return pulumi.get(self, "exclusion")
+
+    @exclusion.setter
+    def exclusion(self, value: pulumi.Input[Optional['RuleInAppNotificationRecipientTypeArgs']]):
+        pulumi.set(self, "exclusion", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[Optional['RuleSendInAppNotificationActionPriority']]:
+        """
+        The priority of the notification.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[Optional['RuleSendInAppNotificationActionPriority']]):
+        pulumi.set(self, "priority", value)
 
 
 class RuleSendNotificationActionArgsDict(TypedDict):

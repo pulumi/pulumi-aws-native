@@ -46,6 +46,10 @@ export interface GetPolicyResult {
      */
     readonly policyArn?: string;
     /**
+     * Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+     */
+    readonly sharingEnabled?: boolean;
+    /**
      * Tags assigned to the policy.
      */
     readonly tags?: outputs.Tag[];

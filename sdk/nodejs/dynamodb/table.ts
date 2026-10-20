@@ -276,7 +276,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * A list of attributes that describe the key schema for the table and indexes.
      *  This property is required to create a DDB table.
-     *  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+     *  You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
      */
     declare public readonly attributeDefinitions: pulumi.Output<outputs.dynamodb.TableAttributeDefinition[] | undefined>;
     /**
@@ -375,6 +375,7 @@ export class Table extends pulumi.CustomResource {
      *   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
      */
     declare public readonly timeToLiveSpecification: pulumi.Output<outputs.dynamodb.TableTimeToLiveSpecification | undefined>;
+    declare public readonly vectorIndexes: pulumi.Output<outputs.dynamodb.TableVectorIndex[] | undefined>;
     /**
      * Represents the warm throughput (in read units per second and write units per second) for creating a table.
      */
@@ -413,6 +414,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["tableName"] = args?.tableName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeToLiveSpecification"] = args?.timeToLiveSpecification;
+            resourceInputs["vectorIndexes"] = args?.vectorIndexes;
             resourceInputs["warmThroughput"] = args?.warmThroughput;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
@@ -438,6 +440,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeToLiveSpecification"] = undefined /*out*/;
+            resourceInputs["vectorIndexes"] = undefined /*out*/;
             resourceInputs["warmThroughput"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -454,7 +457,7 @@ export interface TableArgs {
     /**
      * A list of attributes that describe the key schema for the table and indexes.
      *  This property is required to create a DDB table.
-     *  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+     *  You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
      */
     attributeDefinitions?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableAttributeDefinitionArgs>[] | undefined>;
     /**
@@ -547,6 +550,7 @@ export interface TableArgs {
      *   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
      */
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.TableTimeToLiveSpecificationArgs | undefined>;
+    vectorIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableVectorIndexArgs>[] | undefined>;
     /**
      * Represents the warm throughput (in read units per second and write units per second) for creating a table.
      */

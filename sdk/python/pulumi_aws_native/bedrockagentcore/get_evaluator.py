@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEvaluatorResult:
-    def __init__(__self__, created_at=None, description=None, evaluator_arn=None, evaluator_config=None, evaluator_id=None, kms_key_arn=None, level=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, evaluator_arn=None, evaluator_config=None, evaluator_id=None, evaluator_type=None, kms_key_arn=None, level=None, provider=None, status=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -42,12 +42,18 @@ class GetEvaluatorResult:
         if evaluator_id and not isinstance(evaluator_id, str):
             raise TypeError("Expected argument 'evaluator_id' to be a str")
         pulumi.set(__self__, "evaluator_id", evaluator_id)
+        if evaluator_type and not isinstance(evaluator_type, str):
+            raise TypeError("Expected argument 'evaluator_type' to be a str")
+        pulumi.set(__self__, "evaluator_type", evaluator_type)
         if kms_key_arn and not isinstance(kms_key_arn, str):
             raise TypeError("Expected argument 'kms_key_arn' to be a str")
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if level and not isinstance(level, str):
             raise TypeError("Expected argument 'level' to be a str")
         pulumi.set(__self__, "level", level)
+        if provider and not isinstance(provider, str):
+            raise TypeError("Expected argument 'provider' to be a str")
+        pulumi.set(__self__, "provider", provider)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -86,7 +92,7 @@ class GetEvaluatorResult:
     @pulumi.getter(name="evaluatorConfig")
     def evaluator_config(self) -> Optional['outputs.EvaluatorConfig']:
         """
-        The configuration for the evaluator.
+        The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
         """
         return pulumi.get(self, "evaluator_config")
 
@@ -97,6 +103,14 @@ class GetEvaluatorResult:
         The unique identifier of the evaluator.
         """
         return pulumi.get(self, "evaluator_id")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluatorType")
+    def evaluator_type(self) -> Optional['EvaluatorType']:
+        """
+        The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+        """
+        return pulumi.get(self, "evaluator_type")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
@@ -110,9 +124,17 @@ class GetEvaluatorResult:
     @pulumi.getter
     def level(self) -> Optional['EvaluatorLevel']:
         """
-        The evaluation level that determines the scope of evaluation.
+        The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
         """
         return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> Optional['EvaluatorProvider']:
+        """
+        Where the evaluator's logic comes from: AWS, a third-party library (DeepEval or AutoEval), or you. Derived evaluators inherit the provider of their base evaluator.
+        """
+        return pulumi.get(self, "provider")
 
     @_builtins.property
     @pulumi.getter
@@ -150,8 +172,10 @@ class AwaitableGetEvaluatorResult(GetEvaluatorResult):
             evaluator_arn=self.evaluator_arn,
             evaluator_config=self.evaluator_config,
             evaluator_id=self.evaluator_id,
+            evaluator_type=self.evaluator_type,
             kms_key_arn=self.kms_key_arn,
             level=self.level,
+            provider=self.provider,
             status=self.status,
             tags=self.tags,
             updated_at=self.updated_at)
@@ -160,7 +184,7 @@ class AwaitableGetEvaluatorResult(GetEvaluatorResult):
 def get_evaluator(evaluator_arn: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEvaluatorResult:
     """
-    Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+    Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations. Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
 
     :param _builtins.str evaluator_arn: The Amazon Resource Name (ARN) of the evaluator.
     """
@@ -175,15 +199,17 @@ def get_evaluator(evaluator_arn: Optional[_builtins.str] = None,
         evaluator_arn=pulumi.get(__ret__, 'evaluator_arn'),
         evaluator_config=pulumi.get(__ret__, 'evaluator_config'),
         evaluator_id=pulumi.get(__ret__, 'evaluator_id'),
+        evaluator_type=pulumi.get(__ret__, 'evaluator_type'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         level=pulumi.get(__ret__, 'level'),
+        provider=pulumi.get(__ret__, 'provider'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_evaluator_output(evaluator_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEvaluatorResult]:
     """
-    Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+    Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations. Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
 
     :param _builtins.str evaluator_arn: The Amazon Resource Name (ARN) of the evaluator.
     """
@@ -197,8 +223,10 @@ def get_evaluator_output(evaluator_arn: pulumi.Input[Optional[_builtins.str]] = 
         evaluator_arn=pulumi.get(__response__, 'evaluator_arn'),
         evaluator_config=pulumi.get(__response__, 'evaluator_config'),
         evaluator_id=pulumi.get(__response__, 'evaluator_id'),
+        evaluator_type=pulumi.get(__response__, 'evaluator_type'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         level=pulumi.get(__response__, 'level'),
+        provider=pulumi.get(__response__, 'provider'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at')))

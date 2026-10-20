@@ -15,7 +15,6 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
-from ._enums import *
 
 __all__ = [
     'GetAlarmModelResult',
@@ -26,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAlarmModelResult:
-    def __init__(__self__, alarm_capabilities=None, alarm_event_actions=None, alarm_model_description=None, alarm_rule=None, role_arn=None, severity=None, tags=None):
+    def __init__(__self__, alarm_capabilities=None, alarm_event_actions=None, alarm_model_description=None, alarm_rule=None, id=None, role_arn=None, severity=None, tags=None):
         if alarm_capabilities and not isinstance(alarm_capabilities, dict):
             raise TypeError("Expected argument 'alarm_capabilities' to be a dict")
         pulumi.set(__self__, "alarm_capabilities", alarm_capabilities)
@@ -39,6 +38,9 @@ class GetAlarmModelResult:
         if alarm_rule and not isinstance(alarm_rule, dict):
             raise TypeError("Expected argument 'alarm_rule' to be a dict")
         pulumi.set(__self__, "alarm_rule", alarm_rule)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -82,10 +84,15 @@ class GetAlarmModelResult:
         return pulumi.get(self, "alarm_rule")
 
     @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
         """
-        The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
+        The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
         """
         return pulumi.get(self, "role_arn")
 
@@ -101,8 +108,9 @@ class GetAlarmModelResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
-         You can create up to 50 tags for one alarm model.
+        A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your AWS IoT Events resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *AWS IoT Events Developer Guide* .
+
+        You can create up to 50 tags for one alarm model.
         """
         return pulumi.get(self, "tags")
 
@@ -117,20 +125,19 @@ class AwaitableGetAlarmModelResult(GetAlarmModelResult):
             alarm_event_actions=self.alarm_event_actions,
             alarm_model_description=self.alarm_model_description,
             alarm_rule=self.alarm_rule,
+            id=self.id,
             role_arn=self.role_arn,
             severity=self.severity,
             tags=self.tags)
 
 
-def get_alarm_model(alarm_model_name: Optional[_builtins.str] = None,
+def get_alarm_model(id: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlarmModelResult:
     """
-    Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
-
-    :param _builtins.str alarm_model_name: The name of the alarm model.
+    Resource Type definition for AWS::IoTEvents::AlarmModel
     """
     __args__ = dict()
-    __args__['alarmModelName'] = alarm_model_name
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:iotevents:getAlarmModel', __args__, opts=opts, typ=GetAlarmModelResult).value
 
@@ -139,18 +146,17 @@ def get_alarm_model(alarm_model_name: Optional[_builtins.str] = None,
         alarm_event_actions=pulumi.get(__ret__, 'alarm_event_actions'),
         alarm_model_description=pulumi.get(__ret__, 'alarm_model_description'),
         alarm_rule=pulumi.get(__ret__, 'alarm_rule'),
+        id=pulumi.get(__ret__, 'id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         severity=pulumi.get(__ret__, 'severity'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_alarm_model_output(alarm_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_alarm_model_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmModelResult]:
     """
-    Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
-
-    :param _builtins.str alarm_model_name: The name of the alarm model.
+    Resource Type definition for AWS::IoTEvents::AlarmModel
     """
     __args__ = dict()
-    __args__['alarmModelName'] = alarm_model_name
+    __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotevents:getAlarmModel', __args__, opts=opts, typ=GetAlarmModelResult)
     return __ret__.apply(lambda __response__: GetAlarmModelResult(
@@ -158,6 +164,7 @@ def get_alarm_model_output(alarm_model_name: pulumi.Input[Optional[_builtins.str
         alarm_event_actions=pulumi.get(__response__, 'alarm_event_actions'),
         alarm_model_description=pulumi.get(__response__, 'alarm_model_description'),
         alarm_rule=pulumi.get(__response__, 'alarm_rule'),
+        id=pulumi.get(__response__, 'id'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         severity=pulumi.get(__response__, 'severity'),
         tags=pulumi.get(__response__, 'tags')))

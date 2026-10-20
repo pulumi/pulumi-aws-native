@@ -35,6 +35,11 @@ export type ClientVpnAuthorizationRule = import("./clientVpnAuthorizationRule").
 export const ClientVpnAuthorizationRule: typeof import("./clientVpnAuthorizationRule").ClientVpnAuthorizationRule = null as any;
 utilities.lazyLoad(exports, ["ClientVpnAuthorizationRule"], () => require("./clientVpnAuthorizationRule"));
 
+export { ClientVpnRouteArgs } from "./clientVpnRoute";
+export type ClientVpnRoute = import("./clientVpnRoute").ClientVpnRoute;
+export const ClientVpnRoute: typeof import("./clientVpnRoute").ClientVpnRoute = null as any;
+utilities.lazyLoad(exports, ["ClientVpnRoute"], () => require("./clientVpnRoute"));
+
 export { CustomerGatewayArgs } from "./customerGateway";
 export type CustomerGateway = import("./customerGateway").CustomerGateway;
 export const CustomerGateway: typeof import("./customerGateway").CustomerGateway = null as any;
@@ -114,6 +119,11 @@ export { GetClientVpnAuthorizationRuleArgs, GetClientVpnAuthorizationRuleResult,
 export const getClientVpnAuthorizationRule: typeof import("./getClientVpnAuthorizationRule").getClientVpnAuthorizationRule = null as any;
 export const getClientVpnAuthorizationRuleOutput: typeof import("./getClientVpnAuthorizationRule").getClientVpnAuthorizationRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getClientVpnAuthorizationRule","getClientVpnAuthorizationRuleOutput"], () => require("./getClientVpnAuthorizationRule"));
+
+export { GetClientVpnRouteArgs, GetClientVpnRouteResult, GetClientVpnRouteOutputArgs } from "./getClientVpnRoute";
+export const getClientVpnRoute: typeof import("./getClientVpnRoute").getClientVpnRoute = null as any;
+export const getClientVpnRouteOutput: typeof import("./getClientVpnRoute").getClientVpnRouteOutput = null as any;
+utilities.lazyLoad(exports, ["getClientVpnRoute","getClientVpnRouteOutput"], () => require("./getClientVpnRoute"));
 
 export { GetCustomerGatewayArgs, GetCustomerGatewayResult, GetCustomerGatewayOutputArgs } from "./getCustomerGateway";
 export const getCustomerGateway: typeof import("./getCustomerGateway").getCustomerGateway = null as any;
@@ -214,6 +224,11 @@ export { GetIpamExternalResourceVerificationTokenArgs, GetIpamExternalResourceVe
 export const getIpamExternalResourceVerificationToken: typeof import("./getIpamExternalResourceVerificationToken").getIpamExternalResourceVerificationToken = null as any;
 export const getIpamExternalResourceVerificationTokenOutput: typeof import("./getIpamExternalResourceVerificationToken").getIpamExternalResourceVerificationTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getIpamExternalResourceVerificationToken","getIpamExternalResourceVerificationTokenOutput"], () => require("./getIpamExternalResourceVerificationToken"));
+
+export { GetIpamInternetRegistryAssociationArgs, GetIpamInternetRegistryAssociationResult, GetIpamInternetRegistryAssociationOutputArgs } from "./getIpamInternetRegistryAssociation";
+export const getIpamInternetRegistryAssociation: typeof import("./getIpamInternetRegistryAssociation").getIpamInternetRegistryAssociation = null as any;
+export const getIpamInternetRegistryAssociationOutput: typeof import("./getIpamInternetRegistryAssociation").getIpamInternetRegistryAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamInternetRegistryAssociation","getIpamInternetRegistryAssociationOutput"], () => require("./getIpamInternetRegistryAssociation"));
 
 export { GetIpamPoolArgs, GetIpamPoolResult, GetIpamPoolOutputArgs } from "./getIpamPool";
 export const getIpamPool: typeof import("./getIpamPool").getIpamPool = null as any;
@@ -669,6 +684,11 @@ export { IpamExternalResourceVerificationTokenArgs } from "./ipamExternalResourc
 export type IpamExternalResourceVerificationToken = import("./ipamExternalResourceVerificationToken").IpamExternalResourceVerificationToken;
 export const IpamExternalResourceVerificationToken: typeof import("./ipamExternalResourceVerificationToken").IpamExternalResourceVerificationToken = null as any;
 utilities.lazyLoad(exports, ["IpamExternalResourceVerificationToken"], () => require("./ipamExternalResourceVerificationToken"));
+
+export { IpamInternetRegistryAssociationArgs } from "./ipamInternetRegistryAssociation";
+export type IpamInternetRegistryAssociation = import("./ipamInternetRegistryAssociation").IpamInternetRegistryAssociation;
+export const IpamInternetRegistryAssociation: typeof import("./ipamInternetRegistryAssociation").IpamInternetRegistryAssociation = null as any;
+utilities.lazyLoad(exports, ["IpamInternetRegistryAssociation"], () => require("./ipamInternetRegistryAssociation"));
 
 export { IpamPoolArgs } from "./ipamPool";
 export type IpamPool = import("./ipamPool").IpamPool;
@@ -1150,6 +1170,8 @@ const _module = {
                 return new CarrierGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:ClientVpnAuthorizationRule":
                 return new ClientVpnAuthorizationRule(name, <any>undefined, { urn })
+            case "aws-native:ec2:ClientVpnRoute":
+                return new ClientVpnRoute(name, <any>undefined, { urn })
             case "aws-native:ec2:CustomerGateway":
                 return new CustomerGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:DhcpOptions":
@@ -1190,6 +1212,8 @@ const _module = {
                 return new IpamAllocation(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamExternalResourceVerificationToken":
                 return new IpamExternalResourceVerificationToken(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamInternetRegistryAssociation":
+                return new IpamInternetRegistryAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamPool":
                 return new IpamPool(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamPoolCidr":

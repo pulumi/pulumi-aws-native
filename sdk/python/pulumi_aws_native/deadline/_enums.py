@@ -16,6 +16,7 @@ __all__ = [
     'FleetCustomerManagedFleetOperatingSystemFamily',
     'FleetEc2MarketType',
     'FleetServiceManagedFleetOperatingSystemFamily',
+    'FleetSoftwareAddOnName',
     'FleetStatus',
     'FleetTagPropagationMode',
     'LicenseEndpointStatus',
@@ -90,6 +91,11 @@ class FleetEc2MarketType(_builtins.str, Enum):
 class FleetServiceManagedFleetOperatingSystemFamily(_builtins.str, Enum):
     LINUX = "LINUX"
     WINDOWS = "WINDOWS"
+
+
+@pulumi.type_token("aws-native:deadline:FleetSoftwareAddOnName")
+class FleetSoftwareAddOnName(_builtins.str, Enum):
+    DOCKER = "docker"
 
 
 @pulumi.type_token("aws-native:deadline:FleetStatus")

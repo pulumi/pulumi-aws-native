@@ -24,10 +24,7 @@ __all__ = ['MigrationProjectArgs', 'MigrationProject']
 class MigrationProjectArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 migration_project_creation_time: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_conversion_application_attributes: pulumi.Input[Optional['SchemaConversionApplicationAttributesPropertiesArgs']] = None,
@@ -39,11 +36,8 @@ class MigrationProjectArgs:
         The set of arguments for constructing a MigrationProject resource.
 
         :param pulumi.Input[_builtins.str] description: The optional description of the migration project.
-        :param pulumi.Input[_builtins.str] instance_profile_arn: The property describes an instance profile arn for the migration project. For read
         :param pulumi.Input[_builtins.str] instance_profile_identifier: The property describes an instance profile identifier for the migration project. For create
-        :param pulumi.Input[_builtins.str] instance_profile_name: The property describes an instance profile name for the migration project. For read
-        :param pulumi.Input[_builtins.str] migration_project_creation_time: The property describes a creating time of the migration project.
-        :param pulumi.Input[_builtins.str] migration_project_identifier: The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+        :param pulumi.Input[_builtins.str] migration_project_identifier: [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         :param pulumi.Input[_builtins.str] migration_project_name: The property describes a name to identify the migration project.
         :param pulumi.Input['SchemaConversionApplicationAttributesPropertiesArgs'] schema_conversion_application_attributes: The property describes schema conversion application attributes for the migration project.
         :param pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]] source_data_provider_descriptors: The property describes source data provider descriptors for the migration project.
@@ -53,14 +47,8 @@ class MigrationProjectArgs:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if instance_profile_arn is not None:
-            pulumi.set(__self__, "instance_profile_arn", instance_profile_arn)
         if instance_profile_identifier is not None:
             pulumi.set(__self__, "instance_profile_identifier", instance_profile_identifier)
-        if instance_profile_name is not None:
-            pulumi.set(__self__, "instance_profile_name", instance_profile_name)
-        if migration_project_creation_time is not None:
-            pulumi.set(__self__, "migration_project_creation_time", migration_project_creation_time)
         if migration_project_identifier is not None:
             pulumi.set(__self__, "migration_project_identifier", migration_project_identifier)
         if migration_project_name is not None:
@@ -89,18 +77,6 @@ class MigrationProjectArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
-    @pulumi.getter(name="instanceProfileArn")
-    def instance_profile_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The property describes an instance profile arn for the migration project. For read
-        """
-        return pulumi.get(self, "instance_profile_arn")
-
-    @instance_profile_arn.setter
-    def instance_profile_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "instance_profile_arn", value)
-
-    @_builtins.property
     @pulumi.getter(name="instanceProfileIdentifier")
     def instance_profile_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -113,34 +89,10 @@ class MigrationProjectArgs:
         pulumi.set(self, "instance_profile_identifier", value)
 
     @_builtins.property
-    @pulumi.getter(name="instanceProfileName")
-    def instance_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The property describes an instance profile name for the migration project. For read
-        """
-        return pulumi.get(self, "instance_profile_name")
-
-    @instance_profile_name.setter
-    def instance_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "instance_profile_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="migrationProjectCreationTime")
-    def migration_project_creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The property describes a creating time of the migration project.
-        """
-        return pulumi.get(self, "migration_project_creation_time")
-
-    @migration_project_creation_time.setter
-    def migration_project_creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "migration_project_creation_time", value)
-
-    @_builtins.property
     @pulumi.getter(name="migrationProjectIdentifier")
     def migration_project_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+        [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         """
         return pulumi.get(self, "migration_project_identifier")
 
@@ -228,10 +180,7 @@ class MigrationProject(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 migration_project_creation_time: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_conversion_application_attributes: pulumi.Input[Optional[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']]] = None,
@@ -246,11 +195,8 @@ class MigrationProject(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The optional description of the migration project.
-        :param pulumi.Input[_builtins.str] instance_profile_arn: The property describes an instance profile arn for the migration project. For read
         :param pulumi.Input[_builtins.str] instance_profile_identifier: The property describes an instance profile identifier for the migration project. For create
-        :param pulumi.Input[_builtins.str] instance_profile_name: The property describes an instance profile name for the migration project. For read
-        :param pulumi.Input[_builtins.str] migration_project_creation_time: The property describes a creating time of the migration project.
-        :param pulumi.Input[_builtins.str] migration_project_identifier: The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+        :param pulumi.Input[_builtins.str] migration_project_identifier: [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         :param pulumi.Input[_builtins.str] migration_project_name: The property describes a name to identify the migration project.
         :param pulumi.Input[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']] schema_conversion_application_attributes: The property describes schema conversion application attributes for the migration project.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]] source_data_provider_descriptors: The property describes source data provider descriptors for the migration project.
@@ -283,10 +229,7 @@ class MigrationProject(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 migration_project_creation_time: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_conversion_application_attributes: pulumi.Input[Optional[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']]] = None,
@@ -304,10 +247,7 @@ class MigrationProject(pulumi.CustomResource):
             __props__ = MigrationProjectArgs.__new__(MigrationProjectArgs)
 
             __props__.__dict__["description"] = description
-            __props__.__dict__["instance_profile_arn"] = instance_profile_arn
             __props__.__dict__["instance_profile_identifier"] = instance_profile_identifier
-            __props__.__dict__["instance_profile_name"] = instance_profile_name
-            __props__.__dict__["migration_project_creation_time"] = migration_project_creation_time
             __props__.__dict__["migration_project_identifier"] = migration_project_identifier
             __props__.__dict__["migration_project_name"] = migration_project_name
             __props__.__dict__["schema_conversion_application_attributes"] = schema_conversion_application_attributes
@@ -315,7 +255,10 @@ class MigrationProject(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_data_provider_descriptors"] = target_data_provider_descriptors
             __props__.__dict__["transformation_rules"] = transformation_rules
+            __props__.__dict__["instance_profile_arn"] = None
+            __props__.__dict__["instance_profile_name"] = None
             __props__.__dict__["migration_project_arn"] = None
+            __props__.__dict__["migration_project_creation_time"] = None
         super(MigrationProject, __self__).__init__(
             'aws-native:dms:MigrationProject',
             resource_name,
@@ -363,7 +306,7 @@ class MigrationProject(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileArn")
-    def instance_profile_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def instance_profile_arn(self) -> pulumi.Output[_builtins.str]:
         """
         The property describes an instance profile arn for the migration project. For read
         """
@@ -379,7 +322,7 @@ class MigrationProject(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileName")
-    def instance_profile_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def instance_profile_name(self) -> pulumi.Output[_builtins.str]:
         """
         The property describes an instance profile name for the migration project. For read
         """
@@ -395,7 +338,7 @@ class MigrationProject(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="migrationProjectCreationTime")
-    def migration_project_creation_time(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def migration_project_creation_time(self) -> pulumi.Output[_builtins.str]:
         """
         The property describes a creating time of the migration project.
         """
@@ -405,7 +348,7 @@ class MigrationProject(pulumi.CustomResource):
     @pulumi.getter(name="migrationProjectIdentifier")
     def migration_project_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+        [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         """
         return pulumi.get(self, "migration_project_identifier")
 

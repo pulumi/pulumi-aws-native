@@ -36,6 +36,7 @@ export interface GetRegistryResult {
      * The timestamp when the registry was created.
      */
     readonly createdAt?: string;
+    readonly customMetadataSchemaConfiguration?: outputs.agentregistry.RegistryCustomMetadataSchemaConfiguration;
     /**
      * The description of the registry.
      */

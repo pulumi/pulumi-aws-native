@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Accounts;
         /// <summary>
-        /// Returns the value of the AccountsUrl property.
+        /// Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
         /// </summary>
         public readonly string? AccountsUrl;
         /// <summary>

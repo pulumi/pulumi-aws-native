@@ -7,22 +7,8 @@ import pulumi
 from enum import Enum
 
 __all__ = [
-    'AlarmModelSimpleRuleComparisonOperator',
     'DetectorModelEvaluationMethod',
 ]
-
-
-@pulumi.type_token("aws-native:iotevents:AlarmModelSimpleRuleComparisonOperator")
-class AlarmModelSimpleRuleComparisonOperator(_builtins.str, Enum):
-    """
-    The comparison operator.
-    """
-    GREATER = "GREATER"
-    GREATER_OR_EQUAL = "GREATER_OR_EQUAL"
-    LESS = "LESS"
-    LESS_OR_EQUAL = "LESS_OR_EQUAL"
-    EQUAL = "EQUAL"
-    NOT_EQUAL = "NOT_EQUAL"
 
 
 @pulumi.type_token("aws-native:iotevents:DetectorModelEvaluationMethod")

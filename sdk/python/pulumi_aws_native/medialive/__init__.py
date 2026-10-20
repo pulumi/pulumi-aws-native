@@ -19,12 +19,16 @@ from .get_cloud_watch_alarm_template_group import *
 from .get_cluster import *
 from .get_event_bridge_rule_template import *
 from .get_event_bridge_rule_template_group import *
+from .get_input import *
+from .get_input_security_group import *
 from .get_multiplex import *
 from .get_multiplexprogram import *
 from .get_network import *
 from .get_node import *
 from .get_sdi_source import *
 from .get_signal_map import *
+from .input import *
+from .input_security_group import *
 from .multiplex import *
 from .multiplexprogram import *
 from .network import *

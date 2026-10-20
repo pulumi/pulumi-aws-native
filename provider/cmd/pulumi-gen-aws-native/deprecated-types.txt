@@ -1,8 +1,8 @@
-AWS::DAX::SubnetGroup
 AWS::DataSync::StorageSystem
 AWS::DynamoDB::Backup
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
+AWS::IoTEvents::AlarmModel
 AWS::IoTFleetHub::Application
 AWS::LookoutMetrics::Alert
 AWS::LookoutMetrics::AnomalyDetector

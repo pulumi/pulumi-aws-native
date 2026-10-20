@@ -132,6 +132,14 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
             set => _ecrImageHash = value;
         }
 
+        [Input("ecrImageInUseCount")]
+        private InputList<Inputs.FilterNumberFilterArgs>? _ecrImageInUseCount;
+        public InputList<Inputs.FilterNumberFilterArgs> EcrImageInUseCount
+        {
+            get => _ecrImageInUseCount ?? (_ecrImageInUseCount = new InputList<Inputs.FilterNumberFilterArgs>());
+            set => _ecrImageInUseCount = value;
+        }
+
         [Input("ecrImagePushedAt")]
         private InputList<Inputs.FilterDateFilterArgs>? _ecrImagePushedAt;
 

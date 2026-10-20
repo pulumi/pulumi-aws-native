@@ -10,10 +10,20 @@ export type ConnectionAlias = import("./connectionAlias").ConnectionAlias;
 export const ConnectionAlias: typeof import("./connectionAlias").ConnectionAlias = null as any;
 utilities.lazyLoad(exports, ["ConnectionAlias"], () => require("./connectionAlias"));
 
+export { DirectoryArgs } from "./directory";
+export type Directory = import("./directory").Directory;
+export const Directory: typeof import("./directory").Directory = null as any;
+utilities.lazyLoad(exports, ["Directory"], () => require("./directory"));
+
 export { GetConnectionAliasArgs, GetConnectionAliasResult, GetConnectionAliasOutputArgs } from "./getConnectionAlias";
 export const getConnectionAlias: typeof import("./getConnectionAlias").getConnectionAlias = null as any;
 export const getConnectionAliasOutput: typeof import("./getConnectionAlias").getConnectionAliasOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectionAlias","getConnectionAliasOutput"], () => require("./getConnectionAlias"));
+
+export { GetDirectoryArgs, GetDirectoryResult, GetDirectoryOutputArgs } from "./getDirectory";
+export const getDirectory: typeof import("./getDirectory").getDirectory = null as any;
+export const getDirectoryOutput: typeof import("./getDirectory").getDirectoryOutput = null as any;
+utilities.lazyLoad(exports, ["getDirectory","getDirectoryOutput"], () => require("./getDirectory"));
 
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
@@ -55,6 +65,8 @@ const _module = {
         switch (type) {
             case "aws-native:workspaces:ConnectionAlias":
                 return new ConnectionAlias(name, <any>undefined, { urn })
+            case "aws-native:workspaces:Directory":
+                return new Directory(name, <any>undefined, { urn })
             case "aws-native:workspaces:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "aws-native:workspaces:WorkspaceIpGroup":

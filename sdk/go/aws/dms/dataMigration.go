@@ -21,7 +21,7 @@ type DataMigration struct {
 	DataMigrationArn pulumi.StringOutput `pulumi:"dataMigrationArn"`
 	// The property describes the create time of the data migration.
 	DataMigrationCreateTime pulumi.StringOutput `pulumi:"dataMigrationCreateTime"`
-	// The property describes an ARN of the data migration.
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	DataMigrationIdentifier pulumi.StringPtrOutput `pulumi:"dataMigrationIdentifier"`
 	// The property describes a name to identify the data migration.
 	DataMigrationName pulumi.StringPtrOutput `pulumi:"dataMigrationName"`
@@ -88,7 +88,7 @@ func (DataMigrationState) ElementType() reflect.Type {
 }
 
 type dataMigrationArgs struct {
-	// The property describes an ARN of the data migration.
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	DataMigrationIdentifier *string `pulumi:"dataMigrationIdentifier"`
 	// The property describes a name to identify the data migration.
 	DataMigrationName *string `pulumi:"dataMigrationName"`
@@ -108,7 +108,7 @@ type dataMigrationArgs struct {
 
 // The set of arguments for constructing a DataMigration resource.
 type DataMigrationArgs struct {
-	// The property describes an ARN of the data migration.
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	DataMigrationIdentifier pulumi.StringPtrInput
 	// The property describes a name to identify the data migration.
 	DataMigrationName pulumi.StringPtrInput
@@ -173,7 +173,7 @@ func (o DataMigrationOutput) DataMigrationCreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataMigration) pulumi.StringOutput { return v.DataMigrationCreateTime }).(pulumi.StringOutput)
 }
 
-// The property describes an ARN of the data migration.
+// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 func (o DataMigrationOutput) DataMigrationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataMigration) pulumi.StringPtrOutput { return v.DataMigrationIdentifier }).(pulumi.StringPtrOutput)
 }

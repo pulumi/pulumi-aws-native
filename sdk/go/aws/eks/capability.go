@@ -66,6 +66,7 @@ func NewCapability(ctx *pulumi.Context,
 		"capabilityName",
 		"clusterName",
 		"configuration.argoCd.awsIdc",
+		"configuration.argoCd.endpointPrefix",
 		"configuration.argoCd.namespace",
 		"type",
 	})

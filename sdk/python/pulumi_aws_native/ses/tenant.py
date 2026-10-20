@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['TenantArgs', 'Tenant']
@@ -23,22 +24,42 @@ __all__ = ['TenantArgs', 'Tenant']
 @pulumi.input_type
 class TenantArgs:
     def __init__(__self__, *,
+                 reputation_entity: pulumi.Input[Optional['TenantReputationEntityArgs']] = None,
                  resource_associations: pulumi.Input[Optional[Sequence[pulumi.Input['TenantResourceAssociationArgs']]]] = None,
+                 suppression_attributes: pulumi.Input[Optional['TenantSuppressionAttributesArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tenant_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tenant resource.
 
+        :param pulumi.Input['TenantReputationEntityArgs'] reputation_entity: The reputation configuration for the tenant. Sending status remains managed by SES.
         :param pulumi.Input[Sequence[pulumi.Input['TenantResourceAssociationArgs']]] resource_associations: The list of resources to associate with the tenant.
+        :param pulumi.Input['TenantSuppressionAttributesArgs'] suppression_attributes: The suppression attributes for the tenant.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the tenant.
         :param pulumi.Input[_builtins.str] tenant_name: The name of the tenant.
         """
+        if reputation_entity is not None:
+            pulumi.set(__self__, "reputation_entity", reputation_entity)
         if resource_associations is not None:
             pulumi.set(__self__, "resource_associations", resource_associations)
+        if suppression_attributes is not None:
+            pulumi.set(__self__, "suppression_attributes", suppression_attributes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tenant_name is not None:
             pulumi.set(__self__, "tenant_name", tenant_name)
+
+    @_builtins.property
+    @pulumi.getter(name="reputationEntity")
+    def reputation_entity(self) -> pulumi.Input[Optional['TenantReputationEntityArgs']]:
+        """
+        The reputation configuration for the tenant. Sending status remains managed by SES.
+        """
+        return pulumi.get(self, "reputation_entity")
+
+    @reputation_entity.setter
+    def reputation_entity(self, value: pulumi.Input[Optional['TenantReputationEntityArgs']]):
+        pulumi.set(self, "reputation_entity", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAssociations")
@@ -51,6 +72,18 @@ class TenantArgs:
     @resource_associations.setter
     def resource_associations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TenantResourceAssociationArgs']]]]):
         pulumi.set(self, "resource_associations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="suppressionAttributes")
+    def suppression_attributes(self) -> pulumi.Input[Optional['TenantSuppressionAttributesArgs']]:
+        """
+        The suppression attributes for the tenant.
+        """
+        return pulumi.get(self, "suppression_attributes")
+
+    @suppression_attributes.setter
+    def suppression_attributes(self, value: pulumi.Input[Optional['TenantSuppressionAttributesArgs']]):
+        pulumi.set(self, "suppression_attributes", value)
 
     @_builtins.property
     @pulumi.getter
@@ -83,7 +116,9 @@ class Tenant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 reputation_entity: pulumi.Input[Optional[Union['TenantReputationEntityArgs', 'TenantReputationEntityArgsDict']]] = None,
                  resource_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TenantResourceAssociationArgs', 'TenantResourceAssociationArgsDict']]]]] = None,
+                 suppression_attributes: pulumi.Input[Optional[Union['TenantSuppressionAttributesArgs', 'TenantSuppressionAttributesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -92,7 +127,9 @@ class Tenant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TenantReputationEntityArgs', 'TenantReputationEntityArgsDict']] reputation_entity: The reputation configuration for the tenant. Sending status remains managed by SES.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TenantResourceAssociationArgs', 'TenantResourceAssociationArgsDict']]]] resource_associations: The list of resources to associate with the tenant.
+        :param pulumi.Input[Union['TenantSuppressionAttributesArgs', 'TenantSuppressionAttributesArgsDict']] suppression_attributes: The suppression attributes for the tenant.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the tenant.
         :param pulumi.Input[_builtins.str] tenant_name: The name of the tenant.
         """
@@ -120,7 +157,9 @@ class Tenant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 reputation_entity: pulumi.Input[Optional[Union['TenantReputationEntityArgs', 'TenantReputationEntityArgsDict']]] = None,
                  resource_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TenantResourceAssociationArgs', 'TenantResourceAssociationArgsDict']]]]] = None,
+                 suppression_attributes: pulumi.Input[Optional[Union['TenantSuppressionAttributesArgs', 'TenantSuppressionAttributesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -132,7 +171,9 @@ class Tenant(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TenantArgs.__new__(TenantArgs)
 
+            __props__.__dict__["reputation_entity"] = reputation_entity
             __props__.__dict__["resource_associations"] = resource_associations
+            __props__.__dict__["suppression_attributes"] = suppression_attributes
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenant_name"] = tenant_name
             __props__.__dict__["arn"] = None
@@ -161,7 +202,9 @@ class Tenant(pulumi.CustomResource):
         __props__ = TenantArgs.__new__(TenantArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["reputation_entity"] = None
         __props__.__dict__["resource_associations"] = None
+        __props__.__dict__["suppression_attributes"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_name"] = None
         return Tenant(resource_name, opts=opts, __props__=__props__)
@@ -175,12 +218,28 @@ class Tenant(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter(name="reputationEntity")
+    def reputation_entity(self) -> pulumi.Output[Optional['outputs.TenantReputationEntity']]:
+        """
+        The reputation configuration for the tenant. Sending status remains managed by SES.
+        """
+        return pulumi.get(self, "reputation_entity")
+
+    @_builtins.property
     @pulumi.getter(name="resourceAssociations")
     def resource_associations(self) -> pulumi.Output[Optional[Sequence['outputs.TenantResourceAssociation']]]:
         """
         The list of resources to associate with the tenant.
         """
         return pulumi.get(self, "resource_associations")
+
+    @_builtins.property
+    @pulumi.getter(name="suppressionAttributes")
+    def suppression_attributes(self) -> pulumi.Output[Optional['outputs.TenantSuppressionAttributes']]:
+        """
+        The suppression attributes for the tenant.
+        """
+        return pulumi.get(self, "suppression_attributes")
 
     @_builtins.property
     @pulumi.getter

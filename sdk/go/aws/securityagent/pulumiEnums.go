@@ -190,6 +190,433 @@ func (in *artifactTypePtr) ToArtifactTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(ArtifactTypePtrOutput)
 }
 
+// The type of GitLab access token.
+type IntegrationGitLabInputTokenType string
+
+const (
+	IntegrationGitLabInputTokenTypePersonal = IntegrationGitLabInputTokenType("PERSONAL")
+	IntegrationGitLabInputTokenTypeGroup    = IntegrationGitLabInputTokenType("GROUP")
+)
+
+func (IntegrationGitLabInputTokenType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitLabInputTokenType)(nil)).Elem()
+}
+
+func (e IntegrationGitLabInputTokenType) ToIntegrationGitLabInputTokenTypeOutput() IntegrationGitLabInputTokenTypeOutput {
+	return pulumi.ToOutput(e).(IntegrationGitLabInputTokenTypeOutput)
+}
+
+func (e IntegrationGitLabInputTokenType) ToIntegrationGitLabInputTokenTypeOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationGitLabInputTokenTypeOutput)
+}
+
+func (e IntegrationGitLabInputTokenType) ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput {
+	return e.ToIntegrationGitLabInputTokenTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationGitLabInputTokenType) ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypePtrOutput {
+	return IntegrationGitLabInputTokenType(e).ToIntegrationGitLabInputTokenTypeOutputWithContext(ctx).ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationGitLabInputTokenType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationGitLabInputTokenType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationGitLabInputTokenType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationGitLabInputTokenType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationGitLabInputTokenTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitLabInputTokenTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitLabInputTokenType)(nil)).Elem()
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToIntegrationGitLabInputTokenTypeOutput() IntegrationGitLabInputTokenTypeOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToIntegrationGitLabInputTokenTypeOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypeOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput {
+	return o.ToIntegrationGitLabInputTokenTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationGitLabInputTokenType) *IntegrationGitLabInputTokenType {
+		return &v
+	}).(IntegrationGitLabInputTokenTypePtrOutput)
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationGitLabInputTokenType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationGitLabInputTokenType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationGitLabInputTokenTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitLabInputTokenTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitLabInputTokenType)(nil)).Elem()
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypePtrOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) Elem() IntegrationGitLabInputTokenTypeOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInputTokenType) IntegrationGitLabInputTokenType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationGitLabInputTokenType
+		return ret
+	}).(IntegrationGitLabInputTokenTypeOutput)
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationGitLabInputTokenType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntegrationGitLabInputTokenTypeInput is an input type that accepts values of the IntegrationGitLabInputTokenType enum
+// A concrete instance of `IntegrationGitLabInputTokenTypeInput` can be one of the following:
+//
+//	IntegrationGitLabInputTokenTypePersonal
+//	IntegrationGitLabInputTokenTypeGroup
+type IntegrationGitLabInputTokenTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationGitLabInputTokenTypeOutput() IntegrationGitLabInputTokenTypeOutput
+	ToIntegrationGitLabInputTokenTypeOutputWithContext(context.Context) IntegrationGitLabInputTokenTypeOutput
+}
+
+var integrationGitLabInputTokenTypePtrType = reflect.TypeOf((**IntegrationGitLabInputTokenType)(nil)).Elem()
+
+type IntegrationGitLabInputTokenTypePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput
+	ToIntegrationGitLabInputTokenTypePtrOutputWithContext(context.Context) IntegrationGitLabInputTokenTypePtrOutput
+}
+
+type integrationGitLabInputTokenTypePtr string
+
+func IntegrationGitLabInputTokenTypePtr(v string) IntegrationGitLabInputTokenTypePtrInput {
+	return (*integrationGitLabInputTokenTypePtr)(&v)
+}
+
+func (*integrationGitLabInputTokenTypePtr) ElementType() reflect.Type {
+	return integrationGitLabInputTokenTypePtrType
+}
+
+func (in *integrationGitLabInputTokenTypePtr) ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationGitLabInputTokenTypePtrOutput)
+}
+
+func (in *integrationGitLabInputTokenTypePtr) ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationGitLabInputTokenTypePtrOutput)
+}
+
+// The integration provider.
+type IntegrationProviderEnum string
+
+const (
+	IntegrationProviderEnumGithub     = IntegrationProviderEnum("GITHUB")
+	IntegrationProviderEnumGitlab     = IntegrationProviderEnum("GITLAB")
+	IntegrationProviderEnumBitbucket  = IntegrationProviderEnum("BITBUCKET")
+	IntegrationProviderEnumConfluence = IntegrationProviderEnum("CONFLUENCE")
+)
+
+func (IntegrationProviderEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderEnum)(nil)).Elem()
+}
+
+func (e IntegrationProviderEnum) ToIntegrationProviderEnumOutput() IntegrationProviderEnumOutput {
+	return pulumi.ToOutput(e).(IntegrationProviderEnumOutput)
+}
+
+func (e IntegrationProviderEnum) ToIntegrationProviderEnumOutputWithContext(ctx context.Context) IntegrationProviderEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationProviderEnumOutput)
+}
+
+func (e IntegrationProviderEnum) ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput {
+	return e.ToIntegrationProviderEnumPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationProviderEnum) ToIntegrationProviderEnumPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumPtrOutput {
+	return IntegrationProviderEnum(e).ToIntegrationProviderEnumOutputWithContext(ctx).ToIntegrationProviderEnumPtrOutputWithContext(ctx)
+}
+
+func (e IntegrationProviderEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationProviderEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationProviderEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationProviderEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationProviderEnumOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderEnum)(nil)).Elem()
+}
+
+func (o IntegrationProviderEnumOutput) ToIntegrationProviderEnumOutput() IntegrationProviderEnumOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumOutput) ToIntegrationProviderEnumOutputWithContext(ctx context.Context) IntegrationProviderEnumOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumOutput) ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput {
+	return o.ToIntegrationProviderEnumPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderEnumOutput) ToIntegrationProviderEnumPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationProviderEnum) *IntegrationProviderEnum {
+		return &v
+	}).(IntegrationProviderEnumPtrOutput)
+}
+
+func (o IntegrationProviderEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationProviderEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationProviderEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationProviderEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationProviderEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderEnum)(nil)).Elem()
+}
+
+func (o IntegrationProviderEnumPtrOutput) ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumPtrOutput) ToIntegrationProviderEnumPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumPtrOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumPtrOutput) Elem() IntegrationProviderEnumOutput {
+	return o.ApplyT(func(v *IntegrationProviderEnum) IntegrationProviderEnum {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationProviderEnum
+		return ret
+	}).(IntegrationProviderEnumOutput)
+}
+
+func (o IntegrationProviderEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationProviderEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntegrationProviderEnumInput is an input type that accepts values of the IntegrationProviderEnum enum
+// A concrete instance of `IntegrationProviderEnumInput` can be one of the following:
+//
+//	IntegrationProviderEnumGithub
+//	IntegrationProviderEnumGitlab
+//	IntegrationProviderEnumBitbucket
+//	IntegrationProviderEnumConfluence
+type IntegrationProviderEnumInput interface {
+	pulumi.Input
+
+	ToIntegrationProviderEnumOutput() IntegrationProviderEnumOutput
+	ToIntegrationProviderEnumOutputWithContext(context.Context) IntegrationProviderEnumOutput
+}
+
+var integrationProviderEnumPtrType = reflect.TypeOf((**IntegrationProviderEnum)(nil)).Elem()
+
+type IntegrationProviderEnumPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput
+	ToIntegrationProviderEnumPtrOutputWithContext(context.Context) IntegrationProviderEnumPtrOutput
+}
+
+type integrationProviderEnumPtr string
+
+func IntegrationProviderEnumPtr(v string) IntegrationProviderEnumPtrInput {
+	return (*integrationProviderEnumPtr)(&v)
+}
+
+func (*integrationProviderEnumPtr) ElementType() reflect.Type {
+	return integrationProviderEnumPtrType
+}
+
+func (in *integrationProviderEnumPtr) ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput {
+	return pulumi.ToOutput(in).(IntegrationProviderEnumPtrOutput)
+}
+
+func (in *integrationProviderEnumPtr) ToIntegrationProviderEnumPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationProviderEnumPtrOutput)
+}
+
+// The type of the integration provider.
+type IntegrationProviderType string
+
+const (
+	IntegrationProviderTypeSourceCode    = IntegrationProviderType("SOURCE_CODE")
+	IntegrationProviderTypeDocumentation = IntegrationProviderType("DOCUMENTATION")
+)
+
+type IntegrationProviderTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderType)(nil)).Elem()
+}
+
+func (o IntegrationProviderTypeOutput) ToIntegrationProviderTypeOutput() IntegrationProviderTypeOutput {
+	return o
+}
+
+func (o IntegrationProviderTypeOutput) ToIntegrationProviderTypeOutputWithContext(ctx context.Context) IntegrationProviderTypeOutput {
+	return o
+}
+
+func (o IntegrationProviderTypeOutput) ToIntegrationProviderTypePtrOutput() IntegrationProviderTypePtrOutput {
+	return o.ToIntegrationProviderTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderTypeOutput) ToIntegrationProviderTypePtrOutputWithContext(ctx context.Context) IntegrationProviderTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationProviderType) *IntegrationProviderType {
+		return &v
+	}).(IntegrationProviderTypePtrOutput)
+}
+
+func (o IntegrationProviderTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationProviderType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationProviderTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationProviderType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationProviderTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderType)(nil)).Elem()
+}
+
+func (o IntegrationProviderTypePtrOutput) ToIntegrationProviderTypePtrOutput() IntegrationProviderTypePtrOutput {
+	return o
+}
+
+func (o IntegrationProviderTypePtrOutput) ToIntegrationProviderTypePtrOutputWithContext(ctx context.Context) IntegrationProviderTypePtrOutput {
+	return o
+}
+
+func (o IntegrationProviderTypePtrOutput) Elem() IntegrationProviderTypeOutput {
+	return o.ApplyT(func(v *IntegrationProviderType) IntegrationProviderType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationProviderType
+		return ret
+	}).(IntegrationProviderTypeOutput)
+}
+
+func (o IntegrationProviderTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationProviderType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Type of authentication provider
 type PentestAuthenticationProviderType string
 
@@ -2108,6 +2535,10 @@ func (o TargetDomainVerificationStatusPtrOutput) ToStringPtrOutputWithContext(ct
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactTypeInput)(nil)).Elem(), ArtifactType("TXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactTypePtrInput)(nil)).Elem(), ArtifactType("TXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputTokenTypeInput)(nil)).Elem(), IntegrationGitLabInputTokenType("PERSONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputTokenTypePtrInput)(nil)).Elem(), IntegrationGitLabInputTokenType("PERSONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderEnumInput)(nil)).Elem(), IntegrationProviderEnum("GITHUB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderEnumPtrInput)(nil)).Elem(), IntegrationProviderEnum("GITHUB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationProviderTypeInput)(nil)).Elem(), PentestAuthenticationProviderType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationProviderTypePtrInput)(nil)).Elem(), PentestAuthenticationProviderType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCleanUpStrategyInput)(nil)).Elem(), PentestCleanUpStrategy("BEST_EFFORT_DELETE"))
@@ -2130,6 +2561,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetDomainVerificationMethodPtrInput)(nil)).Elem(), TargetDomainVerificationMethod("DNS_TXT"))
 	pulumi.RegisterOutputType(ArtifactTypeOutput{})
 	pulumi.RegisterOutputType(ArtifactTypePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationGitLabInputTokenTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationGitLabInputTokenTypePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderEnumOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderEnumPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationProviderTypeOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(PentestCleanUpStrategyOutput{})

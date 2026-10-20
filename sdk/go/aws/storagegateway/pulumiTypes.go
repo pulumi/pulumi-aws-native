@@ -4,10 +4,503 @@
 package storagegateway
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
+
+// Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+type NfsFileShareCacheAttributes struct {
+	// How long the directory contents cached by the gateway are considered valid.
+	CacheStaleTimeoutInSeconds *int `pulumi:"cacheStaleTimeoutInSeconds"`
+}
+
+// NfsFileShareCacheAttributesInput is an input type that accepts NfsFileShareCacheAttributesArgs and NfsFileShareCacheAttributesOutput values.
+// You can construct a concrete instance of `NfsFileShareCacheAttributesInput` via:
+//
+//	NfsFileShareCacheAttributesArgs{...}
+type NfsFileShareCacheAttributesInput interface {
+	pulumi.Input
+
+	ToNfsFileShareCacheAttributesOutput() NfsFileShareCacheAttributesOutput
+	ToNfsFileShareCacheAttributesOutputWithContext(context.Context) NfsFileShareCacheAttributesOutput
+}
+
+// Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+type NfsFileShareCacheAttributesArgs struct {
+	// How long the directory contents cached by the gateway are considered valid.
+	CacheStaleTimeoutInSeconds pulumi.IntPtrInput `pulumi:"cacheStaleTimeoutInSeconds"`
+}
+
+func (NfsFileShareCacheAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShareCacheAttributes)(nil)).Elem()
+}
+
+func (i NfsFileShareCacheAttributesArgs) ToNfsFileShareCacheAttributesOutput() NfsFileShareCacheAttributesOutput {
+	return i.ToNfsFileShareCacheAttributesOutputWithContext(context.Background())
+}
+
+func (i NfsFileShareCacheAttributesArgs) ToNfsFileShareCacheAttributesOutputWithContext(ctx context.Context) NfsFileShareCacheAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareCacheAttributesOutput)
+}
+
+func (i NfsFileShareCacheAttributesArgs) ToNfsFileShareCacheAttributesPtrOutput() NfsFileShareCacheAttributesPtrOutput {
+	return i.ToNfsFileShareCacheAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i NfsFileShareCacheAttributesArgs) ToNfsFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) NfsFileShareCacheAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareCacheAttributesOutput).ToNfsFileShareCacheAttributesPtrOutputWithContext(ctx)
+}
+
+// NfsFileShareCacheAttributesPtrInput is an input type that accepts NfsFileShareCacheAttributesArgs, NfsFileShareCacheAttributesPtr and NfsFileShareCacheAttributesPtrOutput values.
+// You can construct a concrete instance of `NfsFileShareCacheAttributesPtrInput` via:
+//
+//	        NfsFileShareCacheAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type NfsFileShareCacheAttributesPtrInput interface {
+	pulumi.Input
+
+	ToNfsFileShareCacheAttributesPtrOutput() NfsFileShareCacheAttributesPtrOutput
+	ToNfsFileShareCacheAttributesPtrOutputWithContext(context.Context) NfsFileShareCacheAttributesPtrOutput
+}
+
+type nfsFileShareCacheAttributesPtrType NfsFileShareCacheAttributesArgs
+
+func NfsFileShareCacheAttributesPtr(v *NfsFileShareCacheAttributesArgs) NfsFileShareCacheAttributesPtrInput {
+	return (*nfsFileShareCacheAttributesPtrType)(v)
+}
+
+func (*nfsFileShareCacheAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsFileShareCacheAttributes)(nil)).Elem()
+}
+
+func (i *nfsFileShareCacheAttributesPtrType) ToNfsFileShareCacheAttributesPtrOutput() NfsFileShareCacheAttributesPtrOutput {
+	return i.ToNfsFileShareCacheAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *nfsFileShareCacheAttributesPtrType) ToNfsFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) NfsFileShareCacheAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareCacheAttributesPtrOutput)
+}
+
+// Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+type NfsFileShareCacheAttributesOutput struct{ *pulumi.OutputState }
+
+func (NfsFileShareCacheAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShareCacheAttributes)(nil)).Elem()
+}
+
+func (o NfsFileShareCacheAttributesOutput) ToNfsFileShareCacheAttributesOutput() NfsFileShareCacheAttributesOutput {
+	return o
+}
+
+func (o NfsFileShareCacheAttributesOutput) ToNfsFileShareCacheAttributesOutputWithContext(ctx context.Context) NfsFileShareCacheAttributesOutput {
+	return o
+}
+
+func (o NfsFileShareCacheAttributesOutput) ToNfsFileShareCacheAttributesPtrOutput() NfsFileShareCacheAttributesPtrOutput {
+	return o.ToNfsFileShareCacheAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareCacheAttributesOutput) ToNfsFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) NfsFileShareCacheAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NfsFileShareCacheAttributes) *NfsFileShareCacheAttributes {
+		return &v
+	}).(NfsFileShareCacheAttributesPtrOutput)
+}
+
+// How long the directory contents cached by the gateway are considered valid.
+func (o NfsFileShareCacheAttributesOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NfsFileShareCacheAttributes) *int { return v.CacheStaleTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type NfsFileShareCacheAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (NfsFileShareCacheAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsFileShareCacheAttributes)(nil)).Elem()
+}
+
+func (o NfsFileShareCacheAttributesPtrOutput) ToNfsFileShareCacheAttributesPtrOutput() NfsFileShareCacheAttributesPtrOutput {
+	return o
+}
+
+func (o NfsFileShareCacheAttributesPtrOutput) ToNfsFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) NfsFileShareCacheAttributesPtrOutput {
+	return o
+}
+
+func (o NfsFileShareCacheAttributesPtrOutput) Elem() NfsFileShareCacheAttributesOutput {
+	return o.ApplyT(func(v *NfsFileShareCacheAttributes) NfsFileShareCacheAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret NfsFileShareCacheAttributes
+		return ret
+	}).(NfsFileShareCacheAttributesOutput)
+}
+
+// How long the directory contents cached by the gateway are considered valid.
+func (o NfsFileShareCacheAttributesPtrOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NfsFileShareCacheAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CacheStaleTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Default values for the file and directory permissions of an NFS share. Removing this property from a template leaves the live values unchanged rather than clearing them, because the service has no reset for it: a create that omits the object leaves it absent, but the update path merges member by member keyed on the same internal sentinel that reports absence, so no request can restore that state. Set the members you want rather than relying on removal.
+type NfsFileShareNfsFileShareDefaults struct {
+	// The Unix directory mode in the form nnnn.
+	DirectoryMode *string `pulumi:"directoryMode"`
+	// The Unix file mode in the form nnnn.
+	FileMode *string `pulumi:"fileMode"`
+	// The default group ID for files in the file share.
+	GroupId *int `pulumi:"groupId"`
+	// The default owner ID for files in the file share.
+	OwnerId *int `pulumi:"ownerId"`
+}
+
+// NfsFileShareNfsFileShareDefaultsInput is an input type that accepts NfsFileShareNfsFileShareDefaultsArgs and NfsFileShareNfsFileShareDefaultsOutput values.
+// You can construct a concrete instance of `NfsFileShareNfsFileShareDefaultsInput` via:
+//
+//	NfsFileShareNfsFileShareDefaultsArgs{...}
+type NfsFileShareNfsFileShareDefaultsInput interface {
+	pulumi.Input
+
+	ToNfsFileShareNfsFileShareDefaultsOutput() NfsFileShareNfsFileShareDefaultsOutput
+	ToNfsFileShareNfsFileShareDefaultsOutputWithContext(context.Context) NfsFileShareNfsFileShareDefaultsOutput
+}
+
+// Default values for the file and directory permissions of an NFS share. Removing this property from a template leaves the live values unchanged rather than clearing them, because the service has no reset for it: a create that omits the object leaves it absent, but the update path merges member by member keyed on the same internal sentinel that reports absence, so no request can restore that state. Set the members you want rather than relying on removal.
+type NfsFileShareNfsFileShareDefaultsArgs struct {
+	// The Unix directory mode in the form nnnn.
+	DirectoryMode pulumi.StringPtrInput `pulumi:"directoryMode"`
+	// The Unix file mode in the form nnnn.
+	FileMode pulumi.StringPtrInput `pulumi:"fileMode"`
+	// The default group ID for files in the file share.
+	GroupId pulumi.IntPtrInput `pulumi:"groupId"`
+	// The default owner ID for files in the file share.
+	OwnerId pulumi.IntPtrInput `pulumi:"ownerId"`
+}
+
+func (NfsFileShareNfsFileShareDefaultsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShareNfsFileShareDefaults)(nil)).Elem()
+}
+
+func (i NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaultsOutput() NfsFileShareNfsFileShareDefaultsOutput {
+	return i.ToNfsFileShareNfsFileShareDefaultsOutputWithContext(context.Background())
+}
+
+func (i NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaultsOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareNfsFileShareDefaultsOutput)
+}
+
+func (i NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaultsPtrOutput() NfsFileShareNfsFileShareDefaultsPtrOutput {
+	return i.ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareNfsFileShareDefaultsOutput).ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(ctx)
+}
+
+// NfsFileShareNfsFileShareDefaultsPtrInput is an input type that accepts NfsFileShareNfsFileShareDefaultsArgs, NfsFileShareNfsFileShareDefaultsPtr and NfsFileShareNfsFileShareDefaultsPtrOutput values.
+// You can construct a concrete instance of `NfsFileShareNfsFileShareDefaultsPtrInput` via:
+//
+//	        NfsFileShareNfsFileShareDefaultsArgs{...}
+//
+//	or:
+//
+//	        nil
+type NfsFileShareNfsFileShareDefaultsPtrInput interface {
+	pulumi.Input
+
+	ToNfsFileShareNfsFileShareDefaultsPtrOutput() NfsFileShareNfsFileShareDefaultsPtrOutput
+	ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(context.Context) NfsFileShareNfsFileShareDefaultsPtrOutput
+}
+
+type nfsFileShareNfsFileShareDefaultsPtrType NfsFileShareNfsFileShareDefaultsArgs
+
+func NfsFileShareNfsFileShareDefaultsPtr(v *NfsFileShareNfsFileShareDefaultsArgs) NfsFileShareNfsFileShareDefaultsPtrInput {
+	return (*nfsFileShareNfsFileShareDefaultsPtrType)(v)
+}
+
+func (*nfsFileShareNfsFileShareDefaultsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsFileShareNfsFileShareDefaults)(nil)).Elem()
+}
+
+func (i *nfsFileShareNfsFileShareDefaultsPtrType) ToNfsFileShareNfsFileShareDefaultsPtrOutput() NfsFileShareNfsFileShareDefaultsPtrOutput {
+	return i.ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i *nfsFileShareNfsFileShareDefaultsPtrType) ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareNfsFileShareDefaultsPtrOutput)
+}
+
+// Default values for the file and directory permissions of an NFS share. Removing this property from a template leaves the live values unchanged rather than clearing them, because the service has no reset for it: a create that omits the object leaves it absent, but the update path merges member by member keyed on the same internal sentinel that reports absence, so no request can restore that state. Set the members you want rather than relying on removal.
+type NfsFileShareNfsFileShareDefaultsOutput struct{ *pulumi.OutputState }
+
+func (NfsFileShareNfsFileShareDefaultsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShareNfsFileShareDefaults)(nil)).Elem()
+}
+
+func (o NfsFileShareNfsFileShareDefaultsOutput) ToNfsFileShareNfsFileShareDefaultsOutput() NfsFileShareNfsFileShareDefaultsOutput {
+	return o
+}
+
+func (o NfsFileShareNfsFileShareDefaultsOutput) ToNfsFileShareNfsFileShareDefaultsOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsOutput {
+	return o
+}
+
+func (o NfsFileShareNfsFileShareDefaultsOutput) ToNfsFileShareNfsFileShareDefaultsPtrOutput() NfsFileShareNfsFileShareDefaultsPtrOutput {
+	return o.ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareNfsFileShareDefaultsOutput) ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NfsFileShareNfsFileShareDefaults) *NfsFileShareNfsFileShareDefaults {
+		return &v
+	}).(NfsFileShareNfsFileShareDefaultsPtrOutput)
+}
+
+// The Unix directory mode in the form nnnn.
+func (o NfsFileShareNfsFileShareDefaultsOutput) DirectoryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.DirectoryMode }).(pulumi.StringPtrOutput)
+}
+
+// The Unix file mode in the form nnnn.
+func (o NfsFileShareNfsFileShareDefaultsOutput) FileMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.FileMode }).(pulumi.StringPtrOutput)
+}
+
+// The default group ID for files in the file share.
+func (o NfsFileShareNfsFileShareDefaultsOutput) GroupId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *int { return v.GroupId }).(pulumi.IntPtrOutput)
+}
+
+// The default owner ID for files in the file share.
+func (o NfsFileShareNfsFileShareDefaultsOutput) OwnerId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *int { return v.OwnerId }).(pulumi.IntPtrOutput)
+}
+
+type NfsFileShareNfsFileShareDefaultsPtrOutput struct{ *pulumi.OutputState }
+
+func (NfsFileShareNfsFileShareDefaultsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsFileShareNfsFileShareDefaults)(nil)).Elem()
+}
+
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) ToNfsFileShareNfsFileShareDefaultsPtrOutput() NfsFileShareNfsFileShareDefaultsPtrOutput {
+	return o
+}
+
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsPtrOutput {
+	return o
+}
+
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) Elem() NfsFileShareNfsFileShareDefaultsOutput {
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) NfsFileShareNfsFileShareDefaults {
+		if v != nil {
+			return *v
+		}
+		var ret NfsFileShareNfsFileShareDefaults
+		return ret
+	}).(NfsFileShareNfsFileShareDefaultsOutput)
+}
+
+// The Unix directory mode in the form nnnn.
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) DirectoryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DirectoryMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Unix file mode in the form nnnn.
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) FileMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The default group ID for files in the file share.
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) GroupId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The default owner ID for files in the file share.
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) OwnerId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OwnerId
+	}).(pulumi.IntPtrOutput)
+}
+
+// A key-value pair assigned to the file share.
+type NfsFileShareTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+type SmbFileShareCacheAttributes struct {
+	// How long the directory contents cached by the gateway are considered valid.
+	CacheStaleTimeoutInSeconds *int `pulumi:"cacheStaleTimeoutInSeconds"`
+}
+
+// SmbFileShareCacheAttributesInput is an input type that accepts SmbFileShareCacheAttributesArgs and SmbFileShareCacheAttributesOutput values.
+// You can construct a concrete instance of `SmbFileShareCacheAttributesInput` via:
+//
+//	SmbFileShareCacheAttributesArgs{...}
+type SmbFileShareCacheAttributesInput interface {
+	pulumi.Input
+
+	ToSmbFileShareCacheAttributesOutput() SmbFileShareCacheAttributesOutput
+	ToSmbFileShareCacheAttributesOutputWithContext(context.Context) SmbFileShareCacheAttributesOutput
+}
+
+// Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+type SmbFileShareCacheAttributesArgs struct {
+	// How long the directory contents cached by the gateway are considered valid.
+	CacheStaleTimeoutInSeconds pulumi.IntPtrInput `pulumi:"cacheStaleTimeoutInSeconds"`
+}
+
+func (SmbFileShareCacheAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShareCacheAttributes)(nil)).Elem()
+}
+
+func (i SmbFileShareCacheAttributesArgs) ToSmbFileShareCacheAttributesOutput() SmbFileShareCacheAttributesOutput {
+	return i.ToSmbFileShareCacheAttributesOutputWithContext(context.Background())
+}
+
+func (i SmbFileShareCacheAttributesArgs) ToSmbFileShareCacheAttributesOutputWithContext(ctx context.Context) SmbFileShareCacheAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareCacheAttributesOutput)
+}
+
+func (i SmbFileShareCacheAttributesArgs) ToSmbFileShareCacheAttributesPtrOutput() SmbFileShareCacheAttributesPtrOutput {
+	return i.ToSmbFileShareCacheAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i SmbFileShareCacheAttributesArgs) ToSmbFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) SmbFileShareCacheAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareCacheAttributesOutput).ToSmbFileShareCacheAttributesPtrOutputWithContext(ctx)
+}
+
+// SmbFileShareCacheAttributesPtrInput is an input type that accepts SmbFileShareCacheAttributesArgs, SmbFileShareCacheAttributesPtr and SmbFileShareCacheAttributesPtrOutput values.
+// You can construct a concrete instance of `SmbFileShareCacheAttributesPtrInput` via:
+//
+//	        SmbFileShareCacheAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SmbFileShareCacheAttributesPtrInput interface {
+	pulumi.Input
+
+	ToSmbFileShareCacheAttributesPtrOutput() SmbFileShareCacheAttributesPtrOutput
+	ToSmbFileShareCacheAttributesPtrOutputWithContext(context.Context) SmbFileShareCacheAttributesPtrOutput
+}
+
+type smbFileShareCacheAttributesPtrType SmbFileShareCacheAttributesArgs
+
+func SmbFileShareCacheAttributesPtr(v *SmbFileShareCacheAttributesArgs) SmbFileShareCacheAttributesPtrInput {
+	return (*smbFileShareCacheAttributesPtrType)(v)
+}
+
+func (*smbFileShareCacheAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbFileShareCacheAttributes)(nil)).Elem()
+}
+
+func (i *smbFileShareCacheAttributesPtrType) ToSmbFileShareCacheAttributesPtrOutput() SmbFileShareCacheAttributesPtrOutput {
+	return i.ToSmbFileShareCacheAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *smbFileShareCacheAttributesPtrType) ToSmbFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) SmbFileShareCacheAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareCacheAttributesPtrOutput)
+}
+
+// Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+type SmbFileShareCacheAttributesOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareCacheAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShareCacheAttributes)(nil)).Elem()
+}
+
+func (o SmbFileShareCacheAttributesOutput) ToSmbFileShareCacheAttributesOutput() SmbFileShareCacheAttributesOutput {
+	return o
+}
+
+func (o SmbFileShareCacheAttributesOutput) ToSmbFileShareCacheAttributesOutputWithContext(ctx context.Context) SmbFileShareCacheAttributesOutput {
+	return o
+}
+
+func (o SmbFileShareCacheAttributesOutput) ToSmbFileShareCacheAttributesPtrOutput() SmbFileShareCacheAttributesPtrOutput {
+	return o.ToSmbFileShareCacheAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareCacheAttributesOutput) ToSmbFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) SmbFileShareCacheAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmbFileShareCacheAttributes) *SmbFileShareCacheAttributes {
+		return &v
+	}).(SmbFileShareCacheAttributesPtrOutput)
+}
+
+// How long the directory contents cached by the gateway are considered valid.
+func (o SmbFileShareCacheAttributesOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SmbFileShareCacheAttributes) *int { return v.CacheStaleTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type SmbFileShareCacheAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareCacheAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbFileShareCacheAttributes)(nil)).Elem()
+}
+
+func (o SmbFileShareCacheAttributesPtrOutput) ToSmbFileShareCacheAttributesPtrOutput() SmbFileShareCacheAttributesPtrOutput {
+	return o
+}
+
+func (o SmbFileShareCacheAttributesPtrOutput) ToSmbFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) SmbFileShareCacheAttributesPtrOutput {
+	return o
+}
+
+func (o SmbFileShareCacheAttributesPtrOutput) Elem() SmbFileShareCacheAttributesOutput {
+	return o.ApplyT(func(v *SmbFileShareCacheAttributes) SmbFileShareCacheAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret SmbFileShareCacheAttributes
+		return ret
+	}).(SmbFileShareCacheAttributesOutput)
+}
+
+// How long the directory contents cached by the gateway are considered valid.
+func (o SmbFileShareCacheAttributesPtrOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SmbFileShareCacheAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CacheStaleTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// A key-value pair assigned to the file share.
+type SmbFileShareTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
 
 type TapePoolTag struct {
 	// The tag key.
@@ -32,4 +525,16 @@ type VolumeTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareCacheAttributesInput)(nil)).Elem(), NfsFileShareCacheAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareCacheAttributesPtrInput)(nil)).Elem(), NfsFileShareCacheAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareNfsFileShareDefaultsInput)(nil)).Elem(), NfsFileShareNfsFileShareDefaultsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareNfsFileShareDefaultsPtrInput)(nil)).Elem(), NfsFileShareNfsFileShareDefaultsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareCacheAttributesInput)(nil)).Elem(), SmbFileShareCacheAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareCacheAttributesPtrInput)(nil)).Elem(), SmbFileShareCacheAttributesArgs{})
+	pulumi.RegisterOutputType(NfsFileShareCacheAttributesOutput{})
+	pulumi.RegisterOutputType(NfsFileShareCacheAttributesPtrOutput{})
+	pulumi.RegisterOutputType(NfsFileShareNfsFileShareDefaultsOutput{})
+	pulumi.RegisterOutputType(NfsFileShareNfsFileShareDefaultsPtrOutput{})
+	pulumi.RegisterOutputType(SmbFileShareCacheAttributesOutput{})
+	pulumi.RegisterOutputType(SmbFileShareCacheAttributesPtrOutput{})
 }

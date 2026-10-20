@@ -1170,9 +1170,289 @@ func (o ServiceEffectivePolicyValuesPtrOutput) MultiRegionRto() ServiceTargetSou
 	}).(ServiceTargetSourcePtrOutput)
 }
 
+// Kubernetes label selector that scopes discovery to matching objects in the specified namespaces. An object must satisfy both MatchLabels and MatchExpressions. Specify at least one of them; a selector carrying neither is treated as though no selector were supplied, and all supported objects in the specified namespaces are discovered.
+type ServiceEksLabelSelector struct {
+	// Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+	MatchExpressions []ServiceEksLabelSelectorRequirement `pulumi:"matchExpressions"`
+	// Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+	MatchLabels map[string]string `pulumi:"matchLabels"`
+}
+
+// ServiceEksLabelSelectorInput is an input type that accepts ServiceEksLabelSelectorArgs and ServiceEksLabelSelectorOutput values.
+// You can construct a concrete instance of `ServiceEksLabelSelectorInput` via:
+//
+//	ServiceEksLabelSelectorArgs{...}
+type ServiceEksLabelSelectorInput interface {
+	pulumi.Input
+
+	ToServiceEksLabelSelectorOutput() ServiceEksLabelSelectorOutput
+	ToServiceEksLabelSelectorOutputWithContext(context.Context) ServiceEksLabelSelectorOutput
+}
+
+// Kubernetes label selector that scopes discovery to matching objects in the specified namespaces. An object must satisfy both MatchLabels and MatchExpressions. Specify at least one of them; a selector carrying neither is treated as though no selector were supplied, and all supported objects in the specified namespaces are discovered.
+type ServiceEksLabelSelectorArgs struct {
+	// Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+	MatchExpressions ServiceEksLabelSelectorRequirementArrayInput `pulumi:"matchExpressions"`
+	// Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+	MatchLabels pulumi.StringMapInput `pulumi:"matchLabels"`
+}
+
+func (ServiceEksLabelSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEksLabelSelector)(nil)).Elem()
+}
+
+func (i ServiceEksLabelSelectorArgs) ToServiceEksLabelSelectorOutput() ServiceEksLabelSelectorOutput {
+	return i.ToServiceEksLabelSelectorOutputWithContext(context.Background())
+}
+
+func (i ServiceEksLabelSelectorArgs) ToServiceEksLabelSelectorOutputWithContext(ctx context.Context) ServiceEksLabelSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEksLabelSelectorOutput)
+}
+
+func (i ServiceEksLabelSelectorArgs) ToServiceEksLabelSelectorPtrOutput() ServiceEksLabelSelectorPtrOutput {
+	return i.ToServiceEksLabelSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEksLabelSelectorArgs) ToServiceEksLabelSelectorPtrOutputWithContext(ctx context.Context) ServiceEksLabelSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEksLabelSelectorOutput).ToServiceEksLabelSelectorPtrOutputWithContext(ctx)
+}
+
+// ServiceEksLabelSelectorPtrInput is an input type that accepts ServiceEksLabelSelectorArgs, ServiceEksLabelSelectorPtr and ServiceEksLabelSelectorPtrOutput values.
+// You can construct a concrete instance of `ServiceEksLabelSelectorPtrInput` via:
+//
+//	        ServiceEksLabelSelectorArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceEksLabelSelectorPtrInput interface {
+	pulumi.Input
+
+	ToServiceEksLabelSelectorPtrOutput() ServiceEksLabelSelectorPtrOutput
+	ToServiceEksLabelSelectorPtrOutputWithContext(context.Context) ServiceEksLabelSelectorPtrOutput
+}
+
+type serviceEksLabelSelectorPtrType ServiceEksLabelSelectorArgs
+
+func ServiceEksLabelSelectorPtr(v *ServiceEksLabelSelectorArgs) ServiceEksLabelSelectorPtrInput {
+	return (*serviceEksLabelSelectorPtrType)(v)
+}
+
+func (*serviceEksLabelSelectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEksLabelSelector)(nil)).Elem()
+}
+
+func (i *serviceEksLabelSelectorPtrType) ToServiceEksLabelSelectorPtrOutput() ServiceEksLabelSelectorPtrOutput {
+	return i.ToServiceEksLabelSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEksLabelSelectorPtrType) ToServiceEksLabelSelectorPtrOutputWithContext(ctx context.Context) ServiceEksLabelSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEksLabelSelectorPtrOutput)
+}
+
+// Kubernetes label selector that scopes discovery to matching objects in the specified namespaces. An object must satisfy both MatchLabels and MatchExpressions. Specify at least one of them; a selector carrying neither is treated as though no selector were supplied, and all supported objects in the specified namespaces are discovered.
+type ServiceEksLabelSelectorOutput struct{ *pulumi.OutputState }
+
+func (ServiceEksLabelSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEksLabelSelector)(nil)).Elem()
+}
+
+func (o ServiceEksLabelSelectorOutput) ToServiceEksLabelSelectorOutput() ServiceEksLabelSelectorOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorOutput) ToServiceEksLabelSelectorOutputWithContext(ctx context.Context) ServiceEksLabelSelectorOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorOutput) ToServiceEksLabelSelectorPtrOutput() ServiceEksLabelSelectorPtrOutput {
+	return o.ToServiceEksLabelSelectorPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEksLabelSelectorOutput) ToServiceEksLabelSelectorPtrOutputWithContext(ctx context.Context) ServiceEksLabelSelectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEksLabelSelector) *ServiceEksLabelSelector {
+		return &v
+	}).(ServiceEksLabelSelectorPtrOutput)
+}
+
+// Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+func (o ServiceEksLabelSelectorOutput) MatchExpressions() ServiceEksLabelSelectorRequirementArrayOutput {
+	return o.ApplyT(func(v ServiceEksLabelSelector) []ServiceEksLabelSelectorRequirement { return v.MatchExpressions }).(ServiceEksLabelSelectorRequirementArrayOutput)
+}
+
+// Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+func (o ServiceEksLabelSelectorOutput) MatchLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceEksLabelSelector) map[string]string { return v.MatchLabels }).(pulumi.StringMapOutput)
+}
+
+type ServiceEksLabelSelectorPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEksLabelSelectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEksLabelSelector)(nil)).Elem()
+}
+
+func (o ServiceEksLabelSelectorPtrOutput) ToServiceEksLabelSelectorPtrOutput() ServiceEksLabelSelectorPtrOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorPtrOutput) ToServiceEksLabelSelectorPtrOutputWithContext(ctx context.Context) ServiceEksLabelSelectorPtrOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorPtrOutput) Elem() ServiceEksLabelSelectorOutput {
+	return o.ApplyT(func(v *ServiceEksLabelSelector) ServiceEksLabelSelector {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEksLabelSelector
+		return ret
+	}).(ServiceEksLabelSelectorOutput)
+}
+
+// Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+func (o ServiceEksLabelSelectorPtrOutput) MatchExpressions() ServiceEksLabelSelectorRequirementArrayOutput {
+	return o.ApplyT(func(v *ServiceEksLabelSelector) []ServiceEksLabelSelectorRequirement {
+		if v == nil {
+			return nil
+		}
+		return v.MatchExpressions
+	}).(ServiceEksLabelSelectorRequirementArrayOutput)
+}
+
+// Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+func (o ServiceEksLabelSelectorPtrOutput) MatchLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceEksLabelSelector) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchLabels
+	}).(pulumi.StringMapOutput)
+}
+
+// A single label selector requirement. Specify Values when Operator is IN or NOT_IN, and omit Values when Operator is EXISTS or DOES_NOT_EXIST.
+type ServiceEksLabelSelectorRequirement struct {
+	// Label key the requirement applies to.
+	Key string `pulumi:"key"`
+	// Operator applied to the label key.
+	Operator ServiceEksLabelSelectorRequirementOperator `pulumi:"operator"`
+	// Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+	Values []string `pulumi:"values"`
+}
+
+// ServiceEksLabelSelectorRequirementInput is an input type that accepts ServiceEksLabelSelectorRequirementArgs and ServiceEksLabelSelectorRequirementOutput values.
+// You can construct a concrete instance of `ServiceEksLabelSelectorRequirementInput` via:
+//
+//	ServiceEksLabelSelectorRequirementArgs{...}
+type ServiceEksLabelSelectorRequirementInput interface {
+	pulumi.Input
+
+	ToServiceEksLabelSelectorRequirementOutput() ServiceEksLabelSelectorRequirementOutput
+	ToServiceEksLabelSelectorRequirementOutputWithContext(context.Context) ServiceEksLabelSelectorRequirementOutput
+}
+
+// A single label selector requirement. Specify Values when Operator is IN or NOT_IN, and omit Values when Operator is EXISTS or DOES_NOT_EXIST.
+type ServiceEksLabelSelectorRequirementArgs struct {
+	// Label key the requirement applies to.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Operator applied to the label key.
+	Operator ServiceEksLabelSelectorRequirementOperatorInput `pulumi:"operator"`
+	// Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ServiceEksLabelSelectorRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEksLabelSelectorRequirement)(nil)).Elem()
+}
+
+func (i ServiceEksLabelSelectorRequirementArgs) ToServiceEksLabelSelectorRequirementOutput() ServiceEksLabelSelectorRequirementOutput {
+	return i.ToServiceEksLabelSelectorRequirementOutputWithContext(context.Background())
+}
+
+func (i ServiceEksLabelSelectorRequirementArgs) ToServiceEksLabelSelectorRequirementOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEksLabelSelectorRequirementOutput)
+}
+
+// ServiceEksLabelSelectorRequirementArrayInput is an input type that accepts ServiceEksLabelSelectorRequirementArray and ServiceEksLabelSelectorRequirementArrayOutput values.
+// You can construct a concrete instance of `ServiceEksLabelSelectorRequirementArrayInput` via:
+//
+//	ServiceEksLabelSelectorRequirementArray{ ServiceEksLabelSelectorRequirementArgs{...} }
+type ServiceEksLabelSelectorRequirementArrayInput interface {
+	pulumi.Input
+
+	ToServiceEksLabelSelectorRequirementArrayOutput() ServiceEksLabelSelectorRequirementArrayOutput
+	ToServiceEksLabelSelectorRequirementArrayOutputWithContext(context.Context) ServiceEksLabelSelectorRequirementArrayOutput
+}
+
+type ServiceEksLabelSelectorRequirementArray []ServiceEksLabelSelectorRequirementInput
+
+func (ServiceEksLabelSelectorRequirementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEksLabelSelectorRequirement)(nil)).Elem()
+}
+
+func (i ServiceEksLabelSelectorRequirementArray) ToServiceEksLabelSelectorRequirementArrayOutput() ServiceEksLabelSelectorRequirementArrayOutput {
+	return i.ToServiceEksLabelSelectorRequirementArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEksLabelSelectorRequirementArray) ToServiceEksLabelSelectorRequirementArrayOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEksLabelSelectorRequirementArrayOutput)
+}
+
+// A single label selector requirement. Specify Values when Operator is IN or NOT_IN, and omit Values when Operator is EXISTS or DOES_NOT_EXIST.
+type ServiceEksLabelSelectorRequirementOutput struct{ *pulumi.OutputState }
+
+func (ServiceEksLabelSelectorRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEksLabelSelectorRequirement)(nil)).Elem()
+}
+
+func (o ServiceEksLabelSelectorRequirementOutput) ToServiceEksLabelSelectorRequirementOutput() ServiceEksLabelSelectorRequirementOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorRequirementOutput) ToServiceEksLabelSelectorRequirementOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementOutput {
+	return o
+}
+
+// Label key the requirement applies to.
+func (o ServiceEksLabelSelectorRequirementOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEksLabelSelectorRequirement) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Operator applied to the label key.
+func (o ServiceEksLabelSelectorRequirementOutput) Operator() ServiceEksLabelSelectorRequirementOperatorOutput {
+	return o.ApplyT(func(v ServiceEksLabelSelectorRequirement) ServiceEksLabelSelectorRequirementOperator {
+		return v.Operator
+	}).(ServiceEksLabelSelectorRequirementOperatorOutput)
+}
+
+// Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+func (o ServiceEksLabelSelectorRequirementOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceEksLabelSelectorRequirement) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ServiceEksLabelSelectorRequirementArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEksLabelSelectorRequirementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEksLabelSelectorRequirement)(nil)).Elem()
+}
+
+func (o ServiceEksLabelSelectorRequirementArrayOutput) ToServiceEksLabelSelectorRequirementArrayOutput() ServiceEksLabelSelectorRequirementArrayOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorRequirementArrayOutput) ToServiceEksLabelSelectorRequirementArrayOutputWithContext(ctx context.Context) ServiceEksLabelSelectorRequirementArrayOutput {
+	return o
+}
+
+func (o ServiceEksLabelSelectorRequirementArrayOutput) Index(i pulumi.IntInput) ServiceEksLabelSelectorRequirementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEksLabelSelectorRequirement {
+		return vs[0].([]ServiceEksLabelSelectorRequirement)[vs[1].(int)]
+	}).(ServiceEksLabelSelectorRequirementOutput)
+}
+
 type ServiceEksSource struct {
 	// ARN of the EKS cluster.
-	ClusterArn string `pulumi:"clusterArn"`
+	ClusterArn    string                   `pulumi:"clusterArn"`
+	LabelSelector *ServiceEksLabelSelector `pulumi:"labelSelector"`
 	// EKS namespaces.
 	Namespaces []string `pulumi:"namespaces"`
 }
@@ -1190,7 +1470,8 @@ type ServiceEksSourceInput interface {
 
 type ServiceEksSourceArgs struct {
 	// ARN of the EKS cluster.
-	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	ClusterArn    pulumi.StringInput              `pulumi:"clusterArn"`
+	LabelSelector ServiceEksLabelSelectorPtrInput `pulumi:"labelSelector"`
 	// EKS namespaces.
 	Namespaces pulumi.StringArrayInput `pulumi:"namespaces"`
 }
@@ -1277,6 +1558,10 @@ func (o ServiceEksSourceOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEksSource) string { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
+func (o ServiceEksSourceOutput) LabelSelector() ServiceEksLabelSelectorPtrOutput {
+	return o.ApplyT(func(v ServiceEksSource) *ServiceEksLabelSelector { return v.LabelSelector }).(ServiceEksLabelSelectorPtrOutput)
+}
+
 // EKS namespaces.
 func (o ServiceEksSourceOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceEksSource) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
@@ -1314,6 +1599,15 @@ func (o ServiceEksSourcePtrOutput) ClusterArn() pulumi.StringPtrOutput {
 		}
 		return &v.ClusterArn
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEksSourcePtrOutput) LabelSelector() ServiceEksLabelSelectorPtrOutput {
+	return o.ApplyT(func(v *ServiceEksSource) *ServiceEksLabelSelector {
+		if v == nil {
+			return nil
+		}
+		return v.LabelSelector
+	}).(ServiceEksLabelSelectorPtrOutput)
 }
 
 // EKS namespaces.
@@ -2336,6 +2630,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAssociatedSystemArrayInput)(nil)).Elem(), ServiceAssociatedSystemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCrossAccountRoleConfigurationInput)(nil)).Elem(), ServiceCrossAccountRoleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCrossAccountRoleConfigurationArrayInput)(nil)).Elem(), ServiceCrossAccountRoleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksLabelSelectorInput)(nil)).Elem(), ServiceEksLabelSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksLabelSelectorPtrInput)(nil)).Elem(), ServiceEksLabelSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksLabelSelectorRequirementInput)(nil)).Elem(), ServiceEksLabelSelectorRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksLabelSelectorRequirementArrayInput)(nil)).Elem(), ServiceEksLabelSelectorRequirementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksSourceInput)(nil)).Elem(), ServiceEksSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksSourcePtrInput)(nil)).Elem(), ServiceEksSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInputSourceDefinitionInput)(nil)).Elem(), ServiceInputSourceDefinitionArgs{})
@@ -2369,6 +2667,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDisasterRecoverySourcePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEffectivePolicyValuesOutput{})
 	pulumi.RegisterOutputType(ServiceEffectivePolicyValuesPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEksLabelSelectorOutput{})
+	pulumi.RegisterOutputType(ServiceEksLabelSelectorPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEksLabelSelectorRequirementOutput{})
+	pulumi.RegisterOutputType(ServiceEksLabelSelectorRequirementArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEksSourceOutput{})
 	pulumi.RegisterOutputType(ServiceEksSourcePtrOutput{})
 	pulumi.RegisterOutputType(ServiceInputSourceDefinitionOutput{})

@@ -180,6 +180,174 @@ func (in *customDbEngineVersionStatusPtr) ToCustomDbEngineVersionStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(CustomDbEngineVersionStatusPtrOutput)
 }
 
+// The type of the custom endpoint.
+type DbClusterEndpointCustomEndpointType string
+
+const (
+	DbClusterEndpointCustomEndpointTypeReader = DbClusterEndpointCustomEndpointType("READER")
+	DbClusterEndpointCustomEndpointTypeWriter = DbClusterEndpointCustomEndpointType("WRITER")
+	DbClusterEndpointCustomEndpointTypeAny    = DbClusterEndpointCustomEndpointType("ANY")
+)
+
+func (DbClusterEndpointCustomEndpointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterEndpointCustomEndpointType)(nil)).Elem()
+}
+
+func (e DbClusterEndpointCustomEndpointType) ToDbClusterEndpointCustomEndpointTypeOutput() DbClusterEndpointCustomEndpointTypeOutput {
+	return pulumi.ToOutput(e).(DbClusterEndpointCustomEndpointTypeOutput)
+}
+
+func (e DbClusterEndpointCustomEndpointType) ToDbClusterEndpointCustomEndpointTypeOutputWithContext(ctx context.Context) DbClusterEndpointCustomEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbClusterEndpointCustomEndpointTypeOutput)
+}
+
+func (e DbClusterEndpointCustomEndpointType) ToDbClusterEndpointCustomEndpointTypePtrOutput() DbClusterEndpointCustomEndpointTypePtrOutput {
+	return e.ToDbClusterEndpointCustomEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (e DbClusterEndpointCustomEndpointType) ToDbClusterEndpointCustomEndpointTypePtrOutputWithContext(ctx context.Context) DbClusterEndpointCustomEndpointTypePtrOutput {
+	return DbClusterEndpointCustomEndpointType(e).ToDbClusterEndpointCustomEndpointTypeOutputWithContext(ctx).ToDbClusterEndpointCustomEndpointTypePtrOutputWithContext(ctx)
+}
+
+func (e DbClusterEndpointCustomEndpointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbClusterEndpointCustomEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbClusterEndpointCustomEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DbClusterEndpointCustomEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DbClusterEndpointCustomEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (DbClusterEndpointCustomEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterEndpointCustomEndpointType)(nil)).Elem()
+}
+
+func (o DbClusterEndpointCustomEndpointTypeOutput) ToDbClusterEndpointCustomEndpointTypeOutput() DbClusterEndpointCustomEndpointTypeOutput {
+	return o
+}
+
+func (o DbClusterEndpointCustomEndpointTypeOutput) ToDbClusterEndpointCustomEndpointTypeOutputWithContext(ctx context.Context) DbClusterEndpointCustomEndpointTypeOutput {
+	return o
+}
+
+func (o DbClusterEndpointCustomEndpointTypeOutput) ToDbClusterEndpointCustomEndpointTypePtrOutput() DbClusterEndpointCustomEndpointTypePtrOutput {
+	return o.ToDbClusterEndpointCustomEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o DbClusterEndpointCustomEndpointTypeOutput) ToDbClusterEndpointCustomEndpointTypePtrOutputWithContext(ctx context.Context) DbClusterEndpointCustomEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterEndpointCustomEndpointType) *DbClusterEndpointCustomEndpointType {
+		return &v
+	}).(DbClusterEndpointCustomEndpointTypePtrOutput)
+}
+
+func (o DbClusterEndpointCustomEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DbClusterEndpointCustomEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbClusterEndpointCustomEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DbClusterEndpointCustomEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbClusterEndpointCustomEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbClusterEndpointCustomEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DbClusterEndpointCustomEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DbClusterEndpointCustomEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterEndpointCustomEndpointType)(nil)).Elem()
+}
+
+func (o DbClusterEndpointCustomEndpointTypePtrOutput) ToDbClusterEndpointCustomEndpointTypePtrOutput() DbClusterEndpointCustomEndpointTypePtrOutput {
+	return o
+}
+
+func (o DbClusterEndpointCustomEndpointTypePtrOutput) ToDbClusterEndpointCustomEndpointTypePtrOutputWithContext(ctx context.Context) DbClusterEndpointCustomEndpointTypePtrOutput {
+	return o
+}
+
+func (o DbClusterEndpointCustomEndpointTypePtrOutput) Elem() DbClusterEndpointCustomEndpointTypeOutput {
+	return o.ApplyT(func(v *DbClusterEndpointCustomEndpointType) DbClusterEndpointCustomEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret DbClusterEndpointCustomEndpointType
+		return ret
+	}).(DbClusterEndpointCustomEndpointTypeOutput)
+}
+
+func (o DbClusterEndpointCustomEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbClusterEndpointCustomEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbClusterEndpointCustomEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DbClusterEndpointCustomEndpointTypeInput is an input type that accepts values of the DbClusterEndpointCustomEndpointType enum
+// A concrete instance of `DbClusterEndpointCustomEndpointTypeInput` can be one of the following:
+//
+//	DbClusterEndpointCustomEndpointTypeReader
+//	DbClusterEndpointCustomEndpointTypeWriter
+//	DbClusterEndpointCustomEndpointTypeAny
+type DbClusterEndpointCustomEndpointTypeInput interface {
+	pulumi.Input
+
+	ToDbClusterEndpointCustomEndpointTypeOutput() DbClusterEndpointCustomEndpointTypeOutput
+	ToDbClusterEndpointCustomEndpointTypeOutputWithContext(context.Context) DbClusterEndpointCustomEndpointTypeOutput
+}
+
+var dbClusterEndpointCustomEndpointTypePtrType = reflect.TypeOf((**DbClusterEndpointCustomEndpointType)(nil)).Elem()
+
+type DbClusterEndpointCustomEndpointTypePtrInput interface {
+	pulumi.Input
+
+	ToDbClusterEndpointCustomEndpointTypePtrOutput() DbClusterEndpointCustomEndpointTypePtrOutput
+	ToDbClusterEndpointCustomEndpointTypePtrOutputWithContext(context.Context) DbClusterEndpointCustomEndpointTypePtrOutput
+}
+
+type dbClusterEndpointCustomEndpointTypePtr string
+
+func DbClusterEndpointCustomEndpointTypePtr(v string) DbClusterEndpointCustomEndpointTypePtrInput {
+	return (*dbClusterEndpointCustomEndpointTypePtr)(&v)
+}
+
+func (*dbClusterEndpointCustomEndpointTypePtr) ElementType() reflect.Type {
+	return dbClusterEndpointCustomEndpointTypePtrType
+}
+
+func (in *dbClusterEndpointCustomEndpointTypePtr) ToDbClusterEndpointCustomEndpointTypePtrOutput() DbClusterEndpointCustomEndpointTypePtrOutput {
+	return pulumi.ToOutput(in).(DbClusterEndpointCustomEndpointTypePtrOutput)
+}
+
+func (in *dbClusterEndpointCustomEndpointTypePtr) ToDbClusterEndpointCustomEndpointTypePtrOutputWithContext(ctx context.Context) DbClusterEndpointCustomEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbClusterEndpointCustomEndpointTypePtrOutput)
+}
+
 // The name of the processor feature. Valid names are “coreCount“ and “threadsPerCore“.
 type DbInstanceProcessorFeatureName string
 
@@ -2188,6 +2356,8 @@ func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutputWithContext(ctx 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDbEngineVersionStatusInput)(nil)).Elem(), CustomDbEngineVersionStatus("available"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDbEngineVersionStatusPtrInput)(nil)).Elem(), CustomDbEngineVersionStatus("available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterEndpointCustomEndpointTypeInput)(nil)).Elem(), DbClusterEndpointCustomEndpointType("READER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterEndpointCustomEndpointTypePtrInput)(nil)).Elem(), DbClusterEndpointCustomEndpointType("READER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceProcessorFeatureNameInput)(nil)).Elem(), DbInstanceProcessorFeatureName("coreCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceProcessorFeatureNamePtrInput)(nil)).Elem(), DbInstanceProcessorFeatureName("coreCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatAuthSchemeInput)(nil)).Elem(), DbProxyAuthFormatAuthScheme("SECRETS"))
@@ -2214,6 +2384,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEnginePtrInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
 	pulumi.RegisterOutputType(CustomDbEngineVersionStatusOutput{})
 	pulumi.RegisterOutputType(CustomDbEngineVersionStatusPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterEndpointCustomEndpointTypeOutput{})
+	pulumi.RegisterOutputType(DbClusterEndpointCustomEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(DbInstanceProcessorFeatureNameOutput{})
 	pulumi.RegisterOutputType(DbInstanceProcessorFeatureNamePtrOutput{})
 	pulumi.RegisterOutputType(DbProxyAuthFormatAuthSchemeOutput{})

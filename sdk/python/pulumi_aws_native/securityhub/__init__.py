@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .action_target import *
 from .aggregator_v2 import *
 from .automation_rule import *
 from .automation_rule_v2 import *
@@ -15,6 +16,7 @@ from .connector import *
 from .connector_v2 import *
 from .delegated_admin import *
 from .finding_aggregator import *
+from .get_action_target import *
 from .get_aggregator_v2 import *
 from .get_automation_rule import *
 from .get_automation_rule_v2 import *

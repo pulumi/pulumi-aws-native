@@ -46,7 +46,7 @@ export class DataProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dataProviderCreationTime: pulumi.Output<string>;
     /**
-     * The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+     * [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
      */
     declare public readonly dataProviderIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -124,7 +124,7 @@ export class DataProvider extends pulumi.CustomResource {
  */
 export interface DataProviderArgs {
     /**
-     * The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+     * [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
      */
     dataProviderIdentifier?: pulumi.Input<string | undefined>;
     /**

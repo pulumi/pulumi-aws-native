@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+// Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 func LookupCloudFormationProvisionedProduct(ctx *pulumi.Context, args *LookupCloudFormationProvisionedProductArgs, opts ...pulumi.InvokeOption) (*LookupCloudFormationProvisionedProductResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCloudFormationProvisionedProductResult

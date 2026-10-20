@@ -44,7 +44,7 @@ export class MigrationProject extends pulumi.CustomResource {
     /**
      * The property describes an instance profile arn for the migration project. For read
      */
-    declare public readonly instanceProfileArn: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly instanceProfileArn: pulumi.Output<string>;
     /**
      * The property describes an instance profile identifier for the migration project. For create
      */
@@ -52,7 +52,7 @@ export class MigrationProject extends pulumi.CustomResource {
     /**
      * The property describes an instance profile name for the migration project. For read
      */
-    declare public readonly instanceProfileName: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly instanceProfileName: pulumi.Output<string>;
     /**
      * The property describes an ARN of the migration project.
      */
@@ -60,9 +60,9 @@ export class MigrationProject extends pulumi.CustomResource {
     /**
      * The property describes a creating time of the migration project.
      */
-    declare public readonly migrationProjectCreationTime: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly migrationProjectCreationTime: pulumi.Output<string>;
     /**
-     * The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+     * [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
      */
     declare public readonly migrationProjectIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -102,10 +102,7 @@ export class MigrationProject extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args?.description;
-            resourceInputs["instanceProfileArn"] = args?.instanceProfileArn;
             resourceInputs["instanceProfileIdentifier"] = args?.instanceProfileIdentifier;
-            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
-            resourceInputs["migrationProjectCreationTime"] = args?.migrationProjectCreationTime;
             resourceInputs["migrationProjectIdentifier"] = args?.migrationProjectIdentifier;
             resourceInputs["migrationProjectName"] = args?.migrationProjectName;
             resourceInputs["schemaConversionApplicationAttributes"] = args?.schemaConversionApplicationAttributes;
@@ -113,7 +110,10 @@ export class MigrationProject extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["targetDataProviderDescriptors"] = args?.targetDataProviderDescriptors;
             resourceInputs["transformationRules"] = args?.transformationRules;
+            resourceInputs["instanceProfileArn"] = undefined /*out*/;
+            resourceInputs["instanceProfileName"] = undefined /*out*/;
             resourceInputs["migrationProjectArn"] = undefined /*out*/;
+            resourceInputs["migrationProjectCreationTime"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["instanceProfileArn"] = undefined /*out*/;
@@ -143,23 +143,11 @@ export interface MigrationProjectArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The property describes an instance profile arn for the migration project. For read
-     */
-    instanceProfileArn?: pulumi.Input<string | undefined>;
-    /**
      * The property describes an instance profile identifier for the migration project. For create
      */
     instanceProfileIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The property describes an instance profile name for the migration project. For read
-     */
-    instanceProfileName?: pulumi.Input<string | undefined>;
-    /**
-     * The property describes a creating time of the migration project.
-     */
-    migrationProjectCreationTime?: pulumi.Input<string | undefined>;
-    /**
-     * The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+     * [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
      */
     migrationProjectIdentifier?: pulumi.Input<string | undefined>;
     /**

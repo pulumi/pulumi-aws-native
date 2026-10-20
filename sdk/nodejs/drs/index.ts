@@ -10,6 +10,11 @@ export const getLaunchConfigurationTemplate: typeof import("./getLaunchConfigura
 export const getLaunchConfigurationTemplateOutput: typeof import("./getLaunchConfigurationTemplate").getLaunchConfigurationTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getLaunchConfigurationTemplate","getLaunchConfigurationTemplateOutput"], () => require("./getLaunchConfigurationTemplate"));
 
+export { GetRecoveryPlanArgs, GetRecoveryPlanResult, GetRecoveryPlanOutputArgs } from "./getRecoveryPlan";
+export const getRecoveryPlan: typeof import("./getRecoveryPlan").getRecoveryPlan = null as any;
+export const getRecoveryPlanOutput: typeof import("./getRecoveryPlan").getRecoveryPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getRecoveryPlan","getRecoveryPlanOutput"], () => require("./getRecoveryPlan"));
+
 export { GetReplicationConfigurationTemplateArgs, GetReplicationConfigurationTemplateResult, GetReplicationConfigurationTemplateOutputArgs } from "./getReplicationConfigurationTemplate";
 export const getReplicationConfigurationTemplate: typeof import("./getReplicationConfigurationTemplate").getReplicationConfigurationTemplate = null as any;
 export const getReplicationConfigurationTemplateOutput: typeof import("./getReplicationConfigurationTemplate").getReplicationConfigurationTemplateOutput = null as any;
@@ -24,6 +29,11 @@ export { LaunchConfigurationTemplateArgs } from "./launchConfigurationTemplate";
 export type LaunchConfigurationTemplate = import("./launchConfigurationTemplate").LaunchConfigurationTemplate;
 export const LaunchConfigurationTemplate: typeof import("./launchConfigurationTemplate").LaunchConfigurationTemplate = null as any;
 utilities.lazyLoad(exports, ["LaunchConfigurationTemplate"], () => require("./launchConfigurationTemplate"));
+
+export { RecoveryPlanArgs } from "./recoveryPlan";
+export type RecoveryPlan = import("./recoveryPlan").RecoveryPlan;
+export const RecoveryPlan: typeof import("./recoveryPlan").RecoveryPlan = null as any;
+utilities.lazyLoad(exports, ["RecoveryPlan"], () => require("./recoveryPlan"));
 
 export { ReplicationConfigurationTemplateArgs } from "./replicationConfigurationTemplate";
 export type ReplicationConfigurationTemplate = import("./replicationConfigurationTemplate").ReplicationConfigurationTemplate;
@@ -45,6 +55,8 @@ const _module = {
         switch (type) {
             case "aws-native:drs:LaunchConfigurationTemplate":
                 return new LaunchConfigurationTemplate(name, <any>undefined, { urn })
+            case "aws-native:drs:RecoveryPlan":
+                return new RecoveryPlan(name, <any>undefined, { urn })
             case "aws-native:drs:ReplicationConfigurationTemplate":
                 return new ReplicationConfigurationTemplate(name, <any>undefined, { urn })
             case "aws-native:drs:SourceNetwork":

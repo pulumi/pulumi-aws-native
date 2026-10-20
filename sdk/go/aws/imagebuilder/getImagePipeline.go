@@ -44,7 +44,7 @@ type LookupImagePipelineResult struct {
 	ExecutionRole *string `pulumi:"executionRole"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
-	// Contains settings for vulnerability scans.
+	// Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
 	ImageScanningConfiguration *ImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The tags to be applied to images created by this pipeline.
 	ImageTags map[string]string `pulumi:"imageTags"`
@@ -132,7 +132,7 @@ func (o LookupImagePipelineResultOutput) ImageRecipeArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
 }
 
-// Contains settings for vulnerability scans.
+// Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
 func (o LookupImagePipelineResultOutput) ImageScanningConfiguration() ImagePipelineImageScanningConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) *ImagePipelineImageScanningConfiguration {
 		return v.ImageScanningConfiguration

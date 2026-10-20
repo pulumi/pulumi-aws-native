@@ -34,6 +34,8 @@ __all__ = [
     'S3AccessPointAttachmentS3AccessPointOntapConfiguration',
     'S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration',
     'S3AccessPointAttachmentS3AccessPointVpcConfiguration',
+    'StorageVirtualMachineActiveDirectoryConfiguration',
+    'StorageVirtualMachineSelfManagedActiveDirectoryConfiguration',
     'VolumeAggregateConfiguration',
     'VolumeAutocommitPeriod',
     'VolumeClientConfigurations',
@@ -767,6 +769,179 @@ class S3AccessPointAttachmentS3AccessPointVpcConfiguration(dict):
         Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class StorageVirtualMachineActiveDirectoryConfiguration(dict):
+    """
+    Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "netBiosName":
+            suggest = "net_bios_name"
+        elif key == "selfManagedActiveDirectoryConfiguration":
+            suggest = "self_managed_active_directory_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageVirtualMachineActiveDirectoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageVirtualMachineActiveDirectoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageVirtualMachineActiveDirectoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 net_bios_name: Optional[_builtins.str] = None,
+                 self_managed_active_directory_configuration: Optional['outputs.StorageVirtualMachineSelfManagedActiveDirectoryConfiguration'] = None):
+        """
+        Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
+
+        :param _builtins.str net_bios_name: The NetBIOS name of the Active Directory computer object that will be created for your SVM. Minimum values: 1. Maximum values: 15. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,255}$`
+        :param 'StorageVirtualMachineSelfManagedActiveDirectoryConfiguration' self_managed_active_directory_configuration: The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory directory.
+        """
+        if net_bios_name is not None:
+            pulumi.set(__self__, "net_bios_name", net_bios_name)
+        if self_managed_active_directory_configuration is not None:
+            pulumi.set(__self__, "self_managed_active_directory_configuration", self_managed_active_directory_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="netBiosName")
+    def net_bios_name(self) -> Optional[_builtins.str]:
+        """
+        The NetBIOS name of the Active Directory computer object that will be created for your SVM. Minimum values: 1. Maximum values: 15. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,255}$`
+        """
+        return pulumi.get(self, "net_bios_name")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedActiveDirectoryConfiguration")
+    def self_managed_active_directory_configuration(self) -> Optional['outputs.StorageVirtualMachineSelfManagedActiveDirectoryConfiguration']:
+        """
+        The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory directory.
+        """
+        return pulumi.get(self, "self_managed_active_directory_configuration")
+
+
+@pulumi.output_type
+class StorageVirtualMachineSelfManagedActiveDirectoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsIps":
+            suggest = "dns_ips"
+        elif key == "domainJoinServiceAccountSecret":
+            suggest = "domain_join_service_account_secret"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "fileSystemAdministratorsGroup":
+            suggest = "file_system_administrators_group"
+        elif key == "organizationalUnitDistinguishedName":
+            suggest = "organizational_unit_distinguished_name"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageVirtualMachineSelfManagedActiveDirectoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageVirtualMachineSelfManagedActiveDirectoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageVirtualMachineSelfManagedActiveDirectoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_ips: Optional[Sequence[_builtins.str]] = None,
+                 domain_join_service_account_secret: Optional[_builtins.str] = None,
+                 domain_name: Optional[_builtins.str] = None,
+                 file_system_administrators_group: Optional[_builtins.str] = None,
+                 organizational_unit_distinguished_name: Optional[_builtins.str] = None,
+                 password: Optional[_builtins.str] = None,
+                 user_name: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] dns_ips: A list of IP addresses of DNS servers or domain controllers in the self-managed AD directory. Minimum: 1. Maximum: 3.
+        :param _builtins.str domain_join_service_account_secret: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the self-managed Active Directory domain join service account credentials. Minimum: 64. Maximum: 1024.
+        :param _builtins.str domain_name: The fully qualified domain name of the self-managed AD directory, such as corp.example.com. Minimum: 1. Maximum: 255. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,255}$`
+        :param _builtins.str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the file system. Minimum: 1. Maximum: 256. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,256}$`
+        :param _builtins.str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory. Minimum: 1. Maximum: 2000. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,2000}$`
+        :param _builtins.str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^.{1,256}$`
+        :param _builtins.str user_name: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,256}$`
+        """
+        if dns_ips is not None:
+            pulumi.set(__self__, "dns_ips", dns_ips)
+        if domain_join_service_account_secret is not None:
+            pulumi.set(__self__, "domain_join_service_account_secret", domain_join_service_account_secret)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if file_system_administrators_group is not None:
+            pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
+        if organizational_unit_distinguished_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsIps")
+    def dns_ips(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of IP addresses of DNS servers or domain controllers in the self-managed AD directory. Minimum: 1. Maximum: 3.
+        """
+        return pulumi.get(self, "dns_ips")
+
+    @_builtins.property
+    @pulumi.getter(name="domainJoinServiceAccountSecret")
+    def domain_join_service_account_secret(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the self-managed Active Directory domain join service account credentials. Minimum: 64. Maximum: 1024.
+        """
+        return pulumi.get(self, "domain_join_service_account_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[_builtins.str]:
+        """
+        The fully qualified domain name of the self-managed AD directory, such as corp.example.com. Minimum: 1. Maximum: 255. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,255}$`
+        """
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemAdministratorsGroup")
+    def file_system_administrators_group(self) -> Optional[_builtins.str]:
+        """
+        The name of the domain group whose members are granted administrative privileges for the file system. Minimum: 1. Maximum: 256. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,256}$`
+        """
+        return pulumi.get(self, "file_system_administrators_group")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> Optional[_builtins.str]:
+        """
+        The fully qualified distinguished name of the organizational unit within your self-managed AD directory. Minimum: 1. Maximum: 2000. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,2000}$`
+        """
+        return pulumi.get(self, "organizational_unit_distinguished_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional[_builtins.str]:
+        """
+        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^.{1,256}$`
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[_builtins.str]:
+        """
+        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,256}$`
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type

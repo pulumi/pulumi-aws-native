@@ -180,6 +180,7 @@ export const BucketInventoryConfigurationOptionalFieldsItem = {
     ObjectAccessControlList: "ObjectAccessControlList",
     ObjectOwner: "ObjectOwner",
     LifecycleExpirationDate: "LifecycleExpirationDate",
+    IntelligentTieringReferenceDate: "IntelligentTieringReferenceDate",
 } as const;
 
 export type BucketInventoryConfigurationOptionalFieldsItem = (typeof BucketInventoryConfigurationOptionalFieldsItem)[keyof typeof BucketInventoryConfigurationOptionalFieldsItem];

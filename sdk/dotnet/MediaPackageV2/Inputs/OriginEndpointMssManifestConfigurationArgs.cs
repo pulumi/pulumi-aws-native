@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     public sealed class OriginEndpointMssManifestConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("filterConfiguration")]
-        public Input<Inputs.OriginEndpointFilterConfigurationArgs>? FilterConfiguration { get; set; }
+        public Input<Inputs.OriginEndpointMssFilterConfigurationArgs>? FilterConfiguration { get; set; }
 
         [Input("manifestLayout")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointMssManifestLayout>? ManifestLayout { get; set; }

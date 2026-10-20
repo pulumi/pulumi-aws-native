@@ -13,6 +13,166 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateDefaultInteractiveLayoutConfiguration struct {
+	// The options that determine the default settings of a free-form layout configuration.
+	FreeForm *TemplateDefaultFreeFormLayoutConfiguration `pulumi:"freeForm"`
+	// The options that determine the default settings for a grid layout configuration.
+	Grid *TemplateDefaultGridLayoutConfiguration `pulumi:"grid"`
+}
+
+// TemplateDefaultInteractiveLayoutConfigurationInput is an input type that accepts TemplateDefaultInteractiveLayoutConfigurationArgs and TemplateDefaultInteractiveLayoutConfigurationOutput values.
+// You can construct a concrete instance of `TemplateDefaultInteractiveLayoutConfigurationInput` via:
+//
+//	TemplateDefaultInteractiveLayoutConfigurationArgs{...}
+type TemplateDefaultInteractiveLayoutConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateDefaultInteractiveLayoutConfigurationOutput() TemplateDefaultInteractiveLayoutConfigurationOutput
+	ToTemplateDefaultInteractiveLayoutConfigurationOutputWithContext(context.Context) TemplateDefaultInteractiveLayoutConfigurationOutput
+}
+
+type TemplateDefaultInteractiveLayoutConfigurationArgs struct {
+	// The options that determine the default settings of a free-form layout configuration.
+	FreeForm TemplateDefaultFreeFormLayoutConfigurationPtrInput `pulumi:"freeForm"`
+	// The options that determine the default settings for a grid layout configuration.
+	Grid TemplateDefaultGridLayoutConfigurationPtrInput `pulumi:"grid"`
+}
+
+func (TemplateDefaultInteractiveLayoutConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDefaultInteractiveLayoutConfiguration)(nil)).Elem()
+}
+
+func (i TemplateDefaultInteractiveLayoutConfigurationArgs) ToTemplateDefaultInteractiveLayoutConfigurationOutput() TemplateDefaultInteractiveLayoutConfigurationOutput {
+	return i.ToTemplateDefaultInteractiveLayoutConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateDefaultInteractiveLayoutConfigurationArgs) ToTemplateDefaultInteractiveLayoutConfigurationOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateDefaultInteractiveLayoutConfigurationOutput)
+}
+
+func (i TemplateDefaultInteractiveLayoutConfigurationArgs) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
+	return i.ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateDefaultInteractiveLayoutConfigurationArgs) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateDefaultInteractiveLayoutConfigurationOutput).ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateDefaultInteractiveLayoutConfigurationPtrInput is an input type that accepts TemplateDefaultInteractiveLayoutConfigurationArgs, TemplateDefaultInteractiveLayoutConfigurationPtr and TemplateDefaultInteractiveLayoutConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateDefaultInteractiveLayoutConfigurationPtrInput` via:
+//
+//	        TemplateDefaultInteractiveLayoutConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateDefaultInteractiveLayoutConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput
+	ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput
+}
+
+type templateDefaultInteractiveLayoutConfigurationPtrType TemplateDefaultInteractiveLayoutConfigurationArgs
+
+func TemplateDefaultInteractiveLayoutConfigurationPtr(v *TemplateDefaultInteractiveLayoutConfigurationArgs) TemplateDefaultInteractiveLayoutConfigurationPtrInput {
+	return (*templateDefaultInteractiveLayoutConfigurationPtrType)(v)
+}
+
+func (*templateDefaultInteractiveLayoutConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDefaultInteractiveLayoutConfiguration)(nil)).Elem()
+}
+
+func (i *templateDefaultInteractiveLayoutConfigurationPtrType) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
+	return i.ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateDefaultInteractiveLayoutConfigurationPtrType) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateDefaultInteractiveLayoutConfigurationPtrOutput)
+}
+
+type TemplateDefaultInteractiveLayoutConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateDefaultInteractiveLayoutConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDefaultInteractiveLayoutConfiguration)(nil)).Elem()
+}
+
+func (o TemplateDefaultInteractiveLayoutConfigurationOutput) ToTemplateDefaultInteractiveLayoutConfigurationOutput() TemplateDefaultInteractiveLayoutConfigurationOutput {
+	return o
+}
+
+func (o TemplateDefaultInteractiveLayoutConfigurationOutput) ToTemplateDefaultInteractiveLayoutConfigurationOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationOutput {
+	return o
+}
+
+func (o TemplateDefaultInteractiveLayoutConfigurationOutput) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
+	return o.ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDefaultInteractiveLayoutConfigurationOutput) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultInteractiveLayoutConfiguration {
+		return &v
+	}).(TemplateDefaultInteractiveLayoutConfigurationPtrOutput)
+}
+
+// The options that determine the default settings of a free-form layout configuration.
+func (o TemplateDefaultInteractiveLayoutConfigurationOutput) FreeForm() TemplateDefaultFreeFormLayoutConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultFreeFormLayoutConfiguration {
+		return v.FreeForm
+	}).(TemplateDefaultFreeFormLayoutConfigurationPtrOutput)
+}
+
+// The options that determine the default settings for a grid layout configuration.
+func (o TemplateDefaultInteractiveLayoutConfigurationOutput) Grid() TemplateDefaultGridLayoutConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultGridLayoutConfiguration {
+		return v.Grid
+	}).(TemplateDefaultGridLayoutConfigurationPtrOutput)
+}
+
+type TemplateDefaultInteractiveLayoutConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateDefaultInteractiveLayoutConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDefaultInteractiveLayoutConfiguration)(nil)).Elem()
+}
+
+func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) Elem() TemplateDefaultInteractiveLayoutConfigurationOutput {
+	return o.ApplyT(func(v *TemplateDefaultInteractiveLayoutConfiguration) TemplateDefaultInteractiveLayoutConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDefaultInteractiveLayoutConfiguration
+		return ret
+	}).(TemplateDefaultInteractiveLayoutConfigurationOutput)
+}
+
+// The options that determine the default settings of a free-form layout configuration.
+func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) FreeForm() TemplateDefaultFreeFormLayoutConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultFreeFormLayoutConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FreeForm
+	}).(TemplateDefaultFreeFormLayoutConfigurationPtrOutput)
+}
+
+// The options that determine the default settings for a grid layout configuration.
+func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) Grid() TemplateDefaultGridLayoutConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultGridLayoutConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Grid
+	}).(TemplateDefaultGridLayoutConfigurationPtrOutput)
+}
+
 type TemplateDefaultNewSheetConfiguration struct {
 	// The options that determine the default settings for interactive layout configuration.
 	InteractiveLayoutConfiguration *TemplateDefaultInteractiveLayoutConfiguration `pulumi:"interactiveLayoutConfiguration"`
@@ -83833,6 +83993,8 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultInteractiveLayoutConfigurationInput)(nil)).Elem(), TemplateDefaultInteractiveLayoutConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultInteractiveLayoutConfigurationPtrInput)(nil)).Elem(), TemplateDefaultInteractiveLayoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultNewSheetConfigurationInput)(nil)).Elem(), TemplateDefaultNewSheetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultNewSheetConfigurationPtrInput)(nil)).Elem(), TemplateDefaultNewSheetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultPaginatedLayoutConfigurationInput)(nil)).Elem(), TemplateDefaultPaginatedLayoutConfigurationArgs{})
@@ -84784,6 +84946,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicV2DataSetRelationEndpointInput)(nil)).Elem(), TopicV2DataSetRelationEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicV2ResourcePermissionInput)(nil)).Elem(), TopicV2ResourcePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicV2ResourcePermissionArrayInput)(nil)).Elem(), TopicV2ResourcePermissionArray{})
+	pulumi.RegisterOutputType(TemplateDefaultInteractiveLayoutConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateDefaultInteractiveLayoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDefaultNewSheetConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateDefaultNewSheetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDefaultPaginatedLayoutConfigurationOutput{})

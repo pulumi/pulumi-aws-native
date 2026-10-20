@@ -383,6 +383,11 @@ class ServiceDeploymentControllerType(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ecs:ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup")
 class ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup(_builtins.str, Enum):
+    """
+    The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+      +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+      +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
+    """
     BLOCKING = "BLOCKING"
     DEFERRED = "DEFERRED"
 

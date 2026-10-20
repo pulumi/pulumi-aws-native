@@ -112,3 +112,13 @@ export const StreamModeDetailsStreamMode = {
  * The mode of the stream
  */
 export type StreamModeDetailsStreamMode = (typeof StreamModeDetailsStreamMode)[keyof typeof StreamModeDetailsStreamMode];
+
+export const StreamRecordDistributionStrategy = {
+    Auto: "AUTO",
+    UserPartitionKey: "USER_PARTITION_KEY",
+} as const;
+
+/**
+ * The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+ */
+export type StreamRecordDistributionStrategy = (typeof StreamRecordDistributionStrategy)[keyof typeof StreamRecordDistributionStrategy];

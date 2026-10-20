@@ -48,6 +48,7 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
         /// Details of the Amazon ECR image hashes used to filter findings.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> EcrImageHash;
+        public readonly ImmutableArray<Outputs.FilterNumberFilter> EcrImageInUseCount;
         /// <summary>
         /// Details on the Amazon ECR image push date and time used to filter findings.
         /// </summary>
@@ -173,6 +174,8 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
 
             ImmutableArray<Outputs.FilterStringFilter> ecrImageHash,
 
+            ImmutableArray<Outputs.FilterNumberFilter> ecrImageInUseCount,
+
             ImmutableArray<Outputs.FilterDateFilter> ecrImagePushedAt,
 
             ImmutableArray<Outputs.FilterStringFilter> ecrImageRegistry,
@@ -246,6 +249,7 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
             Ec2InstanceVpcId = ec2InstanceVpcId;
             EcrImageArchitecture = ecrImageArchitecture;
             EcrImageHash = ecrImageHash;
+            EcrImageInUseCount = ecrImageInUseCount;
             EcrImagePushedAt = ecrImagePushedAt;
             EcrImageRegistry = ecrImageRegistry;
             EcrImageRepositoryName = ecrImageRepositoryName;

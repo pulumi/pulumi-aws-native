@@ -327,4 +327,35 @@ namespace Pulumi.AwsNative.Kinesis
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+    /// </summary>
+    [EnumType]
+    public readonly struct StreamRecordDistributionStrategy : IEquatable<StreamRecordDistributionStrategy>
+    {
+        private readonly string _value;
+
+        private StreamRecordDistributionStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StreamRecordDistributionStrategy Auto { get; } = new StreamRecordDistributionStrategy("AUTO");
+        public static StreamRecordDistributionStrategy UserPartitionKey { get; } = new StreamRecordDistributionStrategy("USER_PARTITION_KEY");
+
+        public static bool operator ==(StreamRecordDistributionStrategy left, StreamRecordDistributionStrategy right) => left.Equals(right);
+        public static bool operator !=(StreamRecordDistributionStrategy left, StreamRecordDistributionStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(StreamRecordDistributionStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StreamRecordDistributionStrategy other && Equals(other);
+        public bool Equals(StreamRecordDistributionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

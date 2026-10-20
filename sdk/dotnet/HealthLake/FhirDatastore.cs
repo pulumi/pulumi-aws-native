@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.HealthLake
     [AwsNativeResourceType("aws-native:healthlake:FhirDatastore")]
     public partial class FhirDatastore : global::Pulumi.CustomResource
     {
+        [Output("analyticsConfiguration")]
+        public Output<Outputs.FhirDatastoreAnalyticsConfiguration?> AnalyticsConfiguration { get; private set; } = null!;
+
         [Output("createdAt")]
         public Output<Outputs.FhirDatastoreCreatedAt> CreatedAt { get; private set; } = null!;
 
@@ -60,11 +63,17 @@ namespace Pulumi.AwsNative.HealthLake
         [Output("identityProviderConfiguration")]
         public Output<Outputs.FhirDatastoreIdentityProviderConfiguration?> IdentityProviderConfiguration { get; private set; } = null!;
 
+        [Output("nlpConfiguration")]
+        public Output<Outputs.FhirDatastoreNlpConfiguration?> NlpConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The preloaded Synthea data configuration for the data store.
         /// </summary>
         [Output("preloadDataConfig")]
         public Output<Outputs.FhirDatastorePreloadDataConfig?> PreloadDataConfig { get; private set; } = null!;
+
+        [Output("profileConfiguration")]
+        public Output<Outputs.FhirDatastoreProfileConfiguration?> ProfileConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
@@ -105,9 +114,7 @@ namespace Pulumi.AwsNative.HealthLake
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "datastoreName",
                     "datastoreTypeVersion",
-                    "identityProviderConfiguration",
                     "preloadDataConfig",
                     "sseConfiguration",
                 },
@@ -133,6 +140,9 @@ namespace Pulumi.AwsNative.HealthLake
 
     public sealed class FhirDatastoreArgs : global::Pulumi.ResourceArgs
     {
+        [Input("analyticsConfiguration")]
+        public Input<Inputs.FhirDatastoreAnalyticsConfigurationArgs>? AnalyticsConfiguration { get; set; }
+
         /// <summary>
         /// The data store name (user-generated).
         /// </summary>
@@ -151,11 +161,17 @@ namespace Pulumi.AwsNative.HealthLake
         [Input("identityProviderConfiguration")]
         public Input<Inputs.FhirDatastoreIdentityProviderConfigurationArgs>? IdentityProviderConfiguration { get; set; }
 
+        [Input("nlpConfiguration")]
+        public Input<Inputs.FhirDatastoreNlpConfigurationArgs>? NlpConfiguration { get; set; }
+
         /// <summary>
         /// The preloaded Synthea data configuration for the data store.
         /// </summary>
         [Input("preloadDataConfig")]
         public Input<Inputs.FhirDatastorePreloadDataConfigArgs>? PreloadDataConfig { get; set; }
+
+        [Input("profileConfiguration")]
+        public Input<Inputs.FhirDatastoreProfileConfigurationArgs>? ProfileConfiguration { get; set; }
 
         /// <summary>
         /// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.

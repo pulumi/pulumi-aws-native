@@ -68,15 +68,10 @@ __all__ = [
 
 @pulumi.output_type
 class AlarmModelAcknowledgeFlow(dict):
-    """
-    Specifies whether to get notified for alarm state changes.
-    """
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
         """
-        Specifies whether to get notified for alarm state changes.
-
-        :param _builtins.bool enabled: The value must be ``TRUE`` or ``FALSE``. If ``TRUE``, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to ``NORMAL``. If ``FALSE``, you won't receive notifications. The alarm automatically changes to the ``NORMAL`` state when the input property value returns to the specified range.
+        :param _builtins.bool enabled: The value must be `TRUE` or `FALSE` . If `TRUE` , you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to `NORMAL` . If `FALSE` , you won't receive notifications. The alarm automatically changes to the `NORMAL` state when the input property value returns to the specified range.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -85,16 +80,13 @@ class AlarmModelAcknowledgeFlow(dict):
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
         """
-        The value must be ``TRUE`` or ``FALSE``. If ``TRUE``, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to ``NORMAL``. If ``FALSE``, you won't receive notifications. The alarm automatically changes to the ``NORMAL`` state when the input property value returns to the specified range.
+        The value must be `TRUE` or `FALSE` . If `TRUE` , you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to `NORMAL` . If `FALSE` , you won't receive notifications. The alarm automatically changes to the `NORMAL` state when the input property value returns to the specified range.
         """
         return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
 class AlarmModelAlarmAction(dict):
-    """
-    Specifies one of the following actions to receive notifications when the alarm state changes.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -133,50 +125,64 @@ class AlarmModelAlarmAction(dict):
                  sns: Optional['outputs.AlarmModelSns'] = None,
                  sqs: Optional['outputs.AlarmModelSqs'] = None):
         """
-        Specifies one of the following actions to receive notifications when the alarm state changes.
-
-        :param 'AlarmModelDynamoDBv2' dynamo_d_bv2: Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-                You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
-                 **Examples**
-                +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
-                 +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
-                 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-                     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
-                      ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
-                 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-                     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-                      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+        :param 'AlarmModelDynamoDBv2' dynamo_d_bv2: Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
                
-                For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-                The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
-        :param 'AlarmModelDynamoDb' dynamo_db: Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-                You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
-                 **Examples**
-                +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
-                 +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
-                 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-                     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
-                      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
-                 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-                     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-                      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+               You must use expressions for all parameters in `DynamoDBv2Action` . The expressions accept literals, operators, functions, references, and substitution templates.
                
-                For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-                If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+               **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `tableName` parameter can be `'GreenhouseTemperatureTable'` .
+               - For references, you must specify either variables or input values. For example, the value for the `tableName` parameter can be `$variable.ddbtableName` .
+               - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+               
+               In the following example, the value for the `contentExpression` parameter in `Payload` uses a substitution template.
+               
+               `'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`
+               - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+               
+               In the following example, the value for the `tableName` parameter uses a string concatenation.
+               
+               `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+               
+               For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+               
+               The value for the `type` parameter in `Payload` must be `JSON` .
+        :param 'AlarmModelDynamoDb' dynamo_db: Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+               
+               You must use expressions for all parameters in `DynamoDBAction` . The expressions accept literals, operators, functions, references, and substitution templates.
+               
+               **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `hashKeyType` parameter can be `'STRING'` .
+               - For references, you must specify either variables or input values. For example, the value for the `hashKeyField` parameter can be `$input.GreenhouseInput.name` .
+               - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+               
+               In the following example, the value for the `hashKeyValue` parameter uses a substitution template.
+               
+               `'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`
+               - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+               
+               In the following example, the value for the `tableName` parameter uses a string concatenation.
+               
+               `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+               
+               For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+               
+               If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
         :param 'AlarmModelFirehose' firehose: Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-        :param 'AlarmModelIotEvents' iot_events: Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
-        :param 'AlarmModelIotSiteWise' iot_site_wise: Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
-                You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
-                 **Examples**
-                +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
-                 +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
-                 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-                     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
-                      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+        :param 'AlarmModelIotEvents' iot_events: Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
+        :param 'AlarmModelIotSiteWise' iot_site_wise: Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
                
-                You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
-                For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-        :param 'AlarmModelIotTopicPublish' iot_topic_publish: Information required to publish the MQTT message through the IoT message broker.
+               You must use expressions for all parameters in `IotSiteWiseAction` . The expressions accept literals, operators, functions, references, and substitutions templates.
+               
+               **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `propertyAlias` parameter can be `'/company/windfarm/3/turbine/7/temperature'` .
+               - For references, you must specify either variables or input values. For example, the value for the `assetId` parameter can be `$input.TurbineInput.assetId1` .
+               - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+               
+               In the following example, the value for the `propertyAlias` parameter uses a substitution template.
+               
+               `'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`
+               
+               You must specify either `propertyAlias` or both `assetId` and `propertyId` to identify the target asset property in AWS IoT SiteWise .
+               
+               For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+        :param 'AlarmModelIotTopicPublish' iot_topic_publish: Information required to publish the MQTT message through the AWS IoT message broker.
         :param 'AlarmModelLambda' lambda_: Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
         :param 'AlarmModelSns' sns: Information required to publish the Amazon SNS message.
         :param 'AlarmModelSqs' sqs: Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
@@ -204,20 +210,26 @@ class AlarmModelAlarmAction(dict):
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional['outputs.AlarmModelDynamoDBv2']:
         """
-        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-         You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
-          **Examples**
-         +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
-          +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
-               ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
-          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 
-         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-         The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
+        You must use expressions for all parameters in `DynamoDBv2Action` . The expressions accept literals, operators, functions, references, and substitution templates.
+
+        **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `tableName` parameter can be `'GreenhouseTemperatureTable'` .
+        - For references, you must specify either variables or input values. For example, the value for the `tableName` parameter can be `$variable.ddbtableName` .
+        - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+
+        In the following example, the value for the `contentExpression` parameter in `Payload` uses a substitution template.
+
+        `'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`
+        - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+
+        In the following example, the value for the `tableName` parameter uses a string concatenation.
+
+        `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+
+        For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+
+        The value for the `type` parameter in `Payload` must be `JSON` .
         """
         return pulumi.get(self, "dynamo_d_bv2")
 
@@ -225,20 +237,26 @@ class AlarmModelAlarmAction(dict):
     @pulumi.getter(name="dynamoDb")
     def dynamo_db(self) -> Optional['outputs.AlarmModelDynamoDb']:
         """
-        Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-         You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
-          **Examples**
-         +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
-          +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
-               ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
-          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+        Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
 
-         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-         If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+        You must use expressions for all parameters in `DynamoDBAction` . The expressions accept literals, operators, functions, references, and substitution templates.
+
+        **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `hashKeyType` parameter can be `'STRING'` .
+        - For references, you must specify either variables or input values. For example, the value for the `hashKeyField` parameter can be `$input.GreenhouseInput.name` .
+        - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+
+        In the following example, the value for the `hashKeyValue` parameter uses a substitution template.
+
+        `'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`
+        - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+
+        In the following example, the value for the `tableName` parameter uses a string concatenation.
+
+        `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+
+        For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+
+        If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
         """
         return pulumi.get(self, "dynamo_db")
 
@@ -254,7 +272,7 @@ class AlarmModelAlarmAction(dict):
     @pulumi.getter(name="iotEvents")
     def iot_events(self) -> Optional['outputs.AlarmModelIotEvents']:
         """
-        Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
+        Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
         """
         return pulumi.get(self, "iot_events")
 
@@ -262,17 +280,21 @@ class AlarmModelAlarmAction(dict):
     @pulumi.getter(name="iotSiteWise")
     def iot_site_wise(self) -> Optional['outputs.AlarmModelIotSiteWise']:
         """
-        Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
-         You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
-          **Examples**
-         +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
-          +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
-               ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+        Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
 
-         You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
-         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+        You must use expressions for all parameters in `IotSiteWiseAction` . The expressions accept literals, operators, functions, references, and substitutions templates.
+
+        **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `propertyAlias` parameter can be `'/company/windfarm/3/turbine/7/temperature'` .
+        - For references, you must specify either variables or input values. For example, the value for the `assetId` parameter can be `$input.TurbineInput.assetId1` .
+        - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+
+        In the following example, the value for the `propertyAlias` parameter uses a substitution template.
+
+        `'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`
+
+        You must specify either `propertyAlias` or both `assetId` and `propertyId` to identify the target asset property in AWS IoT SiteWise .
+
+        For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
         """
         return pulumi.get(self, "iot_site_wise")
 
@@ -280,7 +302,7 @@ class AlarmModelAlarmAction(dict):
     @pulumi.getter(name="iotTopicPublish")
     def iot_topic_publish(self) -> Optional['outputs.AlarmModelIotTopicPublish']:
         """
-        Information required to publish the MQTT message through the IoT message broker.
+        Information required to publish the MQTT message through the AWS IoT message broker.
         """
         return pulumi.get(self, "iot_topic_publish")
 
@@ -311,9 +333,6 @@ class AlarmModelAlarmAction(dict):
 
 @pulumi.output_type
 class AlarmModelAlarmCapabilities(dict):
-    """
-    Contains the configuration information of alarm state changes.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -337,8 +356,6 @@ class AlarmModelAlarmCapabilities(dict):
                  acknowledge_flow: Optional['outputs.AlarmModelAcknowledgeFlow'] = None,
                  initialization_configuration: Optional['outputs.AlarmModelInitializationConfiguration'] = None):
         """
-        Contains the configuration information of alarm state changes.
-
         :param 'AlarmModelAcknowledgeFlow' acknowledge_flow: Specifies whether to get notified for alarm state changes.
         :param 'AlarmModelInitializationConfiguration' initialization_configuration: Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
         """
@@ -366,9 +383,6 @@ class AlarmModelAlarmCapabilities(dict):
 
 @pulumi.output_type
 class AlarmModelAlarmEventActions(dict):
-    """
-    Contains information about one or more alarm actions.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -389,8 +403,6 @@ class AlarmModelAlarmEventActions(dict):
     def __init__(__self__, *,
                  alarm_actions: Optional[Sequence['outputs.AlarmModelAlarmAction']] = None):
         """
-        Contains information about one or more alarm actions.
-
         :param Sequence['AlarmModelAlarmAction'] alarm_actions: Specifies one or more supported actions to receive notifications when the alarm state changes.
         """
         if alarm_actions is not None:
@@ -407,9 +419,6 @@ class AlarmModelAlarmEventActions(dict):
 
 @pulumi.output_type
 class AlarmModelAlarmRule(dict):
-    """
-    Defines when your alarm is invoked.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -430,8 +439,6 @@ class AlarmModelAlarmRule(dict):
     def __init__(__self__, *,
                  simple_rule: Optional['outputs.AlarmModelSimpleRule'] = None):
         """
-        Defines when your alarm is invoked.
-
         :param 'AlarmModelSimpleRule' simple_rule: A rule that compares an input property value to a threshold value with a comparison operator.
         """
         if simple_rule is not None:
@@ -448,18 +455,6 @@ class AlarmModelAlarmRule(dict):
 
 @pulumi.output_type
 class AlarmModelAssetPropertyTimestamp(dict):
-    """
-    A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
-     You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
-      **Examples**
-     +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
-      +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
-      +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-          In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
-           ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
-
-     For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -483,19 +478,8 @@ class AlarmModelAssetPropertyTimestamp(dict):
                  time_in_seconds: _builtins.str,
                  offset_in_nanos: Optional[_builtins.str] = None):
         """
-        A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
-         You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
-          **Examples**
-         +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
-          +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
-               ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
-
-         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-
         :param _builtins.str time_in_seconds: The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
-        :param _builtins.str offset_in_nanos: The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
+        :param _builtins.str offset_in_nanos: The nanosecond offset converted from `timeInSeconds` . The valid range is between 0-999999999.
         """
         pulumi.set(__self__, "time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
@@ -513,37 +497,20 @@ class AlarmModelAssetPropertyTimestamp(dict):
     @pulumi.getter(name="offsetInNanos")
     def offset_in_nanos(self) -> Optional[_builtins.str]:
         """
-        The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
+        The nanosecond offset converted from `timeInSeconds` . The valid range is between 0-999999999.
         """
         return pulumi.get(self, "offset_in_nanos")
 
 
 @pulumi.output_type
 class AlarmModelAssetPropertyValue(dict):
-    """
-    A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
-     You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
-      **Examples**
-     +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
-      +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
-
-     For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-    """
     def __init__(__self__, *,
                  value: 'outputs.AlarmModelAssetPropertyVariant',
                  quality: Optional[_builtins.str] = None,
                  timestamp: Optional['outputs.AlarmModelAssetPropertyTimestamp'] = None):
         """
-        A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
-         You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
-          **Examples**
-         +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
-          +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
-
-         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-
         :param 'AlarmModelAssetPropertyVariant' value: The value to send to an asset property.
-        :param _builtins.str quality: The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
+        :param _builtins.str quality: The quality of the asset property value. The value must be `'GOOD'` , `'BAD'` , or `'UNCERTAIN'` .
         :param 'AlarmModelAssetPropertyTimestamp' timestamp: The timestamp associated with the asset property value. The default is the current event time.
         """
         pulumi.set(__self__, "value", value)
@@ -564,7 +531,7 @@ class AlarmModelAssetPropertyValue(dict):
     @pulumi.getter
     def quality(self) -> Optional[_builtins.str]:
         """
-        The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
+        The quality of the asset property value. The value must be `'GOOD'` , `'BAD'` , or `'UNCERTAIN'` .
         """
         return pulumi.get(self, "quality")
 
@@ -579,19 +546,6 @@ class AlarmModelAssetPropertyValue(dict):
 
 @pulumi.output_type
 class AlarmModelAssetPropertyVariant(dict):
-    """
-    A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
-     You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
-      **Examples**
-     +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
-      +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
-      +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-          In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
-           ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
-
-     For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -621,19 +575,7 @@ class AlarmModelAssetPropertyVariant(dict):
                  integer_value: Optional[_builtins.str] = None,
                  string_value: Optional[_builtins.str] = None):
         """
-        A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
-         You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
-          **Examples**
-         +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
-          +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
-               ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
-
-         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-         You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
-
-        :param _builtins.str boolean_value: The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
+        :param _builtins.str boolean_value: The asset property value is a Boolean value that must be `'TRUE'` or `'FALSE'` . You must use an expression, and the evaluated result should be a Boolean value.
         :param _builtins.str double_value: The asset property value is a double. You must use an expression, and the evaluated result should be a double.
         :param _builtins.str integer_value: The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
         :param _builtins.str string_value: The asset property value is a string. You must use an expression, and the evaluated result should be a string.
@@ -651,7 +593,7 @@ class AlarmModelAssetPropertyVariant(dict):
     @pulumi.getter(name="booleanValue")
     def boolean_value(self) -> Optional[_builtins.str]:
         """
-        The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
+        The asset property value is a Boolean value that must be `'TRUE'` or `'FALSE'` . You must use an expression, and the evaluated result should be a Boolean value.
         """
         return pulumi.get(self, "boolean_value")
 
@@ -682,22 +624,6 @@ class AlarmModelAssetPropertyVariant(dict):
 
 @pulumi.output_type
 class AlarmModelDynamoDBv2(dict):
-    """
-    Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-     You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
-      **Examples**
-     +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
-      +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
-      +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-          In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
-           ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
-      +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-          In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-           ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
-
-     For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -719,24 +645,10 @@ class AlarmModelDynamoDBv2(dict):
                  table_name: _builtins.str,
                  payload: Optional['outputs.AlarmModelPayload'] = None):
         """
-        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-         You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
-          **Examples**
-         +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
-          +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
-               ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
-          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
-
-         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-         The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
-
         :param _builtins.str table_name: The name of the DynamoDB table.
         :param 'AlarmModelPayload' payload: Information needed to configure the payload.
-                By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+               
+               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
         """
         pulumi.set(__self__, "table_name", table_name)
         if payload is not None:
@@ -755,29 +667,14 @@ class AlarmModelDynamoDBv2(dict):
     def payload(self) -> Optional['outputs.AlarmModelPayload']:
         """
         Information needed to configure the payload.
-         By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+
+        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
         """
         return pulumi.get(self, "payload")
 
 
 @pulumi.output_type
 class AlarmModelDynamoDb(dict):
-    """
-    Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-     You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
-      **Examples**
-     +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
-      +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
-      +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-          In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
-           ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
-      +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-          In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-           ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
-
-     For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -821,45 +718,35 @@ class AlarmModelDynamoDb(dict):
                  range_key_type: Optional[_builtins.str] = None,
                  range_key_value: Optional[_builtins.str] = None):
         """
-        Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-         You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
-          **Examples**
-         +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
-          +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
-               ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
-          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
-
-         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-         If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
-
-        :param _builtins.str hash_key_field: The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
+        :param _builtins.str hash_key_field: The name of the hash key (also called the partition key). The `hashKeyField` value must match the partition key of the target DynamoDB table.
         :param _builtins.str hash_key_value: The value of the hash key (also called the partition key).
-        :param _builtins.str table_name: The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
+        :param _builtins.str table_name: The name of the DynamoDB table. The `tableName` value must match the table name of the target DynamoDB table.
         :param _builtins.str hash_key_type: The data type for the hash key (also called the partition key). You can specify the following values:
-                 +  ``'STRING'`` - The hash key is a string.
-                 +  ``'NUMBER'`` - The hash key is a number.
                
-                If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
+               - `'STRING'` - The hash key is a string.
+               - `'NUMBER'` - The hash key is a number.
+               
+               If you don't specify `hashKeyType` , the default value is `'STRING'` .
         :param _builtins.str operation: The type of operation to perform. You can specify the following values:
-                 +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-                 +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-                 +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
                
-                If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
+               - `'INSERT'` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+               - `'UPDATE'` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+               - `'DELETE'` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+               
+               If you don't specify this parameter, AWS IoT Events triggers the `'INSERT'` operation.
         :param 'AlarmModelPayload' payload: Information needed to configure the payload.
-                By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
-        :param _builtins.str payload_field: The name of the DynamoDB column that receives the action payload.
-                If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
-        :param _builtins.str range_key_field: The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
-        :param _builtins.str range_key_type: The data type for the range key (also called the sort key), You can specify the following values:
-                 +  ``'STRING'`` - The range key is a string.
-                 +  ``'NUMBER'`` - The range key is number.
                
-                If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
+               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        :param _builtins.str payload_field: The name of the DynamoDB column that receives the action payload.
+               
+               If you don't specify this parameter, the name of the DynamoDB column is `payload` .
+        :param _builtins.str range_key_field: The name of the range key (also called the sort key). The `rangeKeyField` value must match the sort key of the target DynamoDB table.
+        :param _builtins.str range_key_type: The data type for the range key (also called the sort key), You can specify the following values:
+               
+               - `'STRING'` - The range key is a string.
+               - `'NUMBER'` - The range key is number.
+               
+               If you don't specify `rangeKeyField` , the default value is `'STRING'` .
         :param _builtins.str range_key_value: The value of the range key (also called the sort key).
         """
         pulumi.set(__self__, "hash_key_field", hash_key_field)
@@ -884,7 +771,7 @@ class AlarmModelDynamoDb(dict):
     @pulumi.getter(name="hashKeyField")
     def hash_key_field(self) -> _builtins.str:
         """
-        The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
+        The name of the hash key (also called the partition key). The `hashKeyField` value must match the partition key of the target DynamoDB table.
         """
         return pulumi.get(self, "hash_key_field")
 
@@ -900,7 +787,7 @@ class AlarmModelDynamoDb(dict):
     @pulumi.getter(name="tableName")
     def table_name(self) -> _builtins.str:
         """
-        The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
+        The name of the DynamoDB table. The `tableName` value must match the table name of the target DynamoDB table.
         """
         return pulumi.get(self, "table_name")
 
@@ -909,10 +796,11 @@ class AlarmModelDynamoDb(dict):
     def hash_key_type(self) -> Optional[_builtins.str]:
         """
         The data type for the hash key (also called the partition key). You can specify the following values:
-          +  ``'STRING'`` - The hash key is a string.
-          +  ``'NUMBER'`` - The hash key is a number.
 
-         If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
+        - `'STRING'` - The hash key is a string.
+        - `'NUMBER'` - The hash key is a number.
+
+        If you don't specify `hashKeyType` , the default value is `'STRING'` .
         """
         return pulumi.get(self, "hash_key_type")
 
@@ -921,11 +809,12 @@ class AlarmModelDynamoDb(dict):
     def operation(self) -> Optional[_builtins.str]:
         """
         The type of operation to perform. You can specify the following values:
-          +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-          +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-          +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 
-         If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
+        - `'INSERT'` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+        - `'UPDATE'` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+        - `'DELETE'` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+
+        If you don't specify this parameter, AWS IoT Events triggers the `'INSERT'` operation.
         """
         return pulumi.get(self, "operation")
 
@@ -934,7 +823,8 @@ class AlarmModelDynamoDb(dict):
     def payload(self) -> Optional['outputs.AlarmModelPayload']:
         """
         Information needed to configure the payload.
-         By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+
+        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
         """
         return pulumi.get(self, "payload")
 
@@ -943,7 +833,8 @@ class AlarmModelDynamoDb(dict):
     def payload_field(self) -> Optional[_builtins.str]:
         """
         The name of the DynamoDB column that receives the action payload.
-         If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
+
+        If you don't specify this parameter, the name of the DynamoDB column is `payload` .
         """
         return pulumi.get(self, "payload_field")
 
@@ -951,7 +842,7 @@ class AlarmModelDynamoDb(dict):
     @pulumi.getter(name="rangeKeyField")
     def range_key_field(self) -> Optional[_builtins.str]:
         """
-        The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
+        The name of the range key (also called the sort key). The `rangeKeyField` value must match the sort key of the target DynamoDB table.
         """
         return pulumi.get(self, "range_key_field")
 
@@ -960,10 +851,11 @@ class AlarmModelDynamoDb(dict):
     def range_key_type(self) -> Optional[_builtins.str]:
         """
         The data type for the range key (also called the sort key), You can specify the following values:
-          +  ``'STRING'`` - The range key is a string.
-          +  ``'NUMBER'`` - The range key is number.
 
-         If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
+        - `'STRING'` - The range key is a string.
+        - `'NUMBER'` - The range key is number.
+
+        If you don't specify `rangeKeyField` , the default value is `'STRING'` .
         """
         return pulumi.get(self, "range_key_type")
 
@@ -978,9 +870,6 @@ class AlarmModelDynamoDb(dict):
 
 @pulumi.output_type
 class AlarmModelFirehose(dict):
-    """
-    Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1003,8 +892,6 @@ class AlarmModelFirehose(dict):
                  payload: Optional['outputs.AlarmModelPayload'] = None,
                  separator: Optional[_builtins.str] = None):
         """
-        Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-
         :param _builtins.str delivery_stream_name: The name of the Kinesis Data Firehose delivery stream where the data is written.
         :param 'AlarmModelPayload' payload: You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
         :param _builtins.str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
@@ -1042,9 +929,6 @@ class AlarmModelFirehose(dict):
 
 @pulumi.output_type
 class AlarmModelInitializationConfiguration(dict):
-    """
-    Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1065,9 +949,7 @@ class AlarmModelInitializationConfiguration(dict):
     def __init__(__self__, *,
                  disabled_on_initialization: _builtins.bool):
         """
-        Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
-
-        :param _builtins.bool disabled_on_initialization: The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
+        :param _builtins.bool disabled_on_initialization: The value must be `TRUE` or `FALSE` . If `FALSE` , all alarm instances created based on the alarm model are activated. The default value is `TRUE` .
         """
         pulumi.set(__self__, "disabled_on_initialization", disabled_on_initialization)
 
@@ -1075,16 +957,13 @@ class AlarmModelInitializationConfiguration(dict):
     @pulumi.getter(name="disabledOnInitialization")
     def disabled_on_initialization(self) -> _builtins.bool:
         """
-        The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
+        The value must be `TRUE` or `FALSE` . If `FALSE` , all alarm instances created based on the alarm model are activated. The default value is `TRUE` .
         """
         return pulumi.get(self, "disabled_on_initialization")
 
 
 @pulumi.output_type
 class AlarmModelIotEvents(dict):
-    """
-    Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1106,10 +985,8 @@ class AlarmModelIotEvents(dict):
                  input_name: _builtins.str,
                  payload: Optional['outputs.AlarmModelPayload'] = None):
         """
-        Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
-
-        :param _builtins.str input_name: The name of the ITE input where the data is sent.
-        :param 'AlarmModelPayload' payload: You can configure the action payload when you send a message to an ITE input.
+        :param _builtins.str input_name: The name of the AWS IoT Events input where the data is sent.
+        :param 'AlarmModelPayload' payload: You can configure the action payload when you send a message to an AWS IoT Events input.
         """
         pulumi.set(__self__, "input_name", input_name)
         if payload is not None:
@@ -1119,7 +996,7 @@ class AlarmModelIotEvents(dict):
     @pulumi.getter(name="inputName")
     def input_name(self) -> _builtins.str:
         """
-        The name of the ITE input where the data is sent.
+        The name of the AWS IoT Events input where the data is sent.
         """
         return pulumi.get(self, "input_name")
 
@@ -1127,26 +1004,13 @@ class AlarmModelIotEvents(dict):
     @pulumi.getter
     def payload(self) -> Optional['outputs.AlarmModelPayload']:
         """
-        You can configure the action payload when you send a message to an ITE input.
+        You can configure the action payload when you send a message to an AWS IoT Events input.
         """
         return pulumi.get(self, "payload")
 
 
 @pulumi.output_type
 class AlarmModelIotSiteWise(dict):
-    """
-    Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
-     You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
-      **Examples**
-     +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
-      +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
-      +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-          In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
-           ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
-
-     You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
-     For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1179,18 +1043,6 @@ class AlarmModelIotSiteWise(dict):
                  property_id: Optional[_builtins.str] = None,
                  property_value: Optional['outputs.AlarmModelAssetPropertyValue'] = None):
         """
-        Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
-         You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
-          **Examples**
-         +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
-          +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-              In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
-               ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
-
-         You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
-         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-
         :param _builtins.str asset_id: The ID of the asset that has the specified property.
         :param _builtins.str entry_id: A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
         :param _builtins.str property_alias: The alias of the asset property.
@@ -1251,9 +1103,6 @@ class AlarmModelIotSiteWise(dict):
 
 @pulumi.output_type
 class AlarmModelIotTopicPublish(dict):
-    """
-    Information required to publish the MQTT message through the IoT message broker.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1275,10 +1124,8 @@ class AlarmModelIotTopicPublish(dict):
                  mqtt_topic: _builtins.str,
                  payload: Optional['outputs.AlarmModelPayload'] = None):
         """
-        Information required to publish the MQTT message through the IoT message broker.
-
-        :param _builtins.str mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
-        :param 'AlarmModelPayload' payload: You can configure the action payload when you publish a message to an IoTCore topic.
+        :param _builtins.str mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables ( `$variable.<variable-name>` ) and input values ( `$input.<input-name>.<path-to-datum>` ) as the topic string.
+        :param 'AlarmModelPayload' payload: You can configure the action payload when you publish a message to an AWS IoT Core topic.
         """
         pulumi.set(__self__, "mqtt_topic", mqtt_topic)
         if payload is not None:
@@ -1288,7 +1135,7 @@ class AlarmModelIotTopicPublish(dict):
     @pulumi.getter(name="mqttTopic")
     def mqtt_topic(self) -> _builtins.str:
         """
-        The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
+        The MQTT topic of the message. You can use a string expression that includes variables ( `$variable.<variable-name>` ) and input values ( `$input.<input-name>.<path-to-datum>` ) as the topic string.
         """
         return pulumi.get(self, "mqtt_topic")
 
@@ -1296,16 +1143,13 @@ class AlarmModelIotTopicPublish(dict):
     @pulumi.getter
     def payload(self) -> Optional['outputs.AlarmModelPayload']:
         """
-        You can configure the action payload when you publish a message to an IoTCore topic.
+        You can configure the action payload when you publish a message to an AWS IoT Core topic.
         """
         return pulumi.get(self, "payload")
 
 
 @pulumi.output_type
 class AlarmModelLambda(dict):
-    """
-    Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1327,8 +1171,6 @@ class AlarmModelLambda(dict):
                  function_arn: _builtins.str,
                  payload: Optional['outputs.AlarmModelPayload'] = None):
         """
-        Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
-
         :param _builtins.str function_arn: The ARN of the Lambda function that is executed.
         :param 'AlarmModelPayload' payload: You can configure the action payload when you send a message to a Lambda function.
         """
@@ -1355,10 +1197,6 @@ class AlarmModelLambda(dict):
 
 @pulumi.output_type
 class AlarmModelPayload(dict):
-    """
-    Information needed to configure the payload.
-     By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1380,11 +1218,8 @@ class AlarmModelPayload(dict):
                  content_expression: _builtins.str,
                  type: _builtins.str):
         """
-        Information needed to configure the payload.
-         By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
-
-        :param _builtins.str content_expression: The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
-        :param _builtins.str type: The value of the payload type can be either ``STRING`` or ``JSON``.
+        :param _builtins.str content_expression: The content of the payload. You can use a string expression that includes quoted strings ( `'<string>'` ), variables ( `$variable.<variable-name>` ), input values ( `$input.<input-name>.<path-to-datum>` ), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+        :param _builtins.str type: The value of the payload type can be either `STRING` or `JSON` .
         """
         pulumi.set(__self__, "content_expression", content_expression)
         pulumi.set(__self__, "type", type)
@@ -1393,7 +1228,7 @@ class AlarmModelPayload(dict):
     @pulumi.getter(name="contentExpression")
     def content_expression(self) -> _builtins.str:
         """
-        The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
+        The content of the payload. You can use a string expression that includes quoted strings ( `'<string>'` ), variables ( `$variable.<variable-name>` ), input values ( `$input.<input-name>.<path-to-datum>` ), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
         """
         return pulumi.get(self, "content_expression")
 
@@ -1401,16 +1236,13 @@ class AlarmModelPayload(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The value of the payload type can be either ``STRING`` or ``JSON``.
+        The value of the payload type can be either `STRING` or `JSON` .
         """
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class AlarmModelSimpleRule(dict):
-    """
-    A rule that compares an input property value to a threshold value with a comparison operator.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1431,15 +1263,13 @@ class AlarmModelSimpleRule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 comparison_operator: 'AlarmModelSimpleRuleComparisonOperator',
+                 comparison_operator: _builtins.str,
                  input_property: _builtins.str,
                  threshold: _builtins.str):
         """
-        A rule that compares an input property value to a threshold value with a comparison operator.
-
-        :param 'AlarmModelSimpleRuleComparisonOperator' comparison_operator: The comparison operator.
-        :param _builtins.str input_property: The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
-        :param _builtins.str threshold: The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
+        :param _builtins.str comparison_operator: The comparison operator.
+        :param _builtins.str input_property: The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+        :param _builtins.str threshold: The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "input_property", input_property)
@@ -1447,7 +1277,7 @@ class AlarmModelSimpleRule(dict):
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> 'AlarmModelSimpleRuleComparisonOperator':
+    def comparison_operator(self) -> _builtins.str:
         """
         The comparison operator.
         """
@@ -1457,7 +1287,7 @@ class AlarmModelSimpleRule(dict):
     @pulumi.getter(name="inputProperty")
     def input_property(self) -> _builtins.str:
         """
-        The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
+        The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
         """
         return pulumi.get(self, "input_property")
 
@@ -1465,16 +1295,13 @@ class AlarmModelSimpleRule(dict):
     @pulumi.getter
     def threshold(self) -> _builtins.str:
         """
-        The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
+        The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
         """
         return pulumi.get(self, "threshold")
 
 
 @pulumi.output_type
 class AlarmModelSns(dict):
-    """
-    Information required to publish the Amazon SNS message.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1496,8 +1323,6 @@ class AlarmModelSns(dict):
                  target_arn: _builtins.str,
                  payload: Optional['outputs.AlarmModelPayload'] = None):
         """
-        Information required to publish the Amazon SNS message.
-
         :param _builtins.str target_arn: The ARN of the Amazon SNS target where the message is sent.
         :param 'AlarmModelPayload' payload: You can configure the action payload when you send a message as an Amazon SNS push notification.
         """
@@ -1524,9 +1349,6 @@ class AlarmModelSns(dict):
 
 @pulumi.output_type
 class AlarmModelSqs(dict):
-    """
-    Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1551,8 +1373,6 @@ class AlarmModelSqs(dict):
                  payload: Optional['outputs.AlarmModelPayload'] = None,
                  use_base64: Optional[_builtins.bool] = None):
         """
-        Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
-
         :param _builtins.str queue_url: The URL of the SQS queue where the data is written.
         :param 'AlarmModelPayload' payload: You can configure the action payload when you send a message to an Amazon SQS queue.
         :param _builtins.bool use_base64: Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.

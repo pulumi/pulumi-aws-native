@@ -2544,24 +2544,25 @@ func (in *bucketInventoryConfigurationIncludedObjectVersionsPtr) ToBucketInvento
 type BucketInventoryConfigurationOptionalFieldsItem string
 
 const (
-	BucketInventoryConfigurationOptionalFieldsItemSize                         = BucketInventoryConfigurationOptionalFieldsItem("Size")
-	BucketInventoryConfigurationOptionalFieldsItemLastModifiedDate             = BucketInventoryConfigurationOptionalFieldsItem("LastModifiedDate")
-	BucketInventoryConfigurationOptionalFieldsItemStorageClass                 = BucketInventoryConfigurationOptionalFieldsItem("StorageClass")
-	BucketInventoryConfigurationOptionalFieldsItemETag                         = BucketInventoryConfigurationOptionalFieldsItem("ETag")
-	BucketInventoryConfigurationOptionalFieldsItemIsMultipartUploaded          = BucketInventoryConfigurationOptionalFieldsItem("IsMultipartUploaded")
-	BucketInventoryConfigurationOptionalFieldsItemReplicationStatus            = BucketInventoryConfigurationOptionalFieldsItem("ReplicationStatus")
-	BucketInventoryConfigurationOptionalFieldsItemEncryptionStatus             = BucketInventoryConfigurationOptionalFieldsItem("EncryptionStatus")
-	BucketInventoryConfigurationOptionalFieldsItemObjectLockRetainUntilDate    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockRetainUntilDate")
-	BucketInventoryConfigurationOptionalFieldsItemObjectLockMode               = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockMode")
-	BucketInventoryConfigurationOptionalFieldsItemObjectLockLegalHoldStatus    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockLegalHoldStatus")
-	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldStatus    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldStatus")
-	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldDuration  = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldDuration")
-	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringAccessTier = BucketInventoryConfigurationOptionalFieldsItem("IntelligentTieringAccessTier")
-	BucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus              = BucketInventoryConfigurationOptionalFieldsItem("BucketKeyStatus")
-	BucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm            = BucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm")
-	BucketInventoryConfigurationOptionalFieldsItemObjectAccessControlList      = BucketInventoryConfigurationOptionalFieldsItem("ObjectAccessControlList")
-	BucketInventoryConfigurationOptionalFieldsItemObjectOwner                  = BucketInventoryConfigurationOptionalFieldsItem("ObjectOwner")
-	BucketInventoryConfigurationOptionalFieldsItemLifecycleExpirationDate      = BucketInventoryConfigurationOptionalFieldsItem("LifecycleExpirationDate")
+	BucketInventoryConfigurationOptionalFieldsItemSize                            = BucketInventoryConfigurationOptionalFieldsItem("Size")
+	BucketInventoryConfigurationOptionalFieldsItemLastModifiedDate                = BucketInventoryConfigurationOptionalFieldsItem("LastModifiedDate")
+	BucketInventoryConfigurationOptionalFieldsItemStorageClass                    = BucketInventoryConfigurationOptionalFieldsItem("StorageClass")
+	BucketInventoryConfigurationOptionalFieldsItemETag                            = BucketInventoryConfigurationOptionalFieldsItem("ETag")
+	BucketInventoryConfigurationOptionalFieldsItemIsMultipartUploaded             = BucketInventoryConfigurationOptionalFieldsItem("IsMultipartUploaded")
+	BucketInventoryConfigurationOptionalFieldsItemReplicationStatus               = BucketInventoryConfigurationOptionalFieldsItem("ReplicationStatus")
+	BucketInventoryConfigurationOptionalFieldsItemEncryptionStatus                = BucketInventoryConfigurationOptionalFieldsItem("EncryptionStatus")
+	BucketInventoryConfigurationOptionalFieldsItemObjectLockRetainUntilDate       = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockRetainUntilDate")
+	BucketInventoryConfigurationOptionalFieldsItemObjectLockMode                  = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockMode")
+	BucketInventoryConfigurationOptionalFieldsItemObjectLockLegalHoldStatus       = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockLegalHoldStatus")
+	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldStatus       = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldStatus")
+	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldDuration     = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldDuration")
+	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringAccessTier    = BucketInventoryConfigurationOptionalFieldsItem("IntelligentTieringAccessTier")
+	BucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus                 = BucketInventoryConfigurationOptionalFieldsItem("BucketKeyStatus")
+	BucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm               = BucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm")
+	BucketInventoryConfigurationOptionalFieldsItemObjectAccessControlList         = BucketInventoryConfigurationOptionalFieldsItem("ObjectAccessControlList")
+	BucketInventoryConfigurationOptionalFieldsItemObjectOwner                     = BucketInventoryConfigurationOptionalFieldsItem("ObjectOwner")
+	BucketInventoryConfigurationOptionalFieldsItemLifecycleExpirationDate         = BucketInventoryConfigurationOptionalFieldsItem("LifecycleExpirationDate")
+	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringReferenceDate = BucketInventoryConfigurationOptionalFieldsItem("IntelligentTieringReferenceDate")
 )
 
 func (BucketInventoryConfigurationOptionalFieldsItem) ElementType() reflect.Type {
@@ -2704,6 +2705,7 @@ func (o BucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToStringPtrOutp
 //	BucketInventoryConfigurationOptionalFieldsItemObjectAccessControlList
 //	BucketInventoryConfigurationOptionalFieldsItemObjectOwner
 //	BucketInventoryConfigurationOptionalFieldsItemLifecycleExpirationDate
+//	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringReferenceDate
 type BucketInventoryConfigurationOptionalFieldsItemInput interface {
 	pulumi.Input
 

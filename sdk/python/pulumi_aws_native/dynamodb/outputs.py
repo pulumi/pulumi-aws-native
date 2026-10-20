@@ -34,11 +34,14 @@ __all__ = [
     'GlobalTableReplicaSseSpecification',
     'GlobalTableReplicaStreamSpecification',
     'GlobalTableResourcePolicy',
+    'GlobalTableSearchSchemaElement',
     'GlobalTableSseSpecification',
     'GlobalTableStreamSpecification',
     'GlobalTableTag',
     'GlobalTableTargetTrackingScalingPolicyConfiguration',
     'GlobalTableTimeToLiveSpecification',
+    'GlobalTableVectorAttribute',
+    'GlobalTableVectorIndex',
     'GlobalTableWarmThroughput',
     'GlobalTableWitness',
     'GlobalTableWriteOnDemandThroughputSettings',
@@ -58,10 +61,13 @@ __all__ = [
     'TableProvisionedThroughput',
     'TableResourcePolicy',
     'TableS3BucketSource',
+    'TableSearchSchemaElement',
     'TableSseSpecification',
     'TableStreamSpecification',
     'TableTag',
     'TableTimeToLiveSpecification',
+    'TableVectorAttribute',
+    'TableVectorIndex',
     'TableWarmThroughput',
 ]
 
@@ -1202,6 +1208,44 @@ class GlobalTableResourcePolicy(dict):
 
 
 @pulumi.output_type
+class GlobalTableSearchSchemaElement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+        elif key == "searchSchemaElementType":
+            suggest = "search_schema_element_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableSearchSchemaElement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableSearchSchemaElement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableSearchSchemaElement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: _builtins.str,
+                 search_schema_element_type: 'GlobalTableSearchSchemaElementSearchSchemaElementType'):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "search_schema_element_type", search_schema_element_type)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> _builtins.str:
+        return pulumi.get(self, "attribute_name")
+
+    @_builtins.property
+    @pulumi.getter(name="searchSchemaElementType")
+    def search_schema_element_type(self) -> 'GlobalTableSearchSchemaElementSearchSchemaElementType':
+        return pulumi.get(self, "search_schema_element_type")
+
+
+@pulumi.output_type
 class GlobalTableSseSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1454,6 +1498,106 @@ class GlobalTableTimeToLiveSpecification(dict):
         Currently, you cannot directly change the attribute name used to evaluate time to live. In order to do so, you must first disable time to live, and then re-enable it with the new attribute name. It can take up to one hour for changes to time to live to take effect. If you attempt to modify time to live within that time window, your stack operation might be delayed.
         """
         return pulumi.get(self, "attribute_name")
+
+
+@pulumi.output_type
+class GlobalTableVectorAttribute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableVectorAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableVectorAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableVectorAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: _builtins.str):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> _builtins.str:
+        return pulumi.get(self, "attribute_name")
+
+
+@pulumi.output_type
+class GlobalTableVectorIndex(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "distanceFunction":
+            suggest = "distance_function"
+        elif key == "indexName":
+            suggest = "index_name"
+        elif key == "vectorAttribute":
+            suggest = "vector_attribute"
+        elif key == "searchSchema":
+            suggest = "search_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableVectorIndex. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableVectorIndex.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableVectorIndex.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: _builtins.int,
+                 distance_function: 'GlobalTableVectorIndexDistanceFunction',
+                 index_name: _builtins.str,
+                 projection: 'outputs.GlobalTableProjection',
+                 vector_attribute: 'outputs.GlobalTableVectorAttribute',
+                 search_schema: Optional[Sequence['outputs.GlobalTableSearchSchemaElement']] = None):
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "distance_function", distance_function)
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "projection", projection)
+        pulumi.set(__self__, "vector_attribute", vector_attribute)
+        if search_schema is not None:
+            pulumi.set(__self__, "search_schema", search_schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> _builtins.int:
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="distanceFunction")
+    def distance_function(self) -> 'GlobalTableVectorIndexDistanceFunction':
+        return pulumi.get(self, "distance_function")
+
+    @_builtins.property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> _builtins.str:
+        return pulumi.get(self, "index_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def projection(self) -> 'outputs.GlobalTableProjection':
+        return pulumi.get(self, "projection")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorAttribute")
+    def vector_attribute(self) -> 'outputs.GlobalTableVectorAttribute':
+        return pulumi.get(self, "vector_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="searchSchema")
+    def search_schema(self) -> Optional[Sequence['outputs.GlobalTableSearchSchemaElement']]:
+        return pulumi.get(self, "search_schema")
 
 
 @pulumi.output_type
@@ -2330,6 +2474,7 @@ class TableProjection(dict):
                  +  ``ALL`` - All of the table attributes are projected into the index.
                
                 When using the DynamoDB console, ``ALL`` is selected by default.
+                You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
         """
         if non_key_attributes is not None:
             pulumi.set(__self__, "non_key_attributes", non_key_attributes)
@@ -2355,6 +2500,7 @@ class TableProjection(dict):
           +  ``ALL`` - All of the table attributes are projected into the index.
 
          When using the DynamoDB console, ``ALL`` is selected by default.
+         You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
         """
         return pulumi.get(self, "projection_type")
 
@@ -2543,6 +2689,44 @@ class TableS3BucketSource(dict):
 
 
 @pulumi.output_type
+class TableSearchSchemaElement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+        elif key == "searchSchemaElementType":
+            suggest = "search_schema_element_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSearchSchemaElement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSearchSchemaElement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSearchSchemaElement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: _builtins.str,
+                 search_schema_element_type: 'TableSearchSchemaElementSearchSchemaElementType'):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "search_schema_element_type", search_schema_element_type)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> _builtins.str:
+        return pulumi.get(self, "attribute_name")
+
+    @_builtins.property
+    @pulumi.getter(name="searchSchemaElementType")
+    def search_schema_element_type(self) -> 'TableSearchSchemaElementSearchSchemaElementType':
+        return pulumi.get(self, "search_schema_element_type")
+
+
+@pulumi.output_type
 class TableSseSpecification(dict):
     """
     Represents the settings used to enable server-side encryption.
@@ -2651,6 +2835,8 @@ class TableStreamSpecification(dict):
         :param 'TableResourcePolicy' resource_policy: Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
                  When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
                  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+        :param Sequence['TableTag'] tags: Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+                For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
         """
         pulumi.set(__self__, "stream_view_type", stream_view_type)
         if resource_policy is not None:
@@ -2683,6 +2869,10 @@ class TableStreamSpecification(dict):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.TableTag']]:
+        """
+        Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+         For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -2778,6 +2968,106 @@ class TableTimeToLiveSpecification(dict):
           +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
         """
         return pulumi.get(self, "attribute_name")
+
+
+@pulumi.output_type
+class TableVectorAttribute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableVectorAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableVectorAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableVectorAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: _builtins.str):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> _builtins.str:
+        return pulumi.get(self, "attribute_name")
+
+
+@pulumi.output_type
+class TableVectorIndex(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "distanceFunction":
+            suggest = "distance_function"
+        elif key == "indexName":
+            suggest = "index_name"
+        elif key == "vectorAttribute":
+            suggest = "vector_attribute"
+        elif key == "searchSchema":
+            suggest = "search_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableVectorIndex. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableVectorIndex.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableVectorIndex.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: _builtins.int,
+                 distance_function: 'TableVectorIndexDistanceFunction',
+                 index_name: _builtins.str,
+                 projection: 'outputs.TableProjection',
+                 vector_attribute: 'outputs.TableVectorAttribute',
+                 search_schema: Optional[Sequence['outputs.TableSearchSchemaElement']] = None):
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "distance_function", distance_function)
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "projection", projection)
+        pulumi.set(__self__, "vector_attribute", vector_attribute)
+        if search_schema is not None:
+            pulumi.set(__self__, "search_schema", search_schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> _builtins.int:
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="distanceFunction")
+    def distance_function(self) -> 'TableVectorIndexDistanceFunction':
+        return pulumi.get(self, "distance_function")
+
+    @_builtins.property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> _builtins.str:
+        return pulumi.get(self, "index_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def projection(self) -> 'outputs.TableProjection':
+        return pulumi.get(self, "projection")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorAttribute")
+    def vector_attribute(self) -> 'outputs.TableVectorAttribute':
+        return pulumi.get(self, "vector_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="searchSchema")
+    def search_schema(self) -> Optional[Sequence['outputs.TableSearchSchemaElement']]:
+        return pulumi.get(self, "search_schema")
 
 
 @pulumi.output_type

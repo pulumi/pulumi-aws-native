@@ -21,7 +21,7 @@
   },
   "handlers" : {
     "read" : {
-      "permissions" : [ "neptune-graph:GetGraph", "neptune-graph:ListTagsForResource", "kms:DescribeKey", "kms:CreateGrant", "kms:Decrypt" ],
+      "permissions" : [ "neptune-graph:GetGraph", "neptune-graph:ListTagsForResource" ],
       "timeoutInMinutes" : 2160
     },
     "create" : {
@@ -33,7 +33,7 @@
       "timeoutInMinutes" : 2160
     },
     "list" : {
-      "permissions" : [ "neptune-graph:GetGraph", "neptune-graph:ListGraphs", "neptune-graph:ListTagsForResource", "kms:DescribeKey", "kms:CreateGrant", "kms:Decrypt" ],
+      "permissions" : [ "neptune-graph:GetGraph", "neptune-graph:ListGraphs", "neptune-graph:ListTagsForResource" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {

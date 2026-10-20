@@ -33,6 +33,10 @@ type LookupRegistryRecordResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The identifier of the AWS account that created the registry record.
 	CreatedBy *string `pulumi:"createdBy"`
+	// The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+	CustomMetadata interface{} `pulumi:"customMetadata"`
 	// The description of the registry record.
 	Description *string                    `pulumi:"description"`
 	Descriptors *RegistryRecordDescriptors `pulumi:"descriptors"`
@@ -91,6 +95,13 @@ func (o LookupRegistryRecordResultOutput) CreatedAt() pulumi.StringPtrOutput {
 // The identifier of the AWS account that created the registry record.
 func (o LookupRegistryRecordResultOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryRecordResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+func (o LookupRegistryRecordResultOutput) CustomMetadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupRegistryRecordResult) interface{} { return v.CustomMetadata }).(pulumi.AnyOutput)
 }
 
 // The description of the registry record.

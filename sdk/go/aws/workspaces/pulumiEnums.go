@@ -196,6 +196,5053 @@ func (o ConnectionAliasStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates the type of access endpoint.
+type DirectoryAccessEndpointAccessEndpointType string
+
+const (
+	DirectoryAccessEndpointAccessEndpointTypeStreamingWsp = DirectoryAccessEndpointAccessEndpointType("STREAMING_WSP")
+)
+
+func (DirectoryAccessEndpointAccessEndpointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryAccessEndpointAccessEndpointType)(nil)).Elem()
+}
+
+func (e DirectoryAccessEndpointAccessEndpointType) ToDirectoryAccessEndpointAccessEndpointTypeOutput() DirectoryAccessEndpointAccessEndpointTypeOutput {
+	return pulumi.ToOutput(e).(DirectoryAccessEndpointAccessEndpointTypeOutput)
+}
+
+func (e DirectoryAccessEndpointAccessEndpointType) ToDirectoryAccessEndpointAccessEndpointTypeOutputWithContext(ctx context.Context) DirectoryAccessEndpointAccessEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryAccessEndpointAccessEndpointTypeOutput)
+}
+
+func (e DirectoryAccessEndpointAccessEndpointType) ToDirectoryAccessEndpointAccessEndpointTypePtrOutput() DirectoryAccessEndpointAccessEndpointTypePtrOutput {
+	return e.ToDirectoryAccessEndpointAccessEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryAccessEndpointAccessEndpointType) ToDirectoryAccessEndpointAccessEndpointTypePtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointAccessEndpointTypePtrOutput {
+	return DirectoryAccessEndpointAccessEndpointType(e).ToDirectoryAccessEndpointAccessEndpointTypeOutputWithContext(ctx).ToDirectoryAccessEndpointAccessEndpointTypePtrOutputWithContext(ctx)
+}
+
+func (e DirectoryAccessEndpointAccessEndpointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryAccessEndpointAccessEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryAccessEndpointAccessEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryAccessEndpointAccessEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryAccessEndpointAccessEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (DirectoryAccessEndpointAccessEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryAccessEndpointAccessEndpointType)(nil)).Elem()
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypeOutput) ToDirectoryAccessEndpointAccessEndpointTypeOutput() DirectoryAccessEndpointAccessEndpointTypeOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypeOutput) ToDirectoryAccessEndpointAccessEndpointTypeOutputWithContext(ctx context.Context) DirectoryAccessEndpointAccessEndpointTypeOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypeOutput) ToDirectoryAccessEndpointAccessEndpointTypePtrOutput() DirectoryAccessEndpointAccessEndpointTypePtrOutput {
+	return o.ToDirectoryAccessEndpointAccessEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypeOutput) ToDirectoryAccessEndpointAccessEndpointTypePtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointAccessEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryAccessEndpointAccessEndpointType) *DirectoryAccessEndpointAccessEndpointType {
+		return &v
+	}).(DirectoryAccessEndpointAccessEndpointTypePtrOutput)
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryAccessEndpointAccessEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryAccessEndpointAccessEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryAccessEndpointAccessEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryAccessEndpointAccessEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryAccessEndpointAccessEndpointType)(nil)).Elem()
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypePtrOutput) ToDirectoryAccessEndpointAccessEndpointTypePtrOutput() DirectoryAccessEndpointAccessEndpointTypePtrOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypePtrOutput) ToDirectoryAccessEndpointAccessEndpointTypePtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointAccessEndpointTypePtrOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypePtrOutput) Elem() DirectoryAccessEndpointAccessEndpointTypeOutput {
+	return o.ApplyT(func(v *DirectoryAccessEndpointAccessEndpointType) DirectoryAccessEndpointAccessEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryAccessEndpointAccessEndpointType
+		return ret
+	}).(DirectoryAccessEndpointAccessEndpointTypeOutput)
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryAccessEndpointAccessEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryAccessEndpointAccessEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryAccessEndpointAccessEndpointTypeInput is an input type that accepts values of the DirectoryAccessEndpointAccessEndpointType enum
+// A concrete instance of `DirectoryAccessEndpointAccessEndpointTypeInput` can be one of the following:
+//
+//	DirectoryAccessEndpointAccessEndpointTypeStreamingWsp
+type DirectoryAccessEndpointAccessEndpointTypeInput interface {
+	pulumi.Input
+
+	ToDirectoryAccessEndpointAccessEndpointTypeOutput() DirectoryAccessEndpointAccessEndpointTypeOutput
+	ToDirectoryAccessEndpointAccessEndpointTypeOutputWithContext(context.Context) DirectoryAccessEndpointAccessEndpointTypeOutput
+}
+
+var directoryAccessEndpointAccessEndpointTypePtrType = reflect.TypeOf((**DirectoryAccessEndpointAccessEndpointType)(nil)).Elem()
+
+type DirectoryAccessEndpointAccessEndpointTypePtrInput interface {
+	pulumi.Input
+
+	ToDirectoryAccessEndpointAccessEndpointTypePtrOutput() DirectoryAccessEndpointAccessEndpointTypePtrOutput
+	ToDirectoryAccessEndpointAccessEndpointTypePtrOutputWithContext(context.Context) DirectoryAccessEndpointAccessEndpointTypePtrOutput
+}
+
+type directoryAccessEndpointAccessEndpointTypePtr string
+
+func DirectoryAccessEndpointAccessEndpointTypePtr(v string) DirectoryAccessEndpointAccessEndpointTypePtrInput {
+	return (*directoryAccessEndpointAccessEndpointTypePtr)(&v)
+}
+
+func (*directoryAccessEndpointAccessEndpointTypePtr) ElementType() reflect.Type {
+	return directoryAccessEndpointAccessEndpointTypePtrType
+}
+
+func (in *directoryAccessEndpointAccessEndpointTypePtr) ToDirectoryAccessEndpointAccessEndpointTypePtrOutput() DirectoryAccessEndpointAccessEndpointTypePtrOutput {
+	return pulumi.ToOutput(in).(DirectoryAccessEndpointAccessEndpointTypePtrOutput)
+}
+
+func (in *directoryAccessEndpointAccessEndpointTypePtr) ToDirectoryAccessEndpointAccessEndpointTypePtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointAccessEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryAccessEndpointAccessEndpointTypePtrOutput)
+}
+
+type DirectoryAccessEndpointConfigInternetFallbackProtocolsItem string
+
+const (
+	DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPcoip = DirectoryAccessEndpointConfigInternetFallbackProtocolsItem("PCOIP")
+)
+
+func (DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryAccessEndpointConfigInternetFallbackProtocolsItem)(nil)).Elem()
+}
+
+func (e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput {
+	return pulumi.ToOutput(e).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput)
+}
+
+func (e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput)
+}
+
+func (e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput {
+	return e.ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput {
+	return DirectoryAccessEndpointConfigInternetFallbackProtocolsItem(e).ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutputWithContext(ctx).ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput struct{ *pulumi.OutputState }
+
+func (DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryAccessEndpointConfigInternetFallbackProtocolsItem)(nil)).Elem()
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput {
+	return o.ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) *DirectoryAccessEndpointConfigInternetFallbackProtocolsItem {
+		return &v
+	}).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput)
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryAccessEndpointConfigInternetFallbackProtocolsItem)(nil)).Elem()
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput) Elem() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput {
+	return o.ApplyT(func(v *DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) DirectoryAccessEndpointConfigInternetFallbackProtocolsItem {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryAccessEndpointConfigInternetFallbackProtocolsItem
+		return ret
+	}).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput)
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryAccessEndpointConfigInternetFallbackProtocolsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryAccessEndpointConfigInternetFallbackProtocolsItemInput is an input type that accepts values of the DirectoryAccessEndpointConfigInternetFallbackProtocolsItem enum
+// A concrete instance of `DirectoryAccessEndpointConfigInternetFallbackProtocolsItemInput` can be one of the following:
+//
+//	DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPcoip
+type DirectoryAccessEndpointConfigInternetFallbackProtocolsItemInput interface {
+	pulumi.Input
+
+	ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput
+	ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutputWithContext(context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput
+}
+
+var directoryAccessEndpointConfigInternetFallbackProtocolsItemPtrType = reflect.TypeOf((**DirectoryAccessEndpointConfigInternetFallbackProtocolsItem)(nil)).Elem()
+
+type DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput
+	ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutputWithContext(context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput
+}
+
+type directoryAccessEndpointConfigInternetFallbackProtocolsItemPtr string
+
+func DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtr(v string) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrInput {
+	return (*directoryAccessEndpointConfigInternetFallbackProtocolsItemPtr)(&v)
+}
+
+func (*directoryAccessEndpointConfigInternetFallbackProtocolsItemPtr) ElementType() reflect.Type {
+	return directoryAccessEndpointConfigInternetFallbackProtocolsItemPtrType
+}
+
+func (in *directoryAccessEndpointConfigInternetFallbackProtocolsItemPtr) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput)
+}
+
+func (in *directoryAccessEndpointConfigInternetFallbackProtocolsItemPtr) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput)
+}
+
+// DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayInput is an input type that accepts DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArray and DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput values.
+// You can construct a concrete instance of `DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayInput` via:
+//
+//	DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArray{ DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArgs{...} }
+type DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayInput interface {
+	pulumi.Input
+
+	ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput
+	ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutputWithContext(context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput
+}
+
+type DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArray []DirectoryAccessEndpointConfigInternetFallbackProtocolsItem
+
+func (DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryAccessEndpointConfigInternetFallbackProtocolsItem)(nil)).Elem()
+}
+
+func (i DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArray) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput {
+	return i.ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutputWithContext(context.Background())
+}
+
+func (i DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArray) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput)
+}
+
+type DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryAccessEndpointConfigInternetFallbackProtocolsItem)(nil)).Elem()
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput) ToDirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput) Index(i pulumi.IntInput) DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryAccessEndpointConfigInternetFallbackProtocolsItem {
+		return vs[0].([]DirectoryAccessEndpointConfigInternetFallbackProtocolsItem)[vs[1].(int)]
+	}).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput)
+}
+
+// The status of the certificate-based authentication properties.
+type DirectoryCertificateBasedAuthPropertiesStatus string
+
+const (
+	DirectoryCertificateBasedAuthPropertiesStatusDisabled = DirectoryCertificateBasedAuthPropertiesStatus("DISABLED")
+	DirectoryCertificateBasedAuthPropertiesStatusEnabled  = DirectoryCertificateBasedAuthPropertiesStatus("ENABLED")
+)
+
+func (DirectoryCertificateBasedAuthPropertiesStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesStatus)(nil)).Elem()
+}
+
+func (e DirectoryCertificateBasedAuthPropertiesStatus) ToDirectoryCertificateBasedAuthPropertiesStatusOutput() DirectoryCertificateBasedAuthPropertiesStatusOutput {
+	return pulumi.ToOutput(e).(DirectoryCertificateBasedAuthPropertiesStatusOutput)
+}
+
+func (e DirectoryCertificateBasedAuthPropertiesStatus) ToDirectoryCertificateBasedAuthPropertiesStatusOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryCertificateBasedAuthPropertiesStatusOutput)
+}
+
+func (e DirectoryCertificateBasedAuthPropertiesStatus) ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutput() DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return e.ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryCertificateBasedAuthPropertiesStatus) ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return DirectoryCertificateBasedAuthPropertiesStatus(e).ToDirectoryCertificateBasedAuthPropertiesStatusOutputWithContext(ctx).ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryCertificateBasedAuthPropertiesStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryCertificateBasedAuthPropertiesStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryCertificateBasedAuthPropertiesStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryCertificateBasedAuthPropertiesStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryCertificateBasedAuthPropertiesStatusOutput struct{ *pulumi.OutputState }
+
+func (DirectoryCertificateBasedAuthPropertiesStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesStatus)(nil)).Elem()
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusOutput) ToDirectoryCertificateBasedAuthPropertiesStatusOutput() DirectoryCertificateBasedAuthPropertiesStatusOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusOutput) ToDirectoryCertificateBasedAuthPropertiesStatusOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesStatusOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusOutput) ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutput() DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return o.ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusOutput) ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryCertificateBasedAuthPropertiesStatus) *DirectoryCertificateBasedAuthPropertiesStatus {
+		return &v
+	}).(DirectoryCertificateBasedAuthPropertiesStatusPtrOutput)
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryCertificateBasedAuthPropertiesStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryCertificateBasedAuthPropertiesStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryCertificateBasedAuthPropertiesStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryCertificateBasedAuthPropertiesStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryCertificateBasedAuthPropertiesStatus)(nil)).Elem()
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusPtrOutput) ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutput() DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusPtrOutput) ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusPtrOutput) Elem() DirectoryCertificateBasedAuthPropertiesStatusOutput {
+	return o.ApplyT(func(v *DirectoryCertificateBasedAuthPropertiesStatus) DirectoryCertificateBasedAuthPropertiesStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryCertificateBasedAuthPropertiesStatus
+		return ret
+	}).(DirectoryCertificateBasedAuthPropertiesStatusOutput)
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryCertificateBasedAuthPropertiesStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryCertificateBasedAuthPropertiesStatusInput is an input type that accepts values of the DirectoryCertificateBasedAuthPropertiesStatus enum
+// A concrete instance of `DirectoryCertificateBasedAuthPropertiesStatusInput` can be one of the following:
+//
+//	DirectoryCertificateBasedAuthPropertiesStatusDisabled
+//	DirectoryCertificateBasedAuthPropertiesStatusEnabled
+type DirectoryCertificateBasedAuthPropertiesStatusInput interface {
+	pulumi.Input
+
+	ToDirectoryCertificateBasedAuthPropertiesStatusOutput() DirectoryCertificateBasedAuthPropertiesStatusOutput
+	ToDirectoryCertificateBasedAuthPropertiesStatusOutputWithContext(context.Context) DirectoryCertificateBasedAuthPropertiesStatusOutput
+}
+
+var directoryCertificateBasedAuthPropertiesStatusPtrType = reflect.TypeOf((**DirectoryCertificateBasedAuthPropertiesStatus)(nil)).Elem()
+
+type DirectoryCertificateBasedAuthPropertiesStatusPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutput() DirectoryCertificateBasedAuthPropertiesStatusPtrOutput
+	ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutputWithContext(context.Context) DirectoryCertificateBasedAuthPropertiesStatusPtrOutput
+}
+
+type directoryCertificateBasedAuthPropertiesStatusPtr string
+
+func DirectoryCertificateBasedAuthPropertiesStatusPtr(v string) DirectoryCertificateBasedAuthPropertiesStatusPtrInput {
+	return (*directoryCertificateBasedAuthPropertiesStatusPtr)(&v)
+}
+
+func (*directoryCertificateBasedAuthPropertiesStatusPtr) ElementType() reflect.Type {
+	return directoryCertificateBasedAuthPropertiesStatusPtrType
+}
+
+func (in *directoryCertificateBasedAuthPropertiesStatusPtr) ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutput() DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryCertificateBasedAuthPropertiesStatusPtrOutput)
+}
+
+func (in *directoryCertificateBasedAuthPropertiesStatusPtr) ToDirectoryCertificateBasedAuthPropertiesStatusPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryCertificateBasedAuthPropertiesStatusPtrOutput)
+}
+
+// Endpoint encryption mode that allows you to configure the specified directory between Standard TLS and FIPS 140-2 validated mode.
+type DirectoryEndpointEncryptionMode string
+
+const (
+	DirectoryEndpointEncryptionModeStandardTls   = DirectoryEndpointEncryptionMode("STANDARD_TLS")
+	DirectoryEndpointEncryptionModeFipsValidated = DirectoryEndpointEncryptionMode("FIPS_VALIDATED")
+)
+
+func (DirectoryEndpointEncryptionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryEndpointEncryptionMode)(nil)).Elem()
+}
+
+func (e DirectoryEndpointEncryptionMode) ToDirectoryEndpointEncryptionModeOutput() DirectoryEndpointEncryptionModeOutput {
+	return pulumi.ToOutput(e).(DirectoryEndpointEncryptionModeOutput)
+}
+
+func (e DirectoryEndpointEncryptionMode) ToDirectoryEndpointEncryptionModeOutputWithContext(ctx context.Context) DirectoryEndpointEncryptionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryEndpointEncryptionModeOutput)
+}
+
+func (e DirectoryEndpointEncryptionMode) ToDirectoryEndpointEncryptionModePtrOutput() DirectoryEndpointEncryptionModePtrOutput {
+	return e.ToDirectoryEndpointEncryptionModePtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryEndpointEncryptionMode) ToDirectoryEndpointEncryptionModePtrOutputWithContext(ctx context.Context) DirectoryEndpointEncryptionModePtrOutput {
+	return DirectoryEndpointEncryptionMode(e).ToDirectoryEndpointEncryptionModeOutputWithContext(ctx).ToDirectoryEndpointEncryptionModePtrOutputWithContext(ctx)
+}
+
+func (e DirectoryEndpointEncryptionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryEndpointEncryptionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryEndpointEncryptionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryEndpointEncryptionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryEndpointEncryptionModeOutput struct{ *pulumi.OutputState }
+
+func (DirectoryEndpointEncryptionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryEndpointEncryptionMode)(nil)).Elem()
+}
+
+func (o DirectoryEndpointEncryptionModeOutput) ToDirectoryEndpointEncryptionModeOutput() DirectoryEndpointEncryptionModeOutput {
+	return o
+}
+
+func (o DirectoryEndpointEncryptionModeOutput) ToDirectoryEndpointEncryptionModeOutputWithContext(ctx context.Context) DirectoryEndpointEncryptionModeOutput {
+	return o
+}
+
+func (o DirectoryEndpointEncryptionModeOutput) ToDirectoryEndpointEncryptionModePtrOutput() DirectoryEndpointEncryptionModePtrOutput {
+	return o.ToDirectoryEndpointEncryptionModePtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryEndpointEncryptionModeOutput) ToDirectoryEndpointEncryptionModePtrOutputWithContext(ctx context.Context) DirectoryEndpointEncryptionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryEndpointEncryptionMode) *DirectoryEndpointEncryptionMode {
+		return &v
+	}).(DirectoryEndpointEncryptionModePtrOutput)
+}
+
+func (o DirectoryEndpointEncryptionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryEndpointEncryptionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryEndpointEncryptionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryEndpointEncryptionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryEndpointEncryptionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryEndpointEncryptionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryEndpointEncryptionModePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryEndpointEncryptionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryEndpointEncryptionMode)(nil)).Elem()
+}
+
+func (o DirectoryEndpointEncryptionModePtrOutput) ToDirectoryEndpointEncryptionModePtrOutput() DirectoryEndpointEncryptionModePtrOutput {
+	return o
+}
+
+func (o DirectoryEndpointEncryptionModePtrOutput) ToDirectoryEndpointEncryptionModePtrOutputWithContext(ctx context.Context) DirectoryEndpointEncryptionModePtrOutput {
+	return o
+}
+
+func (o DirectoryEndpointEncryptionModePtrOutput) Elem() DirectoryEndpointEncryptionModeOutput {
+	return o.ApplyT(func(v *DirectoryEndpointEncryptionMode) DirectoryEndpointEncryptionMode {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryEndpointEncryptionMode
+		return ret
+	}).(DirectoryEndpointEncryptionModeOutput)
+}
+
+func (o DirectoryEndpointEncryptionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryEndpointEncryptionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryEndpointEncryptionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryEndpointEncryptionModeInput is an input type that accepts values of the DirectoryEndpointEncryptionMode enum
+// A concrete instance of `DirectoryEndpointEncryptionModeInput` can be one of the following:
+//
+//	DirectoryEndpointEncryptionModeStandardTls
+//	DirectoryEndpointEncryptionModeFipsValidated
+type DirectoryEndpointEncryptionModeInput interface {
+	pulumi.Input
+
+	ToDirectoryEndpointEncryptionModeOutput() DirectoryEndpointEncryptionModeOutput
+	ToDirectoryEndpointEncryptionModeOutputWithContext(context.Context) DirectoryEndpointEncryptionModeOutput
+}
+
+var directoryEndpointEncryptionModePtrType = reflect.TypeOf((**DirectoryEndpointEncryptionMode)(nil)).Elem()
+
+type DirectoryEndpointEncryptionModePtrInput interface {
+	pulumi.Input
+
+	ToDirectoryEndpointEncryptionModePtrOutput() DirectoryEndpointEncryptionModePtrOutput
+	ToDirectoryEndpointEncryptionModePtrOutputWithContext(context.Context) DirectoryEndpointEncryptionModePtrOutput
+}
+
+type directoryEndpointEncryptionModePtr string
+
+func DirectoryEndpointEncryptionModePtr(v string) DirectoryEndpointEncryptionModePtrInput {
+	return (*directoryEndpointEncryptionModePtr)(&v)
+}
+
+func (*directoryEndpointEncryptionModePtr) ElementType() reflect.Type {
+	return directoryEndpointEncryptionModePtrType
+}
+
+func (in *directoryEndpointEncryptionModePtr) ToDirectoryEndpointEncryptionModePtrOutput() DirectoryEndpointEncryptionModePtrOutput {
+	return pulumi.ToOutput(in).(DirectoryEndpointEncryptionModePtrOutput)
+}
+
+func (in *directoryEndpointEncryptionModePtr) ToDirectoryEndpointEncryptionModePtrOutputWithContext(ctx context.Context) DirectoryEndpointEncryptionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryEndpointEncryptionModePtrOutput)
+}
+
+// Indicates if Global Accelerator for directory is enabled or disabled.
+type DirectoryGlobalAcceleratorForDirectoryMode string
+
+const (
+	DirectoryGlobalAcceleratorForDirectoryModeEnabledAuto = DirectoryGlobalAcceleratorForDirectoryMode("ENABLED_AUTO")
+	DirectoryGlobalAcceleratorForDirectoryModeDisabled    = DirectoryGlobalAcceleratorForDirectoryMode("DISABLED")
+)
+
+func (DirectoryGlobalAcceleratorForDirectoryMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryMode)(nil)).Elem()
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryMode) ToDirectoryGlobalAcceleratorForDirectoryModeOutput() DirectoryGlobalAcceleratorForDirectoryModeOutput {
+	return pulumi.ToOutput(e).(DirectoryGlobalAcceleratorForDirectoryModeOutput)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryMode) ToDirectoryGlobalAcceleratorForDirectoryModeOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryGlobalAcceleratorForDirectoryModeOutput)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryMode) ToDirectoryGlobalAcceleratorForDirectoryModePtrOutput() DirectoryGlobalAcceleratorForDirectoryModePtrOutput {
+	return e.ToDirectoryGlobalAcceleratorForDirectoryModePtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryMode) ToDirectoryGlobalAcceleratorForDirectoryModePtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryModePtrOutput {
+	return DirectoryGlobalAcceleratorForDirectoryMode(e).ToDirectoryGlobalAcceleratorForDirectoryModeOutputWithContext(ctx).ToDirectoryGlobalAcceleratorForDirectoryModePtrOutputWithContext(ctx)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryGlobalAcceleratorForDirectoryModeOutput struct{ *pulumi.OutputState }
+
+func (DirectoryGlobalAcceleratorForDirectoryModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryMode)(nil)).Elem()
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModeOutput) ToDirectoryGlobalAcceleratorForDirectoryModeOutput() DirectoryGlobalAcceleratorForDirectoryModeOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModeOutput) ToDirectoryGlobalAcceleratorForDirectoryModeOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryModeOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModeOutput) ToDirectoryGlobalAcceleratorForDirectoryModePtrOutput() DirectoryGlobalAcceleratorForDirectoryModePtrOutput {
+	return o.ToDirectoryGlobalAcceleratorForDirectoryModePtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModeOutput) ToDirectoryGlobalAcceleratorForDirectoryModePtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryGlobalAcceleratorForDirectoryMode) *DirectoryGlobalAcceleratorForDirectoryMode {
+		return &v
+	}).(DirectoryGlobalAcceleratorForDirectoryModePtrOutput)
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryGlobalAcceleratorForDirectoryMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryGlobalAcceleratorForDirectoryMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryGlobalAcceleratorForDirectoryModePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryGlobalAcceleratorForDirectoryModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryGlobalAcceleratorForDirectoryMode)(nil)).Elem()
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModePtrOutput) ToDirectoryGlobalAcceleratorForDirectoryModePtrOutput() DirectoryGlobalAcceleratorForDirectoryModePtrOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModePtrOutput) ToDirectoryGlobalAcceleratorForDirectoryModePtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryModePtrOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModePtrOutput) Elem() DirectoryGlobalAcceleratorForDirectoryModeOutput {
+	return o.ApplyT(func(v *DirectoryGlobalAcceleratorForDirectoryMode) DirectoryGlobalAcceleratorForDirectoryMode {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryGlobalAcceleratorForDirectoryMode
+		return ret
+	}).(DirectoryGlobalAcceleratorForDirectoryModeOutput)
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryGlobalAcceleratorForDirectoryMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryGlobalAcceleratorForDirectoryModeInput is an input type that accepts values of the DirectoryGlobalAcceleratorForDirectoryMode enum
+// A concrete instance of `DirectoryGlobalAcceleratorForDirectoryModeInput` can be one of the following:
+//
+//	DirectoryGlobalAcceleratorForDirectoryModeEnabledAuto
+//	DirectoryGlobalAcceleratorForDirectoryModeDisabled
+type DirectoryGlobalAcceleratorForDirectoryModeInput interface {
+	pulumi.Input
+
+	ToDirectoryGlobalAcceleratorForDirectoryModeOutput() DirectoryGlobalAcceleratorForDirectoryModeOutput
+	ToDirectoryGlobalAcceleratorForDirectoryModeOutputWithContext(context.Context) DirectoryGlobalAcceleratorForDirectoryModeOutput
+}
+
+var directoryGlobalAcceleratorForDirectoryModePtrType = reflect.TypeOf((**DirectoryGlobalAcceleratorForDirectoryMode)(nil)).Elem()
+
+type DirectoryGlobalAcceleratorForDirectoryModePtrInput interface {
+	pulumi.Input
+
+	ToDirectoryGlobalAcceleratorForDirectoryModePtrOutput() DirectoryGlobalAcceleratorForDirectoryModePtrOutput
+	ToDirectoryGlobalAcceleratorForDirectoryModePtrOutputWithContext(context.Context) DirectoryGlobalAcceleratorForDirectoryModePtrOutput
+}
+
+type directoryGlobalAcceleratorForDirectoryModePtr string
+
+func DirectoryGlobalAcceleratorForDirectoryModePtr(v string) DirectoryGlobalAcceleratorForDirectoryModePtrInput {
+	return (*directoryGlobalAcceleratorForDirectoryModePtr)(&v)
+}
+
+func (*directoryGlobalAcceleratorForDirectoryModePtr) ElementType() reflect.Type {
+	return directoryGlobalAcceleratorForDirectoryModePtrType
+}
+
+func (in *directoryGlobalAcceleratorForDirectoryModePtr) ToDirectoryGlobalAcceleratorForDirectoryModePtrOutput() DirectoryGlobalAcceleratorForDirectoryModePtrOutput {
+	return pulumi.ToOutput(in).(DirectoryGlobalAcceleratorForDirectoryModePtrOutput)
+}
+
+func (in *directoryGlobalAcceleratorForDirectoryModePtr) ToDirectoryGlobalAcceleratorForDirectoryModePtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryGlobalAcceleratorForDirectoryModePtrOutput)
+}
+
+// Indicates the preferred protocol for Global Accelerator.
+type DirectoryGlobalAcceleratorForDirectoryPreferredProtocol string
+
+const (
+	DirectoryGlobalAcceleratorForDirectoryPreferredProtocolTcp  = DirectoryGlobalAcceleratorForDirectoryPreferredProtocol("TCP")
+	DirectoryGlobalAcceleratorForDirectoryPreferredProtocolNone = DirectoryGlobalAcceleratorForDirectoryPreferredProtocol("NONE")
+)
+
+func (DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryPreferredProtocol)(nil)).Elem()
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput {
+	return pulumi.ToOutput(e).(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return e.ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return DirectoryGlobalAcceleratorForDirectoryPreferredProtocol(e).ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutputWithContext(ctx).ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput struct{ *pulumi.OutputState }
+
+func (DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryPreferredProtocol)(nil)).Elem()
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return o.ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) *DirectoryGlobalAcceleratorForDirectoryPreferredProtocol {
+		return &v
+	}).(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput)
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryGlobalAcceleratorForDirectoryPreferredProtocol)(nil)).Elem()
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput) Elem() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput {
+	return o.ApplyT(func(v *DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) DirectoryGlobalAcceleratorForDirectoryPreferredProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryGlobalAcceleratorForDirectoryPreferredProtocol
+		return ret
+	}).(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput)
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryGlobalAcceleratorForDirectoryPreferredProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryGlobalAcceleratorForDirectoryPreferredProtocolInput is an input type that accepts values of the DirectoryGlobalAcceleratorForDirectoryPreferredProtocol enum
+// A concrete instance of `DirectoryGlobalAcceleratorForDirectoryPreferredProtocolInput` can be one of the following:
+//
+//	DirectoryGlobalAcceleratorForDirectoryPreferredProtocolTcp
+//	DirectoryGlobalAcceleratorForDirectoryPreferredProtocolNone
+type DirectoryGlobalAcceleratorForDirectoryPreferredProtocolInput interface {
+	pulumi.Input
+
+	ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput
+	ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutputWithContext(context.Context) DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput
+}
+
+var directoryGlobalAcceleratorForDirectoryPreferredProtocolPtrType = reflect.TypeOf((**DirectoryGlobalAcceleratorForDirectoryPreferredProtocol)(nil)).Elem()
+
+type DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput
+	ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutputWithContext(context.Context) DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput
+}
+
+type directoryGlobalAcceleratorForDirectoryPreferredProtocolPtr string
+
+func DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtr(v string) DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrInput {
+	return (*directoryGlobalAcceleratorForDirectoryPreferredProtocolPtr)(&v)
+}
+
+func (*directoryGlobalAcceleratorForDirectoryPreferredProtocolPtr) ElementType() reflect.Type {
+	return directoryGlobalAcceleratorForDirectoryPreferredProtocolPtrType
+}
+
+func (in *directoryGlobalAcceleratorForDirectoryPreferredProtocolPtr) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput)
+}
+
+func (in *directoryGlobalAcceleratorForDirectoryPreferredProtocolPtr) ToDirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput)
+}
+
+// Indicates the status of SAML 2.0 authentication.
+type DirectorySamlPropertiesStatus string
+
+const (
+	DirectorySamlPropertiesStatusDisabled                          = DirectorySamlPropertiesStatus("DISABLED")
+	DirectorySamlPropertiesStatusEnabled                           = DirectorySamlPropertiesStatus("ENABLED")
+	DirectorySamlPropertiesStatusEnabledWithDirectoryLoginFallback = DirectorySamlPropertiesStatus("ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK")
+)
+
+func (DirectorySamlPropertiesStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySamlPropertiesStatus)(nil)).Elem()
+}
+
+func (e DirectorySamlPropertiesStatus) ToDirectorySamlPropertiesStatusOutput() DirectorySamlPropertiesStatusOutput {
+	return pulumi.ToOutput(e).(DirectorySamlPropertiesStatusOutput)
+}
+
+func (e DirectorySamlPropertiesStatus) ToDirectorySamlPropertiesStatusOutputWithContext(ctx context.Context) DirectorySamlPropertiesStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectorySamlPropertiesStatusOutput)
+}
+
+func (e DirectorySamlPropertiesStatus) ToDirectorySamlPropertiesStatusPtrOutput() DirectorySamlPropertiesStatusPtrOutput {
+	return e.ToDirectorySamlPropertiesStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySamlPropertiesStatus) ToDirectorySamlPropertiesStatusPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesStatusPtrOutput {
+	return DirectorySamlPropertiesStatus(e).ToDirectorySamlPropertiesStatusOutputWithContext(ctx).ToDirectorySamlPropertiesStatusPtrOutputWithContext(ctx)
+}
+
+func (e DirectorySamlPropertiesStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySamlPropertiesStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySamlPropertiesStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySamlPropertiesStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectorySamlPropertiesStatusOutput struct{ *pulumi.OutputState }
+
+func (DirectorySamlPropertiesStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySamlPropertiesStatus)(nil)).Elem()
+}
+
+func (o DirectorySamlPropertiesStatusOutput) ToDirectorySamlPropertiesStatusOutput() DirectorySamlPropertiesStatusOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesStatusOutput) ToDirectorySamlPropertiesStatusOutputWithContext(ctx context.Context) DirectorySamlPropertiesStatusOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesStatusOutput) ToDirectorySamlPropertiesStatusPtrOutput() DirectorySamlPropertiesStatusPtrOutput {
+	return o.ToDirectorySamlPropertiesStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySamlPropertiesStatusOutput) ToDirectorySamlPropertiesStatusPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySamlPropertiesStatus) *DirectorySamlPropertiesStatus {
+		return &v
+	}).(DirectorySamlPropertiesStatusPtrOutput)
+}
+
+func (o DirectorySamlPropertiesStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectorySamlPropertiesStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySamlPropertiesStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectorySamlPropertiesStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySamlPropertiesStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySamlPropertiesStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectorySamlPropertiesStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySamlPropertiesStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySamlPropertiesStatus)(nil)).Elem()
+}
+
+func (o DirectorySamlPropertiesStatusPtrOutput) ToDirectorySamlPropertiesStatusPtrOutput() DirectorySamlPropertiesStatusPtrOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesStatusPtrOutput) ToDirectorySamlPropertiesStatusPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesStatusPtrOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesStatusPtrOutput) Elem() DirectorySamlPropertiesStatusOutput {
+	return o.ApplyT(func(v *DirectorySamlPropertiesStatus) DirectorySamlPropertiesStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySamlPropertiesStatus
+		return ret
+	}).(DirectorySamlPropertiesStatusOutput)
+}
+
+func (o DirectorySamlPropertiesStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySamlPropertiesStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectorySamlPropertiesStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectorySamlPropertiesStatusInput is an input type that accepts values of the DirectorySamlPropertiesStatus enum
+// A concrete instance of `DirectorySamlPropertiesStatusInput` can be one of the following:
+//
+//	DirectorySamlPropertiesStatusDisabled
+//	DirectorySamlPropertiesStatusEnabled
+//	DirectorySamlPropertiesStatusEnabledWithDirectoryLoginFallback
+type DirectorySamlPropertiesStatusInput interface {
+	pulumi.Input
+
+	ToDirectorySamlPropertiesStatusOutput() DirectorySamlPropertiesStatusOutput
+	ToDirectorySamlPropertiesStatusOutputWithContext(context.Context) DirectorySamlPropertiesStatusOutput
+}
+
+var directorySamlPropertiesStatusPtrType = reflect.TypeOf((**DirectorySamlPropertiesStatus)(nil)).Elem()
+
+type DirectorySamlPropertiesStatusPtrInput interface {
+	pulumi.Input
+
+	ToDirectorySamlPropertiesStatusPtrOutput() DirectorySamlPropertiesStatusPtrOutput
+	ToDirectorySamlPropertiesStatusPtrOutputWithContext(context.Context) DirectorySamlPropertiesStatusPtrOutput
+}
+
+type directorySamlPropertiesStatusPtr string
+
+func DirectorySamlPropertiesStatusPtr(v string) DirectorySamlPropertiesStatusPtrInput {
+	return (*directorySamlPropertiesStatusPtr)(&v)
+}
+
+func (*directorySamlPropertiesStatusPtr) ElementType() reflect.Type {
+	return directorySamlPropertiesStatusPtrType
+}
+
+func (in *directorySamlPropertiesStatusPtr) ToDirectorySamlPropertiesStatusPtrOutput() DirectorySamlPropertiesStatusPtrOutput {
+	return pulumi.ToOutput(in).(DirectorySamlPropertiesStatusPtrOutput)
+}
+
+func (in *directorySamlPropertiesStatusPtr) ToDirectorySamlPropertiesStatusPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectorySamlPropertiesStatusPtrOutput)
+}
+
+// Specifies whether users can change the compute type (bundle) for their WorkSpace.
+type DirectorySelfservicePermissionsChangeComputeType string
+
+const (
+	DirectorySelfservicePermissionsChangeComputeTypeEnabled  = DirectorySelfservicePermissionsChangeComputeType("ENABLED")
+	DirectorySelfservicePermissionsChangeComputeTypeDisabled = DirectorySelfservicePermissionsChangeComputeType("DISABLED")
+)
+
+func (DirectorySelfservicePermissionsChangeComputeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsChangeComputeType)(nil)).Elem()
+}
+
+func (e DirectorySelfservicePermissionsChangeComputeType) ToDirectorySelfservicePermissionsChangeComputeTypeOutput() DirectorySelfservicePermissionsChangeComputeTypeOutput {
+	return pulumi.ToOutput(e).(DirectorySelfservicePermissionsChangeComputeTypeOutput)
+}
+
+func (e DirectorySelfservicePermissionsChangeComputeType) ToDirectorySelfservicePermissionsChangeComputeTypeOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsChangeComputeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectorySelfservicePermissionsChangeComputeTypeOutput)
+}
+
+func (e DirectorySelfservicePermissionsChangeComputeType) ToDirectorySelfservicePermissionsChangeComputeTypePtrOutput() DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return e.ToDirectorySelfservicePermissionsChangeComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsChangeComputeType) ToDirectorySelfservicePermissionsChangeComputeTypePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return DirectorySelfservicePermissionsChangeComputeType(e).ToDirectorySelfservicePermissionsChangeComputeTypeOutputWithContext(ctx).ToDirectorySelfservicePermissionsChangeComputeTypePtrOutputWithContext(ctx)
+}
+
+func (e DirectorySelfservicePermissionsChangeComputeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsChangeComputeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsChangeComputeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsChangeComputeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectorySelfservicePermissionsChangeComputeTypeOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsChangeComputeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsChangeComputeType)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypeOutput) ToDirectorySelfservicePermissionsChangeComputeTypeOutput() DirectorySelfservicePermissionsChangeComputeTypeOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypeOutput) ToDirectorySelfservicePermissionsChangeComputeTypeOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsChangeComputeTypeOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypeOutput) ToDirectorySelfservicePermissionsChangeComputeTypePtrOutput() DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return o.ToDirectorySelfservicePermissionsChangeComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypeOutput) ToDirectorySelfservicePermissionsChangeComputeTypePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySelfservicePermissionsChangeComputeType) *DirectorySelfservicePermissionsChangeComputeType {
+		return &v
+	}).(DirectorySelfservicePermissionsChangeComputeTypePtrOutput)
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsChangeComputeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsChangeComputeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectorySelfservicePermissionsChangeComputeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsChangeComputeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySelfservicePermissionsChangeComputeType)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypePtrOutput) ToDirectorySelfservicePermissionsChangeComputeTypePtrOutput() DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypePtrOutput) ToDirectorySelfservicePermissionsChangeComputeTypePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypePtrOutput) Elem() DirectorySelfservicePermissionsChangeComputeTypeOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissionsChangeComputeType) DirectorySelfservicePermissionsChangeComputeType {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySelfservicePermissionsChangeComputeType
+		return ret
+	}).(DirectorySelfservicePermissionsChangeComputeTypeOutput)
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsChangeComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectorySelfservicePermissionsChangeComputeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectorySelfservicePermissionsChangeComputeTypeInput is an input type that accepts values of the DirectorySelfservicePermissionsChangeComputeType enum
+// A concrete instance of `DirectorySelfservicePermissionsChangeComputeTypeInput` can be one of the following:
+//
+//	DirectorySelfservicePermissionsChangeComputeTypeEnabled
+//	DirectorySelfservicePermissionsChangeComputeTypeDisabled
+type DirectorySelfservicePermissionsChangeComputeTypeInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsChangeComputeTypeOutput() DirectorySelfservicePermissionsChangeComputeTypeOutput
+	ToDirectorySelfservicePermissionsChangeComputeTypeOutputWithContext(context.Context) DirectorySelfservicePermissionsChangeComputeTypeOutput
+}
+
+var directorySelfservicePermissionsChangeComputeTypePtrType = reflect.TypeOf((**DirectorySelfservicePermissionsChangeComputeType)(nil)).Elem()
+
+type DirectorySelfservicePermissionsChangeComputeTypePtrInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsChangeComputeTypePtrOutput() DirectorySelfservicePermissionsChangeComputeTypePtrOutput
+	ToDirectorySelfservicePermissionsChangeComputeTypePtrOutputWithContext(context.Context) DirectorySelfservicePermissionsChangeComputeTypePtrOutput
+}
+
+type directorySelfservicePermissionsChangeComputeTypePtr string
+
+func DirectorySelfservicePermissionsChangeComputeTypePtr(v string) DirectorySelfservicePermissionsChangeComputeTypePtrInput {
+	return (*directorySelfservicePermissionsChangeComputeTypePtr)(&v)
+}
+
+func (*directorySelfservicePermissionsChangeComputeTypePtr) ElementType() reflect.Type {
+	return directorySelfservicePermissionsChangeComputeTypePtrType
+}
+
+func (in *directorySelfservicePermissionsChangeComputeTypePtr) ToDirectorySelfservicePermissionsChangeComputeTypePtrOutput() DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return pulumi.ToOutput(in).(DirectorySelfservicePermissionsChangeComputeTypePtrOutput)
+}
+
+func (in *directorySelfservicePermissionsChangeComputeTypePtr) ToDirectorySelfservicePermissionsChangeComputeTypePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectorySelfservicePermissionsChangeComputeTypePtrOutput)
+}
+
+// Specifies whether users can increase the volume size of the drives on their WorkSpace.
+type DirectorySelfservicePermissionsIncreaseVolumeSize string
+
+const (
+	DirectorySelfservicePermissionsIncreaseVolumeSizeEnabled  = DirectorySelfservicePermissionsIncreaseVolumeSize("ENABLED")
+	DirectorySelfservicePermissionsIncreaseVolumeSizeDisabled = DirectorySelfservicePermissionsIncreaseVolumeSize("DISABLED")
+)
+
+func (DirectorySelfservicePermissionsIncreaseVolumeSize) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsIncreaseVolumeSize)(nil)).Elem()
+}
+
+func (e DirectorySelfservicePermissionsIncreaseVolumeSize) ToDirectorySelfservicePermissionsIncreaseVolumeSizeOutput() DirectorySelfservicePermissionsIncreaseVolumeSizeOutput {
+	return pulumi.ToOutput(e).(DirectorySelfservicePermissionsIncreaseVolumeSizeOutput)
+}
+
+func (e DirectorySelfservicePermissionsIncreaseVolumeSize) ToDirectorySelfservicePermissionsIncreaseVolumeSizeOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsIncreaseVolumeSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectorySelfservicePermissionsIncreaseVolumeSizeOutput)
+}
+
+func (e DirectorySelfservicePermissionsIncreaseVolumeSize) ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput() DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return e.ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsIncreaseVolumeSize) ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return DirectorySelfservicePermissionsIncreaseVolumeSize(e).ToDirectorySelfservicePermissionsIncreaseVolumeSizeOutputWithContext(ctx).ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutputWithContext(ctx)
+}
+
+func (e DirectorySelfservicePermissionsIncreaseVolumeSize) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsIncreaseVolumeSize) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsIncreaseVolumeSize) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsIncreaseVolumeSize) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectorySelfservicePermissionsIncreaseVolumeSizeOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsIncreaseVolumeSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsIncreaseVolumeSize)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizeOutput) ToDirectorySelfservicePermissionsIncreaseVolumeSizeOutput() DirectorySelfservicePermissionsIncreaseVolumeSizeOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizeOutput) ToDirectorySelfservicePermissionsIncreaseVolumeSizeOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsIncreaseVolumeSizeOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizeOutput) ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput() DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return o.ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizeOutput) ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySelfservicePermissionsIncreaseVolumeSize) *DirectorySelfservicePermissionsIncreaseVolumeSize {
+		return &v
+	}).(DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput)
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsIncreaseVolumeSize) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsIncreaseVolumeSize) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySelfservicePermissionsIncreaseVolumeSize)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput) ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput() DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput) ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput) Elem() DirectorySelfservicePermissionsIncreaseVolumeSizeOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissionsIncreaseVolumeSize) DirectorySelfservicePermissionsIncreaseVolumeSize {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySelfservicePermissionsIncreaseVolumeSize
+		return ret
+	}).(DirectorySelfservicePermissionsIncreaseVolumeSizeOutput)
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectorySelfservicePermissionsIncreaseVolumeSize) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectorySelfservicePermissionsIncreaseVolumeSizeInput is an input type that accepts values of the DirectorySelfservicePermissionsIncreaseVolumeSize enum
+// A concrete instance of `DirectorySelfservicePermissionsIncreaseVolumeSizeInput` can be one of the following:
+//
+//	DirectorySelfservicePermissionsIncreaseVolumeSizeEnabled
+//	DirectorySelfservicePermissionsIncreaseVolumeSizeDisabled
+type DirectorySelfservicePermissionsIncreaseVolumeSizeInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsIncreaseVolumeSizeOutput() DirectorySelfservicePermissionsIncreaseVolumeSizeOutput
+	ToDirectorySelfservicePermissionsIncreaseVolumeSizeOutputWithContext(context.Context) DirectorySelfservicePermissionsIncreaseVolumeSizeOutput
+}
+
+var directorySelfservicePermissionsIncreaseVolumeSizePtrType = reflect.TypeOf((**DirectorySelfservicePermissionsIncreaseVolumeSize)(nil)).Elem()
+
+type DirectorySelfservicePermissionsIncreaseVolumeSizePtrInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput() DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput
+	ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutputWithContext(context.Context) DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput
+}
+
+type directorySelfservicePermissionsIncreaseVolumeSizePtr string
+
+func DirectorySelfservicePermissionsIncreaseVolumeSizePtr(v string) DirectorySelfservicePermissionsIncreaseVolumeSizePtrInput {
+	return (*directorySelfservicePermissionsIncreaseVolumeSizePtr)(&v)
+}
+
+func (*directorySelfservicePermissionsIncreaseVolumeSizePtr) ElementType() reflect.Type {
+	return directorySelfservicePermissionsIncreaseVolumeSizePtrType
+}
+
+func (in *directorySelfservicePermissionsIncreaseVolumeSizePtr) ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput() DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return pulumi.ToOutput(in).(DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput)
+}
+
+func (in *directorySelfservicePermissionsIncreaseVolumeSizePtr) ToDirectorySelfservicePermissionsIncreaseVolumeSizePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput)
+}
+
+// Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+type DirectorySelfservicePermissionsRebuildWorkspace string
+
+const (
+	DirectorySelfservicePermissionsRebuildWorkspaceEnabled  = DirectorySelfservicePermissionsRebuildWorkspace("ENABLED")
+	DirectorySelfservicePermissionsRebuildWorkspaceDisabled = DirectorySelfservicePermissionsRebuildWorkspace("DISABLED")
+)
+
+func (DirectorySelfservicePermissionsRebuildWorkspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsRebuildWorkspace)(nil)).Elem()
+}
+
+func (e DirectorySelfservicePermissionsRebuildWorkspace) ToDirectorySelfservicePermissionsRebuildWorkspaceOutput() DirectorySelfservicePermissionsRebuildWorkspaceOutput {
+	return pulumi.ToOutput(e).(DirectorySelfservicePermissionsRebuildWorkspaceOutput)
+}
+
+func (e DirectorySelfservicePermissionsRebuildWorkspace) ToDirectorySelfservicePermissionsRebuildWorkspaceOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRebuildWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectorySelfservicePermissionsRebuildWorkspaceOutput)
+}
+
+func (e DirectorySelfservicePermissionsRebuildWorkspace) ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutput() DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return e.ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsRebuildWorkspace) ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return DirectorySelfservicePermissionsRebuildWorkspace(e).ToDirectorySelfservicePermissionsRebuildWorkspaceOutputWithContext(ctx).ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutputWithContext(ctx)
+}
+
+func (e DirectorySelfservicePermissionsRebuildWorkspace) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsRebuildWorkspace) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsRebuildWorkspace) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsRebuildWorkspace) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectorySelfservicePermissionsRebuildWorkspaceOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsRebuildWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsRebuildWorkspace)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspaceOutput) ToDirectorySelfservicePermissionsRebuildWorkspaceOutput() DirectorySelfservicePermissionsRebuildWorkspaceOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspaceOutput) ToDirectorySelfservicePermissionsRebuildWorkspaceOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRebuildWorkspaceOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspaceOutput) ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutput() DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return o.ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspaceOutput) ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySelfservicePermissionsRebuildWorkspace) *DirectorySelfservicePermissionsRebuildWorkspace {
+		return &v
+	}).(DirectorySelfservicePermissionsRebuildWorkspacePtrOutput)
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspaceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspaceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsRebuildWorkspace) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspaceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspaceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsRebuildWorkspace) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectorySelfservicePermissionsRebuildWorkspacePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsRebuildWorkspacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySelfservicePermissionsRebuildWorkspace)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspacePtrOutput) ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutput() DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspacePtrOutput) ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspacePtrOutput) Elem() DirectorySelfservicePermissionsRebuildWorkspaceOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissionsRebuildWorkspace) DirectorySelfservicePermissionsRebuildWorkspace {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySelfservicePermissionsRebuildWorkspace
+		return ret
+	}).(DirectorySelfservicePermissionsRebuildWorkspaceOutput)
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspacePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsRebuildWorkspacePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectorySelfservicePermissionsRebuildWorkspace) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectorySelfservicePermissionsRebuildWorkspaceInput is an input type that accepts values of the DirectorySelfservicePermissionsRebuildWorkspace enum
+// A concrete instance of `DirectorySelfservicePermissionsRebuildWorkspaceInput` can be one of the following:
+//
+//	DirectorySelfservicePermissionsRebuildWorkspaceEnabled
+//	DirectorySelfservicePermissionsRebuildWorkspaceDisabled
+type DirectorySelfservicePermissionsRebuildWorkspaceInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsRebuildWorkspaceOutput() DirectorySelfservicePermissionsRebuildWorkspaceOutput
+	ToDirectorySelfservicePermissionsRebuildWorkspaceOutputWithContext(context.Context) DirectorySelfservicePermissionsRebuildWorkspaceOutput
+}
+
+var directorySelfservicePermissionsRebuildWorkspacePtrType = reflect.TypeOf((**DirectorySelfservicePermissionsRebuildWorkspace)(nil)).Elem()
+
+type DirectorySelfservicePermissionsRebuildWorkspacePtrInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutput() DirectorySelfservicePermissionsRebuildWorkspacePtrOutput
+	ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutputWithContext(context.Context) DirectorySelfservicePermissionsRebuildWorkspacePtrOutput
+}
+
+type directorySelfservicePermissionsRebuildWorkspacePtr string
+
+func DirectorySelfservicePermissionsRebuildWorkspacePtr(v string) DirectorySelfservicePermissionsRebuildWorkspacePtrInput {
+	return (*directorySelfservicePermissionsRebuildWorkspacePtr)(&v)
+}
+
+func (*directorySelfservicePermissionsRebuildWorkspacePtr) ElementType() reflect.Type {
+	return directorySelfservicePermissionsRebuildWorkspacePtrType
+}
+
+func (in *directorySelfservicePermissionsRebuildWorkspacePtr) ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutput() DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return pulumi.ToOutput(in).(DirectorySelfservicePermissionsRebuildWorkspacePtrOutput)
+}
+
+func (in *directorySelfservicePermissionsRebuildWorkspacePtr) ToDirectorySelfservicePermissionsRebuildWorkspacePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectorySelfservicePermissionsRebuildWorkspacePtrOutput)
+}
+
+// Specifies whether users can restart their WorkSpace.
+type DirectorySelfservicePermissionsRestartWorkspace string
+
+const (
+	DirectorySelfservicePermissionsRestartWorkspaceEnabled  = DirectorySelfservicePermissionsRestartWorkspace("ENABLED")
+	DirectorySelfservicePermissionsRestartWorkspaceDisabled = DirectorySelfservicePermissionsRestartWorkspace("DISABLED")
+)
+
+func (DirectorySelfservicePermissionsRestartWorkspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsRestartWorkspace)(nil)).Elem()
+}
+
+func (e DirectorySelfservicePermissionsRestartWorkspace) ToDirectorySelfservicePermissionsRestartWorkspaceOutput() DirectorySelfservicePermissionsRestartWorkspaceOutput {
+	return pulumi.ToOutput(e).(DirectorySelfservicePermissionsRestartWorkspaceOutput)
+}
+
+func (e DirectorySelfservicePermissionsRestartWorkspace) ToDirectorySelfservicePermissionsRestartWorkspaceOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRestartWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectorySelfservicePermissionsRestartWorkspaceOutput)
+}
+
+func (e DirectorySelfservicePermissionsRestartWorkspace) ToDirectorySelfservicePermissionsRestartWorkspacePtrOutput() DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return e.ToDirectorySelfservicePermissionsRestartWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsRestartWorkspace) ToDirectorySelfservicePermissionsRestartWorkspacePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return DirectorySelfservicePermissionsRestartWorkspace(e).ToDirectorySelfservicePermissionsRestartWorkspaceOutputWithContext(ctx).ToDirectorySelfservicePermissionsRestartWorkspacePtrOutputWithContext(ctx)
+}
+
+func (e DirectorySelfservicePermissionsRestartWorkspace) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsRestartWorkspace) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsRestartWorkspace) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsRestartWorkspace) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectorySelfservicePermissionsRestartWorkspaceOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsRestartWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsRestartWorkspace)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspaceOutput) ToDirectorySelfservicePermissionsRestartWorkspaceOutput() DirectorySelfservicePermissionsRestartWorkspaceOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspaceOutput) ToDirectorySelfservicePermissionsRestartWorkspaceOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRestartWorkspaceOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspaceOutput) ToDirectorySelfservicePermissionsRestartWorkspacePtrOutput() DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return o.ToDirectorySelfservicePermissionsRestartWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspaceOutput) ToDirectorySelfservicePermissionsRestartWorkspacePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySelfservicePermissionsRestartWorkspace) *DirectorySelfservicePermissionsRestartWorkspace {
+		return &v
+	}).(DirectorySelfservicePermissionsRestartWorkspacePtrOutput)
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspaceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspaceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsRestartWorkspace) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspaceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspaceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsRestartWorkspace) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectorySelfservicePermissionsRestartWorkspacePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsRestartWorkspacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySelfservicePermissionsRestartWorkspace)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspacePtrOutput) ToDirectorySelfservicePermissionsRestartWorkspacePtrOutput() DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspacePtrOutput) ToDirectorySelfservicePermissionsRestartWorkspacePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspacePtrOutput) Elem() DirectorySelfservicePermissionsRestartWorkspaceOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissionsRestartWorkspace) DirectorySelfservicePermissionsRestartWorkspace {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySelfservicePermissionsRestartWorkspace
+		return ret
+	}).(DirectorySelfservicePermissionsRestartWorkspaceOutput)
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspacePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsRestartWorkspacePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectorySelfservicePermissionsRestartWorkspace) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectorySelfservicePermissionsRestartWorkspaceInput is an input type that accepts values of the DirectorySelfservicePermissionsRestartWorkspace enum
+// A concrete instance of `DirectorySelfservicePermissionsRestartWorkspaceInput` can be one of the following:
+//
+//	DirectorySelfservicePermissionsRestartWorkspaceEnabled
+//	DirectorySelfservicePermissionsRestartWorkspaceDisabled
+type DirectorySelfservicePermissionsRestartWorkspaceInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsRestartWorkspaceOutput() DirectorySelfservicePermissionsRestartWorkspaceOutput
+	ToDirectorySelfservicePermissionsRestartWorkspaceOutputWithContext(context.Context) DirectorySelfservicePermissionsRestartWorkspaceOutput
+}
+
+var directorySelfservicePermissionsRestartWorkspacePtrType = reflect.TypeOf((**DirectorySelfservicePermissionsRestartWorkspace)(nil)).Elem()
+
+type DirectorySelfservicePermissionsRestartWorkspacePtrInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsRestartWorkspacePtrOutput() DirectorySelfservicePermissionsRestartWorkspacePtrOutput
+	ToDirectorySelfservicePermissionsRestartWorkspacePtrOutputWithContext(context.Context) DirectorySelfservicePermissionsRestartWorkspacePtrOutput
+}
+
+type directorySelfservicePermissionsRestartWorkspacePtr string
+
+func DirectorySelfservicePermissionsRestartWorkspacePtr(v string) DirectorySelfservicePermissionsRestartWorkspacePtrInput {
+	return (*directorySelfservicePermissionsRestartWorkspacePtr)(&v)
+}
+
+func (*directorySelfservicePermissionsRestartWorkspacePtr) ElementType() reflect.Type {
+	return directorySelfservicePermissionsRestartWorkspacePtrType
+}
+
+func (in *directorySelfservicePermissionsRestartWorkspacePtr) ToDirectorySelfservicePermissionsRestartWorkspacePtrOutput() DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return pulumi.ToOutput(in).(DirectorySelfservicePermissionsRestartWorkspacePtrOutput)
+}
+
+func (in *directorySelfservicePermissionsRestartWorkspacePtr) ToDirectorySelfservicePermissionsRestartWorkspacePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectorySelfservicePermissionsRestartWorkspacePtrOutput)
+}
+
+// Specifies whether users can switch the running mode of their WorkSpace.
+type DirectorySelfservicePermissionsSwitchRunningMode string
+
+const (
+	DirectorySelfservicePermissionsSwitchRunningModeEnabled  = DirectorySelfservicePermissionsSwitchRunningMode("ENABLED")
+	DirectorySelfservicePermissionsSwitchRunningModeDisabled = DirectorySelfservicePermissionsSwitchRunningMode("DISABLED")
+)
+
+func (DirectorySelfservicePermissionsSwitchRunningMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsSwitchRunningMode)(nil)).Elem()
+}
+
+func (e DirectorySelfservicePermissionsSwitchRunningMode) ToDirectorySelfservicePermissionsSwitchRunningModeOutput() DirectorySelfservicePermissionsSwitchRunningModeOutput {
+	return pulumi.ToOutput(e).(DirectorySelfservicePermissionsSwitchRunningModeOutput)
+}
+
+func (e DirectorySelfservicePermissionsSwitchRunningMode) ToDirectorySelfservicePermissionsSwitchRunningModeOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsSwitchRunningModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectorySelfservicePermissionsSwitchRunningModeOutput)
+}
+
+func (e DirectorySelfservicePermissionsSwitchRunningMode) ToDirectorySelfservicePermissionsSwitchRunningModePtrOutput() DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return e.ToDirectorySelfservicePermissionsSwitchRunningModePtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsSwitchRunningMode) ToDirectorySelfservicePermissionsSwitchRunningModePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return DirectorySelfservicePermissionsSwitchRunningMode(e).ToDirectorySelfservicePermissionsSwitchRunningModeOutputWithContext(ctx).ToDirectorySelfservicePermissionsSwitchRunningModePtrOutputWithContext(ctx)
+}
+
+func (e DirectorySelfservicePermissionsSwitchRunningMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsSwitchRunningMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectorySelfservicePermissionsSwitchRunningMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectorySelfservicePermissionsSwitchRunningMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectorySelfservicePermissionsSwitchRunningModeOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsSwitchRunningModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissionsSwitchRunningMode)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModeOutput) ToDirectorySelfservicePermissionsSwitchRunningModeOutput() DirectorySelfservicePermissionsSwitchRunningModeOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModeOutput) ToDirectorySelfservicePermissionsSwitchRunningModeOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsSwitchRunningModeOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModeOutput) ToDirectorySelfservicePermissionsSwitchRunningModePtrOutput() DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return o.ToDirectorySelfservicePermissionsSwitchRunningModePtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModeOutput) ToDirectorySelfservicePermissionsSwitchRunningModePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySelfservicePermissionsSwitchRunningMode) *DirectorySelfservicePermissionsSwitchRunningMode {
+		return &v
+	}).(DirectorySelfservicePermissionsSwitchRunningModePtrOutput)
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsSwitchRunningMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectorySelfservicePermissionsSwitchRunningMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectorySelfservicePermissionsSwitchRunningModePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsSwitchRunningModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySelfservicePermissionsSwitchRunningMode)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModePtrOutput) ToDirectorySelfservicePermissionsSwitchRunningModePtrOutput() DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModePtrOutput) ToDirectorySelfservicePermissionsSwitchRunningModePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModePtrOutput) Elem() DirectorySelfservicePermissionsSwitchRunningModeOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissionsSwitchRunningMode) DirectorySelfservicePermissionsSwitchRunningMode {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySelfservicePermissionsSwitchRunningMode
+		return ret
+	}).(DirectorySelfservicePermissionsSwitchRunningModeOutput)
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsSwitchRunningModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectorySelfservicePermissionsSwitchRunningMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectorySelfservicePermissionsSwitchRunningModeInput is an input type that accepts values of the DirectorySelfservicePermissionsSwitchRunningMode enum
+// A concrete instance of `DirectorySelfservicePermissionsSwitchRunningModeInput` can be one of the following:
+//
+//	DirectorySelfservicePermissionsSwitchRunningModeEnabled
+//	DirectorySelfservicePermissionsSwitchRunningModeDisabled
+type DirectorySelfservicePermissionsSwitchRunningModeInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsSwitchRunningModeOutput() DirectorySelfservicePermissionsSwitchRunningModeOutput
+	ToDirectorySelfservicePermissionsSwitchRunningModeOutputWithContext(context.Context) DirectorySelfservicePermissionsSwitchRunningModeOutput
+}
+
+var directorySelfservicePermissionsSwitchRunningModePtrType = reflect.TypeOf((**DirectorySelfservicePermissionsSwitchRunningMode)(nil)).Elem()
+
+type DirectorySelfservicePermissionsSwitchRunningModePtrInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsSwitchRunningModePtrOutput() DirectorySelfservicePermissionsSwitchRunningModePtrOutput
+	ToDirectorySelfservicePermissionsSwitchRunningModePtrOutputWithContext(context.Context) DirectorySelfservicePermissionsSwitchRunningModePtrOutput
+}
+
+type directorySelfservicePermissionsSwitchRunningModePtr string
+
+func DirectorySelfservicePermissionsSwitchRunningModePtr(v string) DirectorySelfservicePermissionsSwitchRunningModePtrInput {
+	return (*directorySelfservicePermissionsSwitchRunningModePtr)(&v)
+}
+
+func (*directorySelfservicePermissionsSwitchRunningModePtr) ElementType() reflect.Type {
+	return directorySelfservicePermissionsSwitchRunningModePtrType
+}
+
+func (in *directorySelfservicePermissionsSwitchRunningModePtr) ToDirectorySelfservicePermissionsSwitchRunningModePtrOutput() DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return pulumi.ToOutput(in).(DirectorySelfservicePermissionsSwitchRunningModePtrOutput)
+}
+
+func (in *directorySelfservicePermissionsSwitchRunningModePtr) ToDirectorySelfservicePermissionsSwitchRunningModePtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectorySelfservicePermissionsSwitchRunningModePtrOutput)
+}
+
+// The state of the directory's registration with Amazon WorkSpaces.
+type DirectoryStateEnum string
+
+const (
+	DirectoryStateEnumRegistering   = DirectoryStateEnum("REGISTERING")
+	DirectoryStateEnumRegistered    = DirectoryStateEnum("REGISTERED")
+	DirectoryStateEnumDeregistering = DirectoryStateEnum("DEREGISTERING")
+	DirectoryStateEnumDeregistered  = DirectoryStateEnum("DEREGISTERED")
+	DirectoryStateEnumError         = DirectoryStateEnum("ERROR")
+)
+
+type DirectoryStateEnumOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStateEnum)(nil)).Elem()
+}
+
+func (o DirectoryStateEnumOutput) ToDirectoryStateEnumOutput() DirectoryStateEnumOutput {
+	return o
+}
+
+func (o DirectoryStateEnumOutput) ToDirectoryStateEnumOutputWithContext(ctx context.Context) DirectoryStateEnumOutput {
+	return o
+}
+
+func (o DirectoryStateEnumOutput) ToDirectoryStateEnumPtrOutput() DirectoryStateEnumPtrOutput {
+	return o.ToDirectoryStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStateEnumOutput) ToDirectoryStateEnumPtrOutputWithContext(ctx context.Context) DirectoryStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryStateEnum) *DirectoryStateEnum {
+		return &v
+	}).(DirectoryStateEnumPtrOutput)
+}
+
+func (o DirectoryStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryStateEnum)(nil)).Elem()
+}
+
+func (o DirectoryStateEnumPtrOutput) ToDirectoryStateEnumPtrOutput() DirectoryStateEnumPtrOutput {
+	return o
+}
+
+func (o DirectoryStateEnumPtrOutput) ToDirectoryStateEnumPtrOutputWithContext(ctx context.Context) DirectoryStateEnumPtrOutput {
+	return o
+}
+
+func (o DirectoryStateEnumPtrOutput) Elem() DirectoryStateEnumOutput {
+	return o.ApplyT(func(v *DirectoryStateEnum) DirectoryStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryStateEnum
+		return ret
+	}).(DirectoryStateEnumOutput)
+}
+
+func (o DirectoryStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of connector used to save user files.
+type DirectoryStorageConnectorConnectorType string
+
+const (
+	DirectoryStorageConnectorConnectorTypeHomeFolder = DirectoryStorageConnectorConnectorType("HOME_FOLDER")
+)
+
+func (DirectoryStorageConnectorConnectorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStorageConnectorConnectorType)(nil)).Elem()
+}
+
+func (e DirectoryStorageConnectorConnectorType) ToDirectoryStorageConnectorConnectorTypeOutput() DirectoryStorageConnectorConnectorTypeOutput {
+	return pulumi.ToOutput(e).(DirectoryStorageConnectorConnectorTypeOutput)
+}
+
+func (e DirectoryStorageConnectorConnectorType) ToDirectoryStorageConnectorConnectorTypeOutputWithContext(ctx context.Context) DirectoryStorageConnectorConnectorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryStorageConnectorConnectorTypeOutput)
+}
+
+func (e DirectoryStorageConnectorConnectorType) ToDirectoryStorageConnectorConnectorTypePtrOutput() DirectoryStorageConnectorConnectorTypePtrOutput {
+	return e.ToDirectoryStorageConnectorConnectorTypePtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryStorageConnectorConnectorType) ToDirectoryStorageConnectorConnectorTypePtrOutputWithContext(ctx context.Context) DirectoryStorageConnectorConnectorTypePtrOutput {
+	return DirectoryStorageConnectorConnectorType(e).ToDirectoryStorageConnectorConnectorTypeOutputWithContext(ctx).ToDirectoryStorageConnectorConnectorTypePtrOutputWithContext(ctx)
+}
+
+func (e DirectoryStorageConnectorConnectorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryStorageConnectorConnectorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryStorageConnectorConnectorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryStorageConnectorConnectorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryStorageConnectorConnectorTypeOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStorageConnectorConnectorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStorageConnectorConnectorType)(nil)).Elem()
+}
+
+func (o DirectoryStorageConnectorConnectorTypeOutput) ToDirectoryStorageConnectorConnectorTypeOutput() DirectoryStorageConnectorConnectorTypeOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorConnectorTypeOutput) ToDirectoryStorageConnectorConnectorTypeOutputWithContext(ctx context.Context) DirectoryStorageConnectorConnectorTypeOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorConnectorTypeOutput) ToDirectoryStorageConnectorConnectorTypePtrOutput() DirectoryStorageConnectorConnectorTypePtrOutput {
+	return o.ToDirectoryStorageConnectorConnectorTypePtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStorageConnectorConnectorTypeOutput) ToDirectoryStorageConnectorConnectorTypePtrOutputWithContext(ctx context.Context) DirectoryStorageConnectorConnectorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryStorageConnectorConnectorType) *DirectoryStorageConnectorConnectorType {
+		return &v
+	}).(DirectoryStorageConnectorConnectorTypePtrOutput)
+}
+
+func (o DirectoryStorageConnectorConnectorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryStorageConnectorConnectorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryStorageConnectorConnectorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryStorageConnectorConnectorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStorageConnectorConnectorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryStorageConnectorConnectorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryStorageConnectorConnectorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStorageConnectorConnectorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryStorageConnectorConnectorType)(nil)).Elem()
+}
+
+func (o DirectoryStorageConnectorConnectorTypePtrOutput) ToDirectoryStorageConnectorConnectorTypePtrOutput() DirectoryStorageConnectorConnectorTypePtrOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorConnectorTypePtrOutput) ToDirectoryStorageConnectorConnectorTypePtrOutputWithContext(ctx context.Context) DirectoryStorageConnectorConnectorTypePtrOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorConnectorTypePtrOutput) Elem() DirectoryStorageConnectorConnectorTypeOutput {
+	return o.ApplyT(func(v *DirectoryStorageConnectorConnectorType) DirectoryStorageConnectorConnectorType {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryStorageConnectorConnectorType
+		return ret
+	}).(DirectoryStorageConnectorConnectorTypeOutput)
+}
+
+func (o DirectoryStorageConnectorConnectorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStorageConnectorConnectorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryStorageConnectorConnectorType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryStorageConnectorConnectorTypeInput is an input type that accepts values of the DirectoryStorageConnectorConnectorType enum
+// A concrete instance of `DirectoryStorageConnectorConnectorTypeInput` can be one of the following:
+//
+//	DirectoryStorageConnectorConnectorTypeHomeFolder
+type DirectoryStorageConnectorConnectorTypeInput interface {
+	pulumi.Input
+
+	ToDirectoryStorageConnectorConnectorTypeOutput() DirectoryStorageConnectorConnectorTypeOutput
+	ToDirectoryStorageConnectorConnectorTypeOutputWithContext(context.Context) DirectoryStorageConnectorConnectorTypeOutput
+}
+
+var directoryStorageConnectorConnectorTypePtrType = reflect.TypeOf((**DirectoryStorageConnectorConnectorType)(nil)).Elem()
+
+type DirectoryStorageConnectorConnectorTypePtrInput interface {
+	pulumi.Input
+
+	ToDirectoryStorageConnectorConnectorTypePtrOutput() DirectoryStorageConnectorConnectorTypePtrOutput
+	ToDirectoryStorageConnectorConnectorTypePtrOutputWithContext(context.Context) DirectoryStorageConnectorConnectorTypePtrOutput
+}
+
+type directoryStorageConnectorConnectorTypePtr string
+
+func DirectoryStorageConnectorConnectorTypePtr(v string) DirectoryStorageConnectorConnectorTypePtrInput {
+	return (*directoryStorageConnectorConnectorTypePtr)(&v)
+}
+
+func (*directoryStorageConnectorConnectorTypePtr) ElementType() reflect.Type {
+	return directoryStorageConnectorConnectorTypePtrType
+}
+
+func (in *directoryStorageConnectorConnectorTypePtr) ToDirectoryStorageConnectorConnectorTypePtrOutput() DirectoryStorageConnectorConnectorTypePtrOutput {
+	return pulumi.ToOutput(in).(DirectoryStorageConnectorConnectorTypePtrOutput)
+}
+
+func (in *directoryStorageConnectorConnectorTypePtr) ToDirectoryStorageConnectorConnectorTypePtrOutputWithContext(ctx context.Context) DirectoryStorageConnectorConnectorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryStorageConnectorConnectorTypePtrOutput)
+}
+
+// Indicates if the storage connector is enabled or disabled.
+type DirectoryStorageConnectorStatus string
+
+const (
+	DirectoryStorageConnectorStatusEnabled  = DirectoryStorageConnectorStatus("ENABLED")
+	DirectoryStorageConnectorStatusDisabled = DirectoryStorageConnectorStatus("DISABLED")
+)
+
+func (DirectoryStorageConnectorStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStorageConnectorStatus)(nil)).Elem()
+}
+
+func (e DirectoryStorageConnectorStatus) ToDirectoryStorageConnectorStatusOutput() DirectoryStorageConnectorStatusOutput {
+	return pulumi.ToOutput(e).(DirectoryStorageConnectorStatusOutput)
+}
+
+func (e DirectoryStorageConnectorStatus) ToDirectoryStorageConnectorStatusOutputWithContext(ctx context.Context) DirectoryStorageConnectorStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryStorageConnectorStatusOutput)
+}
+
+func (e DirectoryStorageConnectorStatus) ToDirectoryStorageConnectorStatusPtrOutput() DirectoryStorageConnectorStatusPtrOutput {
+	return e.ToDirectoryStorageConnectorStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryStorageConnectorStatus) ToDirectoryStorageConnectorStatusPtrOutputWithContext(ctx context.Context) DirectoryStorageConnectorStatusPtrOutput {
+	return DirectoryStorageConnectorStatus(e).ToDirectoryStorageConnectorStatusOutputWithContext(ctx).ToDirectoryStorageConnectorStatusPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryStorageConnectorStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryStorageConnectorStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryStorageConnectorStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryStorageConnectorStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryStorageConnectorStatusOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStorageConnectorStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStorageConnectorStatus)(nil)).Elem()
+}
+
+func (o DirectoryStorageConnectorStatusOutput) ToDirectoryStorageConnectorStatusOutput() DirectoryStorageConnectorStatusOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorStatusOutput) ToDirectoryStorageConnectorStatusOutputWithContext(ctx context.Context) DirectoryStorageConnectorStatusOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorStatusOutput) ToDirectoryStorageConnectorStatusPtrOutput() DirectoryStorageConnectorStatusPtrOutput {
+	return o.ToDirectoryStorageConnectorStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStorageConnectorStatusOutput) ToDirectoryStorageConnectorStatusPtrOutputWithContext(ctx context.Context) DirectoryStorageConnectorStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryStorageConnectorStatus) *DirectoryStorageConnectorStatus {
+		return &v
+	}).(DirectoryStorageConnectorStatusPtrOutput)
+}
+
+func (o DirectoryStorageConnectorStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryStorageConnectorStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryStorageConnectorStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryStorageConnectorStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStorageConnectorStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryStorageConnectorStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryStorageConnectorStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStorageConnectorStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryStorageConnectorStatus)(nil)).Elem()
+}
+
+func (o DirectoryStorageConnectorStatusPtrOutput) ToDirectoryStorageConnectorStatusPtrOutput() DirectoryStorageConnectorStatusPtrOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorStatusPtrOutput) ToDirectoryStorageConnectorStatusPtrOutputWithContext(ctx context.Context) DirectoryStorageConnectorStatusPtrOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorStatusPtrOutput) Elem() DirectoryStorageConnectorStatusOutput {
+	return o.ApplyT(func(v *DirectoryStorageConnectorStatus) DirectoryStorageConnectorStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryStorageConnectorStatus
+		return ret
+	}).(DirectoryStorageConnectorStatusOutput)
+}
+
+func (o DirectoryStorageConnectorStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStorageConnectorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryStorageConnectorStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryStorageConnectorStatusInput is an input type that accepts values of the DirectoryStorageConnectorStatus enum
+// A concrete instance of `DirectoryStorageConnectorStatusInput` can be one of the following:
+//
+//	DirectoryStorageConnectorStatusEnabled
+//	DirectoryStorageConnectorStatusDisabled
+type DirectoryStorageConnectorStatusInput interface {
+	pulumi.Input
+
+	ToDirectoryStorageConnectorStatusOutput() DirectoryStorageConnectorStatusOutput
+	ToDirectoryStorageConnectorStatusOutputWithContext(context.Context) DirectoryStorageConnectorStatusOutput
+}
+
+var directoryStorageConnectorStatusPtrType = reflect.TypeOf((**DirectoryStorageConnectorStatus)(nil)).Elem()
+
+type DirectoryStorageConnectorStatusPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryStorageConnectorStatusPtrOutput() DirectoryStorageConnectorStatusPtrOutput
+	ToDirectoryStorageConnectorStatusPtrOutputWithContext(context.Context) DirectoryStorageConnectorStatusPtrOutput
+}
+
+type directoryStorageConnectorStatusPtr string
+
+func DirectoryStorageConnectorStatusPtr(v string) DirectoryStorageConnectorStatusPtrInput {
+	return (*directoryStorageConnectorStatusPtr)(&v)
+}
+
+func (*directoryStorageConnectorStatusPtr) ElementType() reflect.Type {
+	return directoryStorageConnectorStatusPtrType
+}
+
+func (in *directoryStorageConnectorStatusPtr) ToDirectoryStorageConnectorStatusPtrOutput() DirectoryStorageConnectorStatusPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryStorageConnectorStatusPtrOutput)
+}
+
+func (in *directoryStorageConnectorStatusPtr) ToDirectoryStorageConnectorStatusPtrOutputWithContext(ctx context.Context) DirectoryStorageConnectorStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryStorageConnectorStatusPtrOutput)
+}
+
+// Indicates the type of preferred protocol for the streaming experience.
+type DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol string
+
+const (
+	DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolTcp = DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol("TCP")
+	DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolUdp = DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol("UDP")
+)
+
+func (DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol)(nil)).Elem()
+}
+
+func (e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput {
+	return pulumi.ToOutput(e).(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput)
+}
+
+func (e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput)
+}
+
+func (e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return e.ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol(e).ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutputWithContext(ctx).ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol)(nil)).Elem()
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput {
+	return o
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput {
+	return o
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return o.ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) *DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol {
+		return &v
+	}).(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput)
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol)(nil)).Elem()
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return o
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return o
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput) Elem() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput {
+	return o.ApplyT(func(v *DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol
+		return ret
+	}).(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput)
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolInput is an input type that accepts values of the DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol enum
+// A concrete instance of `DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolInput` can be one of the following:
+//
+//	DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolTcp
+//	DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolUdp
+type DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolInput interface {
+	pulumi.Input
+
+	ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput
+	ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutputWithContext(context.Context) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput
+}
+
+var directoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrType = reflect.TypeOf((**DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol)(nil)).Elem()
+
+type DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput
+	ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutputWithContext(context.Context) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput
+}
+
+type directoryStreamingPropertiesStreamingExperiencePreferredProtocolPtr string
+
+func DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtr(v string) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrInput {
+	return (*directoryStreamingPropertiesStreamingExperiencePreferredProtocolPtr)(&v)
+}
+
+func (*directoryStreamingPropertiesStreamingExperiencePreferredProtocolPtr) ElementType() reflect.Type {
+	return directoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrType
+}
+
+func (in *directoryStreamingPropertiesStreamingExperiencePreferredProtocolPtr) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput)
+}
+
+func (in *directoryStreamingPropertiesStreamingExperiencePreferredProtocolPtr) ToDirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput)
+}
+
+// Indicates whether your WorkSpace directory is dedicated or shared.
+type DirectoryTenancy string
+
+const (
+	DirectoryTenancyDedicated = DirectoryTenancy("DEDICATED")
+	DirectoryTenancyShared    = DirectoryTenancy("SHARED")
+)
+
+func (DirectoryTenancy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryTenancy)(nil)).Elem()
+}
+
+func (e DirectoryTenancy) ToDirectoryTenancyOutput() DirectoryTenancyOutput {
+	return pulumi.ToOutput(e).(DirectoryTenancyOutput)
+}
+
+func (e DirectoryTenancy) ToDirectoryTenancyOutputWithContext(ctx context.Context) DirectoryTenancyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryTenancyOutput)
+}
+
+func (e DirectoryTenancy) ToDirectoryTenancyPtrOutput() DirectoryTenancyPtrOutput {
+	return e.ToDirectoryTenancyPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryTenancy) ToDirectoryTenancyPtrOutputWithContext(ctx context.Context) DirectoryTenancyPtrOutput {
+	return DirectoryTenancy(e).ToDirectoryTenancyOutputWithContext(ctx).ToDirectoryTenancyPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryTenancy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryTenancy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryTenancy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryTenancy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryTenancyOutput struct{ *pulumi.OutputState }
+
+func (DirectoryTenancyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryTenancy)(nil)).Elem()
+}
+
+func (o DirectoryTenancyOutput) ToDirectoryTenancyOutput() DirectoryTenancyOutput {
+	return o
+}
+
+func (o DirectoryTenancyOutput) ToDirectoryTenancyOutputWithContext(ctx context.Context) DirectoryTenancyOutput {
+	return o
+}
+
+func (o DirectoryTenancyOutput) ToDirectoryTenancyPtrOutput() DirectoryTenancyPtrOutput {
+	return o.ToDirectoryTenancyPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryTenancyOutput) ToDirectoryTenancyPtrOutputWithContext(ctx context.Context) DirectoryTenancyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryTenancy) *DirectoryTenancy {
+		return &v
+	}).(DirectoryTenancyPtrOutput)
+}
+
+func (o DirectoryTenancyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryTenancyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryTenancy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryTenancyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryTenancyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryTenancy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryTenancyPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryTenancyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryTenancy)(nil)).Elem()
+}
+
+func (o DirectoryTenancyPtrOutput) ToDirectoryTenancyPtrOutput() DirectoryTenancyPtrOutput {
+	return o
+}
+
+func (o DirectoryTenancyPtrOutput) ToDirectoryTenancyPtrOutputWithContext(ctx context.Context) DirectoryTenancyPtrOutput {
+	return o
+}
+
+func (o DirectoryTenancyPtrOutput) Elem() DirectoryTenancyOutput {
+	return o.ApplyT(func(v *DirectoryTenancy) DirectoryTenancy {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryTenancy
+		return ret
+	}).(DirectoryTenancyOutput)
+}
+
+func (o DirectoryTenancyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryTenancyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryTenancy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryTenancyInput is an input type that accepts values of the DirectoryTenancy enum
+// A concrete instance of `DirectoryTenancyInput` can be one of the following:
+//
+//	DirectoryTenancyDedicated
+//	DirectoryTenancyShared
+type DirectoryTenancyInput interface {
+	pulumi.Input
+
+	ToDirectoryTenancyOutput() DirectoryTenancyOutput
+	ToDirectoryTenancyOutputWithContext(context.Context) DirectoryTenancyOutput
+}
+
+var directoryTenancyPtrType = reflect.TypeOf((**DirectoryTenancy)(nil)).Elem()
+
+type DirectoryTenancyPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryTenancyPtrOutput() DirectoryTenancyPtrOutput
+	ToDirectoryTenancyPtrOutputWithContext(context.Context) DirectoryTenancyPtrOutput
+}
+
+type directoryTenancyPtr string
+
+func DirectoryTenancyPtr(v string) DirectoryTenancyPtrInput {
+	return (*directoryTenancyPtr)(&v)
+}
+
+func (*directoryTenancyPtr) ElementType() reflect.Type {
+	return directoryTenancyPtrType
+}
+
+func (in *directoryTenancyPtr) ToDirectoryTenancyPtrOutput() DirectoryTenancyPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryTenancyPtrOutput)
+}
+
+func (in *directoryTenancyPtr) ToDirectoryTenancyPtrOutputWithContext(ctx context.Context) DirectoryTenancyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryTenancyPtrOutput)
+}
+
+// The directory type.
+type DirectoryType string
+
+const (
+	DirectoryTypeSimpleAd             = DirectoryType("SIMPLE_AD")
+	DirectoryTypeAdConnector          = DirectoryType("AD_CONNECTOR")
+	DirectoryTypeCustomerManaged      = DirectoryType("CUSTOMER_MANAGED")
+	DirectoryTypeAwsIamIdentityCenter = DirectoryType("AWS_IAM_IDENTITY_CENTER")
+)
+
+type DirectoryTypeOutput struct{ *pulumi.OutputState }
+
+func (DirectoryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryType)(nil)).Elem()
+}
+
+func (o DirectoryTypeOutput) ToDirectoryTypeOutput() DirectoryTypeOutput {
+	return o
+}
+
+func (o DirectoryTypeOutput) ToDirectoryTypeOutputWithContext(ctx context.Context) DirectoryTypeOutput {
+	return o
+}
+
+func (o DirectoryTypeOutput) ToDirectoryTypePtrOutput() DirectoryTypePtrOutput {
+	return o.ToDirectoryTypePtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryTypeOutput) ToDirectoryTypePtrOutputWithContext(ctx context.Context) DirectoryTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryType) *DirectoryType {
+		return &v
+	}).(DirectoryTypePtrOutput)
+}
+
+func (o DirectoryTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryType)(nil)).Elem()
+}
+
+func (o DirectoryTypePtrOutput) ToDirectoryTypePtrOutput() DirectoryTypePtrOutput {
+	return o
+}
+
+func (o DirectoryTypePtrOutput) ToDirectoryTypePtrOutputWithContext(ctx context.Context) DirectoryTypePtrOutput {
+	return o
+}
+
+func (o DirectoryTypePtrOutput) Elem() DirectoryTypeOutput {
+	return o.ApplyT(func(v *DirectoryType) DirectoryType {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryType
+		return ret
+	}).(DirectoryTypeOutput)
+}
+
+func (o DirectoryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity management the user is using.
+type DirectoryUserIdentityType string
+
+const (
+	DirectoryUserIdentityTypeCustomerManaged      = DirectoryUserIdentityType("CUSTOMER_MANAGED")
+	DirectoryUserIdentityTypeAwsDirectoryService  = DirectoryUserIdentityType("AWS_DIRECTORY_SERVICE")
+	DirectoryUserIdentityTypeAwsIamIdentityCenter = DirectoryUserIdentityType("AWS_IAM_IDENTITY_CENTER")
+)
+
+func (DirectoryUserIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryUserIdentityType)(nil)).Elem()
+}
+
+func (e DirectoryUserIdentityType) ToDirectoryUserIdentityTypeOutput() DirectoryUserIdentityTypeOutput {
+	return pulumi.ToOutput(e).(DirectoryUserIdentityTypeOutput)
+}
+
+func (e DirectoryUserIdentityType) ToDirectoryUserIdentityTypeOutputWithContext(ctx context.Context) DirectoryUserIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryUserIdentityTypeOutput)
+}
+
+func (e DirectoryUserIdentityType) ToDirectoryUserIdentityTypePtrOutput() DirectoryUserIdentityTypePtrOutput {
+	return e.ToDirectoryUserIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryUserIdentityType) ToDirectoryUserIdentityTypePtrOutputWithContext(ctx context.Context) DirectoryUserIdentityTypePtrOutput {
+	return DirectoryUserIdentityType(e).ToDirectoryUserIdentityTypeOutputWithContext(ctx).ToDirectoryUserIdentityTypePtrOutputWithContext(ctx)
+}
+
+func (e DirectoryUserIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryUserIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryUserIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryUserIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryUserIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (DirectoryUserIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryUserIdentityType)(nil)).Elem()
+}
+
+func (o DirectoryUserIdentityTypeOutput) ToDirectoryUserIdentityTypeOutput() DirectoryUserIdentityTypeOutput {
+	return o
+}
+
+func (o DirectoryUserIdentityTypeOutput) ToDirectoryUserIdentityTypeOutputWithContext(ctx context.Context) DirectoryUserIdentityTypeOutput {
+	return o
+}
+
+func (o DirectoryUserIdentityTypeOutput) ToDirectoryUserIdentityTypePtrOutput() DirectoryUserIdentityTypePtrOutput {
+	return o.ToDirectoryUserIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserIdentityTypeOutput) ToDirectoryUserIdentityTypePtrOutputWithContext(ctx context.Context) DirectoryUserIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryUserIdentityType) *DirectoryUserIdentityType {
+		return &v
+	}).(DirectoryUserIdentityTypePtrOutput)
+}
+
+func (o DirectoryUserIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryUserIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryUserIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryUserIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryUserIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryUserIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryUserIdentityType)(nil)).Elem()
+}
+
+func (o DirectoryUserIdentityTypePtrOutput) ToDirectoryUserIdentityTypePtrOutput() DirectoryUserIdentityTypePtrOutput {
+	return o
+}
+
+func (o DirectoryUserIdentityTypePtrOutput) ToDirectoryUserIdentityTypePtrOutputWithContext(ctx context.Context) DirectoryUserIdentityTypePtrOutput {
+	return o
+}
+
+func (o DirectoryUserIdentityTypePtrOutput) Elem() DirectoryUserIdentityTypeOutput {
+	return o.ApplyT(func(v *DirectoryUserIdentityType) DirectoryUserIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryUserIdentityType
+		return ret
+	}).(DirectoryUserIdentityTypeOutput)
+}
+
+func (o DirectoryUserIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryUserIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryUserIdentityTypeInput is an input type that accepts values of the DirectoryUserIdentityType enum
+// A concrete instance of `DirectoryUserIdentityTypeInput` can be one of the following:
+//
+//	DirectoryUserIdentityTypeCustomerManaged
+//	DirectoryUserIdentityTypeAwsDirectoryService
+//	DirectoryUserIdentityTypeAwsIamIdentityCenter
+type DirectoryUserIdentityTypeInput interface {
+	pulumi.Input
+
+	ToDirectoryUserIdentityTypeOutput() DirectoryUserIdentityTypeOutput
+	ToDirectoryUserIdentityTypeOutputWithContext(context.Context) DirectoryUserIdentityTypeOutput
+}
+
+var directoryUserIdentityTypePtrType = reflect.TypeOf((**DirectoryUserIdentityType)(nil)).Elem()
+
+type DirectoryUserIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToDirectoryUserIdentityTypePtrOutput() DirectoryUserIdentityTypePtrOutput
+	ToDirectoryUserIdentityTypePtrOutputWithContext(context.Context) DirectoryUserIdentityTypePtrOutput
+}
+
+type directoryUserIdentityTypePtr string
+
+func DirectoryUserIdentityTypePtr(v string) DirectoryUserIdentityTypePtrInput {
+	return (*directoryUserIdentityTypePtr)(&v)
+}
+
+func (*directoryUserIdentityTypePtr) ElementType() reflect.Type {
+	return directoryUserIdentityTypePtrType
+}
+
+func (in *directoryUserIdentityTypePtr) ToDirectoryUserIdentityTypePtrOutput() DirectoryUserIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(DirectoryUserIdentityTypePtrOutput)
+}
+
+func (in *directoryUserIdentityTypePtr) ToDirectoryUserIdentityTypePtrOutputWithContext(ctx context.Context) DirectoryUserIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryUserIdentityTypePtrOutput)
+}
+
+// Indicates the type of action.
+type DirectoryUserSettingAction string
+
+const (
+	DirectoryUserSettingActionClipboardCopyFromLocalDevice = DirectoryUserSettingAction("CLIPBOARD_COPY_FROM_LOCAL_DEVICE")
+	DirectoryUserSettingActionClipboardCopyToLocalDevice   = DirectoryUserSettingAction("CLIPBOARD_COPY_TO_LOCAL_DEVICE")
+	DirectoryUserSettingActionPrintingToLocalDevice        = DirectoryUserSettingAction("PRINTING_TO_LOCAL_DEVICE")
+	DirectoryUserSettingActionSmartCard                    = DirectoryUserSettingAction("SMART_CARD")
+)
+
+func (DirectoryUserSettingAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryUserSettingAction)(nil)).Elem()
+}
+
+func (e DirectoryUserSettingAction) ToDirectoryUserSettingActionOutput() DirectoryUserSettingActionOutput {
+	return pulumi.ToOutput(e).(DirectoryUserSettingActionOutput)
+}
+
+func (e DirectoryUserSettingAction) ToDirectoryUserSettingActionOutputWithContext(ctx context.Context) DirectoryUserSettingActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryUserSettingActionOutput)
+}
+
+func (e DirectoryUserSettingAction) ToDirectoryUserSettingActionPtrOutput() DirectoryUserSettingActionPtrOutput {
+	return e.ToDirectoryUserSettingActionPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryUserSettingAction) ToDirectoryUserSettingActionPtrOutputWithContext(ctx context.Context) DirectoryUserSettingActionPtrOutput {
+	return DirectoryUserSettingAction(e).ToDirectoryUserSettingActionOutputWithContext(ctx).ToDirectoryUserSettingActionPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryUserSettingAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryUserSettingAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryUserSettingAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryUserSettingAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryUserSettingActionOutput struct{ *pulumi.OutputState }
+
+func (DirectoryUserSettingActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryUserSettingAction)(nil)).Elem()
+}
+
+func (o DirectoryUserSettingActionOutput) ToDirectoryUserSettingActionOutput() DirectoryUserSettingActionOutput {
+	return o
+}
+
+func (o DirectoryUserSettingActionOutput) ToDirectoryUserSettingActionOutputWithContext(ctx context.Context) DirectoryUserSettingActionOutput {
+	return o
+}
+
+func (o DirectoryUserSettingActionOutput) ToDirectoryUserSettingActionPtrOutput() DirectoryUserSettingActionPtrOutput {
+	return o.ToDirectoryUserSettingActionPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserSettingActionOutput) ToDirectoryUserSettingActionPtrOutputWithContext(ctx context.Context) DirectoryUserSettingActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryUserSettingAction) *DirectoryUserSettingAction {
+		return &v
+	}).(DirectoryUserSettingActionPtrOutput)
+}
+
+func (o DirectoryUserSettingActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserSettingActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryUserSettingAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryUserSettingActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserSettingActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryUserSettingAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryUserSettingActionPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryUserSettingActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryUserSettingAction)(nil)).Elem()
+}
+
+func (o DirectoryUserSettingActionPtrOutput) ToDirectoryUserSettingActionPtrOutput() DirectoryUserSettingActionPtrOutput {
+	return o
+}
+
+func (o DirectoryUserSettingActionPtrOutput) ToDirectoryUserSettingActionPtrOutputWithContext(ctx context.Context) DirectoryUserSettingActionPtrOutput {
+	return o
+}
+
+func (o DirectoryUserSettingActionPtrOutput) Elem() DirectoryUserSettingActionOutput {
+	return o.ApplyT(func(v *DirectoryUserSettingAction) DirectoryUserSettingAction {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryUserSettingAction
+		return ret
+	}).(DirectoryUserSettingActionOutput)
+}
+
+func (o DirectoryUserSettingActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserSettingActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryUserSettingAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryUserSettingActionInput is an input type that accepts values of the DirectoryUserSettingAction enum
+// A concrete instance of `DirectoryUserSettingActionInput` can be one of the following:
+//
+//	DirectoryUserSettingActionClipboardCopyFromLocalDevice
+//	DirectoryUserSettingActionClipboardCopyToLocalDevice
+//	DirectoryUserSettingActionPrintingToLocalDevice
+//	DirectoryUserSettingActionSmartCard
+type DirectoryUserSettingActionInput interface {
+	pulumi.Input
+
+	ToDirectoryUserSettingActionOutput() DirectoryUserSettingActionOutput
+	ToDirectoryUserSettingActionOutputWithContext(context.Context) DirectoryUserSettingActionOutput
+}
+
+var directoryUserSettingActionPtrType = reflect.TypeOf((**DirectoryUserSettingAction)(nil)).Elem()
+
+type DirectoryUserSettingActionPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryUserSettingActionPtrOutput() DirectoryUserSettingActionPtrOutput
+	ToDirectoryUserSettingActionPtrOutputWithContext(context.Context) DirectoryUserSettingActionPtrOutput
+}
+
+type directoryUserSettingActionPtr string
+
+func DirectoryUserSettingActionPtr(v string) DirectoryUserSettingActionPtrInput {
+	return (*directoryUserSettingActionPtr)(&v)
+}
+
+func (*directoryUserSettingActionPtr) ElementType() reflect.Type {
+	return directoryUserSettingActionPtrType
+}
+
+func (in *directoryUserSettingActionPtr) ToDirectoryUserSettingActionPtrOutput() DirectoryUserSettingActionPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryUserSettingActionPtrOutput)
+}
+
+func (in *directoryUserSettingActionPtr) ToDirectoryUserSettingActionPtrOutputWithContext(ctx context.Context) DirectoryUserSettingActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryUserSettingActionPtrOutput)
+}
+
+// Indicates if the setting is enabled or disabled.
+type DirectoryUserSettingPermission string
+
+const (
+	DirectoryUserSettingPermissionEnabled  = DirectoryUserSettingPermission("ENABLED")
+	DirectoryUserSettingPermissionDisabled = DirectoryUserSettingPermission("DISABLED")
+)
+
+func (DirectoryUserSettingPermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryUserSettingPermission)(nil)).Elem()
+}
+
+func (e DirectoryUserSettingPermission) ToDirectoryUserSettingPermissionOutput() DirectoryUserSettingPermissionOutput {
+	return pulumi.ToOutput(e).(DirectoryUserSettingPermissionOutput)
+}
+
+func (e DirectoryUserSettingPermission) ToDirectoryUserSettingPermissionOutputWithContext(ctx context.Context) DirectoryUserSettingPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryUserSettingPermissionOutput)
+}
+
+func (e DirectoryUserSettingPermission) ToDirectoryUserSettingPermissionPtrOutput() DirectoryUserSettingPermissionPtrOutput {
+	return e.ToDirectoryUserSettingPermissionPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryUserSettingPermission) ToDirectoryUserSettingPermissionPtrOutputWithContext(ctx context.Context) DirectoryUserSettingPermissionPtrOutput {
+	return DirectoryUserSettingPermission(e).ToDirectoryUserSettingPermissionOutputWithContext(ctx).ToDirectoryUserSettingPermissionPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryUserSettingPermission) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryUserSettingPermission) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryUserSettingPermission) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryUserSettingPermission) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryUserSettingPermissionOutput struct{ *pulumi.OutputState }
+
+func (DirectoryUserSettingPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryUserSettingPermission)(nil)).Elem()
+}
+
+func (o DirectoryUserSettingPermissionOutput) ToDirectoryUserSettingPermissionOutput() DirectoryUserSettingPermissionOutput {
+	return o
+}
+
+func (o DirectoryUserSettingPermissionOutput) ToDirectoryUserSettingPermissionOutputWithContext(ctx context.Context) DirectoryUserSettingPermissionOutput {
+	return o
+}
+
+func (o DirectoryUserSettingPermissionOutput) ToDirectoryUserSettingPermissionPtrOutput() DirectoryUserSettingPermissionPtrOutput {
+	return o.ToDirectoryUserSettingPermissionPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserSettingPermissionOutput) ToDirectoryUserSettingPermissionPtrOutputWithContext(ctx context.Context) DirectoryUserSettingPermissionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryUserSettingPermission) *DirectoryUserSettingPermission {
+		return &v
+	}).(DirectoryUserSettingPermissionPtrOutput)
+}
+
+func (o DirectoryUserSettingPermissionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserSettingPermissionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryUserSettingPermission) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryUserSettingPermissionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserSettingPermissionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryUserSettingPermission) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryUserSettingPermissionPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryUserSettingPermissionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryUserSettingPermission)(nil)).Elem()
+}
+
+func (o DirectoryUserSettingPermissionPtrOutput) ToDirectoryUserSettingPermissionPtrOutput() DirectoryUserSettingPermissionPtrOutput {
+	return o
+}
+
+func (o DirectoryUserSettingPermissionPtrOutput) ToDirectoryUserSettingPermissionPtrOutputWithContext(ctx context.Context) DirectoryUserSettingPermissionPtrOutput {
+	return o
+}
+
+func (o DirectoryUserSettingPermissionPtrOutput) Elem() DirectoryUserSettingPermissionOutput {
+	return o.ApplyT(func(v *DirectoryUserSettingPermission) DirectoryUserSettingPermission {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryUserSettingPermission
+		return ret
+	}).(DirectoryUserSettingPermissionOutput)
+}
+
+func (o DirectoryUserSettingPermissionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryUserSettingPermissionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryUserSettingPermission) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryUserSettingPermissionInput is an input type that accepts values of the DirectoryUserSettingPermission enum
+// A concrete instance of `DirectoryUserSettingPermissionInput` can be one of the following:
+//
+//	DirectoryUserSettingPermissionEnabled
+//	DirectoryUserSettingPermissionDisabled
+type DirectoryUserSettingPermissionInput interface {
+	pulumi.Input
+
+	ToDirectoryUserSettingPermissionOutput() DirectoryUserSettingPermissionOutput
+	ToDirectoryUserSettingPermissionOutputWithContext(context.Context) DirectoryUserSettingPermissionOutput
+}
+
+var directoryUserSettingPermissionPtrType = reflect.TypeOf((**DirectoryUserSettingPermission)(nil)).Elem()
+
+type DirectoryUserSettingPermissionPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryUserSettingPermissionPtrOutput() DirectoryUserSettingPermissionPtrOutput
+	ToDirectoryUserSettingPermissionPtrOutputWithContext(context.Context) DirectoryUserSettingPermissionPtrOutput
+}
+
+type directoryUserSettingPermissionPtr string
+
+func DirectoryUserSettingPermissionPtr(v string) DirectoryUserSettingPermissionPtrInput {
+	return (*directoryUserSettingPermissionPtr)(&v)
+}
+
+func (*directoryUserSettingPermissionPtr) ElementType() reflect.Type {
+	return directoryUserSettingPermissionPtrType
+}
+
+func (in *directoryUserSettingPermissionPtr) ToDirectoryUserSettingPermissionPtrOutput() DirectoryUserSettingPermissionPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryUserSettingPermissionPtrOutput)
+}
+
+func (in *directoryUserSettingPermissionPtr) ToDirectoryUserSettingPermissionPtrOutputWithContext(ctx context.Context) DirectoryUserSettingPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryUserSettingPermissionPtrOutput)
+}
+
+// Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+type DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid string
+
+const (
+	DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidAllow = DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid("ALLOW")
+	DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidDeny  = DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid("DENY")
+)
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return e.ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid(e).ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutputWithContext(ctx).ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) *DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidInput is an input type that accepts values of the DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid enum
+// A concrete instance of `DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidInput` can be one of the following:
+//
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidAllow
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidDeny
+type DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput
+}
+
+var directoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrType = reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid)(nil)).Elem()
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesDeviceTypeAndroidPtr string
+
+func DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtr(v string) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrInput {
+	return (*directoryWorkspaceAccessPropertiesDeviceTypeAndroidPtr)(&v)
+}
+
+func (*directoryWorkspaceAccessPropertiesDeviceTypeAndroidPtr) ElementType() reflect.Type {
+	return directoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrType
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeAndroidPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput)
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeAndroidPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput)
+}
+
+// Indicates whether users can use Chromebooks to access their WorkSpaces.
+type DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs string
+
+const (
+	DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsAllow = DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs("ALLOW")
+	DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsDeny  = DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs("DENY")
+)
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return e.ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs(e).ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutputWithContext(ctx).ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) *DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsInput is an input type that accepts values of the DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs enum
+// A concrete instance of `DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsInput` can be one of the following:
+//
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsAllow
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsDeny
+type DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput
+}
+
+var directoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrType = reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs)(nil)).Elem()
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtr string
+
+func DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtr(v string) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrInput {
+	return (*directoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtr)(&v)
+}
+
+func (*directoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtr) ElementType() reflect.Type {
+	return directoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrType
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput)
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput)
+}
+
+// Indicates whether users can use iOS devices to access their WorkSpaces.
+type DirectoryWorkspaceAccessPropertiesDeviceTypeIos string
+
+const (
+	DirectoryWorkspaceAccessPropertiesDeviceTypeIosAllow = DirectoryWorkspaceAccessPropertiesDeviceTypeIos("ALLOW")
+	DirectoryWorkspaceAccessPropertiesDeviceTypeIosDeny  = DirectoryWorkspaceAccessPropertiesDeviceTypeIos("DENY")
+)
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeIos) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeIos)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return e.ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return DirectoryWorkspaceAccessPropertiesDeviceTypeIos(e).ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosOutputWithContext(ctx).ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeIos)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesDeviceTypeIos) *DirectoryWorkspaceAccessPropertiesDeviceTypeIos {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeIos) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeIos)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesDeviceTypeIos) DirectoryWorkspaceAccessPropertiesDeviceTypeIos {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesDeviceTypeIos
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceAccessPropertiesDeviceTypeIos) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesDeviceTypeIosInput is an input type that accepts values of the DirectoryWorkspaceAccessPropertiesDeviceTypeIos enum
+// A concrete instance of `DirectoryWorkspaceAccessPropertiesDeviceTypeIosInput` can be one of the following:
+//
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeIosAllow
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeIosDeny
+type DirectoryWorkspaceAccessPropertiesDeviceTypeIosInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput
+}
+
+var directoryWorkspaceAccessPropertiesDeviceTypeIosPtrType = reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeIos)(nil)).Elem()
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesDeviceTypeIosPtr string
+
+func DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtr(v string) DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrInput {
+	return (*directoryWorkspaceAccessPropertiesDeviceTypeIosPtr)(&v)
+}
+
+func (*directoryWorkspaceAccessPropertiesDeviceTypeIosPtr) ElementType() reflect.Type {
+	return directoryWorkspaceAccessPropertiesDeviceTypeIosPtrType
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeIosPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput)
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeIosPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput)
+}
+
+// Indicates whether users can use Linux clients to access their WorkSpaces.
+type DirectoryWorkspaceAccessPropertiesDeviceTypeLinux string
+
+const (
+	DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxAllow = DirectoryWorkspaceAccessPropertiesDeviceTypeLinux("ALLOW")
+	DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxDeny  = DirectoryWorkspaceAccessPropertiesDeviceTypeLinux("DENY")
+)
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeLinux)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return e.ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return DirectoryWorkspaceAccessPropertiesDeviceTypeLinux(e).ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutputWithContext(ctx).ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeLinux)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) *DirectoryWorkspaceAccessPropertiesDeviceTypeLinux {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeLinux)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) DirectoryWorkspaceAccessPropertiesDeviceTypeLinux {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesDeviceTypeLinux
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceAccessPropertiesDeviceTypeLinux) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxInput is an input type that accepts values of the DirectoryWorkspaceAccessPropertiesDeviceTypeLinux enum
+// A concrete instance of `DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxInput` can be one of the following:
+//
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxAllow
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxDeny
+type DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput
+}
+
+var directoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrType = reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeLinux)(nil)).Elem()
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesDeviceTypeLinuxPtr string
+
+func DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtr(v string) DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrInput {
+	return (*directoryWorkspaceAccessPropertiesDeviceTypeLinuxPtr)(&v)
+}
+
+func (*directoryWorkspaceAccessPropertiesDeviceTypeLinuxPtr) ElementType() reflect.Type {
+	return directoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrType
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeLinuxPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput)
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeLinuxPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput)
+}
+
+// Indicates whether users can use macOS clients to access their WorkSpaces.
+type DirectoryWorkspaceAccessPropertiesDeviceTypeOsx string
+
+const (
+	DirectoryWorkspaceAccessPropertiesDeviceTypeOsxAllow = DirectoryWorkspaceAccessPropertiesDeviceTypeOsx("ALLOW")
+	DirectoryWorkspaceAccessPropertiesDeviceTypeOsxDeny  = DirectoryWorkspaceAccessPropertiesDeviceTypeOsx("DENY")
+)
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeOsx)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return e.ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return DirectoryWorkspaceAccessPropertiesDeviceTypeOsx(e).ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutputWithContext(ctx).ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeOsx)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) *DirectoryWorkspaceAccessPropertiesDeviceTypeOsx {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeOsx)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) DirectoryWorkspaceAccessPropertiesDeviceTypeOsx {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesDeviceTypeOsx
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceAccessPropertiesDeviceTypeOsx) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesDeviceTypeOsxInput is an input type that accepts values of the DirectoryWorkspaceAccessPropertiesDeviceTypeOsx enum
+// A concrete instance of `DirectoryWorkspaceAccessPropertiesDeviceTypeOsxInput` can be one of the following:
+//
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeOsxAllow
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeOsxDeny
+type DirectoryWorkspaceAccessPropertiesDeviceTypeOsxInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput
+}
+
+var directoryWorkspaceAccessPropertiesDeviceTypeOsxPtrType = reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeOsx)(nil)).Elem()
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesDeviceTypeOsxPtr string
+
+func DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtr(v string) DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrInput {
+	return (*directoryWorkspaceAccessPropertiesDeviceTypeOsxPtr)(&v)
+}
+
+func (*directoryWorkspaceAccessPropertiesDeviceTypeOsxPtr) ElementType() reflect.Type {
+	return directoryWorkspaceAccessPropertiesDeviceTypeOsxPtrType
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeOsxPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput)
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeOsxPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput)
+}
+
+// Indicates whether users can access their WorkSpaces through a web browser.
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWeb string
+
+const (
+	DirectoryWorkspaceAccessPropertiesDeviceTypeWebAllow = DirectoryWorkspaceAccessPropertiesDeviceTypeWeb("ALLOW")
+	DirectoryWorkspaceAccessPropertiesDeviceTypeWebDeny  = DirectoryWorkspaceAccessPropertiesDeviceTypeWeb("DENY")
+)
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWeb)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return e.ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return DirectoryWorkspaceAccessPropertiesDeviceTypeWeb(e).ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebOutputWithContext(ctx).ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWeb)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) *DirectoryWorkspaceAccessPropertiesDeviceTypeWeb {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeWeb)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) DirectoryWorkspaceAccessPropertiesDeviceTypeWeb {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesDeviceTypeWeb
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceAccessPropertiesDeviceTypeWeb) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesDeviceTypeWebInput is an input type that accepts values of the DirectoryWorkspaceAccessPropertiesDeviceTypeWeb enum
+// A concrete instance of `DirectoryWorkspaceAccessPropertiesDeviceTypeWebInput` can be one of the following:
+//
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeWebAllow
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeWebDeny
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWebInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput
+}
+
+var directoryWorkspaceAccessPropertiesDeviceTypeWebPtrType = reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeWeb)(nil)).Elem()
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesDeviceTypeWebPtr string
+
+func DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtr(v string) DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrInput {
+	return (*directoryWorkspaceAccessPropertiesDeviceTypeWebPtr)(&v)
+}
+
+func (*directoryWorkspaceAccessPropertiesDeviceTypeWebPtr) ElementType() reflect.Type {
+	return directoryWorkspaceAccessPropertiesDeviceTypeWebPtrType
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeWebPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput)
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeWebPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput)
+}
+
+// Indicates whether users can use Windows clients to access their WorkSpaces.
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWindows string
+
+const (
+	DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsAllow = DirectoryWorkspaceAccessPropertiesDeviceTypeWindows("ALLOW")
+	DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsDeny  = DirectoryWorkspaceAccessPropertiesDeviceTypeWindows("DENY")
+)
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWindows)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return e.ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return DirectoryWorkspaceAccessPropertiesDeviceTypeWindows(e).ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutputWithContext(ctx).ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWindows)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) *DirectoryWorkspaceAccessPropertiesDeviceTypeWindows {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeWindows)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) DirectoryWorkspaceAccessPropertiesDeviceTypeWindows {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesDeviceTypeWindows
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceAccessPropertiesDeviceTypeWindows) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsInput is an input type that accepts values of the DirectoryWorkspaceAccessPropertiesDeviceTypeWindows enum
+// A concrete instance of `DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsInput` can be one of the following:
+//
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsAllow
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsDeny
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput
+}
+
+var directoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrType = reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeWindows)(nil)).Elem()
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesDeviceTypeWindowsPtr string
+
+func DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtr(v string) DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrInput {
+	return (*directoryWorkspaceAccessPropertiesDeviceTypeWindowsPtr)(&v)
+}
+
+func (*directoryWorkspaceAccessPropertiesDeviceTypeWindowsPtr) ElementType() reflect.Type {
+	return directoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrType
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeWindowsPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput)
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeWindowsPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput)
+}
+
+// Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient string
+
+const (
+	DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientAllow = DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient("ALLOW")
+	DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientDeny  = DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient("DENY")
+)
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return e.ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient(e).ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutputWithContext(ctx).ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) *DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientInput is an input type that accepts values of the DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient enum
+// A concrete instance of `DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientInput` can be one of the following:
+//
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientAllow
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientDeny
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput
+}
+
+var directoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrType = reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient)(nil)).Elem()
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtr string
+
+func DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtr(v string) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrInput {
+	return (*directoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtr)(&v)
+}
+
+func (*directoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtr) ElementType() reflect.Type {
+	return directoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrType
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput)
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput)
+}
+
+// Indicates whether users can use zero client devices to access their WorkSpaces.
+type DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient string
+
+const (
+	DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientAllow = DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient("ALLOW")
+	DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientDeny  = DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient("DENY")
+)
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return e.ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient(e).ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutputWithContext(ctx).ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) *DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientInput is an input type that accepts values of the DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient enum
+// A concrete instance of `DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientInput` can be one of the following:
+//
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientAllow
+//	DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientDeny
+type DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput
+}
+
+var directoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrType = reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient)(nil)).Elem()
+
+type DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtr string
+
+func DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtr(v string) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrInput {
+	return (*directoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtr)(&v)
+}
+
+func (*directoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtr) ElementType() reflect.Type {
+	return directoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrType
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput)
+}
+
+func (in *directoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtr) ToDirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput)
+}
+
+// Indicates whether the directory's WorkSpace type is personal or pools.
+type DirectoryWorkspaceType string
+
+const (
+	DirectoryWorkspaceTypePersonal = DirectoryWorkspaceType("PERSONAL")
+	DirectoryWorkspaceTypePools    = DirectoryWorkspaceType("POOLS")
+)
+
+func (DirectoryWorkspaceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceType)(nil)).Elem()
+}
+
+func (e DirectoryWorkspaceType) ToDirectoryWorkspaceTypeOutput() DirectoryWorkspaceTypeOutput {
+	return pulumi.ToOutput(e).(DirectoryWorkspaceTypeOutput)
+}
+
+func (e DirectoryWorkspaceType) ToDirectoryWorkspaceTypeOutputWithContext(ctx context.Context) DirectoryWorkspaceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryWorkspaceTypeOutput)
+}
+
+func (e DirectoryWorkspaceType) ToDirectoryWorkspaceTypePtrOutput() DirectoryWorkspaceTypePtrOutput {
+	return e.ToDirectoryWorkspaceTypePtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceType) ToDirectoryWorkspaceTypePtrOutputWithContext(ctx context.Context) DirectoryWorkspaceTypePtrOutput {
+	return DirectoryWorkspaceType(e).ToDirectoryWorkspaceTypeOutputWithContext(ctx).ToDirectoryWorkspaceTypePtrOutputWithContext(ctx)
+}
+
+func (e DirectoryWorkspaceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryWorkspaceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryWorkspaceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryWorkspaceTypeOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceType)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceTypeOutput) ToDirectoryWorkspaceTypeOutput() DirectoryWorkspaceTypeOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceTypeOutput) ToDirectoryWorkspaceTypeOutputWithContext(ctx context.Context) DirectoryWorkspaceTypeOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceTypeOutput) ToDirectoryWorkspaceTypePtrOutput() DirectoryWorkspaceTypePtrOutput {
+	return o.ToDirectoryWorkspaceTypePtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceTypeOutput) ToDirectoryWorkspaceTypePtrOutputWithContext(ctx context.Context) DirectoryWorkspaceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceType) *DirectoryWorkspaceType {
+		return &v
+	}).(DirectoryWorkspaceTypePtrOutput)
+}
+
+func (o DirectoryWorkspaceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryWorkspaceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryWorkspaceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceType)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceTypePtrOutput) ToDirectoryWorkspaceTypePtrOutput() DirectoryWorkspaceTypePtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceTypePtrOutput) ToDirectoryWorkspaceTypePtrOutputWithContext(ctx context.Context) DirectoryWorkspaceTypePtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceTypePtrOutput) Elem() DirectoryWorkspaceTypeOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceType) DirectoryWorkspaceType {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceType
+		return ret
+	}).(DirectoryWorkspaceTypeOutput)
+}
+
+func (o DirectoryWorkspaceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryWorkspaceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryWorkspaceTypeInput is an input type that accepts values of the DirectoryWorkspaceType enum
+// A concrete instance of `DirectoryWorkspaceTypeInput` can be one of the following:
+//
+//	DirectoryWorkspaceTypePersonal
+//	DirectoryWorkspaceTypePools
+type DirectoryWorkspaceTypeInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceTypeOutput() DirectoryWorkspaceTypeOutput
+	ToDirectoryWorkspaceTypeOutputWithContext(context.Context) DirectoryWorkspaceTypeOutput
+}
+
+var directoryWorkspaceTypePtrType = reflect.TypeOf((**DirectoryWorkspaceType)(nil)).Elem()
+
+type DirectoryWorkspaceTypePtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceTypePtrOutput() DirectoryWorkspaceTypePtrOutput
+	ToDirectoryWorkspaceTypePtrOutputWithContext(context.Context) DirectoryWorkspaceTypePtrOutput
+}
+
+type directoryWorkspaceTypePtr string
+
+func DirectoryWorkspaceTypePtr(v string) DirectoryWorkspaceTypePtrInput {
+	return (*directoryWorkspaceTypePtr)(&v)
+}
+
+func (*directoryWorkspaceTypePtr) ElementType() reflect.Type {
+	return directoryWorkspaceTypePtrType
+}
+
+func (in *directoryWorkspaceTypePtr) ToDirectoryWorkspaceTypePtrOutput() DirectoryWorkspaceTypePtrOutput {
+	return pulumi.ToOutput(in).(DirectoryWorkspaceTypePtrOutput)
+}
+
+func (in *directoryWorkspaceTypePtr) ToDirectoryWorkspaceTypePtrOutputWithContext(ctx context.Context) DirectoryWorkspaceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryWorkspaceTypePtrOutput)
+}
+
 type WorkspacesPoolApplicationSettingsStatus string
 
 const (
@@ -527,6 +5574,65 @@ func (in *workspacesPoolRunningModePtr) ToWorkspacesPoolRunningModePtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryAccessEndpointAccessEndpointTypeInput)(nil)).Elem(), DirectoryAccessEndpointAccessEndpointType("STREAMING_WSP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryAccessEndpointAccessEndpointTypePtrInput)(nil)).Elem(), DirectoryAccessEndpointAccessEndpointType("STREAMING_WSP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryAccessEndpointConfigInternetFallbackProtocolsItemInput)(nil)).Elem(), DirectoryAccessEndpointConfigInternetFallbackProtocolsItem("PCOIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrInput)(nil)).Elem(), DirectoryAccessEndpointConfigInternetFallbackProtocolsItem("PCOIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayInput)(nil)).Elem(), DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesStatusInput)(nil)).Elem(), DirectoryCertificateBasedAuthPropertiesStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesStatusPtrInput)(nil)).Elem(), DirectoryCertificateBasedAuthPropertiesStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryEndpointEncryptionModeInput)(nil)).Elem(), DirectoryEndpointEncryptionMode("STANDARD_TLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryEndpointEncryptionModePtrInput)(nil)).Elem(), DirectoryEndpointEncryptionMode("STANDARD_TLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryModeInput)(nil)).Elem(), DirectoryGlobalAcceleratorForDirectoryMode("ENABLED_AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryModePtrInput)(nil)).Elem(), DirectoryGlobalAcceleratorForDirectoryMode("ENABLED_AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryPreferredProtocolInput)(nil)).Elem(), DirectoryGlobalAcceleratorForDirectoryPreferredProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrInput)(nil)).Elem(), DirectoryGlobalAcceleratorForDirectoryPreferredProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySamlPropertiesStatusInput)(nil)).Elem(), DirectorySamlPropertiesStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySamlPropertiesStatusPtrInput)(nil)).Elem(), DirectorySamlPropertiesStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsChangeComputeTypeInput)(nil)).Elem(), DirectorySelfservicePermissionsChangeComputeType("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsChangeComputeTypePtrInput)(nil)).Elem(), DirectorySelfservicePermissionsChangeComputeType("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsIncreaseVolumeSizeInput)(nil)).Elem(), DirectorySelfservicePermissionsIncreaseVolumeSize("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsIncreaseVolumeSizePtrInput)(nil)).Elem(), DirectorySelfservicePermissionsIncreaseVolumeSize("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsRebuildWorkspaceInput)(nil)).Elem(), DirectorySelfservicePermissionsRebuildWorkspace("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsRebuildWorkspacePtrInput)(nil)).Elem(), DirectorySelfservicePermissionsRebuildWorkspace("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsRestartWorkspaceInput)(nil)).Elem(), DirectorySelfservicePermissionsRestartWorkspace("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsRestartWorkspacePtrInput)(nil)).Elem(), DirectorySelfservicePermissionsRestartWorkspace("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsSwitchRunningModeInput)(nil)).Elem(), DirectorySelfservicePermissionsSwitchRunningMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsSwitchRunningModePtrInput)(nil)).Elem(), DirectorySelfservicePermissionsSwitchRunningMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStorageConnectorConnectorTypeInput)(nil)).Elem(), DirectoryStorageConnectorConnectorType("HOME_FOLDER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStorageConnectorConnectorTypePtrInput)(nil)).Elem(), DirectoryStorageConnectorConnectorType("HOME_FOLDER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStorageConnectorStatusInput)(nil)).Elem(), DirectoryStorageConnectorStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStorageConnectorStatusPtrInput)(nil)).Elem(), DirectoryStorageConnectorStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolInput)(nil)).Elem(), DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrInput)(nil)).Elem(), DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryTenancyInput)(nil)).Elem(), DirectoryTenancy("DEDICATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryTenancyPtrInput)(nil)).Elem(), DirectoryTenancy("DEDICATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryUserIdentityTypeInput)(nil)).Elem(), DirectoryUserIdentityType("CUSTOMER_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryUserIdentityTypePtrInput)(nil)).Elem(), DirectoryUserIdentityType("CUSTOMER_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryUserSettingActionInput)(nil)).Elem(), DirectoryUserSettingAction("CLIPBOARD_COPY_FROM_LOCAL_DEVICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryUserSettingActionPtrInput)(nil)).Elem(), DirectoryUserSettingAction("CLIPBOARD_COPY_FROM_LOCAL_DEVICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryUserSettingPermissionInput)(nil)).Elem(), DirectoryUserSettingPermission("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryUserSettingPermissionPtrInput)(nil)).Elem(), DirectoryUserSettingPermission("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeIosInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeIos("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeIos("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeLinux("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeLinux("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeOsxInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeOsx("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeOsx("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWebInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeWeb("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeWeb("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeWindows("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeWindows("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceTypeInput)(nil)).Elem(), DirectoryWorkspaceType("PERSONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceTypePtrInput)(nil)).Elem(), DirectoryWorkspaceType("PERSONAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolApplicationSettingsStatusInput)(nil)).Elem(), WorkspacesPoolApplicationSettingsStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolApplicationSettingsStatusPtrInput)(nil)).Elem(), WorkspacesPoolApplicationSettingsStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolRunningModeInput)(nil)).Elem(), WorkspacesPoolRunningMode("ALWAYS_ON"))
@@ -535,6 +5641,69 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionAliasAssociationAssociationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasStateEnumOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryAccessEndpointAccessEndpointTypeOutput{})
+	pulumi.RegisterOutputType(DirectoryAccessEndpointAccessEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemOutput{})
+	pulumi.RegisterOutputType(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput{})
+	pulumi.RegisterOutputType(DirectoryCertificateBasedAuthPropertiesStatusOutput{})
+	pulumi.RegisterOutputType(DirectoryCertificateBasedAuthPropertiesStatusPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryEndpointEncryptionModeOutput{})
+	pulumi.RegisterOutputType(DirectoryEndpointEncryptionModePtrOutput{})
+	pulumi.RegisterOutputType(DirectoryGlobalAcceleratorForDirectoryModeOutput{})
+	pulumi.RegisterOutputType(DirectoryGlobalAcceleratorForDirectoryModePtrOutput{})
+	pulumi.RegisterOutputType(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolOutput{})
+	pulumi.RegisterOutputType(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput{})
+	pulumi.RegisterOutputType(DirectorySamlPropertiesStatusOutput{})
+	pulumi.RegisterOutputType(DirectorySamlPropertiesStatusPtrOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsChangeComputeTypeOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsChangeComputeTypePtrOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsIncreaseVolumeSizeOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsRebuildWorkspaceOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsRebuildWorkspacePtrOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsRestartWorkspaceOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsRestartWorkspacePtrOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsSwitchRunningModeOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsSwitchRunningModePtrOutput{})
+	pulumi.RegisterOutputType(DirectoryStateEnumOutput{})
+	pulumi.RegisterOutputType(DirectoryStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryStorageConnectorConnectorTypeOutput{})
+	pulumi.RegisterOutputType(DirectoryStorageConnectorConnectorTypePtrOutput{})
+	pulumi.RegisterOutputType(DirectoryStorageConnectorStatusOutput{})
+	pulumi.RegisterOutputType(DirectoryStorageConnectorStatusPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolOutput{})
+	pulumi.RegisterOutputType(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryTenancyOutput{})
+	pulumi.RegisterOutputType(DirectoryTenancyPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryTypeOutput{})
+	pulumi.RegisterOutputType(DirectoryTypePtrOutput{})
+	pulumi.RegisterOutputType(DirectoryUserIdentityTypeOutput{})
+	pulumi.RegisterOutputType(DirectoryUserIdentityTypePtrOutput{})
+	pulumi.RegisterOutputType(DirectoryUserSettingActionOutput{})
+	pulumi.RegisterOutputType(DirectoryUserSettingActionPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryUserSettingPermissionOutput{})
+	pulumi.RegisterOutputType(DirectoryUserSettingPermissionPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeIosOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeWebOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceTypeOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkspacesPoolApplicationSettingsStatusOutput{})
 	pulumi.RegisterOutputType(WorkspacesPoolApplicationSettingsStatusPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacesPoolRunningModeOutput{})

@@ -112,8 +112,11 @@ __all__ = [
     'RuleEventBridgeAction',
     'RuleField',
     'RuleFieldValue',
+    'RuleInAppNotificationRecipientType',
+    'RuleNotificationContent',
     'RuleNotificationRecipientType',
     'RuleReference',
+    'RuleSendInAppNotificationAction',
     'RuleSendNotificationAction',
     'RuleSlaTargetFieldValue',
     'RuleSubmitAutoEvaluationAction',
@@ -4959,6 +4962,8 @@ class RuleActions(dict):
             suggest = "end_associated_tasks_actions"
         elif key == "eventBridgeActions":
             suggest = "event_bridge_actions"
+        elif key == "sendInAppNotificationActions":
+            suggest = "send_in_app_notification_actions"
         elif key == "sendNotificationActions":
             suggest = "send_notification_actions"
         elif key == "submitAutoEvaluationActions":
@@ -4985,6 +4990,7 @@ class RuleActions(dict):
                  create_case_actions: Optional[Sequence['outputs.RuleCreateCaseAction']] = None,
                  end_associated_tasks_actions: Optional[Sequence['outputs.RuleEndAssociatedTasksAction']] = None,
                  event_bridge_actions: Optional[Sequence['outputs.RuleEventBridgeAction']] = None,
+                 send_in_app_notification_actions: Optional[Sequence['outputs.RuleSendInAppNotificationAction']] = None,
                  send_notification_actions: Optional[Sequence['outputs.RuleSendNotificationAction']] = None,
                  submit_auto_evaluation_actions: Optional[Sequence['outputs.RuleSubmitAutoEvaluationAction']] = None,
                  task_actions: Optional[Sequence['outputs.RuleTaskAction']] = None,
@@ -5007,6 +5013,8 @@ class RuleActions(dict):
             pulumi.set(__self__, "end_associated_tasks_actions", end_associated_tasks_actions)
         if event_bridge_actions is not None:
             pulumi.set(__self__, "event_bridge_actions", event_bridge_actions)
+        if send_in_app_notification_actions is not None:
+            pulumi.set(__self__, "send_in_app_notification_actions", send_in_app_notification_actions)
         if send_notification_actions is not None:
             pulumi.set(__self__, "send_notification_actions", send_notification_actions)
         if submit_auto_evaluation_actions is not None:
@@ -5046,6 +5054,11 @@ class RuleActions(dict):
         Information about the EV action.
         """
         return pulumi.get(self, "event_bridge_actions")
+
+    @_builtins.property
+    @pulumi.getter(name="sendInAppNotificationActions")
+    def send_in_app_notification_actions(self) -> Optional[Sequence['outputs.RuleSendInAppNotificationAction']]:
+        return pulumi.get(self, "send_in_app_notification_actions")
 
     @_builtins.property
     @pulumi.getter(name="sendNotificationActions")
@@ -5366,6 +5379,186 @@ class RuleFieldValue(dict):
 
 
 @pulumi.output_type
+class RuleInAppNotificationRecipientType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userArns":
+            suggest = "user_arns"
+        elif key == "userTags":
+            suggest = "user_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleInAppNotificationRecipientType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleInAppNotificationRecipientType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleInAppNotificationRecipientType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_arns: Optional[Sequence[_builtins.str]] = None,
+                 user_tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] user_arns: The list of recipients by user arns.
+        :param Mapping[str, _builtins.str] user_tags: The collection of recipients who are identified by user tags
+        """
+        if user_arns is not None:
+            pulumi.set(__self__, "user_arns", user_arns)
+        if user_tags is not None:
+            pulumi.set(__self__, "user_tags", user_tags)
+
+    @_builtins.property
+    @pulumi.getter(name="userArns")
+    def user_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The list of recipients by user arns.
+        """
+        return pulumi.get(self, "user_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="userTags")
+    def user_tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The collection of recipients who are identified by user tags
+        """
+        return pulumi.get(self, "user_tags")
+
+
+@pulumi.output_type
+class RuleNotificationContent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deDe":
+            suggest = "de_de"
+        elif key == "enUs":
+            suggest = "en_us"
+        elif key == "esEs":
+            suggest = "es_es"
+        elif key == "frFr":
+            suggest = "fr_fr"
+        elif key == "idId":
+            suggest = "id_id"
+        elif key == "itIt":
+            suggest = "it_it"
+        elif key == "jaJp":
+            suggest = "ja_jp"
+        elif key == "koKr":
+            suggest = "ko_kr"
+        elif key == "ptBr":
+            suggest = "pt_br"
+        elif key == "zhCn":
+            suggest = "zh_cn"
+        elif key == "zhTw":
+            suggest = "zh_tw"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleNotificationContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleNotificationContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleNotificationContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 de_de: Optional[_builtins.str] = None,
+                 en_us: Optional[_builtins.str] = None,
+                 es_es: Optional[_builtins.str] = None,
+                 fr_fr: Optional[_builtins.str] = None,
+                 id_id: Optional[_builtins.str] = None,
+                 it_it: Optional[_builtins.str] = None,
+                 ja_jp: Optional[_builtins.str] = None,
+                 ko_kr: Optional[_builtins.str] = None,
+                 pt_br: Optional[_builtins.str] = None,
+                 zh_cn: Optional[_builtins.str] = None,
+                 zh_tw: Optional[_builtins.str] = None):
+        if de_de is not None:
+            pulumi.set(__self__, "de_de", de_de)
+        if en_us is not None:
+            pulumi.set(__self__, "en_us", en_us)
+        if es_es is not None:
+            pulumi.set(__self__, "es_es", es_es)
+        if fr_fr is not None:
+            pulumi.set(__self__, "fr_fr", fr_fr)
+        if id_id is not None:
+            pulumi.set(__self__, "id_id", id_id)
+        if it_it is not None:
+            pulumi.set(__self__, "it_it", it_it)
+        if ja_jp is not None:
+            pulumi.set(__self__, "ja_jp", ja_jp)
+        if ko_kr is not None:
+            pulumi.set(__self__, "ko_kr", ko_kr)
+        if pt_br is not None:
+            pulumi.set(__self__, "pt_br", pt_br)
+        if zh_cn is not None:
+            pulumi.set(__self__, "zh_cn", zh_cn)
+        if zh_tw is not None:
+            pulumi.set(__self__, "zh_tw", zh_tw)
+
+    @_builtins.property
+    @pulumi.getter(name="deDe")
+    def de_de(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "de_de")
+
+    @_builtins.property
+    @pulumi.getter(name="enUs")
+    def en_us(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "en_us")
+
+    @_builtins.property
+    @pulumi.getter(name="esEs")
+    def es_es(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "es_es")
+
+    @_builtins.property
+    @pulumi.getter(name="frFr")
+    def fr_fr(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "fr_fr")
+
+    @_builtins.property
+    @pulumi.getter(name="idId")
+    def id_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id_id")
+
+    @_builtins.property
+    @pulumi.getter(name="itIt")
+    def it_it(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "it_it")
+
+    @_builtins.property
+    @pulumi.getter(name="jaJp")
+    def ja_jp(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ja_jp")
+
+    @_builtins.property
+    @pulumi.getter(name="koKr")
+    def ko_kr(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ko_kr")
+
+    @_builtins.property
+    @pulumi.getter(name="ptBr")
+    def pt_br(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pt_br")
+
+    @_builtins.property
+    @pulumi.getter(name="zhCn")
+    def zh_cn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "zh_cn")
+
+    @_builtins.property
+    @pulumi.getter(name="zhTw")
+    def zh_tw(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "zh_tw")
+
+
+@pulumi.output_type
 class RuleNotificationRecipientType(dict):
     """
     The type of notification recipient.
@@ -5454,6 +5647,47 @@ class RuleReference(dict):
         A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleSendInAppNotificationAction(dict):
+    def __init__(__self__, *,
+                 content: 'outputs.RuleNotificationContent',
+                 recipient: 'outputs.RuleInAppNotificationRecipientType',
+                 exclusion: Optional['outputs.RuleInAppNotificationRecipientType'] = None,
+                 priority: Optional['RuleSendInAppNotificationActionPriority'] = None):
+        """
+        :param 'RuleSendInAppNotificationActionPriority' priority: The priority of the notification.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "recipient", recipient)
+        if exclusion is not None:
+            pulumi.set(__self__, "exclusion", exclusion)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+
+    @_builtins.property
+    @pulumi.getter
+    def content(self) -> 'outputs.RuleNotificationContent':
+        return pulumi.get(self, "content")
+
+    @_builtins.property
+    @pulumi.getter
+    def recipient(self) -> 'outputs.RuleInAppNotificationRecipientType':
+        return pulumi.get(self, "recipient")
+
+    @_builtins.property
+    @pulumi.getter
+    def exclusion(self) -> Optional['outputs.RuleInAppNotificationRecipientType']:
+        return pulumi.get(self, "exclusion")
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> Optional['RuleSendInAppNotificationActionPriority']:
+        """
+        The priority of the notification.
+        """
+        return pulumi.get(self, "priority")
 
 
 @pulumi.output_type

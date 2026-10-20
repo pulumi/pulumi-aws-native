@@ -1317,7 +1317,8 @@ class ContainerGroupDefinitionGameServerContainerDefinition(dict):
                  linux_capabilities: Optional['outputs.ContainerGroupDefinitionLinuxCapabilities'] = None,
                  mount_points: Optional[Sequence['outputs.ContainerGroupDefinitionContainerMountPoint']] = None,
                  port_configuration: Optional['outputs.ContainerGroupDefinitionPortConfiguration'] = None,
-                 resolved_image_digest: Optional[_builtins.str] = None):
+                 resolved_image_digest: Optional[_builtins.str] = None,
+                 vcpu: Optional[_builtins.float] = None):
         """
         Specifies the information required to run game servers with this container group
 
@@ -1330,6 +1331,7 @@ class ContainerGroupDefinitionGameServerContainerDefinition(dict):
         :param Sequence['ContainerGroupDefinitionContainerMountPoint'] mount_points: A list of mount point configurations to be used in a container.
         :param 'ContainerGroupDefinitionPortConfiguration' port_configuration: Defines the ports on the container.
         :param _builtins.str resolved_image_digest: The digest of the container image.
+        :param _builtins.float vcpu: The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "image_uri", image_uri)
@@ -1346,6 +1348,8 @@ class ContainerGroupDefinitionGameServerContainerDefinition(dict):
             pulumi.set(__self__, "port_configuration", port_configuration)
         if resolved_image_digest is not None:
             pulumi.set(__self__, "resolved_image_digest", resolved_image_digest)
+        if vcpu is not None:
+            pulumi.set(__self__, "vcpu", vcpu)
 
     @_builtins.property
     @pulumi.getter(name="containerName")
@@ -1418,6 +1422,14 @@ class ContainerGroupDefinitionGameServerContainerDefinition(dict):
         The digest of the container image.
         """
         return pulumi.get(self, "resolved_image_digest")
+
+    @_builtins.property
+    @pulumi.getter
+    def vcpu(self) -> Optional[_builtins.float]:
+        """
+        The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
+        """
+        return pulumi.get(self, "vcpu")
 
 
 @pulumi.output_type

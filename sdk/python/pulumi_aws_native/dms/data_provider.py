@@ -36,7 +36,7 @@ class DataProviderArgs:
         The set of arguments for constructing a DataProvider resource.
 
         :param pulumi.Input['DataProviderEngine'] engine: The property describes a data engine for the data provider.
-        :param pulumi.Input[_builtins.str] data_provider_identifier: The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+        :param pulumi.Input[_builtins.str] data_provider_identifier: [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         :param pulumi.Input[_builtins.str] data_provider_name: The property describes a name to identify the data provider.
         :param pulumi.Input[_builtins.str] description: The optional description of the data provider.
         :param pulumi.Input[_builtins.bool] exact_settings: The property describes the exact settings which can be modified
@@ -76,7 +76,7 @@ class DataProviderArgs:
     @pulumi.getter(name="dataProviderIdentifier")
     def data_provider_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+        [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         """
         return pulumi.get(self, "data_provider_identifier")
 
@@ -177,7 +177,7 @@ class DataProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] data_provider_identifier: The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+        :param pulumi.Input[_builtins.str] data_provider_identifier: [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         :param pulumi.Input[_builtins.str] data_provider_name: The property describes a name to identify the data provider.
         :param pulumi.Input[_builtins.str] description: The optional description of the data provider.
         :param pulumi.Input['DataProviderEngine'] engine: The property describes a data engine for the data provider.
@@ -293,7 +293,7 @@ class DataProvider(pulumi.CustomResource):
     @pulumi.getter(name="dataProviderIdentifier")
     def data_provider_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+        [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         """
         return pulumi.get(self, "data_provider_identifier")
 

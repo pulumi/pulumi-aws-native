@@ -379,6 +379,93 @@ export const ClusterTieredStorageConfigMode = {
  */
 export type ClusterTieredStorageConfigMode = (typeof ClusterTieredStorageConfigMode)[keyof typeof ClusterTieredStorageConfigMode];
 
+export const ComputeQuotaAcceleratorPartitionConfigType = {
+    Mig1g5gb: "mig-1g.5gb",
+    Mig1g10gb: "mig-1g.10gb",
+    Mig1g18gb: "mig-1g.18gb",
+    Mig1g20gb: "mig-1g.20gb",
+    Mig1g23gb: "mig-1g.23gb",
+    Mig1g35gb: "mig-1g.35gb",
+    Mig1g45gb: "mig-1g.45gb",
+    Mig1g47gb: "mig-1g.47gb",
+    Mig2g10gb: "mig-2g.10gb",
+    Mig2g20gb: "mig-2g.20gb",
+    Mig2g35gb: "mig-2g.35gb",
+    Mig2g45gb: "mig-2g.45gb",
+    Mig2g47gb: "mig-2g.47gb",
+    Mig3g20gb: "mig-3g.20gb",
+    Mig3g40gb: "mig-3g.40gb",
+    Mig3g71gb: "mig-3g.71gb",
+    Mig3g90gb: "mig-3g.90gb",
+    Mig3g93gb: "mig-3g.93gb",
+    Mig4g20gb: "mig-4g.20gb",
+    Mig4g40gb: "mig-4g.40gb",
+    Mig4g71gb: "mig-4g.71gb",
+    Mig4g90gb: "mig-4g.90gb",
+    Mig4g93gb: "mig-4g.93gb",
+    Mig7g40gb: "mig-7g.40gb",
+    Mig7g80gb: "mig-7g.80gb",
+    Mig7g141gb: "mig-7g.141gb",
+    Mig7g180gb: "mig-7g.180gb",
+    Mig7g186gb: "mig-7g.186gb",
+} as const;
+
+/**
+ * MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+ */
+export type ComputeQuotaAcceleratorPartitionConfigType = (typeof ComputeQuotaAcceleratorPartitionConfigType)[keyof typeof ComputeQuotaAcceleratorPartitionConfigType];
+
+export const ComputeQuotaActivationState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether the compute allocation rule is active. Defaults service-side to 'Enabled' when omitted on Create.
+ */
+export type ComputeQuotaActivationState = (typeof ComputeQuotaActivationState)[keyof typeof ComputeQuotaActivationState];
+
+export const ComputeQuotaConfigPreemptTeamTasks = {
+    Never: "Never",
+    LowerPriority: "LowerPriority",
+} as const;
+
+/**
+ * Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+ */
+export type ComputeQuotaConfigPreemptTeamTasks = (typeof ComputeQuotaConfigPreemptTeamTasks)[keyof typeof ComputeQuotaConfigPreemptTeamTasks];
+
+export const ComputeQuotaResourceSharingConfigStrategy = {
+    Lend: "Lend",
+    DontLend: "DontLend",
+    LendAndBorrow: "LendAndBorrow",
+} as const;
+
+/**
+ * How this team participates in idle-resource sharing.
+ */
+export type ComputeQuotaResourceSharingConfigStrategy = (typeof ComputeQuotaResourceSharingConfigStrategy)[keyof typeof ComputeQuotaResourceSharingConfigStrategy];
+
+export const ComputeQuotaStatus = {
+    Creating: "Creating",
+    Created: "Created",
+    CreateFailed: "CreateFailed",
+    CreateRollbackFailed: "CreateRollbackFailed",
+    Updating: "Updating",
+    Updated: "Updated",
+    UpdateFailed: "UpdateFailed",
+    UpdateRollbackFailed: "UpdateRollbackFailed",
+    Deleting: "Deleting",
+    Deleted: "Deleted",
+    DeleteFailed: "DeleteFailed",
+    DeleteRollbackFailed: "DeleteRollbackFailed",
+} as const;
+
+/**
+ * The current lifecycle status of the compute allocation definition.
+ */
+export type ComputeQuotaStatus = (typeof ComputeQuotaStatus)[keyof typeof ComputeQuotaStatus];
+
 export const DataQualityJobDefinitionBatchTransformInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",

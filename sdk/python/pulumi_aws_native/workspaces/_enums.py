@@ -9,6 +9,37 @@ from enum import Enum
 __all__ = [
     'ConnectionAliasAssociationAssociationStatus',
     'ConnectionAliasState',
+    'DirectoryAccessEndpointAccessEndpointType',
+    'DirectoryAccessEndpointConfigInternetFallbackProtocolsItem',
+    'DirectoryCertificateBasedAuthPropertiesStatus',
+    'DirectoryEndpointEncryptionMode',
+    'DirectoryGlobalAcceleratorForDirectoryMode',
+    'DirectoryGlobalAcceleratorForDirectoryPreferredProtocol',
+    'DirectorySamlPropertiesStatus',
+    'DirectorySelfservicePermissionsChangeComputeType',
+    'DirectorySelfservicePermissionsIncreaseVolumeSize',
+    'DirectorySelfservicePermissionsRebuildWorkspace',
+    'DirectorySelfservicePermissionsRestartWorkspace',
+    'DirectorySelfservicePermissionsSwitchRunningMode',
+    'DirectoryState',
+    'DirectoryStorageConnectorConnectorType',
+    'DirectoryStorageConnectorStatus',
+    'DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol',
+    'DirectoryTenancy',
+    'DirectoryType',
+    'DirectoryUserIdentityType',
+    'DirectoryUserSettingAction',
+    'DirectoryUserSettingPermission',
+    'DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid',
+    'DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs',
+    'DirectoryWorkspaceAccessPropertiesDeviceTypeIos',
+    'DirectoryWorkspaceAccessPropertiesDeviceTypeLinux',
+    'DirectoryWorkspaceAccessPropertiesDeviceTypeOsx',
+    'DirectoryWorkspaceAccessPropertiesDeviceTypeWeb',
+    'DirectoryWorkspaceAccessPropertiesDeviceTypeWindows',
+    'DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient',
+    'DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient',
+    'DirectoryWorkspaceType',
     'WorkspacesPoolApplicationSettingsStatus',
     'WorkspacesPoolRunningMode',
 ]
@@ -34,6 +65,288 @@ class ConnectionAliasState(_builtins.str, Enum):
     CREATING = "CREATING"
     CREATED = "CREATED"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryAccessEndpointAccessEndpointType")
+class DirectoryAccessEndpointAccessEndpointType(_builtins.str, Enum):
+    """
+    Indicates the type of access endpoint.
+    """
+    STREAMING_WSP = "STREAMING_WSP"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryAccessEndpointConfigInternetFallbackProtocolsItem")
+class DirectoryAccessEndpointConfigInternetFallbackProtocolsItem(_builtins.str, Enum):
+    PCOIP = "PCOIP"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryCertificateBasedAuthPropertiesStatus")
+class DirectoryCertificateBasedAuthPropertiesStatus(_builtins.str, Enum):
+    """
+    The status of the certificate-based authentication properties.
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryEndpointEncryptionMode")
+class DirectoryEndpointEncryptionMode(_builtins.str, Enum):
+    """
+    Endpoint encryption mode that allows you to configure the specified directory between Standard TLS and FIPS 140-2 validated mode.
+    """
+    STANDARD_TLS = "STANDARD_TLS"
+    FIPS_VALIDATED = "FIPS_VALIDATED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryGlobalAcceleratorForDirectoryMode")
+class DirectoryGlobalAcceleratorForDirectoryMode(_builtins.str, Enum):
+    """
+    Indicates if Global Accelerator for directory is enabled or disabled.
+    """
+    ENABLED_AUTO = "ENABLED_AUTO"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryGlobalAcceleratorForDirectoryPreferredProtocol")
+class DirectoryGlobalAcceleratorForDirectoryPreferredProtocol(_builtins.str, Enum):
+    """
+    Indicates the preferred protocol for Global Accelerator.
+    """
+    TCP = "TCP"
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectorySamlPropertiesStatus")
+class DirectorySamlPropertiesStatus(_builtins.str, Enum):
+    """
+    Indicates the status of SAML 2.0 authentication.
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+    ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK = "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectorySelfservicePermissionsChangeComputeType")
+class DirectorySelfservicePermissionsChangeComputeType(_builtins.str, Enum):
+    """
+    Specifies whether users can change the compute type (bundle) for their WorkSpace.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectorySelfservicePermissionsIncreaseVolumeSize")
+class DirectorySelfservicePermissionsIncreaseVolumeSize(_builtins.str, Enum):
+    """
+    Specifies whether users can increase the volume size of the drives on their WorkSpace.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectorySelfservicePermissionsRebuildWorkspace")
+class DirectorySelfservicePermissionsRebuildWorkspace(_builtins.str, Enum):
+    """
+    Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectorySelfservicePermissionsRestartWorkspace")
+class DirectorySelfservicePermissionsRestartWorkspace(_builtins.str, Enum):
+    """
+    Specifies whether users can restart their WorkSpace.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectorySelfservicePermissionsSwitchRunningMode")
+class DirectorySelfservicePermissionsSwitchRunningMode(_builtins.str, Enum):
+    """
+    Specifies whether users can switch the running mode of their WorkSpace.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryState")
+class DirectoryState(_builtins.str, Enum):
+    """
+    The state of the directory's registration with Amazon WorkSpaces.
+    """
+    REGISTERING = "REGISTERING"
+    REGISTERED = "REGISTERED"
+    DEREGISTERING = "DEREGISTERING"
+    DEREGISTERED = "DEREGISTERED"
+    ERROR = "ERROR"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryStorageConnectorConnectorType")
+class DirectoryStorageConnectorConnectorType(_builtins.str, Enum):
+    """
+    The type of connector used to save user files.
+    """
+    HOME_FOLDER = "HOME_FOLDER"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryStorageConnectorStatus")
+class DirectoryStorageConnectorStatus(_builtins.str, Enum):
+    """
+    Indicates if the storage connector is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol")
+class DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol(_builtins.str, Enum):
+    """
+    Indicates the type of preferred protocol for the streaming experience.
+    """
+    TCP = "TCP"
+    UDP = "UDP"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryTenancy")
+class DirectoryTenancy(_builtins.str, Enum):
+    """
+    Indicates whether your WorkSpace directory is dedicated or shared.
+    """
+    DEDICATED = "DEDICATED"
+    SHARED = "SHARED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryType")
+class DirectoryType(_builtins.str, Enum):
+    """
+    The directory type.
+    """
+    SIMPLE_AD = "SIMPLE_AD"
+    AD_CONNECTOR = "AD_CONNECTOR"
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
+    AWS_IAM_IDENTITY_CENTER = "AWS_IAM_IDENTITY_CENTER"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryUserIdentityType")
+class DirectoryUserIdentityType(_builtins.str, Enum):
+    """
+    The type of identity management the user is using.
+    """
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
+    AWS_DIRECTORY_SERVICE = "AWS_DIRECTORY_SERVICE"
+    AWS_IAM_IDENTITY_CENTER = "AWS_IAM_IDENTITY_CENTER"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryUserSettingAction")
+class DirectoryUserSettingAction(_builtins.str, Enum):
+    """
+    Indicates the type of action.
+    """
+    CLIPBOARD_COPY_FROM_LOCAL_DEVICE = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE"
+    CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE"
+    PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE"
+    SMART_CARD = "SMART_CARD"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryUserSettingPermission")
+class DirectoryUserSettingPermission(_builtins.str, Enum):
+    """
+    Indicates if the setting is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid")
+class DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid(_builtins.str, Enum):
+    """
+    Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+    """
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs")
+class DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs(_builtins.str, Enum):
+    """
+    Indicates whether users can use Chromebooks to access their WorkSpaces.
+    """
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceAccessPropertiesDeviceTypeIos")
+class DirectoryWorkspaceAccessPropertiesDeviceTypeIos(_builtins.str, Enum):
+    """
+    Indicates whether users can use iOS devices to access their WorkSpaces.
+    """
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceAccessPropertiesDeviceTypeLinux")
+class DirectoryWorkspaceAccessPropertiesDeviceTypeLinux(_builtins.str, Enum):
+    """
+    Indicates whether users can use Linux clients to access their WorkSpaces.
+    """
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceAccessPropertiesDeviceTypeOsx")
+class DirectoryWorkspaceAccessPropertiesDeviceTypeOsx(_builtins.str, Enum):
+    """
+    Indicates whether users can use macOS clients to access their WorkSpaces.
+    """
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceAccessPropertiesDeviceTypeWeb")
+class DirectoryWorkspaceAccessPropertiesDeviceTypeWeb(_builtins.str, Enum):
+    """
+    Indicates whether users can access their WorkSpaces through a web browser.
+    """
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceAccessPropertiesDeviceTypeWindows")
+class DirectoryWorkspaceAccessPropertiesDeviceTypeWindows(_builtins.str, Enum):
+    """
+    Indicates whether users can use Windows clients to access their WorkSpaces.
+    """
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient")
+class DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient(_builtins.str, Enum):
+    """
+    Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+    """
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient")
+class DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient(_builtins.str, Enum):
+    """
+    Indicates whether users can use zero client devices to access their WorkSpaces.
+    """
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:workspaces:DirectoryWorkspaceType")
+class DirectoryWorkspaceType(_builtins.str, Enum):
+    """
+    Indicates whether the directory's WorkSpace type is personal or pools.
+    """
+    PERSONAL = "PERSONAL"
+    POOLS = "POOLS"
 
 
 @pulumi.type_token("aws-native:workspaces:WorkspacesPoolApplicationSettingsStatus")

@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("maxTokens")]
         public Input<int>? MaxTokens { get; set; }
 
+        [Input("stopSequences")]
+        private InputList<string>? _stopSequences;
+
+        /// <summary>
+        /// The sequences that make the model stop generating further tokens.
+        /// </summary>
+        public InputList<string> StopSequences
+        {
+            get => _stopSequences ?? (_stopSequences = new InputList<string>());
+            set => _stopSequences = value;
+        }
+
         /// <summary>
         /// The temperature value that controls randomness in the model's responses.
         /// </summary>

@@ -146,7 +146,7 @@ class GetImagePipelineResult:
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> Optional['outputs.ImagePipelineImageScanningConfiguration']:
         """
-        Contains settings for vulnerability scans.
+        Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
         """
         return pulumi.get(self, "image_scanning_configuration")
 
