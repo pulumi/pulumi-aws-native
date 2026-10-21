@@ -3,8 +3,10 @@ package provider
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
 	"reflect"
 	"testing"
 	"time"
@@ -2741,6 +2743,158 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 		require.Error(t, err)
 		assert.Contains(t, err.Error(), "Resource type aws:missing:Resource not found")
 	})
+}
+
+// Exercise refresh, engine ignore processing, preview, and an unrelated update
+// using generated metadata. Only CloudControl is mocked. Verify the outgoing
+// patch preserves live weights by ARN rather than merely suppressing a diff.
+func TestListenerRuleIgnoreChangesPreservesWeights(t *testing.T) {
+	const resourceType = "aws-native:elasticloadbalancingv2:ListenerRule"
+	data, err := os.ReadFile("../../cmd/pulumi-resource-aws-native/metadata.json")
+	require.NoError(t, err)
+	var meta metadata.CloudAPIMetadata
+	require.NoError(t, json.Unmarshal(data, &meta))
+	spec := meta.Resources[resourceType]
+	require.Contains(t, spec.UnorderedCollections, "actions/*/forwardConfig/targetGroups")
+
+	inputs := func(blueFirst bool, blueWeight, greenWeight int, blueARN string) resource.PropertyMap {
+		blue := map[string]interface{}{"targetGroupArn": blueARN, "weight": blueWeight}
+		green := map[string]interface{}{"targetGroupArn": "green", "weight": greenWeight}
+		groups := []interface{}{blue, green}
+		if !blueFirst {
+			groups = []interface{}{green, blue}
+		}
+		return resource.NewPropertyMapFromMap(map[string]interface{}{
+			"listenerArn": "listener", "priority": 10,
+			"conditions": []interface{}{map[string]interface{}{
+				"field": "http-header", "httpHeaderConfig": map[string]interface{}{
+					"httpHeaderName": "X-Probe", "values": []interface{}{"one"},
+				},
+			}},
+			"actions": []interface{}{map[string]interface{}{
+				"type": "forward", "order": 1,
+				"forwardConfig": map[string]interface{}{"targetGroups": groups},
+			}},
+		})
+	}
+	weights := func(props resource.PropertyMap) map[string]float64 {
+		groups := props["actions"].ArrayValue()[0].ObjectValue()["forwardConfig"].ObjectValue()["targetGroups"].ArrayValue()
+		result := map[string]float64{}
+		for _, group := range groups {
+			obj := group.ObjectValue()
+			result[obj["targetGroupArn"].StringValue()] = obj["weight"].NumberValue()
+		}
+		return result
+	}
+
+	weightPaths := []string{"actions[*].forwardConfig.targetGroups[*].weight"}
+	indexPaths := []string{
+		"actions[0].forwardConfig.targetGroups[0].weight",
+		"actions[0].forwardConfig.targetGroups[1].weight",
+	}
+	collectionPaths := []string{"actions[*].forwardConfig.targetGroups"}
+	for _, tc := range []struct {
+		name        string
+		reorder     bool
+		drift       bool
+		paths       []string
+		replacement bool
+		wantBlue    float64
+		wantGreen   float64
+		wantDiff    bool
+	}{
+		{"weight drift without reorder", false, true, weightPaths, false, 0, 100, false},
+		{"without ignoreChanges weight drift is repaired", true, true, nil, false, 1, 0, true},
+		{"reorder without weight drift", true, false, weightPaths, false, 1, 0, false},
+		{"reorder and weight drift", true, true, weightPaths, false, 0, 100, false},
+		{"explicit indices preserve weights", true, true, indexPaths, false, 0, 100, false},
+		{"whole collection preserves weights", true, true, collectionPaths, false, 0, 100, false},
+		{"whole collection blocks ARN replacement", true, true, collectionPaths, true, 0, 100, false},
+		{"weight only allows ARN replacement", true, true, weightPaths, true, 0, 100, true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			ctrl := gomock.NewController(t)
+			ccc := client.NewMockCloudControlClient(ctrl)
+			ctx, cancel := context.WithCancel(context.Background())
+			defer cancel()
+			p := &cfnProvider{name: "test-provider", resourceMap: &meta, ccc: ccc,
+				canceler: &cancellationContext{context: ctx, cancel: cancel}}
+			urn := resource.NewURN("stack", "project", "", resourceType, "rule")
+			old := inputs(true, 1, 0, "blue")
+			live := inputs(!tc.reorder, 1, 0, "blue")
+			if tc.drift {
+				live = inputs(!tc.reorder, 0, 100, "blue")
+			}
+			cfn, err := naming.SdkToCfn(&spec, meta.Types, live.Mappable())
+			require.NoError(t, err)
+			ccc.EXPECT().Read(ctx, spec.CfType, "rule-id").Return(cfn, true, nil)
+			read, err := p.Read(ctx, &pulumirpc.ReadRequest{Urn: string(urn), Id: "rule-id",
+				Properties: mustMarshalProperties(t, resources.CheckpointPropertyMap(old, old))})
+			require.NoError(t, err)
+			refreshed := mustUnmarshalProperties(t, read.Inputs)
+			outputs := mustUnmarshalProperties(t, read.Properties)
+			require.Equal(t, live["actions"], outputs["actions"], "outputs retain AWS ordering")
+			require.Equal(t, refreshed, resources.ParseCheckpointObject(outputs))
+			require.Equal(t, weights(live), weights(refreshed), "refresh must retain live weights by ARN")
+			blueARN := "blue"
+			if tc.replacement {
+				blueARN = "blue-replacement"
+			}
+			desired := inputs(true, 1, 0, blueARN)
+			for _, pattern := range tc.paths {
+				path, err := resource.ParsePropertyPath(pattern)
+				require.NoError(t, err)
+				require.True(t, path.Reset(refreshed, desired), "valid ignore path %s", pattern)
+			}
+			if !tc.replacement || !tc.wantDiff {
+				blueARN = "blue"
+			}
+			wantWeights := map[string]float64{blueARN: tc.wantBlue, "green": tc.wantGreen}
+			require.Equal(t, wantWeights, weights(desired))
+			preview, err := p.Diff(ctx, &pulumirpc.DiffRequest{Urn: string(urn), Id: "rule-id",
+				Olds: read.Properties, News: mustMarshalProperties(t, desired)})
+			require.NoError(t, err)
+			if tc.wantDiff {
+				require.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, preview.Changes)
+			} else {
+				require.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, preview.Changes)
+			}
+			// Change an unrelated condition after the ignore processing.
+			desired["conditions"].ArrayValue()[0].ObjectValue()["httpHeaderConfig"].ObjectValue()["values"] =
+				resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("two")})
+			ccc.EXPECT().Update(ctx, urn, spec.CfType, "rule-id", gomock.Any()).DoAndReturn(
+				func(_ context.Context, _ resource.URN, _, _ string,
+					ops []jsonpatch.JsonPatchOperation,
+				) (map[string]interface{}, error) {
+					hasActions, hasConditions := false, false
+					for _, op := range ops {
+						if op.Path == "/Actions" {
+							hasActions = true
+							converted, err := naming.CfnToSdkV2(&spec, meta.Types, map[string]interface{}{"Actions": op.Value})
+							require.NoError(t, err)
+							require.Equal(t, wantWeights, weights(resource.NewPropertyMapFromMap(converted)))
+						}
+						if op.Path == "/Conditions" {
+							hasConditions = true
+							converted, err := naming.CfnToSdkV2(&spec, meta.Types, map[string]interface{}{"Conditions": op.Value})
+							require.NoError(t, err)
+							require.Equal(t, desired["conditions"], resource.NewPropertyMapFromMap(converted)["conditions"])
+						}
+					}
+					// Nested write-only metadata causes Actions to be resent even
+					// when only Conditions changed. Verify the values, not omission.
+					require.True(t, hasActions)
+					require.True(t, hasConditions, "the unrelated condition edit must reach CloudControl")
+					return naming.SdkToCfn(&spec, meta.Types, desired.Mappable())
+				})
+			updated, err := p.Update(ctx, &pulumirpc.UpdateRequest{Urn: string(urn), Id: "rule-id",
+				Olds: read.Properties, News: mustMarshalProperties(t, desired)})
+			require.NoError(t, err)
+			updatedOutputs := mustUnmarshalProperties(t, updated.Properties)
+			require.Equal(t, wantWeights, weights(updatedOutputs))
+			require.Equal(t, wantWeights, weights(resources.ParseCheckpointObject(updatedOutputs)))
+		})
+	}
 }
 
 func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {

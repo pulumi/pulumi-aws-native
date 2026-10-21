@@ -150,6 +150,11 @@ func (c *PathClassifier) actualInputBaseline(
 	oldDesired, projectedActual, newDesired resource.PropertyMap,
 ) resource.PropertyMap {
 	result := clonePropertyMap(projectedActual)
+	if c.res.CfType == "AWS::ElasticLoadBalancingV2::ListenerRule" {
+		// Refresh, Diff, and patching must agree on this input ordering while
+		// output state continues to reflect CloudControl's observed ordering.
+		alignListenerRuleTargetGroups(oldDesired, result)
+	}
 	c.addWriteOnlyFallbacks(result, oldDesired, true)
 	PreserveSecretWrappers(result, oldDesired)
 	c.pruneUnownedComputed(result, oldDesired, newDesired, "")

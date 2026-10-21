@@ -167,6 +167,14 @@ input shape, preserves ownership and values that cannot be read, suppresses
 known AWS-managed representation differences, and returns and checkpoints that
 baseline. Live outputs and refreshed inputs therefore have different roles.
 
+For `elasticloadbalancingv2.ListenerRule`, the actual input baseline aligns
+surviving forward target groups by `targetGroupArn` to their previous input
+order, retaining live weights. The same alignment applies during diff and patch
+calculation, while outputs retain AWS's observed order. This prevents AWS-only
+reordering from transferring positionally ignored weights between ARNs. It does
+not make `ignoreChanges` identity-aware. Keep the program's target-group order
+stable, and review weights when changing collection membership.
+
 For import, no prior `__inputs` value exists. AWS Native projects writable
 values from the live model into initial inputs. Write-only values cannot be
 recovered and produce a warning.
