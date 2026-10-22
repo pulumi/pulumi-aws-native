@@ -7,14 +7,95 @@ import (
 	"context"
 	"fmt"
 	"testing"
+	"testing/synctest"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/aws/retry"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+func TestWaitForResourceOpCompletion_PollingDelays(t *testing.T) {
+	for _, tt := range []struct {
+		name             string
+		hints            []time.Duration // Zero means absent; negative means expired.
+		fallbackAttempts []int
+		delays           []time.Duration
+	}{
+		{
+			name:             "consecutive fallback polls increase backoff",
+			hints:            []time.Duration{0, 0, 0},
+			fallbackAttempts: []int{0, 1, 2},
+			delays:           []time.Duration{time.Second, 2 * time.Second, 4 * time.Second},
+		},
+		{
+			name:             "AWS hints do not advance fallback backoff",
+			hints:            []time.Duration{10 * time.Second, 20 * time.Second, 0, 0},
+			fallbackAttempts: []int{0, 1},
+			delays:           []time.Duration{10 * time.Second, 20 * time.Second, time.Second, 2 * time.Second},
+		},
+		{
+			name:             "future hint resets an existing fallback sequence",
+			hints:            []time.Duration{0, 0, 10 * time.Second, 0, 0},
+			fallbackAttempts: []int{0, 1, 0, 1},
+			delays:           []time.Duration{time.Second, 2 * time.Second, 10 * time.Second, time.Second, 2 * time.Second},
+		},
+		{
+			name:             "expired hints do not reset fallback backoff",
+			hints:            []time.Duration{-time.Second, 0, -time.Second},
+			fallbackAttempts: []int{0, 1, 2},
+			delays:           []time.Duration{time.Second, 2 * time.Second, 4 * time.Second},
+		},
+	} {
+		t.Run(tt.name, func(t *testing.T) {
+			synctest.Test(t, func(t *testing.T) {
+				progress := func(hint time.Duration) *types.ProgressEvent {
+					pi := &types.ProgressEvent{
+						OperationStatus: types.OperationStatusInProgress,
+						RequestToken:    aws.String("request-token"),
+					}
+					if hint != 0 {
+						retryAfter := time.Now().Add(hint)
+						pi.RetryAfter = &retryAfter
+					}
+					return pi
+				}
+				finalProgress := &types.ProgressEvent{OperationStatus: types.OperationStatusSuccess}
+				calls := 0
+				lastResponse := time.Now()
+				api := &awaiterTestAPI{getResourceRequestStatusWithHooksFunc: func(
+					_ context.Context, token string,
+				) (*types.ProgressEvent, []types.HookProgressEvent, error) {
+					require.Equal(t, "request-token", token)
+					require.Less(t, calls, len(tt.delays), "unexpected status poll after SUCCESS")
+					assert.Equal(t, tt.delays[calls], time.Since(lastResponse), "delay before poll %d", calls)
+					lastResponse = time.Now()
+					calls++
+					if calls == len(tt.hints) {
+						return finalProgress, nil, nil
+					}
+					return progress(tt.hints[calls]), nil, nil
+				}}
+				var attempts []int
+				awaiter := NewCloudControlAwaiter(api).(*ccAwaiterImpl)
+				awaiter.backoff = retry.BackoffDelayerFunc(func(attempt int, _ error) (time.Duration, error) {
+					attempts = append(attempts, attempt)
+					return time.Second << attempt, nil
+				})
+
+				result, err := awaiter.WaitForResourceOpCompletion(context.Background(), progress(tt.hints[0]))
+
+				require.NoError(t, err)
+				assert.Same(t, finalProgress, result)
+				assert.Equal(t, len(tt.hints), calls, "must keep polling until terminal SUCCESS")
+				assert.Equal(t, tt.fallbackAttempts, attempts)
+			})
+		})
+	}
+}
 
 func Test_hasFinished(t *testing.T) {
 	tests := []struct {
