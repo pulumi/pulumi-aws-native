@@ -49,7 +49,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationArgs', 'ReplicationConfigurationArgsDict']]] = None,
+                 replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationArgs', 'ReplicationConfigurationArgsDict', 'outputs.ReplicationConfiguration']]] = None,
                  __props__=None):
         """
         The ``AWS::ECR::ReplicationConfiguration`` resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide*.
@@ -82,7 +82,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ReplicationConfigurationArgs', 'ReplicationConfigurationArgsDict']] replication_configuration: The replication configuration for a registry.
+        :param pulumi.Input[Union['ReplicationConfigurationArgs', 'ReplicationConfigurationArgsDict', 'outputs.ReplicationConfiguration']] replication_configuration: The replication configuration for a registry.
         """
         ...
     @overload
@@ -134,7 +134,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationArgs', 'ReplicationConfigurationArgsDict']]] = None,
+                 replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationArgs', 'ReplicationConfigurationArgsDict', 'outputs.ReplicationConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

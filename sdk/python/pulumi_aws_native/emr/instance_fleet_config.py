@@ -161,10 +161,10 @@ class InstanceFleetConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetConfigInstanceTypeConfigArgs', 'InstanceFleetConfigInstanceTypeConfigArgsDict']]]]] = None,
-                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs', 'InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgsDict']]] = None,
+                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetConfigInstanceTypeConfigArgs', 'InstanceFleetConfigInstanceTypeConfigArgsDict', 'outputs.InstanceFleetConfigInstanceTypeConfig']]]]] = None,
+                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs', 'InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgsDict', 'outputs.InstanceFleetConfigInstanceFleetProvisioningSpecifications']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resize_specifications: pulumi.Input[Optional[Union['InstanceFleetConfigInstanceFleetResizingSpecificationsArgs', 'InstanceFleetConfigInstanceFleetResizingSpecificationsArgsDict']]] = None,
+                 resize_specifications: pulumi.Input[Optional[Union['InstanceFleetConfigInstanceFleetResizingSpecificationsArgs', 'InstanceFleetConfigInstanceFleetResizingSpecificationsArgsDict', 'outputs.InstanceFleetConfigInstanceFleetResizingSpecifications']]] = None,
                  target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  target_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -175,10 +175,10 @@ class InstanceFleetConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The unique identifier of the EMR cluster.
         :param pulumi.Input[_builtins.str] instance_fleet_type: The node type that the instance fleet hosts.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetConfigInstanceTypeConfigArgs', 'InstanceFleetConfigInstanceTypeConfigArgsDict']]]] instance_type_configs: InstanceTypeConfigs determine the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
-        :param pulumi.Input[Union['InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs', 'InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgsDict']] launch_specifications: The launch specification for the instance fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetConfigInstanceTypeConfigArgs', 'InstanceFleetConfigInstanceTypeConfigArgsDict', 'outputs.InstanceFleetConfigInstanceTypeConfig']]]] instance_type_configs: InstanceTypeConfigs determine the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+        :param pulumi.Input[Union['InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs', 'InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgsDict', 'outputs.InstanceFleetConfigInstanceFleetProvisioningSpecifications']] launch_specifications: The launch specification for the instance fleet.
         :param pulumi.Input[_builtins.str] name: The friendly name of the instance fleet.
-        :param pulumi.Input[Union['InstanceFleetConfigInstanceFleetResizingSpecificationsArgs', 'InstanceFleetConfigInstanceFleetResizingSpecificationsArgsDict']] resize_specifications: The resize specification for the instance fleet.
+        :param pulumi.Input[Union['InstanceFleetConfigInstanceFleetResizingSpecificationsArgs', 'InstanceFleetConfigInstanceFleetResizingSpecificationsArgsDict', 'outputs.InstanceFleetConfigInstanceFleetResizingSpecifications']] resize_specifications: The resize specification for the instance fleet.
         :param pulumi.Input[_builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[_builtins.int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
@@ -208,10 +208,10 @@ class InstanceFleetConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetConfigInstanceTypeConfigArgs', 'InstanceFleetConfigInstanceTypeConfigArgsDict']]]]] = None,
-                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs', 'InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgsDict']]] = None,
+                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetConfigInstanceTypeConfigArgs', 'InstanceFleetConfigInstanceTypeConfigArgsDict', 'outputs.InstanceFleetConfigInstanceTypeConfig']]]]] = None,
+                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs', 'InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgsDict', 'outputs.InstanceFleetConfigInstanceFleetProvisioningSpecifications']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resize_specifications: pulumi.Input[Optional[Union['InstanceFleetConfigInstanceFleetResizingSpecificationsArgs', 'InstanceFleetConfigInstanceFleetResizingSpecificationsArgsDict']]] = None,
+                 resize_specifications: pulumi.Input[Optional[Union['InstanceFleetConfigInstanceFleetResizingSpecificationsArgs', 'InstanceFleetConfigInstanceFleetResizingSpecificationsArgsDict', 'outputs.InstanceFleetConfigInstanceFleetResizingSpecifications']]] = None,
                  target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  target_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):

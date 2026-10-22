@@ -66,16 +66,16 @@ class OTelEnrichment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]]] = None,
-                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict', 'outputs.OTelEnrichmentMetricSelector']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict', 'outputs.OTelEnrichmentMetricSelector']]]]] = None,
                  __props__=None):
         """
         AWS::CloudWatch::OTelEnrichment enables OTel metric enrichment in CloudWatch, allowing CloudWatch vended metrics to be available for PromQL querying enriched with AWS resource tags and metadata.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]] exclude_filters: Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]] include_filters: Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict', 'outputs.OTelEnrichmentMetricSelector']]]] exclude_filters: Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict', 'outputs.OTelEnrichmentMetricSelector']]]] include_filters: Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
         """
         ...
     @overload
@@ -101,8 +101,8 @@ class OTelEnrichment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]]] = None,
-                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict', 'outputs.OTelEnrichmentMetricSelector']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict', 'outputs.OTelEnrichmentMetricSelector']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -82,7 +82,7 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_type: pulumi.Input[Optional['IntegrationType']] = None,
-                 resource_config: pulumi.Input[Optional[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict']]] = None,
+                 resource_config: pulumi.Input[Optional[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict', 'outputs.ResourceConfigProperties']]] = None,
                  __props__=None):
         """
         Resource Schema for Logs Integration Resource
@@ -91,7 +91,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] integration_name: User provided identifier for integration, unique to the user account.
         :param pulumi.Input['IntegrationType'] integration_type: The type of the Integration.
-        :param pulumi.Input[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict']] resource_config: OpenSearchResourceConfig for the given Integration
+        :param pulumi.Input[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict', 'outputs.ResourceConfigProperties']] resource_config: OpenSearchResourceConfig for the given Integration
         """
         ...
     @overload
@@ -119,7 +119,7 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_type: pulumi.Input[Optional['IntegrationType']] = None,
-                 resource_config: pulumi.Input[Optional[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict']]] = None,
+                 resource_config: pulumi.Input[Optional[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict', 'outputs.ResourceConfigProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

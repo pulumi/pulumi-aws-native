@@ -203,8 +203,8 @@ class LicenseConfiguration(pulumi.CustomResource):
                  license_expiry: pulumi.Input[Optional[_builtins.int]] = None,
                  license_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 product_information_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseConfigurationProductInformationArgs', 'LicenseConfigurationProductInformationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 product_information_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseConfigurationProductInformationArgs', 'LicenseConfigurationProductInformationArgsDict', 'outputs.LicenseConfigurationProductInformation']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::LicenseManager::LicenseConfiguration. A license configuration is an abstraction of a customer license agreement that can be consumed and enforced by License Manager.
@@ -219,8 +219,8 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] license_expiry: License configuration expiry as an epoch timestamp (seconds since 1970-01-01T00:00:00Z).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] license_rules: License rules. The syntax is #name=value (for example, #allowedTenancy=EC2-DedicatedHost).
         :param pulumi.Input[_builtins.str] name: Name of the license configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseConfigurationProductInformationArgs', 'LicenseConfigurationProductInformationArgsDict']]]] product_information_list: Product information.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to add to the license configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseConfigurationProductInformationArgs', 'LicenseConfigurationProductInformationArgsDict', 'outputs.LicenseConfigurationProductInformation']]]] product_information_list: Product information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to add to the license configuration.
         """
         ...
     @overload
@@ -254,8 +254,8 @@ class LicenseConfiguration(pulumi.CustomResource):
                  license_expiry: pulumi.Input[Optional[_builtins.int]] = None,
                  license_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 product_information_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseConfigurationProductInformationArgs', 'LicenseConfigurationProductInformationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 product_information_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseConfigurationProductInformationArgs', 'LicenseConfigurationProductInformationArgsDict', 'outputs.LicenseConfigurationProductInformation']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

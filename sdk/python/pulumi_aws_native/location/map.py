@@ -131,18 +131,18 @@ class Map(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict', 'outputs.MapConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  map_name: pulumi.Input[Optional[_builtins.str]] = None,
                  pricing_plan: pulumi.Input[Optional['MapPricingPlan']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::Map Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']] configuration: Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+        :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict', 'outputs.MapConfiguration']] configuration: Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
         :param pulumi.Input[_builtins.str] description: An optional description for the map resource.
         :param pulumi.Input[_builtins.str] map_name: The name for the map resource.
                
@@ -154,7 +154,7 @@ class Map(pulumi.CustomResource):
         :param pulumi.Input['MapPricingPlan'] pricing_plan: No longer used. If included, the only allowed value is `RequestBasedUsage` .
                
                *Allowed Values* : `RequestBasedUsage`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -180,11 +180,11 @@ class Map(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict', 'outputs.MapConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  map_name: pulumi.Input[Optional[_builtins.str]] = None,
                  pricing_plan: pulumi.Input[Optional['MapPricingPlan']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

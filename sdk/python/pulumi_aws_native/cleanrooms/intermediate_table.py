@@ -117,13 +117,13 @@ class IntermediateTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analysis_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntermediateTableAnalysisRuleArgs', 'IntermediateTableAnalysisRuleArgsDict']]]]] = None,
+                 analysis_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntermediateTableAnalysisRuleArgs', 'IntermediateTableAnalysisRuleArgsDict', 'outputs.IntermediateTableAnalysisRule']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 population_analysis_configuration: pulumi.Input[Optional[Union['IntermediateTablePopulationAnalysisConfigurationArgs', 'IntermediateTablePopulationAnalysisConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 population_analysis_configuration: pulumi.Input[Optional[Union['IntermediateTablePopulationAnalysisConfigurationArgs', 'IntermediateTablePopulationAnalysisConfigurationArgsDict', 'outputs.IntermediateTablePopulationAnalysisConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Represents an intermediate table that stores cached query results within a collaboration
@@ -155,13 +155,13 @@ class IntermediateTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analysis_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntermediateTableAnalysisRuleArgs', 'IntermediateTableAnalysisRuleArgsDict']]]]] = None,
+                 analysis_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntermediateTableAnalysisRuleArgs', 'IntermediateTableAnalysisRuleArgsDict', 'outputs.IntermediateTableAnalysisRule']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 population_analysis_configuration: pulumi.Input[Optional[Union['IntermediateTablePopulationAnalysisConfigurationArgs', 'IntermediateTablePopulationAnalysisConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 population_analysis_configuration: pulumi.Input[Optional[Union['IntermediateTablePopulationAnalysisConfigurationArgs', 'IntermediateTablePopulationAnalysisConfigurationArgsDict', 'outputs.IntermediateTablePopulationAnalysisConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

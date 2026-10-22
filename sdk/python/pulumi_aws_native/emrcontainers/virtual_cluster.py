@@ -114,11 +114,11 @@ class VirtualCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: pulumi.Input[Optional[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
+                 container_provider: pulumi.Input[Optional[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict', 'outputs.VirtualClusterContainerProvider']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  session_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EMRContainers::VirtualCluster Type
@@ -176,11 +176,11 @@ class VirtualCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']] container_provider: Container provider of the virtual cluster.
+        :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict', 'outputs.VirtualClusterContainerProvider']] container_provider: Container provider of the virtual cluster.
         :param pulumi.Input[_builtins.str] name: Name of the virtual cluster.
         :param pulumi.Input[_builtins.str] security_configuration_id: The ID of the security configuration.
         :param pulumi.Input[_builtins.bool] session_enabled: Whether the virtual cluster is session-enabled for Spark Connect.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this virtual cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
         ...
     @overload
@@ -257,11 +257,11 @@ class VirtualCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: pulumi.Input[Optional[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
+                 container_provider: pulumi.Input[Optional[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict', 'outputs.VirtualClusterContainerProvider']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  session_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -163,13 +163,13 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 exclude_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
-                 lock_configuration: pulumi.Input[Optional[Union['RuleUnlockDelayArgs', 'RuleUnlockDelayArgsDict']]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
+                 exclude_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict', 'outputs.RuleResourceTag']]]]] = None,
+                 lock_configuration: pulumi.Input[Optional[Union['RuleUnlockDelayArgs', 'RuleUnlockDelayArgsDict', 'outputs.RuleUnlockDelay']]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict', 'outputs.RuleResourceTag']]]]] = None,
                  resource_type: pulumi.Input[Optional['RuleResourceType']] = None,
-                 retention_period: pulumi.Input[Optional[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict', 'outputs.RuleRetentionPeriod']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Rbin::Rule
@@ -177,13 +177,13 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the retention rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] exclude_resource_tags: Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
-        :param pulumi.Input[Union['RuleUnlockDelayArgs', 'RuleUnlockDelayArgsDict']] lock_configuration: Information about the retention rule lock configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Information about the resource tags used to identify resources that are retained by the retention rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict', 'outputs.RuleResourceTag']]]] exclude_resource_tags: Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+        :param pulumi.Input[Union['RuleUnlockDelayArgs', 'RuleUnlockDelayArgsDict', 'outputs.RuleUnlockDelay']] lock_configuration: Information about the retention rule lock configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict', 'outputs.RuleResourceTag']]]] resource_tags: Information about the resource tags used to identify resources that are retained by the retention rule.
         :param pulumi.Input['RuleResourceType'] resource_type: The resource type retained by the retention rule.
-        :param pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']] retention_period: Information about the retention period for which the retention rule is to retain resources.
+        :param pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict', 'outputs.RuleRetentionPeriod']] retention_period: Information about the retention period for which the retention rule is to retain resources.
         :param pulumi.Input[_builtins.str] status: The state of the retention rule. Only retention rules that are in the available state retain resources.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Information about the tags assigned to the retention rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Information about the tags assigned to the retention rule.
         """
         ...
     @overload
@@ -210,13 +210,13 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 exclude_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
-                 lock_configuration: pulumi.Input[Optional[Union['RuleUnlockDelayArgs', 'RuleUnlockDelayArgsDict']]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
+                 exclude_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict', 'outputs.RuleResourceTag']]]]] = None,
+                 lock_configuration: pulumi.Input[Optional[Union['RuleUnlockDelayArgs', 'RuleUnlockDelayArgsDict', 'outputs.RuleUnlockDelay']]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict', 'outputs.RuleResourceTag']]]]] = None,
                  resource_type: pulumi.Input[Optional['RuleResourceType']] = None,
-                 retention_period: pulumi.Input[Optional[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict', 'outputs.RuleRetentionPeriod']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

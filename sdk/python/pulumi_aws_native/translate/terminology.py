@@ -133,11 +133,11 @@ class Terminology(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_key: pulumi.Input[Optional[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict']]] = None,
+                 encryption_key: pulumi.Input[Optional[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict', 'outputs.EncryptionKeyProperties']]] = None,
                  merge_strategy: pulumi.Input[Optional['TerminologyMergeStrategy']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 terminology_data: pulumi.Input[Optional[Union['TerminologyDataPropertiesArgs', 'TerminologyDataPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 terminology_data: pulumi.Input[Optional[Union['TerminologyDataPropertiesArgs', 'TerminologyDataPropertiesArgsDict', 'outputs.TerminologyDataProperties']]] = None,
                  __props__=None):
         """
         A custom terminology resource for Amazon Translate that enables customized translations.
@@ -145,11 +145,11 @@ class Terminology(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the custom terminology.
-        :param pulumi.Input[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict']] encryption_key: The encryption key for the custom terminology.
+        :param pulumi.Input[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict', 'outputs.EncryptionKeyProperties']] encryption_key: The encryption key for the custom terminology.
         :param pulumi.Input['TerminologyMergeStrategy'] merge_strategy: The merge strategy for the custom terminology. Currently only OVERWRITE is supported.
         :param pulumi.Input[_builtins.str] name: The name of the custom terminology.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the terminology.
-        :param pulumi.Input[Union['TerminologyDataPropertiesArgs', 'TerminologyDataPropertiesArgsDict']] terminology_data: The terminology data for the custom terminology being imported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the terminology.
+        :param pulumi.Input[Union['TerminologyDataPropertiesArgs', 'TerminologyDataPropertiesArgsDict', 'outputs.TerminologyDataProperties']] terminology_data: The terminology data for the custom terminology being imported.
         """
         ...
     @overload
@@ -176,11 +176,11 @@ class Terminology(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_key: pulumi.Input[Optional[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict']]] = None,
+                 encryption_key: pulumi.Input[Optional[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict', 'outputs.EncryptionKeyProperties']]] = None,
                  merge_strategy: pulumi.Input[Optional['TerminologyMergeStrategy']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 terminology_data: pulumi.Input[Optional[Union['TerminologyDataPropertiesArgs', 'TerminologyDataPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 terminology_data: pulumi.Input[Optional[Union['TerminologyDataPropertiesArgs', 'TerminologyDataPropertiesArgsDict', 'outputs.TerminologyDataProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -219,12 +219,12 @@ class Queue(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_attachment_settings: pulumi.Input[Optional[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict']]] = None,
-                 job_run_as_user: pulumi.Input[Optional[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']]] = None,
+                 job_attachment_settings: pulumi.Input[Optional[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict', 'outputs.QueueJobAttachmentSettings']]] = None,
+                 job_run_as_user: pulumi.Input[Optional[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict', 'outputs.QueueJobRunAsUser']]] = None,
                  required_file_system_location_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduling_configuration: pulumi.Input[Optional[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 scheduling_configuration: pulumi.Input[Optional[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict', 'outputs.QueueSchedulingConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Deadline::Queue
@@ -240,11 +240,11 @@ class Queue(pulumi.CustomResource):
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[_builtins.str] farm_id: The farm ID.
-        :param pulumi.Input[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict']] job_attachment_settings: The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
-        :param pulumi.Input[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']] job_run_as_user: Identifies the user for a job.
+        :param pulumi.Input[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict', 'outputs.QueueJobAttachmentSettings']] job_attachment_settings: The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+        :param pulumi.Input[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict', 'outputs.QueueJobRunAsUser']] job_run_as_user: Identifies the user for a job.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] required_file_system_location_names: The file system location that the queue uses.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -275,12 +275,12 @@ class Queue(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_attachment_settings: pulumi.Input[Optional[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict']]] = None,
-                 job_run_as_user: pulumi.Input[Optional[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']]] = None,
+                 job_attachment_settings: pulumi.Input[Optional[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict', 'outputs.QueueJobAttachmentSettings']]] = None,
+                 job_run_as_user: pulumi.Input[Optional[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict', 'outputs.QueueJobRunAsUser']]] = None,
                  required_file_system_location_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduling_configuration: pulumi.Input[Optional[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 scheduling_configuration: pulumi.Input[Optional[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict', 'outputs.QueueSchedulingConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

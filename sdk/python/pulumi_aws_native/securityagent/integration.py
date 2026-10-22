@@ -130,8 +130,8 @@ class Integration(pulumi.CustomResource):
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider: pulumi.Input[Optional['IntegrationProviderEnum']] = None,
-                 provider_input: pulumi.Input[Optional[Union['IntegrationProviderInputArgs', 'IntegrationProviderInputArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 provider_input: pulumi.Input[Optional[Union['IntegrationProviderInputArgs', 'IntegrationProviderInputArgsDict', 'outputs.IntegrationProviderInput']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecurityAgent::Integration. Creates a connection between Security Agent and a third-party provider for code review and remediation.
@@ -142,7 +142,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the AWS KMS key to use for encrypting data associated with the integration. Can be a key ID, key ARN, alias name, or alias ARN.
         :param pulumi.Input[_builtins.str] private_connection_name: The name of an active private connection used to reach a self-hosted provider instance over private networking.
         :param pulumi.Input['IntegrationProviderEnum'] provider: The integration provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to associate with the integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to associate with the integration.
         """
         ...
     @overload
@@ -172,8 +172,8 @@ class Integration(pulumi.CustomResource):
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider: pulumi.Input[Optional['IntegrationProviderEnum']] = None,
-                 provider_input: pulumi.Input[Optional[Union['IntegrationProviderInputArgs', 'IntegrationProviderInputArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 provider_input: pulumi.Input[Optional[Union['IntegrationProviderInputArgs', 'IntegrationProviderInputArgsDict', 'outputs.IntegrationProviderInput']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

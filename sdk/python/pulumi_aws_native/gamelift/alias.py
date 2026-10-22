@@ -101,8 +101,8 @@ class Alias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict', 'outputs.AliasRoutingStrategy']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
@@ -144,8 +144,8 @@ class Alias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-readable description of the alias.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
-        :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict', 'outputs.AliasRoutingStrategy']] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -206,8 +206,8 @@ class Alias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict', 'outputs.AliasRoutingStrategy']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

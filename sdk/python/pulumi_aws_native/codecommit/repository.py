@@ -131,12 +131,12 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 code: pulumi.Input[Optional[Union['RepositoryCodeArgs', 'RepositoryCodeArgsDict']]] = None,
+                 code: pulumi.Input[Optional[Union['RepositoryCodeArgs', 'RepositoryCodeArgsDict', 'outputs.RepositoryCode']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_description: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryTriggerArgs', 'RepositoryTriggerArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryTriggerArgs', 'RepositoryTriggerArgsDict', 'outputs.RepositoryTrigger']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodeCommit::Repository
@@ -170,12 +170,12 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RepositoryCodeArgs', 'RepositoryCodeArgsDict']] code: Information about code to be committed to a repository after it is created in an AWS CloudFormation stack. Information about code is only used in resource creation. Updates to a stack will not reflect changes made to code properties after initial resource creation.
+        :param pulumi.Input[Union['RepositoryCodeArgs', 'RepositoryCodeArgsDict', 'outputs.RepositoryCode']] code: Information about code to be committed to a repository after it is created in an AWS CloudFormation stack. Information about code is only used in resource creation. Updates to a stack will not reflect changes made to code properties after initial resource creation.
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS Key Management Service encryption key used to encrypt and decrypt the repository.
         :param pulumi.Input[_builtins.str] repository_description: A comment or description about the new repository.
         :param pulumi.Input[_builtins.str] repository_name: The name of the new repository to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tag key-value pairs to use when tagging this repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryTriggerArgs', 'RepositoryTriggerArgsDict']]]] triggers: Information about a trigger for a repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tag key-value pairs to use when tagging this repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryTriggerArgs', 'RepositoryTriggerArgsDict', 'outputs.RepositoryTrigger']]]] triggers: Information about a trigger for a repository.
         """
         ...
     @overload
@@ -228,12 +228,12 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 code: pulumi.Input[Optional[Union['RepositoryCodeArgs', 'RepositoryCodeArgsDict']]] = None,
+                 code: pulumi.Input[Optional[Union['RepositoryCodeArgs', 'RepositoryCodeArgsDict', 'outputs.RepositoryCode']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_description: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryTriggerArgs', 'RepositoryTriggerArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryTriggerArgs', 'RepositoryTriggerArgsDict', 'outputs.RepositoryTrigger']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

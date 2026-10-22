@@ -114,8 +114,8 @@ class Table(pulumi.CustomResource):
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 open_table_format_input: pulumi.Input[Optional[Union['TableOpenTableFormatInputArgs', 'TableOpenTableFormatInputArgsDict']]] = None,
-                 table_input: pulumi.Input[Optional[Union['TableInputArgs', 'TableInputArgsDict']]] = None,
+                 open_table_format_input: pulumi.Input[Optional[Union['TableOpenTableFormatInputArgs', 'TableOpenTableFormatInputArgsDict', 'outputs.TableOpenTableFormatInput']]] = None,
+                 table_input: pulumi.Input[Optional[Union['TableInputArgs', 'TableInputArgsDict', 'outputs.TableInput']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Table
@@ -125,8 +125,8 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog in which to create the Table.
         :param pulumi.Input[_builtins.str] database_name: The name of the database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[_builtins.str] name: The table name. For Hive compatibility, this is folded to lowercase when it is stored.
-        :param pulumi.Input[Union['TableOpenTableFormatInputArgs', 'TableOpenTableFormatInputArgsDict']] open_table_format_input: Specifies an OpenTableFormatInput structure when creating an open format table.
-        :param pulumi.Input[Union['TableInputArgs', 'TableInputArgsDict']] table_input: A structure used to define a table.
+        :param pulumi.Input[Union['TableOpenTableFormatInputArgs', 'TableOpenTableFormatInputArgsDict', 'outputs.TableOpenTableFormatInput']] open_table_format_input: Specifies an OpenTableFormatInput structure when creating an open format table.
+        :param pulumi.Input[Union['TableInputArgs', 'TableInputArgsDict', 'outputs.TableInput']] table_input: A structure used to define a table.
         """
         ...
     @overload
@@ -155,8 +155,8 @@ class Table(pulumi.CustomResource):
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 open_table_format_input: pulumi.Input[Optional[Union['TableOpenTableFormatInputArgs', 'TableOpenTableFormatInputArgsDict']]] = None,
-                 table_input: pulumi.Input[Optional[Union['TableInputArgs', 'TableInputArgsDict']]] = None,
+                 open_table_format_input: pulumi.Input[Optional[Union['TableOpenTableFormatInputArgs', 'TableOpenTableFormatInputArgsDict', 'outputs.TableOpenTableFormatInput']]] = None,
+                 table_input: pulumi.Input[Optional[Union['TableInputArgs', 'TableInputArgsDict', 'outputs.TableInput']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

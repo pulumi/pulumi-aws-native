@@ -194,12 +194,12 @@ class MissionProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 dataflow_edges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]]] = None,
+                 dataflow_edges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict', 'outputs.MissionProfileDataflowEdge']]]]] = None,
                  minimum_viable_contact_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 streams_kms_key: pulumi.Input[Optional[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
+                 streams_kms_key: pulumi.Input[Optional[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict', 'outputs.MissionProfileStreamsKmsKey']]] = None,
                  streams_kms_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  telemetry_sink_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tracking_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -261,12 +261,12 @@ class MissionProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
         :param pulumi.Input[_builtins.int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]] dataflow_edges: A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict', 'outputs.MissionProfileDataflowEdge']]]] dataflow_edges: A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
         :param pulumi.Input[_builtins.int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
         :param pulumi.Input[_builtins.str] name: A name used to identify a mission profile.
-        :param pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        :param pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict', 'outputs.MissionProfileStreamsKmsKey']] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
         :param pulumi.Input[_builtins.str] streams_kms_role: The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to the mission profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags assigned to the mission profile.
         :param pulumi.Input[_builtins.str] telemetry_sink_config_arn: ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
         :param pulumi.Input[_builtins.str] tracking_config_arn: The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
         """
@@ -347,12 +347,12 @@ class MissionProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 dataflow_edges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]]] = None,
+                 dataflow_edges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict', 'outputs.MissionProfileDataflowEdge']]]]] = None,
                  minimum_viable_contact_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 streams_kms_key: pulumi.Input[Optional[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
+                 streams_kms_key: pulumi.Input[Optional[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict', 'outputs.MissionProfileStreamsKmsKey']]] = None,
                  streams_kms_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  telemetry_sink_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tracking_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

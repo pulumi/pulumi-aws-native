@@ -49,7 +49,7 @@ class NotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: pulumi.Input[Optional[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict', 'outputs.NotificationChannelConfig']]] = None,
                  __props__=None):
         """
         This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
@@ -119,7 +119,7 @@ class NotificationChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']] config: A `NotificationChannelConfig` object that contains information about configured notification channels.
+        :param pulumi.Input[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict', 'outputs.NotificationChannelConfig']] config: A `NotificationChannelConfig` object that contains information about configured notification channels.
         """
         ...
     @overload
@@ -208,7 +208,7 @@ class NotificationChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: pulumi.Input[Optional[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict', 'outputs.NotificationChannelConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

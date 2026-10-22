@@ -239,14 +239,14 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  home_directory: pulumi.Input[Optional[_builtins.str]] = None,
-                 home_directory_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict']]]]] = None,
+                 home_directory_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict', 'outputs.UserHomeDirectoryMapEntry']]]]] = None,
                  home_directory_type: pulumi.Input[Optional['UserHomeDirectoryType']] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 posix_profile: pulumi.Input[Optional[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']]] = None,
+                 posix_profile: pulumi.Input[Optional[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict', 'outputs.UserPosixProfile']]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -259,7 +259,7 @@ class User(pulumi.CustomResource):
                A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
                
                > You can use the `HomeDirectory` parameter for `HomeDirectoryType` when it is set to either `PATH` or `LOGICAL` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict']]]] home_directory_mappings: Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the `Entry` and `Target` pair, where `Entry` shows how the path is made visible and `Target` is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your AWS Identity and Access Management (IAM) role provides access to paths in `Target` . This value can be set only when `HomeDirectoryType` is set to *LOGICAL* .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict', 'outputs.UserHomeDirectoryMapEntry']]]] home_directory_mappings: Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the `Entry` and `Target` pair, where `Entry` shows how the path is made visible and `Target` is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your AWS Identity and Access Management (IAM) role provides access to paths in `Target` . This value can be set only when `HomeDirectoryType` is set to *LOGICAL* .
                
                The following is an `Entry` and `Target` pair example.
                
@@ -280,11 +280,11 @@ class User(pulumi.CustomResource):
                > For an example of a session policy, see [Example session policy](https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html) .
                > 
                > For more information, see [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *AWS Security Token Service API Reference* .
-        :param pulumi.Input[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']] posix_profile: Specifies the full POSIX identity, including user ID ( `Uid` ), group ID ( `Gid` ), and any secondary groups IDs ( `SecondaryGids` ), that controls your users' access to your Amazon Elastic File System (Amazon EFS) file systems. The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.
+        :param pulumi.Input[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict', 'outputs.UserPosixProfile']] posix_profile: Specifies the full POSIX identity, including user ID ( `Uid` ), group ID ( `Gid` ), and any secondary groups IDs ( `SecondaryGids` ), that controls your users' access to your Amazon Elastic File System (Amazon EFS) file systems. The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.
         :param pulumi.Input[_builtins.str] role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that controls your users' access to your Amazon S3 bucket or Amazon EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or Amazon EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.
         :param pulumi.Input[_builtins.str] server_id: A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: This represents the SSH User Public Keys for CloudFormation resource
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for users. Tags are metadata attached to users for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to group and search for users. Tags are metadata attached to users for any purpose.
         :param pulumi.Input[_builtins.str] user_name: A unique string that identifies a user and is associated with a `ServerId` . This user name must be a minimum of 3 and a maximum of 100 characters long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen '-', period '.', and at sign '@'. The user name can't start with a hyphen, period, or at sign.
         """
         ...
@@ -312,14 +312,14 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  home_directory: pulumi.Input[Optional[_builtins.str]] = None,
-                 home_directory_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict']]]]] = None,
+                 home_directory_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict', 'outputs.UserHomeDirectoryMapEntry']]]]] = None,
                  home_directory_type: pulumi.Input[Optional['UserHomeDirectoryType']] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 posix_profile: pulumi.Input[Optional[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']]] = None,
+                 posix_profile: pulumi.Input[Optional[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict', 'outputs.UserPosixProfile']]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

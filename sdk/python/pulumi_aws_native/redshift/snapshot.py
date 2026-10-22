@@ -98,7 +98,7 @@ class Snapshot(pulumi.CustomResource):
                  cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  manual_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Redshift::Snapshot. Creates a manual snapshot of the specified cluster. The cluster must be in the available state.
@@ -108,7 +108,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier for which you want a snapshot.
         :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3653.
         :param pulumi.Input[_builtins.str] snapshot_identifier: A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tag instances.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tag instances.
         """
         ...
     @overload
@@ -137,7 +137,7 @@ class Snapshot(pulumi.CustomResource):
                  cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  manual_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -134,7 +134,7 @@ class EntityRecognizerEndpoint(pulumi.CustomResource):
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  flywheel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  model_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         An Amazon Comprehend endpoint that hosts a custom entity recognizer model for real-time inference.
@@ -146,7 +146,7 @@ class EntityRecognizerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint. The name must be unique within the AWS Region and account.
         :param pulumi.Input[_builtins.str] flywheel_arn: The Amazon Resource Name (ARN) of the flywheel to which the endpoint is attached.
         :param pulumi.Input[_builtins.str] model_arn: The Amazon Resource Name (ARN) of the entity recognizer model to which the endpoint is attached.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the endpoint being created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the endpoint being created.
         """
         ...
     @overload
@@ -177,7 +177,7 @@ class EntityRecognizerEndpoint(pulumi.CustomResource):
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  flywheel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  model_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

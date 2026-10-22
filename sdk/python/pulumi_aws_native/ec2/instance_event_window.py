@@ -102,8 +102,8 @@ class InstanceEventWindow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceEventWindowTimeRangeArgs', 'InstanceEventWindowTimeRangeArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 time_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceEventWindowTimeRangeArgs', 'InstanceEventWindowTimeRangeArgsDict', 'outputs.InstanceEventWindowTimeRange']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::EC2::InstanceEventWindow. An event window defines a recurring set of time ranges, or a cron expression, during which AWS-initiated maintenance events may be scheduled for the associated Amazon EC2 instances or Dedicated Hosts.
@@ -112,8 +112,8 @@ class InstanceEventWindow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cron_expression: The cron expression defined for the event window. Exactly one of TimeRanges or CronExpression must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the event window.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags applied to the event window.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEventWindowTimeRangeArgs', 'InstanceEventWindowTimeRangeArgsDict']]]] time_ranges: The time ranges of the event window. Exactly one of TimeRanges or CronExpression must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags applied to the event window.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEventWindowTimeRangeArgs', 'InstanceEventWindowTimeRangeArgsDict', 'outputs.InstanceEventWindowTimeRange']]]] time_ranges: The time ranges of the event window. Exactly one of TimeRanges or CronExpression must be specified.
         """
         ...
     @overload
@@ -141,8 +141,8 @@ class InstanceEventWindow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceEventWindowTimeRangeArgs', 'InstanceEventWindowTimeRangeArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 time_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceEventWindowTimeRangeArgs', 'InstanceEventWindowTimeRangeArgsDict', 'outputs.InstanceEventWindowTimeRange']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

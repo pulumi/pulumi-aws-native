@@ -115,7 +115,7 @@ class IpamInternetRegistryAssociation(pulumi.CustomResource):
                  ipam_id: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_handle: pulumi.Input[Optional[_builtins.str]] = None,
                  rir: pulumi.Input[Optional['IpamInternetRegistryAssociationRir']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         An association between an IPAM and a Regional Internet Registry (RIR) for delegated Resource Public Key Infrastructure (RPKI) management. Use it to have IPAM create Route Origin Authorizations (ROAs) for IP address prefixes registered with the internet registry. The IPAM must be in the Advanced tier.
@@ -126,7 +126,7 @@ class IpamInternetRegistryAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM to associate with the internet registry.
         :param pulumi.Input[_builtins.str] organization_handle: The organization handle at the internet registry (for example, a RIPE NCC organization ID or ARIN Org ID).
         :param pulumi.Input['IpamInternetRegistryAssociationRir'] rir: The Regional Internet Registry to associate with. The service returns these values in upper case, so the enum uses the round-tripping form.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the internet registry association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the internet registry association.
         """
         ...
     @overload
@@ -156,7 +156,7 @@ class IpamInternetRegistryAssociation(pulumi.CustomResource):
                  ipam_id: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_handle: pulumi.Input[Optional[_builtins.str]] = None,
                  rir: pulumi.Input[Optional['IpamInternetRegistryAssociationRir']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

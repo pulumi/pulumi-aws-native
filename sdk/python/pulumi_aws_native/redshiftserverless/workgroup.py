@@ -325,12 +325,12 @@ class Workgroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
+                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict', 'outputs.WorkgroupConfigParameter']]]]] = None,
                  enhanced_vpc_routing: pulumi.Input[Optional[_builtins.bool]] = None,
                  max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
-                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
+                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict', 'outputs.WorkgroupPerformanceTarget']]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -338,9 +338,9 @@ class Workgroup(pulumi.CustomResource):
                  snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  track_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workgroup: pulumi.Input[Optional[Union['WorkgroupArgs', 'WorkgroupArgsDict']]] = None,
+                 workgroup: pulumi.Input[Optional[Union['WorkgroupArgs', 'WorkgroupArgsDict', 'outputs.Workgroup']]] = None,
                  workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -349,12 +349,12 @@ class Workgroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_capacity: The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict', 'outputs.WorkgroupConfigParameter']]]] config_parameters: A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
         :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
         :param pulumi.Input[_builtins.int] max_capacity: The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[_builtins.str] namespace_name: The namespace the workgroup is associated with.
         :param pulumi.Input[_builtins.int] port: The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
-        :param pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']] price_performance_target: A property that represents the price performance target settings for the workgroup.
+        :param pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict', 'outputs.WorkgroupPerformanceTarget']] price_performance_target: A property that represents the price performance target settings for the workgroup.
         :param pulumi.Input[_builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
         :param pulumi.Input[_builtins.str] recovery_point_id: The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
@@ -362,9 +362,9 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
         :param pulumi.Input[_builtins.str] snapshot_owner_account: The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The map of the key-value pairs used to tag the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The map of the key-value pairs used to tag the workgroup.
         :param pulumi.Input[_builtins.str] track_name: An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
-        :param pulumi.Input[Union['WorkgroupArgs', 'WorkgroupArgsDict']] workgroup: Definition for workgroup resource
+        :param pulumi.Input[Union['WorkgroupArgs', 'WorkgroupArgsDict', 'outputs.Workgroup']] workgroup: Definition for workgroup resource
         :param pulumi.Input[_builtins.str] workgroup_name: The name of the workgroup.
         """
         ...
@@ -392,12 +392,12 @@ class Workgroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
+                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict', 'outputs.WorkgroupConfigParameter']]]]] = None,
                  enhanced_vpc_routing: pulumi.Input[Optional[_builtins.bool]] = None,
                  max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
-                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
+                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict', 'outputs.WorkgroupPerformanceTarget']]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -405,9 +405,9 @@ class Workgroup(pulumi.CustomResource):
                  snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  track_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workgroup: pulumi.Input[Optional[Union['WorkgroupArgs', 'WorkgroupArgsDict']]] = None,
+                 workgroup: pulumi.Input[Optional[Union['WorkgroupArgs', 'WorkgroupArgsDict', 'outputs.Workgroup']]] = None,
                  workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

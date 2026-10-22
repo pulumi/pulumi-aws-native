@@ -143,7 +143,7 @@ class CustomVerificationEmailTemplate(pulumi.CustomResource):
                  failure_redirection_url: pulumi.Input[Optional[_builtins.str]] = None,
                  from_email_address: pulumi.Input[Optional[_builtins.str]] = None,
                  success_redirection_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_content: pulumi.Input[Optional[_builtins.str]] = None,
                  template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  template_subject: pulumi.Input[Optional[_builtins.str]] = None,
@@ -156,7 +156,7 @@ class CustomVerificationEmailTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] failure_redirection_url: The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
         :param pulumi.Input[_builtins.str] from_email_address: The email address that the custom verification email is sent from.
         :param pulumi.Input[_builtins.str] success_redirection_url: The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the tenant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags (keys and values) associated with the tenant.
         :param pulumi.Input[_builtins.str] template_content: The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations.
         :param pulumi.Input[_builtins.str] template_name: The name of the custom verification email template.
         :param pulumi.Input[_builtins.str] template_subject: The subject line of the custom verification email.
@@ -188,7 +188,7 @@ class CustomVerificationEmailTemplate(pulumi.CustomResource):
                  failure_redirection_url: pulumi.Input[Optional[_builtins.str]] = None,
                  from_email_address: pulumi.Input[Optional[_builtins.str]] = None,
                  success_redirection_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_content: pulumi.Input[Optional[_builtins.str]] = None,
                  template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  template_subject: pulumi.Input[Optional[_builtins.str]] = None,

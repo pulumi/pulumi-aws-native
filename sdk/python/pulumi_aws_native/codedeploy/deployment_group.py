@@ -353,52 +353,52 @@ class DeploymentGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarm_configuration: pulumi.Input[Optional[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict']]] = None,
+                 alarm_configuration: pulumi.Input[Optional[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict', 'outputs.DeploymentGroupAlarmConfiguration']]] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_rollback_configuration: pulumi.Input[Optional[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict']]] = None,
+                 auto_rollback_configuration: pulumi.Input[Optional[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict', 'outputs.DeploymentGroupAutoRollbackConfiguration']]] = None,
                  auto_scaling_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blue_green_deployment_configuration: pulumi.Input[Optional[Union['DeploymentGroupBlueGreenDeploymentConfigurationArgs', 'DeploymentGroupBlueGreenDeploymentConfigurationArgsDict']]] = None,
-                 deployment: pulumi.Input[Optional[Union['DeploymentGroupDeploymentArgs', 'DeploymentGroupDeploymentArgsDict']]] = None,
+                 blue_green_deployment_configuration: pulumi.Input[Optional[Union['DeploymentGroupBlueGreenDeploymentConfigurationArgs', 'DeploymentGroupBlueGreenDeploymentConfigurationArgsDict', 'outputs.DeploymentGroupBlueGreenDeploymentConfiguration']]] = None,
+                 deployment: pulumi.Input[Optional[Union['DeploymentGroupDeploymentArgs', 'DeploymentGroupDeploymentArgsDict', 'outputs.DeploymentGroupDeployment']]] = None,
                  deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_style: pulumi.Input[Optional[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict']]] = None,
-                 ec2_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict']]]]] = None,
-                 ec2_tag_set: pulumi.Input[Optional[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict']]] = None,
-                 ecs_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict']]]]] = None,
-                 load_balancer_info: pulumi.Input[Optional[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict']]] = None,
-                 on_premises_instance_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupTagFilterArgs', 'DeploymentGroupTagFilterArgsDict']]]]] = None,
-                 on_premises_tag_set: pulumi.Input[Optional[Union['DeploymentGroupOnPremisesTagSetArgs', 'DeploymentGroupOnPremisesTagSetArgsDict']]] = None,
+                 deployment_style: pulumi.Input[Optional[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict', 'outputs.DeploymentGroupDeploymentStyle']]] = None,
+                 ec2_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict', 'outputs.DeploymentGroupEc2TagFilter']]]]] = None,
+                 ec2_tag_set: pulumi.Input[Optional[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict', 'outputs.DeploymentGroupEc2TagSet']]] = None,
+                 ecs_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict', 'outputs.DeploymentGroupEcsService']]]]] = None,
+                 load_balancer_info: pulumi.Input[Optional[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict', 'outputs.DeploymentGroupLoadBalancerInfo']]] = None,
+                 on_premises_instance_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupTagFilterArgs', 'DeploymentGroupTagFilterArgsDict', 'outputs.DeploymentGroupTagFilter']]]]] = None,
+                 on_premises_tag_set: pulumi.Input[Optional[Union['DeploymentGroupOnPremisesTagSetArgs', 'DeploymentGroupOnPremisesTagSetArgsDict', 'outputs.DeploymentGroupOnPremisesTagSet']]] = None,
                  outdated_instances_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  termination_hook_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 trigger_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigArgs', 'DeploymentGroupTriggerConfigArgsDict']]]]] = None,
+                 trigger_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigArgs', 'DeploymentGroupTriggerConfigArgsDict', 'outputs.DeploymentGroupTriggerConfig']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::CodeDeploy::DeploymentGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict']] alarm_configuration: Information about the Amazon CloudWatch alarms that are associated with the deployment group.
+        :param pulumi.Input[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict', 'outputs.DeploymentGroupAlarmConfiguration']] alarm_configuration: Information about the Amazon CloudWatch alarms that are associated with the deployment group.
         :param pulumi.Input[_builtins.str] application_name: The name of an existing CodeDeploy application to associate this deployment group with.
-        :param pulumi.Input[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict']] auto_rollback_configuration: Information about the automatic rollback configuration that is associated with the deployment group. If you specify this property, don't specify the Deployment property.
+        :param pulumi.Input[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict', 'outputs.DeploymentGroupAutoRollbackConfiguration']] auto_rollback_configuration: Information about the automatic rollback configuration that is associated with the deployment group. If you specify this property, don't specify the Deployment property.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_scaling_groups: A list of associated Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created. Duplicates are not allowed.
-        :param pulumi.Input[Union['DeploymentGroupBlueGreenDeploymentConfigurationArgs', 'DeploymentGroupBlueGreenDeploymentConfigurationArgsDict']] blue_green_deployment_configuration: Information about blue/green deployment options for a deployment group.
-        :param pulumi.Input[Union['DeploymentGroupDeploymentArgs', 'DeploymentGroupDeploymentArgsDict']] deployment: The application revision to deploy to this deployment group. If you specify this property, your target application revision is deployed as soon as the provisioning process is complete. If you specify this property, don't specify the AutoRollbackConfiguration property.
+        :param pulumi.Input[Union['DeploymentGroupBlueGreenDeploymentConfigurationArgs', 'DeploymentGroupBlueGreenDeploymentConfigurationArgsDict', 'outputs.DeploymentGroupBlueGreenDeploymentConfiguration']] blue_green_deployment_configuration: Information about blue/green deployment options for a deployment group.
+        :param pulumi.Input[Union['DeploymentGroupDeploymentArgs', 'DeploymentGroupDeploymentArgsDict', 'outputs.DeploymentGroupDeployment']] deployment: The application revision to deploy to this deployment group. If you specify this property, your target application revision is deployed as soon as the provisioning process is complete. If you specify this property, don't specify the AutoRollbackConfiguration property.
         :param pulumi.Input[_builtins.str] deployment_config_name: A deployment configuration name or a predefined configuration name. With predefined configurations, you can deploy application revisions to one instance at a time (CodeDeployDefault.OneAtATime), half of the instances at a time (CodeDeployDefault.HalfAtATime), or all the instances at once (CodeDeployDefault.AllAtOnce).
         :param pulumi.Input[_builtins.str] deployment_group_name: A name for the deployment group. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name.
-        :param pulumi.Input[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict']] deployment_style: Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict']]]] ec2_tag_filters: The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
-        :param pulumi.Input[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict']] ec2_tag_set: Information about groups of tags applied to Amazon EC2 instances. Use when the deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilter.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict']]]] ecs_services: The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format <clustername>:<servicename>.
-        :param pulumi.Input[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict']] load_balancer_info: Information about the load balancer to use in a deployment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTagFilterArgs', 'DeploymentGroupTagFilterArgsDict']]]] on_premises_instance_tag_filters: The on-premises instance tags already applied to on-premises instances that you want to include in the deployment group. CodeDeploy includes all on-premises instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but not both.
-        :param pulumi.Input[Union['DeploymentGroupOnPremisesTagSetArgs', 'DeploymentGroupOnPremisesTagSetArgsDict']] on_premises_tag_set: Information about groups of tags applied to on-premises instances. The deployment group includes only on-premises instances identified by all the tag groups. You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but not both.
+        :param pulumi.Input[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict', 'outputs.DeploymentGroupDeploymentStyle']] deployment_style: Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict', 'outputs.DeploymentGroupEc2TagFilter']]]] ec2_tag_filters: The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
+        :param pulumi.Input[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict', 'outputs.DeploymentGroupEc2TagSet']] ec2_tag_set: Information about groups of tags applied to Amazon EC2 instances. Use when the deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict', 'outputs.DeploymentGroupEcsService']]]] ecs_services: The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format <clustername>:<servicename>.
+        :param pulumi.Input[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict', 'outputs.DeploymentGroupLoadBalancerInfo']] load_balancer_info: Information about the load balancer to use in a deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTagFilterArgs', 'DeploymentGroupTagFilterArgsDict', 'outputs.DeploymentGroupTagFilter']]]] on_premises_instance_tag_filters: The on-premises instance tags already applied to on-premises instances that you want to include in the deployment group. CodeDeploy includes all on-premises instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but not both.
+        :param pulumi.Input[Union['DeploymentGroupOnPremisesTagSetArgs', 'DeploymentGroupOnPremisesTagSetArgsDict', 'outputs.DeploymentGroupOnPremisesTagSet']] on_premises_tag_set: Information about groups of tags applied to on-premises instances. The deployment group includes only on-premises instances identified by all the tag groups. You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but not both.
         :param pulumi.Input[_builtins.str] outdated_instances_strategy: Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. If this option is set to UPDATE or is unspecified, CodeDeploy initiates one or more 'auto-update outdated instances' deployments to apply the deployed application revision to the new Amazon EC2 instances. If this option is set to IGNORE, CodeDeploy does not initiate a deployment to update the new Amazon EC2 instances. This may result in instances having different revisions.
         :param pulumi.Input[_builtins.str] service_role_arn: A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see 'Create a Service Role for AWS CodeDeploy' in the AWS CodeDeploy User Guide.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
         :param pulumi.Input[_builtins.bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigArgs', 'DeploymentGroupTriggerConfigArgsDict']]]] trigger_configurations: Information about triggers associated with the deployment group. Duplicates are not allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigArgs', 'DeploymentGroupTriggerConfigArgsDict', 'outputs.DeploymentGroupTriggerConfig']]]] trigger_configurations: Information about triggers associated with the deployment group. Duplicates are not allowed.
         """
         ...
     @overload
@@ -424,26 +424,26 @@ class DeploymentGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarm_configuration: pulumi.Input[Optional[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict']]] = None,
+                 alarm_configuration: pulumi.Input[Optional[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict', 'outputs.DeploymentGroupAlarmConfiguration']]] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_rollback_configuration: pulumi.Input[Optional[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict']]] = None,
+                 auto_rollback_configuration: pulumi.Input[Optional[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict', 'outputs.DeploymentGroupAutoRollbackConfiguration']]] = None,
                  auto_scaling_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blue_green_deployment_configuration: pulumi.Input[Optional[Union['DeploymentGroupBlueGreenDeploymentConfigurationArgs', 'DeploymentGroupBlueGreenDeploymentConfigurationArgsDict']]] = None,
-                 deployment: pulumi.Input[Optional[Union['DeploymentGroupDeploymentArgs', 'DeploymentGroupDeploymentArgsDict']]] = None,
+                 blue_green_deployment_configuration: pulumi.Input[Optional[Union['DeploymentGroupBlueGreenDeploymentConfigurationArgs', 'DeploymentGroupBlueGreenDeploymentConfigurationArgsDict', 'outputs.DeploymentGroupBlueGreenDeploymentConfiguration']]] = None,
+                 deployment: pulumi.Input[Optional[Union['DeploymentGroupDeploymentArgs', 'DeploymentGroupDeploymentArgsDict', 'outputs.DeploymentGroupDeployment']]] = None,
                  deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_style: pulumi.Input[Optional[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict']]] = None,
-                 ec2_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict']]]]] = None,
-                 ec2_tag_set: pulumi.Input[Optional[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict']]] = None,
-                 ecs_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict']]]]] = None,
-                 load_balancer_info: pulumi.Input[Optional[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict']]] = None,
-                 on_premises_instance_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupTagFilterArgs', 'DeploymentGroupTagFilterArgsDict']]]]] = None,
-                 on_premises_tag_set: pulumi.Input[Optional[Union['DeploymentGroupOnPremisesTagSetArgs', 'DeploymentGroupOnPremisesTagSetArgsDict']]] = None,
+                 deployment_style: pulumi.Input[Optional[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict', 'outputs.DeploymentGroupDeploymentStyle']]] = None,
+                 ec2_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict', 'outputs.DeploymentGroupEc2TagFilter']]]]] = None,
+                 ec2_tag_set: pulumi.Input[Optional[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict', 'outputs.DeploymentGroupEc2TagSet']]] = None,
+                 ecs_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict', 'outputs.DeploymentGroupEcsService']]]]] = None,
+                 load_balancer_info: pulumi.Input[Optional[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict', 'outputs.DeploymentGroupLoadBalancerInfo']]] = None,
+                 on_premises_instance_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupTagFilterArgs', 'DeploymentGroupTagFilterArgsDict', 'outputs.DeploymentGroupTagFilter']]]]] = None,
+                 on_premises_tag_set: pulumi.Input[Optional[Union['DeploymentGroupOnPremisesTagSetArgs', 'DeploymentGroupOnPremisesTagSetArgsDict', 'outputs.DeploymentGroupOnPremisesTagSet']]] = None,
                  outdated_instances_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  termination_hook_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 trigger_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigArgs', 'DeploymentGroupTriggerConfigArgsDict']]]]] = None,
+                 trigger_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigArgs', 'DeploymentGroupTriggerConfigArgsDict', 'outputs.DeploymentGroupTriggerConfig']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

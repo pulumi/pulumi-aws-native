@@ -150,28 +150,28 @@ class EmailIdentity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_attributes: pulumi.Input[Optional[Union['EmailIdentityConfigurationSetAttributesArgs', 'EmailIdentityConfigurationSetAttributesArgsDict']]] = None,
-                 dkim_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimAttributesArgs', 'EmailIdentityDkimAttributesArgsDict']]] = None,
-                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
+                 configuration_set_attributes: pulumi.Input[Optional[Union['EmailIdentityConfigurationSetAttributesArgs', 'EmailIdentityConfigurationSetAttributesArgsDict', 'outputs.EmailIdentityConfigurationSetAttributes']]] = None,
+                 dkim_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimAttributesArgs', 'EmailIdentityDkimAttributesArgsDict', 'outputs.EmailIdentityDkimAttributes']]] = None,
+                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict', 'outputs.EmailIdentityDkimSigningAttributes']]] = None,
                  email_identity: pulumi.Input[Optional[_builtins.str]] = None,
-                 feedback_attributes: pulumi.Input[Optional[Union['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributesArgsDict']]] = None,
-                 mail_from_attributes: pulumi.Input[Optional[Union['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 feedback_attributes: pulumi.Input[Optional[Union['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributesArgsDict', 'outputs.EmailIdentityFeedbackAttributes']]] = None,
+                 mail_from_attributes: pulumi.Input[Optional[Union['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributesArgsDict', 'outputs.EmailIdentityMailFromAttributes']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::EmailIdentity
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EmailIdentityConfigurationSetAttributesArgs', 'EmailIdentityConfigurationSetAttributesArgsDict']] configuration_set_attributes: Used to associate a configuration set with an email identity.
-        :param pulumi.Input[Union['EmailIdentityDkimAttributesArgs', 'EmailIdentityDkimAttributesArgsDict']] dkim_attributes: An object that contains information about the DKIM attributes for the identity.
-        :param pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']] dkim_signing_attributes: If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
+        :param pulumi.Input[Union['EmailIdentityConfigurationSetAttributesArgs', 'EmailIdentityConfigurationSetAttributesArgsDict', 'outputs.EmailIdentityConfigurationSetAttributes']] configuration_set_attributes: Used to associate a configuration set with an email identity.
+        :param pulumi.Input[Union['EmailIdentityDkimAttributesArgs', 'EmailIdentityDkimAttributesArgsDict', 'outputs.EmailIdentityDkimAttributes']] dkim_attributes: An object that contains information about the DKIM attributes for the identity.
+        :param pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict', 'outputs.EmailIdentityDkimSigningAttributes']] dkim_signing_attributes: If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
                
                You can only specify this object if the email identity is a domain, as opposed to an address.
         :param pulumi.Input[_builtins.str] email_identity: The email address or domain to verify.
-        :param pulumi.Input[Union['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributesArgsDict']] feedback_attributes: Used to enable or disable feedback forwarding for an identity.
-        :param pulumi.Input[Union['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributesArgsDict']] mail_from_attributes: Used to enable or disable the custom Mail-From domain configuration for an email identity.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the email identity.
+        :param pulumi.Input[Union['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributesArgsDict', 'outputs.EmailIdentityFeedbackAttributes']] feedback_attributes: Used to enable or disable feedback forwarding for an identity.
+        :param pulumi.Input[Union['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributesArgsDict', 'outputs.EmailIdentityMailFromAttributes']] mail_from_attributes: Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags (keys and values) associated with the email identity.
         """
         ...
     @overload
@@ -197,13 +197,13 @@ class EmailIdentity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_attributes: pulumi.Input[Optional[Union['EmailIdentityConfigurationSetAttributesArgs', 'EmailIdentityConfigurationSetAttributesArgsDict']]] = None,
-                 dkim_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimAttributesArgs', 'EmailIdentityDkimAttributesArgsDict']]] = None,
-                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
+                 configuration_set_attributes: pulumi.Input[Optional[Union['EmailIdentityConfigurationSetAttributesArgs', 'EmailIdentityConfigurationSetAttributesArgsDict', 'outputs.EmailIdentityConfigurationSetAttributes']]] = None,
+                 dkim_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimAttributesArgs', 'EmailIdentityDkimAttributesArgsDict', 'outputs.EmailIdentityDkimAttributes']]] = None,
+                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict', 'outputs.EmailIdentityDkimSigningAttributes']]] = None,
                  email_identity: pulumi.Input[Optional[_builtins.str]] = None,
-                 feedback_attributes: pulumi.Input[Optional[Union['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributesArgsDict']]] = None,
-                 mail_from_attributes: pulumi.Input[Optional[Union['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 feedback_attributes: pulumi.Input[Optional[Union['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributesArgsDict', 'outputs.EmailIdentityFeedbackAttributes']]] = None,
+                 mail_from_attributes: pulumi.Input[Optional[Union['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributesArgsDict', 'outputs.EmailIdentityMailFromAttributes']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

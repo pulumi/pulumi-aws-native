@@ -48,7 +48,7 @@ class CachePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_policy_config: pulumi.Input[Optional[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict']]] = None,
+                 cache_policy_config: pulumi.Input[Optional[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict', 'outputs.CachePolicyConfig']]] = None,
                  __props__=None):
         """
         A cache policy.
@@ -60,7 +60,7 @@ class CachePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict']] cache_policy_config: The cache policy configuration.
+        :param pulumi.Input[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict', 'outputs.CachePolicyConfig']] cache_policy_config: The cache policy configuration.
         """
         ...
     @overload
@@ -91,7 +91,7 @@ class CachePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_policy_config: pulumi.Input[Optional[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict']]] = None,
+                 cache_policy_config: pulumi.Input[Optional[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict', 'outputs.CachePolicyConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

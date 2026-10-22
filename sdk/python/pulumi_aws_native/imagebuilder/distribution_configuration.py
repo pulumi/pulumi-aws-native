@@ -98,7 +98,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 distributions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]]] = None,
+                 distributions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict', 'outputs.DistributionConfigurationDistribution']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -108,7 +108,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the distribution configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]] distributions: The distributions of the distribution configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict', 'outputs.DistributionConfigurationDistribution']]]] distributions: The distributions of the distribution configuration.
         :param pulumi.Input[_builtins.str] name: The name of the distribution configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags associated with the component.
         """
@@ -137,7 +137,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 distributions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]]] = None,
+                 distributions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict', 'outputs.DistributionConfigurationDistribution']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

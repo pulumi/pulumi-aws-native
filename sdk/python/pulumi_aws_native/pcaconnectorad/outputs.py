@@ -107,7 +107,7 @@ class ConnectorVpcInformation(dict):
 @pulumi.output_type
 class TemplateApplicationPolicies(dict):
     def __init__(__self__, *,
-                 policies: Sequence[Any],
+                 policies: Sequence[Union['outputs.TemplateApplicationPolicy0Properties', 'outputs.TemplateApplicationPolicy1Properties']],
                  critical: Optional[_builtins.bool] = None):
         pulumi.set(__self__, "policies", policies)
         if critical is not None:
@@ -115,7 +115,7 @@ class TemplateApplicationPolicies(dict):
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Sequence[Any]:
+    def policies(self) -> Sequence[Union['outputs.TemplateApplicationPolicy0Properties', 'outputs.TemplateApplicationPolicy1Properties']]:
         return pulumi.get(self, "policies")
 
     @_builtins.property
@@ -1089,7 +1089,7 @@ class TemplatePrivateKeyAttributesV3(dict):
     def __init__(__self__, *,
                  algorithm: 'TemplatePrivateKeyAlgorithm',
                  key_spec: 'TemplateKeySpec',
-                 key_usage_property: Any,
+                 key_usage_property: Union['outputs.TemplateKeyUsageProperty0Properties', 'outputs.TemplateKeyUsageProperty1Properties'],
                  minimal_key_length: _builtins.float,
                  crypto_providers: Optional[Sequence[_builtins.str]] = None):
         pulumi.set(__self__, "algorithm", algorithm)
@@ -1111,7 +1111,7 @@ class TemplatePrivateKeyAttributesV3(dict):
 
     @_builtins.property
     @pulumi.getter(name="keyUsageProperty")
-    def key_usage_property(self) -> Any:
+    def key_usage_property(self) -> Union['outputs.TemplateKeyUsageProperty0Properties', 'outputs.TemplateKeyUsageProperty1Properties']:
         return pulumi.get(self, "key_usage_property")
 
     @_builtins.property
@@ -1155,7 +1155,7 @@ class TemplatePrivateKeyAttributesV4(dict):
                  minimal_key_length: _builtins.float,
                  algorithm: Optional['TemplatePrivateKeyAlgorithm'] = None,
                  crypto_providers: Optional[Sequence[_builtins.str]] = None,
-                 key_usage_property: Optional[Any] = None):
+                 key_usage_property: Optional[Union['outputs.TemplateKeyUsageProperty0Properties', 'outputs.TemplateKeyUsageProperty1Properties']] = None):
         pulumi.set(__self__, "key_spec", key_spec)
         pulumi.set(__self__, "minimal_key_length", minimal_key_length)
         if algorithm is not None:
@@ -1187,7 +1187,7 @@ class TemplatePrivateKeyAttributesV4(dict):
 
     @_builtins.property
     @pulumi.getter(name="keyUsageProperty")
-    def key_usage_property(self) -> Optional[Any]:
+    def key_usage_property(self) -> Optional[Union['outputs.TemplateKeyUsageProperty0Properties', 'outputs.TemplateKeyUsageProperty1Properties']]:
         return pulumi.get(self, "key_usage_property")
 
 

@@ -83,8 +83,8 @@ class StorageConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3: pulumi.Input[Optional[Union['StorageConfigurationS3StorageConfigurationArgs', 'StorageConfigurationS3StorageConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3: pulumi.Input[Optional[Union['StorageConfigurationS3StorageConfigurationArgs', 'StorageConfigurationS3StorageConfigurationArgsDict', 'outputs.StorageConfigurationS3StorageConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IVS::StorageConfiguration
@@ -92,8 +92,8 @@ class StorageConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Storage Configuration Name.
-        :param pulumi.Input[Union['StorageConfigurationS3StorageConfigurationArgs', 'StorageConfigurationS3StorageConfigurationArgsDict']] s3: An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Union['StorageConfigurationS3StorageConfigurationArgs', 'StorageConfigurationS3StorageConfigurationArgsDict', 'outputs.StorageConfigurationS3StorageConfiguration']] s3: An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         ...
     @overload
@@ -120,8 +120,8 @@ class StorageConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3: pulumi.Input[Optional[Union['StorageConfigurationS3StorageConfigurationArgs', 'StorageConfigurationS3StorageConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3: pulumi.Input[Optional[Union['StorageConfigurationS3StorageConfigurationArgs', 'StorageConfigurationS3StorageConfigurationArgsDict', 'outputs.StorageConfigurationS3StorageConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

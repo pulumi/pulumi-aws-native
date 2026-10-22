@@ -298,45 +298,45 @@ class Input(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]]] = None,
-                 input_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDeviceSettingsArgs', 'InputDeviceSettingsArgsDict']]]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict', 'outputs.InputDestination']]]]] = None,
+                 input_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDeviceSettingsArgs', 'InputDeviceSettingsArgsDict', 'outputs.InputDeviceSettings']]]]] = None,
                  input_network_location: pulumi.Input[Optional['InputNetworkLocation']] = None,
                  input_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]]] = None,
-                 multicast_settings: pulumi.Input[Optional[Union['InputMulticastSettingsArgs', 'InputMulticastSettingsArgsDict']]] = None,
+                 media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict', 'outputs.InputMediaConnectFlow']]]]] = None,
+                 multicast_settings: pulumi.Input[Optional[Union['InputMulticastSettingsArgs', 'InputMulticastSettingsArgsDict', 'outputs.InputMulticastSettings']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 router_settings: pulumi.Input[Optional[Union['InputRouterSettingsArgs', 'InputRouterSettingsArgsDict']]] = None,
+                 router_settings: pulumi.Input[Optional[Union['InputRouterSettingsArgs', 'InputRouterSettingsArgsDict', 'outputs.InputRouterSettings']]] = None,
                  sdi_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 smpte2110_receiver_group_settings: pulumi.Input[Optional[Union['InputSmpte2110ReceiverGroupSettingsArgs', 'InputSmpte2110ReceiverGroupSettingsArgsDict']]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
-                 srt_settings: pulumi.Input[Optional[Union['InputSrtSettingsArgs', 'InputSrtSettingsArgsDict']]] = None,
+                 smpte2110_receiver_group_settings: pulumi.Input[Optional[Union['InputSmpte2110ReceiverGroupSettingsArgs', 'InputSmpte2110ReceiverGroupSettingsArgsDict', 'outputs.InputSmpte2110ReceiverGroupSettings']]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict', 'outputs.InputSource']]]]] = None,
+                 srt_settings: pulumi.Input[Optional[Union['InputSrtSettingsArgs', 'InputSrtSettingsArgsDict', 'outputs.InputSrtSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional['InputType']] = None,
-                 vpc: pulumi.Input[Optional[Union['InputVpcRequestArgs', 'InputVpcRequestArgsDict']]] = None,
+                 vpc: pulumi.Input[Optional[Union['InputVpcRequestArgs', 'InputVpcRequestArgsDict', 'outputs.InputVpcRequest']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MediaLive::Input Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]] destinations: A list of the destinations of the input (PUSH-type).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InputDeviceSettingsArgs', 'InputDeviceSettingsArgsDict']]]] input_devices: Settings for the input devices.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict', 'outputs.InputDestination']]]] destinations: A list of the destinations of the input (PUSH-type).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InputDeviceSettingsArgs', 'InputDeviceSettingsArgsDict', 'outputs.InputDeviceSettings']]]] input_devices: Settings for the input devices.
         :param pulumi.Input['InputNetworkLocation'] input_network_location: The location of this input. AWS, for an input existing in the AWS Cloud, On-Prem for
                an input in a customer network.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] input_security_groups: A list of security groups referenced by IDs to attach to the input.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]] media_connect_flows: A list of MediaConnect Flows for this input.
-        :param pulumi.Input[Union['InputMulticastSettingsArgs', 'InputMulticastSettingsArgsDict']] multicast_settings: Multicast Input settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict', 'outputs.InputMediaConnectFlow']]]] media_connect_flows: A list of MediaConnect Flows for this input.
+        :param pulumi.Input[Union['InputMulticastSettingsArgs', 'InputMulticastSettingsArgsDict', 'outputs.InputMulticastSettings']] multicast_settings: Multicast Input settings.
         :param pulumi.Input[_builtins.str] name: The user-assigned name (This is a mutable value).
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-        :param pulumi.Input[Union['InputRouterSettingsArgs', 'InputRouterSettingsArgsDict']] router_settings: Information about the MediaConnect Router association for this input.
+        :param pulumi.Input[Union['InputRouterSettingsArgs', 'InputRouterSettingsArgsDict', 'outputs.InputRouterSettings']] router_settings: Information about the MediaConnect Router association for this input.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sdi_sources: SDI Sources for this Input.
-        :param pulumi.Input[Union['InputSmpte2110ReceiverGroupSettingsArgs', 'InputSmpte2110ReceiverGroupSettingsArgsDict']] smpte2110_receiver_group_settings: Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]] sources: A list of the sources of the input (PULL-type).
-        :param pulumi.Input[Union['InputSrtSettingsArgs', 'InputSrtSettingsArgsDict']] srt_settings: The settings associated with an SRT input.
+        :param pulumi.Input[Union['InputSmpte2110ReceiverGroupSettingsArgs', 'InputSmpte2110ReceiverGroupSettingsArgsDict', 'outputs.InputSmpte2110ReceiverGroupSettings']] smpte2110_receiver_group_settings: Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict', 'outputs.InputSource']]]] sources: A list of the sources of the input (PULL-type).
+        :param pulumi.Input[Union['InputSrtSettingsArgs', 'InputSrtSettingsArgsDict', 'outputs.InputSrtSettings']] srt_settings: The settings associated with an SRT input.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A collection of key-value pairs.
         :param pulumi.Input['InputType'] type: The different types of inputs that AWS Elemental MediaLive supports.
-        :param pulumi.Input[Union['InputVpcRequestArgs', 'InputVpcRequestArgsDict']] vpc: Settings for a private VPC Input.
+        :param pulumi.Input[Union['InputVpcRequestArgs', 'InputVpcRequestArgsDict', 'outputs.InputVpcRequest']] vpc: Settings for a private VPC Input.
                When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
                This property requires setting the roleArn property on Input creation.
                Not compatible with the inputSecurityGroups property.
@@ -365,22 +365,22 @@ class Input(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]]] = None,
-                 input_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDeviceSettingsArgs', 'InputDeviceSettingsArgsDict']]]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict', 'outputs.InputDestination']]]]] = None,
+                 input_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDeviceSettingsArgs', 'InputDeviceSettingsArgsDict', 'outputs.InputDeviceSettings']]]]] = None,
                  input_network_location: pulumi.Input[Optional['InputNetworkLocation']] = None,
                  input_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]]] = None,
-                 multicast_settings: pulumi.Input[Optional[Union['InputMulticastSettingsArgs', 'InputMulticastSettingsArgsDict']]] = None,
+                 media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict', 'outputs.InputMediaConnectFlow']]]]] = None,
+                 multicast_settings: pulumi.Input[Optional[Union['InputMulticastSettingsArgs', 'InputMulticastSettingsArgsDict', 'outputs.InputMulticastSettings']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 router_settings: pulumi.Input[Optional[Union['InputRouterSettingsArgs', 'InputRouterSettingsArgsDict']]] = None,
+                 router_settings: pulumi.Input[Optional[Union['InputRouterSettingsArgs', 'InputRouterSettingsArgsDict', 'outputs.InputRouterSettings']]] = None,
                  sdi_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 smpte2110_receiver_group_settings: pulumi.Input[Optional[Union['InputSmpte2110ReceiverGroupSettingsArgs', 'InputSmpte2110ReceiverGroupSettingsArgsDict']]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
-                 srt_settings: pulumi.Input[Optional[Union['InputSrtSettingsArgs', 'InputSrtSettingsArgsDict']]] = None,
+                 smpte2110_receiver_group_settings: pulumi.Input[Optional[Union['InputSmpte2110ReceiverGroupSettingsArgs', 'InputSmpte2110ReceiverGroupSettingsArgsDict', 'outputs.InputSmpte2110ReceiverGroupSettings']]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict', 'outputs.InputSource']]]]] = None,
+                 srt_settings: pulumi.Input[Optional[Union['InputSrtSettingsArgs', 'InputSrtSettingsArgsDict', 'outputs.InputSrtSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional['InputType']] = None,
-                 vpc: pulumi.Input[Optional[Union['InputVpcRequestArgs', 'InputVpcRequestArgsDict']]] = None,
+                 vpc: pulumi.Input[Optional[Union['InputVpcRequestArgs', 'InputVpcRequestArgsDict', 'outputs.InputVpcRequest']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

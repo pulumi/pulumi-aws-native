@@ -200,10 +200,10 @@ class JobTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acceleration_settings: pulumi.Input[Optional[Union['JobTemplateAccelerationSettingsArgs', 'JobTemplateAccelerationSettingsArgsDict']]] = None,
+                 acceleration_settings: pulumi.Input[Optional[Union['JobTemplateAccelerationSettingsArgs', 'JobTemplateAccelerationSettingsArgsDict', 'outputs.JobTemplateAccelerationSettings']]] = None,
                  category: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 hop_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTemplateHopDestinationArgs', 'JobTemplateHopDestinationArgsDict']]]]] = None,
+                 hop_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTemplateHopDestinationArgs', 'JobTemplateHopDestinationArgsDict', 'outputs.JobTemplateHopDestination']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  queue: pulumi.Input[Optional[_builtins.str]] = None,
@@ -216,10 +216,10 @@ class JobTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['JobTemplateAccelerationSettingsArgs', 'JobTemplateAccelerationSettingsArgsDict']] acceleration_settings: Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing.
+        :param pulumi.Input[Union['JobTemplateAccelerationSettingsArgs', 'JobTemplateAccelerationSettingsArgsDict', 'outputs.JobTemplateAccelerationSettings']] acceleration_settings: Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing.
         :param pulumi.Input[_builtins.str] category: Optional. A category for the job template you are creating.
         :param pulumi.Input[_builtins.str] description: Optional. A description of the job template you are creating.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobTemplateHopDestinationArgs', 'JobTemplateHopDestinationArgsDict']]]] hop_destinations: Optional. Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobTemplateHopDestinationArgs', 'JobTemplateHopDestinationArgsDict', 'outputs.JobTemplateHopDestination']]]] hop_destinations: Optional. Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed.
         :param pulumi.Input[_builtins.str] name: The name of the job template you are creating.
         :param pulumi.Input[_builtins.int] priority: Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first.
         :param pulumi.Input[_builtins.str] queue: Optional. The queue that jobs created from this template are assigned to. Specify the Amazon Resource Name (ARN) of the queue.
@@ -255,10 +255,10 @@ class JobTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acceleration_settings: pulumi.Input[Optional[Union['JobTemplateAccelerationSettingsArgs', 'JobTemplateAccelerationSettingsArgsDict']]] = None,
+                 acceleration_settings: pulumi.Input[Optional[Union['JobTemplateAccelerationSettingsArgs', 'JobTemplateAccelerationSettingsArgsDict', 'outputs.JobTemplateAccelerationSettings']]] = None,
                  category: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 hop_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTemplateHopDestinationArgs', 'JobTemplateHopDestinationArgsDict']]]]] = None,
+                 hop_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTemplateHopDestinationArgs', 'JobTemplateHopDestinationArgsDict', 'outputs.JobTemplateHopDestination']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  queue: pulumi.Input[Optional[_builtins.str]] = None,

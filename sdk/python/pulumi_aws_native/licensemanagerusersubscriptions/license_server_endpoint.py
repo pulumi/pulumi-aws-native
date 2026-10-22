@@ -80,8 +80,8 @@ class LicenseServerEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 license_server_settings: pulumi.Input[Optional[Union['LicenseServerEndpointLicenseServerSettingsArgs', 'LicenseServerEndpointLicenseServerSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 license_server_settings: pulumi.Input[Optional[Union['LicenseServerEndpointLicenseServerSettingsArgs', 'LicenseServerEndpointLicenseServerSettingsArgsDict', 'outputs.LicenseServerEndpointLicenseServerSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::LicenseManagerUserSubscriptions::LicenseServerEndpoint. A license server endpoint that provides access to Remote Desktop Services Subscriber Access License servers for a registered identity provider.
@@ -89,7 +89,7 @@ class LicenseServerEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_provider_arn: The Amazon Resource Name (ARN) that identifies the registered identity provider the license server endpoint is created for. For Active Directory, that can be a self-managed Active Directory or an AWS Managed Microsoft AD.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that apply for the license server endpoint. A maximum of 50 tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags that apply for the license server endpoint. A maximum of 50 tags.
         """
         ...
     @overload
@@ -116,8 +116,8 @@ class LicenseServerEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 license_server_settings: pulumi.Input[Optional[Union['LicenseServerEndpointLicenseServerSettingsArgs', 'LicenseServerEndpointLicenseServerSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 license_server_settings: pulumi.Input[Optional[Union['LicenseServerEndpointLicenseServerSettingsArgs', 'LicenseServerEndpointLicenseServerSettingsArgsDict', 'outputs.LicenseServerEndpointLicenseServerSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

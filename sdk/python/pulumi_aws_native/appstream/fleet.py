@@ -572,12 +572,12 @@ class Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes_to_delete: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributesToDeleteItem']]]] = None,
-                 compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict']]] = None,
+                 compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_imdsv1: pulumi.Input[Optional[_builtins.bool]] = None,
                  disconnect_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict']]] = None,
+                 domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict', 'outputs.FleetDomainJoinInfo']]] = None,
                  enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -590,25 +590,25 @@ class Fleet(pulumi.CustomResource):
                  max_user_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  platform: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_volume_config: pulumi.Input[Optional[Union['FleetVolumeConfigArgs', 'FleetVolumeConfigArgsDict']]] = None,
-                 session_script_s3_location: pulumi.Input[Optional[Union['FleetS3LocationArgs', 'FleetS3LocationArgsDict']]] = None,
+                 root_volume_config: pulumi.Input[Optional[Union['FleetVolumeConfigArgs', 'FleetVolumeConfigArgsDict', 'outputs.FleetVolumeConfig']]] = None,
+                 session_script_s3_location: pulumi.Input[Optional[Union['FleetS3LocationArgs', 'FleetS3LocationArgsDict', 'outputs.FleetS3Location']]] = None,
                  stream_view: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  usb_device_filter_strings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::Fleet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict']] compute_capacity: The desired capacity for the fleet. This is not allowed for Elastic fleets.
+        :param pulumi.Input[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']] compute_capacity: The desired capacity for the fleet. This is not allowed for Elastic fleets.
         :param pulumi.Input[_builtins.str] description: The description to display.
         :param pulumi.Input[_builtins.int] disconnect_timeout_in_seconds: The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
                
                Specify a value between 60 and 36000.
         :param pulumi.Input[_builtins.str] display_name: The fleet name to display.
-        :param pulumi.Input[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict']] domain_join_info: The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. This is not allowed for Elastic fleets.
+        :param pulumi.Input[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict', 'outputs.FleetDomainJoinInfo']] domain_join_info: The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. This is not allowed for Elastic fleets.
         :param pulumi.Input[_builtins.bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
         :param pulumi.Input[_builtins.str] fleet_type: The fleet type.
                
@@ -691,13 +691,13 @@ class Fleet(pulumi.CustomResource):
                Specify a value between 600 and 432000.
         :param pulumi.Input[_builtins.str] name: A unique name for the fleet.
         :param pulumi.Input[_builtins.str] platform: The platform of the fleet. Platform is a required setting for Elastic fleets, and is not used for other fleet types.
-        :param pulumi.Input[Union['FleetS3LocationArgs', 'FleetS3LocationArgsDict']] session_script_s3_location: The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.
+        :param pulumi.Input[Union['FleetS3LocationArgs', 'FleetS3LocationArgsDict', 'outputs.FleetS3Location']] session_script_s3_location: The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.
         :param pulumi.Input[_builtins.str] stream_view: The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
                
                The default value is `APP` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] usb_device_filter_strings: The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.
-        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] vpc_config: The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types.
+        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']] vpc_config: The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types.
         """
         ...
     @overload
@@ -724,12 +724,12 @@ class Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes_to_delete: pulumi.Input[Optional[Sequence[pulumi.Input['FleetAttributesToDeleteItem']]]] = None,
-                 compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict']]] = None,
+                 compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_imdsv1: pulumi.Input[Optional[_builtins.bool]] = None,
                  disconnect_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict']]] = None,
+                 domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict', 'outputs.FleetDomainJoinInfo']]] = None,
                  enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -742,12 +742,12 @@ class Fleet(pulumi.CustomResource):
                  max_user_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  platform: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_volume_config: pulumi.Input[Optional[Union['FleetVolumeConfigArgs', 'FleetVolumeConfigArgsDict']]] = None,
-                 session_script_s3_location: pulumi.Input[Optional[Union['FleetS3LocationArgs', 'FleetS3LocationArgsDict']]] = None,
+                 root_volume_config: pulumi.Input[Optional[Union['FleetVolumeConfigArgs', 'FleetVolumeConfigArgsDict', 'outputs.FleetVolumeConfig']]] = None,
+                 session_script_s3_location: pulumi.Input[Optional[Union['FleetS3LocationArgs', 'FleetS3LocationArgsDict', 'outputs.FleetS3Location']]] = None,
                  stream_view: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  usb_device_filter_strings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

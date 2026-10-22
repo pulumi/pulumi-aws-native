@@ -127,12 +127,12 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential: pulumi.Input[Optional[Union['IntegrationCredentialArgs', 'IntegrationCredentialArgsDict']]] = None,
+                 credential: pulumi.Input[Optional[Union['IntegrationCredentialArgs', 'IntegrationCredentialArgsDict', 'outputs.IntegrationCredential']]] = None,
                  integration_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  integration_type: pulumi.Input[Optional['IntegrationType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::Integration. Manages a CloudWatch (Amazon CloudWatch Observability / Omni) account-scoped integration. V1 supports AWS_CONFIG_SLREC, AWS_INTEGRATION, and EXTERNAL_AGENT.
@@ -143,7 +143,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input['IntegrationType'] integration_type: The type of integration. Immutable after creation.
         :param pulumi.Input[_builtins.str] name: The customer-supplied name of the integration. Unique per account.
         :param pulumi.Input[_builtins.str] role_arn: IAM role ARN the integration assumes. Required for AWS_INTEGRATION (a valid, service-assumable IAM role ARN). Not used by AWS_CONFIG_SLREC or EXTERNAL_AGENT.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the integration.
         """
         ...
     @overload
@@ -169,12 +169,12 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential: pulumi.Input[Optional[Union['IntegrationCredentialArgs', 'IntegrationCredentialArgsDict']]] = None,
+                 credential: pulumi.Input[Optional[Union['IntegrationCredentialArgs', 'IntegrationCredentialArgsDict', 'outputs.IntegrationCredential']]] = None,
                  integration_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  integration_type: pulumi.Input[Optional['IntegrationType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

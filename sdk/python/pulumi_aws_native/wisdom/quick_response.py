@@ -215,16 +215,16 @@ class QuickResponse(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channels: pulumi.Input[Optional[Sequence[pulumi.Input['QuickResponseChannelType']]]] = None,
-                 content: pulumi.Input[Optional[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict', 'outputs.QuickResponseContentProvider']]] = None,
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 grouping_configuration: pulumi.Input[Optional[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict']]] = None,
+                 grouping_configuration: pulumi.Input[Optional[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict', 'outputs.QuickResponseGroupingConfiguration']]] = None,
                  is_active: pulumi.Input[Optional[_builtins.bool]] = None,
                  knowledge_base_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  language: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  shortcut_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::QuickResponse Resource Type.
@@ -232,18 +232,18 @@ class QuickResponse(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]] channels: The Amazon Connect contact channels this quick response applies to.
-        :param pulumi.Input[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict']] content: The content of the quick response.
+        :param pulumi.Input[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict', 'outputs.QuickResponseContentProvider']] content: The content of the quick response.
         :param pulumi.Input[_builtins.str] content_type: The media type of the quick response content.
                - Use application/x.quickresponse;format=plain for quick response written in plain text.
                - Use application/x.quickresponse;format=markdown for quick response written in richtext.
         :param pulumi.Input[_builtins.str] description: The description of the quick response.
-        :param pulumi.Input[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict']] grouping_configuration: The configuration information of the user groups that the quick response is accessible to.
+        :param pulumi.Input[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict', 'outputs.QuickResponseGroupingConfiguration']] grouping_configuration: The configuration information of the user groups that the quick response is accessible to.
         :param pulumi.Input[_builtins.bool] is_active: Whether the quick response is active.
         :param pulumi.Input[_builtins.str] knowledge_base_arn: The Amazon Resource Name (ARN) of the knowledge base.
         :param pulumi.Input[_builtins.str] language: The language code value for the language in which the quick response is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
         :param pulumi.Input[_builtins.str] name: The name of the quick response.
         :param pulumi.Input[_builtins.str] shortcut_key: The shortcut key of the quick response. The value should be unique across the knowledge base.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -270,16 +270,16 @@ class QuickResponse(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channels: pulumi.Input[Optional[Sequence[pulumi.Input['QuickResponseChannelType']]]] = None,
-                 content: pulumi.Input[Optional[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict', 'outputs.QuickResponseContentProvider']]] = None,
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 grouping_configuration: pulumi.Input[Optional[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict']]] = None,
+                 grouping_configuration: pulumi.Input[Optional[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict', 'outputs.QuickResponseGroupingConfiguration']]] = None,
                  is_active: pulumi.Input[Optional[_builtins.bool]] = None,
                  knowledge_base_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  language: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  shortcut_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

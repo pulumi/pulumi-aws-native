@@ -181,9 +181,9 @@ class LaunchConfigurationTemplate(pulumi.CustomResource):
                  export_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  launch_disposition: pulumi.Input[Optional['LaunchConfigurationTemplateLaunchDisposition']] = None,
                  launch_into_source_instance: pulumi.Input[Optional[_builtins.bool]] = None,
-                 licensing: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLicensingArgs', 'LaunchConfigurationTemplateLicensingArgsDict']]] = None,
+                 licensing: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLicensingArgs', 'LaunchConfigurationTemplateLicensingArgsDict', 'outputs.LaunchConfigurationTemplateLicensing']]] = None,
                  post_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  target_instance_type_right_sizing_method: pulumi.Input[Optional['LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod']] = None,
                  __props__=None):
         """
@@ -197,7 +197,7 @@ class LaunchConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input['LaunchConfigurationTemplateLaunchDisposition'] launch_disposition: Launch disposition.
         :param pulumi.Input[_builtins.bool] launch_into_source_instance: DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.
         :param pulumi.Input[_builtins.bool] post_launch_enabled: Whether we want to activate post-launch actions.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A set of tags associated with the Launch Configuration Template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: A set of tags associated with the Launch Configuration Template.
         :param pulumi.Input['LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod'] target_instance_type_right_sizing_method: Target instance type right-sizing method.
         """
         ...
@@ -229,9 +229,9 @@ class LaunchConfigurationTemplate(pulumi.CustomResource):
                  export_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  launch_disposition: pulumi.Input[Optional['LaunchConfigurationTemplateLaunchDisposition']] = None,
                  launch_into_source_instance: pulumi.Input[Optional[_builtins.bool]] = None,
-                 licensing: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLicensingArgs', 'LaunchConfigurationTemplateLicensingArgsDict']]] = None,
+                 licensing: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLicensingArgs', 'LaunchConfigurationTemplateLicensingArgsDict', 'outputs.LaunchConfigurationTemplateLicensing']]] = None,
                  post_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  target_instance_type_right_sizing_method: pulumi.Input[Optional['LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

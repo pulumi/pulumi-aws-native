@@ -148,12 +148,12 @@ class LocationEfs(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 ec2_config: pulumi.Input[Optional[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict']]] = None,
+                 ec2_config: pulumi.Input[Optional[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict', 'outputs.LocationEfsEc2Config']]] = None,
                  efs_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  file_system_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  in_transit_encryption: pulumi.Input[Optional['LocationEfsInTransitEncryption']] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationEFS.
@@ -161,12 +161,12 @@ class LocationEfs(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_point_arn: The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
-        :param pulumi.Input[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict']] ec2_config: Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
+        :param pulumi.Input[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict', 'outputs.LocationEfsEc2Config']] ec2_config: Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
         :param pulumi.Input[_builtins.str] efs_filesystem_arn: The Amazon Resource Name (ARN) for the Amazon EFS file system.
         :param pulumi.Input[_builtins.str] file_system_access_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
         :param pulumi.Input['LocationEfsInTransitEncryption'] in_transit_encryption: Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
         :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -193,12 +193,12 @@ class LocationEfs(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 ec2_config: pulumi.Input[Optional[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict']]] = None,
+                 ec2_config: pulumi.Input[Optional[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict', 'outputs.LocationEfsEc2Config']]] = None,
                  efs_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  file_system_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  in_transit_encryption: pulumi.Input[Optional['LocationEfsInTransitEncryption']] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

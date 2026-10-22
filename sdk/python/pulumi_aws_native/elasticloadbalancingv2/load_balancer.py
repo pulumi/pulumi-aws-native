@@ -298,14 +298,14 @@ class LoadBalancer(pulumi.CustomResource):
                  enforce_security_group_inbound_rules_on_private_link_traffic: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancer_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict']]]]] = None,
-                 minimum_load_balancer_capacity: pulumi.Input[Optional[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
+                 load_balancer_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict', 'outputs.LoadBalancerAttribute']]]]] = None,
+                 minimum_load_balancer_capacity: pulumi.Input[Optional[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict', 'outputs.LoadBalancerMinimumLoadBalancerCapacity']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict']]]]] = None,
+                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict', 'outputs.LoadBalancerSubnetMapping']]]]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -322,8 +322,8 @@ class LoadBalancer(pulumi.CustomResource):
                 Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
                 [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
         :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: The ID of the IPv4 IPAM pool.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict']]]] load_balancer_attributes: The load balancer attributes. Attributes that you do not modify retain their current values.
-        :param pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']] minimum_load_balancer_capacity: The minimum capacity for a load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict', 'outputs.LoadBalancerAttribute']]]] load_balancer_attributes: The load balancer attributes. Attributes that you do not modify retain their current values.
+        :param pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict', 'outputs.LoadBalancerMinimumLoadBalancerCapacity']] minimum_load_balancer_capacity: The minimum capacity for a load balancer.
         :param pulumi.Input[_builtins.str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
                 If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
         :param pulumi.Input[_builtins.str] scheme: The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
@@ -331,7 +331,7 @@ class LoadBalancer(pulumi.CustomResource):
                 The default is an Internet-facing load balancer.
                 You can't specify a scheme for a Gateway Load Balancer.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict']]]] subnet_mappings: The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict', 'outputs.LoadBalancerSubnetMapping']]]] subnet_mappings: The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
                 [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
                 [Application Load Balancers on Outposts] You must specify one Outpost subnet.
                 [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
@@ -342,7 +342,7 @@ class LoadBalancer(pulumi.CustomResource):
                 [Application Load Balancers on Outposts] You must specify one Outpost subnet.
                 [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
                 [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to assign to the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to assign to the load balancer.
         :param pulumi.Input[_builtins.str] type: The type of load balancer. The default is ``application``.
         """
         ...
@@ -374,14 +374,14 @@ class LoadBalancer(pulumi.CustomResource):
                  enforce_security_group_inbound_rules_on_private_link_traffic: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancer_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict']]]]] = None,
-                 minimum_load_balancer_capacity: pulumi.Input[Optional[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
+                 load_balancer_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict', 'outputs.LoadBalancerAttribute']]]]] = None,
+                 minimum_load_balancer_capacity: pulumi.Input[Optional[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict', 'outputs.LoadBalancerMinimumLoadBalancerCapacity']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict']]]]] = None,
+                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict', 'outputs.LoadBalancerSubnetMapping']]]]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

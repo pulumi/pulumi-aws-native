@@ -120,10 +120,10 @@ class ExperimentTrialComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  end_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['ExperimentTrialComponentMetadataPropertiesArgs', 'ExperimentTrialComponentMetadataPropertiesArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ExperimentTrialComponentMetadataPropertiesArgs', 'ExperimentTrialComponentMetadataPropertiesArgsDict', 'outputs.ExperimentTrialComponentMetadataProperties']]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union['ExperimentTrialComponentStatusArgs', 'ExperimentTrialComponentStatusArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional[Union['ExperimentTrialComponentStatusArgs', 'ExperimentTrialComponentStatusArgsDict', 'outputs.ExperimentTrialComponentStatus']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trial_component_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -158,10 +158,10 @@ class ExperimentTrialComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  end_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['ExperimentTrialComponentMetadataPropertiesArgs', 'ExperimentTrialComponentMetadataPropertiesArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ExperimentTrialComponentMetadataPropertiesArgs', 'ExperimentTrialComponentMetadataPropertiesArgsDict', 'outputs.ExperimentTrialComponentMetadataProperties']]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union['ExperimentTrialComponentStatusArgs', 'ExperimentTrialComponentStatusArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional[Union['ExperimentTrialComponentStatusArgs', 'ExperimentTrialComponentStatusArgsDict', 'outputs.ExperimentTrialComponentStatus']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trial_component_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
