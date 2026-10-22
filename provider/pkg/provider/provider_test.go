@@ -2866,26 +2866,30 @@ func TestListenerRuleIgnoreChangesPreservesWeights(t *testing.T) {
 				func(_ context.Context, _ resource.URN, _, _ string,
 					ops []jsonpatch.JsonPatchOperation,
 				) (map[string]interface{}, error) {
-					hasActions, hasConditions := false, false
+					// The patch generator updates top-level properties. Apply the
+					// relevant operations to live state so unchanged Actions may
+					// either be omitted or resent without weakening the weight check.
+					patched := live.Copy()
 					for _, op := range ops {
-						if op.Path == "/Actions" {
-							hasActions = true
-							converted, err := naming.CfnToSdkV2(&spec, meta.Types, map[string]interface{}{"Actions": op.Value})
-							require.NoError(t, err)
-							require.Equal(t, wantWeights, weights(resource.NewPropertyMapFromMap(converted)))
+						var property string
+						switch op.Path {
+						case "/Actions":
+							property = "Actions"
+						case "/Conditions":
+							property = "Conditions"
+						default:
+							continue
 						}
-						if op.Path == "/Conditions" {
-							hasConditions = true
-							converted, err := naming.CfnToSdkV2(&spec, meta.Types, map[string]interface{}{"Conditions": op.Value})
-							require.NoError(t, err)
-							require.Equal(t, desired["conditions"], resource.NewPropertyMapFromMap(converted)["conditions"])
+						require.Contains(t, []string{"add", "replace"}, op.Operation)
+						converted, err := naming.CfnToSdkV2(&spec, meta.Types, map[string]interface{}{property: op.Value})
+						require.NoError(t, err)
+						for key, value := range resource.NewPropertyMapFromMap(converted) {
+							patched[key] = value
 						}
 					}
-					// Nested write-only metadata causes Actions to be resent even
-					// when only Conditions changed. Verify the values, not omission.
-					require.True(t, hasActions)
-					require.True(t, hasConditions, "the unrelated condition edit must reach CloudControl")
-					return naming.SdkToCfn(&spec, meta.Types, desired.Mappable())
+					require.Equal(t, wantWeights, weights(patched))
+					require.Equal(t, desired["conditions"], patched["conditions"], "the condition edit must reach CloudControl")
+					return naming.SdkToCfn(&spec, meta.Types, patched.Mappable())
 				})
 			updated, err := p.Update(ctx, &pulumirpc.UpdateRequest{Urn: string(urn), Id: "rule-id",
 				Olds: read.Properties, News: mustMarshalProperties(t, desired)})
