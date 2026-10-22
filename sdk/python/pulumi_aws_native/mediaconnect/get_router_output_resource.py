@@ -89,7 +89,7 @@ class GetRouterOutputResourceResult:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.RouterOutputResourceRouterOutputConfiguration0Properties', 'outputs.RouterOutputResourceRouterOutputConfiguration1Properties', 'outputs.RouterOutputResourceRouterOutputConfiguration2Properties']]:
         return pulumi.get(self, "configuration")
 
     @_builtins.property
@@ -123,7 +123,7 @@ class GetRouterOutputResourceResult:
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
-    def maintenance_configuration(self) -> Optional[Any]:
+    def maintenance_configuration(self) -> Optional[Union['outputs.RouterOutputResourceMaintenanceConfiguration0Properties', 'outputs.RouterOutputResourceMaintenanceConfiguration1Properties']]:
         """
         The maintenance configuration settings applied to this router output.
         """

@@ -82,18 +82,18 @@ class EventAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
-                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict', 'outputs.EventActionAction']]] = None,
+                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict', 'outputs.EventActionEvent']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         An event action is an AWS Data Exchange resource that automatically exports data set revisions to Amazon S3 when a revision is published.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict']] action: What occurs after a certain event.
-        :param pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict']] event: What occurs to start an action.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the event action.
+        :param pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict', 'outputs.EventActionAction']] action: What occurs after a certain event.
+        :param pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict', 'outputs.EventActionEvent']] event: What occurs to start an action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the event action.
         """
         ...
     @overload
@@ -119,9 +119,9 @@ class EventAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
-                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict', 'outputs.EventActionAction']]] = None,
+                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict', 'outputs.EventActionEvent']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

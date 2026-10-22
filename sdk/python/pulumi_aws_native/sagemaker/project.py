@@ -134,10 +134,10 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_catalog_provisioned_product_details: pulumi.Input[Optional[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
-                 service_catalog_provisioning_details: pulumi.Input[Optional[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 template_provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]]] = None,
+                 service_catalog_provisioned_product_details: pulumi.Input[Optional[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict', 'outputs.ServiceCatalogProvisionedProductDetailsProperties']]] = None,
+                 service_catalog_provisioning_details: pulumi.Input[Optional[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict', 'outputs.ServiceCatalogProvisioningDetailsProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 template_provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict', 'outputs.ProjectTemplateProviderDetail']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Project
@@ -179,10 +179,10 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_description: The description of the project.
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
-        :param pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
-        :param pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]] template_provider_details: An array of template providers associated with the project.
+        :param pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict', 'outputs.ServiceCatalogProvisionedProductDetailsProperties']] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
+        :param pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict', 'outputs.ServiceCatalogProvisioningDetailsProperties']] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict', 'outputs.ProjectTemplateProviderDetail']]]] template_provider_details: An array of template providers associated with the project.
         """
         ...
     @overload
@@ -243,10 +243,10 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_catalog_provisioned_product_details: pulumi.Input[Optional[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
-                 service_catalog_provisioning_details: pulumi.Input[Optional[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 template_provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]]] = None,
+                 service_catalog_provisioned_product_details: pulumi.Input[Optional[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict', 'outputs.ServiceCatalogProvisionedProductDetailsProperties']]] = None,
+                 service_catalog_provisioning_details: pulumi.Input[Optional[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict', 'outputs.ServiceCatalogProvisioningDetailsProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 template_provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict', 'outputs.ProjectTemplateProviderDetail']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

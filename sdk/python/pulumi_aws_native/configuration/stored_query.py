@@ -99,7 +99,7 @@ class StoredQuery(pulumi.CustomResource):
                  query_description: pulumi.Input[Optional[_builtins.str]] = None,
                  query_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  query_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Config::StoredQuery
@@ -109,7 +109,7 @@ class StoredQuery(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] query_description: A unique description for the query.
         :param pulumi.Input[_builtins.str] query_expression: The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
         :param pulumi.Input[_builtins.str] query_name: The name of the query.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the stored query.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the stored query.
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class StoredQuery(pulumi.CustomResource):
                  query_description: pulumi.Input[Optional[_builtins.str]] = None,
                  query_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  query_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

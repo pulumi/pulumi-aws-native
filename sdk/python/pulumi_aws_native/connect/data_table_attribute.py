@@ -148,7 +148,7 @@ class DataTableAttribute(pulumi.CustomResource):
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary: pulumi.Input[Optional[_builtins.bool]] = None,
-                 validation: pulumi.Input[Optional[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict']]] = None,
+                 validation: pulumi.Input[Optional[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict', 'outputs.ValidationProperties']]] = None,
                  value_type: pulumi.Input[Optional['DataTableAttributeValueType']] = None,
                  __props__=None):
         """
@@ -161,7 +161,7 @@ class DataTableAttribute(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         :param pulumi.Input[_builtins.str] name: The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
         :param pulumi.Input[_builtins.bool] primary: Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
-        :param pulumi.Input[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict']] validation: The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+        :param pulumi.Input[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict', 'outputs.ValidationProperties']] validation: The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
         :param pulumi.Input['DataTableAttributeValueType'] value_type: The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
         """
         ...
@@ -193,7 +193,7 @@ class DataTableAttribute(pulumi.CustomResource):
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary: pulumi.Input[Optional[_builtins.bool]] = None,
-                 validation: pulumi.Input[Optional[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict']]] = None,
+                 validation: pulumi.Input[Optional[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict', 'outputs.ValidationProperties']]] = None,
                  value_type: pulumi.Input[Optional['DataTableAttributeValueType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

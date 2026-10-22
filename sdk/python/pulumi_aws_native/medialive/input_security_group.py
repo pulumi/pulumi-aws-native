@@ -66,7 +66,7 @@ class InputSecurityGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 whitelist_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSecurityGroupInputWhitelistRuleArgs', 'InputSecurityGroupInputWhitelistRuleArgsDict']]]]] = None,
+                 whitelist_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSecurityGroupInputWhitelistRuleArgs', 'InputSecurityGroupInputWhitelistRuleArgsDict', 'outputs.InputSecurityGroupInputWhitelistRule']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MediaLive::InputSecurityGroup
@@ -74,7 +74,7 @@ class InputSecurityGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A collection of key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupInputWhitelistRuleArgs', 'InputSecurityGroupInputWhitelistRuleArgsDict']]]] whitelist_rules: Whitelist rules and their sync status
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupInputWhitelistRuleArgs', 'InputSecurityGroupInputWhitelistRuleArgsDict', 'outputs.InputSecurityGroupInputWhitelistRule']]]] whitelist_rules: Whitelist rules and their sync status
         """
         ...
     @overload
@@ -101,7 +101,7 @@ class InputSecurityGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 whitelist_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSecurityGroupInputWhitelistRuleArgs', 'InputSecurityGroupInputWhitelistRuleArgsDict']]]]] = None,
+                 whitelist_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSecurityGroupInputWhitelistRuleArgs', 'InputSecurityGroupInputWhitelistRuleArgsDict', 'outputs.InputSecurityGroupInputWhitelistRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

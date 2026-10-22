@@ -363,7 +363,7 @@ class NfsFileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_attributes: pulumi.Input[Optional[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict', 'outputs.NfsFileShareCacheAttributes']]] = None,
                  client_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_type: pulumi.Input[Optional['NfsFileShareEncryptionType']] = None,
@@ -373,14 +373,14 @@ class NfsFileShare(pulumi.CustomResource):
                  kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None,
                  location_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 nfs_file_share_defaults: pulumi.Input[Optional[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
+                 nfs_file_share_defaults: pulumi.Input[Optional[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict', 'outputs.NfsFileShareNfsFileShareDefaults']]] = None,
                  notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  object_acl: pulumi.Input[Optional['NfsFileShareObjectAcl']] = None,
                  read_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  squash: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -405,7 +405,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] requester_pays: Whether the bucket is a Requester Pays bucket.
         :param pulumi.Input[_builtins.str] role: The ARN of the IAM role the gateway assumes when it accesses the S3 location.
         :param pulumi.Input[_builtins.str] squash: How the NFS share maps client user IDs. The service accepts RootSquash, NoSquash and AllSquash; it is a length-bounded string in the API model rather than an enumeration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to the file share.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags assigned to the file share.
         :param pulumi.Input[_builtins.str] vpc_endpoint_dns_name: The DNS name of the S3 VPC endpoint the gateway uses to reach the bucket.
         """
         ...
@@ -434,7 +434,7 @@ class NfsFileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_attributes: pulumi.Input[Optional[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict', 'outputs.NfsFileShareCacheAttributes']]] = None,
                  client_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_type: pulumi.Input[Optional['NfsFileShareEncryptionType']] = None,
@@ -444,14 +444,14 @@ class NfsFileShare(pulumi.CustomResource):
                  kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None,
                  location_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 nfs_file_share_defaults: pulumi.Input[Optional[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
+                 nfs_file_share_defaults: pulumi.Input[Optional[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict', 'outputs.NfsFileShareNfsFileShareDefaults']]] = None,
                  notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  object_acl: pulumi.Input[Optional['NfsFileShareObjectAcl']] = None,
                  read_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  squash: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

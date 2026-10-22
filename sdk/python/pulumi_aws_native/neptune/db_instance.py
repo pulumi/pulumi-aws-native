@@ -251,7 +251,7 @@ class DbInstance(pulumi.CustomResource):
                  db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::Neptune::DBInstance resource creates an Amazon Neptune DB instance.
@@ -277,7 +277,7 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         :param pulumi.Input[_builtins.bool] publicly_accessible: Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for this DB instance.
         """
         ...
     @overload
@@ -314,7 +314,7 @@ class DbInstance(pulumi.CustomResource):
                  db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

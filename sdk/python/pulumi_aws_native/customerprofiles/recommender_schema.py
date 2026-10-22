@@ -82,9 +82,9 @@ class RecommenderSchema(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['RecommenderSchemaFieldArgs', 'RecommenderSchemaFieldArgsDict']]]]]]] = None,
+                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['RecommenderSchemaFieldArgs', 'RecommenderSchemaFieldArgsDict', 'outputs.RecommenderSchemaField']]]]]]] = None,
                  recommender_schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A recommender schema defining the set of data columns available for training recommenders and filters under an Amazon Connect Customer Profiles domain.
@@ -117,9 +117,9 @@ class RecommenderSchema(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['RecommenderSchemaFieldArgs', 'RecommenderSchemaFieldArgsDict']]]]]]] = None,
+                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['RecommenderSchemaFieldArgs', 'RecommenderSchemaFieldArgsDict', 'outputs.RecommenderSchemaField']]]]]]] = None,
                  recommender_schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -176,11 +176,11 @@ class Webhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication: pulumi.Input[Optional['WebhookAuthentication']] = None,
-                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict']]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]]] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict', 'outputs.WebhookAuthConfiguration']]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict', 'outputs.WebhookFilterRule']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  register_with_third_party: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_action: pulumi.Input[Optional[_builtins.str]] = None,
                  target_pipeline: pulumi.Input[Optional[_builtins.str]] = None,
                  target_pipeline_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -191,11 +191,11 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['WebhookAuthentication'] authentication: Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
-        :param pulumi.Input[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict']] authentication_configuration: Properties that configure the authentication applied to incoming webhook trigger requests
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]] filters: A list of rules applied to the body/payload sent in the POST request to a webhook URL
+        :param pulumi.Input[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict', 'outputs.WebhookAuthConfiguration']] authentication_configuration: Properties that configure the authentication applied to incoming webhook trigger requests
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict', 'outputs.WebhookFilterRule']]]] filters: A list of rules applied to the body/payload sent in the POST request to a webhook URL
         :param pulumi.Input[_builtins.str] name: The name of the webhook
         :param pulumi.Input[_builtins.bool] register_with_third_party: Configures a connection between the webhook that was created and the external tool with events to be detected.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] target_action: The name of the action in a pipeline you want to connect to the webhook.
         :param pulumi.Input[_builtins.str] target_pipeline: The name of the pipeline you want to connect to the webhook.
         :param pulumi.Input[_builtins.int] target_pipeline_version: The version number of the pipeline to be connected to the trigger request.
@@ -225,11 +225,11 @@ class Webhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication: pulumi.Input[Optional['WebhookAuthentication']] = None,
-                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict']]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]]] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthConfigurationArgs', 'WebhookAuthConfigurationArgsDict', 'outputs.WebhookAuthConfiguration']]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict', 'outputs.WebhookFilterRule']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  register_with_third_party: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_action: pulumi.Input[Optional[_builtins.str]] = None,
                  target_pipeline: pulumi.Input[Optional[_builtins.str]] = None,
                  target_pipeline_version: pulumi.Input[Optional[_builtins.int]] = None,

@@ -148,7 +148,7 @@ class UsageLimit(pulumi.CustomResource):
                  feature_type: pulumi.Input[Optional['UsageLimitFeatureType']] = None,
                  limit_type: pulumi.Input[Optional['UsageLimitLimitType']] = None,
                  period: pulumi.Input[Optional['UsageLimitPeriod']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Redshift::UsageLimit. Creates a usage limit for a specified Amazon Redshift feature on a cluster. The usage limit is identified by the returned usage limit identifier.
@@ -161,7 +161,7 @@ class UsageLimit(pulumi.CustomResource):
         :param pulumi.Input['UsageLimitFeatureType'] feature_type: The Amazon Redshift feature that you want to limit.
         :param pulumi.Input['UsageLimitLimitType'] limit_type: The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is spectrum, then LimitType must be data-scanned. If FeatureType is concurrency-scaling, then LimitType must be time. If FeatureType is cross-region-datasharing, then LimitType must be data-scanned.
         :param pulumi.Input['UsageLimitPeriod'] period: The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tag instances.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tag instances.
         """
         ...
     @overload
@@ -193,7 +193,7 @@ class UsageLimit(pulumi.CustomResource):
                  feature_type: pulumi.Input[Optional['UsageLimitFeatureType']] = None,
                  limit_type: pulumi.Input[Optional['UsageLimitLimitType']] = None,
                  period: pulumi.Input[Optional['UsageLimitPeriod']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

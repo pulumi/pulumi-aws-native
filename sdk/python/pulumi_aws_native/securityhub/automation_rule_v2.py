@@ -141,8 +141,8 @@ class AutomationRuleV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict']]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict', 'outputs.AutomationRuleV2AutomationRulesActionV2']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict', 'outputs.AutomationRuleV2Criteria']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_order: pulumi.Input[Optional[_builtins.float]] = None,
@@ -154,8 +154,8 @@ class AutomationRuleV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict']]]] actions: A list of actions to be performed when the rule criteria is met
-        :param pulumi.Input[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']] criteria: The filtering type and configuration of the automation rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict', 'outputs.AutomationRuleV2AutomationRulesActionV2']]]] actions: A list of actions to be performed when the rule criteria is met
+        :param pulumi.Input[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict', 'outputs.AutomationRuleV2Criteria']] criteria: The filtering type and configuration of the automation rule.
         :param pulumi.Input[_builtins.str] description: A description of the automation rule
         :param pulumi.Input[_builtins.str] rule_name: The name of the automation rule
         :param pulumi.Input[_builtins.float] rule_order: The value for the rule priority
@@ -186,8 +186,8 @@ class AutomationRuleV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict']]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict', 'outputs.AutomationRuleV2AutomationRulesActionV2']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict', 'outputs.AutomationRuleV2Criteria']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_order: pulumi.Input[Optional[_builtins.float]] = None,

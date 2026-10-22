@@ -196,7 +196,7 @@ class Profile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_role_session_name: pulumi.Input[Optional[_builtins.bool]] = None,
-                 attribute_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]]] = None,
+                 attribute_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict', 'outputs.ProfileAttributeMapping']]]]] = None,
                  duration_seconds: pulumi.Input[Optional[_builtins.float]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -204,7 +204,7 @@ class Profile(pulumi.CustomResource):
                  require_instance_properties: pulumi.Input[Optional[_builtins.bool]] = None,
                  role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  session_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::RolesAnywhere::Profile Resource Type
@@ -212,7 +212,7 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_role_session_name: Used to determine if a custom role session name will be accepted in a temporary credential request.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]] attribute_mappings: A mapping applied to the authenticating end-entity certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict', 'outputs.ProfileAttributeMapping']]]] attribute_mappings: A mapping applied to the authenticating end-entity certificate.
         :param pulumi.Input[_builtins.float] duration_seconds: The number of seconds vended session credentials will be valid for
         :param pulumi.Input[_builtins.bool] enabled: The enabled status of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_policy_arns: A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
@@ -220,7 +220,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] require_instance_properties: Specifies whether instance properties are required in CreateSession requests with this profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] role_arns: A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
         :param pulumi.Input[_builtins.str] session_policy: A session policy that will applied to the trust boundary of the vended session credentials.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of Tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of Tags.
         """
         ...
     @overload
@@ -247,7 +247,7 @@ class Profile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_role_session_name: pulumi.Input[Optional[_builtins.bool]] = None,
-                 attribute_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict']]]]] = None,
+                 attribute_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileAttributeMappingArgs', 'ProfileAttributeMappingArgsDict', 'outputs.ProfileAttributeMapping']]]]] = None,
                  duration_seconds: pulumi.Input[Optional[_builtins.float]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -255,7 +255,7 @@ class Profile(pulumi.CustomResource):
                  require_instance_properties: pulumi.Input[Optional[_builtins.bool]] = None,
                  role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  session_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

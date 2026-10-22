@@ -128,10 +128,10 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 networking: pulumi.Input[Optional[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict']]] = None,
-                 scheduler: pulumi.Input[Optional[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict']]] = None,
+                 networking: pulumi.Input[Optional[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict', 'outputs.NetworkingProperties']]] = None,
+                 scheduler: pulumi.Input[Optional[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict', 'outputs.SchedulerProperties']]] = None,
                  size: pulumi.Input[Optional['ClusterSize']] = None,
-                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
+                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict', 'outputs.SlurmConfigurationProperties']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -140,10 +140,10 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name that identifies the cluster.
-        :param pulumi.Input[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict']] networking: The networking configuration for the cluster's control plane.
-        :param pulumi.Input[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict']] scheduler: The cluster management and job scheduling software associated with the cluster.
+        :param pulumi.Input[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict', 'outputs.NetworkingProperties']] networking: The networking configuration for the cluster's control plane.
+        :param pulumi.Input[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict', 'outputs.SchedulerProperties']] scheduler: The cluster management and job scheduling software associated with the cluster.
         :param pulumi.Input['ClusterSize'] size: The size of the cluster.
-        :param pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']] slurm_configuration: Additional options related to the Slurm scheduler.
+        :param pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict', 'outputs.SlurmConfigurationProperties']] slurm_configuration: Additional options related to the Slurm scheduler.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
         """
         ...
@@ -171,10 +171,10 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 networking: pulumi.Input[Optional[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict']]] = None,
-                 scheduler: pulumi.Input[Optional[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict']]] = None,
+                 networking: pulumi.Input[Optional[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict', 'outputs.NetworkingProperties']]] = None,
+                 scheduler: pulumi.Input[Optional[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict', 'outputs.SchedulerProperties']]] = None,
                  size: pulumi.Input[Optional['ClusterSize']] = None,
-                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
+                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict', 'outputs.SlurmConfigurationProperties']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

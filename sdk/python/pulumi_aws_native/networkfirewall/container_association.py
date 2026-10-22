@@ -115,9 +115,9 @@ class ContainerAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict']]]]] = None,
+                 container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict', 'outputs.ContainerAssociationContainerMonitoringConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ContainerAssociationType']] = None,
                  __props__=None):
         """
@@ -126,9 +126,9 @@ class ContainerAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_association_name: The descriptive name of the container association. You can't change the name of a container association after you create it.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict']]]] container_monitoring_configurations: The monitoring configurations for the container association. Each configuration specifies an Amazon ECS or Amazon EKS cluster to monitor and optional attribute filters to narrow which containers are tracked.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict', 'outputs.ContainerAssociationContainerMonitoringConfiguration']]]] container_monitoring_configurations: The monitoring configurations for the container association. Each configuration specifies an Amazon ECS or Amazon EKS cluster to monitor and optional attribute filters to narrow which containers are tracked.
         :param pulumi.Input[_builtins.str] description: A description of the container association.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['ContainerAssociationType'] type: The type of containers to monitor. You can't change the container type after creation.
         """
         ...
@@ -156,9 +156,9 @@ class ContainerAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict']]]]] = None,
+                 container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict', 'outputs.ContainerAssociationContainerMonitoringConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ContainerAssociationType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

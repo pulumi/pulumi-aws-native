@@ -76,7 +76,7 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict', 'outputs.PolicyDefinition0Properties'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict', 'outputs.PolicyDefinition1Properties']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -140,7 +140,7 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]] definition: Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+        :param pulumi.Input[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict', 'outputs.PolicyDefinition0Properties'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict', 'outputs.PolicyDefinition1Properties']]] definition: Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         :param pulumi.Input[_builtins.str] policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
         """
         ...
@@ -222,7 +222,7 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict', 'outputs.PolicyDefinition0Properties'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict', 'outputs.PolicyDefinition1Properties']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -276,7 +276,7 @@ class Policy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> pulumi.Output[Any]:
+    def definition(self) -> pulumi.Output[Union['outputs.PolicyDefinition0Properties', 'outputs.PolicyDefinition1Properties']]:
         """
         Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         """

@@ -115,22 +115,22 @@ class BillingView(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_filter_expression: pulumi.Input[Optional[Union['DataFilterExpressionPropertiesArgs', 'DataFilterExpressionPropertiesArgsDict']]] = None,
+                 data_filter_expression: pulumi.Input[Optional[Union['DataFilterExpressionPropertiesArgs', 'DataFilterExpressionPropertiesArgsDict', 'outputs.DataFilterExpressionProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A billing view is a container of cost & usage metadata.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DataFilterExpressionPropertiesArgs', 'DataFilterExpressionPropertiesArgsDict']] data_filter_expression: See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        :param pulumi.Input[Union['DataFilterExpressionPropertiesArgs', 'DataFilterExpressionPropertiesArgsDict', 'outputs.DataFilterExpressionProperties']] data_filter_expression: See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
         :param pulumi.Input[_builtins.str] description: The description of the billing view.
         :param pulumi.Input[_builtins.str] name: The name of the billing view.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_views: An array of strings that define the billing view's source.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs associated to the billing view being created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs associated to the billing view being created.
         """
         ...
     @overload
@@ -156,11 +156,11 @@ class BillingView(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_filter_expression: pulumi.Input[Optional[Union['DataFilterExpressionPropertiesArgs', 'DataFilterExpressionPropertiesArgsDict']]] = None,
+                 data_filter_expression: pulumi.Input[Optional[Union['DataFilterExpressionPropertiesArgs', 'DataFilterExpressionPropertiesArgsDict', 'outputs.DataFilterExpressionProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

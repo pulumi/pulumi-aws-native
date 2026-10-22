@@ -116,10 +116,10 @@ class ParallelData(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_key: pulumi.Input[Optional[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict']]] = None,
+                 encryption_key: pulumi.Input[Optional[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict', 'outputs.EncryptionKeyProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parallel_data_config: pulumi.Input[Optional[Union['ParallelDataConfigPropertiesArgs', 'ParallelDataConfigPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parallel_data_config: pulumi.Input[Optional[Union['ParallelDataConfigPropertiesArgs', 'ParallelDataConfigPropertiesArgsDict', 'outputs.ParallelDataConfigProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A parallel data resource in Amazon Translate used to customize machine translation output.
@@ -127,10 +127,10 @@ class ParallelData(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A custom description for the parallel data resource.
-        :param pulumi.Input[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict']] encryption_key: The encryption key used to encrypt this object.
+        :param pulumi.Input[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict', 'outputs.EncryptionKeyProperties']] encryption_key: The encryption key used to encrypt this object.
         :param pulumi.Input[_builtins.str] name: A custom name for the parallel data resource. Must be unique in the account and region.
-        :param pulumi.Input[Union['ParallelDataConfigPropertiesArgs', 'ParallelDataConfigPropertiesArgsDict']] parallel_data_config: Specifies the format and S3 location of the parallel data input file.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the parallel data resource.
+        :param pulumi.Input[Union['ParallelDataConfigPropertiesArgs', 'ParallelDataConfigPropertiesArgsDict', 'outputs.ParallelDataConfigProperties']] parallel_data_config: Specifies the format and S3 location of the parallel data input file.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the parallel data resource.
         """
         ...
     @overload
@@ -157,10 +157,10 @@ class ParallelData(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_key: pulumi.Input[Optional[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict']]] = None,
+                 encryption_key: pulumi.Input[Optional[Union['EncryptionKeyPropertiesArgs', 'EncryptionKeyPropertiesArgsDict', 'outputs.EncryptionKeyProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parallel_data_config: pulumi.Input[Optional[Union['ParallelDataConfigPropertiesArgs', 'ParallelDataConfigPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parallel_data_config: pulumi.Input[Optional[Union['ParallelDataConfigPropertiesArgs', 'ParallelDataConfigPropertiesArgsDict', 'outputs.ParallelDataConfigProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

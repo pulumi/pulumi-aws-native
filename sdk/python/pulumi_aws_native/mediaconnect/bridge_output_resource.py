@@ -82,7 +82,7 @@ class BridgeOutputResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bridge_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_output: pulumi.Input[Optional[Union['BridgeOutputResourceBridgeNetworkOutputArgs', 'BridgeOutputResourceBridgeNetworkOutputArgsDict']]] = None,
+                 network_output: pulumi.Input[Optional[Union['BridgeOutputResourceBridgeNetworkOutputArgs', 'BridgeOutputResourceBridgeNetworkOutputArgsDict', 'outputs.BridgeOutputResourceBridgeNetworkOutput']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::BridgeOutput
@@ -91,7 +91,7 @@ class BridgeOutputResource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
         :param pulumi.Input[_builtins.str] name: The network output name.
-        :param pulumi.Input[Union['BridgeOutputResourceBridgeNetworkOutputArgs', 'BridgeOutputResourceBridgeNetworkOutputArgsDict']] network_output: The output of the bridge.
+        :param pulumi.Input[Union['BridgeOutputResourceBridgeNetworkOutputArgs', 'BridgeOutputResourceBridgeNetworkOutputArgsDict', 'outputs.BridgeOutputResourceBridgeNetworkOutput']] network_output: The output of the bridge.
         """
         ...
     @overload
@@ -119,7 +119,7 @@ class BridgeOutputResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bridge_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_output: pulumi.Input[Optional[Union['BridgeOutputResourceBridgeNetworkOutputArgs', 'BridgeOutputResourceBridgeNetworkOutputArgsDict']]] = None,
+                 network_output: pulumi.Input[Optional[Union['BridgeOutputResourceBridgeNetworkOutputArgs', 'BridgeOutputResourceBridgeNetworkOutputArgsDict', 'outputs.BridgeOutputResourceBridgeNetworkOutput']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

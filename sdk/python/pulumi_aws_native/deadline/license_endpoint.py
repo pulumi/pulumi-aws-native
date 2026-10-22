@@ -97,7 +97,7 @@ class LicenseEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -107,7 +107,7 @@ class LicenseEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The identifier of the Amazon EC2 security group that controls access to the license endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifies the VPC subnets that can connect to a license endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC (virtual private cloud) ID associated with the license endpoint.
         """
         ...
@@ -136,7 +136,7 @@ class LicenseEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -105,7 +105,7 @@ class Adapter(pulumi.CustomResource):
                  auto_update: pulumi.Input[Optional['AdapterAutoUpdate']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  feature_types: pulumi.Input[Optional[Sequence[pulumi.Input['AdapterFeatureType']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::Textract::Adapter resource creates an Amazon Textract adapter, which can be fine-tuned for enhanced performance on user-provided documents.
@@ -113,7 +113,7 @@ class Adapter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AdapterFeatureType']]] feature_types: The type of feature that the adapter is being trained on. Currently, supported feature types are: QUERIES
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to be added to the adapter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to be added to the adapter.
         """
         ...
     @overload
@@ -143,7 +143,7 @@ class Adapter(pulumi.CustomResource):
                  auto_update: pulumi.Input[Optional['AdapterAutoUpdate']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  feature_types: pulumi.Input[Optional[Sequence[pulumi.Input['AdapterFeatureType']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -226,7 +226,7 @@ class CompositeAlarm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_configuration: pulumi.Input[Optional[Union['CompositeAlarmActionConfigurationArgs', 'CompositeAlarmActionConfigurationArgsDict']]] = None,
+                 action_configuration: pulumi.Input[Optional[Union['CompositeAlarmActionConfigurationArgs', 'CompositeAlarmActionConfigurationArgsDict', 'outputs.CompositeAlarmActionConfiguration']]] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  actions_suppressor: pulumi.Input[Optional[_builtins.str]] = None,
                  actions_suppressor_extension_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -237,14 +237,14 @@ class CompositeAlarm(pulumi.CustomResource):
                  alarm_rule: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CompositeAlarmActionConfigurationArgs', 'CompositeAlarmActionConfigurationArgsDict']] action_configuration: Configuration that applies to the notifications this alarm sends when it performs its actions.
+        :param pulumi.Input[Union['CompositeAlarmActionConfigurationArgs', 'CompositeAlarmActionConfigurationArgsDict', 'outputs.CompositeAlarmActionConfiguration']] action_configuration: Configuration that applies to the notifications this alarm sends when it performs its actions.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         :param pulumi.Input[_builtins.str] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
         :param pulumi.Input[_builtins.int] actions_suppressor_extension_period: Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
@@ -255,7 +255,7 @@ class CompositeAlarm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alarm_rule: Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
         """
         ...
     @overload
@@ -281,7 +281,7 @@ class CompositeAlarm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_configuration: pulumi.Input[Optional[Union['CompositeAlarmActionConfigurationArgs', 'CompositeAlarmActionConfigurationArgsDict']]] = None,
+                 action_configuration: pulumi.Input[Optional[Union['CompositeAlarmActionConfigurationArgs', 'CompositeAlarmActionConfigurationArgsDict', 'outputs.CompositeAlarmActionConfiguration']]] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  actions_suppressor: pulumi.Input[Optional[_builtins.str]] = None,
                  actions_suppressor_extension_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -292,7 +292,7 @@ class CompositeAlarm(pulumi.CustomResource):
                  alarm_rule: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

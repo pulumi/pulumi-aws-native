@@ -186,7 +186,7 @@ class IdentityProvider(pulumi.CustomResource):
                  identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_provider_type: pulumi.Input[Optional['IdentityProviderType']] = None,
                  portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
@@ -263,7 +263,7 @@ class IdentityProvider(pulumi.CustomResource):
                  identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_provider_type: pulumi.Input[Optional['IdentityProviderType']] = None,
                  portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -111,17 +111,17 @@ class ConsentPortal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 idp_config: pulumi.Input[Optional[Union['ConsentPortalIdpConfigArgs', 'ConsentPortalIdpConfigArgsDict']]] = None,
+                 idp_config: pulumi.Input[Optional[Union['ConsentPortalIdpConfigArgs', 'ConsentPortalIdpConfigArgsDict', 'outputs.ConsentPortalIdpConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConsentPortalSourceArgs', 'ConsentPortalSourceArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConsentPortalSourceArgs', 'ConsentPortalSourceArgsDict', 'outputs.ConsentPortalSource']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::ConsentPortal
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the consent portal
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the consent portal
         """
         ...
     @overload
@@ -149,10 +149,10 @@ class ConsentPortal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 idp_config: pulumi.Input[Optional[Union['ConsentPortalIdpConfigArgs', 'ConsentPortalIdpConfigArgsDict']]] = None,
+                 idp_config: pulumi.Input[Optional[Union['ConsentPortalIdpConfigArgs', 'ConsentPortalIdpConfigArgsDict', 'outputs.ConsentPortalIdpConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConsentPortalSourceArgs', 'ConsentPortalSourceArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConsentPortalSourceArgs', 'ConsentPortalSourceArgsDict', 'outputs.ConsentPortalSource']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

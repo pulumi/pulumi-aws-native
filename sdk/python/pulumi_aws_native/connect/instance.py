@@ -114,22 +114,22 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict', 'outputs.InstanceAttributes']]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_management_type: pulumi.Input[Optional['InstanceIdentityManagementType']] = None,
                  instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::Instance
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict']] attributes: The attributes for the instance.
+        :param pulumi.Input[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict', 'outputs.InstanceAttributes']] attributes: The attributes for the instance.
         :param pulumi.Input[_builtins.str] directory_id: Existing directoryId user wants to map to the new Connect instance.
         :param pulumi.Input['InstanceIdentityManagementType'] identity_management_type: Specifies the type of directory integration for new instance.
         :param pulumi.Input[_builtins.str] instance_alias: Alias of the new directory created as part of new instance creation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -155,11 +155,11 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict', 'outputs.InstanceAttributes']]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_management_type: pulumi.Input[Optional['InstanceIdentityManagementType']] = None,
                  instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -128,7 +128,7 @@ class Step(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_on_failure: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 hadoop_jar_step: pulumi.Input[Optional[Union['StepHadoopJarStepConfigArgs', 'StepHadoopJarStepConfigArgsDict']]] = None,
+                 hadoop_jar_step: pulumi.Input[Optional[Union['StepHadoopJarStepConfigArgs', 'StepHadoopJarStepConfigArgsDict', 'outputs.StepHadoopJarStepConfig']]] = None,
                  job_flow_id: pulumi.Input[Optional[_builtins.str]] = None,
                  log_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -140,7 +140,7 @@ class Step(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_on_failure: This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
-        :param pulumi.Input[Union['StepHadoopJarStepConfigArgs', 'StepHadoopJarStepConfigArgsDict']] hadoop_jar_step: The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
+        :param pulumi.Input[Union['StepHadoopJarStepConfigArgs', 'StepHadoopJarStepConfigArgsDict', 'outputs.StepHadoopJarStepConfig']] hadoop_jar_step: The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
         :param pulumi.Input[_builtins.str] job_flow_id: A string that uniquely identifies the cluster (job flow).
         :param pulumi.Input[_builtins.str] log_uri: The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
         :param pulumi.Input[_builtins.str] name: The name of the cluster step.
@@ -171,7 +171,7 @@ class Step(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_on_failure: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 hadoop_jar_step: pulumi.Input[Optional[Union['StepHadoopJarStepConfigArgs', 'StepHadoopJarStepConfigArgsDict']]] = None,
+                 hadoop_jar_step: pulumi.Input[Optional[Union['StepHadoopJarStepConfigArgs', 'StepHadoopJarStepConfigArgsDict', 'outputs.StepHadoopJarStepConfig']]] = None,
                  job_flow_id: pulumi.Input[Optional[_builtins.str]] = None,
                  log_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,

@@ -129,7 +129,7 @@ class DeliveryChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict']]] = None,
+                 config_snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict', 'outputs.DeliveryChannelConfigSnapshotDeliveryProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -141,7 +141,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict']] config_snapshot_delivery_properties: The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
+        :param pulumi.Input[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict', 'outputs.DeliveryChannelConfigSnapshotDeliveryProperties']] config_snapshot_delivery_properties: The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] name: The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
         :param pulumi.Input[_builtins.str] s3_key_prefix: The prefix for the specified Amazon S3 bucket.
@@ -172,7 +172,7 @@ class DeliveryChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict']]] = None,
+                 config_snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict', 'outputs.DeliveryChannelConfigSnapshotDeliveryProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,

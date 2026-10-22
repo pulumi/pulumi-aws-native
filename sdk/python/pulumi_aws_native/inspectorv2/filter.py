@@ -114,7 +114,7 @@ class Filter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_action: pulumi.Input[Optional['FilterAction']] = None,
-                 filter_criteria: pulumi.Input[Optional[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict']]] = None,
+                 filter_criteria: pulumi.Input[Optional[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict', 'outputs.FilterCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -125,7 +125,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Findings filter description.
         :param pulumi.Input['FilterAction'] filter_action: Findings filter action.
-        :param pulumi.Input[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict']] filter_criteria: Findings filter criteria.
+        :param pulumi.Input[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict', 'outputs.FilterCriteria']] filter_criteria: Findings filter criteria.
         :param pulumi.Input[_builtins.str] name: Findings filter name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags attached to the filter.
         """
@@ -155,7 +155,7 @@ class Filter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_action: pulumi.Input[Optional['FilterAction']] = None,
-                 filter_criteria: pulumi.Input[Optional[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict']]] = None,
+                 filter_criteria: pulumi.Input[Optional[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict', 'outputs.FilterCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

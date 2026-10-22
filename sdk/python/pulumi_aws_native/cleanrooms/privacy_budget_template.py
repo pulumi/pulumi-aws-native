@@ -118,9 +118,9 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_refresh: pulumi.Input[Optional['PrivacyBudgetTemplateAutoRefresh']] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict', 'outputs.ParametersProperties']]] = None,
                  privacy_budget_type: pulumi.Input[Optional['PrivacyBudgetTemplatePrivacyBudgetType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Represents a privacy budget within a collaboration
@@ -131,9 +131,9 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
                
                > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
         :param pulumi.Input[_builtins.str] membership_identifier: The identifier for a membership resource.
-        :param pulumi.Input[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict']] parameters: Specifies the epsilon and noise parameters for the privacy budget template.
+        :param pulumi.Input[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict', 'outputs.ParametersProperties']] parameters: Specifies the epsilon and noise parameters for the privacy budget template.
         :param pulumi.Input['PrivacyBudgetTemplatePrivacyBudgetType'] privacy_budget_type: Specifies the type of the privacy budget template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
         """
         ...
     @overload
@@ -161,9 +161,9 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_refresh: pulumi.Input[Optional['PrivacyBudgetTemplateAutoRefresh']] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict', 'outputs.ParametersProperties']]] = None,
                  privacy_budget_type: pulumi.Input[Optional['PrivacyBudgetTemplatePrivacyBudgetType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

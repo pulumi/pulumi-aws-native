@@ -150,7 +150,7 @@ class Hypervisor(pulumi.CustomResource):
                  log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -163,7 +163,7 @@ class Hypervisor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] log_group_arn: The Amazon Resource Name (ARN) of the group of gateways within the requested log.
         :param pulumi.Input[_builtins.str] name: The name of the hypervisor.
         :param pulumi.Input[_builtins.str] password: The password for the hypervisor.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags of the hypervisor configuration to import.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: The tags of the hypervisor configuration to import.
         :param pulumi.Input[_builtins.str] username: The username for the hypervisor.
         """
         ...
@@ -195,7 +195,7 @@ class Hypervisor(pulumi.CustomResource):
                  log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -113,8 +113,8 @@ class Host(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_type: pulumi.Input[Optional['HostProviderType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict', 'outputs.HostVpcConfiguration']]] = None,
                  __props__=None):
         """
         A resource that represents the infrastructure where a third-party provider is installed. You create one host for all connections to that provider.
@@ -124,7 +124,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the host.
         :param pulumi.Input[_builtins.str] provider_endpoint: The endpoint of the infrastructure where your provider type is installed.
         :param pulumi.Input['HostProviderType'] provider_type: The name of the installed provider to be associated with your connection.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to apply to the host.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to apply to the host.
         """
         ...
     @overload
@@ -153,8 +153,8 @@ class Host(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_type: pulumi.Input[Optional['HostProviderType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict', 'outputs.HostVpcConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

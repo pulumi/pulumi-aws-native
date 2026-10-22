@@ -545,32 +545,32 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone_rebalancing: pulumi.Input[Optional['ServiceAvailabilityZoneRebalancing']] = None,
-                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict', 'outputs.ServiceCapacityProviderStrategyItem']]]]] = None,
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
-                 deployment_controller: pulumi.Input[Optional[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict', 'outputs.ServiceDeploymentConfiguration']]] = None,
+                 deployment_controller: pulumi.Input[Optional[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict', 'outputs.ServiceDeploymentController']]] = None,
                  desired_count: pulumi.Input[Optional[_builtins.int]] = None,
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
-                 force_new_deployment: pulumi.Input[Optional[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
+                 force_new_deployment: pulumi.Input[Optional[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict', 'outputs.ServiceForceNewDeployment']]] = None,
                  health_check_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  launch_type: pulumi.Input[Optional['ServiceLaunchType']] = None,
-                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
-                 monitoring: pulumi.Input[Optional[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
-                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
-                 placement_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]]] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict', 'outputs.ServiceLoadBalancer']]]]] = None,
+                 monitoring: pulumi.Input[Optional[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict', 'outputs.ServiceMonitoringConfiguration']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict', 'outputs.ServiceNetworkConfiguration']]] = None,
+                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict', 'outputs.ServicePlacementConstraint']]]]] = None,
+                 placement_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict', 'outputs.ServicePlacementStrategy']]]]] = None,
                  platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  propagate_tags: pulumi.Input[Optional['ServicePropagateTags']] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  scheduling_strategy: pulumi.Input[Optional['ServiceSchedulingStrategy']] = None,
-                 service_connect_configuration: pulumi.Input[Optional[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict']]] = None,
+                 service_connect_configuration: pulumi.Input[Optional[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict', 'outputs.ServiceConnectConfiguration']]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict', 'outputs.ServiceRegistry']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  task_definition: pulumi.Input[Optional[_builtins.str]] = None,
-                 volume_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]]] = None,
-                 vpc_lattice_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
+                 volume_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict', 'outputs.ServiceVolumeConfiguration']]]]] = None,
+                 vpc_lattice_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict', 'outputs.ServiceVpcLatticeConfiguration']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
@@ -606,31 +606,31 @@ class Service(pulumi.CustomResource):
                 The default behavior of ``AvailabilityZoneRebalancing`` differs between create and update requests:
                  +  For create service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults the value to ``ENABLED``.
                  +  For update service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults to the existing service’s ``AvailabilityZoneRebalancing`` value. If the service never had an ``AvailabilityZoneRebalancing`` value set, Amazon ECS treats this as ``DISABLED``.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]] capacity_provider_strategy: The capacity provider strategy to use for the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict', 'outputs.ServiceCapacityProviderStrategyItem']]]] capacity_provider_strategy: The capacity provider strategy to use for the service.
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
                 A capacity provider strategy can contain a maximum of 20 capacity providers.
                  To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         :param pulumi.Input[_builtins.str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
-        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
-        :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: The deployment controller to use for the service.
+        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict', 'outputs.ServiceDeploymentConfiguration']] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict', 'outputs.ServiceDeploymentController']] deployment_controller: The deployment controller to use for the service.
         :param pulumi.Input[_builtins.int] desired_count: The number of instantiations of the specified task definition to place and keep running in your service.
                 For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
                 For existing services, if a desired count is not specified, it is omitted from the operation.
         :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
                 When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
         :param pulumi.Input[_builtins.bool] enable_execute_command: Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
-        :param pulumi.Input[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']] force_new_deployment: Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
+        :param pulumi.Input[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict', 'outputs.ServiceForceNewDeployment']] force_new_deployment: Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
         :param pulumi.Input[_builtins.int] health_check_grace_period_seconds: The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
                 If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
         :param pulumi.Input['ServiceLaunchType'] launch_type: The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
                  If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]] load_balancers: A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict', 'outputs.ServiceLoadBalancer']]]] load_balancers: A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
                  To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
-        :param pulumi.Input[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']] monitoring: The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
-        :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]] placement_constraints: An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+        :param pulumi.Input[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict', 'outputs.ServiceMonitoringConfiguration']] monitoring: The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+        :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict', 'outputs.ServiceNetworkConfiguration']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict', 'outputs.ServicePlacementConstraint']]]] placement_constraints: An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
                  To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]] placement_strategies: The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict', 'outputs.ServicePlacementStrategy']]]] placement_strategies: The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
                  To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
         :param pulumi.Input[_builtins.str] platform_version: The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the ``LATEST`` platform version is used. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input['ServicePropagateTags'] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
@@ -644,14 +644,14 @@ class Service(pulumi.CustomResource):
                  +  ``REPLICA``-The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service uses the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types.
                  +  ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
                       Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
-        :param pulumi.Input[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict']] service_connect_configuration: The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
+        :param pulumi.Input[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict', 'outputs.ServiceConnectConfiguration']] service_connect_configuration: The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
                 Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[_builtins.str] service_name: The name of your service. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
                  The stack update fails if you change any properties that require replacement and the ``ServiceName`` is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceName`` must be unique in the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict']]]] service_registries: The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict', 'outputs.ServiceRegistry']]]] service_registries: The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
                  Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
                   To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
                 The following basic restrictions apply to tags:
                  +  Maximum number of tags per resource - 50
                  +  For each resource, each tag key must be unique, and each tag key can have only one value.
@@ -663,9 +663,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] task_definition: The ``family`` and ``revision`` (``family:revision``) or full ARN of the task definition to run in your service. If a ``revision`` isn't specified, the latest ``ACTIVE`` revision is used.
                 A task definition must be specified if the service uses either the ``ECS`` or ``CODE_DEPLOY`` deployment controllers.
                 For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]] volume_configurations: The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict', 'outputs.ServiceVolumeConfiguration']]]] volume_configurations: The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
                  To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]] vpc_lattice_configurations: The VPC Lattice configuration for the service being created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict', 'outputs.ServiceVpcLatticeConfiguration']]]] vpc_lattice_configurations: The VPC Lattice configuration for the service being created.
         """
         ...
     @overload
@@ -716,32 +716,32 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone_rebalancing: pulumi.Input[Optional['ServiceAvailabilityZoneRebalancing']] = None,
-                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict', 'outputs.ServiceCapacityProviderStrategyItem']]]]] = None,
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
-                 deployment_controller: pulumi.Input[Optional[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict', 'outputs.ServiceDeploymentConfiguration']]] = None,
+                 deployment_controller: pulumi.Input[Optional[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict', 'outputs.ServiceDeploymentController']]] = None,
                  desired_count: pulumi.Input[Optional[_builtins.int]] = None,
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
-                 force_new_deployment: pulumi.Input[Optional[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
+                 force_new_deployment: pulumi.Input[Optional[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict', 'outputs.ServiceForceNewDeployment']]] = None,
                  health_check_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  launch_type: pulumi.Input[Optional['ServiceLaunchType']] = None,
-                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
-                 monitoring: pulumi.Input[Optional[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
-                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
-                 placement_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]]] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict', 'outputs.ServiceLoadBalancer']]]]] = None,
+                 monitoring: pulumi.Input[Optional[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict', 'outputs.ServiceMonitoringConfiguration']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict', 'outputs.ServiceNetworkConfiguration']]] = None,
+                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict', 'outputs.ServicePlacementConstraint']]]]] = None,
+                 placement_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict', 'outputs.ServicePlacementStrategy']]]]] = None,
                  platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  propagate_tags: pulumi.Input[Optional['ServicePropagateTags']] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  scheduling_strategy: pulumi.Input[Optional['ServiceSchedulingStrategy']] = None,
-                 service_connect_configuration: pulumi.Input[Optional[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict']]] = None,
+                 service_connect_configuration: pulumi.Input[Optional[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict', 'outputs.ServiceConnectConfiguration']]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict', 'outputs.ServiceRegistry']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  task_definition: pulumi.Input[Optional[_builtins.str]] = None,
-                 volume_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]]] = None,
-                 vpc_lattice_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
+                 volume_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict', 'outputs.ServiceVolumeConfiguration']]]]] = None,
+                 vpc_lattice_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict', 'outputs.ServiceVpcLatticeConfiguration']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

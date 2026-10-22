@@ -132,7 +132,7 @@ class DbClusterEndpoint(pulumi.CustomResource):
                  db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  excluded_members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  static_members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RDS::DBClusterEndpoint. Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster. This resource applies only to Aurora DB clusters.
@@ -144,7 +144,7 @@ class DbClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Once either member list is set, it can be changed or replaced by the other list, but both lists cannot be removed in place; removing them requires replacing the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Once either member list is set, it can be changed or replaced by the other list, but both lists cannot be removed in place; removing them requires replacing the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be assigned to the DB cluster endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to be assigned to the DB cluster endpoint.
         """
         ...
     @overload
@@ -175,7 +175,7 @@ class DbClusterEndpoint(pulumi.CustomResource):
                  db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  excluded_members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  static_members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

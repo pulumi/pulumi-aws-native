@@ -97,7 +97,7 @@ class UseCase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_association_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_case_type: pulumi.Input[Optional['UseCaseType']] = None,
                  __props__=None):
         """
@@ -107,7 +107,7 @@ class UseCase(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] integration_association_id: The identifier for the integration association.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input['UseCaseType'] use_case_type: The type of use case to associate to the integration association.
         """
         ...
@@ -136,7 +136,7 @@ class UseCase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_association_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_case_type: pulumi.Input[Optional['UseCaseType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

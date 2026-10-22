@@ -110,11 +110,11 @@ class Campaign(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 campaign_config: pulumi.Input[Optional[Union['CampaignConfigArgs', 'CampaignConfigArgsDict']]] = None,
+                 campaign_config: pulumi.Input[Optional[Union['CampaignConfigArgs', 'CampaignConfigArgsDict', 'outputs.CampaignConfig']]] = None,
                  min_provisioned_tps: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  solution_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A deployment of a solution version that provides real-time recommendations.
@@ -124,7 +124,7 @@ class Campaign(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] min_provisioned_tps: Specifies the requested minimum provisioned transactions per second.
         :param pulumi.Input[_builtins.str] name: The name of the campaign.
         :param pulumi.Input[_builtins.str] solution_version_arn: The ARN of the solution version to deploy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to associate with the campaign.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to associate with the campaign.
         """
         ...
     @overload
@@ -150,11 +150,11 @@ class Campaign(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 campaign_config: pulumi.Input[Optional[Union['CampaignConfigArgs', 'CampaignConfigArgsDict']]] = None,
+                 campaign_config: pulumi.Input[Optional[Union['CampaignConfigArgs', 'CampaignConfigArgsDict', 'outputs.CampaignConfig']]] = None,
                  min_provisioned_tps: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  solution_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

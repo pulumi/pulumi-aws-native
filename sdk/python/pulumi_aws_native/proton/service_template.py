@@ -139,7 +139,7 @@ class ServiceTemplate(pulumi.CustomResource):
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_provisioning: pulumi.Input[Optional['ServiceTemplateProvisioning']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Proton::ServiceTemplate Resource Type
@@ -151,7 +151,7 @@ class ServiceTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] encryption_key: <p>A customer provided encryption key that's used to encrypt data.</p>
         :param pulumi.Input[_builtins.str] name: The name of the service template.
         :param pulumi.Input['ServiceTemplateProvisioning'] pipeline_provisioning: If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
         """
@@ -184,7 +184,7 @@ class ServiceTemplate(pulumi.CustomResource):
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_provisioning: pulumi.Input[Optional['ServiceTemplateProvisioning']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

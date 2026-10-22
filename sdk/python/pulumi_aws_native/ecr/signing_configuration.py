@@ -49,14 +49,14 @@ class SigningConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict', 'outputs.SigningConfigurationRule']]]]] = None,
                  __props__=None):
         """
         The AWS::ECR::SigningConfiguration resource creates or updates the signing configuration for an Amazon ECR registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict']]]] rules: Array of signing rules that define which repositories should be signed and with which signing profiles.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict', 'outputs.SigningConfigurationRule']]]] rules: Array of signing rules that define which repositories should be signed and with which signing profiles.
         """
         ...
     @overload
@@ -82,7 +82,7 @@ class SigningConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict', 'outputs.SigningConfigurationRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

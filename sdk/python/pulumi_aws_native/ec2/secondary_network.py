@@ -83,7 +83,7 @@ class SecondaryNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ipv4_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional['SecondaryNetworkNetworkType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::SecondaryNetwork. Creates a secondary network for RDMA (Remote Direct Memory Access) connectivity.
@@ -92,7 +92,7 @@ class SecondaryNetwork(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ipv4_cidr_block: The IPv4 CIDR block for the secondary network. The CIDR block size must be between /12 and /28.
         :param pulumi.Input['SecondaryNetworkNetworkType'] network_type: The type of secondary network.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the secondary network.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the secondary network.
         """
         ...
     @overload
@@ -120,7 +120,7 @@ class SecondaryNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ipv4_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional['SecondaryNetworkNetworkType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

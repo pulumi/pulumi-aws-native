@@ -130,11 +130,11 @@ class EventType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 entity_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeEntityTypeArgs', 'EventTypeEntityTypeArgsDict']]]]] = None,
-                 event_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeEventVariableArgs', 'EventTypeEventVariableArgsDict']]]]] = None,
-                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeLabelArgs', 'EventTypeLabelArgsDict']]]]] = None,
+                 entity_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeEntityTypeArgs', 'EventTypeEntityTypeArgsDict', 'outputs.EventTypeEntityType']]]]] = None,
+                 event_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeEventVariableArgs', 'EventTypeEventVariableArgsDict', 'outputs.EventTypeEventVariable']]]]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeLabelArgs', 'EventTypeLabelArgsDict', 'outputs.EventTypeLabel']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A resource schema for an EventType in Amazon Fraud Detector.
@@ -142,11 +142,11 @@ class EventType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the event type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventTypeEntityTypeArgs', 'EventTypeEntityTypeArgsDict']]]] entity_types: The event type entity types.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventTypeEventVariableArgs', 'EventTypeEventVariableArgsDict']]]] event_variables: The event type event variables.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventTypeLabelArgs', 'EventTypeLabelArgsDict']]]] labels: The event type labels.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventTypeEntityTypeArgs', 'EventTypeEntityTypeArgsDict', 'outputs.EventTypeEntityType']]]] entity_types: The event type entity types.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventTypeEventVariableArgs', 'EventTypeEventVariableArgsDict', 'outputs.EventTypeEventVariable']]]] event_variables: The event type event variables.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventTypeLabelArgs', 'EventTypeLabelArgsDict', 'outputs.EventTypeLabel']]]] labels: The event type labels.
         :param pulumi.Input[_builtins.str] name: The name for the event type
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with this event type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with this event type.
         """
         ...
     @overload
@@ -173,11 +173,11 @@ class EventType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 entity_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeEntityTypeArgs', 'EventTypeEntityTypeArgsDict']]]]] = None,
-                 event_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeEventVariableArgs', 'EventTypeEventVariableArgsDict']]]]] = None,
-                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeLabelArgs', 'EventTypeLabelArgsDict']]]]] = None,
+                 entity_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeEntityTypeArgs', 'EventTypeEntityTypeArgsDict', 'outputs.EventTypeEntityType']]]]] = None,
+                 event_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeEventVariableArgs', 'EventTypeEventVariableArgsDict', 'outputs.EventTypeEventVariable']]]]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTypeLabelArgs', 'EventTypeLabelArgsDict', 'outputs.EventTypeLabel']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

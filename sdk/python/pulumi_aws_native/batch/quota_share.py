@@ -142,11 +142,11 @@ class QuotaShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict']]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict', 'outputs.QuotaShareCapacityLimit']]]]] = None,
                  job_queue: pulumi.Input[Optional[_builtins.str]] = None,
-                 preemption_configuration: pulumi.Input[Optional[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict']]] = None,
+                 preemption_configuration: pulumi.Input[Optional[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict', 'outputs.QuotaSharePreemptionConfiguration']]] = None,
                  quota_share_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_sharing_configuration: pulumi.Input[Optional[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict']]] = None,
+                 resource_sharing_configuration: pulumi.Input[Optional[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict', 'outputs.QuotaShareResourceSharingConfiguration']]] = None,
                  state: pulumi.Input[Optional['QuotaShareState']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -155,11 +155,11 @@ class QuotaShare(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict']]]] capacity_limits: A list that specifies the quantity and type of compute capacity allocated to the quota share.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict', 'outputs.QuotaShareCapacityLimit']]]] capacity_limits: A list that specifies the quantity and type of compute capacity allocated to the quota share.
         :param pulumi.Input[_builtins.str] job_queue: The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
-        :param pulumi.Input[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict']] preemption_configuration: Specifies the preemption behavior for jobs in a quota share.
+        :param pulumi.Input[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict', 'outputs.QuotaSharePreemptionConfiguration']] preemption_configuration: Specifies the preemption behavior for jobs in a quota share.
         :param pulumi.Input[_builtins.str] quota_share_name: The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-        :param pulumi.Input[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict']] resource_sharing_configuration: Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
+        :param pulumi.Input[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict', 'outputs.QuotaShareResourceSharingConfiguration']] resource_sharing_configuration: Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
         :param pulumi.Input['QuotaShareState'] state: The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
         """
@@ -187,11 +187,11 @@ class QuotaShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict']]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict', 'outputs.QuotaShareCapacityLimit']]]]] = None,
                  job_queue: pulumi.Input[Optional[_builtins.str]] = None,
-                 preemption_configuration: pulumi.Input[Optional[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict']]] = None,
+                 preemption_configuration: pulumi.Input[Optional[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict', 'outputs.QuotaSharePreemptionConfiguration']]] = None,
                  quota_share_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_sharing_configuration: pulumi.Input[Optional[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict']]] = None,
+                 resource_sharing_configuration: pulumi.Input[Optional[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict', 'outputs.QuotaShareResourceSharingConfiguration']]] = None,
                  state: pulumi.Input[Optional['QuotaShareState']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

@@ -454,29 +454,29 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[Any] = None,
                  advanced_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']]] = None,
-                 aiml_options: pulumi.Input[Optional[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
-                 automated_snapshot_pause_options: pulumi.Input[Optional[Union['DomainAutomatedSnapshotPauseOptionsArgs', 'DomainAutomatedSnapshotPauseOptionsArgsDict']]] = None,
-                 cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
-                 cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
-                 deployment_strategy_options: pulumi.Input[Optional[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']]] = None,
-                 domain_endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
+                 advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict', 'outputs.DomainAdvancedSecurityOptionsInput']]] = None,
+                 aiml_options: pulumi.Input[Optional[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict', 'outputs.DomainAimlOptions']]] = None,
+                 automated_snapshot_pause_options: pulumi.Input[Optional[Union['DomainAutomatedSnapshotPauseOptionsArgs', 'DomainAutomatedSnapshotPauseOptionsArgsDict', 'outputs.DomainAutomatedSnapshotPauseOptions']]] = None,
+                 cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']]] = None,
+                 cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']]] = None,
+                 deployment_strategy_options: pulumi.Input[Optional[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict', 'outputs.DomainDeploymentStrategyOptions']]] = None,
+                 domain_endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict', 'outputs.DomainEndpointOptions']]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
-                 encryption_at_rest_options: pulumi.Input[Optional[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']]] = None,
+                 ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict', 'outputs.DomainEbsOptions']]] = None,
+                 encryption_at_rest_options: pulumi.Input[Optional[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict', 'outputs.DomainEncryptionAtRestOptions']]] = None,
                  engine_mode: pulumi.Input[Optional['DomainEngineMode']] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity_center_options: pulumi.Input[Optional[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']]] = None,
+                 identity_center_options: pulumi.Input[Optional[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict', 'outputs.DomainIdentityCenterOptions']]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_publishing_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
-                 node_to_node_encryption_options: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict']]] = None,
-                 off_peak_window_options: pulumi.Input[Optional[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+                 log_publishing_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]]] = None,
+                 node_to_node_encryption_options: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict', 'outputs.DomainNodeToNodeEncryptionOptions']]] = None,
+                 off_peak_window_options: pulumi.Input[Optional[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict', 'outputs.DomainOffPeakWindowOptions']]] = None,
                  skip_shard_migration_wait: pulumi.Input[Optional[_builtins.bool]] = None,
-                 snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
-                 software_update_options: pulumi.Input[Optional[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict', 'outputs.DomainSnapshotOptions']]] = None,
+                 software_update_options: pulumi.Input[Optional[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict', 'outputs.DomainSoftwareUpdateOptions']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_case: pulumi.Input[Optional['DomainUseCase']] = None,
-                 vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict', 'outputs.DomainVpcOptions']]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -487,36 +487,36 @@ class Domain(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
-        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']] advanced_security_options: Specifies options for fine-grained access control and SAML authentication.
+        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict', 'outputs.DomainAdvancedSecurityOptionsInput']] advanced_security_options: Specifies options for fine-grained access control and SAML authentication.
                
                If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
-        :param pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']] aiml_options: Container for parameters required to enable all machine learning features.
-        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Container for the cluster configuration of a domain.
-        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-        :param pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']] domain_endpoint_options: Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
+        :param pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict', 'outputs.DomainAimlOptions']] aiml_options: Container for parameters required to enable all machine learning features.
+        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']] cluster_config: Container for the cluster configuration of a domain.
+        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']] cognito_options: Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
+        :param pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict', 'outputs.DomainEndpointOptions']] domain_endpoint_options: Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
         :param pulumi.Input[_builtins.str] domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
                
                Required when creating a new domain.
                
                > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']] ebs_options: The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-        :param pulumi.Input[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict', 'outputs.DomainEbsOptions']] ebs_options: The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
+        :param pulumi.Input[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict', 'outputs.DomainEncryptionAtRestOptions']] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
                
                If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         :param pulumi.Input['DomainEngineMode'] engine_mode: The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
         :param pulumi.Input[_builtins.str] engine_version: The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-        :param pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']] identity_center_options: Configuration options for controlling IAM Identity Center integration within a domain.
+        :param pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict', 'outputs.DomainIdentityCenterOptions']] identity_center_options: Configuration options for controlling IAM Identity Center integration within a domain.
         :param pulumi.Input[_builtins.str] ip_address_type: Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
-        :param pulumi.Input[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict']] node_to_node_encryption_options: Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
-        :param pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']] off_peak_window_options: Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
-        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
-        :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']] software_update_options: Service software update options for the domain.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]] log_publishing_options: An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
+        :param pulumi.Input[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict', 'outputs.DomainNodeToNodeEncryptionOptions']] node_to_node_encryption_options: Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
+        :param pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict', 'outputs.DomainOffPeakWindowOptions']] off_peak_window_options: Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
+        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict', 'outputs.DomainSnapshotOptions']] snapshot_options: *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
+        :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict', 'outputs.DomainSoftwareUpdateOptions']] software_update_options: Service software update options for the domain.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
         :param pulumi.Input['DomainUseCase'] use_case: The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
-        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']] vpc_options: The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict', 'outputs.DomainVpcOptions']] vpc_options: The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
         """
@@ -546,29 +546,29 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[Any] = None,
                  advanced_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']]] = None,
-                 aiml_options: pulumi.Input[Optional[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
-                 automated_snapshot_pause_options: pulumi.Input[Optional[Union['DomainAutomatedSnapshotPauseOptionsArgs', 'DomainAutomatedSnapshotPauseOptionsArgsDict']]] = None,
-                 cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
-                 cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
-                 deployment_strategy_options: pulumi.Input[Optional[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']]] = None,
-                 domain_endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
+                 advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict', 'outputs.DomainAdvancedSecurityOptionsInput']]] = None,
+                 aiml_options: pulumi.Input[Optional[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict', 'outputs.DomainAimlOptions']]] = None,
+                 automated_snapshot_pause_options: pulumi.Input[Optional[Union['DomainAutomatedSnapshotPauseOptionsArgs', 'DomainAutomatedSnapshotPauseOptionsArgsDict', 'outputs.DomainAutomatedSnapshotPauseOptions']]] = None,
+                 cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']]] = None,
+                 cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']]] = None,
+                 deployment_strategy_options: pulumi.Input[Optional[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict', 'outputs.DomainDeploymentStrategyOptions']]] = None,
+                 domain_endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict', 'outputs.DomainEndpointOptions']]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
-                 encryption_at_rest_options: pulumi.Input[Optional[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']]] = None,
+                 ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict', 'outputs.DomainEbsOptions']]] = None,
+                 encryption_at_rest_options: pulumi.Input[Optional[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict', 'outputs.DomainEncryptionAtRestOptions']]] = None,
                  engine_mode: pulumi.Input[Optional['DomainEngineMode']] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity_center_options: pulumi.Input[Optional[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']]] = None,
+                 identity_center_options: pulumi.Input[Optional[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict', 'outputs.DomainIdentityCenterOptions']]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_publishing_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
-                 node_to_node_encryption_options: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict']]] = None,
-                 off_peak_window_options: pulumi.Input[Optional[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+                 log_publishing_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]]] = None,
+                 node_to_node_encryption_options: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict', 'outputs.DomainNodeToNodeEncryptionOptions']]] = None,
+                 off_peak_window_options: pulumi.Input[Optional[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict', 'outputs.DomainOffPeakWindowOptions']]] = None,
                  skip_shard_migration_wait: pulumi.Input[Optional[_builtins.bool]] = None,
-                 snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
-                 software_update_options: pulumi.Input[Optional[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict', 'outputs.DomainSnapshotOptions']]] = None,
+                 software_update_options: pulumi.Input[Optional[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict', 'outputs.DomainSoftwareUpdateOptions']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_case: pulumi.Input[Optional['DomainUseCase']] = None,
-                 vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict', 'outputs.DomainVpcOptions']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
