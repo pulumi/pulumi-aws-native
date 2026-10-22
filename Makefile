@@ -54,6 +54,9 @@ discovery:: update_submodules codegen
 	git ls-remote https://github.com/cdklabs/awscdk-service-spec refs/heads/main | awk '{print $$1}' > .docs.version
 	$(WORKING_DIR)/bin/$(CODEGEN) -schema-folder $(CFN_SCHEMA_DIR) -version ${VERSION_GENERIC} -schema-urls https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip discovery
 
+	# Pin the latest CDK service spec and regenerate Ref metadata for the weekly PR.
+	$(WORKING_DIR)/bin/$(CODEGEN) --update ref-db
+
 	# Fetch the latest version of botocore
 	git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/boto/botocore '*.*.*' \
 		| tail -n 1 \
@@ -213,20 +216,16 @@ install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 # Required for the codegen action that runs in pulumi/pulumi
 only_build:: build
 
-ref-db::
-	mkdir -p bin
-	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
-	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json
+ref-db:: codegen
+	$(WORKING_DIR)/bin/$(CODEGEN) ref-db
 
-ref-db-auto::
-	mkdir -p bin
-	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
-	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json -auto
+ref-db-update:: codegen
+	$(WORKING_DIR)/bin/$(CODEGEN) --update ref-db
 
-ref-db-report::
-	mkdir -p bin
-	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
-	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json -report
+ref-db-check:: codegen
+	$(WORKING_DIR)/bin/$(CODEGEN) --check ref-db
+
+.PHONY: ref-db ref-db-update ref-db-check
 
 .PHONY: ensure prepare_local_workspace generate_schema generate provider build test_provider_fast verify docs
 
