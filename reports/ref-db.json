@@ -1,0 +1,33 @@
+{
+  "serviceSpec": {
+    "version": "0.1.223",
+    "integrity": "sha512-cf4GM4ERZ3W8dIp6e+pmmfBqWOh6gWHlOXkqkRKjUPn8hiPpWaQyQJFa1DP1sa8Iqtd6ZbENt2Y7ky2qN/zeSQ=="
+  },
+  "resourceCount": 1865,
+  "skipped": {
+    "AWS::IoTFleetHub::Application": "No Ref or primary identifier",
+    "AWS::LookoutMetrics::Alert": "No Ref or primary identifier",
+    "AWS::LookoutMetrics::AnomalyDetector": "No Ref or primary identifier",
+    "AWS::NimbleStudio::LaunchProfile": "No Ref or primary identifier",
+    "AWS::NimbleStudio::StreamingImage": "No Ref or primary identifier",
+    "AWS::NimbleStudio::StudioComponent": "No Ref or primary identifier",
+    "AWS::OpsWorks::App": "No Ref or primary identifier",
+    "AWS::OpsWorks::ElasticLoadBalancerAttachment": "No Ref or primary identifier",
+    "AWS::OpsWorks::Instance": "No Ref or primary identifier",
+    "AWS::OpsWorks::Layer": "No Ref or primary identifier",
+    "AWS::OpsWorks::Stack": "No Ref or primary identifier",
+    "AWS::OpsWorks::UserProfile": "No Ref or primary identifier",
+    "AWS::OpsWorks::Volume": "No Ref or primary identifier",
+    "AWS::OpsWorksCM::Server": "No Ref or primary identifier",
+    "AWS::QuickSight::RefreshSchedule": "Identifiers unavailable as top-level properties: Schedule/ScheduleId",
+    "AWS::S3::StorageLens": "Identifiers unavailable as top-level properties: StorageLensConfiguration/Id",
+    "AWS::Serverless::Api": "No Ref or primary identifier",
+    "AWS::Serverless::Application": "No Ref or primary identifier",
+    "AWS::Serverless::Function": "No Ref or primary identifier",
+    "AWS::Serverless::HttpApi": "No Ref or primary identifier",
+    "AWS::Serverless::LayerVersion": "No Ref or primary identifier",
+    "AWS::Serverless::SimpleTable": "No Ref or primary identifier",
+    "AWS::Serverless::StateMachine": "No Ref or primary identifier"
+  },
+  "overrides": {}
+}

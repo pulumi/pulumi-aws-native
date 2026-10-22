@@ -6,9 +6,35 @@ Reference data used by the `pulumi-aws-native` provider.
 
 Metadata describing the behavior of the [CloudFormation Ref Intrinsic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html).
 
-What Ref returns varies from resource to resource. The only available information on this is free-form text in CloudFormation documentation and anything that can be extracted experimentally. To facilitate building tooling such as `pulumi/pulumi-cdk` that emulates CF behavior, `ref-db.json` collects schematized information describing the behavior of `Ref`.
+What Ref returns varies by resource. `ref-db.json` describes that behavior for tooling such as `pulumi/pulumi-cdk` that emulates CloudFormation.
 
-`ref-db.json` can be edited directly to correct errors or add entries for resources not yet covered.
+Do not edit `ref-db.json` directly. Generate it with:
+
+```sh
+mise exec -- make ref-db
+```
+
+The `ref-db` operation in `provider/cmd/pulumi-gen-aws-native/ref_db.go` downloads the exact `@aws-cdk/aws-service-spec` npm release pinned in `service-spec-version.json`, verifies its SHA-512 integrity, and reads its bundled database. It uses the Go standard library and the existing Ref metadata types. No npm installation is required.
+
+The generator uses CDK's `cfnRefIdentifier`, falling back to `primaryIdentifier` as specified by the CDK resource model. Single identifiers map to `property`. Composite identifiers retain their order and use `properties` with the `|` delimiter. Missing identifiers and nested paths that our metadata cannot represent are skipped and listed in `reports/ref-db.json`.
+
+CDK is the source of truth, including where it disagrees with the previous database. Old mappings are not retained when CDK has no usable identifier.
+
+`ref-db-overrides.json` is initially empty. Add an exception only with specific evidence that CDK is wrong or cannot represent the required behavior, and record that evidence in the required `reason`. Overrides take precedence and appear alongside the upstream values in `reports/ref-db.json`.
+
+Generation also writes a before/after comparison to `.runtime/ref-db-changes.json`. This local report is not committed. `reports/ref-db.json` is deterministic and tracks coverage gaps and overrides.
+
+### Updating the source
+
+```sh
+mise exec -- make ref-db-update
+mise exec -- make ref-db-check
+cd provider && mise exec -- go test ./cmd/pulumi-gen-aws-native -run 'TestRefDB|TestServiceSpec'
+```
+
+`ref-db-update` resolves npm's latest release, verifies and generates from that release, then saves its exact version and integrity. Normal generation never resolves latest. The weekly SDK generation workflow already runs `make discovery`, which invokes the same `--update ref-db` operation alongside the existing docs and botocore refreshes, reusing its codegen build. The pin, generated metadata, and coverage report therefore land together in the automated SDK PR.
+
+The CDK database serialization is an upstream internal format. The importer validates the resource table and property maps before generating mappings. Unsupported layouts fail generation. Missing identifiers and nested paths remain explicit coverage gaps in the report. The historical documentation guessing tool remains under `provider/tools/ref-parser` for reference and is no longer used by the Makefile.
 
 ## regions.json
 
