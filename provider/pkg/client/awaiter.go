@@ -26,20 +26,22 @@ type CloudControlAwaiter interface {
 
 func NewCloudControlAwaiter(client CloudControlApiClient) CloudControlAwaiter {
 	return &ccAwaiterImpl{
-		client: client,
+		client:  client,
+		backoff: retry.NewExponentialJitterBackoff(30 * time.Second),
 	}
 }
 
 type ccAwaiterImpl struct {
-	client CloudControlApiClient
+	client  CloudControlApiClient
+	backoff retry.BackoffDelayer
 }
 
 func (a *ccAwaiterImpl) WaitForResourceOpCompletion(
 	ctx context.Context,
 	pi *types.ProgressEvent,
 ) (*types.ProgressEvent, error) {
-	retryBackoff := retry.NewExponentialJitterBackoff(30 * time.Second)
 	i := 0
+	fallbackIteration := 0
 	for {
 		status := pi.OperationStatus
 		identifier := ""
@@ -68,8 +70,12 @@ func (a *ccAwaiterImpl) WaitForResourceOpCompletion(
 		var pause time.Duration
 		if pi.RetryAfter != nil && pi.RetryAfter.After(time.Now()) {
 			pause = time.Until(*pi.RetryAfter)
+			// AWS-directed waits interrupt the fallback sequence. If the next response
+			// has no future hint, resume polling with the shortest fallback delay.
+			fallbackIteration = 0
 		} else {
-			pause, err = retryBackoff.BackoffDelay(i, err)
+			pause, err = a.backoff.BackoffDelay(fallbackIteration, err)
+			fallbackIteration++
 			if err != nil {
 				return nil, err
 			}
