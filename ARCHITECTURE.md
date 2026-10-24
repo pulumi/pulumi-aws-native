@@ -10,7 +10,8 @@ connects them.
 - `provider/cmd/pulumi-resource-aws-native/`: provider entrypoint and generated schema artifacts
 - `provider/cmd/pulumi-gen-aws-native/`: schema ingestion and generation logic
 - `provider/cmd/cf2pulumi/`: CloudFormation-to-Pulumi conversion CLI
-- `provider/tools/ref-parser/`: reference metadata generation helper
+- `provider/cmd/pulumi-gen-aws-native/ref_db.go`: pinned CDK service spec importer for Ref metadata
+- `provider/tools/ref-parser/`: historical documentation-based reference metadata helper
 - `meta/`: metadata inputs (`ref-db.json`, `regions.json`)
 - `examples/`: integration examples/tests
 - `sdk/`: generated SDK outputs for each language

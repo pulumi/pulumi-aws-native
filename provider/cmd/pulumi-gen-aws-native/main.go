@@ -19,6 +19,7 @@ import (
 	"slices"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
@@ -88,6 +89,10 @@ func main() {
 
 	var version, operation, schemaFolder, docsURL, metadataFolder string
 	var jsonSchemaUrls schemaUrls
+	var refOptions refDBOptions
+	flag.BoolVar(&refOptions.Update, "update", false, "For ref-db, pin the latest CDK service spec release")
+	flag.BoolVar(&refOptions.Check, "check", false, "For ref-db, check generated files without writing")
+	flag.StringVar(&refOptions.Database, "database", "", "For ref-db, read a local uncompressed CDK database")
 	flag.StringVar(&version, "version", "", "the provider version to record in the generated code")
 	flag.StringVar(&schemaFolder, "schema-folder", "", "The folder containing the CloudFormation schema files")
 	flag.StringVar(&docsURL, "docs-url", "", "The URL to download the CloudFormation docs")
@@ -112,6 +117,17 @@ func main() {
 	)
 	if version == "" && operation == "" && (jsonSchemaUrls == nil && docsURL == "") {
 		flag.Usage()
+		return
+	}
+
+	if operation == "ref-db" {
+		source := serviceSpecSource{
+			client:   &http.Client{Timeout: 2 * time.Minute},
+			registry: serviceSpecRegistry,
+		}
+		if err := runRefDB(ctx.Background(), ".", refOptions, source); err != nil {
+			fatalf("error generating Ref metadata: %v", err)
+		}
 		return
 	}
 
