@@ -1,3 +1,0 @@
-name: aws-cidr-ts
-runtime: nodejs
-description: A TypeScript Pulumi program with AWS Cloud Control provider
