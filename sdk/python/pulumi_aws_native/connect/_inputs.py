@@ -3982,6 +3982,7 @@ class HoursOfOperationsIdentifierArgs:
 class InstanceAttributesArgsDict(TypedDict):
     inbound_calls: pulumi.Input[_builtins.bool]
     outbound_calls: pulumi.Input[_builtins.bool]
+    auto_mute_agent_on_hold: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     auto_resolve_best_voices: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     contact_lens: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     contactflow_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
@@ -3999,6 +4000,7 @@ class InstanceAttributesArgs:
     def __init__(__self__, *,
                  inbound_calls: pulumi.Input[_builtins.bool],
                  outbound_calls: pulumi.Input[_builtins.bool],
+                 auto_mute_agent_on_hold: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_best_voices: pulumi.Input[Optional[_builtins.bool]] = None,
                  contact_lens: pulumi.Input[Optional[_builtins.bool]] = None,
                  contactflow_logs: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -4012,6 +4014,8 @@ class InstanceAttributesArgs:
                  use_custom_tts_voices: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "inbound_calls", inbound_calls)
         pulumi.set(__self__, "outbound_calls", outbound_calls)
+        if auto_mute_agent_on_hold is not None:
+            pulumi.set(__self__, "auto_mute_agent_on_hold", auto_mute_agent_on_hold)
         if auto_resolve_best_voices is not None:
             pulumi.set(__self__, "auto_resolve_best_voices", auto_resolve_best_voices)
         if contact_lens is not None:
@@ -4052,6 +4056,15 @@ class InstanceAttributesArgs:
     @outbound_calls.setter
     def outbound_calls(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "outbound_calls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoMuteAgentOnHold")
+    def auto_mute_agent_on_hold(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "auto_mute_agent_on_hold")
+
+    @auto_mute_agent_on_hold.setter
+    def auto_mute_agent_on_hold(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_mute_agent_on_hold", value)
 
     @_builtins.property
     @pulumi.getter(name="autoResolveBestVoices")

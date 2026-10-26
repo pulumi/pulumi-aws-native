@@ -177,6 +177,7 @@ AWS::Bedrock::KnowledgeBasePolicy
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
 AWS::Bedrock::ResourcePolicy
+AWS::Bedrock::RetrievalInstruction
 AWS::Bedrock::Session
 AWS::BedrockAgentCore::ApiKeyCredentialProvider
 AWS::BedrockAgentCore::BrowserCustom
@@ -286,21 +287,25 @@ AWS::CloudTrail::Dashboard
 AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::ResourcePolicy
 AWS::CloudTrail::Trail
+AWS::CloudWatch::AccessProfile
 AWS::CloudWatch::Alarm
 AWS::CloudWatch::AlarmMuteRule
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::Dashboard
+AWS::CloudWatch::DomainForOrganization
 AWS::CloudWatch::InsightRule
 AWS::CloudWatch::Integration
 AWS::CloudWatch::LogAlarm
 AWS::CloudWatch::MetricStream
 AWS::CloudWatch::OTelEnrichment
+AWS::CloudWatch::OmniDashboard
 AWS::CloudWatch::ResourceMetricsConfiguration
 AWS::CloudWatch::View
 AWS::CodeArtifact::Domain
 AWS::CodeArtifact::PackageGroup
 AWS::CodeArtifact::Repository
 AWS::CodeBuild::Fleet
+AWS::CodeBuild::Project
 AWS::CodeBuild::ReportGroup
 AWS::CodeBuild::SourceCredential
 AWS::CodeCommit::Repository
@@ -595,6 +600,7 @@ AWS::EC2::TrafficMirrorSession
 AWS::EC2::TrafficMirrorTarget
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayAttachment
+AWS::EC2::TransitGatewayAttachmentNatConfiguration
 AWS::EC2::TransitGatewayConnect
 AWS::EC2::TransitGatewayConnectPeer
 AWS::EC2::TransitGatewayMeteringPolicy
@@ -648,6 +654,8 @@ AWS::ECS::ClusterCapacityProviderAssociations
 AWS::ECS::Daemon
 AWS::ECS::DaemonTaskDefinition
 AWS::ECS::ExpressGatewayService
+AWS::ECS::Gateway
+AWS::ECS::GatewayClusterAssociations
 AWS::ECS::PrimaryTaskSet
 AWS::ECS::Service
 AWS::ECS::TaskDefinition
@@ -883,6 +891,7 @@ AWS::IoT::Job
 AWS::IoT::JobTemplate
 AWS::IoT::Logging
 AWS::IoT::MitigationAction
+AWS::IoT::OTAUpdate
 AWS::IoT::Policy
 AWS::IoT::PolicyPrincipalAttachment
 AWS::IoT::ProvisioningTemplate
@@ -1142,6 +1151,7 @@ AWS::NetworkManager::TransitGatewayRegistration
 AWS::NetworkManager::TransitGatewayRouteTableAttachment
 AWS::NetworkManager::VpcAttachment
 AWS::NetworkMonitor::Monitor
+AWS::NetworkMonitor::Probe
 AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio
@@ -1353,6 +1363,7 @@ AWS::Route53RecoveryReadiness::Cell
 AWS::Route53RecoveryReadiness::ReadinessCheck
 AWS::Route53RecoveryReadiness::RecoveryGroup
 AWS::Route53RecoveryReadiness::ResourceSet
+AWS::Route53Resolver::FirewallConfig
 AWS::Route53Resolver::FirewallDomainList
 AWS::Route53Resolver::FirewallRuleGroup
 AWS::Route53Resolver::FirewallRuleGroupAssociation
@@ -1521,6 +1532,7 @@ AWS::SecurityAgent::Application
 AWS::SecurityAgent::Artifact
 AWS::SecurityAgent::Integration
 AWS::SecurityAgent::Pentest
+AWS::SecurityAgent::PrivateConnection
 AWS::SecurityAgent::SecurityRequirementPack
 AWS::SecurityAgent::TargetDomain
 AWS::SecurityHub::ActionTarget

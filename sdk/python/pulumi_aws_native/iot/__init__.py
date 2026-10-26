@@ -35,6 +35,7 @@ from .get_job import *
 from .get_job_template import *
 from .get_logging import *
 from .get_mitigation_action import *
+from .get_ota_update import *
 from .get_policy import *
 from .get_provisioning_template import *
 from .get_resource_specific_logging import *
@@ -53,6 +54,7 @@ from .job import *
 from .job_template import *
 from .logging import *
 from .mitigation_action import *
+from .ota_update import *
 from .policy import *
 from .policy_principal_attachment import *
 from .provisioning_template import *

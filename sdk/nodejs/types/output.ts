@@ -8098,6 +8098,7 @@ export namespace arcregionswitch {
         arn?: string;
         crossAccountRole?: string;
         externalId?: string;
+        payload?: string;
     }
 
     export interface PlanNeptuneGlobalDatabaseConfiguration {
@@ -17775,6 +17776,28 @@ export namespace bedrock {
         name: string;
     }
 
+    /**
+     * The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+     */
+    export interface RetrievalInstructionInstruction {
+        /**
+         * How the answer is structured, including how sources are cited.
+         */
+        answerFormat?: string;
+        /**
+         * Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+         */
+        answerPolicy?: string;
+        /**
+         * Who the assistant is: identity, tone and language.
+         */
+        persona?: string;
+        /**
+         * How to interpret and decompose the question, and what to prioritise when searching.
+         */
+        retrievalGuidance?: string;
+    }
+
 }
 
 export namespace bedrockagentcore {
@@ -19559,6 +19582,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         /**
          * Status of the memory strategy
          */
@@ -19587,6 +19612,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         reflectionConfiguration?: outputs.bedrockagentcore.MemoryEpisodicReflectionConfigurationInput;
         /**
          * Status of the memory strategy
@@ -19696,6 +19723,13 @@ export namespace bedrockagentcore {
         minValue?: number;
     }
 
+    /**
+     * Specifies the record expiry (LTM TTL) for a strategy. Provide RecordExpiryDurationDays to configure the duration after which records expire. Omit the specification entirely to leave records without an expiry on create, or to clear a previously configured expiry on update (the handler derives the removal from the previous and desired state).
+     */
+    export interface MemoryRecordExpirySpecification {
+        recordExpiryDurationDays?: number;
+    }
+
     export interface MemoryRecordSchema {
         metadataSchema?: outputs.bedrockagentcore.MemoryMetadataSchemaEntry[];
     }
@@ -19716,6 +19750,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         /**
          * Status of the memory strategy
          */
@@ -19784,6 +19820,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         /**
          * Status of the memory strategy
          */
@@ -19835,6 +19873,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         /**
          * Status of the memory strategy
          */
@@ -20499,27 +20539,33 @@ export namespace bedrockagentcore {
         authorizationPrivateKeySource?: enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType;
     }
 
-    export interface PaymentManagerAuthorizerConfiguration {
-        customJwtAuthorizer: outputs.bedrockagentcore.PaymentManagerCustomJwtAuthorizerConfiguration;
+    /**
+     * The authorizer configuration for the payment manager
+     */
+    export interface PaymentManagerAuthorizerConfigurationProperties {
+        customJwtAuthorizer: outputs.bedrockagentcore.PaymentManagerCustomJwtAuthorizer;
     }
 
-    export interface PaymentManagerAuthorizingClaimMatchValueType {
-        claimMatchOperator: enums.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator;
-        claimMatchValue: outputs.bedrockagentcore.PaymentManagerClaimMatchValueType;
+    export interface PaymentManagerAuthorizingClaimMatchValue {
+        claimMatchOperator: enums.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator;
+        claimMatchValue: outputs.bedrockagentcore.PaymentManagerClaimMatchValue0Properties | outputs.bedrockagentcore.PaymentManagerClaimMatchValue1Properties;
     }
 
-    export interface PaymentManagerClaimMatchValueType {
-        matchValueString?: string;
-        matchValueStringList?: string[];
+    export interface PaymentManagerClaimMatchValue0Properties {
+        matchValueString: string;
+    }
+
+    export interface PaymentManagerClaimMatchValue1Properties {
+        matchValueStringList: string[];
     }
 
     export interface PaymentManagerCustomClaimValidationType {
-        authorizingClaimMatchValue: outputs.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueType;
+        authorizingClaimMatchValue: outputs.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValue;
         inboundTokenClaimName: string;
         inboundTokenClaimValueType: enums.bedrockagentcore.PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType;
     }
 
-    export interface PaymentManagerCustomJwtAuthorizerConfiguration {
+    export interface PaymentManagerCustomJwtAuthorizer {
         allowedAudience?: string[];
         allowedClients?: string[];
         allowedScopes?: string[];
@@ -20527,8 +20573,11 @@ export namespace bedrockagentcore {
         discoveryUrl: string;
     }
 
+    /**
+     * The workload identity details for the payment manager
+     */
     export interface PaymentManagerWorkloadIdentityDetails {
-        workloadIdentityArn: string;
+        workloadIdentityArn?: string;
     }
 
     /**
@@ -26093,6 +26142,23 @@ export namespace cloudwatch {
     }
 
     /**
+     * Identity Center configuration. Required when identityProviders includes IDC.
+     */
+    export interface DomainForOrganizationIdentityCenterConfiguration {
+        /**
+         * Identity Center instance ARN
+         */
+        identityCenterInstanceArn?: string;
+    }
+
+    /**
+     * Identity provider configuration for the domain.
+     */
+    export interface DomainForOrganizationIdentityProviderConfiguration {
+        identityCenterConfiguration?: outputs.cloudwatch.DomainForOrganizationIdentityCenterConfiguration;
+    }
+
+    /**
      * Write-only API-key credential material for the integration. Stored encrypted and never returned on read.
      */
     export interface IntegrationCredential {
@@ -26440,6 +26506,573 @@ export namespace codebuild {
         vpcId?: string;
     }
 
+    export interface ProjectArtifacts {
+        /**
+         * An identifier for this artifact definition.
+         */
+        artifactIdentifier?: string;
+        /**
+         * Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an `invalidInputException` is thrown.
+         */
+        encryptionDisabled?: boolean;
+        /**
+         * Information about the build output artifact location:
+         * * If `type` is set to `CODEPIPELINE`, AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output locations instead of CodeBuild.
+         * * If `type` is set to `NO_ARTIFACTS`, this value is ignored if specified, because no build output is produced.
+         * * If `type` is set to `S3`, this is the name of the output bucket.
+         *   If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+         */
+        location?: string;
+        /**
+         * Along with `path` and `namespaceType` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+         *
+         * - If `type` is set to `CODEPIPELINE` , AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket.
+         *
+         * For example:
+         *
+         * - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , then the output artifact is stored in `MyArtifacts/ *build-ID* /MyArtifact.zip` .
+         * - If `path` is empty, `namespaceType` is set to `NONE` , and `name` is set to " `/` ", the output artifact is stored in the root of the output bucket.
+         * - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to " `/` ", the output artifact is stored in `MyArtifacts/ *build-ID*` .
+         *
+         * If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+         */
+        name?: string;
+        /**
+         * Along with `path` and `name` , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:
+         *
+         * - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , valid values include:
+         *
+         * - `BUILD_ID` : Include the build ID in the location of the build output artifact.
+         * - `NONE` : Do not include the build ID. This is the default if `namespaceType` is not specified.
+         *
+         * For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in `MyArtifacts/<build-ID>/MyArtifact.zip` .
+         */
+        namespaceType?: string;
+        /**
+         * If set to true a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique.
+         */
+        overrideArtifactName?: boolean;
+        /**
+         * The type of build output artifact to create:
+         *
+         * - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output artifacts instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , valid values include:
+         *
+         * - `NONE` : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if `packaging` is not specified.
+         * - `ZIP` : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+         */
+        packaging?: string;
+        /**
+         * Along with `namespaceType` and `name` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+         *
+         * - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , this is the path to the output artifact. If `path` is not specified, `path` is not used.
+         *
+         * For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `NONE` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in the output bucket at `MyArtifacts/MyArtifact.zip` .
+         */
+        path?: string;
+        /**
+         * The type of build output artifact. Valid values include:
+         * * `CODEPIPELINE`: The build project has build output generated through CodePipeline.
+         *   The `CODEPIPELINE` type is not supported for `secondaryArtifacts`.
+         * * `NO_ARTIFACTS`: The build project does not produce any build output.
+         * * `S3`: The build project stores build output in Amazon S3.
+         */
+        type: string;
+    }
+
+    export interface ProjectBatchRestrictions {
+        /**
+         * An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide* for these values.
+         */
+        computeTypesAllowed?: string[];
+        fleetsAllowed?: string[];
+        /**
+         * Specifies the maximum number of builds allowed.
+         */
+        maximumBuildsAllowed?: number;
+    }
+
+    export interface ProjectBuildBatchConfig {
+        /**
+         * Specifies how build status reports are sent to the source provider for the batch build. This property is only used when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider.
+         *
+         * - **REPORT_AGGREGATED_BATCH** - (Default) Aggregate all of the build statuses into a single status report.
+         * - **REPORT_INDIVIDUAL_BUILDS** - Send a separate status report for each individual build.
+         */
+        batchReportMode?: string;
+        /**
+         * Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+         */
+        combineArtifacts?: boolean;
+        /**
+         * A `BatchRestrictions` object that specifies the restrictions for the batch build.
+         */
+        restrictions?: outputs.codebuild.ProjectBatchRestrictions;
+        /**
+         * Specifies the service role ARN for the batch build project.
+         */
+        serviceRole?: string;
+        /**
+         * Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+         */
+        timeoutInMins?: number;
+    }
+
+    export interface ProjectBuildStatusConfig {
+        /**
+         * Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         *
+         * - **Bitbucket** - This parameter is used for the `name` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+         * - **GitHub/GitHub Enterprise Server** - This parameter is used for the `context` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+         */
+        context?: string;
+        /**
+         * Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         *
+         * - **Bitbucket** - This parameter is used for the `url` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+         * - **GitHub/GitHub Enterprise Server** - This parameter is used for the `target_url` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+         */
+        targetUrl?: string;
+    }
+
+    export interface ProjectCache {
+        /**
+         * Defines the scope of the cache. You can use this namespace to share a cache across multiple projects.
+         */
+        cacheNamespace?: string;
+        /**
+         * Information about the cache location:
+         *
+         * - `NO_CACHE` or `LOCAL` : This value is ignored.
+         * - `S3` : This is the S3 bucket name/prefix.
+         */
+        location?: string;
+        /**
+         * An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for `LOCAL` cache types.
+         *
+         * Possible values are:
+         *
+         * - **LOCAL_SOURCE_CACHE** - Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+         * - **LOCAL_DOCKER_LAYER_CACHE** - Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
+         *
+         * > - You can use a Docker layer cache in the Linux environment only.
+         * > - The `privileged` flag must be set so that your project has the required Docker permissions.
+         * > - You should consider the security implications before you use a Docker layer cache.
+         * - **LOCAL_CUSTOM_CACHE** - Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
+         *
+         * - Only directories can be specified for caching. You cannot specify individual files.
+         * - Symlinks are used to reference cached directories.
+         * - Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+         */
+        modes?: string[];
+        /**
+         * The type of cache used by the build project. Allowed values: NO_CACHE | S3 | LOCAL.
+         */
+        type: string;
+    }
+
+    export interface ProjectCloudWatchLogsConfig {
+        /**
+         * The group name of the logs in CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+         */
+        groupName?: string;
+        /**
+         * The current status of the logs in CloudWatch Logs for a build project. Valid values are:
+         *
+         * - `ENABLED` : CloudWatch Logs are enabled for this build project.
+         * - `DISABLED` : CloudWatch Logs are not enabled for this build project.
+         */
+        status: string;
+        /**
+         * The prefix of the stream name of the CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+         */
+        streamName?: string;
+    }
+
+    export interface ProjectDockerServer {
+        /**
+         * Information about the compute resources the docker server uses. Valid Values: BUILD_GENERAL1_SMALL | BUILD_GENERAL1_MEDIUM | BUILD_GENERAL1_LARGE | BUILD_GENERAL1_XLARGE | BUILD_GENERAL1_2XLARGE | BUILD_LAMBDA_1GB | BUILD_LAMBDA_2GB | BUILD_LAMBDA_4GB | BUILD_LAMBDA_8GB | BUILD_LAMBDA_10GB | ATTRIBUTE_BASED_COMPUTE | CUSTOM_INSTANCE_TYPE
+         */
+        computeType: string;
+        /**
+         * A list of one or more security groups IDs.
+         */
+        securityGroupIds?: string[];
+    }
+
+    export interface ProjectEnvironment {
+        /**
+         * The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project. For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
+         */
+        certificate?: string;
+        /**
+         * The type of compute environment. This determines the number of CPU cores and memory the build environment uses. Available values include:
+         *
+         * - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
+         *
+         * > If you use `ATTRIBUTE_BASED_COMPUTE` , you must define your attributes by using `computeConfiguration` . AWS CodeBuild will select the cheapest instance that satisfies your specified attributes. For more information, see [Reserved capacity environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types) in the *AWS CodeBuild User Guide* .
+         * - `BUILD_GENERAL1_SMALL` : Use up to 4 GiB memory and 2 vCPUs for builds.
+         * - `BUILD_GENERAL1_MEDIUM` : Use up to 8 GiB memory and 4 vCPUs for builds.
+         * - `BUILD_GENERAL1_LARGE` : Use up to 16 GiB memory and 8 vCPUs for builds, depending on your environment type.
+         * - `BUILD_GENERAL1_XLARGE` : Use up to 72 GiB memory and 36 vCPUs for builds, depending on your environment type.
+         * - `BUILD_GENERAL1_2XLARGE` : Use up to 144 GiB memory, 72 vCPUs, and 824 GB of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.
+         * - `BUILD_LAMBDA_1GB` : Use up to 1 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_2GB` : Use up to 2 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_4GB` : Use up to 4 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_8GB` : Use up to 8 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_10GB` : Use up to 10 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         *
+         * If you use `BUILD_GENERAL1_SMALL` :
+         *
+         * - For environment type `LINUX_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs for builds.
+         * - For environment type `LINUX_GPU_CONTAINER` , you can use up to 16 GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.
+         * - For environment type `ARM_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs on ARM-based processors for builds.
+         *
+         * If you use `BUILD_GENERAL1_LARGE` :
+         *
+         * - For environment type `LINUX_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs for builds.
+         * - For environment type `LINUX_GPU_CONTAINER` , you can use up to 255 GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.
+         * - For environment type `ARM_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs on ARM-based processors for builds.
+         *
+         * For more information, see [On-demand environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) in the *AWS CodeBuild User Guide.*
+         */
+        computeType: string;
+        /**
+         * Contains docker server information.
+         */
+        dockerServer?: outputs.codebuild.ProjectDockerServer;
+        /**
+         * A set of environment variables to make available to builds for this build project.
+         */
+        environmentVariables?: outputs.codebuild.ProjectEnvironmentVariable[];
+        fleet?: outputs.codebuild.ProjectFleet;
+        /**
+         * The kernel version of the host operating system for the build environment. Allowed values: LINUX_KERNEL_4 | LINUX_KERNEL_6 | LINUX_KERNEL_LATEST
+         */
+        hostKernel?: string;
+        /**
+         * The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:
+         *
+         * - For an image tag: `<registry>/<repository>:<tag>` . For example, in the Docker repository that CodeBuild uses to manage its Docker images, this would be `aws/codebuild/standard:4.0` .
+         * - For an image digest: `<registry>/<repository>@<digest>` . For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use `<registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf` .
+         *
+         * For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-available.html) in the *AWS CodeBuild user guide* .
+         */
+        image: string;
+        /**
+         * The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
+         *
+         * - `CODEBUILD` specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.
+         * - `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role.
+         *
+         * When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+         */
+        imagePullCredentialsType?: string;
+        /**
+         * Enables running the Docker daemon inside a Docker container. Set to true only if the build project is used to build Docker images. Otherwise, a build that attempts to interact with the Docker daemon fails. The default setting is `false` .
+         *
+         * You can initialize the Docker daemon during the install phase of your build by adding one of the following sets of commands to the install phase of your buildspec file:
+         *
+         * If the operating system's base image is Ubuntu Linux:
+         *
+         * `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+         *
+         * `- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"`
+         *
+         * If the operating system's base image is Alpine Linux and the previous command does not work, add the `-t` argument to `timeout` :
+         *
+         * `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+         *
+         * `- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"`
+         */
+        privilegedMode?: boolean;
+        /**
+         * `RegistryCredential` is a property of the [AWS::CodeBuild::Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment) property that specifies information about credentials that provide access to a private Docker registry. When this is set:
+         *
+         * - `imagePullCredentialsType` must be set to `SERVICE_ROLE` .
+         * - images cannot be curated or an Amazon ECR image.
+         */
+        registryCredential?: outputs.codebuild.ProjectRegistryCredential;
+        /**
+         * The type of build environment to use for related builds.
+         *
+         * > If you're using compute fleets during project creation, `type` will be ignored.
+         *
+         * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+         */
+        type: string;
+    }
+
+    export interface ProjectEnvironmentVariable {
+        /**
+         * The name or key of the environment variable.
+         */
+        name: string;
+        /**
+         * The type of environment variable. Valid values include:
+         *
+         * - `PARAMETER_STORE` : An environment variable stored in Systems Manager Parameter Store. For environment variables of this type, specify the name of the parameter as the `value` of the EnvironmentVariable. The parameter value will be substituted for the name at runtime. You can also define Parameter Store environment variables in the buildspec. To learn how to do so, see [env/parameter-store](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) in the *AWS CodeBuild User Guide* .
+         * - `PLAINTEXT` : An environment variable in plain text format. This is the default value.
+         * - `SECRETS_MANAGER` : An environment variable stored in AWS Secrets Manager . For environment variables of this type, specify the name of the secret as the `value` of the EnvironmentVariable. The secret value will be substituted for the name at runtime. You can also define AWS Secrets Manager environment variables in the buildspec. To learn how to do so, see [env/secrets-manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager) in the *AWS CodeBuild User Guide* .
+         */
+        type?: string;
+        /**
+         * The value of the environment variable.
+         *
+         * > We strongly discourage the use of `PLAINTEXT` environment variables to store sensitive values, especially AWS secret key IDs. `PLAINTEXT` environment variables can be displayed in plain text using the AWS CodeBuild console and the AWS CLI . For sensitive values, we recommend you use an environment variable of type `PARAMETER_STORE` or `SECRETS_MANAGER` .
+         */
+        value: string;
+    }
+
+    export interface ProjectFileSystemLocation {
+        /**
+         * The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the `identifier` in all capital letters to `CODEBUILD_` . For example, if you specify `my_efs` for `identifier` , a new environment variable is create named `CODEBUILD_MY_EFS` .
+         *
+         * The `identifier` is used to mount your file system.
+         */
+        identifier: string;
+        /**
+         * A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path` . You can find the DNS name of file system when you view it in the Amazon EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is `fs-abcd1234.efs.us-west-2.amazonaws.com` , and its mount directory is `my-efs-mount-directory` , then the `location` is `fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory` .
+         *
+         * The directory path in the format `efs-dns-name:/directory-path` is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+         */
+        location: string;
+        /**
+         * The mount options for a file system created by Amazon EFS. The default mount options used by CodeBuild are `nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2` . For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) .
+         */
+        mountOptions?: string;
+        /**
+         * The location in the container where you mount the file system.
+         */
+        mountPoint: string;
+        /**
+         * The type of the file system. The one supported type is `EFS` .
+         */
+        type: string;
+    }
+
+    export interface ProjectFleet {
+        /**
+         * Specifies the compute fleet ARN for the build project.
+         */
+        fleetArn?: string;
+    }
+
+    export interface ProjectGitSubmodulesConfig {
+        /**
+         * Set to true to fetch Git submodules for your AWS CodeBuild build project.
+         */
+        fetchSubmodules: boolean;
+    }
+
+    export interface ProjectLogsConfig {
+        /**
+         * Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default.
+         */
+        cloudWatchLogs?: outputs.codebuild.ProjectCloudWatchLogsConfig;
+        /**
+         * Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+         */
+        s3Logs?: outputs.codebuild.ProjectS3LogsConfig;
+    }
+
+    export interface ProjectPullRequestBuildPolicy {
+        approverRoles?: string[];
+        requiresCommentApproval: string;
+    }
+
+    export interface ProjectRegistryCredential {
+        /**
+         * The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager .
+         *
+         * > The `credential` can use the name of the credentials only if they exist in your current AWS Region .
+         */
+        credential: string;
+        /**
+         * The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager .
+         */
+        credentialProvider: string;
+    }
+
+    export interface ProjectS3LogsConfig {
+        /**
+         * Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+         */
+        encryptionDisabled?: boolean;
+        /**
+         * The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is `my-bucket` , and your path prefix is `build-log` , then acceptable formats are `my-bucket/build-log` or `arn:aws:s3:::my-bucket/build-log` .
+         */
+        location?: string;
+        /**
+         * The current status of the S3 build logs. Valid values are:
+         *
+         * - `ENABLED` : S3 build logs are enabled for this build project.
+         * - `DISABLED` : S3 build logs are not enabled for this build project.
+         */
+        status: string;
+    }
+
+    export interface ProjectScopeConfiguration {
+        /**
+         * The domain of the GitHub Enterprise organization or the GitLab Self Managed group. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE or GITLAB_SELF_MANAGED.
+         */
+        domain?: string;
+        /**
+         * The name of either the enterprise or organization that will send webhook events to CodeBuild, depending on if the webhook is a global or organization webhook respectively.
+         */
+        name: string;
+        /**
+         * The type of scope for a GitHub or GitLab webhook. The scope default is GITHUB_ORGANIZATION. Allowed values: GITHUB_ORGANIZATION | GITHUB_GLOBAL | GITLAB_GROUP
+         */
+        scope?: string;
+    }
+
+    export interface ProjectSource {
+        /**
+         * Information about the authorization settings for AWS CodeBuild to access the source code to be built.
+         */
+        auth?: outputs.codebuild.ProjectSourceAuth;
+        /**
+         * The build specification for the project. If this value is not provided, then the source code must contain a buildspec file named `buildspec.yml` at the root level. If this value is provided, it can be either a single string containing the entire build specification, or the path to an alternate buildspec file relative to the value of the built-in environment variable `CODEBUILD_SRC_DIR` . The alternate buildspec file can have a name other than `buildspec.yml` , for example `myspec.yml` or `build_spec_qa.yml` or similar. For more information, see the [Build Spec Reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example) in the *AWS CodeBuild User Guide* .
+         */
+        buildSpec?: string;
+        /**
+         * Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB` , `GITHUB_ENTERPRISE` , or `BITBUCKET` .
+         */
+        buildStatusConfig?: outputs.codebuild.ProjectBuildStatusConfig;
+        /**
+         * The depth of history to download. Minimum value is 0. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project. If your source type is Amazon S3, this value is not supported.
+         */
+        gitCloneDepth?: number;
+        /**
+         * Information about the Git submodules configuration for the build project.
+         */
+        gitSubmodulesConfig?: outputs.codebuild.ProjectGitSubmodulesConfig;
+        /**
+         * This is used with GitHub Enterprise only. Set to true to ignore SSL warnings while connecting to your GitHub Enterprise project repository. The default value is `false` . `InsecureSsl` should be used for testing purposes only. It should not be used in a production environment.
+         */
+        insecureSsl?: boolean;
+        /**
+         * Information about the location of the source code to be built. Valid values include:
+         *
+         * - For source code settings that are specified in the source action of a pipeline in CodePipeline, `location` should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source action instead of this value.
+         * - For source code in an CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the buildspec file (for example, `https://git-codecommit.<region-ID>.amazonaws.com/v1/repos/<repo-name>` ).
+         * - For source code in an Amazon S3 input bucket, one of the following.
+         *
+         * - The path to the ZIP file that contains the source code (for example, `<bucket-name>/<path>/<object-name>.zip` ).
+         * - The path to the folder that contains the source code (for example, `<bucket-name>/<path-to-source-code>/<folder>/` ).
+         * - For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub *Authorize application* page, for *Organization access* , choose *Request access* next to each repository you want to allow AWS CodeBuild to have access to, and then choose *Authorize application* . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+         * - For source code in an GitLab or self-managed GitLab repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitLab account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitLab, on the Connections *Authorize application* page, choose *Authorize* . Then on the AWS CodeConnections *Create GitLab connection* page, choose *Connect to GitLab* . (After you have connected to your GitLab account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to override the default connection and use this connection instead, set the `auth` object's `type` value to `CODECONNECTIONS` in the `source` object.
+         * - For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket *Confirm access to your account* page, choose *Grant access* . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+         *
+         * If you specify `CODEPIPELINE` for the `Type` property, don't specify this property. For all of the other types, you must specify `Location` .
+         */
+        location?: string;
+        /**
+         * Set to true to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an `invalidInputException` is thrown.
+         */
+        reportBuildStatus?: boolean;
+        /**
+         * An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+         */
+        sourceIdentifier?: string;
+        /**
+         * The type of repository that contains the source code to be built. Valid values include:
+         *
+         * - `BITBUCKET` : The source code is in a Bitbucket repository.
+         * - `CODECOMMIT` : The source code is in an CodeCommit repository.
+         * - `CODEPIPELINE` : The source code settings are specified in the source action of a pipeline in CodePipeline.
+         * - `GITHUB` : The source code is in a GitHub repository.
+         * - `GITHUB_ENTERPRISE` : The source code is in a GitHub Enterprise Server repository.
+         * - `GITLAB` : The source code is in a GitLab repository.
+         * - `GITLAB_SELF_MANAGED` : The source code is in a self-managed GitLab repository.
+         * - `NO_SOURCE` : The project does not have input source code.
+         * - `S3` : The source code is in an Amazon S3 bucket.
+         */
+        type: string;
+    }
+
+    export interface ProjectSourceAuth {
+        /**
+         * The resource value that applies to the specified authorization type.
+         */
+        resource?: string;
+        /**
+         * The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.
+         */
+        type: string;
+    }
+
+    export interface ProjectSourceVersion {
+        /**
+         * An identifier for a source in the build project. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+         */
+        sourceIdentifier: string;
+        /**
+         * The source version for the corresponding source identifier. If specified, must be one of:
+         *
+         * - For CodeCommit: the commit ID, branch, or Git tag to use.
+         * - For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format `pr/pull-request-ID` (for example, `pr/25` ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+         * - For GitLab: the commit ID, branch, or Git tag to use.
+         * - For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+         * - For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
+         *
+         * For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
+         */
+        sourceVersion?: string;
+    }
+
+    export interface ProjectTriggers {
+        /**
+         * Specifies the type of build this webhook will trigger. Allowed values are:
+         *
+         * - **BUILD** - A single build
+         * - **BUILD_BATCH** - A batch build
+         */
+        buildType?: string;
+        /**
+         * A list of lists of `WebhookFilter` objects used to determine which webhook events are triggered. At least one `WebhookFilter` in the array must specify `EVENT` as its type.
+         */
+        filterGroups?: outputs.codebuild.ProjectWebhookFilter[][];
+        pullRequestBuildPolicy?: outputs.codebuild.ProjectPullRequestBuildPolicy;
+        /**
+         * Contains configuration information about the scope for a webhook.
+         */
+        scopeConfiguration?: outputs.codebuild.ProjectScopeConfiguration;
+        /**
+         * Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+         */
+        webhook?: boolean;
+    }
+
+    export interface ProjectVpcConfig {
+        /**
+         * A list of one or more security groups IDs in your Amazon VPC. The maximum count is 5.
+         */
+        securityGroupIds?: string[];
+        /**
+         * A list of one or more subnet IDs in your Amazon VPC. The maximum count is 16.
+         */
+        subnets?: string[];
+        /**
+         * The ID of the Amazon VPC.
+         */
+        vpcId?: string;
+    }
+
+    export interface ProjectWebhookFilter {
+        excludeMatchedPattern?: boolean;
+        pattern: string;
+        type: string;
+    }
+
     export interface ReportGroupReportExportConfig {
         /**
          * The export configuration type. Valid values are:
@@ -26782,6 +27415,16 @@ export namespace codedeploy {
          * Indicates whether to run an in-place or blue/green deployment.
          */
         deploymentType?: string;
+    }
+
+    /**
+     * Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+     */
+    export interface DeploymentGroupEc2DeploymentOptions {
+        /**
+         * The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+         */
+        autoScalingGroupProcessesToSuspend?: string[];
     }
 
     /**
@@ -30332,6 +30975,7 @@ export namespace connect {
     }
 
     export interface InstanceAttributes {
+        autoMuteAgentOnHold?: boolean;
         autoResolveBestVoices?: boolean;
         contactLens?: boolean;
         contactflowLogs?: boolean;
@@ -39881,6 +40525,7 @@ export namespace dynamodb {
          * Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
          */
         deletionProtectionEnabled?: boolean;
+        disassociationProtectionEnabled?: boolean;
         /**
          * Defines additional settings for the global secondary indexes of this replica.
          */
@@ -45169,6 +45814,24 @@ export namespace ec2 {
         toPort: number;
     }
 
+    /**
+     * A static 1:1 NAT rule. Traffic whose source address falls within MatchSourceCidr is translated to the corresponding address in NatCidr.
+     */
+    export interface TransitGatewayAttachmentNatConfigurationNatRule {
+        /**
+         * The source CIDR that the rule matches on.
+         */
+        matchSourceCidr: string;
+        /**
+         * The CIDR that the matched source addresses are translated to.
+         */
+        natCidr: string;
+        /**
+         * The rule number.
+         */
+        ruleNumber: number;
+    }
+
     export interface TransitGatewayConnectOptions {
         /**
          * The tunnel protocol.
@@ -47482,6 +48145,105 @@ export namespace ecs {
     }
 
     /**
+     * The test traffic rules for the gateway ALB.
+     */
+    export interface GatewayAlbTestTrafficRules {
+        header?: outputs.ecs.GatewayTestTrafficHeader;
+    }
+
+    /**
+     * The configuration for the gateway. Currently only supports hostSharedAlb.
+     */
+    export interface GatewayConfiguration {
+        hostSharedAlb: outputs.ecs.GatewayHostSharedAlbConfiguration;
+    }
+
+    /**
+     * The access log configuration for the gateway ALB. Access logging is enabled by the presence of a destination.
+     */
+    export interface GatewayElbAccessLogConfiguration {
+        destination?: outputs.ecs.GatewayElbAccessLogDestination;
+    }
+
+    /**
+     * The destination for gateway ALB access logs. Exactly one destination type must be specified.
+     */
+    export interface GatewayElbAccessLogDestination {
+        s3?: outputs.ecs.GatewayElbAccessLogS3Destination;
+    }
+
+    /**
+     * The S3 destination for gateway ALB access logs.
+     */
+    export interface GatewayElbAccessLogS3Destination {
+        /**
+         * The S3 bucket for access logs.
+         */
+        bucket: string;
+        /**
+         * The S3 prefix for access logs.
+         */
+        prefix?: string;
+    }
+
+    /**
+     * The network configuration for the gateway ALB.
+     */
+    export interface GatewayElbNetworkConfiguration {
+        /**
+         * The inbound security group for the ALB.
+         */
+        inboundSecurityGroup?: string;
+        ipAddressType?: enums.ecs.GatewayElbIpAddressType;
+        /**
+         * The subnets for the ALB.
+         */
+        subnets?: string[];
+    }
+
+    /**
+     * The host shared ALB configuration for the gateway.
+     */
+    export interface GatewayHostSharedAlbConfiguration {
+        accessLogs?: outputs.ecs.GatewayElbAccessLogConfiguration;
+        /**
+         * The current number of ALBs provisioned for the gateway.
+         */
+        currentAlbCount?: number;
+        httpDesync?: enums.ecs.GatewayAlbDesyncMitigationMode;
+        /**
+         * The maximum number of ALBs to provision for the gateway.
+         */
+        maxAlbCount?: number;
+        networkConfiguration?: outputs.ecs.GatewayElbNetworkConfiguration;
+        /**
+         * The port on which the ALB listens.
+         */
+        port?: number;
+        protocol?: enums.ecs.GatewayAlbProtocol;
+        scheme?: enums.ecs.GatewayElbScheme;
+        testTrafficRules?: outputs.ecs.GatewayAlbTestTrafficRules;
+        /**
+         * The ARN of the WAFv2 web ACL to associate with the ALB.
+         */
+        webAclArn?: string;
+    }
+
+    /**
+     * The header configuration for test traffic routing.
+     */
+    export interface GatewayTestTrafficHeader {
+        /**
+         * The name of the header.
+         */
+        name: string;
+        /**
+         * The values for the header.
+         */
+        values: string[];
+    }
+
+    /**
      * The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
     export interface ServiceAdvancedConfiguration {
@@ -47633,6 +48395,7 @@ export namespace ecs {
          *   To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
          */
         accessLogConfiguration?: outputs.ecs.ServiceConnectAccessLogConfiguration;
+        containerConfigurations?: outputs.ecs.ServiceConnectContainerConfiguration[];
         /**
          * Specifies whether to use Service Connect with this service.
          */
@@ -47659,6 +48422,10 @@ export namespace ecs {
          *  An object selects a port from the task definition, assigns a name for the CMAPlong service, and a list of aliases (endpoints) and ports for client applications to refer to this service.
          */
         services?: outputs.ecs.ServiceConnectService[];
+    }
+
+    export interface ServiceConnectContainerConfiguration {
+        logLevel?: enums.ecs.ServiceConnectContainerConfigurationLogLevel;
     }
 
     /**
@@ -48028,6 +48795,32 @@ export namespace ecs {
         forceNewDeploymentNonce?: string;
     }
 
+    export interface ServiceGatewayConnector {
+        filters?: outputs.ecs.ServiceGatewayConnectorFilters;
+        healthCheck?: outputs.ecs.ServiceGatewayConnectorHealthCheck;
+        portName: string;
+    }
+
+    export interface ServiceGatewayConnectorFilters {
+        accessTypes?: enums.ecs.ServiceGatewayConnectorFiltersAccessTypesItem[];
+    }
+
+    export interface ServiceGatewayConnectorHealthCheck {
+        healthCheckIntervalSeconds?: number;
+        healthCheckPath?: string;
+        healthCheckPort?: number;
+        healthCheckProtocol?: enums.ecs.ServiceGatewayConnectorHealthCheckHealthCheckProtocol;
+        healthCheckTimeoutSeconds?: number;
+        healthyThresholdCount?: number;
+        matcher?: outputs.ecs.ServiceGatewayConnectorHealthCheckMatcher;
+        unhealthyThresholdCount?: number;
+    }
+
+    export interface ServiceGatewayConnectorHealthCheckMatcher {
+        grpcCode?: string;
+        httpCode?: string;
+    }
+
     export interface ServiceHookTimeoutConfig {
         action?: enums.ecs.ServiceHookTimeoutConfigAction;
         timeoutInMinutes?: number;
@@ -48388,9 +49181,21 @@ export namespace ecs {
         name: string;
     }
 
+    /**
+     * The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface ServiceVpcLatticeAdvancedConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
+         */
         alternateTargetGroupArn?: string;
+        /**
+         * The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
+         */
         productionListenerRule?: string;
+        /**
+         * The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
+         */
         testListenerRule?: string;
     }
 
@@ -49068,6 +49873,17 @@ export namespace ecs {
         sourceVolume?: string;
     }
 
+    export interface TaskDefinitionNvidiaMpsAllocation {
+        /**
+         * The maximum percentage of the GPU's compute capacity that the container can use.
+         */
+        maxComputePercent?: number;
+        /**
+         * The amount of GPU memory, in MiB, allocated to the container.
+         */
+        memory: number;
+    }
+
     /**
      * The constraint on task placement in the task definition. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
      *   Task placement constraints aren't supported for tasks run on FARGATElong.
@@ -49188,6 +50004,7 @@ export namespace ecs {
      * The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
      */
     export interface TaskDefinitionResourceRequirement {
+        sharingStrategy?: outputs.ecs.TaskDefinitionSharingStrategy;
         /**
          * The type of resource to assign to a container.
          */
@@ -49198,7 +50015,7 @@ export namespace ecs {
          *  When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
          *  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
          */
-        value: string;
+        value?: string;
     }
 
     /**
@@ -49277,6 +50094,10 @@ export namespace ecs {
          *   If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
          */
         valueFrom: string;
+    }
+
+    export interface TaskDefinitionSharingStrategy {
+        nvidiaMps: outputs.ecs.TaskDefinitionNvidiaMpsAllocation;
     }
 
     /**
@@ -62279,6 +63100,20 @@ export namespace imagebuilder {
     }
 
     /**
+     * Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+     */
+    export interface InfrastructureConfigurationAutoScalingGroup {
+        /**
+         * The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+         */
+        capacityWaitTimeoutSeconds?: number;
+        /**
+         * The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+         */
+        name: string;
+    }
+
+    /**
      * The instance metadata option settings for the infrastructure configuration.
      */
     export interface InfrastructureConfigurationInstanceMetadataOptions {
@@ -62300,6 +63135,16 @@ export namespace imagebuilder {
          * The Amazon S3 logging configuration.
          */
         s3Logs?: outputs.imagebuilder.InfrastructureConfigurationS3Logs;
+    }
+
+    /**
+     * Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+     */
+    export interface InfrastructureConfigurationParentInstance {
+        /**
+         * The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+         */
+        autoScalingGroup: outputs.imagebuilder.InfrastructureConfigurationAutoScalingGroup;
     }
 
     /**
@@ -63821,6 +64666,208 @@ export namespace iot {
          * The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
          */
         action: enums.iot.MitigationActionUpdateDeviceCertificateParamsAction;
+    }
+
+    export interface OtaUpdateAwsJobAbortConfig {
+        /**
+         * The list of criteria that determine when and how to abort the job.
+         */
+        abortCriteriaList: outputs.iot.OtaUpdateAwsJobAbortCriteria[];
+    }
+
+    export interface OtaUpdateAwsJobAbortCriteria {
+        /**
+         * The type of job action to take to initiate the job abort.
+         */
+        action: enums.iot.OtaUpdateAwsJobAbortCriteriaAction;
+        /**
+         * The type of job execution failures that can initiate a job abort.
+         */
+        failureType: enums.iot.OtaUpdateAwsJobAbortCriteriaFailureType;
+        /**
+         * The minimum number of things which must receive job execution notifications before the job can be aborted.
+         */
+        minNumberOfExecutedThings: number;
+        /**
+         * The minimum percentage of job execution failures that must occur to initiate the job abort.
+         */
+        thresholdPercentage: number;
+    }
+
+    export interface OtaUpdateAwsJobExecutionsRolloutConfig {
+        exponentialRate?: outputs.iot.OtaUpdateAwsJobExponentialRolloutRate;
+        /**
+         * The maximum number of OTA update job executions started per minute.
+         */
+        maximumPerMinute?: number;
+    }
+
+    export interface OtaUpdateAwsJobExponentialRolloutRate {
+        /**
+         * The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+         */
+        baseRatePerMinute: number;
+        /**
+         * The rate of increase for a job rollout.
+         */
+        incrementFactor: number;
+        rateIncreaseCriteria: outputs.iot.OtaUpdateAwsJobRateIncreaseCriteria;
+    }
+
+    export interface OtaUpdateAwsJobPresignedUrlConfig {
+        /**
+         * How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+         */
+        expiresInSec?: number;
+    }
+
+    export interface OtaUpdateAwsJobRateIncreaseCriteria {
+        /**
+         * When this number of things have been notified, it will initiate an increase in the rollout rate.
+         */
+        numberOfNotifiedThings?: number;
+        /**
+         * When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+         */
+        numberOfSucceededThings?: number;
+    }
+
+    export interface OtaUpdateAwsJobTimeoutConfig {
+        /**
+         * Specifies the amount of time, in minutes, this device has to finish execution of this job.
+         */
+        inProgressTimeoutInMinutes?: number;
+    }
+
+    export interface OtaUpdateCodeSigning {
+        /**
+         * The ID of the AWSSignerJob which was created to sign the file.
+         */
+        awsSignerJobId?: string;
+        customCodeSigning?: outputs.iot.OtaUpdateCustomCodeSigning;
+        startSigningJobParameter?: outputs.iot.OtaUpdateStartSigningJobParameter;
+    }
+
+    export interface OtaUpdateCodeSigningCertificateChain {
+        /**
+         * The name of the certificate.
+         */
+        certificateName?: string;
+        /**
+         * A base64 encoded binary representation of the code signing certificate chain.
+         */
+        inlineDocument?: string;
+    }
+
+    export interface OtaUpdateCodeSigningSignature {
+        /**
+         * A base64 encoded binary representation of the code signing signature.
+         */
+        inlineDocument?: string;
+    }
+
+    export interface OtaUpdateCustomCodeSigning {
+        certificateChain?: outputs.iot.OtaUpdateCodeSigningCertificateChain;
+        /**
+         * The hash algorithm used to code sign the file.
+         */
+        hashAlgorithm?: string;
+        signature?: outputs.iot.OtaUpdateCodeSigningSignature;
+        /**
+         * The signature algorithm used to code sign the file.
+         */
+        signatureAlgorithm?: string;
+    }
+
+    export interface OtaUpdateDestination {
+        s3Destination?: outputs.iot.OtaUpdateS3Destination;
+    }
+
+    export interface OtaUpdateFileLocation {
+        s3Location?: outputs.iot.OtaUpdateS3Location;
+        stream?: outputs.iot.OtaUpdateStream;
+    }
+
+    export interface OtaUpdateOtaUpdateFile {
+        /**
+         * A list of name-attribute pairs.
+         */
+        attributes?: {[key: string]: string};
+        codeSigning?: outputs.iot.OtaUpdateCodeSigning;
+        fileLocation?: outputs.iot.OtaUpdateFileLocation;
+        /**
+         * The name of the file.
+         */
+        fileName?: string;
+        /**
+         * An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+         */
+        fileType?: number;
+        /**
+         * The file version.
+         */
+        fileVersion?: string;
+    }
+
+    export interface OtaUpdateS3Destination {
+        /**
+         * The S3 bucket that contains the updated firmware.
+         */
+        bucket?: string;
+        /**
+         * The S3 prefix.
+         */
+        prefix?: string;
+    }
+
+    export interface OtaUpdateS3Location {
+        /**
+         * The S3 bucket.
+         */
+        bucket?: string;
+        /**
+         * The S3 key.
+         */
+        key?: string;
+        /**
+         * The S3 bucket version.
+         */
+        version?: string;
+    }
+
+    export interface OtaUpdateSigningProfileParameter {
+        /**
+         * Certificate ARN.
+         */
+        certificateArn?: string;
+        /**
+         * The location of the code-signing certificate on your device.
+         */
+        certificatePathOnDevice?: string;
+        /**
+         * The hardware platform of your device.
+         */
+        platform?: string;
+    }
+
+    export interface OtaUpdateStartSigningJobParameter {
+        destination?: outputs.iot.OtaUpdateDestination;
+        /**
+         * The code-signing profile name.
+         */
+        signingProfileName?: string;
+        signingProfileParameter?: outputs.iot.OtaUpdateSigningProfileParameter;
+    }
+
+    export interface OtaUpdateStream {
+        /**
+         * The ID of a file associated with a stream.
+         */
+        fileId?: number;
+        /**
+         * The stream ID.
+         */
+        streamId?: string;
     }
 
     /**
@@ -80428,6 +81475,10 @@ export namespace mediatailor {
          */
         body?: string;
         /**
+         * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+         */
+        cache?: outputs.mediatailor.FunctionHttpRequestCacheConfiguration;
+        /**
          * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
          */
         headers?: {[key: string]: string};
@@ -80493,6 +81544,24 @@ export namespace mediatailor {
     }
 
     /**
+     * The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST). When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+     */
+    export interface FunctionHttpRequestCacheConfiguration {
+        /**
+         * A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, request body, and HTTP method; request headers are not included. The evaluated key must be smaller than 1 KB.
+         */
+        key?: string;
+        /**
+         * The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to TtlMinimumSeconds.
+         */
+        ttlMaximumSeconds: number;
+        /**
+         * The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no Cache-Control max-age directive.
+         */
+        ttlMinimumSeconds: number;
+    }
+
+    /**
      * Configuration for HTTP request functions.
      */
     export interface FunctionHttpRequestConfiguration {
@@ -80500,6 +81569,10 @@ export namespace mediatailor {
          * The body of the HTTP request.
          */
         body?: string;
+        /**
+         * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+         */
+        cache?: outputs.mediatailor.FunctionHttpRequestCacheConfiguration;
         /**
          * A map of HTTP headers to include in the request.
          */
@@ -80571,6 +81644,10 @@ export namespace mediatailor {
          * An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
          */
         body?: string;
+        /**
+         * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+         */
+        cache?: outputs.mediatailor.FunctionHttpRequestCacheConfiguration;
         /**
          * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
          */
@@ -86149,6 +87226,10 @@ export namespace opensearchservice {
          */
         enabled?: boolean;
         /**
+         * The type of encryption at rest applied to the domain's data. Valid values are DISK and NATIVE. DISK is the default and uses volume-level encryption. NATIVE uses engine-native, index-level encryption and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After the mode is set to NATIVE, it can't be changed back to DISK.
+         */
+        encryptionMode?: enums.opensearchservice.DomainEncryptionAtRestOptionsEncryptionMode;
+        /**
          * The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
          *
          * You can also use `keyAlias` as a value.
@@ -87198,7 +88279,7 @@ export namespace pcs {
         /**
          * The version of the EC2 launch template to use to provision instances.
          */
-        version: string;
+        version?: string;
     }
 
     /**
@@ -98975,14 +100056,13 @@ export namespace quicksight {
 
     /**
      * Scoping: who the policy applies to.
-     * GROUP: `groupArns` required (one or more group ARNs).
      */
     export interface ApprovalPolicyApplicableTo {
         /**
          * Required when type = GROUP. One or more group ARNs.
          */
         groupArns?: string[];
-        type: any;
+        type: enums.quicksight.ApprovalPolicyApplicableToType;
     }
 
     export interface CustomPermissionsCapabilities {
@@ -122983,6 +124063,16 @@ export namespace resiliencehubv2 {
         externalId?: string;
     }
 
+    /**
+     * Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+     */
+    export interface ServiceDevOpsAgentConfiguration {
+        /**
+         * The ARN of the DevOps Agent Agent Space to link to this service.
+         */
+        agentSpaceArn: string;
+    }
+
     export interface ServiceDisasterRecoverySource {
         policyName?: string;
         value?: string;
@@ -134906,6 +135996,66 @@ export namespace securityagent {
     }
 
     /**
+     * Destination for publishing a scan report to Confluence
+     */
+    export interface PentestReportDestination {
+        /**
+         * Identifier of the container, such as a space, within the integration to publish the report to
+         */
+        containerId: string;
+        /**
+         * Identifier of an existing document to update with the report
+         */
+        documentId?: string;
+        /**
+         * Unique identifier of the provider integration to publish the report to
+         */
+        integrationId: string;
+        /**
+         * Identifier of the parent under which the report document is created
+         */
+        parentId?: string;
+    }
+
+    /**
+     * Filters applied when a scan report is published to Confluence
+     */
+    export interface PentestReportFilters {
+        /**
+         * Whether to include reviewer annotation notes under each finding
+         */
+        annotationNotes?: boolean;
+        /**
+         * Whether to include the compliance-ready report additions
+         */
+        complianceReport?: boolean;
+        /**
+         * Confidence levels to include in the report
+         */
+        confidenceLevels?: enums.securityagent.PentestReportFiltersConfidenceLevelsItem[];
+        /**
+         * Finding types to include in the report
+         */
+        findingTypes?: string[];
+        /**
+         * Severity levels to include in the report
+         */
+        riskLevels?: enums.securityagent.PentestReportFiltersRiskLevelsItem[];
+        /**
+         * Risk types to include in the report
+         */
+        riskTypes?: enums.securityagent.PentestRiskType[];
+        /**
+         * Finding statuses to include in the report
+         */
+        statuses?: enums.securityagent.PentestReportFiltersStatusesItem[];
+        /**
+         * Task execution statuses to include in the report's task table
+         */
+        taskStatuses?: enums.securityagent.PentestReportFiltersTaskStatusesItem[];
+    }
+
+    /**
      * A source code archive stored in S3 for analysis during the pentest
      */
     export interface PentestSourceCodeRepository {
@@ -134913,6 +136063,16 @@ export namespace securityagent {
          * S3 source code location
          */
         s3Location?: string;
+    }
+
+    /**
+     * Scope of the target under test, determining which classes of risk are assessed
+     */
+    export interface PentestTestScope {
+        /**
+         * The kind of application the target is tested as
+         */
+        type: enums.securityagent.PentestTestScopeType;
     }
 
     /**
@@ -134938,6 +136098,62 @@ export namespace securityagent {
          */
         subnetArns?: string[];
         vpcArn?: string;
+    }
+
+    /**
+     * The configuration for the private connection. Specify either a service-managed or a self-managed mode.
+     */
+    export interface PrivateConnectionMode {
+        selfManaged?: outputs.securityagent.PrivateConnectionSelfManaged;
+        serviceManaged?: outputs.securityagent.PrivateConnectionServiceManaged;
+    }
+
+    /**
+     * The configuration for a self-managed private connection, where you manage your own resource configuration.
+     */
+    export interface PrivateConnectionSelfManaged {
+        /**
+         * The identifier or ARN of the resource configuration.
+         */
+        resourceConfigurationId: string;
+    }
+
+    /**
+     * The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.
+     */
+    export interface PrivateConnectionServiceManaged {
+        /**
+         * The DNS resolution mode for the resource gateway.
+         */
+        dnsResolution?: enums.securityagent.PrivateConnectionServiceManagedDnsResolution;
+        /**
+         * The IP address or DNS name of the target resource.
+         */
+        hostAddress: string;
+        /**
+         * The IP address type of the service-managed resource gateway.
+         */
+        ipAddressType?: enums.securityagent.PrivateConnectionServiceManagedIpAddressType;
+        /**
+         * The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+         */
+        ipv4AddressesPerEni?: number;
+        /**
+         * The TCP port ranges that a consumer can use to access the resource.
+         */
+        portRanges?: string[];
+        /**
+         * The security groups to attach to the service-managed resource gateway.
+         */
+        securityGroupIds?: string[];
+        /**
+         * The subnets that the service-managed resource gateway spans.
+         */
+        subnetIds: string[];
+        /**
+         * The VPC to create the service-managed resource gateway in.
+         */
+        vpcId: string;
     }
 
     export interface SecurityRequirementPackSecurityRequirement {
@@ -137130,7 +138346,7 @@ export namespace ses {
          */
         matchingEventTypes: string[];
         /**
-         * The name of the event destination set.
+         * The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
          */
         name?: string;
         /**
@@ -145214,6 +146430,14 @@ export namespace wellarchitected {
 }
 
 export namespace wisdom {
+    export interface AiAgentAgentTarget0Properties {
+        aiAgentId: string;
+    }
+
+    export interface AiAgentAgentTarget1Properties {
+        applicationId: string;
+    }
+
     export interface AiAgentAiAgentConfiguration0Properties {
         manualSearchAiAgentConfiguration: outputs.wisdom.AiAgentManualSearchAiAgentConfiguration;
     }
@@ -145278,6 +146502,11 @@ export namespace wisdom {
         locale?: string;
     }
 
+    export interface AiAgentDelegateAgentConfiguration {
+        agentTarget: outputs.wisdom.AiAgentAgentTarget0Properties | outputs.wisdom.AiAgentAgentTarget1Properties;
+        instruction?: outputs.wisdom.AiAgentMultiAgentInstruction;
+    }
+
     export interface AiAgentEmailGenerativeAnswerAiAgentConfiguration {
         associationConfigurations?: outputs.wisdom.AiAgentAssociationConfiguration[];
         emailGenerativeAnswerAiPromptId?: string;
@@ -145297,6 +146526,13 @@ export namespace wisdom {
         locale?: string;
     }
 
+    export interface AiAgentHandoffAgentConfiguration {
+        agentTarget: outputs.wisdom.AiAgentAgentTarget0Properties | outputs.wisdom.AiAgentAgentTarget1Properties;
+        audioStreamingEnabled?: boolean;
+        immediateHandoff?: boolean;
+        instruction?: outputs.wisdom.AiAgentMultiAgentInstruction;
+    }
+
     export interface AiAgentKnowledgeBaseAssociationConfigurationData {
         contentTagFilter?: outputs.wisdom.AiAgentTagFilter0Properties | outputs.wisdom.AiAgentTagFilter1Properties | outputs.wisdom.AiAgentTagFilter2Properties;
         maxResults?: number;
@@ -145308,6 +146544,19 @@ export namespace wisdom {
         answerGenerationAiPromptId?: string;
         associationConfigurations?: outputs.wisdom.AiAgentAssociationConfiguration[];
         locale?: string;
+    }
+
+    export interface AiAgentMultiAgentConfiguration0Properties {
+        delegateAgentConfiguration: outputs.wisdom.AiAgentDelegateAgentConfiguration;
+    }
+
+    export interface AiAgentMultiAgentConfiguration1Properties {
+        handoffAgentConfiguration: outputs.wisdom.AiAgentHandoffAgentConfiguration;
+    }
+
+    export interface AiAgentMultiAgentInstruction {
+        examples?: string[];
+        instruction?: string;
     }
 
     export interface AiAgentNoteTakingAiAgentConfiguration {
@@ -145326,9 +146575,12 @@ export namespace wisdom {
 
     export interface AiAgentOrchestrationAiAgentConfiguration {
         connectInstanceArn?: string;
+        inputSchemas?: any[];
         locale?: string;
+        multiAgentConfigurations?: (outputs.wisdom.AiAgentMultiAgentConfiguration0Properties | outputs.wisdom.AiAgentMultiAgentConfiguration1Properties)[];
         orchestrationAiGuardrailId?: string;
-        orchestrationAiPromptId: string;
+        orchestrationAiPromptId?: string;
+        outputSchemas?: any[];
         toolConfigurations?: outputs.wisdom.AiAgentToolConfiguration[];
     }
 
@@ -147318,6 +148570,16 @@ export namespace xray {
          * Matches the path from a request URL.
          */
         urlPath?: string;
+    }
+
+    /**
+     * Configuration for the CloudWatch Logs log group that X-Ray creates when this resource enables Transaction Search. It is used only at that time and is never returned
+     */
+    export interface TransactionSearchConfigCloudWatchLogsConfiguration {
+        /**
+         * The ARN of a symmetric customer managed AWS KMS key in the same account and Region, used to encrypt the aws/spans log group. Key IDs and alias ARNs are not supported, so for an AWS::KMS::Key use Fn::GetAtt Arn, not Ref. X-Ray applies the key only when it creates aws/spans while enabling Transaction Search. If aws/spans already exists, for example from an earlier enablement or an earlier create that failed partway, the create fails and X-Ray does not enable Transaction Search or change the log group. Remove this property to use the existing log group with its current encryption, and use the CloudWatch Logs AssociateKmsKey API to change its key. The caller needs kms:DescribeKey on the key, and the key policy must allow CloudWatch Logs to use it. Adding, changing or removing this property replaces the resource, which fails while Transaction Search is enabled
+         */
+        spansLogGroupKmsKeyId?: string;
     }
 
 }

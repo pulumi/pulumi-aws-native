@@ -175,6 +175,11 @@ export const getResourcePolicy: typeof import("./getResourcePolicy").getResource
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
 
+export { GetRetrievalInstructionArgs, GetRetrievalInstructionResult, GetRetrievalInstructionOutputArgs } from "./getRetrievalInstruction";
+export const getRetrievalInstruction: typeof import("./getRetrievalInstruction").getRetrievalInstruction = null as any;
+export const getRetrievalInstructionOutput: typeof import("./getRetrievalInstruction").getRetrievalInstructionOutput = null as any;
+utilities.lazyLoad(exports, ["getRetrievalInstruction","getRetrievalInstructionOutput"], () => require("./getRetrievalInstruction"));
+
 export { GetSessionArgs, GetSessionResult, GetSessionOutputArgs } from "./getSession";
 export const getSession: typeof import("./getSession").getSession = null as any;
 export const getSessionOutput: typeof import("./getSession").getSessionOutput = null as any;
@@ -219,6 +224,11 @@ export { ResourcePolicyArgs } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
 utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
+export { RetrievalInstructionArgs } from "./retrievalInstruction";
+export type RetrievalInstruction = import("./retrievalInstruction").RetrievalInstruction;
+export const RetrievalInstruction: typeof import("./retrievalInstruction").RetrievalInstruction = null as any;
+utilities.lazyLoad(exports, ["RetrievalInstruction"], () => require("./retrievalInstruction"));
 
 export { SessionArgs } from "./session";
 export type Session = import("./session").Session;
@@ -275,6 +285,8 @@ const _module = {
                 return new PromptVersion(name, <any>undefined, { urn })
             case "aws-native:bedrock:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
+            case "aws-native:bedrock:RetrievalInstruction":
+                return new RetrievalInstruction(name, <any>undefined, { urn })
             case "aws-native:bedrock:Session":
                 return new Session(name, <any>undefined, { urn })
             default:

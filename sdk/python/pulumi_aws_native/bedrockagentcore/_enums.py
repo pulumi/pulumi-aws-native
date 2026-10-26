@@ -109,9 +109,9 @@ __all__ = [
     'PaymentConnectorType',
     'PaymentCredentialProviderSecretSourceType',
     'PaymentCredentialProviderVendorType',
-    'PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator',
+    'PaymentManagerAuthorizerType',
+    'PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator',
     'PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType',
-    'PaymentManagerPaymentsAuthorizerType',
     'PaymentManagerStatus',
     'PolicyEnforcementMode',
     'PolicyEngineStatus',
@@ -1076,8 +1076,17 @@ class PaymentCredentialProviderVendorType(_builtins.str, Enum):
     STRIPE_PRIVY = "StripePrivy"
 
 
-@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator")
-class PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator(_builtins.str, Enum):
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizerType")
+class PaymentManagerAuthorizerType(_builtins.str, Enum):
+    """
+    The type of authorizer for the payment manager
+    """
+    CUSTOM_JWT = "CUSTOM_JWT"
+    AWS_IAM = "AWS_IAM"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator")
+class PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator(_builtins.str, Enum):
     EQUALS = "EQUALS"
     CONTAINS = "CONTAINS"
     CONTAINS_ANY = "CONTAINS_ANY"
@@ -1089,14 +1098,11 @@ class PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType(_builtin
     STRING_ARRAY = "STRING_ARRAY"
 
 
-@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerPaymentsAuthorizerType")
-class PaymentManagerPaymentsAuthorizerType(_builtins.str, Enum):
-    CUSTOM_JWT = "CUSTOM_JWT"
-    AWS_IAM = "AWS_IAM"
-
-
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerStatus")
 class PaymentManagerStatus(_builtins.str, Enum):
+    """
+    The current status of the payment manager
+    """
     CREATING = "CREATING"
     UPDATING = "UPDATING"
     DELETING = "DELETING"

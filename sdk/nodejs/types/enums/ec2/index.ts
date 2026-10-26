@@ -1238,6 +1238,26 @@ export const TrafficMirrorFilterTrafficMirrorNetworkService = {
  */
 export type TrafficMirrorFilterTrafficMirrorNetworkService = (typeof TrafficMirrorFilterTrafficMirrorNetworkService)[keyof typeof TrafficMirrorFilterTrafficMirrorNetworkService];
 
+export const TransitGatewayAttachmentNatConfigurationNatGatewaySupport = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Whether NAT gateway support is enabled on the attachment. Set to disable to stage NAT rules without activating them; the rules are retained and become active when this is later set to enable.
+ */
+export type TransitGatewayAttachmentNatConfigurationNatGatewaySupport = (typeof TransitGatewayAttachmentNatConfigurationNatGatewaySupport)[keyof typeof TransitGatewayAttachmentNatConfigurationNatGatewaySupport];
+
+export const TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Whether routes for the NAT CIDRs are installed into the transit gateway route tables associated with the attachment. Whether this is configurable depends on the attachment; where the value is forced, supplying the opposite value is rejected. Omitting this property leaves the setting to the service: on a new configuration the service applies the attachment's default, but on an attachment where the value is configurable it keeps the value already in effect rather than reverting to that default. Removing this property from a template, or deleting this resource, therefore leaves the setting at its last value rather than restoring the default, and a resource later created on the same attachment without this property inherits that value.
+ */
+export type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport = (typeof TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport)[keyof typeof TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport];
+
 export const TransitGatewayEncryptionSupport = {
     Disable: "disable",
     Enable: "enable",

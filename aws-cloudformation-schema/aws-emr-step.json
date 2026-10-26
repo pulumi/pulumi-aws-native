@@ -83,13 +83,24 @@
   "readOnlyProperties" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "emr:AddJobFlowSteps" ]
+      "permissions" : [ "elasticmapreduce:AddJobFlowSteps" ]
     },
     "delete" : {
       "permissions" : [ ]
     },
     "read" : {
-      "permissions" : [ ]
+      "permissions" : [ "elasticmapreduce:DescribeStep" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "JobFlowId" : {
+            "$ref" : "resource-schema.json#/properties/JobFlowId"
+          }
+        },
+        "required" : [ "JobFlowId" ]
+      },
+      "permissions" : [ "elasticmapreduce:ListSteps" ]
     }
   }
 }

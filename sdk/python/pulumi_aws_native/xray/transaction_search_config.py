@@ -13,18 +13,32 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['TransactionSearchConfigArgs', 'TransactionSearchConfig']
 
 @pulumi.input_type
 class TransactionSearchConfigArgs:
     def __init__(__self__, *,
+                 cloud_watch_logs_configuration: pulumi.Input[Optional['TransactionSearchConfigCloudWatchLogsConfigurationArgs']] = None,
                  indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a TransactionSearchConfig resource.
         """
+        if cloud_watch_logs_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_logs_configuration", cloud_watch_logs_configuration)
         if indexing_percentage is not None:
             pulumi.set(__self__, "indexing_percentage", indexing_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogsConfiguration")
+    def cloud_watch_logs_configuration(self) -> pulumi.Input[Optional['TransactionSearchConfigCloudWatchLogsConfigurationArgs']]:
+        return pulumi.get(self, "cloud_watch_logs_configuration")
+
+    @cloud_watch_logs_configuration.setter
+    def cloud_watch_logs_configuration(self, value: pulumi.Input[Optional['TransactionSearchConfigCloudWatchLogsConfigurationArgs']]):
+        pulumi.set(self, "cloud_watch_logs_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="indexingPercentage")
@@ -42,6 +56,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict']]] = None,
                  indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
@@ -74,6 +89,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict']]] = None,
                  indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -84,8 +100,11 @@ class TransactionSearchConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TransactionSearchConfigArgs.__new__(TransactionSearchConfigArgs)
 
+            __props__.__dict__["cloud_watch_logs_configuration"] = cloud_watch_logs_configuration
             __props__.__dict__["indexing_percentage"] = indexing_percentage
             __props__.__dict__["account_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cloudWatchLogsConfiguration"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransactionSearchConfig, __self__).__init__(
             'aws-native:xray:TransactionSearchConfig',
             resource_name,
@@ -109,6 +128,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
         __props__ = TransactionSearchConfigArgs.__new__(TransactionSearchConfigArgs)
 
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["cloud_watch_logs_configuration"] = None
         __props__.__dict__["indexing_percentage"] = None
         return TransactionSearchConfig(resource_name, opts=opts, __props__=__props__)
 
@@ -116,6 +136,11 @@ class TransactionSearchConfig(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogsConfiguration")
+    def cloud_watch_logs_configuration(self) -> pulumi.Output[Optional['outputs.TransactionSearchConfigCloudWatchLogsConfiguration']]:
+        return pulumi.get(self, "cloud_watch_logs_configuration")
 
     @_builtins.property
     @pulumi.getter(name="indexingPercentage")

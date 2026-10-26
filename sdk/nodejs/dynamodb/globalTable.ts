@@ -120,6 +120,7 @@ export class GlobalTable extends pulumi.CustomResource {
      * > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     declare public readonly tableName: pulumi.Output<string | undefined>;
+    declare public readonly tableType: pulumi.Output<enums.dynamodb.GlobalTableTableType | undefined>;
     /**
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */
@@ -166,6 +167,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["sseSpecification"] = args?.sseSpecification;
             resourceInputs["streamSpecification"] = args?.streamSpecification;
             resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["tableType"] = args?.tableType;
             resourceInputs["timeToLiveSpecification"] = args?.timeToLiveSpecification;
             resourceInputs["vectorIndexes"] = args?.vectorIndexes;
             resourceInputs["warmThroughput"] = args?.warmThroughput;
@@ -192,6 +194,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["streamSpecification"] = undefined /*out*/;
             resourceInputs["tableId"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
+            resourceInputs["tableType"] = undefined /*out*/;
             resourceInputs["timeToLiveSpecification"] = undefined /*out*/;
             resourceInputs["vectorIndexes"] = undefined /*out*/;
             resourceInputs["warmThroughput"] = undefined /*out*/;
@@ -278,6 +281,7 @@ export interface GlobalTableArgs {
      * > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     tableName?: pulumi.Input<string | undefined>;
+    tableType?: pulumi.Input<enums.dynamodb.GlobalTableTableType | undefined>;
     /**
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */

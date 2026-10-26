@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetApprovalPolicyResult',
@@ -55,7 +56,7 @@ class GetApprovalPolicyResult:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[Sequence[Any]]:
+    def actions(self) -> Optional[Sequence['ApprovalPolicyGovernedAction']]:
         """
         List of governed actions a policy applies to.
         """
@@ -71,14 +72,13 @@ class GetApprovalPolicyResult:
     def approval_groups(self) -> Optional[Sequence[_builtins.str]]:
         """
         List of approval group ARNs (e.g. QuickSight group ARNs).
-        At least one approval group is required; the upper bound is enforced
-        per-account at the service layer via the configurable approver-group limit.
+        At least one approval group is required.
         """
         return pulumi.get(self, "approval_groups")
 
     @_builtins.property
     @pulumi.getter(name="assetTypes")
-    def asset_types(self) -> Optional[Sequence[Any]]:
+    def asset_types(self) -> Optional[Sequence['ApprovalPolicyAssetType']]:
         """
         List of asset types a policy applies to.
         At least one asset type is required.

@@ -341,6 +341,172 @@ func (in *domainDeploymentStrategyOptionsDeploymentStrategyPtr) ToDomainDeployme
 	return pulumi.ToOutputWithContext(ctx, in).(DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput)
 }
 
+// The type of encryption at rest applied to the domain's data. Valid values are DISK and NATIVE. DISK is the default and uses volume-level encryption. NATIVE uses engine-native, index-level encryption and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After the mode is set to NATIVE, it can't be changed back to DISK.
+type DomainEncryptionAtRestOptionsEncryptionMode string
+
+const (
+	DomainEncryptionAtRestOptionsEncryptionModeDisk   = DomainEncryptionAtRestOptionsEncryptionMode("DISK")
+	DomainEncryptionAtRestOptionsEncryptionModeNative = DomainEncryptionAtRestOptionsEncryptionMode("NATIVE")
+)
+
+func (DomainEncryptionAtRestOptionsEncryptionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainEncryptionAtRestOptionsEncryptionMode)(nil)).Elem()
+}
+
+func (e DomainEncryptionAtRestOptionsEncryptionMode) ToDomainEncryptionAtRestOptionsEncryptionModeOutput() DomainEncryptionAtRestOptionsEncryptionModeOutput {
+	return pulumi.ToOutput(e).(DomainEncryptionAtRestOptionsEncryptionModeOutput)
+}
+
+func (e DomainEncryptionAtRestOptionsEncryptionMode) ToDomainEncryptionAtRestOptionsEncryptionModeOutputWithContext(ctx context.Context) DomainEncryptionAtRestOptionsEncryptionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainEncryptionAtRestOptionsEncryptionModeOutput)
+}
+
+func (e DomainEncryptionAtRestOptionsEncryptionMode) ToDomainEncryptionAtRestOptionsEncryptionModePtrOutput() DomainEncryptionAtRestOptionsEncryptionModePtrOutput {
+	return e.ToDomainEncryptionAtRestOptionsEncryptionModePtrOutputWithContext(context.Background())
+}
+
+func (e DomainEncryptionAtRestOptionsEncryptionMode) ToDomainEncryptionAtRestOptionsEncryptionModePtrOutputWithContext(ctx context.Context) DomainEncryptionAtRestOptionsEncryptionModePtrOutput {
+	return DomainEncryptionAtRestOptionsEncryptionMode(e).ToDomainEncryptionAtRestOptionsEncryptionModeOutputWithContext(ctx).ToDomainEncryptionAtRestOptionsEncryptionModePtrOutputWithContext(ctx)
+}
+
+func (e DomainEncryptionAtRestOptionsEncryptionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainEncryptionAtRestOptionsEncryptionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainEncryptionAtRestOptionsEncryptionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainEncryptionAtRestOptionsEncryptionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainEncryptionAtRestOptionsEncryptionModeOutput struct{ *pulumi.OutputState }
+
+func (DomainEncryptionAtRestOptionsEncryptionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainEncryptionAtRestOptionsEncryptionMode)(nil)).Elem()
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModeOutput) ToDomainEncryptionAtRestOptionsEncryptionModeOutput() DomainEncryptionAtRestOptionsEncryptionModeOutput {
+	return o
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModeOutput) ToDomainEncryptionAtRestOptionsEncryptionModeOutputWithContext(ctx context.Context) DomainEncryptionAtRestOptionsEncryptionModeOutput {
+	return o
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModeOutput) ToDomainEncryptionAtRestOptionsEncryptionModePtrOutput() DomainEncryptionAtRestOptionsEncryptionModePtrOutput {
+	return o.ToDomainEncryptionAtRestOptionsEncryptionModePtrOutputWithContext(context.Background())
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModeOutput) ToDomainEncryptionAtRestOptionsEncryptionModePtrOutputWithContext(ctx context.Context) DomainEncryptionAtRestOptionsEncryptionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEncryptionAtRestOptionsEncryptionMode) *DomainEncryptionAtRestOptionsEncryptionMode {
+		return &v
+	}).(DomainEncryptionAtRestOptionsEncryptionModePtrOutput)
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainEncryptionAtRestOptionsEncryptionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainEncryptionAtRestOptionsEncryptionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainEncryptionAtRestOptionsEncryptionModePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainEncryptionAtRestOptionsEncryptionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainEncryptionAtRestOptionsEncryptionMode)(nil)).Elem()
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModePtrOutput) ToDomainEncryptionAtRestOptionsEncryptionModePtrOutput() DomainEncryptionAtRestOptionsEncryptionModePtrOutput {
+	return o
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModePtrOutput) ToDomainEncryptionAtRestOptionsEncryptionModePtrOutputWithContext(ctx context.Context) DomainEncryptionAtRestOptionsEncryptionModePtrOutput {
+	return o
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModePtrOutput) Elem() DomainEncryptionAtRestOptionsEncryptionModeOutput {
+	return o.ApplyT(func(v *DomainEncryptionAtRestOptionsEncryptionMode) DomainEncryptionAtRestOptionsEncryptionMode {
+		if v != nil {
+			return *v
+		}
+		var ret DomainEncryptionAtRestOptionsEncryptionMode
+		return ret
+	}).(DomainEncryptionAtRestOptionsEncryptionModeOutput)
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainEncryptionAtRestOptionsEncryptionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainEncryptionAtRestOptionsEncryptionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainEncryptionAtRestOptionsEncryptionModeInput is an input type that accepts values of the DomainEncryptionAtRestOptionsEncryptionMode enum
+// A concrete instance of `DomainEncryptionAtRestOptionsEncryptionModeInput` can be one of the following:
+//
+//	DomainEncryptionAtRestOptionsEncryptionModeDisk
+//	DomainEncryptionAtRestOptionsEncryptionModeNative
+type DomainEncryptionAtRestOptionsEncryptionModeInput interface {
+	pulumi.Input
+
+	ToDomainEncryptionAtRestOptionsEncryptionModeOutput() DomainEncryptionAtRestOptionsEncryptionModeOutput
+	ToDomainEncryptionAtRestOptionsEncryptionModeOutputWithContext(context.Context) DomainEncryptionAtRestOptionsEncryptionModeOutput
+}
+
+var domainEncryptionAtRestOptionsEncryptionModePtrType = reflect.TypeOf((**DomainEncryptionAtRestOptionsEncryptionMode)(nil)).Elem()
+
+type DomainEncryptionAtRestOptionsEncryptionModePtrInput interface {
+	pulumi.Input
+
+	ToDomainEncryptionAtRestOptionsEncryptionModePtrOutput() DomainEncryptionAtRestOptionsEncryptionModePtrOutput
+	ToDomainEncryptionAtRestOptionsEncryptionModePtrOutputWithContext(context.Context) DomainEncryptionAtRestOptionsEncryptionModePtrOutput
+}
+
+type domainEncryptionAtRestOptionsEncryptionModePtr string
+
+func DomainEncryptionAtRestOptionsEncryptionModePtr(v string) DomainEncryptionAtRestOptionsEncryptionModePtrInput {
+	return (*domainEncryptionAtRestOptionsEncryptionModePtr)(&v)
+}
+
+func (*domainEncryptionAtRestOptionsEncryptionModePtr) ElementType() reflect.Type {
+	return domainEncryptionAtRestOptionsEncryptionModePtrType
+}
+
+func (in *domainEncryptionAtRestOptionsEncryptionModePtr) ToDomainEncryptionAtRestOptionsEncryptionModePtrOutput() DomainEncryptionAtRestOptionsEncryptionModePtrOutput {
+	return pulumi.ToOutput(in).(DomainEncryptionAtRestOptionsEncryptionModePtrOutput)
+}
+
+func (in *domainEncryptionAtRestOptionsEncryptionModePtr) ToDomainEncryptionAtRestOptionsEncryptionModePtrOutputWithContext(ctx context.Context) DomainEncryptionAtRestOptionsEncryptionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainEncryptionAtRestOptionsEncryptionModePtrOutput)
+}
+
 // The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
 type DomainEngineMode string
 
@@ -1180,6 +1346,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigTypePtrInput)(nil)).Elem(), ApplicationAppConfigType("opensearchDashboards.dashboardAdmin.users"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDeploymentStrategyOptionsDeploymentStrategyInput)(nil)).Elem(), DomainDeploymentStrategyOptionsDeploymentStrategy("Default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDeploymentStrategyOptionsDeploymentStrategyPtrInput)(nil)).Elem(), DomainDeploymentStrategyOptionsDeploymentStrategy("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptionAtRestOptionsEncryptionModeInput)(nil)).Elem(), DomainEncryptionAtRestOptionsEncryptionMode("DISK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptionAtRestOptionsEncryptionModePtrInput)(nil)).Elem(), DomainEncryptionAtRestOptionsEncryptionMode("DISK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEngineModeInput)(nil)).Elem(), DomainEngineMode("GENERAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEngineModePtrInput)(nil)).Elem(), DomainEngineMode("GENERAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeOptionNodeTypeInput)(nil)).Elem(), DomainNodeOptionNodeType("coordinator"))
@@ -1194,6 +1362,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationAppConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainDeploymentStrategyOptionsDeploymentStrategyOutput{})
 	pulumi.RegisterOutputType(DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput{})
+	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsEncryptionModeOutput{})
+	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsEncryptionModePtrOutput{})
 	pulumi.RegisterOutputType(DomainEngineModeOutput{})
 	pulumi.RegisterOutputType(DomainEngineModePtrOutput{})
 	pulumi.RegisterOutputType(DomainNodeOptionNodeTypeOutput{})

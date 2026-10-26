@@ -14,6 +14,7 @@ __all__ = [
     'GlobalTableMultiRegionConsistency',
     'GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode',
     'GlobalTableSearchSchemaElementSearchSchemaElementType',
+    'GlobalTableTableType',
     'GlobalTableVectorIndexDistanceFunction',
     'TableContributorInsightsSpecificationMode',
     'TableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
@@ -86,6 +87,12 @@ class GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode(_builtin
 class GlobalTableSearchSchemaElementSearchSchemaElementType(_builtins.str, Enum):
     HASH = "HASH"
     INLINE_FILTER = "INLINE_FILTER"
+
+
+@pulumi.type_token("aws-native:dynamodb:GlobalTableTableType")
+class GlobalTableTableType(_builtins.str, Enum):
+    GLOBAL_TABLE_REPLICA = "GlobalTableReplica"
+    REGIONAL = "Regional"
 
 
 @pulumi.type_token("aws-native:dynamodb:GlobalTableVectorIndexDistanceFunction")

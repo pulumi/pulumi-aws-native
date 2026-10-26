@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
 
+        [Input("disassociationProtectionEnabled")]
+        public Input<bool>? DisassociationProtectionEnabled { get; set; }
+
         [Input("globalSecondaryIndexes")]
         private InputList<Inputs.GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs>? _globalSecondaryIndexes;
 

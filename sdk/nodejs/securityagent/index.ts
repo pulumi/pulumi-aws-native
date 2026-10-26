@@ -45,6 +45,11 @@ export const getPentest: typeof import("./getPentest").getPentest = null as any;
 export const getPentestOutput: typeof import("./getPentest").getPentestOutput = null as any;
 utilities.lazyLoad(exports, ["getPentest","getPentestOutput"], () => require("./getPentest"));
 
+export { GetPrivateConnectionArgs, GetPrivateConnectionResult, GetPrivateConnectionOutputArgs } from "./getPrivateConnection";
+export const getPrivateConnection: typeof import("./getPrivateConnection").getPrivateConnection = null as any;
+export const getPrivateConnectionOutput: typeof import("./getPrivateConnection").getPrivateConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateConnection","getPrivateConnectionOutput"], () => require("./getPrivateConnection"));
+
 export { GetSecurityRequirementPackArgs, GetSecurityRequirementPackResult, GetSecurityRequirementPackOutputArgs } from "./getSecurityRequirementPack";
 export const getSecurityRequirementPack: typeof import("./getSecurityRequirementPack").getSecurityRequirementPack = null as any;
 export const getSecurityRequirementPackOutput: typeof import("./getSecurityRequirementPack").getSecurityRequirementPackOutput = null as any;
@@ -64,6 +69,11 @@ export { PentestArgs } from "./pentest";
 export type Pentest = import("./pentest").Pentest;
 export const Pentest: typeof import("./pentest").Pentest = null as any;
 utilities.lazyLoad(exports, ["Pentest"], () => require("./pentest"));
+
+export { PrivateConnectionArgs } from "./privateConnection";
+export type PrivateConnection = import("./privateConnection").PrivateConnection;
+export const PrivateConnection: typeof import("./privateConnection").PrivateConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateConnection"], () => require("./privateConnection"));
 
 export { SecurityRequirementPackArgs } from "./securityRequirementPack";
 export type SecurityRequirementPack = import("./securityRequirementPack").SecurityRequirementPack;
@@ -93,6 +103,8 @@ const _module = {
                 return new Integration(name, <any>undefined, { urn })
             case "aws-native:securityagent:Pentest":
                 return new Pentest(name, <any>undefined, { urn })
+            case "aws-native:securityagent:PrivateConnection":
+                return new PrivateConnection(name, <any>undefined, { urn })
             case "aws-native:securityagent:SecurityRequirementPack":
                 return new SecurityRequirementPack(name, <any>undefined, { urn })
             case "aws-native:securityagent:TargetDomain":

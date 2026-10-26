@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.OpenSearchService
     public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+        /// </summary>
+        [Output("acceptedWarnings")]
+        public Output<ImmutableArray<string>> AcceptedWarnings { get; private set; } = null!;
+
+        /// <summary>
         /// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
@@ -256,6 +262,18 @@ namespace Pulumi.AwsNative.OpenSearchService
 
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
+        [Input("acceptedWarnings")]
+        private InputList<string>? _acceptedWarnings;
+
+        /// <summary>
+        /// Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+        /// </summary>
+        public InputList<string> AcceptedWarnings
+        {
+            get => _acceptedWarnings ?? (_acceptedWarnings = new InputList<string>());
+            set => _acceptedWarnings = value;
+        }
+
         /// <summary>
         /// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
         /// 

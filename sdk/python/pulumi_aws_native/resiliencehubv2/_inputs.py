@@ -30,6 +30,8 @@ __all__ = [
     'ServiceAssociatedSystemArgsDict',
     'ServiceCrossAccountRoleConfigurationArgs',
     'ServiceCrossAccountRoleConfigurationArgsDict',
+    'ServiceDevOpsAgentConfigurationArgs',
+    'ServiceDevOpsAgentConfigurationArgsDict',
     'ServiceEksLabelSelectorArgs',
     'ServiceEksLabelSelectorArgsDict',
     'ServiceEksLabelSelectorRequirementArgs',
@@ -375,6 +377,39 @@ class ServiceCrossAccountRoleConfigurationArgs:
     @external_id.setter
     def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
+
+
+class ServiceDevOpsAgentConfigurationArgsDict(TypedDict):
+    """
+    Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+    """
+    agent_space_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the DevOps Agent Agent Space to link to this service.
+    """
+
+@pulumi.input_type
+class ServiceDevOpsAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 agent_space_arn: pulumi.Input[_builtins.str]):
+        """
+        Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+
+        :param pulumi.Input[_builtins.str] agent_space_arn: The ARN of the DevOps Agent Agent Space to link to this service.
+        """
+        pulumi.set(__self__, "agent_space_arn", agent_space_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="agentSpaceArn")
+    def agent_space_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the DevOps Agent Agent Space to link to this service.
+        """
+        return pulumi.get(self, "agent_space_arn")
+
+    @agent_space_arn.setter
+    def agent_space_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "agent_space_arn", value)
 
 
 class ServiceEksLabelSelectorArgsDict(TypedDict):

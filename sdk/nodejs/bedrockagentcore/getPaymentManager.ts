@@ -19,7 +19,7 @@ export function getPaymentManager(args: GetPaymentManagerArgs, opts?: pulumi.Inv
 
 export interface GetPaymentManagerArgs {
     /**
-     * The Amazon Resource Name (ARN) of the payment manager
+     * The Amazon Resource Name (ARN) of the resource.
      */
     paymentManagerArn: string;
 }
@@ -38,7 +38,7 @@ export interface GetPaymentManagerResult {
      */
     readonly lastUpdatedAt?: string;
     /**
-     * The Amazon Resource Name (ARN) of the payment manager
+     * The Amazon Resource Name (ARN) of the resource.
      */
     readonly paymentManagerArn?: string;
     /**
@@ -49,11 +49,17 @@ export interface GetPaymentManagerResult {
      * The ARN of the IAM role for the payment manager
      */
     readonly roleArn?: string;
+    /**
+     * The current status of the payment manager
+     */
     readonly status?: enums.bedrockagentcore.PaymentManagerStatus;
     /**
-     * Tags to assign to the payment manager
+     * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The workload identity details for the payment manager
+     */
     readonly workloadIdentityDetails?: outputs.bedrockagentcore.PaymentManagerWorkloadIdentityDetails;
 }
 /**
@@ -68,7 +74,7 @@ export function getPaymentManagerOutput(args: GetPaymentManagerOutputArgs, opts?
 
 export interface GetPaymentManagerOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the payment manager
+     * The Amazon Resource Name (ARN) of the resource.
      */
     paymentManagerArn: pulumi.Input<string>;
 }

@@ -101,9 +101,25 @@
       "minLength" : 1,
       "maxLength" : 2048,
       "pattern" : "^((arn:aws(-[^:]+)?:kms:[a-zA-Z0-9-]*:[0-9]{12}:((key/[a-zA-Z0-9-]{36})|(alias/[a-zA-Z0-9-_/]+)))|([a-zA-Z0-9-]{36})|(alias/[a-zA-Z0-9-_/]+))$"
+    },
+    "DevOpsAgentConfiguration" : {
+      "$ref" : "#/definitions/DevOpsAgentConfiguration"
     }
   },
   "definitions" : {
+    "DevOpsAgentConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "description" : "Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.",
+      "properties" : {
+        "AgentSpaceArn" : {
+          "type" : "string",
+          "description" : "The ARN of the DevOps Agent Agent Space to link to this service.",
+          "pattern" : "^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+.-]{0,1023}$"
+        }
+      },
+      "required" : [ "AgentSpaceArn" ]
+    },
     "AssociatedSystem" : {
       "type" : "object",
       "additionalProperties" : false,

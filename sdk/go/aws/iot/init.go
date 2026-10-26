@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Logging{}
 	case "aws-native:iot:MitigationAction":
 		r = &MitigationAction{}
+	case "aws-native:iot:OtaUpdate":
+		r = &OtaUpdate{}
 	case "aws-native:iot:Policy":
 		r = &Policy{}
 	case "aws-native:iot:PolicyPrincipalAttachment":

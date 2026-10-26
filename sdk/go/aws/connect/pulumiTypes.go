@@ -8449,6 +8449,7 @@ func (o HoursOfOperationsIdentifierArrayOutput) Index(i pulumi.IntInput) HoursOf
 }
 
 type InstanceAttributes struct {
+	AutoMuteAgentOnHold       *bool `pulumi:"autoMuteAgentOnHold"`
 	AutoResolveBestVoices     *bool `pulumi:"autoResolveBestVoices"`
 	ContactLens               *bool `pulumi:"contactLens"`
 	ContactflowLogs           *bool `pulumi:"contactflowLogs"`
@@ -8476,6 +8477,7 @@ type InstanceAttributesInput interface {
 }
 
 type InstanceAttributesArgs struct {
+	AutoMuteAgentOnHold       pulumi.BoolPtrInput `pulumi:"autoMuteAgentOnHold"`
 	AutoResolveBestVoices     pulumi.BoolPtrInput `pulumi:"autoResolveBestVoices"`
 	ContactLens               pulumi.BoolPtrInput `pulumi:"contactLens"`
 	ContactflowLogs           pulumi.BoolPtrInput `pulumi:"contactflowLogs"`
@@ -8515,6 +8517,10 @@ func (o InstanceAttributesOutput) ToInstanceAttributesOutput() InstanceAttribute
 
 func (o InstanceAttributesOutput) ToInstanceAttributesOutputWithContext(ctx context.Context) InstanceAttributesOutput {
 	return o
+}
+
+func (o InstanceAttributesOutput) AutoMuteAgentOnHold() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.AutoMuteAgentOnHold }).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceAttributesOutput) AutoResolveBestVoices() pulumi.BoolPtrOutput {
@@ -8591,6 +8597,15 @@ func (o InstanceAttributesPtrOutput) Elem() InstanceAttributesOutput {
 		var ret InstanceAttributes
 		return ret
 	}).(InstanceAttributesOutput)
+}
+
+func (o InstanceAttributesPtrOutput) AutoMuteAgentOnHold() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoMuteAgentOnHold
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceAttributesPtrOutput) AutoResolveBestVoices() pulumi.BoolPtrOutput {

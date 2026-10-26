@@ -15,10 +15,12 @@ from .get_application import *
 from .get_artifact import *
 from .get_integration import *
 from .get_pentest import *
+from .get_private_connection import *
 from .get_security_requirement_pack import *
 from .get_target_domain import *
 from .integration import *
 from .pentest import *
+from .private_connection import *
 from .security_requirement_pack import *
 from .target_domain import *
 from ._inputs import *

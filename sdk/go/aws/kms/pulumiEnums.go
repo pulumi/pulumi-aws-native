@@ -238,6 +238,9 @@ const (
 	KeySpecMlDsa65             = KeySpec("ML_DSA_65")
 	KeySpecMlDsa87             = KeySpec("ML_DSA_87")
 	KeySpecEccNistEdwards25519 = KeySpec("ECC_NIST_EDWARDS25519")
+	KeySpecMlKem512            = KeySpec("ML_KEM_512")
+	KeySpecMlKem768            = KeySpec("ML_KEM_768")
+	KeySpecMlKem1024           = KeySpec("ML_KEM_1024")
 )
 
 func (KeySpec) ElementType() reflect.Type {
@@ -379,6 +382,9 @@ func (o KeySpecPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 //	KeySpecMlDsa65
 //	KeySpecMlDsa87
 //	KeySpecEccNistEdwards25519
+//	KeySpecMlKem512
+//	KeySpecMlKem768
+//	KeySpecMlKem1024
 type KeySpecInput interface {
 	pulumi.Input
 
@@ -427,10 +433,11 @@ func (in *keySpecPtr) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpec
 type KeyUsage string
 
 const (
-	KeyUsageEncryptDecrypt    = KeyUsage("ENCRYPT_DECRYPT")
-	KeyUsageSignVerify        = KeyUsage("SIGN_VERIFY")
-	KeyUsageGenerateVerifyMac = KeyUsage("GENERATE_VERIFY_MAC")
-	KeyUsageKeyAgreement      = KeyUsage("KEY_AGREEMENT")
+	KeyUsageEncryptDecrypt         = KeyUsage("ENCRYPT_DECRYPT")
+	KeyUsageSignVerify             = KeyUsage("SIGN_VERIFY")
+	KeyUsageGenerateVerifyMac      = KeyUsage("GENERATE_VERIFY_MAC")
+	KeyUsageKeyAgreement           = KeyUsage("KEY_AGREEMENT")
+	KeyUsageEncapsulateDecapsulate = KeyUsage("ENCAPSULATE_DECAPSULATE")
 )
 
 func (KeyUsage) ElementType() reflect.Type {
@@ -559,6 +566,7 @@ func (o KeyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 //	KeyUsageSignVerify
 //	KeyUsageGenerateVerifyMac
 //	KeyUsageKeyAgreement
+//	KeyUsageEncapsulateDecapsulate
 type KeyUsageInput interface {
 	pulumi.Input
 

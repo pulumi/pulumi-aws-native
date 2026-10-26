@@ -59,8 +59,10 @@ __all__ = [
     'ImageTestsConfiguration',
     'ImageWorkflowConfiguration',
     'ImageWorkflowParameter',
+    'InfrastructureConfigurationAutoScalingGroup',
     'InfrastructureConfigurationInstanceMetadataOptions',
     'InfrastructureConfigurationLogging',
+    'InfrastructureConfigurationParentInstance',
     'InfrastructureConfigurationPlacement',
     'InfrastructureConfigurationS3Logs',
     'LifecyclePolicyAction',
@@ -2770,6 +2772,58 @@ class ImageWorkflowParameter(dict):
 
 
 @pulumi.output_type
+class InfrastructureConfigurationAutoScalingGroup(dict):
+    """
+    Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityWaitTimeoutSeconds":
+            suggest = "capacity_wait_timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureConfigurationAutoScalingGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureConfigurationAutoScalingGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureConfigurationAutoScalingGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 capacity_wait_timeout_seconds: Optional[_builtins.int] = None):
+        """
+        Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+
+        :param _builtins.str name: The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+        :param _builtins.int capacity_wait_timeout_seconds: The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity_wait_timeout_seconds is not None:
+            pulumi.set(__self__, "capacity_wait_timeout_seconds", capacity_wait_timeout_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityWaitTimeoutSeconds")
+    def capacity_wait_timeout_seconds(self) -> Optional[_builtins.int]:
+        """
+        The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+        """
+        return pulumi.get(self, "capacity_wait_timeout_seconds")
+
+
+@pulumi.output_type
 class InfrastructureConfigurationInstanceMetadataOptions(dict):
     """
     The instance metadata option settings for the infrastructure configuration.
@@ -2863,6 +2917,46 @@ class InfrastructureConfigurationLogging(dict):
         The Amazon S3 logging configuration.
         """
         return pulumi.get(self, "s3_logs")
+
+
+@pulumi.output_type
+class InfrastructureConfigurationParentInstance(dict):
+    """
+    Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScalingGroup":
+            suggest = "auto_scaling_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureConfigurationParentInstance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureConfigurationParentInstance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureConfigurationParentInstance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_scaling_group: 'outputs.InfrastructureConfigurationAutoScalingGroup'):
+        """
+        Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+
+        :param 'InfrastructureConfigurationAutoScalingGroup' auto_scaling_group: The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+        """
+        pulumi.set(__self__, "auto_scaling_group", auto_scaling_group)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingGroup")
+    def auto_scaling_group(self) -> 'outputs.InfrastructureConfigurationAutoScalingGroup':
+        """
+        The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+        """
+        return pulumi.get(self, "auto_scaling_group")
 
 
 @pulumi.output_type

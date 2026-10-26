@@ -17,8 +17,10 @@ import (
 type PaymentManager struct {
 	pulumi.CustomResourceState
 
-	AuthorizerConfiguration PaymentManagerAuthorizerConfigurationPtrOutput `pulumi:"authorizerConfiguration"`
-	AuthorizerType          PaymentManagerPaymentsAuthorizerTypeOutput     `pulumi:"authorizerType"`
+	// The authorizer configuration for the payment manager
+	AuthorizerConfiguration PaymentManagerAuthorizerConfigurationPropertiesPtrOutput `pulumi:"authorizerConfiguration"`
+	// The type of authorizer for the payment manager
+	AuthorizerType PaymentManagerAuthorizerTypeOutput `pulumi:"authorizerType"`
 	// The timestamp when the payment manager was created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// A description of the payment manager
@@ -27,15 +29,17 @@ type PaymentManager struct {
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The name of the payment manager
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Amazon Resource Name (ARN) of the payment manager
+	// The Amazon Resource Name (ARN) of the resource.
 	PaymentManagerArn pulumi.StringOutput `pulumi:"paymentManagerArn"`
 	// The unique identifier for the payment manager
 	PaymentManagerId pulumi.StringOutput `pulumi:"paymentManagerId"`
 	// The ARN of the IAM role for the payment manager
-	RoleArn pulumi.StringOutput        `pulumi:"roleArn"`
-	Status  PaymentManagerStatusOutput `pulumi:"status"`
-	// Tags to assign to the payment manager
-	Tags                    aws.TagArrayOutput                          `pulumi:"tags"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The current status of the payment manager
+	Status PaymentManagerStatusOutput `pulumi:"status"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The workload identity details for the payment manager
 	WorkloadIdentityDetails PaymentManagerWorkloadIdentityDetailsOutput `pulumi:"workloadIdentityDetails"`
 }
 
@@ -91,29 +95,33 @@ func (PaymentManagerState) ElementType() reflect.Type {
 }
 
 type paymentManagerArgs struct {
-	AuthorizerConfiguration *PaymentManagerAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
-	AuthorizerType          PaymentManagerPaymentsAuthorizerType   `pulumi:"authorizerType"`
+	// The authorizer configuration for the payment manager
+	AuthorizerConfiguration *PaymentManagerAuthorizerConfigurationProperties `pulumi:"authorizerConfiguration"`
+	// The type of authorizer for the payment manager
+	AuthorizerType PaymentManagerAuthorizerType `pulumi:"authorizerType"`
 	// A description of the payment manager
 	Description *string `pulumi:"description"`
 	// The name of the payment manager
 	Name *string `pulumi:"name"`
 	// The ARN of the IAM role for the payment manager
 	RoleArn string `pulumi:"roleArn"`
-	// Tags to assign to the payment manager
+	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PaymentManager resource.
 type PaymentManagerArgs struct {
-	AuthorizerConfiguration PaymentManagerAuthorizerConfigurationPtrInput
-	AuthorizerType          PaymentManagerPaymentsAuthorizerTypeInput
+	// The authorizer configuration for the payment manager
+	AuthorizerConfiguration PaymentManagerAuthorizerConfigurationPropertiesPtrInput
+	// The type of authorizer for the payment manager
+	AuthorizerType PaymentManagerAuthorizerTypeInput
 	// A description of the payment manager
 	Description pulumi.StringPtrInput
 	// The name of the payment manager
 	Name pulumi.StringPtrInput
 	// The ARN of the IAM role for the payment manager
 	RoleArn pulumi.StringInput
-	// Tags to assign to the payment manager
+	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
 
@@ -154,14 +162,16 @@ func (o PaymentManagerOutput) ToPaymentManagerOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PaymentManagerOutput) AuthorizerConfiguration() PaymentManagerAuthorizerConfigurationPtrOutput {
-	return o.ApplyT(func(v *PaymentManager) PaymentManagerAuthorizerConfigurationPtrOutput {
+// The authorizer configuration for the payment manager
+func (o PaymentManagerOutput) AuthorizerConfiguration() PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *PaymentManager) PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
 		return v.AuthorizerConfiguration
-	}).(PaymentManagerAuthorizerConfigurationPtrOutput)
+	}).(PaymentManagerAuthorizerConfigurationPropertiesPtrOutput)
 }
 
-func (o PaymentManagerOutput) AuthorizerType() PaymentManagerPaymentsAuthorizerTypeOutput {
-	return o.ApplyT(func(v *PaymentManager) PaymentManagerPaymentsAuthorizerTypeOutput { return v.AuthorizerType }).(PaymentManagerPaymentsAuthorizerTypeOutput)
+// The type of authorizer for the payment manager
+func (o PaymentManagerOutput) AuthorizerType() PaymentManagerAuthorizerTypeOutput {
+	return o.ApplyT(func(v *PaymentManager) PaymentManagerAuthorizerTypeOutput { return v.AuthorizerType }).(PaymentManagerAuthorizerTypeOutput)
 }
 
 // The timestamp when the payment manager was created
@@ -184,7 +194,7 @@ func (o PaymentManagerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PaymentManager) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the payment manager
+// The Amazon Resource Name (ARN) of the resource.
 func (o PaymentManagerOutput) PaymentManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PaymentManager) pulumi.StringOutput { return v.PaymentManagerArn }).(pulumi.StringOutput)
 }
@@ -199,15 +209,17 @@ func (o PaymentManagerOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PaymentManager) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The current status of the payment manager
 func (o PaymentManagerOutput) Status() PaymentManagerStatusOutput {
 	return o.ApplyT(func(v *PaymentManager) PaymentManagerStatusOutput { return v.Status }).(PaymentManagerStatusOutput)
 }
 
-// Tags to assign to the payment manager
+// An array of key-value pairs to apply to this resource.
 func (o PaymentManagerOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *PaymentManager) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The workload identity details for the payment manager
 func (o PaymentManagerOutput) WorkloadIdentityDetails() PaymentManagerWorkloadIdentityDetailsOutput {
 	return o.ApplyT(func(v *PaymentManager) PaymentManagerWorkloadIdentityDetailsOutput { return v.WorkloadIdentityDetails }).(PaymentManagerWorkloadIdentityDetailsOutput)
 }

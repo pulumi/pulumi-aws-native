@@ -8,6 +8,68 @@ using Pulumi;
 namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
+    /// Whether the calling principal is authorized to assume the access profile.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessProfileAssumeStatus : IEquatable<AccessProfileAssumeStatus>
+    {
+        private readonly string _value;
+
+        private AccessProfileAssumeStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessProfileAssumeStatus Allowed { get; } = new AccessProfileAssumeStatus("ALLOWED");
+        public static AccessProfileAssumeStatus Denied { get; } = new AccessProfileAssumeStatus("DENIED");
+
+        public static bool operator ==(AccessProfileAssumeStatus left, AccessProfileAssumeStatus right) => left.Equals(right);
+        public static bool operator !=(AccessProfileAssumeStatus left, AccessProfileAssumeStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AccessProfileAssumeStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessProfileAssumeStatus other && Equals(other);
+        public bool Equals(AccessProfileAssumeStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the access profile is managed by the service or by the customer.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessProfileProfileType : IEquatable<AccessProfileProfileType>
+    {
+        private readonly string _value;
+
+        private AccessProfileProfileType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessProfileProfileType ServiceManaged { get; } = new AccessProfileProfileType("SERVICE_MANAGED");
+        public static AccessProfileProfileType CustomerManaged { get; } = new AccessProfileProfileType("CUSTOMER_MANAGED");
+
+        public static bool operator ==(AccessProfileProfileType left, AccessProfileProfileType right) => left.Equals(right);
+        public static bool operator !=(AccessProfileProfileType left, AccessProfileProfileType right) => !left.Equals(right);
+
+        public static explicit operator string(AccessProfileProfileType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessProfileProfileType other && Equals(other);
+        public bool Equals(AccessProfileProfileType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The current status of the AlarmMuteRule
     /// </summary>
     [EnumType]
@@ -32,6 +94,64 @@ namespace Pulumi.AwsNative.CloudWatch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AlarmMuteRuleStatus other && Equals(other);
         public bool Equals(AlarmMuteRuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DomainForOrganizationIdentityProvidersItem : IEquatable<DomainForOrganizationIdentityProvidersItem>
+    {
+        private readonly string _value;
+
+        private DomainForOrganizationIdentityProvidersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainForOrganizationIdentityProvidersItem Iam { get; } = new DomainForOrganizationIdentityProvidersItem("IAM");
+        public static DomainForOrganizationIdentityProvidersItem Idc { get; } = new DomainForOrganizationIdentityProvidersItem("IDC");
+
+        public static bool operator ==(DomainForOrganizationIdentityProvidersItem left, DomainForOrganizationIdentityProvidersItem right) => left.Equals(right);
+        public static bool operator !=(DomainForOrganizationIdentityProvidersItem left, DomainForOrganizationIdentityProvidersItem right) => !left.Equals(right);
+
+        public static explicit operator string(DomainForOrganizationIdentityProvidersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainForOrganizationIdentityProvidersItem other && Equals(other);
+        public bool Equals(DomainForOrganizationIdentityProvidersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Current status of the domain.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainForOrganizationStatus : IEquatable<DomainForOrganizationStatus>
+    {
+        private readonly string _value;
+
+        private DomainForOrganizationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainForOrganizationStatus Active { get; } = new DomainForOrganizationStatus("ACTIVE");
+
+        public static bool operator ==(DomainForOrganizationStatus left, DomainForOrganizationStatus right) => left.Equals(right);
+        public static bool operator !=(DomainForOrganizationStatus left, DomainForOrganizationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DomainForOrganizationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainForOrganizationStatus other && Equals(other);
+        public bool Equals(DomainForOrganizationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

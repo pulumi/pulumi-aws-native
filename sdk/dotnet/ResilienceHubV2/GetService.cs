@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         /// The description of the service.
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.ServiceDevOpsAgentConfiguration? DevOpsAgentConfiguration;
         public readonly Outputs.ServiceEffectivePolicyValues? EffectivePolicyValues;
         /// <summary>
         /// Input sources for this service.
@@ -119,6 +120,8 @@ namespace Pulumi.AwsNative.ResilienceHubV2
 
             string? description,
 
+            Outputs.ServiceDevOpsAgentConfiguration? devOpsAgentConfiguration,
+
             Outputs.ServiceEffectivePolicyValues? effectivePolicyValues,
 
             ImmutableArray<Outputs.ServiceInputSourceDefinition> inputSources,
@@ -140,6 +143,7 @@ namespace Pulumi.AwsNative.ResilienceHubV2
             CreatedAt = createdAt;
             DependencyDiscovery = dependencyDiscovery;
             Description = description;
+            DevOpsAgentConfiguration = devOpsAgentConfiguration;
             EffectivePolicyValues = effectivePolicyValues;
             InputSources = inputSources;
             PermissionModel = permissionModel;

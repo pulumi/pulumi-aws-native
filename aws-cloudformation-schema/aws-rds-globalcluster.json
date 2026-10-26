@@ -100,7 +100,7 @@
   "primaryIdentifier" : [ "/properties/GlobalClusterIdentifier" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:CreateGlobalCluster", "rds:DescribeDBClusters", "rds:DescribeGlobalClusters", "rds:ListTagsForResource" ]
+      "permissions" : [ "rds:CreateGlobalCluster", "rds:DescribeDBClusters", "rds:DescribeGlobalClusters", "rds:AddTagsToResource", "rds:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "rds:DescribeGlobalClusters", "rds:ListTagsForResource" ]

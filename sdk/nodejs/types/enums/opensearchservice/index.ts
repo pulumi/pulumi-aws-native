@@ -19,6 +19,16 @@ export const DomainDeploymentStrategyOptionsDeploymentStrategy = {
 
 export type DomainDeploymentStrategyOptionsDeploymentStrategy = (typeof DomainDeploymentStrategyOptionsDeploymentStrategy)[keyof typeof DomainDeploymentStrategyOptionsDeploymentStrategy];
 
+export const DomainEncryptionAtRestOptionsEncryptionMode = {
+    Disk: "DISK",
+    Native: "NATIVE",
+} as const;
+
+/**
+ * The type of encryption at rest applied to the domain's data. Valid values are DISK and NATIVE. DISK is the default and uses volume-level encryption. NATIVE uses engine-native, index-level encryption and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After the mode is set to NATIVE, it can't be changed back to DISK.
+ */
+export type DomainEncryptionAtRestOptionsEncryptionMode = (typeof DomainEncryptionAtRestOptionsEncryptionMode)[keyof typeof DomainEncryptionAtRestOptionsEncryptionMode];
+
 export const DomainEngineMode = {
     General: "GENERAL",
     Optimized: "OPTIMIZED",

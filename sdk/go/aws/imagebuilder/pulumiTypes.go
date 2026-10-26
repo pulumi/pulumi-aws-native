@@ -6334,6 +6334,165 @@ func (o ImageWorkflowParameterArrayOutput) Index(i pulumi.IntInput) ImageWorkflo
 	}).(ImageWorkflowParameterOutput)
 }
 
+// Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+type InfrastructureConfigurationAutoScalingGroup struct {
+	// The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+	CapacityWaitTimeoutSeconds *int `pulumi:"capacityWaitTimeoutSeconds"`
+	// The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+	Name string `pulumi:"name"`
+}
+
+// InfrastructureConfigurationAutoScalingGroupInput is an input type that accepts InfrastructureConfigurationAutoScalingGroupArgs and InfrastructureConfigurationAutoScalingGroupOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationAutoScalingGroupInput` via:
+//
+//	InfrastructureConfigurationAutoScalingGroupArgs{...}
+type InfrastructureConfigurationAutoScalingGroupInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationAutoScalingGroupOutput() InfrastructureConfigurationAutoScalingGroupOutput
+	ToInfrastructureConfigurationAutoScalingGroupOutputWithContext(context.Context) InfrastructureConfigurationAutoScalingGroupOutput
+}
+
+// Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+type InfrastructureConfigurationAutoScalingGroupArgs struct {
+	// The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+	CapacityWaitTimeoutSeconds pulumi.IntPtrInput `pulumi:"capacityWaitTimeoutSeconds"`
+	// The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (InfrastructureConfigurationAutoScalingGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationAutoScalingGroup)(nil)).Elem()
+}
+
+func (i InfrastructureConfigurationAutoScalingGroupArgs) ToInfrastructureConfigurationAutoScalingGroupOutput() InfrastructureConfigurationAutoScalingGroupOutput {
+	return i.ToInfrastructureConfigurationAutoScalingGroupOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationAutoScalingGroupArgs) ToInfrastructureConfigurationAutoScalingGroupOutputWithContext(ctx context.Context) InfrastructureConfigurationAutoScalingGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationAutoScalingGroupOutput)
+}
+
+func (i InfrastructureConfigurationAutoScalingGroupArgs) ToInfrastructureConfigurationAutoScalingGroupPtrOutput() InfrastructureConfigurationAutoScalingGroupPtrOutput {
+	return i.ToInfrastructureConfigurationAutoScalingGroupPtrOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationAutoScalingGroupArgs) ToInfrastructureConfigurationAutoScalingGroupPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationAutoScalingGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationAutoScalingGroupOutput).ToInfrastructureConfigurationAutoScalingGroupPtrOutputWithContext(ctx)
+}
+
+// InfrastructureConfigurationAutoScalingGroupPtrInput is an input type that accepts InfrastructureConfigurationAutoScalingGroupArgs, InfrastructureConfigurationAutoScalingGroupPtr and InfrastructureConfigurationAutoScalingGroupPtrOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationAutoScalingGroupPtrInput` via:
+//
+//	        InfrastructureConfigurationAutoScalingGroupArgs{...}
+//
+//	or:
+//
+//	        nil
+type InfrastructureConfigurationAutoScalingGroupPtrInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationAutoScalingGroupPtrOutput() InfrastructureConfigurationAutoScalingGroupPtrOutput
+	ToInfrastructureConfigurationAutoScalingGroupPtrOutputWithContext(context.Context) InfrastructureConfigurationAutoScalingGroupPtrOutput
+}
+
+type infrastructureConfigurationAutoScalingGroupPtrType InfrastructureConfigurationAutoScalingGroupArgs
+
+func InfrastructureConfigurationAutoScalingGroupPtr(v *InfrastructureConfigurationAutoScalingGroupArgs) InfrastructureConfigurationAutoScalingGroupPtrInput {
+	return (*infrastructureConfigurationAutoScalingGroupPtrType)(v)
+}
+
+func (*infrastructureConfigurationAutoScalingGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationAutoScalingGroup)(nil)).Elem()
+}
+
+func (i *infrastructureConfigurationAutoScalingGroupPtrType) ToInfrastructureConfigurationAutoScalingGroupPtrOutput() InfrastructureConfigurationAutoScalingGroupPtrOutput {
+	return i.ToInfrastructureConfigurationAutoScalingGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *infrastructureConfigurationAutoScalingGroupPtrType) ToInfrastructureConfigurationAutoScalingGroupPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationAutoScalingGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationAutoScalingGroupPtrOutput)
+}
+
+// Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+type InfrastructureConfigurationAutoScalingGroupOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationAutoScalingGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationAutoScalingGroup)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationAutoScalingGroupOutput) ToInfrastructureConfigurationAutoScalingGroupOutput() InfrastructureConfigurationAutoScalingGroupOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationAutoScalingGroupOutput) ToInfrastructureConfigurationAutoScalingGroupOutputWithContext(ctx context.Context) InfrastructureConfigurationAutoScalingGroupOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationAutoScalingGroupOutput) ToInfrastructureConfigurationAutoScalingGroupPtrOutput() InfrastructureConfigurationAutoScalingGroupPtrOutput {
+	return o.ToInfrastructureConfigurationAutoScalingGroupPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationAutoScalingGroupOutput) ToInfrastructureConfigurationAutoScalingGroupPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationAutoScalingGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationAutoScalingGroup) *InfrastructureConfigurationAutoScalingGroup {
+		return &v
+	}).(InfrastructureConfigurationAutoScalingGroupPtrOutput)
+}
+
+// The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+func (o InfrastructureConfigurationAutoScalingGroupOutput) CapacityWaitTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationAutoScalingGroup) *int { return v.CapacityWaitTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+func (o InfrastructureConfigurationAutoScalingGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationAutoScalingGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type InfrastructureConfigurationAutoScalingGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationAutoScalingGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationAutoScalingGroup)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationAutoScalingGroupPtrOutput) ToInfrastructureConfigurationAutoScalingGroupPtrOutput() InfrastructureConfigurationAutoScalingGroupPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationAutoScalingGroupPtrOutput) ToInfrastructureConfigurationAutoScalingGroupPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationAutoScalingGroupPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationAutoScalingGroupPtrOutput) Elem() InfrastructureConfigurationAutoScalingGroupOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationAutoScalingGroup) InfrastructureConfigurationAutoScalingGroup {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationAutoScalingGroup
+		return ret
+	}).(InfrastructureConfigurationAutoScalingGroupOutput)
+}
+
+// The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+func (o InfrastructureConfigurationAutoScalingGroupPtrOutput) CapacityWaitTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationAutoScalingGroup) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityWaitTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+func (o InfrastructureConfigurationAutoScalingGroupPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationAutoScalingGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // The instance metadata option settings for the infrastructure configuration.
 type InfrastructureConfigurationInstanceMetadataOptions struct {
 	// Limit the number of hops that an instance metadata request can traverse to reach its destination.
@@ -6633,6 +6792,148 @@ func (o InfrastructureConfigurationLoggingPtrOutput) S3Logs() InfrastructureConf
 		}
 		return v.S3Logs
 	}).(InfrastructureConfigurationS3LogsPtrOutput)
+}
+
+// Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+type InfrastructureConfigurationParentInstance struct {
+	// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+	AutoScalingGroup InfrastructureConfigurationAutoScalingGroup `pulumi:"autoScalingGroup"`
+}
+
+// InfrastructureConfigurationParentInstanceInput is an input type that accepts InfrastructureConfigurationParentInstanceArgs and InfrastructureConfigurationParentInstanceOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationParentInstanceInput` via:
+//
+//	InfrastructureConfigurationParentInstanceArgs{...}
+type InfrastructureConfigurationParentInstanceInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationParentInstanceOutput() InfrastructureConfigurationParentInstanceOutput
+	ToInfrastructureConfigurationParentInstanceOutputWithContext(context.Context) InfrastructureConfigurationParentInstanceOutput
+}
+
+// Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+type InfrastructureConfigurationParentInstanceArgs struct {
+	// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+	AutoScalingGroup InfrastructureConfigurationAutoScalingGroupInput `pulumi:"autoScalingGroup"`
+}
+
+func (InfrastructureConfigurationParentInstanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationParentInstance)(nil)).Elem()
+}
+
+func (i InfrastructureConfigurationParentInstanceArgs) ToInfrastructureConfigurationParentInstanceOutput() InfrastructureConfigurationParentInstanceOutput {
+	return i.ToInfrastructureConfigurationParentInstanceOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationParentInstanceArgs) ToInfrastructureConfigurationParentInstanceOutputWithContext(ctx context.Context) InfrastructureConfigurationParentInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationParentInstanceOutput)
+}
+
+func (i InfrastructureConfigurationParentInstanceArgs) ToInfrastructureConfigurationParentInstancePtrOutput() InfrastructureConfigurationParentInstancePtrOutput {
+	return i.ToInfrastructureConfigurationParentInstancePtrOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationParentInstanceArgs) ToInfrastructureConfigurationParentInstancePtrOutputWithContext(ctx context.Context) InfrastructureConfigurationParentInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationParentInstanceOutput).ToInfrastructureConfigurationParentInstancePtrOutputWithContext(ctx)
+}
+
+// InfrastructureConfigurationParentInstancePtrInput is an input type that accepts InfrastructureConfigurationParentInstanceArgs, InfrastructureConfigurationParentInstancePtr and InfrastructureConfigurationParentInstancePtrOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationParentInstancePtrInput` via:
+//
+//	        InfrastructureConfigurationParentInstanceArgs{...}
+//
+//	or:
+//
+//	        nil
+type InfrastructureConfigurationParentInstancePtrInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationParentInstancePtrOutput() InfrastructureConfigurationParentInstancePtrOutput
+	ToInfrastructureConfigurationParentInstancePtrOutputWithContext(context.Context) InfrastructureConfigurationParentInstancePtrOutput
+}
+
+type infrastructureConfigurationParentInstancePtrType InfrastructureConfigurationParentInstanceArgs
+
+func InfrastructureConfigurationParentInstancePtr(v *InfrastructureConfigurationParentInstanceArgs) InfrastructureConfigurationParentInstancePtrInput {
+	return (*infrastructureConfigurationParentInstancePtrType)(v)
+}
+
+func (*infrastructureConfigurationParentInstancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationParentInstance)(nil)).Elem()
+}
+
+func (i *infrastructureConfigurationParentInstancePtrType) ToInfrastructureConfigurationParentInstancePtrOutput() InfrastructureConfigurationParentInstancePtrOutput {
+	return i.ToInfrastructureConfigurationParentInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *infrastructureConfigurationParentInstancePtrType) ToInfrastructureConfigurationParentInstancePtrOutputWithContext(ctx context.Context) InfrastructureConfigurationParentInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationParentInstancePtrOutput)
+}
+
+// Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+type InfrastructureConfigurationParentInstanceOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationParentInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationParentInstance)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationParentInstanceOutput) ToInfrastructureConfigurationParentInstanceOutput() InfrastructureConfigurationParentInstanceOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationParentInstanceOutput) ToInfrastructureConfigurationParentInstanceOutputWithContext(ctx context.Context) InfrastructureConfigurationParentInstanceOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationParentInstanceOutput) ToInfrastructureConfigurationParentInstancePtrOutput() InfrastructureConfigurationParentInstancePtrOutput {
+	return o.ToInfrastructureConfigurationParentInstancePtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationParentInstanceOutput) ToInfrastructureConfigurationParentInstancePtrOutputWithContext(ctx context.Context) InfrastructureConfigurationParentInstancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationParentInstance) *InfrastructureConfigurationParentInstance {
+		return &v
+	}).(InfrastructureConfigurationParentInstancePtrOutput)
+}
+
+// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+func (o InfrastructureConfigurationParentInstanceOutput) AutoScalingGroup() InfrastructureConfigurationAutoScalingGroupOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationParentInstance) InfrastructureConfigurationAutoScalingGroup {
+		return v.AutoScalingGroup
+	}).(InfrastructureConfigurationAutoScalingGroupOutput)
+}
+
+type InfrastructureConfigurationParentInstancePtrOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationParentInstancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationParentInstance)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationParentInstancePtrOutput) ToInfrastructureConfigurationParentInstancePtrOutput() InfrastructureConfigurationParentInstancePtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationParentInstancePtrOutput) ToInfrastructureConfigurationParentInstancePtrOutputWithContext(ctx context.Context) InfrastructureConfigurationParentInstancePtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationParentInstancePtrOutput) Elem() InfrastructureConfigurationParentInstanceOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationParentInstance) InfrastructureConfigurationParentInstance {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationParentInstance
+		return ret
+	}).(InfrastructureConfigurationParentInstanceOutput)
+}
+
+// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+func (o InfrastructureConfigurationParentInstancePtrOutput) AutoScalingGroup() InfrastructureConfigurationAutoScalingGroupPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationParentInstance) *InfrastructureConfigurationAutoScalingGroup {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoScalingGroup
+	}).(InfrastructureConfigurationAutoScalingGroupPtrOutput)
 }
 
 // The placement options
@@ -8374,10 +8675,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowConfigurationArrayInput)(nil)).Elem(), ImageWorkflowConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowParameterInput)(nil)).Elem(), ImageWorkflowParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowParameterArrayInput)(nil)).Elem(), ImageWorkflowParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationAutoScalingGroupInput)(nil)).Elem(), InfrastructureConfigurationAutoScalingGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationAutoScalingGroupPtrInput)(nil)).Elem(), InfrastructureConfigurationAutoScalingGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsPtrInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationParentInstanceInput)(nil)).Elem(), InfrastructureConfigurationParentInstanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationParentInstancePtrInput)(nil)).Elem(), InfrastructureConfigurationParentInstanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationPlacementInput)(nil)).Elem(), InfrastructureConfigurationPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationPlacementPtrInput)(nil)).Elem(), InfrastructureConfigurationPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationS3LogsInput)(nil)).Elem(), InfrastructureConfigurationS3LogsArgs{})
@@ -8481,10 +8786,14 @@ func init() {
 	pulumi.RegisterOutputType(ImageWorkflowConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ImageWorkflowParameterOutput{})
 	pulumi.RegisterOutputType(ImageWorkflowParameterArrayOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationAutoScalingGroupOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationAutoScalingGroupPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationParentInstanceOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationParentInstancePtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationPlacementOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationPlacementPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsOutput{})

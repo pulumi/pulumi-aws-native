@@ -101,6 +101,7 @@ from .get_traffic_mirror_session import *
 from .get_traffic_mirror_target import *
 from .get_transit_gateway import *
 from .get_transit_gateway_attachment import *
+from .get_transit_gateway_attachment_nat_configuration import *
 from .get_transit_gateway_connect import *
 from .get_transit_gateway_connect_peer import *
 from .get_transit_gateway_metering_policy import *
@@ -197,6 +198,7 @@ from .traffic_mirror_session import *
 from .traffic_mirror_target import *
 from .transit_gateway import *
 from .transit_gateway_attachment import *
+from .transit_gateway_attachment_nat_configuration import *
 from .transit_gateway_connect import *
 from .transit_gateway_connect_peer import *
 from .transit_gateway_metering_policy import *

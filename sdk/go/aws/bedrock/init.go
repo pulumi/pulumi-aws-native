@@ -63,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PromptVersion{}
 	case "aws-native:bedrock:ResourcePolicy":
 		r = &ResourcePolicy{}
+	case "aws-native:bedrock:RetrievalInstruction":
+		r = &RetrievalInstruction{}
 	case "aws-native:bedrock:Session":
 		r = &Session{}
 	default:

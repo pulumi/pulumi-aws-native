@@ -16,6 +16,8 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+	AcceptedWarnings pulumi.StringArrayOutput `pulumi:"acceptedWarnings"`
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
@@ -136,6 +138,8 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	// Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+	AcceptedWarnings []string `pulumi:"acceptedWarnings"`
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
@@ -201,6 +205,8 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+	AcceptedWarnings pulumi.StringArrayInput
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
@@ -299,6 +305,11 @@ func (o DomainOutput) ToDomainOutput() DomainOutput {
 
 func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return o
+}
+
+// Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+func (o DomainOutput) AcceptedWarnings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.AcceptedWarnings }).(pulumi.StringArrayOutput)
 }
 
 // An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .

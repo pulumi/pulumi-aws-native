@@ -59,6 +59,10 @@ export interface GetDeploymentGroupResult {
      */
     readonly deploymentStyle?: outputs.codedeploy.DeploymentGroupDeploymentStyle;
     /**
+     * Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+     */
+    readonly ec2DeploymentOptions?: outputs.codedeploy.DeploymentGroupEc2DeploymentOptions;
+    /**
      * The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
      */
     readonly ec2TagFilters?: outputs.codedeploy.DeploymentGroupEc2TagFilter[];

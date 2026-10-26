@@ -882,7 +882,7 @@ type ConfigurationSetEventDestinationEventDestination struct {
 	KinesisFirehoseDestination *ConfigurationSetEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
 	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
 	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
-	// The name of the event destination set.
+	// The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
 	Name *string `pulumi:"name"`
 	// An object that contains SNS topic ARN associated event destination.
 	SnsDestination *ConfigurationSetEventDestinationSnsDestination `pulumi:"snsDestination"`
@@ -910,7 +910,7 @@ type ConfigurationSetEventDestinationEventDestinationArgs struct {
 	KinesisFirehoseDestination ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
 	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
 	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
-	// The name of the event destination set.
+	// The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// An object that contains SNS topic ARN associated event destination.
 	SnsDestination ConfigurationSetEventDestinationSnsDestinationPtrInput `pulumi:"snsDestination"`
@@ -973,7 +973,7 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTyp
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) []string { return v.MatchingEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// The name of the event destination set.
+// The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1059,7 +1059,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEvent
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the event destination set.
+// The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *string {
 		if v == nil {

@@ -39759,7 +39759,6 @@ class AnalysisYAxisOptions(dict):
 class ApprovalPolicyApplicableTo(dict):
     """
     Scoping: who the policy applies to.
-    GROUP: `groupArns` required (one or more group ARNs).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -39779,11 +39778,10 @@ class ApprovalPolicyApplicableTo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 type: Any,
+                 type: 'ApprovalPolicyApplicableToType',
                  group_arns: Optional[Sequence[_builtins.str]] = None):
         """
         Scoping: who the policy applies to.
-        GROUP: `groupArns` required (one or more group ARNs).
 
         :param Sequence[_builtins.str] group_arns: Required when type = GROUP. One or more group ARNs.
         """
@@ -39793,7 +39791,7 @@ class ApprovalPolicyApplicableTo(dict):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> 'ApprovalPolicyApplicableToType':
         return pulumi.get(self, "type")
 
     @_builtins.property

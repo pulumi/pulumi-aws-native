@@ -31,16 +31,27 @@ __all__ = [
     'ExpressGatewayServiceAccessType',
     'ExpressGatewayServiceScalingMetric',
     'ExpressGatewayServiceStatusCode',
+    'GatewayAccessType',
+    'GatewayAlbDesyncMitigationMode',
+    'GatewayAlbProtocol',
+    'GatewayClusterAssociationsGatewayClusterAssociationStatus',
+    'GatewayElbIpAddressType',
+    'GatewayElbScheme',
+    'GatewayPropagateGatewayTags',
+    'GatewayStatus',
     'ServiceAvailabilityZoneRebalancing',
     'ServiceAwsVpcConfigurationAssignPublicIp',
     'ServiceConnectAccessLogConfigurationFormat',
     'ServiceConnectAccessLogConfigurationIncludeQueryParameters',
+    'ServiceConnectContainerConfigurationLogLevel',
     'ServiceDeploymentConfigurationStrategy',
     'ServiceDeploymentControllerType',
     'ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup',
     'ServiceDeploymentLifecycleHookLifecycleStagesItem',
     'ServiceDeploymentLifecycleHookTargetType',
     'ServiceEbsTagSpecificationPropagateTags',
+    'ServiceGatewayConnectorFiltersAccessTypesItem',
+    'ServiceGatewayConnectorHealthCheckHealthCheckProtocol',
     'ServiceHookTimeoutConfigAction',
     'ServiceLaunchType',
     'ServiceMetricConfigurationMetricNamesItem',
@@ -280,6 +291,83 @@ class ExpressGatewayServiceStatusCode(_builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:ecs:GatewayAccessType")
+class GatewayAccessType(_builtins.str, Enum):
+    """
+    The access type for the gateway.
+    """
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
+
+
+@pulumi.type_token("aws-native:ecs:GatewayAlbDesyncMitigationMode")
+class GatewayAlbDesyncMitigationMode(_builtins.str, Enum):
+    """
+    The HTTP desync mitigation mode for the ALB.
+    """
+    MONITOR = "monitor"
+    DEFENSIVE = "defensive"
+    STRICTEST = "strictest"
+
+
+@pulumi.type_token("aws-native:ecs:GatewayAlbProtocol")
+class GatewayAlbProtocol(_builtins.str, Enum):
+    """
+    The protocol for the ALB listener.
+    """
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+
+
+@pulumi.type_token("aws-native:ecs:GatewayClusterAssociationsGatewayClusterAssociationStatus")
+class GatewayClusterAssociationsGatewayClusterAssociationStatus(_builtins.str, Enum):
+    """
+    The status of the association between the gateway and the cluster.
+    """
+    ACTIVE = "ACTIVE"
+    DISASSOCIATING = "DISASSOCIATING"
+
+
+@pulumi.type_token("aws-native:ecs:GatewayElbIpAddressType")
+class GatewayElbIpAddressType(_builtins.str, Enum):
+    """
+    The IP address type for the ALB.
+    """
+    IPV4 = "ipv4"
+    DUALSTACK = "dualstack"
+    DUALSTACK_WITHOUT_PUBLIC_IPV4 = "dualstack-without-public-ipv4"
+
+
+@pulumi.type_token("aws-native:ecs:GatewayElbScheme")
+class GatewayElbScheme(_builtins.str, Enum):
+    """
+    The scheme for the ALB.
+    """
+    INTERNET_FACING = "internet-facing"
+    INTERNAL = "internal"
+
+
+@pulumi.type_token("aws-native:ecs:GatewayPropagateGatewayTags")
+class GatewayPropagateGatewayTags(_builtins.str, Enum):
+    """
+    Specifies whether to propagate the tags from the gateway to other resources.
+    """
+    NONE = "NONE"
+    GATEWAY = "GATEWAY"
+
+
+@pulumi.type_token("aws-native:ecs:GatewayStatus")
+class GatewayStatus(_builtins.str, Enum):
+    """
+    The status of the gateway.
+    """
+    ACTIVE = "ACTIVE"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    UPDATE_COMPLETE = "UPDATE_COMPLETE"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETED = "DELETED"
+
+
 @pulumi.type_token("aws-native:ecs:ServiceAvailabilityZoneRebalancing")
 class ServiceAvailabilityZoneRebalancing(_builtins.str, Enum):
     """
@@ -322,6 +410,12 @@ class ServiceConnectAccessLogConfigurationIncludeQueryParameters(_builtins.str, 
     """
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceConnectContainerConfigurationLogLevel")
+class ServiceConnectContainerConfigurationLogLevel(_builtins.str, Enum):
+    DEBUG = "debug"
+    INFO = "info"
 
 
 @pulumi.type_token("aws-native:ecs:ServiceDeploymentConfigurationStrategy")
@@ -424,6 +518,18 @@ class ServiceEbsTagSpecificationPropagateTags(_builtins.str, Enum):
     """
     SERVICE = "SERVICE"
     TASK_DEFINITION = "TASK_DEFINITION"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceGatewayConnectorFiltersAccessTypesItem")
+class ServiceGatewayConnectorFiltersAccessTypesItem(_builtins.str, Enum):
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceGatewayConnectorHealthCheckHealthCheckProtocol")
+class ServiceGatewayConnectorHealthCheckHealthCheckProtocol(_builtins.str, Enum):
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
 
 
 @pulumi.type_token("aws-native:ecs:ServiceHookTimeoutConfigAction")

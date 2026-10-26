@@ -3344,6 +3344,68 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// Whether NAT gateway support is enabled on the attachment. Set to disable to stage NAT rules without activating them; the rules are retained and become active when this is later set to enable.
+    /// </summary>
+    [EnumType]
+    public readonly struct TransitGatewayAttachmentNatConfigurationNatGatewaySupport : IEquatable<TransitGatewayAttachmentNatConfigurationNatGatewaySupport>
+    {
+        private readonly string _value;
+
+        private TransitGatewayAttachmentNatConfigurationNatGatewaySupport(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransitGatewayAttachmentNatConfigurationNatGatewaySupport Enable { get; } = new TransitGatewayAttachmentNatConfigurationNatGatewaySupport("enable");
+        public static TransitGatewayAttachmentNatConfigurationNatGatewaySupport Disable { get; } = new TransitGatewayAttachmentNatConfigurationNatGatewaySupport("disable");
+
+        public static bool operator ==(TransitGatewayAttachmentNatConfigurationNatGatewaySupport left, TransitGatewayAttachmentNatConfigurationNatGatewaySupport right) => left.Equals(right);
+        public static bool operator !=(TransitGatewayAttachmentNatConfigurationNatGatewaySupport left, TransitGatewayAttachmentNatConfigurationNatGatewaySupport right) => !left.Equals(right);
+
+        public static explicit operator string(TransitGatewayAttachmentNatConfigurationNatGatewaySupport value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransitGatewayAttachmentNatConfigurationNatGatewaySupport other && Equals(other);
+        public bool Equals(TransitGatewayAttachmentNatConfigurationNatGatewaySupport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether routes for the NAT CIDRs are installed into the transit gateway route tables associated with the attachment. Whether this is configurable depends on the attachment; where the value is forced, supplying the opposite value is rejected. Omitting this property leaves the setting to the service: on a new configuration the service applies the attachment's default, but on an attachment where the value is configurable it keeps the value already in effect rather than reverting to that default. Removing this property from a template, or deleting this resource, therefore leaves the setting at its last value rather than restoring the default, and a resource later created on the same attachment without this property inherits that value.
+    /// </summary>
+    [EnumType]
+    public readonly struct TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport : IEquatable<TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport>
+    {
+        private readonly string _value;
+
+        private TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport Enable { get; } = new TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("enable");
+        public static TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport Disable { get; } = new TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("disable");
+
+        public static bool operator ==(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport left, TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport right) => left.Equals(right);
+        public static bool operator !=(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport left, TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport right) => !left.Equals(right);
+
+        public static explicit operator string(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport other && Equals(other);
+        public bool Equals(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enable or disable encryption support. Disabled by default.
     /// </summary>
     [EnumType]

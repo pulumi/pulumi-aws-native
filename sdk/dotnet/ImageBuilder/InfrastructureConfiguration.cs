@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+        /// </summary>
+        [Output("parentInstance")]
+        public Output<Outputs.InfrastructureConfigurationParentInstance?> ParentInstance { get; private set; } = null!;
+
+        /// <summary>
         /// The placement option settings for the infrastructure configuration.
         /// </summary>
         [Output("placement")]
@@ -98,6 +104,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+        /// </summary>
+        [Output("terminateInstanceOnCompletion")]
+        public Output<bool?> TerminateInstanceOnCompletion { get; private set; } = null!;
 
         /// <summary>
         /// The terminate instance on failure configuration of the infrastructure configuration.
@@ -203,6 +215,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+        /// </summary>
+        [Input("parentInstance")]
+        public Input<Inputs.InfrastructureConfigurationParentInstanceArgs>? ParentInstance { get; set; }
+
+        /// <summary>
         /// The placement option settings for the infrastructure configuration.
         /// </summary>
         [Input("placement")]
@@ -255,6 +273,12 @@ namespace Pulumi.AwsNative.ImageBuilder
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+        /// </summary>
+        [Input("terminateInstanceOnCompletion")]
+        public Input<bool>? TerminateInstanceOnCompletion { get; set; }
 
         /// <summary>
         /// The terminate instance on failure configuration of the infrastructure configuration.

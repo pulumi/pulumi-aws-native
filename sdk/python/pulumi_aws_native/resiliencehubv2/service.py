@@ -29,6 +29,7 @@ class ServiceArgs:
                  associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAssociatedSystemArgs']]]] = None,
                  dependency_discovery: pulumi.Input[Optional['ServiceDependencyDiscovery']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_ops_agent_configuration: pulumi.Input[Optional['ServiceDevOpsAgentConfigurationArgs']] = None,
                  input_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceInputSourceDefinitionArgs']]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -59,6 +60,8 @@ class ServiceArgs:
             pulumi.set(__self__, "dependency_discovery", dependency_discovery)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if dev_ops_agent_configuration is not None:
+            pulumi.set(__self__, "dev_ops_agent_configuration", dev_ops_agent_configuration)
         if input_sources is not None:
             pulumi.set(__self__, "input_sources", input_sources)
         if kms_key_id is not None:
@@ -133,6 +136,15 @@ class ServiceArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="devOpsAgentConfiguration")
+    def dev_ops_agent_configuration(self) -> pulumi.Input[Optional['ServiceDevOpsAgentConfigurationArgs']]:
+        return pulumi.get(self, "dev_ops_agent_configuration")
+
+    @dev_ops_agent_configuration.setter
+    def dev_ops_agent_configuration(self, value: pulumi.Input[Optional['ServiceDevOpsAgentConfigurationArgs']]):
+        pulumi.set(self, "dev_ops_agent_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="inputSources")
@@ -223,6 +235,7 @@ class Service(pulumi.CustomResource):
                  associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssociatedSystemArgs', 'ServiceAssociatedSystemArgsDict']]]]] = None,
                  dependency_discovery: pulumi.Input[Optional['ServiceDependencyDiscovery']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_ops_agent_configuration: pulumi.Input[Optional[Union['ServiceDevOpsAgentConfigurationArgs', 'ServiceDevOpsAgentConfigurationArgsDict']]] = None,
                  input_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceInputSourceDefinitionArgs', 'ServiceInputSourceDefinitionArgsDict']]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -276,6 +289,7 @@ class Service(pulumi.CustomResource):
                  associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssociatedSystemArgs', 'ServiceAssociatedSystemArgsDict']]]]] = None,
                  dependency_discovery: pulumi.Input[Optional['ServiceDependencyDiscovery']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_ops_agent_configuration: pulumi.Input[Optional[Union['ServiceDevOpsAgentConfigurationArgs', 'ServiceDevOpsAgentConfigurationArgsDict']]] = None,
                  input_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceInputSourceDefinitionArgs', 'ServiceInputSourceDefinitionArgsDict']]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -297,6 +311,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["associated_systems"] = associated_systems
             __props__.__dict__["dependency_discovery"] = dependency_discovery
             __props__.__dict__["description"] = description
+            __props__.__dict__["dev_ops_agent_configuration"] = dev_ops_agent_configuration
             __props__.__dict__["input_sources"] = input_sources
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
@@ -340,6 +355,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["dependency_discovery"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["dev_ops_agent_configuration"] = None
         __props__.__dict__["effective_policy_values"] = None
         __props__.__dict__["input_sources"] = None
         __props__.__dict__["kms_key_id"] = None
@@ -392,6 +408,11 @@ class Service(pulumi.CustomResource):
         The description of the service.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="devOpsAgentConfiguration")
+    def dev_ops_agent_configuration(self) -> pulumi.Output[Optional['outputs.ServiceDevOpsAgentConfiguration']]:
+        return pulumi.get(self, "dev_ops_agent_configuration")
 
     @_builtins.property
     @pulumi.getter(name="effectivePolicyValues")

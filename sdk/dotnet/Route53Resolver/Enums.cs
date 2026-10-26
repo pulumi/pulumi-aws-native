@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AwsNative.Route53Resolver
 {
     /// <summary>
+    /// Determines how DNS Firewall operates during failures. By default, fail open is disabled, which means the failure mode is closed. If you enable this option, the failure mode is open. This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallConfigFirewallFailOpen : IEquatable<FirewallConfigFirewallFailOpen>
+    {
+        private readonly string _value;
+
+        private FirewallConfigFirewallFailOpen(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallConfigFirewallFailOpen Enabled { get; } = new FirewallConfigFirewallFailOpen("ENABLED");
+        public static FirewallConfigFirewallFailOpen Disabled { get; } = new FirewallConfigFirewallFailOpen("DISABLED");
+        public static FirewallConfigFirewallFailOpen UseLocalResourceSetting { get; } = new FirewallConfigFirewallFailOpen("USE_LOCAL_RESOURCE_SETTING");
+
+        public static bool operator ==(FirewallConfigFirewallFailOpen left, FirewallConfigFirewallFailOpen right) => left.Equals(right);
+        public static bool operator !=(FirewallConfigFirewallFailOpen left, FirewallConfigFirewallFailOpen right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallConfigFirewallFailOpen value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallConfigFirewallFailOpen other && Equals(other);
+        public bool Equals(FirewallConfigFirewallFailOpen other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
     /// </summary>
     [EnumType]

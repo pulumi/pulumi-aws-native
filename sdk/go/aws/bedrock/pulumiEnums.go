@@ -18174,6 +18174,192 @@ func (o PromptVersionPromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
+// The outcome or in-progress state of the most recent create or update. CREATING or UPDATING means the operation is still running. Independent of status. Always has a value from the create 202 onward. On a numbered version this is always CREATE_SUCCESSFUL: a version is created once, from reviewed content, and is immutable.
+type RetrievalInstructionLastTransitionStatus string
+
+const (
+	RetrievalInstructionLastTransitionStatusCreating         = RetrievalInstructionLastTransitionStatus("CREATING")
+	RetrievalInstructionLastTransitionStatusUpdating         = RetrievalInstructionLastTransitionStatus("UPDATING")
+	RetrievalInstructionLastTransitionStatusCreateSuccessful = RetrievalInstructionLastTransitionStatus("CREATE_SUCCESSFUL")
+	RetrievalInstructionLastTransitionStatusCreateFailed     = RetrievalInstructionLastTransitionStatus("CREATE_FAILED")
+	RetrievalInstructionLastTransitionStatusUpdateSuccessful = RetrievalInstructionLastTransitionStatus("UPDATE_SUCCESSFUL")
+	RetrievalInstructionLastTransitionStatusUpdateFailed     = RetrievalInstructionLastTransitionStatus("UPDATE_FAILED")
+)
+
+type RetrievalInstructionLastTransitionStatusOutput struct{ *pulumi.OutputState }
+
+func (RetrievalInstructionLastTransitionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetrievalInstructionLastTransitionStatus)(nil)).Elem()
+}
+
+func (o RetrievalInstructionLastTransitionStatusOutput) ToRetrievalInstructionLastTransitionStatusOutput() RetrievalInstructionLastTransitionStatusOutput {
+	return o
+}
+
+func (o RetrievalInstructionLastTransitionStatusOutput) ToRetrievalInstructionLastTransitionStatusOutputWithContext(ctx context.Context) RetrievalInstructionLastTransitionStatusOutput {
+	return o
+}
+
+func (o RetrievalInstructionLastTransitionStatusOutput) ToRetrievalInstructionLastTransitionStatusPtrOutput() RetrievalInstructionLastTransitionStatusPtrOutput {
+	return o.ToRetrievalInstructionLastTransitionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RetrievalInstructionLastTransitionStatusOutput) ToRetrievalInstructionLastTransitionStatusPtrOutputWithContext(ctx context.Context) RetrievalInstructionLastTransitionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetrievalInstructionLastTransitionStatus) *RetrievalInstructionLastTransitionStatus {
+		return &v
+	}).(RetrievalInstructionLastTransitionStatusPtrOutput)
+}
+
+func (o RetrievalInstructionLastTransitionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RetrievalInstructionLastTransitionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RetrievalInstructionLastTransitionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RetrievalInstructionLastTransitionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RetrievalInstructionLastTransitionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RetrievalInstructionLastTransitionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RetrievalInstructionLastTransitionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RetrievalInstructionLastTransitionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetrievalInstructionLastTransitionStatus)(nil)).Elem()
+}
+
+func (o RetrievalInstructionLastTransitionStatusPtrOutput) ToRetrievalInstructionLastTransitionStatusPtrOutput() RetrievalInstructionLastTransitionStatusPtrOutput {
+	return o
+}
+
+func (o RetrievalInstructionLastTransitionStatusPtrOutput) ToRetrievalInstructionLastTransitionStatusPtrOutputWithContext(ctx context.Context) RetrievalInstructionLastTransitionStatusPtrOutput {
+	return o
+}
+
+func (o RetrievalInstructionLastTransitionStatusPtrOutput) Elem() RetrievalInstructionLastTransitionStatusOutput {
+	return o.ApplyT(func(v *RetrievalInstructionLastTransitionStatus) RetrievalInstructionLastTransitionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RetrievalInstructionLastTransitionStatus
+		return ret
+	}).(RetrievalInstructionLastTransitionStatusOutput)
+}
+
+func (o RetrievalInstructionLastTransitionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RetrievalInstructionLastTransitionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RetrievalInstructionLastTransitionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the instruction can be used. Only ACTIVE is resolvable at retrieval time. Monotone: INACTIVE to ACTIVE once, never back. Numbered versions are always ACTIVE.
+type RetrievalInstructionStatus string
+
+const (
+	RetrievalInstructionStatusActive   = RetrievalInstructionStatus("ACTIVE")
+	RetrievalInstructionStatusInactive = RetrievalInstructionStatus("INACTIVE")
+)
+
+type RetrievalInstructionStatusOutput struct{ *pulumi.OutputState }
+
+func (RetrievalInstructionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetrievalInstructionStatus)(nil)).Elem()
+}
+
+func (o RetrievalInstructionStatusOutput) ToRetrievalInstructionStatusOutput() RetrievalInstructionStatusOutput {
+	return o
+}
+
+func (o RetrievalInstructionStatusOutput) ToRetrievalInstructionStatusOutputWithContext(ctx context.Context) RetrievalInstructionStatusOutput {
+	return o
+}
+
+func (o RetrievalInstructionStatusOutput) ToRetrievalInstructionStatusPtrOutput() RetrievalInstructionStatusPtrOutput {
+	return o.ToRetrievalInstructionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RetrievalInstructionStatusOutput) ToRetrievalInstructionStatusPtrOutputWithContext(ctx context.Context) RetrievalInstructionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetrievalInstructionStatus) *RetrievalInstructionStatus {
+		return &v
+	}).(RetrievalInstructionStatusPtrOutput)
+}
+
+func (o RetrievalInstructionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RetrievalInstructionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RetrievalInstructionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RetrievalInstructionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RetrievalInstructionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RetrievalInstructionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RetrievalInstructionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RetrievalInstructionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetrievalInstructionStatus)(nil)).Elem()
+}
+
+func (o RetrievalInstructionStatusPtrOutput) ToRetrievalInstructionStatusPtrOutput() RetrievalInstructionStatusPtrOutput {
+	return o
+}
+
+func (o RetrievalInstructionStatusPtrOutput) ToRetrievalInstructionStatusPtrOutputWithContext(ctx context.Context) RetrievalInstructionStatusPtrOutput {
+	return o
+}
+
+func (o RetrievalInstructionStatusPtrOutput) Elem() RetrievalInstructionStatusOutput {
+	return o.ApplyT(func(v *RetrievalInstructionStatus) RetrievalInstructionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RetrievalInstructionStatus
+		return ret
+	}).(RetrievalInstructionStatusOutput)
+}
+
+func (o RetrievalInstructionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RetrievalInstructionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RetrievalInstructionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The current status of the session.
 type SessionStatus string
 
@@ -18705,6 +18891,10 @@ func init() {
 	pulumi.RegisterOutputType(PromptVersionConversationRolePtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypeOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(RetrievalInstructionLastTransitionStatusOutput{})
+	pulumi.RegisterOutputType(RetrievalInstructionLastTransitionStatusPtrOutput{})
+	pulumi.RegisterOutputType(RetrievalInstructionStatusOutput{})
+	pulumi.RegisterOutputType(RetrievalInstructionStatusPtrOutput{})
 	pulumi.RegisterOutputType(SessionStatusOutput{})
 	pulumi.RegisterOutputType(SessionStatusPtrOutput{})
 }

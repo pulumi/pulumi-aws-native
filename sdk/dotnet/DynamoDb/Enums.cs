@@ -228,6 +228,34 @@ namespace Pulumi.AwsNative.DynamoDb
     }
 
     [EnumType]
+    public readonly struct GlobalTableTableType : IEquatable<GlobalTableTableType>
+    {
+        private readonly string _value;
+
+        private GlobalTableTableType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalTableTableType GlobalTableReplica { get; } = new GlobalTableTableType("GlobalTableReplica");
+        public static GlobalTableTableType Regional { get; } = new GlobalTableTableType("Regional");
+
+        public static bool operator ==(GlobalTableTableType left, GlobalTableTableType right) => left.Equals(right);
+        public static bool operator !=(GlobalTableTableType left, GlobalTableTableType right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalTableTableType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalTableTableType other && Equals(other);
+        public bool Equals(GlobalTableTableType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct GlobalTableVectorIndexDistanceFunction : IEquatable<GlobalTableVectorIndexDistanceFunction>
     {
         private readonly string _value;

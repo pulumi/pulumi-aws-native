@@ -32,6 +32,8 @@ type InfrastructureConfiguration struct {
 	Logging InfrastructureConfigurationLoggingPtrOutput `pulumi:"logging"`
 	// The name of the infrastructure configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+	ParentInstance InfrastructureConfigurationParentInstancePtrOutput `pulumi:"parentInstance"`
 	// The placement option settings for the infrastructure configuration.
 	Placement InfrastructureConfigurationPlacementPtrOutput `pulumi:"placement"`
 	// The tags attached to the resource created by Image Builder.
@@ -44,6 +46,8 @@ type InfrastructureConfiguration struct {
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// The tags associated with the component.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+	TerminateInstanceOnCompletion pulumi.BoolPtrOutput `pulumi:"terminateInstanceOnCompletion"`
 	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure pulumi.BoolPtrOutput `pulumi:"terminateInstanceOnFailure"`
 }
@@ -109,6 +113,8 @@ type infrastructureConfigurationArgs struct {
 	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
 	// The name of the infrastructure configuration.
 	Name *string `pulumi:"name"`
+	// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+	ParentInstance *InfrastructureConfigurationParentInstance `pulumi:"parentInstance"`
 	// The placement option settings for the infrastructure configuration.
 	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
 	// The tags attached to the resource created by Image Builder.
@@ -121,6 +127,8 @@ type infrastructureConfigurationArgs struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// The tags associated with the component.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+	TerminateInstanceOnCompletion *bool `pulumi:"terminateInstanceOnCompletion"`
 	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure *bool `pulumi:"terminateInstanceOnFailure"`
 }
@@ -141,6 +149,8 @@ type InfrastructureConfigurationArgs struct {
 	Logging InfrastructureConfigurationLoggingPtrInput
 	// The name of the infrastructure configuration.
 	Name pulumi.StringPtrInput
+	// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+	ParentInstance InfrastructureConfigurationParentInstancePtrInput
 	// The placement option settings for the infrastructure configuration.
 	Placement InfrastructureConfigurationPlacementPtrInput
 	// The tags attached to the resource created by Image Builder.
@@ -153,6 +163,8 @@ type InfrastructureConfigurationArgs struct {
 	SubnetId pulumi.StringPtrInput
 	// The tags associated with the component.
 	Tags pulumi.StringMapInput
+	// Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+	TerminateInstanceOnCompletion pulumi.BoolPtrInput
 	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure pulumi.BoolPtrInput
 }
@@ -236,6 +248,13 @@ func (o InfrastructureConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+func (o InfrastructureConfigurationOutput) ParentInstance() InfrastructureConfigurationParentInstancePtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationParentInstancePtrOutput {
+		return v.ParentInstance
+	}).(InfrastructureConfigurationParentInstancePtrOutput)
+}
+
 // The placement option settings for the infrastructure configuration.
 func (o InfrastructureConfigurationOutput) Placement() InfrastructureConfigurationPlacementPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationPlacementPtrOutput { return v.Placement }).(InfrastructureConfigurationPlacementPtrOutput)
@@ -264,6 +283,11 @@ func (o InfrastructureConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 // The tags associated with the component.
 func (o InfrastructureConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+func (o InfrastructureConfigurationOutput) TerminateInstanceOnCompletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.BoolPtrOutput { return v.TerminateInstanceOnCompletion }).(pulumi.BoolPtrOutput)
 }
 
 // The terminate instance on failure configuration of the infrastructure configuration.

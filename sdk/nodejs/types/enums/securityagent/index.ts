@@ -102,6 +102,46 @@ export const PentestNetworkTrafficRuleNetworkTrafficRuleType = {
  */
 export type PentestNetworkTrafficRuleNetworkTrafficRuleType = (typeof PentestNetworkTrafficRuleNetworkTrafficRuleType)[keyof typeof PentestNetworkTrafficRuleNetworkTrafficRuleType];
 
+export const PentestReportFiltersConfidenceLevelsItem = {
+    FalsePositive: "FALSE_POSITIVE",
+    Unconfirmed: "UNCONFIRMED",
+    Low: "LOW",
+    Medium: "MEDIUM",
+    High: "HIGH",
+} as const;
+
+export type PentestReportFiltersConfidenceLevelsItem = (typeof PentestReportFiltersConfidenceLevelsItem)[keyof typeof PentestReportFiltersConfidenceLevelsItem];
+
+export const PentestReportFiltersRiskLevelsItem = {
+    Unknown: "UNKNOWN",
+    Informational: "INFORMATIONAL",
+    Low: "LOW",
+    Medium: "MEDIUM",
+    High: "HIGH",
+    Critical: "CRITICAL",
+} as const;
+
+export type PentestReportFiltersRiskLevelsItem = (typeof PentestReportFiltersRiskLevelsItem)[keyof typeof PentestReportFiltersRiskLevelsItem];
+
+export const PentestReportFiltersStatusesItem = {
+    Active: "ACTIVE",
+    Resolved: "RESOLVED",
+    Accepted: "ACCEPTED",
+    FalsePositive: "FALSE_POSITIVE",
+} as const;
+
+export type PentestReportFiltersStatusesItem = (typeof PentestReportFiltersStatusesItem)[keyof typeof PentestReportFiltersStatusesItem];
+
+export const PentestReportFiltersTaskStatusesItem = {
+    InProgress: "IN_PROGRESS",
+    Aborted: "ABORTED",
+    Completed: "COMPLETED",
+    InternalError: "INTERNAL_ERROR",
+    Failed: "FAILED",
+} as const;
+
+export type PentestReportFiltersTaskStatusesItem = (typeof PentestReportFiltersTaskStatusesItem)[keyof typeof PentestReportFiltersTaskStatusesItem];
+
 export const PentestRiskType = {
     CrossSiteScripting: "CROSS_SITE_SCRIPTING",
     DefaultCredentials: "DEFAULT_CREDENTIALS",
@@ -147,6 +187,70 @@ export const PentestSkillType = {
  * Type of managed skill that can be disabled for a pentest
  */
 export type PentestSkillType = (typeof PentestSkillType)[keyof typeof PentestSkillType];
+
+export const PentestTestScopeType = {
+    WebApp: "WEB_APP",
+    GenerativeAiApp: "GENERATIVE_AI_APP",
+} as const;
+
+/**
+ * The kind of application a pentest target is tested as
+ */
+export type PentestTestScopeType = (typeof PentestTestScopeType)[keyof typeof PentestTestScopeType];
+
+export const PrivateConnectionDnsResolution = {
+    Public: "PUBLIC",
+    InVpc: "IN_VPC",
+} as const;
+
+/**
+ * The DNS resolution mode for the resource gateway.
+ */
+export type PrivateConnectionDnsResolution = (typeof PrivateConnectionDnsResolution)[keyof typeof PrivateConnectionDnsResolution];
+
+export const PrivateConnectionServiceManagedDnsResolution = {
+    Public: "PUBLIC",
+    InVpc: "IN_VPC",
+} as const;
+
+/**
+ * The DNS resolution mode for the resource gateway.
+ */
+export type PrivateConnectionServiceManagedDnsResolution = (typeof PrivateConnectionServiceManagedDnsResolution)[keyof typeof PrivateConnectionServiceManagedDnsResolution];
+
+export const PrivateConnectionServiceManagedIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+    DualStack: "DUAL_STACK",
+} as const;
+
+/**
+ * The IP address type of the service-managed resource gateway.
+ */
+export type PrivateConnectionServiceManagedIpAddressType = (typeof PrivateConnectionServiceManagedIpAddressType)[keyof typeof PrivateConnectionServiceManagedIpAddressType];
+
+export const PrivateConnectionStatus = {
+    Active: "ACTIVE",
+    CreateInProgress: "CREATE_IN_PROGRESS",
+    CreateFailed: "CREATE_FAILED",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+/**
+ * The current status of the private connection.
+ */
+export type PrivateConnectionStatus = (typeof PrivateConnectionStatus)[keyof typeof PrivateConnectionStatus];
+
+export const PrivateConnectionType = {
+    ServiceManaged: "SERVICE_MANAGED",
+    SelfManaged: "SELF_MANAGED",
+} as const;
+
+/**
+ * The type of the private connection, indicating whether it is service-managed or self-managed.
+ */
+export type PrivateConnectionType = (typeof PrivateConnectionType)[keyof typeof PrivateConnectionType];
 
 export const SecurityRequirementPackStatus = {
     Enabled: "ENABLED",

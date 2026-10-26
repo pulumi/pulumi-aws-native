@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
         public readonly string? Arn;
         public readonly string? CrossAccountRole;
         public readonly string? ExternalId;
+        public readonly string? Payload;
 
         [OutputConstructor]
         private PlanLambdas(
@@ -23,11 +24,14 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
 
             string? crossAccountRole,
 
-            string? externalId)
+            string? externalId,
+
+            string? payload)
         {
             Arn = arn;
             CrossAccountRole = crossAccountRole;
             ExternalId = externalId;
+            Payload = payload;
         }
     }
 }

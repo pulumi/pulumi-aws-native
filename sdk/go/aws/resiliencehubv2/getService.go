@@ -38,8 +38,9 @@ type LookupServiceResult struct {
 	// Dependency discovery state.
 	DependencyDiscovery *ServiceDependencyDiscovery `pulumi:"dependencyDiscovery"`
 	// The description of the service.
-	Description           *string                       `pulumi:"description"`
-	EffectivePolicyValues *ServiceEffectivePolicyValues `pulumi:"effectivePolicyValues"`
+	Description              *string                          `pulumi:"description"`
+	DevOpsAgentConfiguration *ServiceDevOpsAgentConfiguration `pulumi:"devOpsAgentConfiguration"`
+	EffectivePolicyValues    *ServiceEffectivePolicyValues    `pulumi:"effectivePolicyValues"`
 	// Input sources for this service.
 	InputSources    []ServiceInputSourceDefinition `pulumi:"inputSources"`
 	PermissionModel *ServicePermissionModel        `pulumi:"permissionModel"`
@@ -105,6 +106,10 @@ func (o LookupServiceResultOutput) DependencyDiscovery() ServiceDependencyDiscov
 // The description of the service.
 func (o LookupServiceResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupServiceResultOutput) DevOpsAgentConfiguration() ServiceDevOpsAgentConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *ServiceDevOpsAgentConfiguration { return v.DevOpsAgentConfiguration }).(ServiceDevOpsAgentConfigurationPtrOutput)
 }
 
 func (o LookupServiceResultOutput) EffectivePolicyValues() ServiceEffectivePolicyValuesPtrOutput {

@@ -24,6 +24,7 @@ __all__ = [
     'ServiceAssertionDefinition',
     'ServiceAssociatedSystem',
     'ServiceCrossAccountRoleConfiguration',
+    'ServiceDevOpsAgentConfiguration',
     'ServiceDisasterRecoverySource',
     'ServiceEffectivePolicyValues',
     'ServiceEksLabelSelector',
@@ -342,6 +343,46 @@ class ServiceCrossAccountRoleConfiguration(dict):
         External ID for cross-account access.
         """
         return pulumi.get(self, "external_id")
+
+
+@pulumi.output_type
+class ServiceDevOpsAgentConfiguration(dict):
+    """
+    Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentSpaceArn":
+            suggest = "agent_space_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDevOpsAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDevOpsAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDevOpsAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_space_arn: _builtins.str):
+        """
+        Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+
+        :param _builtins.str agent_space_arn: The ARN of the DevOps Agent Agent Space to link to this service.
+        """
+        pulumi.set(__self__, "agent_space_arn", agent_space_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="agentSpaceArn")
+    def agent_space_arn(self) -> _builtins.str:
+        """
+        The ARN of the DevOps Agent Agent Space to link to this service.
+        """
+        return pulumi.get(self, "agent_space_arn")
 
 
 @pulumi.output_type

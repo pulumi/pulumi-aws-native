@@ -60,6 +60,136 @@ import * as utilities from "../utilities";
  * });
  *
  * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const mySourceCreds = new aws_native.codebuild.SourceCredential("mySourceCreds", {
+ *     token: "{{resolve:secretsmanager:bitbucket:SecretString:token}}",
+ *     serverType: "BITBUCKET",
+ *     username: "{{resolve:secretsmanager:bitbucket:SecretString:username}}",
+ *     authType: "BASIC_AUTH",
+ * });
+ * const myProject = new aws_native.codebuild.Project("myProject", {
+ *     name: "myProjectName",
+ *     description: "A description about my project",
+ *     serviceRole: "testServiceRoleArn",
+ *     artifacts: {
+ *         type: "NO_ARTIFACTS",
+ *     },
+ *     environment: {
+ *         type: "LINUX_CONTAINER",
+ *         computeType: "BUILD_GENERAL1_SMALL",
+ *         image: "aws/codebuild/standard:5.0",
+ *     },
+ *     source: {
+ *         type: "BITBUCKET",
+ *         location: "your-bitbucket-repo-url",
+ *     },
+ * }, {
+ *     dependsOn: [mySourceCreds],
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const mySourceCreds = new aws_native.codebuild.SourceCredential("mySourceCreds", {
+ *     token: "{{resolve:secretsmanager:bitbucket:SecretString:token}}",
+ *     serverType: "BITBUCKET",
+ *     username: "{{resolve:secretsmanager:bitbucket:SecretString:username}}",
+ *     authType: "BASIC_AUTH",
+ * });
+ * const myProject = new aws_native.codebuild.Project("myProject", {
+ *     name: "myProjectName",
+ *     description: "A description about my project",
+ *     serviceRole: "testServiceRoleAr",
+ *     artifacts: {
+ *         type: "NO_ARTIFACTS",
+ *     },
+ *     environment: {
+ *         type: "LINUX_CONTAINER",
+ *         computeType: "BUILD_GENERAL1_SMALL",
+ *         image: "aws/codebuild/standard:5.0",
+ *     },
+ *     source: {
+ *         type: "BITBUCKET",
+ *         location: "your-bitbucket-repo-url",
+ *     },
+ * }, {
+ *     dependsOn: [mySourceCreds],
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const mySourceCreds = new aws_native.codebuild.SourceCredential("mySourceCreds", {
+ *     token: "{{resolve:secretsmanager:github:SecretString:token}}",
+ *     serverType: "GITHUB",
+ *     authType: "PERSONAL_ACCESS_TOKEN",
+ * });
+ * const myProject = new aws_native.codebuild.Project("myProject", {
+ *     name: "myProjectName",
+ *     description: "A description about my project",
+ *     serviceRole: "testServiceRoleArn",
+ *     artifacts: {
+ *         type: "NO_ARTIFACTS",
+ *     },
+ *     environment: {
+ *         type: "LINUX_CONTAINER",
+ *         computeType: "BUILD_GENERAL1_SMALL",
+ *         image: "aws/codebuild/standard:5.0",
+ *     },
+ *     source: {
+ *         type: "GITHUB",
+ *         location: "your-github-repo-url",
+ *     },
+ * }, {
+ *     dependsOn: [mySourceCreds],
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const mySourceCreds = new aws_native.codebuild.SourceCredential("mySourceCreds", {
+ *     token: "{{resolve:secretsmanager:github:SecretString:token}}",
+ *     serverType: "GITHUB",
+ *     authType: "PERSONAL_ACCESS_TOKEN",
+ * });
+ * const myProject = new aws_native.codebuild.Project("myProject", {
+ *     name: "myProjectName",
+ *     description: "A description about my project",
+ *     serviceRole: "testServiceRoleArn",
+ *     artifacts: {
+ *         type: "NO_ARTIFACTS",
+ *     },
+ *     environment: {
+ *         type: "LINUX_CONTAINER",
+ *         computeType: "BUILD_GENERAL1_SMALL",
+ *         image: "aws/codebuild/standard:5.0",
+ *     },
+ *     source: {
+ *         type: "GITHUB",
+ *         location: "your-github-repo-url",
+ *     },
+ * }, {
+ *     dependsOn: [mySourceCreds],
+ * });
+ *
+ * ```
  */
 export class SourceCredential extends pulumi.CustomResource {
     /**

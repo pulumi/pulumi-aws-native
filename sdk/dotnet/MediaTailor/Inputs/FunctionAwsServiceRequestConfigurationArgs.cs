@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
         [Input("body")]
         public Input<string>? Body { get; set; }
 
+        /// <summary>
+        /// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+        /// </summary>
+        [Input("cache")]
+        public Input<Inputs.FunctionHttpRequestCacheConfigurationArgs>? Cache { get; set; }
+
         [Input("headers")]
         private InputMap<string>? _headers;
 

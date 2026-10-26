@@ -108,6 +108,9 @@ namespace Pulumi.AwsNative.Kms
         public static KeySpec MlDsa65 { get; } = new KeySpec("ML_DSA_65");
         public static KeySpec MlDsa87 { get; } = new KeySpec("ML_DSA_87");
         public static KeySpec EccNistEdwards25519 { get; } = new KeySpec("ECC_NIST_EDWARDS25519");
+        public static KeySpec MlKem512 { get; } = new KeySpec("ML_KEM_512");
+        public static KeySpec MlKem768 { get; } = new KeySpec("ML_KEM_768");
+        public static KeySpec MlKem1024 { get; } = new KeySpec("ML_KEM_1024");
 
         public static bool operator ==(KeySpec left, KeySpec right) => left.Equals(right);
         public static bool operator !=(KeySpec left, KeySpec right) => !left.Equals(right);
@@ -150,6 +153,7 @@ namespace Pulumi.AwsNative.Kms
         public static KeyUsage SignVerify { get; } = new KeyUsage("SIGN_VERIFY");
         public static KeyUsage GenerateVerifyMac { get; } = new KeyUsage("GENERATE_VERIFY_MAC");
         public static KeyUsage KeyAgreement { get; } = new KeyUsage("KEY_AGREEMENT");
+        public static KeyUsage EncapsulateDecapsulate { get; } = new KeyUsage("ENCAPSULATE_DECAPSULATE");
 
         public static bool operator ==(KeyUsage left, KeyUsage right) => left.Equals(right);
         public static bool operator !=(KeyUsage left, KeyUsage right) => !left.Equals(right);

@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class PaymentManagerCustomClaimValidationType
     {
-        public readonly Outputs.PaymentManagerAuthorizingClaimMatchValueType AuthorizingClaimMatchValue;
+        public readonly Outputs.PaymentManagerAuthorizingClaimMatchValue AuthorizingClaimMatchValue;
         public readonly string InboundTokenClaimName;
         public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType InboundTokenClaimValueType;
 
         [OutputConstructor]
         private PaymentManagerCustomClaimValidationType(
-            Outputs.PaymentManagerAuthorizingClaimMatchValueType authorizingClaimMatchValue,
+            Outputs.PaymentManagerAuthorizingClaimMatchValue authorizingClaimMatchValue,
 
             string inboundTokenClaimName,
 

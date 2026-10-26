@@ -21,6 +21,7 @@ __all__ = [
     'SamplingRuleRecord',
     'SamplingRuleSamplingRateBoost',
     'SamplingRuleUpdate',
+    'TransactionSearchConfigCloudWatchLogsConfiguration',
 ]
 
 @pulumi.output_type
@@ -566,5 +567,46 @@ class SamplingRuleUpdate(dict):
         Matches the path from a request URL.
         """
         return pulumi.get(self, "url_path")
+
+
+@pulumi.output_type
+class TransactionSearchConfigCloudWatchLogsConfiguration(dict):
+    """
+    Configuration for the CloudWatch Logs log group that X-Ray creates when this resource enables Transaction Search. It is used only at that time and is never returned
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spansLogGroupKmsKeyId":
+            suggest = "spans_log_group_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransactionSearchConfigCloudWatchLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransactionSearchConfigCloudWatchLogsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransactionSearchConfigCloudWatchLogsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 spans_log_group_kms_key_id: Optional[_builtins.str] = None):
+        """
+        Configuration for the CloudWatch Logs log group that X-Ray creates when this resource enables Transaction Search. It is used only at that time and is never returned
+
+        :param _builtins.str spans_log_group_kms_key_id: The ARN of a symmetric customer managed AWS KMS key in the same account and Region, used to encrypt the aws/spans log group. Key IDs and alias ARNs are not supported, so for an AWS::KMS::Key use Fn::GetAtt Arn, not Ref. X-Ray applies the key only when it creates aws/spans while enabling Transaction Search. If aws/spans already exists, for example from an earlier enablement or an earlier create that failed partway, the create fails and X-Ray does not enable Transaction Search or change the log group. Remove this property to use the existing log group with its current encryption, and use the CloudWatch Logs AssociateKmsKey API to change its key. The caller needs kms:DescribeKey on the key, and the key policy must allow CloudWatch Logs to use it. Adding, changing or removing this property replaces the resource, which fails while Transaction Search is enabled
+        """
+        if spans_log_group_kms_key_id is not None:
+            pulumi.set(__self__, "spans_log_group_kms_key_id", spans_log_group_kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="spansLogGroupKmsKeyId")
+    def spans_log_group_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The ARN of a symmetric customer managed AWS KMS key in the same account and Region, used to encrypt the aws/spans log group. Key IDs and alias ARNs are not supported, so for an AWS::KMS::Key use Fn::GetAtt Arn, not Ref. X-Ray applies the key only when it creates aws/spans while enabling Transaction Search. If aws/spans already exists, for example from an earlier enablement or an earlier create that failed partway, the create fails and X-Ray does not enable Transaction Search or change the log group. Remove this property to use the existing log group with its current encryption, and use the CloudWatch Logs AssociateKmsKey API to change its key. The caller needs kms:DescribeKey on the key, and the key policy must allow CloudWatch Logs to use it. Adding, changing or removing this property replaces the resource, which fails while Transaction Search is enabled
+        """
+        return pulumi.get(self, "spans_log_group_kms_key_id")
 
 

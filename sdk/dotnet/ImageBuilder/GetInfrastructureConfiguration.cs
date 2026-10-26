@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly Outputs.InfrastructureConfigurationLogging? Logging;
         /// <summary>
+        /// The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+        /// </summary>
+        public readonly Outputs.InfrastructureConfigurationParentInstance? ParentInstance;
+        /// <summary>
         /// The placement option settings for the infrastructure configuration.
         /// </summary>
         public readonly Outputs.InfrastructureConfigurationPlacement? Placement;
@@ -116,6 +120,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+        /// </summary>
+        public readonly bool? TerminateInstanceOnCompletion;
+        /// <summary>
         /// The terminate instance on failure configuration of the infrastructure configuration.
         /// </summary>
         public readonly bool? TerminateInstanceOnFailure;
@@ -136,6 +144,8 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             Outputs.InfrastructureConfigurationLogging? logging,
 
+            Outputs.InfrastructureConfigurationParentInstance? parentInstance,
+
             Outputs.InfrastructureConfigurationPlacement? placement,
 
             ImmutableDictionary<string, string>? resourceTags,
@@ -148,6 +158,8 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             ImmutableDictionary<string, string>? tags,
 
+            bool? terminateInstanceOnCompletion,
+
             bool? terminateInstanceOnFailure)
         {
             Arn = arn;
@@ -157,12 +169,14 @@ namespace Pulumi.AwsNative.ImageBuilder
             InstanceTypes = instanceTypes;
             KeyPair = keyPair;
             Logging = logging;
+            ParentInstance = parentInstance;
             Placement = placement;
             ResourceTags = resourceTags;
             SecurityGroupIds = securityGroupIds;
             SnsTopicArn = snsTopicArn;
             SubnetId = subnetId;
             Tags = tags;
+            TerminateInstanceOnCompletion = terminateInstanceOnCompletion;
             TerminateInstanceOnFailure = terminateInstanceOnFailure;
         }
     }

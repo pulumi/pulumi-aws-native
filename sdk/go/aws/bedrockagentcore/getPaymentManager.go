@@ -24,7 +24,7 @@ func LookupPaymentManager(ctx *pulumi.Context, args *LookupPaymentManagerArgs, o
 }
 
 type LookupPaymentManagerArgs struct {
-	// The Amazon Resource Name (ARN) of the payment manager
+	// The Amazon Resource Name (ARN) of the resource.
 	PaymentManagerArn string `pulumi:"paymentManagerArn"`
 }
 
@@ -35,15 +35,17 @@ type LookupPaymentManagerResult struct {
 	Description *string `pulumi:"description"`
 	// The timestamp when the payment manager was last updated
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
-	// The Amazon Resource Name (ARN) of the payment manager
+	// The Amazon Resource Name (ARN) of the resource.
 	PaymentManagerArn *string `pulumi:"paymentManagerArn"`
 	// The unique identifier for the payment manager
 	PaymentManagerId *string `pulumi:"paymentManagerId"`
 	// The ARN of the IAM role for the payment manager
-	RoleArn *string               `pulumi:"roleArn"`
-	Status  *PaymentManagerStatus `pulumi:"status"`
-	// Tags to assign to the payment manager
-	Tags                    []aws.Tag                              `pulumi:"tags"`
+	RoleArn *string `pulumi:"roleArn"`
+	// The current status of the payment manager
+	Status *PaymentManagerStatus `pulumi:"status"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The workload identity details for the payment manager
 	WorkloadIdentityDetails *PaymentManagerWorkloadIdentityDetails `pulumi:"workloadIdentityDetails"`
 }
 
@@ -53,7 +55,7 @@ func LookupPaymentManagerOutput(ctx *pulumi.Context, args LookupPaymentManagerOu
 }
 
 type LookupPaymentManagerOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the payment manager
+	// The Amazon Resource Name (ARN) of the resource.
 	PaymentManagerArn pulumi.StringInput `pulumi:"paymentManagerArn"`
 }
 
@@ -90,7 +92,7 @@ func (o LookupPaymentManagerResultOutput) LastUpdatedAt() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupPaymentManagerResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the payment manager
+// The Amazon Resource Name (ARN) of the resource.
 func (o LookupPaymentManagerResultOutput) PaymentManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPaymentManagerResult) *string { return v.PaymentManagerArn }).(pulumi.StringPtrOutput)
 }
@@ -105,15 +107,17 @@ func (o LookupPaymentManagerResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPaymentManagerResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The current status of the payment manager
 func (o LookupPaymentManagerResultOutput) Status() PaymentManagerStatusPtrOutput {
 	return o.ApplyT(func(v LookupPaymentManagerResult) *PaymentManagerStatus { return v.Status }).(PaymentManagerStatusPtrOutput)
 }
 
-// Tags to assign to the payment manager
+// An array of key-value pairs to apply to this resource.
 func (o LookupPaymentManagerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPaymentManagerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The workload identity details for the payment manager
 func (o LookupPaymentManagerResultOutput) WorkloadIdentityDetails() PaymentManagerWorkloadIdentityDetailsPtrOutput {
 	return o.ApplyT(func(v LookupPaymentManagerResult) *PaymentManagerWorkloadIdentityDetails {
 		return v.WorkloadIdentityDetails

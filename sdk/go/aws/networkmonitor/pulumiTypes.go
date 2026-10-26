@@ -14,5 +14,10 @@ type MonitorTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ProbeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 func init() {
 }

@@ -485,7 +485,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
         :param _builtins.bool enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
         :param 'ConfigurationSetEventDestinationEventBridgeDestination' event_bridge_destination: An object that contains Event bus ARN associated with the event bridge destination.
         :param 'ConfigurationSetEventDestinationKinesisFirehoseDestination' kinesis_firehose_destination: An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
-        :param _builtins.str name: The name of the event destination set.
+        :param _builtins.str name: The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
         :param 'ConfigurationSetEventDestinationSnsDestination' sns_destination: An object that contains SNS topic ARN associated event destination.
         """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
@@ -546,7 +546,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of the event destination set.
+        The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
         """
         return pulumi.get(self, "name")
 

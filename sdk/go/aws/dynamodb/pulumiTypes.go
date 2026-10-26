@@ -1908,7 +1908,8 @@ type GlobalTableReplicaSpecification struct {
 	// The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
 	ContributorInsightsSpecification *GlobalTableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
-	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
+	DeletionProtectionEnabled       *bool `pulumi:"deletionProtectionEnabled"`
+	DisassociationProtectionEnabled *bool `pulumi:"disassociationProtectionEnabled"`
 	// Defines additional settings for the global secondary indexes of this replica.
 	GlobalSecondaryIndexes             []GlobalTableReplicaGlobalSecondaryIndexSpecification              `pulumi:"globalSecondaryIndexes"`
 	GlobalTableSettingsReplicationMode *GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode `pulumi:"globalTableSettingsReplicationMode"`
@@ -1953,7 +1954,8 @@ type GlobalTableReplicaSpecificationArgs struct {
 	// The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
 	ContributorInsightsSpecification GlobalTableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
 	// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
-	DeletionProtectionEnabled pulumi.BoolPtrInput `pulumi:"deletionProtectionEnabled"`
+	DeletionProtectionEnabled       pulumi.BoolPtrInput `pulumi:"deletionProtectionEnabled"`
+	DisassociationProtectionEnabled pulumi.BoolPtrInput `pulumi:"disassociationProtectionEnabled"`
 	// Defines additional settings for the global secondary indexes of this replica.
 	GlobalSecondaryIndexes             GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput             `pulumi:"globalSecondaryIndexes"`
 	GlobalTableSettingsReplicationMode GlobalTableReplicaSpecificationGlobalTableSettingsReplicationModePtrInput `pulumi:"globalTableSettingsReplicationMode"`
@@ -2044,6 +2046,10 @@ func (o GlobalTableReplicaSpecificationOutput) ContributorInsightsSpecification(
 // Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
 func (o GlobalTableReplicaSpecificationOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *bool { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GlobalTableReplicaSpecificationOutput) DisassociationProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) *bool { return v.DisassociationProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Defines additional settings for the global secondary indexes of this replica.

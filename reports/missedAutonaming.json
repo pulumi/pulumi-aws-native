@@ -8535,6 +8535,30 @@
       }
     }
   },
+  "aws-native:ec2:TransitGatewayAttachmentNatConfiguration": {
+    "cfTypeName": "AWS::EC2::TransitGatewayAttachmentNatConfiguration",
+    "properties": {
+      "natGatewayRules": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:TransitGatewayAttachmentNatConfigurationNatRule"
+        },
+        "description": "The complete set of NAT rules for the attachment. Updating this property replaces the entire rule set: rules omitted from the new value are removed."
+      },
+      "natGatewaySupport": {
+        "$ref": "#/types/aws-native:ec2:TransitGatewayAttachmentNatConfigurationNatGatewaySupport",
+        "description": "Whether NAT gateway support is enabled on the attachment. Set to disable to stage NAT rules without activating them; the rules are retained and become active when this is later set to enable."
+      },
+      "natSystemRouteSupport": {
+        "$ref": "#/types/aws-native:ec2:TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport",
+        "description": "Whether routes for the NAT CIDRs are installed into the transit gateway route tables associated with the attachment. Whether this is configurable depends on the attachment; where the value is forced, supplying the opposite value is rejected. Omitting this property leaves the setting to the service: on a new configuration the service applies the attachment's default, but on an attachment where the value is configurable it keeps the value already in effect rather than reverting to that default. Removing this property from a template, or deleting this resource, therefore leaves the setting at its last value rather than restoring the default, and a resource later created on the same attachment without this property inherits that value."
+      },
+      "transitGatewayAttachmentId": {
+        "type": "string",
+        "description": "The ID of the transit gateway attachment to configure NAT on."
+      }
+    }
+  },
   "aws-native:ec2:TransitGatewayConnect": {
     "cfTypeName": "AWS::EC2::TransitGatewayConnect",
     "properties": {
@@ -9959,6 +9983,19 @@
           "$ref": "#/types/aws-native:ecs:DaemonTaskDefinitionVolume"
         },
         "description": "The list of data volume definitions for the daemon task."
+      }
+    }
+  },
+  "aws-native:ecs:GatewayClusterAssociations": {
+    "cfTypeName": "AWS::ECS::GatewayClusterAssociations",
+    "properties": {
+      "cluster": {
+        "type": "string",
+        "description": "The name or full Amazon Resource Name (ARN) of the cluster to associate the gateway with."
+      },
+      "gateway": {
+        "type": "string",
+        "description": "The name or full Amazon Resource Name (ARN) of the gateway to associate with the cluster."
       }
     }
   },
@@ -12627,6 +12664,74 @@
       }
     }
   },
+  "aws-native:iot:OtaUpdate": {
+    "cfTypeName": "AWS::IoT::OTAUpdate",
+    "properties": {
+      "additionalParameters": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "A list of additional OTA update parameters, which are name-value pairs."
+      },
+      "awsJobAbortConfig": {
+        "$ref": "#/types/aws-native:iot:OtaUpdateAwsJobAbortConfig"
+      },
+      "awsJobExecutionsRolloutConfig": {
+        "$ref": "#/types/aws-native:iot:OtaUpdateAwsJobExecutionsRolloutConfig"
+      },
+      "awsJobPresignedUrlConfig": {
+        "$ref": "#/types/aws-native:iot:OtaUpdateAwsJobPresignedUrlConfig"
+      },
+      "awsJobTimeoutConfig": {
+        "$ref": "#/types/aws-native:iot:OtaUpdateAwsJobTimeoutConfig"
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the OTA update."
+      },
+      "files": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:iot:OtaUpdateOtaUpdateFile"
+        },
+        "description": "The files to be streamed by the OTA update."
+      },
+      "otaUpdateId": {
+        "type": "string",
+        "description": "The ID of the OTA update to be created."
+      },
+      "protocols": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:iot:OtaUpdateProtocolsItem"
+        },
+        "description": "The protocol used to transfer the OTA update image."
+      },
+      "roleArn": {
+        "type": "string",
+        "description": "The IAM role that grants AWS IoT Core access to the Amazon S3, IoT jobs and AWS Code Signing resources to create an OTA update job."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Metadata which can be used to manage updates."
+      },
+      "targetSelection": {
+        "$ref": "#/types/aws-native:iot:OtaUpdateTargetSelection",
+        "description": "Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all things specified as targets have completed the update (SNAPSHOT)."
+      },
+      "targets": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The devices targeted to receive OTA updates."
+      }
+    }
+  },
   "aws-native:iot:PolicyPrincipalAttachment": {
     "cfTypeName": "AWS::IoT::PolicyPrincipalAttachment",
     "properties": {
@@ -15173,6 +15278,42 @@
       "vpcArn": {
         "type": "string",
         "description": "The ARN of the VPC."
+      }
+    }
+  },
+  "aws-native:networkmonitor:Probe": {
+    "cfTypeName": "AWS::NetworkMonitor::Probe",
+    "properties": {
+      "destination": {
+        "type": "string",
+        "description": "The literal IPv4 or IPv6 address the probe sends traffic to. The service rejects a domain name and a CIDR block."
+      },
+      "destinationPort": {
+        "type": "integer",
+        "description": "The port the probe sends traffic to. Applies to the TCP protocol only."
+      },
+      "monitorName": {
+        "type": "string",
+        "description": "The name of the monitor the probe belongs to."
+      },
+      "packetSize": {
+        "type": "integer",
+        "description": "The size, in bytes, of the packets the probe sends."
+      },
+      "protocol": {
+        "$ref": "#/types/aws-native:networkmonitor:ProbeProtocol",
+        "description": "The protocol the probe uses."
+      },
+      "sourceArn": {
+        "type": "string",
+        "description": "The ARN of the subnet the probe sends traffic from."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the probe."
       }
     }
   },
@@ -17797,6 +17938,19 @@
       }
     }
   },
+  "aws-native:route53resolver:FirewallConfig": {
+    "cfTypeName": "AWS::Route53Resolver::FirewallConfig",
+    "properties": {
+      "firewallFailOpen": {
+        "$ref": "#/types/aws-native:route53resolver:FirewallConfigFirewallFailOpen",
+        "description": "Determines how DNS Firewall operates during failures. By default, fail open is disabled, which means the failure mode is closed. If you enable this option, the failure mode is open. This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association."
+      },
+      "resourceId": {
+        "type": "string",
+        "description": "The ID of the VPC that this firewall configuration applies to."
+      }
+    }
+  },
   "aws-native:route53resolver:ResolverConfig": {
     "cfTypeName": "AWS::Route53Resolver::ResolverConfig",
     "properties": {
@@ -18640,9 +18794,21 @@
         "$ref": "#/types/aws-native:securityagent:PentestNetworkTrafficConfig",
         "description": "Configuration for network traffic filtering"
       },
+      "reportDestination": {
+        "$ref": "#/types/aws-native:securityagent:PentestReportDestination",
+        "description": "Destination for publishing the scan report to Confluence"
+      },
+      "reportFilters": {
+        "$ref": "#/types/aws-native:securityagent:PentestReportFilters",
+        "description": "Filters applied when the scan report is published to Confluence"
+      },
       "serviceRole": {
         "type": "string",
         "description": "Service role for accessing resources"
+      },
+      "testScope": {
+        "$ref": "#/types/aws-native:securityagent:PentestTestScope",
+        "description": "Scope of the target under test, determining which classes of risk are assessed"
       },
       "title": {
         "type": "string",
@@ -21851,6 +22017,9 @@
   "aws-native:xray:TransactionSearchConfig": {
     "cfTypeName": "AWS::XRay::TransactionSearchConfig",
     "properties": {
+      "cloudWatchLogsConfiguration": {
+        "$ref": "#/types/aws-native:xray:TransactionSearchConfigCloudWatchLogsConfiguration"
+      },
       "indexingPercentage": {
         "type": "number"
       }

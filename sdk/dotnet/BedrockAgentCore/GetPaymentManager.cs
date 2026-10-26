@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public sealed class GetPaymentManagerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the payment manager
+        /// The Amazon Resource Name (ARN) of the resource.
         /// </summary>
         [Input("paymentManagerArn", required: true)]
         public string PaymentManagerArn { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public sealed class GetPaymentManagerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the payment manager
+        /// The Amazon Resource Name (ARN) of the resource.
         /// </summary>
         [Input("paymentManagerArn", required: true)]
         public Input<string> PaymentManagerArn { get; set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly string? LastUpdatedAt;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the payment manager
+        /// The Amazon Resource Name (ARN) of the resource.
         /// </summary>
         public readonly string? PaymentManagerArn;
         /// <summary>
@@ -87,11 +87,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The ARN of the IAM role for the payment manager
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The current status of the payment manager
+        /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentManagerStatus? Status;
         /// <summary>
-        /// Tags to assign to the payment manager
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The workload identity details for the payment manager
+        /// </summary>
         public readonly Outputs.PaymentManagerWorkloadIdentityDetails? WorkloadIdentityDetails;
 
         [OutputConstructor]

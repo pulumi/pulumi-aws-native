@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -35,6 +38,7 @@ export class TransactionSearchConfig extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly accountId: pulumi.Output<string>;
+    declare public readonly cloudWatchLogsConfiguration: pulumi.Output<outputs.xray.TransactionSearchConfigCloudWatchLogsConfiguration | undefined>;
     declare public readonly indexingPercentage: pulumi.Output<number | undefined>;
 
     /**
@@ -48,13 +52,17 @@ export class TransactionSearchConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["cloudWatchLogsConfiguration"] = args?.cloudWatchLogsConfiguration;
             resourceInputs["indexingPercentage"] = args?.indexingPercentage;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["cloudWatchLogsConfiguration"] = undefined /*out*/;
             resourceInputs["indexingPercentage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["cloudWatchLogsConfiguration"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransactionSearchConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -63,5 +71,6 @@ export class TransactionSearchConfig extends pulumi.CustomResource {
  * The set of arguments for constructing a TransactionSearchConfig resource.
  */
 export interface TransactionSearchConfigArgs {
+    cloudWatchLogsConfiguration?: pulumi.Input<inputs.xray.TransactionSearchConfigCloudWatchLogsConfigurationArgs | undefined>;
     indexingPercentage?: pulumi.Input<number | undefined>;
 }

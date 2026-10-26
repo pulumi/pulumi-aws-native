@@ -17239,11 +17239,10 @@ func (o AnalysisYAxisOptionsPtrOutput) YAxis() AnalysisSingleYAxisOptionPtrOutpu
 }
 
 // Scoping: who the policy applies to.
-// GROUP: `groupArns` required (one or more group ARNs).
 type ApprovalPolicyApplicableTo struct {
 	// Required when type = GROUP. One or more group ARNs.
-	GroupArns []string    `pulumi:"groupArns"`
-	Type      interface{} `pulumi:"type"`
+	GroupArns []string                       `pulumi:"groupArns"`
+	Type      ApprovalPolicyApplicableToType `pulumi:"type"`
 }
 
 // ApprovalPolicyApplicableToInput is an input type that accepts ApprovalPolicyApplicableToArgs and ApprovalPolicyApplicableToOutput values.
@@ -17258,11 +17257,10 @@ type ApprovalPolicyApplicableToInput interface {
 }
 
 // Scoping: who the policy applies to.
-// GROUP: `groupArns` required (one or more group ARNs).
 type ApprovalPolicyApplicableToArgs struct {
 	// Required when type = GROUP. One or more group ARNs.
-	GroupArns pulumi.StringArrayInput `pulumi:"groupArns"`
-	Type      pulumi.Input            `pulumi:"type"`
+	GroupArns pulumi.StringArrayInput             `pulumi:"groupArns"`
+	Type      ApprovalPolicyApplicableToTypeInput `pulumi:"type"`
 }
 
 func (ApprovalPolicyApplicableToArgs) ElementType() reflect.Type {
@@ -17278,7 +17276,6 @@ func (i ApprovalPolicyApplicableToArgs) ToApprovalPolicyApplicableToOutputWithCo
 }
 
 // Scoping: who the policy applies to.
-// GROUP: `groupArns` required (one or more group ARNs).
 type ApprovalPolicyApplicableToOutput struct{ *pulumi.OutputState }
 
 func (ApprovalPolicyApplicableToOutput) ElementType() reflect.Type {
@@ -17298,8 +17295,8 @@ func (o ApprovalPolicyApplicableToOutput) GroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApprovalPolicyApplicableTo) []string { return v.GroupArns }).(pulumi.StringArrayOutput)
 }
 
-func (o ApprovalPolicyApplicableToOutput) Type() pulumi.AnyOutput {
-	return o.ApplyT(func(v ApprovalPolicyApplicableTo) interface{} { return v.Type }).(pulumi.AnyOutput)
+func (o ApprovalPolicyApplicableToOutput) Type() ApprovalPolicyApplicableToTypeOutput {
+	return o.ApplyT(func(v ApprovalPolicyApplicableTo) ApprovalPolicyApplicableToType { return v.Type }).(ApprovalPolicyApplicableToTypeOutput)
 }
 
 type ApprovalPolicyApplicableToPtrOutput struct{ *pulumi.OutputState }
@@ -17336,13 +17333,13 @@ func (o ApprovalPolicyApplicableToPtrOutput) GroupArns() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o ApprovalPolicyApplicableToPtrOutput) Type() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ApprovalPolicyApplicableTo) interface{} {
+func (o ApprovalPolicyApplicableToPtrOutput) Type() ApprovalPolicyApplicableToTypePtrOutput {
+	return o.ApplyT(func(v *ApprovalPolicyApplicableTo) *ApprovalPolicyApplicableToType {
 		if v == nil {
 			return nil
 		}
-		return v.Type
-	}).(pulumi.AnyOutput)
+		return &v.Type
+	}).(ApprovalPolicyApplicableToTypePtrOutput)
 }
 
 type CustomPermissionsCapabilities struct {

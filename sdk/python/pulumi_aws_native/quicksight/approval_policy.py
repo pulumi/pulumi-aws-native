@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ApprovalPolicyArgs', 'ApprovalPolicy']
@@ -21,21 +22,20 @@ __all__ = ['ApprovalPolicyArgs', 'ApprovalPolicy']
 @pulumi.input_type
 class ApprovalPolicyArgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[Any]],
+                 actions: pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyGovernedAction']]],
                  applicable_to: pulumi.Input['ApprovalPolicyApplicableToArgs'],
                  approval_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 asset_types: pulumi.Input[Sequence[Any]],
+                 asset_types: pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyAssetType']]],
                  policy_id: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApprovalPolicy resource.
 
-        :param pulumi.Input[Sequence[Any]] actions: List of governed actions a policy applies to.
+        :param pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyGovernedAction']]] actions: List of governed actions a policy applies to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approval_groups: List of approval group ARNs (e.g. QuickSight group ARNs).
-               At least one approval group is required; the upper bound is enforced
-               per-account at the service layer via the configurable approver-group limit.
-        :param pulumi.Input[Sequence[Any]] asset_types: List of asset types a policy applies to.
+               At least one approval group is required.
+        :param pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyAssetType']]] asset_types: List of asset types a policy applies to.
                At least one asset type is required.
         """
         pulumi.set(__self__, "actions", actions)
@@ -50,14 +50,14 @@ class ApprovalPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[Any]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyGovernedAction']]]:
         """
         List of governed actions a policy applies to.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[Any]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyGovernedAction']]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
@@ -74,8 +74,7 @@ class ApprovalPolicyArgs:
     def approval_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
         List of approval group ARNs (e.g. QuickSight group ARNs).
-        At least one approval group is required; the upper bound is enforced
-        per-account at the service layer via the configurable approver-group limit.
+        At least one approval group is required.
         """
         return pulumi.get(self, "approval_groups")
 
@@ -85,7 +84,7 @@ class ApprovalPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="assetTypes")
-    def asset_types(self) -> pulumi.Input[Sequence[Any]]:
+    def asset_types(self) -> pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyAssetType']]]:
         """
         List of asset types a policy applies to.
         At least one asset type is required.
@@ -93,7 +92,7 @@ class ApprovalPolicyArgs:
         return pulumi.get(self, "asset_types")
 
     @asset_types.setter
-    def asset_types(self, value: pulumi.Input[Sequence[Any]]):
+    def asset_types(self, value: pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyAssetType']]]):
         pulumi.set(self, "asset_types", value)
 
     @_builtins.property
@@ -130,10 +129,10 @@ class ApprovalPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalPolicyGovernedAction']]]] = None,
                  applicable_to: pulumi.Input[Optional[Union['ApprovalPolicyApplicableToArgs', 'ApprovalPolicyApplicableToArgsDict']]] = None,
                  approval_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 asset_types: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 asset_types: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalPolicyAssetType']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -143,11 +142,10 @@ class ApprovalPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[Any]] actions: List of governed actions a policy applies to.
+        :param pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyGovernedAction']]] actions: List of governed actions a policy applies to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approval_groups: List of approval group ARNs (e.g. QuickSight group ARNs).
-               At least one approval group is required; the upper bound is enforced
-               per-account at the service layer via the configurable approver-group limit.
-        :param pulumi.Input[Sequence[Any]] asset_types: List of asset types a policy applies to.
+               At least one approval group is required.
+        :param pulumi.Input[Sequence[pulumi.Input['ApprovalPolicyAssetType']]] asset_types: List of asset types a policy applies to.
                At least one asset type is required.
         """
         ...
@@ -174,10 +172,10 @@ class ApprovalPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalPolicyGovernedAction']]]] = None,
                  applicable_to: pulumi.Input[Optional[Union['ApprovalPolicyApplicableToArgs', 'ApprovalPolicyApplicableToArgsDict']]] = None,
                  approval_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 asset_types: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 asset_types: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalPolicyAssetType']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -248,7 +246,7 @@ class ApprovalPolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Sequence[Any]]:
+    def actions(self) -> pulumi.Output[Sequence['ApprovalPolicyGovernedAction']]:
         """
         List of governed actions a policy applies to.
         """
@@ -264,14 +262,13 @@ class ApprovalPolicy(pulumi.CustomResource):
     def approval_groups(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
         List of approval group ARNs (e.g. QuickSight group ARNs).
-        At least one approval group is required; the upper bound is enforced
-        per-account at the service layer via the configurable approver-group limit.
+        At least one approval group is required.
         """
         return pulumi.get(self, "approval_groups")
 
     @_builtins.property
     @pulumi.getter(name="assetTypes")
-    def asset_types(self) -> pulumi.Output[Sequence[Any]]:
+    def asset_types(self) -> pulumi.Output[Sequence['ApprovalPolicyAssetType']]:
         """
         List of asset types a policy applies to.
         At least one asset type is required.

@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.Pcs.Inputs
         /// <summary>
         /// The version of the EC2 launch template to use to provision instances.
         /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public CustomLaunchTemplatePropertiesArgs()
         {

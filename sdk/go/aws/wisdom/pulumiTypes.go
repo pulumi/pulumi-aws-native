@@ -13,6 +13,104 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AiAgentAgentTarget0Properties struct {
+	AiAgentId string `pulumi:"aiAgentId"`
+}
+
+// AiAgentAgentTarget0PropertiesInput is an input type that accepts AiAgentAgentTarget0PropertiesArgs and AiAgentAgentTarget0PropertiesOutput values.
+// You can construct a concrete instance of `AiAgentAgentTarget0PropertiesInput` via:
+//
+//	AiAgentAgentTarget0PropertiesArgs{...}
+type AiAgentAgentTarget0PropertiesInput interface {
+	pulumi.Input
+
+	ToAiAgentAgentTarget0PropertiesOutput() AiAgentAgentTarget0PropertiesOutput
+	ToAiAgentAgentTarget0PropertiesOutputWithContext(context.Context) AiAgentAgentTarget0PropertiesOutput
+}
+
+type AiAgentAgentTarget0PropertiesArgs struct {
+	AiAgentId pulumi.StringInput `pulumi:"aiAgentId"`
+}
+
+func (AiAgentAgentTarget0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAgentTarget0Properties)(nil)).Elem()
+}
+
+func (i AiAgentAgentTarget0PropertiesArgs) ToAiAgentAgentTarget0PropertiesOutput() AiAgentAgentTarget0PropertiesOutput {
+	return i.ToAiAgentAgentTarget0PropertiesOutputWithContext(context.Background())
+}
+
+func (i AiAgentAgentTarget0PropertiesArgs) ToAiAgentAgentTarget0PropertiesOutputWithContext(ctx context.Context) AiAgentAgentTarget0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentAgentTarget0PropertiesOutput)
+}
+
+type AiAgentAgentTarget0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAgentTarget0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAgentTarget0Properties)(nil)).Elem()
+}
+
+func (o AiAgentAgentTarget0PropertiesOutput) ToAiAgentAgentTarget0PropertiesOutput() AiAgentAgentTarget0PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAgentTarget0PropertiesOutput) ToAiAgentAgentTarget0PropertiesOutputWithContext(ctx context.Context) AiAgentAgentTarget0PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAgentTarget0PropertiesOutput) AiAgentId() pulumi.StringOutput {
+	return o.ApplyT(func(v AiAgentAgentTarget0Properties) string { return v.AiAgentId }).(pulumi.StringOutput)
+}
+
+type AiAgentAgentTarget1Properties struct {
+	ApplicationId string `pulumi:"applicationId"`
+}
+
+// AiAgentAgentTarget1PropertiesInput is an input type that accepts AiAgentAgentTarget1PropertiesArgs and AiAgentAgentTarget1PropertiesOutput values.
+// You can construct a concrete instance of `AiAgentAgentTarget1PropertiesInput` via:
+//
+//	AiAgentAgentTarget1PropertiesArgs{...}
+type AiAgentAgentTarget1PropertiesInput interface {
+	pulumi.Input
+
+	ToAiAgentAgentTarget1PropertiesOutput() AiAgentAgentTarget1PropertiesOutput
+	ToAiAgentAgentTarget1PropertiesOutputWithContext(context.Context) AiAgentAgentTarget1PropertiesOutput
+}
+
+type AiAgentAgentTarget1PropertiesArgs struct {
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+}
+
+func (AiAgentAgentTarget1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAgentTarget1Properties)(nil)).Elem()
+}
+
+func (i AiAgentAgentTarget1PropertiesArgs) ToAiAgentAgentTarget1PropertiesOutput() AiAgentAgentTarget1PropertiesOutput {
+	return i.ToAiAgentAgentTarget1PropertiesOutputWithContext(context.Background())
+}
+
+func (i AiAgentAgentTarget1PropertiesArgs) ToAiAgentAgentTarget1PropertiesOutputWithContext(ctx context.Context) AiAgentAgentTarget1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentAgentTarget1PropertiesOutput)
+}
+
+type AiAgentAgentTarget1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAgentTarget1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAgentTarget1Properties)(nil)).Elem()
+}
+
+func (o AiAgentAgentTarget1PropertiesOutput) ToAiAgentAgentTarget1PropertiesOutput() AiAgentAgentTarget1PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAgentTarget1PropertiesOutput) ToAiAgentAgentTarget1PropertiesOutputWithContext(ctx context.Context) AiAgentAgentTarget1PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAgentTarget1PropertiesOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v AiAgentAgentTarget1Properties) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
 type AiAgentAiAgentConfiguration0Properties struct {
 	ManualSearchAiAgentConfiguration AiAgentManualSearchAiAgentConfiguration `pulumi:"manualSearchAiAgentConfiguration"`
 }
@@ -1411,6 +1509,61 @@ func (o AiAgentCaseSummarizationAiAgentConfigurationPtrOutput) Locale() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type AiAgentDelegateAgentConfiguration struct {
+	AgentTarget interface{}                   `pulumi:"agentTarget"`
+	Instruction *AiAgentMultiAgentInstruction `pulumi:"instruction"`
+}
+
+// AiAgentDelegateAgentConfigurationInput is an input type that accepts AiAgentDelegateAgentConfigurationArgs and AiAgentDelegateAgentConfigurationOutput values.
+// You can construct a concrete instance of `AiAgentDelegateAgentConfigurationInput` via:
+//
+//	AiAgentDelegateAgentConfigurationArgs{...}
+type AiAgentDelegateAgentConfigurationInput interface {
+	pulumi.Input
+
+	ToAiAgentDelegateAgentConfigurationOutput() AiAgentDelegateAgentConfigurationOutput
+	ToAiAgentDelegateAgentConfigurationOutputWithContext(context.Context) AiAgentDelegateAgentConfigurationOutput
+}
+
+type AiAgentDelegateAgentConfigurationArgs struct {
+	AgentTarget pulumi.Input                         `pulumi:"agentTarget"`
+	Instruction AiAgentMultiAgentInstructionPtrInput `pulumi:"instruction"`
+}
+
+func (AiAgentDelegateAgentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentDelegateAgentConfiguration)(nil)).Elem()
+}
+
+func (i AiAgentDelegateAgentConfigurationArgs) ToAiAgentDelegateAgentConfigurationOutput() AiAgentDelegateAgentConfigurationOutput {
+	return i.ToAiAgentDelegateAgentConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiAgentDelegateAgentConfigurationArgs) ToAiAgentDelegateAgentConfigurationOutputWithContext(ctx context.Context) AiAgentDelegateAgentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentDelegateAgentConfigurationOutput)
+}
+
+type AiAgentDelegateAgentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiAgentDelegateAgentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentDelegateAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentDelegateAgentConfigurationOutput) ToAiAgentDelegateAgentConfigurationOutput() AiAgentDelegateAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentDelegateAgentConfigurationOutput) ToAiAgentDelegateAgentConfigurationOutputWithContext(ctx context.Context) AiAgentDelegateAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentDelegateAgentConfigurationOutput) AgentTarget() pulumi.AnyOutput {
+	return o.ApplyT(func(v AiAgentDelegateAgentConfiguration) interface{} { return v.AgentTarget }).(pulumi.AnyOutput)
+}
+
+func (o AiAgentDelegateAgentConfigurationOutput) Instruction() AiAgentMultiAgentInstructionPtrOutput {
+	return o.ApplyT(func(v AiAgentDelegateAgentConfiguration) *AiAgentMultiAgentInstruction { return v.Instruction }).(AiAgentMultiAgentInstructionPtrOutput)
+}
+
 type AiAgentEmailGenerativeAnswerAiAgentConfiguration struct {
 	AssociationConfigurations         []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
 	EmailGenerativeAnswerAiPromptId   *string                           `pulumi:"emailGenerativeAnswerAiPromptId"`
@@ -1770,6 +1923,73 @@ func (o AiAgentEmailResponseAiAgentConfigurationPtrOutput) Locale() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type AiAgentHandoffAgentConfiguration struct {
+	AgentTarget           interface{}                   `pulumi:"agentTarget"`
+	AudioStreamingEnabled *bool                         `pulumi:"audioStreamingEnabled"`
+	ImmediateHandoff      *bool                         `pulumi:"immediateHandoff"`
+	Instruction           *AiAgentMultiAgentInstruction `pulumi:"instruction"`
+}
+
+// AiAgentHandoffAgentConfigurationInput is an input type that accepts AiAgentHandoffAgentConfigurationArgs and AiAgentHandoffAgentConfigurationOutput values.
+// You can construct a concrete instance of `AiAgentHandoffAgentConfigurationInput` via:
+//
+//	AiAgentHandoffAgentConfigurationArgs{...}
+type AiAgentHandoffAgentConfigurationInput interface {
+	pulumi.Input
+
+	ToAiAgentHandoffAgentConfigurationOutput() AiAgentHandoffAgentConfigurationOutput
+	ToAiAgentHandoffAgentConfigurationOutputWithContext(context.Context) AiAgentHandoffAgentConfigurationOutput
+}
+
+type AiAgentHandoffAgentConfigurationArgs struct {
+	AgentTarget           pulumi.Input                         `pulumi:"agentTarget"`
+	AudioStreamingEnabled pulumi.BoolPtrInput                  `pulumi:"audioStreamingEnabled"`
+	ImmediateHandoff      pulumi.BoolPtrInput                  `pulumi:"immediateHandoff"`
+	Instruction           AiAgentMultiAgentInstructionPtrInput `pulumi:"instruction"`
+}
+
+func (AiAgentHandoffAgentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentHandoffAgentConfiguration)(nil)).Elem()
+}
+
+func (i AiAgentHandoffAgentConfigurationArgs) ToAiAgentHandoffAgentConfigurationOutput() AiAgentHandoffAgentConfigurationOutput {
+	return i.ToAiAgentHandoffAgentConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiAgentHandoffAgentConfigurationArgs) ToAiAgentHandoffAgentConfigurationOutputWithContext(ctx context.Context) AiAgentHandoffAgentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentHandoffAgentConfigurationOutput)
+}
+
+type AiAgentHandoffAgentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiAgentHandoffAgentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentHandoffAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentHandoffAgentConfigurationOutput) ToAiAgentHandoffAgentConfigurationOutput() AiAgentHandoffAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentHandoffAgentConfigurationOutput) ToAiAgentHandoffAgentConfigurationOutputWithContext(ctx context.Context) AiAgentHandoffAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentHandoffAgentConfigurationOutput) AgentTarget() pulumi.AnyOutput {
+	return o.ApplyT(func(v AiAgentHandoffAgentConfiguration) interface{} { return v.AgentTarget }).(pulumi.AnyOutput)
+}
+
+func (o AiAgentHandoffAgentConfigurationOutput) AudioStreamingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AiAgentHandoffAgentConfiguration) *bool { return v.AudioStreamingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o AiAgentHandoffAgentConfigurationOutput) ImmediateHandoff() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AiAgentHandoffAgentConfiguration) *bool { return v.ImmediateHandoff }).(pulumi.BoolPtrOutput)
+}
+
+func (o AiAgentHandoffAgentConfigurationOutput) Instruction() AiAgentMultiAgentInstructionPtrOutput {
+	return o.ApplyT(func(v AiAgentHandoffAgentConfiguration) *AiAgentMultiAgentInstruction { return v.Instruction }).(AiAgentMultiAgentInstructionPtrOutput)
+}
+
 type AiAgentKnowledgeBaseAssociationConfigurationData struct {
 	ContentTagFilter                interface{}                     `pulumi:"contentTagFilter"`
 	MaxResults                      *float64                        `pulumi:"maxResults"`
@@ -2064,6 +2284,256 @@ func (o AiAgentManualSearchAiAgentConfigurationPtrOutput) Locale() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type AiAgentMultiAgentConfiguration0Properties struct {
+	DelegateAgentConfiguration AiAgentDelegateAgentConfiguration `pulumi:"delegateAgentConfiguration"`
+}
+
+// AiAgentMultiAgentConfiguration0PropertiesInput is an input type that accepts AiAgentMultiAgentConfiguration0PropertiesArgs and AiAgentMultiAgentConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `AiAgentMultiAgentConfiguration0PropertiesInput` via:
+//
+//	AiAgentMultiAgentConfiguration0PropertiesArgs{...}
+type AiAgentMultiAgentConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToAiAgentMultiAgentConfiguration0PropertiesOutput() AiAgentMultiAgentConfiguration0PropertiesOutput
+	ToAiAgentMultiAgentConfiguration0PropertiesOutputWithContext(context.Context) AiAgentMultiAgentConfiguration0PropertiesOutput
+}
+
+type AiAgentMultiAgentConfiguration0PropertiesArgs struct {
+	DelegateAgentConfiguration AiAgentDelegateAgentConfigurationInput `pulumi:"delegateAgentConfiguration"`
+}
+
+func (AiAgentMultiAgentConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentMultiAgentConfiguration0Properties)(nil)).Elem()
+}
+
+func (i AiAgentMultiAgentConfiguration0PropertiesArgs) ToAiAgentMultiAgentConfiguration0PropertiesOutput() AiAgentMultiAgentConfiguration0PropertiesOutput {
+	return i.ToAiAgentMultiAgentConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i AiAgentMultiAgentConfiguration0PropertiesArgs) ToAiAgentMultiAgentConfiguration0PropertiesOutputWithContext(ctx context.Context) AiAgentMultiAgentConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentMultiAgentConfiguration0PropertiesOutput)
+}
+
+type AiAgentMultiAgentConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AiAgentMultiAgentConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentMultiAgentConfiguration0Properties)(nil)).Elem()
+}
+
+func (o AiAgentMultiAgentConfiguration0PropertiesOutput) ToAiAgentMultiAgentConfiguration0PropertiesOutput() AiAgentMultiAgentConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o AiAgentMultiAgentConfiguration0PropertiesOutput) ToAiAgentMultiAgentConfiguration0PropertiesOutputWithContext(ctx context.Context) AiAgentMultiAgentConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o AiAgentMultiAgentConfiguration0PropertiesOutput) DelegateAgentConfiguration() AiAgentDelegateAgentConfigurationOutput {
+	return o.ApplyT(func(v AiAgentMultiAgentConfiguration0Properties) AiAgentDelegateAgentConfiguration {
+		return v.DelegateAgentConfiguration
+	}).(AiAgentDelegateAgentConfigurationOutput)
+}
+
+type AiAgentMultiAgentConfiguration1Properties struct {
+	HandoffAgentConfiguration AiAgentHandoffAgentConfiguration `pulumi:"handoffAgentConfiguration"`
+}
+
+// AiAgentMultiAgentConfiguration1PropertiesInput is an input type that accepts AiAgentMultiAgentConfiguration1PropertiesArgs and AiAgentMultiAgentConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `AiAgentMultiAgentConfiguration1PropertiesInput` via:
+//
+//	AiAgentMultiAgentConfiguration1PropertiesArgs{...}
+type AiAgentMultiAgentConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToAiAgentMultiAgentConfiguration1PropertiesOutput() AiAgentMultiAgentConfiguration1PropertiesOutput
+	ToAiAgentMultiAgentConfiguration1PropertiesOutputWithContext(context.Context) AiAgentMultiAgentConfiguration1PropertiesOutput
+}
+
+type AiAgentMultiAgentConfiguration1PropertiesArgs struct {
+	HandoffAgentConfiguration AiAgentHandoffAgentConfigurationInput `pulumi:"handoffAgentConfiguration"`
+}
+
+func (AiAgentMultiAgentConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentMultiAgentConfiguration1Properties)(nil)).Elem()
+}
+
+func (i AiAgentMultiAgentConfiguration1PropertiesArgs) ToAiAgentMultiAgentConfiguration1PropertiesOutput() AiAgentMultiAgentConfiguration1PropertiesOutput {
+	return i.ToAiAgentMultiAgentConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i AiAgentMultiAgentConfiguration1PropertiesArgs) ToAiAgentMultiAgentConfiguration1PropertiesOutputWithContext(ctx context.Context) AiAgentMultiAgentConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentMultiAgentConfiguration1PropertiesOutput)
+}
+
+type AiAgentMultiAgentConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AiAgentMultiAgentConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentMultiAgentConfiguration1Properties)(nil)).Elem()
+}
+
+func (o AiAgentMultiAgentConfiguration1PropertiesOutput) ToAiAgentMultiAgentConfiguration1PropertiesOutput() AiAgentMultiAgentConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o AiAgentMultiAgentConfiguration1PropertiesOutput) ToAiAgentMultiAgentConfiguration1PropertiesOutputWithContext(ctx context.Context) AiAgentMultiAgentConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o AiAgentMultiAgentConfiguration1PropertiesOutput) HandoffAgentConfiguration() AiAgentHandoffAgentConfigurationOutput {
+	return o.ApplyT(func(v AiAgentMultiAgentConfiguration1Properties) AiAgentHandoffAgentConfiguration {
+		return v.HandoffAgentConfiguration
+	}).(AiAgentHandoffAgentConfigurationOutput)
+}
+
+type AiAgentMultiAgentInstruction struct {
+	Examples    []string `pulumi:"examples"`
+	Instruction *string  `pulumi:"instruction"`
+}
+
+// AiAgentMultiAgentInstructionInput is an input type that accepts AiAgentMultiAgentInstructionArgs and AiAgentMultiAgentInstructionOutput values.
+// You can construct a concrete instance of `AiAgentMultiAgentInstructionInput` via:
+//
+//	AiAgentMultiAgentInstructionArgs{...}
+type AiAgentMultiAgentInstructionInput interface {
+	pulumi.Input
+
+	ToAiAgentMultiAgentInstructionOutput() AiAgentMultiAgentInstructionOutput
+	ToAiAgentMultiAgentInstructionOutputWithContext(context.Context) AiAgentMultiAgentInstructionOutput
+}
+
+type AiAgentMultiAgentInstructionArgs struct {
+	Examples    pulumi.StringArrayInput `pulumi:"examples"`
+	Instruction pulumi.StringPtrInput   `pulumi:"instruction"`
+}
+
+func (AiAgentMultiAgentInstructionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentMultiAgentInstruction)(nil)).Elem()
+}
+
+func (i AiAgentMultiAgentInstructionArgs) ToAiAgentMultiAgentInstructionOutput() AiAgentMultiAgentInstructionOutput {
+	return i.ToAiAgentMultiAgentInstructionOutputWithContext(context.Background())
+}
+
+func (i AiAgentMultiAgentInstructionArgs) ToAiAgentMultiAgentInstructionOutputWithContext(ctx context.Context) AiAgentMultiAgentInstructionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentMultiAgentInstructionOutput)
+}
+
+func (i AiAgentMultiAgentInstructionArgs) ToAiAgentMultiAgentInstructionPtrOutput() AiAgentMultiAgentInstructionPtrOutput {
+	return i.ToAiAgentMultiAgentInstructionPtrOutputWithContext(context.Background())
+}
+
+func (i AiAgentMultiAgentInstructionArgs) ToAiAgentMultiAgentInstructionPtrOutputWithContext(ctx context.Context) AiAgentMultiAgentInstructionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentMultiAgentInstructionOutput).ToAiAgentMultiAgentInstructionPtrOutputWithContext(ctx)
+}
+
+// AiAgentMultiAgentInstructionPtrInput is an input type that accepts AiAgentMultiAgentInstructionArgs, AiAgentMultiAgentInstructionPtr and AiAgentMultiAgentInstructionPtrOutput values.
+// You can construct a concrete instance of `AiAgentMultiAgentInstructionPtrInput` via:
+//
+//	        AiAgentMultiAgentInstructionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiAgentMultiAgentInstructionPtrInput interface {
+	pulumi.Input
+
+	ToAiAgentMultiAgentInstructionPtrOutput() AiAgentMultiAgentInstructionPtrOutput
+	ToAiAgentMultiAgentInstructionPtrOutputWithContext(context.Context) AiAgentMultiAgentInstructionPtrOutput
+}
+
+type aiAgentMultiAgentInstructionPtrType AiAgentMultiAgentInstructionArgs
+
+func AiAgentMultiAgentInstructionPtr(v *AiAgentMultiAgentInstructionArgs) AiAgentMultiAgentInstructionPtrInput {
+	return (*aiAgentMultiAgentInstructionPtrType)(v)
+}
+
+func (*aiAgentMultiAgentInstructionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentMultiAgentInstruction)(nil)).Elem()
+}
+
+func (i *aiAgentMultiAgentInstructionPtrType) ToAiAgentMultiAgentInstructionPtrOutput() AiAgentMultiAgentInstructionPtrOutput {
+	return i.ToAiAgentMultiAgentInstructionPtrOutputWithContext(context.Background())
+}
+
+func (i *aiAgentMultiAgentInstructionPtrType) ToAiAgentMultiAgentInstructionPtrOutputWithContext(ctx context.Context) AiAgentMultiAgentInstructionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentMultiAgentInstructionPtrOutput)
+}
+
+type AiAgentMultiAgentInstructionOutput struct{ *pulumi.OutputState }
+
+func (AiAgentMultiAgentInstructionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentMultiAgentInstruction)(nil)).Elem()
+}
+
+func (o AiAgentMultiAgentInstructionOutput) ToAiAgentMultiAgentInstructionOutput() AiAgentMultiAgentInstructionOutput {
+	return o
+}
+
+func (o AiAgentMultiAgentInstructionOutput) ToAiAgentMultiAgentInstructionOutputWithContext(ctx context.Context) AiAgentMultiAgentInstructionOutput {
+	return o
+}
+
+func (o AiAgentMultiAgentInstructionOutput) ToAiAgentMultiAgentInstructionPtrOutput() AiAgentMultiAgentInstructionPtrOutput {
+	return o.ToAiAgentMultiAgentInstructionPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentMultiAgentInstructionOutput) ToAiAgentMultiAgentInstructionPtrOutputWithContext(ctx context.Context) AiAgentMultiAgentInstructionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiAgentMultiAgentInstruction) *AiAgentMultiAgentInstruction {
+		return &v
+	}).(AiAgentMultiAgentInstructionPtrOutput)
+}
+
+func (o AiAgentMultiAgentInstructionOutput) Examples() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AiAgentMultiAgentInstruction) []string { return v.Examples }).(pulumi.StringArrayOutput)
+}
+
+func (o AiAgentMultiAgentInstructionOutput) Instruction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentMultiAgentInstruction) *string { return v.Instruction }).(pulumi.StringPtrOutput)
+}
+
+type AiAgentMultiAgentInstructionPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentMultiAgentInstructionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentMultiAgentInstruction)(nil)).Elem()
+}
+
+func (o AiAgentMultiAgentInstructionPtrOutput) ToAiAgentMultiAgentInstructionPtrOutput() AiAgentMultiAgentInstructionPtrOutput {
+	return o
+}
+
+func (o AiAgentMultiAgentInstructionPtrOutput) ToAiAgentMultiAgentInstructionPtrOutputWithContext(ctx context.Context) AiAgentMultiAgentInstructionPtrOutput {
+	return o
+}
+
+func (o AiAgentMultiAgentInstructionPtrOutput) Elem() AiAgentMultiAgentInstructionOutput {
+	return o.ApplyT(func(v *AiAgentMultiAgentInstruction) AiAgentMultiAgentInstruction {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentMultiAgentInstruction
+		return ret
+	}).(AiAgentMultiAgentInstructionOutput)
+}
+
+func (o AiAgentMultiAgentInstructionPtrOutput) Examples() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AiAgentMultiAgentInstruction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Examples
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AiAgentMultiAgentInstructionPtrOutput) Instruction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentMultiAgentInstruction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Instruction
+	}).(pulumi.StringPtrOutput)
+}
+
 type AiAgentNoteTakingAiAgentConfiguration struct {
 	Locale                  *string `pulumi:"locale"`
 	NoteTakingAiGuardrailId *string `pulumi:"noteTakingAiGuardrailId"`
@@ -2276,9 +2746,12 @@ func (o AiAgentOrCondition1PropertiesOutput) TagCondition() AiAgentTagConditionO
 
 type AiAgentOrchestrationAiAgentConfiguration struct {
 	ConnectInstanceArn         *string                    `pulumi:"connectInstanceArn"`
+	InputSchemas               []interface{}              `pulumi:"inputSchemas"`
 	Locale                     *string                    `pulumi:"locale"`
+	MultiAgentConfigurations   []interface{}              `pulumi:"multiAgentConfigurations"`
 	OrchestrationAiGuardrailId *string                    `pulumi:"orchestrationAiGuardrailId"`
-	OrchestrationAiPromptId    string                     `pulumi:"orchestrationAiPromptId"`
+	OrchestrationAiPromptId    *string                    `pulumi:"orchestrationAiPromptId"`
+	OutputSchemas              []interface{}              `pulumi:"outputSchemas"`
 	ToolConfigurations         []AiAgentToolConfiguration `pulumi:"toolConfigurations"`
 }
 
@@ -2295,9 +2768,12 @@ type AiAgentOrchestrationAiAgentConfigurationInput interface {
 
 type AiAgentOrchestrationAiAgentConfigurationArgs struct {
 	ConnectInstanceArn         pulumi.StringPtrInput              `pulumi:"connectInstanceArn"`
+	InputSchemas               pulumi.ArrayInput                  `pulumi:"inputSchemas"`
 	Locale                     pulumi.StringPtrInput              `pulumi:"locale"`
+	MultiAgentConfigurations   pulumi.ArrayInput                  `pulumi:"multiAgentConfigurations"`
 	OrchestrationAiGuardrailId pulumi.StringPtrInput              `pulumi:"orchestrationAiGuardrailId"`
-	OrchestrationAiPromptId    pulumi.StringInput                 `pulumi:"orchestrationAiPromptId"`
+	OrchestrationAiPromptId    pulumi.StringPtrInput              `pulumi:"orchestrationAiPromptId"`
+	OutputSchemas              pulumi.ArrayInput                  `pulumi:"outputSchemas"`
 	ToolConfigurations         AiAgentToolConfigurationArrayInput `pulumi:"toolConfigurations"`
 }
 
@@ -2331,16 +2807,28 @@ func (o AiAgentOrchestrationAiAgentConfigurationOutput) ConnectInstanceArn() pul
 	return o.ApplyT(func(v AiAgentOrchestrationAiAgentConfiguration) *string { return v.ConnectInstanceArn }).(pulumi.StringPtrOutput)
 }
 
+func (o AiAgentOrchestrationAiAgentConfigurationOutput) InputSchemas() pulumi.ArrayOutput {
+	return o.ApplyT(func(v AiAgentOrchestrationAiAgentConfiguration) []interface{} { return v.InputSchemas }).(pulumi.ArrayOutput)
+}
+
 func (o AiAgentOrchestrationAiAgentConfigurationOutput) Locale() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AiAgentOrchestrationAiAgentConfiguration) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentOrchestrationAiAgentConfigurationOutput) MultiAgentConfigurations() pulumi.ArrayOutput {
+	return o.ApplyT(func(v AiAgentOrchestrationAiAgentConfiguration) []interface{} { return v.MultiAgentConfigurations }).(pulumi.ArrayOutput)
 }
 
 func (o AiAgentOrchestrationAiAgentConfigurationOutput) OrchestrationAiGuardrailId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AiAgentOrchestrationAiAgentConfiguration) *string { return v.OrchestrationAiGuardrailId }).(pulumi.StringPtrOutput)
 }
 
-func (o AiAgentOrchestrationAiAgentConfigurationOutput) OrchestrationAiPromptId() pulumi.StringOutput {
-	return o.ApplyT(func(v AiAgentOrchestrationAiAgentConfiguration) string { return v.OrchestrationAiPromptId }).(pulumi.StringOutput)
+func (o AiAgentOrchestrationAiAgentConfigurationOutput) OrchestrationAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentOrchestrationAiAgentConfiguration) *string { return v.OrchestrationAiPromptId }).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentOrchestrationAiAgentConfigurationOutput) OutputSchemas() pulumi.ArrayOutput {
+	return o.ApplyT(func(v AiAgentOrchestrationAiAgentConfiguration) []interface{} { return v.OutputSchemas }).(pulumi.ArrayOutput)
 }
 
 func (o AiAgentOrchestrationAiAgentConfigurationOutput) ToolConfigurations() AiAgentToolConfigurationArrayOutput {
@@ -2382,6 +2870,15 @@ func (o AiAgentOrchestrationAiAgentConfigurationPtrOutput) ConnectInstanceArn() 
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o AiAgentOrchestrationAiAgentConfigurationPtrOutput) InputSchemas() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *AiAgentOrchestrationAiAgentConfiguration) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.InputSchemas
+	}).(pulumi.ArrayOutput)
+}
+
 func (o AiAgentOrchestrationAiAgentConfigurationPtrOutput) Locale() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AiAgentOrchestrationAiAgentConfiguration) *string {
 		if v == nil {
@@ -2389,6 +2886,15 @@ func (o AiAgentOrchestrationAiAgentConfigurationPtrOutput) Locale() pulumi.Strin
 		}
 		return v.Locale
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentOrchestrationAiAgentConfigurationPtrOutput) MultiAgentConfigurations() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *AiAgentOrchestrationAiAgentConfiguration) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.MultiAgentConfigurations
+	}).(pulumi.ArrayOutput)
 }
 
 func (o AiAgentOrchestrationAiAgentConfigurationPtrOutput) OrchestrationAiGuardrailId() pulumi.StringPtrOutput {
@@ -2405,8 +2911,17 @@ func (o AiAgentOrchestrationAiAgentConfigurationPtrOutput) OrchestrationAiPrompt
 		if v == nil {
 			return nil
 		}
-		return &v.OrchestrationAiPromptId
+		return v.OrchestrationAiPromptId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentOrchestrationAiAgentConfigurationPtrOutput) OutputSchemas() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *AiAgentOrchestrationAiAgentConfiguration) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.OutputSchemas
+	}).(pulumi.ArrayOutput)
 }
 
 func (o AiAgentOrchestrationAiAgentConfigurationPtrOutput) ToolConfigurations() AiAgentToolConfigurationArrayOutput {
@@ -12912,6 +13427,8 @@ type QuickResponseTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAgentTarget0PropertiesInput)(nil)).Elem(), AiAgentAgentTarget0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAgentTarget1PropertiesInput)(nil)).Elem(), AiAgentAgentTarget1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration0PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration1PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration2PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration2PropertiesArgs{})
@@ -12929,12 +13446,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationDataPropertiesInput)(nil)).Elem(), AiAgentAssociationConfigurationDataPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationDataPropertiesPtrInput)(nil)).Elem(), AiAgentAssociationConfigurationDataPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentCaseSummarizationAiAgentConfigurationInput)(nil)).Elem(), AiAgentCaseSummarizationAiAgentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentDelegateAgentConfigurationInput)(nil)).Elem(), AiAgentDelegateAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentEmailGenerativeAnswerAiAgentConfigurationInput)(nil)).Elem(), AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentEmailOverviewAiAgentConfigurationInput)(nil)).Elem(), AiAgentEmailOverviewAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentEmailResponseAiAgentConfigurationInput)(nil)).Elem(), AiAgentEmailResponseAiAgentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentHandoffAgentConfigurationInput)(nil)).Elem(), AiAgentHandoffAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseAssociationConfigurationDataInput)(nil)).Elem(), AiAgentKnowledgeBaseAssociationConfigurationDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseAssociationConfigurationDataPtrInput)(nil)).Elem(), AiAgentKnowledgeBaseAssociationConfigurationDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentManualSearchAiAgentConfigurationInput)(nil)).Elem(), AiAgentManualSearchAiAgentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentMultiAgentConfiguration0PropertiesInput)(nil)).Elem(), AiAgentMultiAgentConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentMultiAgentConfiguration1PropertiesInput)(nil)).Elem(), AiAgentMultiAgentConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentMultiAgentInstructionInput)(nil)).Elem(), AiAgentMultiAgentInstructionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentMultiAgentInstructionPtrInput)(nil)).Elem(), AiAgentMultiAgentInstructionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentNoteTakingAiAgentConfigurationInput)(nil)).Elem(), AiAgentNoteTakingAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentOrCondition0PropertiesInput)(nil)).Elem(), AiAgentOrCondition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentOrCondition1PropertiesInput)(nil)).Elem(), AiAgentOrCondition1PropertiesArgs{})
@@ -13065,6 +13588,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickResponseContentProviderInput)(nil)).Elem(), QuickResponseContentProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickResponseGroupingConfigurationInput)(nil)).Elem(), QuickResponseGroupingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickResponseGroupingConfigurationPtrInput)(nil)).Elem(), QuickResponseGroupingConfigurationArgs{})
+	pulumi.RegisterOutputType(AiAgentAgentTarget0PropertiesOutput{})
+	pulumi.RegisterOutputType(AiAgentAgentTarget1PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration1PropertiesOutput{})
@@ -13093,16 +13618,22 @@ func init() {
 	pulumi.RegisterOutputType(AiAgentAssociationConfigurationDataPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentCaseSummarizationAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentCaseSummarizationAiAgentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentDelegateAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentEmailOverviewAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentEmailOverviewAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentEmailResponseAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentEmailResponseAiAgentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentHandoffAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentKnowledgeBaseAssociationConfigurationDataOutput{})
 	pulumi.RegisterOutputType(AiAgentKnowledgeBaseAssociationConfigurationDataPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentManualSearchAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentManualSearchAiAgentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentMultiAgentConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(AiAgentMultiAgentConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(AiAgentMultiAgentInstructionOutput{})
+	pulumi.RegisterOutputType(AiAgentMultiAgentInstructionPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentNoteTakingAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentNoteTakingAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentOrCondition0PropertiesOutput{})

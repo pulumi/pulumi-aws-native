@@ -7,13 +7,35 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AccessProfileAssumeStatus',
+    'AccessProfileProfileType',
     'AlarmMuteRuleStatus',
+    'DomainForOrganizationIdentityProvidersItem',
+    'DomainForOrganizationStatus',
     'InsightRuleRuleState',
     'IntegrationStatus',
     'IntegrationType',
     'OTelEnrichmentStatus',
     'ViewType',
 ]
+
+
+@pulumi.type_token("aws-native:cloudwatch:AccessProfileAssumeStatus")
+class AccessProfileAssumeStatus(_builtins.str, Enum):
+    """
+    Whether the calling principal is authorized to assume the access profile.
+    """
+    ALLOWED = "ALLOWED"
+    DENIED = "DENIED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AccessProfileProfileType")
+class AccessProfileProfileType(_builtins.str, Enum):
+    """
+    Whether the access profile is managed by the service or by the customer.
+    """
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
 
 
 @pulumi.type_token("aws-native:cloudwatch:AlarmMuteRuleStatus")
@@ -24,6 +46,20 @@ class AlarmMuteRuleStatus(_builtins.str, Enum):
     SCHEDULED = "SCHEDULED"
     ACTIVE = "ACTIVE"
     EXPIRED = "EXPIRED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:DomainForOrganizationIdentityProvidersItem")
+class DomainForOrganizationIdentityProvidersItem(_builtins.str, Enum):
+    IAM = "IAM"
+    IDC = "IDC"
+
+
+@pulumi.type_token("aws-native:cloudwatch:DomainForOrganizationStatus")
+class DomainForOrganizationStatus(_builtins.str, Enum):
+    """
+    Current status of the domain.
+    """
+    ACTIVE = "ACTIVE"
 
 
 @pulumi.type_token("aws-native:cloudwatch:InsightRuleRuleState")

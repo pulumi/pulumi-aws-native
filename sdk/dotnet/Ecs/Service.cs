@@ -103,6 +103,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("forceNewDeployment")]
         public Output<Outputs.ServiceForceNewDeployment?> ForceNewDeployment { get; private set; } = null!;
 
+        [Output("gatewayConnectors")]
+        public Output<ImmutableArray<Outputs.ServiceGatewayConnector>> GatewayConnectors { get; private set; } = null!;
+
         /// <summary>
         /// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
         ///  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
@@ -372,6 +375,14 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         [Input("forceNewDeployment")]
         public Input<Inputs.ServiceForceNewDeploymentArgs>? ForceNewDeployment { get; set; }
+
+        [Input("gatewayConnectors")]
+        private InputList<Inputs.ServiceGatewayConnectorArgs>? _gatewayConnectors;
+        public InputList<Inputs.ServiceGatewayConnectorArgs> GatewayConnectors
+        {
+            get => _gatewayConnectors ?? (_gatewayConnectors = new InputList<Inputs.ServiceGatewayConnectorArgs>());
+            set => _gatewayConnectors = value;
+        }
 
         /// <summary>
         /// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.

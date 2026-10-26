@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
         /// </summary>
         public readonly bool? DeletionProtectionEnabled;
+        public readonly bool? DisassociationProtectionEnabled;
         /// <summary>
         /// Defines additional settings for the global secondary indexes of this replica.
         /// </summary>
@@ -77,6 +78,8 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
 
             bool? deletionProtectionEnabled,
 
+            bool? disassociationProtectionEnabled,
+
             ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> globalSecondaryIndexes,
 
             Pulumi.AwsNative.DynamoDb.GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode? globalTableSettingsReplicationMode,
@@ -103,6 +106,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         {
             ContributorInsightsSpecification = contributorInsightsSpecification;
             DeletionProtectionEnabled = deletionProtectionEnabled;
+            DisassociationProtectionEnabled = disassociationProtectionEnabled;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
             GlobalTableSettingsReplicationMode = globalTableSettingsReplicationMode;
             KinesisStreamSpecification = kinesisStreamSpecification;

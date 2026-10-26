@@ -123,6 +123,204 @@ import (
 //	}
 //
 // ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codebuild"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mySourceCreds, err := codebuild.NewSourceCredential(ctx, "mySourceCreds", &codebuild.SourceCredentialArgs{
+//				Token:      pulumi.String("{{resolve:secretsmanager:bitbucket:SecretString:token}}"),
+//				ServerType: pulumi.String("BITBUCKET"),
+//				Username:   pulumi.String("{{resolve:secretsmanager:bitbucket:SecretString:username}}"),
+//				AuthType:   pulumi.String("BASIC_AUTH"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codebuild.NewProject(ctx, "myProject", &codebuild.ProjectArgs{
+//				Name:        pulumi.String("myProjectName"),
+//				Description: pulumi.String("A description about my project"),
+//				ServiceRole: pulumi.String("testServiceRoleArn"),
+//				Artifacts: &codebuild.ProjectArtifactsArgs{
+//					Type: pulumi.String("NO_ARTIFACTS"),
+//				},
+//				Environment: &codebuild.ProjectEnvironmentArgs{
+//					Type:        pulumi.String("LINUX_CONTAINER"),
+//					ComputeType: pulumi.String("BUILD_GENERAL1_SMALL"),
+//					Image:       pulumi.String("aws/codebuild/standard:5.0"),
+//				},
+//				Source: &codebuild.ProjectSourceArgs{
+//					Type:     pulumi.String("BITBUCKET"),
+//					Location: pulumi.String("your-bitbucket-repo-url"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				mySourceCreds,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codebuild"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mySourceCreds, err := codebuild.NewSourceCredential(ctx, "mySourceCreds", &codebuild.SourceCredentialArgs{
+//				Token:      pulumi.String("{{resolve:secretsmanager:bitbucket:SecretString:token}}"),
+//				ServerType: pulumi.String("BITBUCKET"),
+//				Username:   pulumi.String("{{resolve:secretsmanager:bitbucket:SecretString:username}}"),
+//				AuthType:   pulumi.String("BASIC_AUTH"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codebuild.NewProject(ctx, "myProject", &codebuild.ProjectArgs{
+//				Name:        pulumi.String("myProjectName"),
+//				Description: pulumi.String("A description about my project"),
+//				ServiceRole: pulumi.String("testServiceRoleAr"),
+//				Artifacts: &codebuild.ProjectArtifactsArgs{
+//					Type: pulumi.String("NO_ARTIFACTS"),
+//				},
+//				Environment: &codebuild.ProjectEnvironmentArgs{
+//					Type:        pulumi.String("LINUX_CONTAINER"),
+//					ComputeType: pulumi.String("BUILD_GENERAL1_SMALL"),
+//					Image:       pulumi.String("aws/codebuild/standard:5.0"),
+//				},
+//				Source: &codebuild.ProjectSourceArgs{
+//					Type:     pulumi.String("BITBUCKET"),
+//					Location: pulumi.String("your-bitbucket-repo-url"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				mySourceCreds,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codebuild"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mySourceCreds, err := codebuild.NewSourceCredential(ctx, "mySourceCreds", &codebuild.SourceCredentialArgs{
+//				Token:      pulumi.String("{{resolve:secretsmanager:github:SecretString:token}}"),
+//				ServerType: pulumi.String("GITHUB"),
+//				AuthType:   pulumi.String("PERSONAL_ACCESS_TOKEN"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codebuild.NewProject(ctx, "myProject", &codebuild.ProjectArgs{
+//				Name:        pulumi.String("myProjectName"),
+//				Description: pulumi.String("A description about my project"),
+//				ServiceRole: pulumi.String("testServiceRoleArn"),
+//				Artifacts: &codebuild.ProjectArtifactsArgs{
+//					Type: pulumi.String("NO_ARTIFACTS"),
+//				},
+//				Environment: &codebuild.ProjectEnvironmentArgs{
+//					Type:        pulumi.String("LINUX_CONTAINER"),
+//					ComputeType: pulumi.String("BUILD_GENERAL1_SMALL"),
+//					Image:       pulumi.String("aws/codebuild/standard:5.0"),
+//				},
+//				Source: &codebuild.ProjectSourceArgs{
+//					Type:     pulumi.String("GITHUB"),
+//					Location: pulumi.String("your-github-repo-url"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				mySourceCreds,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codebuild"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mySourceCreds, err := codebuild.NewSourceCredential(ctx, "mySourceCreds", &codebuild.SourceCredentialArgs{
+//				Token:      pulumi.String("{{resolve:secretsmanager:github:SecretString:token}}"),
+//				ServerType: pulumi.String("GITHUB"),
+//				AuthType:   pulumi.String("PERSONAL_ACCESS_TOKEN"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codebuild.NewProject(ctx, "myProject", &codebuild.ProjectArgs{
+//				Name:        pulumi.String("myProjectName"),
+//				Description: pulumi.String("A description about my project"),
+//				ServiceRole: pulumi.String("testServiceRoleArn"),
+//				Artifacts: &codebuild.ProjectArtifactsArgs{
+//					Type: pulumi.String("NO_ARTIFACTS"),
+//				},
+//				Environment: &codebuild.ProjectEnvironmentArgs{
+//					Type:        pulumi.String("LINUX_CONTAINER"),
+//					ComputeType: pulumi.String("BUILD_GENERAL1_SMALL"),
+//					Image:       pulumi.String("aws/codebuild/standard:5.0"),
+//				},
+//				Source: &codebuild.ProjectSourceArgs{
+//					Type:     pulumi.String("GITHUB"),
+//					Location: pulumi.String("your-github-repo-url"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				mySourceCreds,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type SourceCredential struct {
 	pulumi.CustomResourceState
 

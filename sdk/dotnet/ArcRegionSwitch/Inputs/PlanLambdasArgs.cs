@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
+        [Input("payload")]
+        public Input<string>? Payload { get; set; }
+
         public PlanLambdasArgs()
         {
         }

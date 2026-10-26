@@ -475,6 +475,11 @@ export const getTransitGatewayAttachment: typeof import("./getTransitGatewayAtta
 export const getTransitGatewayAttachmentOutput: typeof import("./getTransitGatewayAttachment").getTransitGatewayAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getTransitGatewayAttachment","getTransitGatewayAttachmentOutput"], () => require("./getTransitGatewayAttachment"));
 
+export { GetTransitGatewayAttachmentNatConfigurationArgs, GetTransitGatewayAttachmentNatConfigurationResult, GetTransitGatewayAttachmentNatConfigurationOutputArgs } from "./getTransitGatewayAttachmentNatConfiguration";
+export const getTransitGatewayAttachmentNatConfiguration: typeof import("./getTransitGatewayAttachmentNatConfiguration").getTransitGatewayAttachmentNatConfiguration = null as any;
+export const getTransitGatewayAttachmentNatConfigurationOutput: typeof import("./getTransitGatewayAttachmentNatConfiguration").getTransitGatewayAttachmentNatConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitGatewayAttachmentNatConfiguration","getTransitGatewayAttachmentNatConfigurationOutput"], () => require("./getTransitGatewayAttachmentNatConfiguration"));
+
 export { GetTransitGatewayConnectArgs, GetTransitGatewayConnectResult, GetTransitGatewayConnectOutputArgs } from "./getTransitGatewayConnect";
 export const getTransitGatewayConnect: typeof import("./getTransitGatewayConnect").getTransitGatewayConnect = null as any;
 export const getTransitGatewayConnectOutput: typeof import("./getTransitGatewayConnect").getTransitGatewayConnectOutput = null as any;
@@ -955,6 +960,11 @@ export type TransitGatewayAttachment = import("./transitGatewayAttachment").Tran
 export const TransitGatewayAttachment: typeof import("./transitGatewayAttachment").TransitGatewayAttachment = null as any;
 utilities.lazyLoad(exports, ["TransitGatewayAttachment"], () => require("./transitGatewayAttachment"));
 
+export { TransitGatewayAttachmentNatConfigurationArgs } from "./transitGatewayAttachmentNatConfiguration";
+export type TransitGatewayAttachmentNatConfiguration = import("./transitGatewayAttachmentNatConfiguration").TransitGatewayAttachmentNatConfiguration;
+export const TransitGatewayAttachmentNatConfiguration: typeof import("./transitGatewayAttachmentNatConfiguration").TransitGatewayAttachmentNatConfiguration = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayAttachmentNatConfiguration"], () => require("./transitGatewayAttachmentNatConfiguration"));
+
 export { TransitGatewayConnectArgs } from "./transitGatewayConnect";
 export type TransitGatewayConnect = import("./transitGatewayConnect").TransitGatewayConnect;
 export const TransitGatewayConnect: typeof import("./transitGatewayConnect").TransitGatewayConnect = null as any;
@@ -1318,6 +1328,8 @@ const _module = {
                 return new TransitGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayAttachment":
                 return new TransitGatewayAttachment(name, <any>undefined, { urn })
+            case "aws-native:ec2:TransitGatewayAttachmentNatConfiguration":
+                return new TransitGatewayAttachmentNatConfiguration(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayConnect":
                 return new TransitGatewayConnect(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayConnectPeer":

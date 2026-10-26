@@ -1052,13 +1052,23 @@ export const PaymentCredentialProviderVendorType = {
  */
 export type PaymentCredentialProviderVendorType = (typeof PaymentCredentialProviderVendorType)[keyof typeof PaymentCredentialProviderVendorType];
 
-export const PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator = {
+export const PaymentManagerAuthorizerType = {
+    CustomJwt: "CUSTOM_JWT",
+    AwsIam: "AWS_IAM",
+} as const;
+
+/**
+ * The type of authorizer for the payment manager
+ */
+export type PaymentManagerAuthorizerType = (typeof PaymentManagerAuthorizerType)[keyof typeof PaymentManagerAuthorizerType];
+
+export const PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator = {
     Equals: "EQUALS",
     Contains: "CONTAINS",
     ContainsAny: "CONTAINS_ANY",
 } as const;
 
-export type PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator = (typeof PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator)[keyof typeof PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator];
+export type PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator = (typeof PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator)[keyof typeof PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator];
 
 export const PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType = {
     String: "STRING",
@@ -1066,13 +1076,6 @@ export const PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType =
 } as const;
 
 export type PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType = (typeof PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType)[keyof typeof PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType];
-
-export const PaymentManagerPaymentsAuthorizerType = {
-    CustomJwt: "CUSTOM_JWT",
-    AwsIam: "AWS_IAM",
-} as const;
-
-export type PaymentManagerPaymentsAuthorizerType = (typeof PaymentManagerPaymentsAuthorizerType)[keyof typeof PaymentManagerPaymentsAuthorizerType];
 
 export const PaymentManagerStatus = {
     Creating: "CREATING",
@@ -1084,6 +1087,9 @@ export const PaymentManagerStatus = {
     DeleteFailed: "DELETE_FAILED",
 } as const;
 
+/**
+ * The current status of the payment manager
+ */
 export type PaymentManagerStatus = (typeof PaymentManagerStatus)[keyof typeof PaymentManagerStatus];
 
 export const PolicyEnforcementMode = {

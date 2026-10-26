@@ -1264,6 +1264,30 @@ export const PromptVersionPromptTemplateType = {
  */
 export type PromptVersionPromptTemplateType = (typeof PromptVersionPromptTemplateType)[keyof typeof PromptVersionPromptTemplateType];
 
+export const RetrievalInstructionLastTransitionStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    CreateSuccessful: "CREATE_SUCCESSFUL",
+    CreateFailed: "CREATE_FAILED",
+    UpdateSuccessful: "UPDATE_SUCCESSFUL",
+    UpdateFailed: "UPDATE_FAILED",
+} as const;
+
+/**
+ * The outcome or in-progress state of the most recent create or update. CREATING or UPDATING means the operation is still running. Independent of status. Always has a value from the create 202 onward. On a numbered version this is always CREATE_SUCCESSFUL: a version is created once, from reviewed content, and is immutable.
+ */
+export type RetrievalInstructionLastTransitionStatus = (typeof RetrievalInstructionLastTransitionStatus)[keyof typeof RetrievalInstructionLastTransitionStatus];
+
+export const RetrievalInstructionStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * Whether the instruction can be used. Only ACTIVE is resolvable at retrieval time. Monotone: INACTIVE to ACTIVE once, never back. Numbered versions are always ACTIVE.
+ */
+export type RetrievalInstructionStatus = (typeof RetrievalInstructionStatus)[keyof typeof RetrievalInstructionStatus];
+
 export const SessionStatus = {
     Active: "ACTIVE",
     Expired: "EXPIRED",
