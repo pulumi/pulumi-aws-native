@@ -3385,6 +3385,8 @@ class InstanceAttributes(dict):
             suggest = "inbound_calls"
         elif key == "outboundCalls":
             suggest = "outbound_calls"
+        elif key == "autoMuteAgentOnHold":
+            suggest = "auto_mute_agent_on_hold"
         elif key == "autoResolveBestVoices":
             suggest = "auto_resolve_best_voices"
         elif key == "contactLens":
@@ -3422,6 +3424,7 @@ class InstanceAttributes(dict):
     def __init__(__self__, *,
                  inbound_calls: _builtins.bool,
                  outbound_calls: _builtins.bool,
+                 auto_mute_agent_on_hold: Optional[_builtins.bool] = None,
                  auto_resolve_best_voices: Optional[_builtins.bool] = None,
                  contact_lens: Optional[_builtins.bool] = None,
                  contactflow_logs: Optional[_builtins.bool] = None,
@@ -3435,6 +3438,8 @@ class InstanceAttributes(dict):
                  use_custom_tts_voices: Optional[_builtins.bool] = None):
         pulumi.set(__self__, "inbound_calls", inbound_calls)
         pulumi.set(__self__, "outbound_calls", outbound_calls)
+        if auto_mute_agent_on_hold is not None:
+            pulumi.set(__self__, "auto_mute_agent_on_hold", auto_mute_agent_on_hold)
         if auto_resolve_best_voices is not None:
             pulumi.set(__self__, "auto_resolve_best_voices", auto_resolve_best_voices)
         if contact_lens is not None:
@@ -3467,6 +3472,11 @@ class InstanceAttributes(dict):
     @pulumi.getter(name="outboundCalls")
     def outbound_calls(self) -> _builtins.bool:
         return pulumi.get(self, "outbound_calls")
+
+    @_builtins.property
+    @pulumi.getter(name="autoMuteAgentOnHold")
+    def auto_mute_agent_on_hold(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "auto_mute_agent_on_hold")
 
     @_builtins.property
     @pulumi.getter(name="autoResolveBestVoices")

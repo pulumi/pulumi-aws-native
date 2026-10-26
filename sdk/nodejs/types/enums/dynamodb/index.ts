@@ -75,6 +75,13 @@ export const GlobalTableSearchSchemaElementSearchSchemaElementType = {
 
 export type GlobalTableSearchSchemaElementSearchSchemaElementType = (typeof GlobalTableSearchSchemaElementSearchSchemaElementType)[keyof typeof GlobalTableSearchSchemaElementSearchSchemaElementType];
 
+export const GlobalTableTableType = {
+    GlobalTableReplica: "GlobalTableReplica",
+    Regional: "Regional",
+} as const;
+
+export type GlobalTableTableType = (typeof GlobalTableTableType)[keyof typeof GlobalTableTableType];
+
 export const GlobalTableVectorIndexDistanceFunction = {
     Cosine: "COSINE",
     DotProduct: "DOT_PRODUCT",

@@ -35420,6 +35420,124 @@ type TrafficMirrorTargetTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A static 1:1 NAT rule. Traffic whose source address falls within MatchSourceCidr is translated to the corresponding address in NatCidr.
+type TransitGatewayAttachmentNatConfigurationNatRule struct {
+	// The source CIDR that the rule matches on.
+	MatchSourceCidr string `pulumi:"matchSourceCidr"`
+	// The CIDR that the matched source addresses are translated to.
+	NatCidr string `pulumi:"natCidr"`
+	// The rule number.
+	RuleNumber int `pulumi:"ruleNumber"`
+}
+
+// TransitGatewayAttachmentNatConfigurationNatRuleInput is an input type that accepts TransitGatewayAttachmentNatConfigurationNatRuleArgs and TransitGatewayAttachmentNatConfigurationNatRuleOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentNatConfigurationNatRuleInput` via:
+//
+//	TransitGatewayAttachmentNatConfigurationNatRuleArgs{...}
+type TransitGatewayAttachmentNatConfigurationNatRuleInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatRuleOutput() TransitGatewayAttachmentNatConfigurationNatRuleOutput
+	ToTransitGatewayAttachmentNatConfigurationNatRuleOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatRuleOutput
+}
+
+// A static 1:1 NAT rule. Traffic whose source address falls within MatchSourceCidr is translated to the corresponding address in NatCidr.
+type TransitGatewayAttachmentNatConfigurationNatRuleArgs struct {
+	// The source CIDR that the rule matches on.
+	MatchSourceCidr pulumi.StringInput `pulumi:"matchSourceCidr"`
+	// The CIDR that the matched source addresses are translated to.
+	NatCidr pulumi.StringInput `pulumi:"natCidr"`
+	// The rule number.
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
+}
+
+func (TransitGatewayAttachmentNatConfigurationNatRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatRule)(nil)).Elem()
+}
+
+func (i TransitGatewayAttachmentNatConfigurationNatRuleArgs) ToTransitGatewayAttachmentNatConfigurationNatRuleOutput() TransitGatewayAttachmentNatConfigurationNatRuleOutput {
+	return i.ToTransitGatewayAttachmentNatConfigurationNatRuleOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentNatConfigurationNatRuleArgs) ToTransitGatewayAttachmentNatConfigurationNatRuleOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentNatConfigurationNatRuleOutput)
+}
+
+// TransitGatewayAttachmentNatConfigurationNatRuleArrayInput is an input type that accepts TransitGatewayAttachmentNatConfigurationNatRuleArray and TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentNatConfigurationNatRuleArrayInput` via:
+//
+//	TransitGatewayAttachmentNatConfigurationNatRuleArray{ TransitGatewayAttachmentNatConfigurationNatRuleArgs{...} }
+type TransitGatewayAttachmentNatConfigurationNatRuleArrayInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatRuleArrayOutput() TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput
+	ToTransitGatewayAttachmentNatConfigurationNatRuleArrayOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput
+}
+
+type TransitGatewayAttachmentNatConfigurationNatRuleArray []TransitGatewayAttachmentNatConfigurationNatRuleInput
+
+func (TransitGatewayAttachmentNatConfigurationNatRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayAttachmentNatConfigurationNatRule)(nil)).Elem()
+}
+
+func (i TransitGatewayAttachmentNatConfigurationNatRuleArray) ToTransitGatewayAttachmentNatConfigurationNatRuleArrayOutput() TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput {
+	return i.ToTransitGatewayAttachmentNatConfigurationNatRuleArrayOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentNatConfigurationNatRuleArray) ToTransitGatewayAttachmentNatConfigurationNatRuleArrayOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput)
+}
+
+// A static 1:1 NAT rule. Traffic whose source address falls within MatchSourceCidr is translated to the corresponding address in NatCidr.
+type TransitGatewayAttachmentNatConfigurationNatRuleOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatRule)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatRuleOutput) ToTransitGatewayAttachmentNatConfigurationNatRuleOutput() TransitGatewayAttachmentNatConfigurationNatRuleOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatRuleOutput) ToTransitGatewayAttachmentNatConfigurationNatRuleOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatRuleOutput {
+	return o
+}
+
+// The source CIDR that the rule matches on.
+func (o TransitGatewayAttachmentNatConfigurationNatRuleOutput) MatchSourceCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentNatConfigurationNatRule) string { return v.MatchSourceCidr }).(pulumi.StringOutput)
+}
+
+// The CIDR that the matched source addresses are translated to.
+func (o TransitGatewayAttachmentNatConfigurationNatRuleOutput) NatCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentNatConfigurationNatRule) string { return v.NatCidr }).(pulumi.StringOutput)
+}
+
+// The rule number.
+func (o TransitGatewayAttachmentNatConfigurationNatRuleOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentNatConfigurationNatRule) int { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
+type TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayAttachmentNatConfigurationNatRule)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput) ToTransitGatewayAttachmentNatConfigurationNatRuleArrayOutput() TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput) ToTransitGatewayAttachmentNatConfigurationNatRuleArrayOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput) Index(i pulumi.IntInput) TransitGatewayAttachmentNatConfigurationNatRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayAttachmentNatConfigurationNatRule {
+		return vs[0].([]TransitGatewayAttachmentNatConfigurationNatRule)[vs[1].(int)]
+	}).(TransitGatewayAttachmentNatConfigurationNatRuleOutput)
+}
+
 type TransitGatewayAttachmentTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -42253,6 +42371,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagSpecificationArrayInput)(nil)).Elem(), TagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRangeInput)(nil)).Elem(), TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput)(nil)).Elem(), TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatRuleInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatRuleArrayInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectOptionsInput)(nil)).Elem(), TransitGatewayConnectOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerConfigurationInput)(nil)).Elem(), TransitGatewayConnectPeerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationInput)(nil)).Elem(), TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs{})
@@ -42726,6 +42846,8 @@ func init() {
 	pulumi.RegisterOutputType(TagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatRuleOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectOptionsOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectPeerConfigurationOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput{})

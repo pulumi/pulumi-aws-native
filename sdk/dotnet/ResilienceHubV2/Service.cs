@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("devOpsAgentConfiguration")]
+        public Output<Outputs.ServiceDevOpsAgentConfiguration?> DevOpsAgentConfiguration { get; private set; } = null!;
+
         [Output("effectivePolicyValues")]
         public Output<Outputs.ServiceEffectivePolicyValues> EffectivePolicyValues { get; private set; } = null!;
 
@@ -188,6 +191,9 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("devOpsAgentConfiguration")]
+        public Input<Inputs.ServiceDevOpsAgentConfigurationArgs>? DevOpsAgentConfiguration { get; set; }
 
         [Input("inputSources")]
         private InputList<Inputs.ServiceInputSourceDefinitionArgs>? _inputSources;

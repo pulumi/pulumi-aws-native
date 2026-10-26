@@ -103,6 +103,7 @@ export interface GetGlobalTableResult {
      * Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
      */
     readonly tableId?: string;
+    readonly tableType?: enums.dynamodb.GlobalTableTableType;
     /**
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */

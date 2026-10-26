@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const FirewallConfigFirewallFailOpen = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+    UseLocalResourceSetting: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
+
+/**
+ * Determines how DNS Firewall operates during failures. By default, fail open is disabled, which means the failure mode is closed. If you enable this option, the failure mode is open. This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association.
+ */
+export type FirewallConfigFirewallFailOpen = (typeof FirewallConfigFirewallFailOpen)[keyof typeof FirewallConfigFirewallFailOpen];
+
 export const FirewallDomainListStatus = {
     Complete: "COMPLETE",
     Deleting: "DELETING",

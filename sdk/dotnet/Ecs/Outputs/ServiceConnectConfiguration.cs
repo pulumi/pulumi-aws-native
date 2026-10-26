@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
         /// </summary>
         public readonly Outputs.ServiceConnectAccessLogConfiguration? AccessLogConfiguration;
+        public readonly ImmutableArray<Outputs.ServiceConnectContainerConfiguration> ContainerConfigurations;
         /// <summary>
         /// Specifies whether to use Service Connect with this service.
         /// </summary>
@@ -53,6 +54,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         private ServiceConnectConfiguration(
             Outputs.ServiceConnectAccessLogConfiguration? accessLogConfiguration,
 
+            ImmutableArray<Outputs.ServiceConnectContainerConfiguration> containerConfigurations,
+
             bool enabled,
 
             Outputs.ServiceLogConfiguration? logConfiguration,
@@ -62,6 +65,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
             ImmutableArray<Outputs.ServiceConnectService> services)
         {
             AccessLogConfiguration = accessLogConfiguration;
+            ContainerConfigurations = containerConfigurations;
             Enabled = enabled;
             LogConfiguration = logConfiguration;
             Namespace = @namespace;

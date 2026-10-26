@@ -45,6 +45,7 @@ export interface GetServiceResult {
      * The description of the service.
      */
     readonly description?: string;
+    readonly devOpsAgentConfiguration?: outputs.resiliencehubv2.ServiceDevOpsAgentConfiguration;
     readonly effectivePolicyValues?: outputs.resiliencehubv2.ServiceEffectivePolicyValues;
     /**
      * Input sources for this service.

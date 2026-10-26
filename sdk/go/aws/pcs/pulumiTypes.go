@@ -894,7 +894,7 @@ type CustomLaunchTemplateProperties struct {
 	// The ID of the EC2 launch template to use to provision instances.
 	TemplateId *string `pulumi:"templateId"`
 	// The version of the EC2 launch template to use to provision instances.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 // CustomLaunchTemplatePropertiesInput is an input type that accepts CustomLaunchTemplatePropertiesArgs and CustomLaunchTemplatePropertiesOutput values.
@@ -913,7 +913,7 @@ type CustomLaunchTemplatePropertiesArgs struct {
 	// The ID of the EC2 launch template to use to provision instances.
 	TemplateId pulumi.StringPtrInput `pulumi:"templateId"`
 	// The version of the EC2 launch template to use to provision instances.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (CustomLaunchTemplatePropertiesArgs) ElementType() reflect.Type {
@@ -1000,8 +1000,8 @@ func (o CustomLaunchTemplatePropertiesOutput) TemplateId() pulumi.StringPtrOutpu
 }
 
 // The version of the EC2 launch template to use to provision instances.
-func (o CustomLaunchTemplatePropertiesOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomLaunchTemplateProperties) string { return v.Version }).(pulumi.StringOutput)
+func (o CustomLaunchTemplatePropertiesOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomLaunchTemplateProperties) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type CustomLaunchTemplatePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1044,7 +1044,7 @@ func (o CustomLaunchTemplatePropertiesPtrOutput) Version() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return &v.Version
+		return v.Version
 	}).(pulumi.StringPtrOutput)
 }
 

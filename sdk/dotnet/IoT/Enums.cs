@@ -1129,6 +1129,163 @@ namespace Pulumi.AwsNative.IoT
     }
 
     /// <summary>
+    /// The type of job action to take to initiate the job abort.
+    /// </summary>
+    [EnumType]
+    public readonly struct OtaUpdateAwsJobAbortCriteriaAction : IEquatable<OtaUpdateAwsJobAbortCriteriaAction>
+    {
+        private readonly string _value;
+
+        private OtaUpdateAwsJobAbortCriteriaAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OtaUpdateAwsJobAbortCriteriaAction Cancel { get; } = new OtaUpdateAwsJobAbortCriteriaAction("CANCEL");
+
+        public static bool operator ==(OtaUpdateAwsJobAbortCriteriaAction left, OtaUpdateAwsJobAbortCriteriaAction right) => left.Equals(right);
+        public static bool operator !=(OtaUpdateAwsJobAbortCriteriaAction left, OtaUpdateAwsJobAbortCriteriaAction right) => !left.Equals(right);
+
+        public static explicit operator string(OtaUpdateAwsJobAbortCriteriaAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OtaUpdateAwsJobAbortCriteriaAction other && Equals(other);
+        public bool Equals(OtaUpdateAwsJobAbortCriteriaAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of job execution failures that can initiate a job abort.
+    /// </summary>
+    [EnumType]
+    public readonly struct OtaUpdateAwsJobAbortCriteriaFailureType : IEquatable<OtaUpdateAwsJobAbortCriteriaFailureType>
+    {
+        private readonly string _value;
+
+        private OtaUpdateAwsJobAbortCriteriaFailureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OtaUpdateAwsJobAbortCriteriaFailureType Failed { get; } = new OtaUpdateAwsJobAbortCriteriaFailureType("FAILED");
+        public static OtaUpdateAwsJobAbortCriteriaFailureType Rejected { get; } = new OtaUpdateAwsJobAbortCriteriaFailureType("REJECTED");
+        public static OtaUpdateAwsJobAbortCriteriaFailureType TimedOut { get; } = new OtaUpdateAwsJobAbortCriteriaFailureType("TIMED_OUT");
+        public static OtaUpdateAwsJobAbortCriteriaFailureType All { get; } = new OtaUpdateAwsJobAbortCriteriaFailureType("ALL");
+
+        public static bool operator ==(OtaUpdateAwsJobAbortCriteriaFailureType left, OtaUpdateAwsJobAbortCriteriaFailureType right) => left.Equals(right);
+        public static bool operator !=(OtaUpdateAwsJobAbortCriteriaFailureType left, OtaUpdateAwsJobAbortCriteriaFailureType right) => !left.Equals(right);
+
+        public static explicit operator string(OtaUpdateAwsJobAbortCriteriaFailureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OtaUpdateAwsJobAbortCriteriaFailureType other && Equals(other);
+        public bool Equals(OtaUpdateAwsJobAbortCriteriaFailureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OtaUpdateProtocolsItem : IEquatable<OtaUpdateProtocolsItem>
+    {
+        private readonly string _value;
+
+        private OtaUpdateProtocolsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OtaUpdateProtocolsItem Mqtt { get; } = new OtaUpdateProtocolsItem("MQTT");
+        public static OtaUpdateProtocolsItem Http { get; } = new OtaUpdateProtocolsItem("HTTP");
+
+        public static bool operator ==(OtaUpdateProtocolsItem left, OtaUpdateProtocolsItem right) => left.Equals(right);
+        public static bool operator !=(OtaUpdateProtocolsItem left, OtaUpdateProtocolsItem right) => !left.Equals(right);
+
+        public static explicit operator string(OtaUpdateProtocolsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OtaUpdateProtocolsItem other && Equals(other);
+        public bool Equals(OtaUpdateProtocolsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the OTA update.
+    /// </summary>
+    [EnumType]
+    public readonly struct OtaUpdateStatus : IEquatable<OtaUpdateStatus>
+    {
+        private readonly string _value;
+
+        private OtaUpdateStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OtaUpdateStatus CreatePending { get; } = new OtaUpdateStatus("CREATE_PENDING");
+        public static OtaUpdateStatus CreateInProgress { get; } = new OtaUpdateStatus("CREATE_IN_PROGRESS");
+        public static OtaUpdateStatus CreateComplete { get; } = new OtaUpdateStatus("CREATE_COMPLETE");
+        public static OtaUpdateStatus CreateFailed { get; } = new OtaUpdateStatus("CREATE_FAILED");
+        public static OtaUpdateStatus DeleteInProgress { get; } = new OtaUpdateStatus("DELETE_IN_PROGRESS");
+        public static OtaUpdateStatus DeleteFailed { get; } = new OtaUpdateStatus("DELETE_FAILED");
+
+        public static bool operator ==(OtaUpdateStatus left, OtaUpdateStatus right) => left.Equals(right);
+        public static bool operator !=(OtaUpdateStatus left, OtaUpdateStatus right) => !left.Equals(right);
+
+        public static explicit operator string(OtaUpdateStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OtaUpdateStatus other && Equals(other);
+        public bool Equals(OtaUpdateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all things specified as targets have completed the update (SNAPSHOT).
+    /// </summary>
+    [EnumType]
+    public readonly struct OtaUpdateTargetSelection : IEquatable<OtaUpdateTargetSelection>
+    {
+        private readonly string _value;
+
+        private OtaUpdateTargetSelection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OtaUpdateTargetSelection Continuous { get; } = new OtaUpdateTargetSelection("CONTINUOUS");
+        public static OtaUpdateTargetSelection Snapshot { get; } = new OtaUpdateTargetSelection("SNAPSHOT");
+
+        public static bool operator ==(OtaUpdateTargetSelection left, OtaUpdateTargetSelection right) => left.Equals(right);
+        public static bool operator !=(OtaUpdateTargetSelection left, OtaUpdateTargetSelection right) => !left.Equals(right);
+
+        public static explicit operator string(OtaUpdateTargetSelection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OtaUpdateTargetSelection other && Equals(other);
+        public bool Equals(OtaUpdateTargetSelection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the provisioning template.
     /// </summary>
     [EnumType]

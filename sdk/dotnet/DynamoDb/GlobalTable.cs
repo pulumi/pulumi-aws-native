@@ -132,6 +132,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("tableName")]
         public Output<string?> TableName { get; private set; } = null!;
 
+        [Output("tableType")]
+        public Output<Pulumi.AwsNative.DynamoDb.GlobalTableTableType?> TableType { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         /// </summary>
@@ -340,6 +343,9 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
+
+        [Input("tableType")]
+        public Input<Pulumi.AwsNative.DynamoDb.GlobalTableTableType>? TableType { get; set; }
 
         /// <summary>
         /// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.

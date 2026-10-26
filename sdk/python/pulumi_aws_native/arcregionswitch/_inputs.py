@@ -1740,19 +1740,23 @@ class PlanLambdasArgsDict(TypedDict):
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    payload: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PlanLambdasArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload: pulumi.Input[Optional[_builtins.str]] = None):
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if cross_account_role is not None:
             pulumi.set(__self__, "cross_account_role", cross_account_role)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
 
     @_builtins.property
     @pulumi.getter
@@ -1780,6 +1784,15 @@ class PlanLambdasArgs:
     @external_id.setter
     def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "payload")
+
+    @payload.setter
+    def payload(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "payload", value)
 
 
 class PlanNeptuneGlobalDatabaseConfigurationArgsDict(TypedDict):

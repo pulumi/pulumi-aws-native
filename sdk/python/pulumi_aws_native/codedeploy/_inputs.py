@@ -43,6 +43,8 @@ __all__ = [
     'DeploymentGroupDeploymentReadyOptionArgsDict',
     'DeploymentGroupDeploymentStyleArgs',
     'DeploymentGroupDeploymentStyleArgsDict',
+    'DeploymentGroupEc2DeploymentOptionsArgs',
+    'DeploymentGroupEc2DeploymentOptionsArgsDict',
     'DeploymentGroupEc2TagFilterArgs',
     'DeploymentGroupEc2TagFilterArgsDict',
     'DeploymentGroupEc2TagSetArgs',
@@ -924,6 +926,40 @@ class DeploymentGroupDeploymentStyleArgs:
     @deployment_type.setter
     def deployment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_type", value)
+
+
+class DeploymentGroupEc2DeploymentOptionsArgsDict(TypedDict):
+    """
+    Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+    """
+    auto_scaling_group_processes_to_suspend: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+    """
+
+@pulumi.input_type
+class DeploymentGroupEc2DeploymentOptionsArgs:
+    def __init__(__self__, *,
+                 auto_scaling_group_processes_to_suspend: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_scaling_group_processes_to_suspend: The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+        """
+        if auto_scaling_group_processes_to_suspend is not None:
+            pulumi.set(__self__, "auto_scaling_group_processes_to_suspend", auto_scaling_group_processes_to_suspend)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingGroupProcessesToSuspend")
+    def auto_scaling_group_processes_to_suspend(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+        """
+        return pulumi.get(self, "auto_scaling_group_processes_to_suspend")
+
+    @auto_scaling_group_processes_to_suspend.setter
+    def auto_scaling_group_processes_to_suspend(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "auto_scaling_group_processes_to_suspend", value)
 
 
 class DeploymentGroupEc2TagFilterArgsDict(TypedDict):

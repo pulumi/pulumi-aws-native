@@ -22,7 +22,7 @@ type VpnConcentrator struct {
 	// The ID of the transit gateway attachment for the VPN concentrator.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the transit gateway associated with the VPN concentrator.
-	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// The type of VPN concentrator.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ID of the VPN concentrator to associate with the VPN connection.
@@ -36,9 +36,6 @@ func NewVpnConcentrator(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.TransitGatewayId == nil {
-		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -83,7 +80,7 @@ type vpnConcentratorArgs struct {
 	// Any tags assigned to the VPN concentrator.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the transit gateway associated with the VPN concentrator.
-	TransitGatewayId string `pulumi:"transitGatewayId"`
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The type of VPN concentrator.
 	Type string `pulumi:"type"`
 }
@@ -93,7 +90,7 @@ type VpnConcentratorArgs struct {
 	// Any tags assigned to the VPN concentrator.
 	Tags aws.TagArrayInput
 	// The ID of the transit gateway associated with the VPN concentrator.
-	TransitGatewayId pulumi.StringInput
+	TransitGatewayId pulumi.StringPtrInput
 	// The type of VPN concentrator.
 	Type pulumi.StringInput
 }
@@ -146,8 +143,8 @@ func (o VpnConcentratorOutput) TransitGatewayAttachmentId() pulumi.StringOutput 
 }
 
 // The ID of the transit gateway associated with the VPN concentrator.
-func (o VpnConcentratorOutput) TransitGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
+func (o VpnConcentratorOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // The type of VPN concentrator.

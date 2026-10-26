@@ -14,27 +14,39 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     public sealed class AiAgentOrchestrationAiAgentConfiguration
     {
         public readonly string? ConnectInstanceArn;
+        public readonly ImmutableArray<object> InputSchemas;
         public readonly string? Locale;
+        public readonly ImmutableArray<Union<Outputs.AiAgentMultiAgentConfiguration0Properties, Outputs.AiAgentMultiAgentConfiguration1Properties>> MultiAgentConfigurations;
         public readonly string? OrchestrationAiGuardrailId;
-        public readonly string OrchestrationAiPromptId;
+        public readonly string? OrchestrationAiPromptId;
+        public readonly ImmutableArray<object> OutputSchemas;
         public readonly ImmutableArray<Outputs.AiAgentToolConfiguration> ToolConfigurations;
 
         [OutputConstructor]
         private AiAgentOrchestrationAiAgentConfiguration(
             string? connectInstanceArn,
 
+            ImmutableArray<object> inputSchemas,
+
             string? locale,
+
+            ImmutableArray<Union<Outputs.AiAgentMultiAgentConfiguration0Properties, Outputs.AiAgentMultiAgentConfiguration1Properties>> multiAgentConfigurations,
 
             string? orchestrationAiGuardrailId,
 
-            string orchestrationAiPromptId,
+            string? orchestrationAiPromptId,
+
+            ImmutableArray<object> outputSchemas,
 
             ImmutableArray<Outputs.AiAgentToolConfiguration> toolConfigurations)
         {
             ConnectInstanceArn = connectInstanceArn;
+            InputSchemas = inputSchemas;
             Locale = locale;
+            MultiAgentConfigurations = multiAgentConfigurations;
             OrchestrationAiGuardrailId = orchestrationAiGuardrailId;
             OrchestrationAiPromptId = orchestrationAiPromptId;
+            OutputSchemas = outputSchemas;
             ToolConfigurations = toolConfigurations;
         }
     }

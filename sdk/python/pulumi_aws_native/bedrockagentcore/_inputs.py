@@ -474,6 +474,8 @@ __all__ = [
     'MemoryNamespaceKeyValidationArgsDict',
     'MemoryNumberValidationArgs',
     'MemoryNumberValidationArgsDict',
+    'MemoryRecordExpirySpecificationArgs',
+    'MemoryRecordExpirySpecificationArgsDict',
     'MemoryRecordSchemaArgs',
     'MemoryRecordSchemaArgsDict',
     'MemorySelfManagedConfigurationArgs',
@@ -598,16 +600,18 @@ __all__ = [
     'PaymentCredentialProviderSecretReferenceArgsDict',
     'PaymentCredentialProviderStripePrivyConfigurationInputArgs',
     'PaymentCredentialProviderStripePrivyConfigurationInputArgsDict',
-    'PaymentManagerAuthorizerConfigurationArgs',
-    'PaymentManagerAuthorizerConfigurationArgsDict',
-    'PaymentManagerAuthorizingClaimMatchValueTypeArgs',
-    'PaymentManagerAuthorizingClaimMatchValueTypeArgsDict',
-    'PaymentManagerClaimMatchValueTypeArgs',
-    'PaymentManagerClaimMatchValueTypeArgsDict',
+    'PaymentManagerAuthorizerConfigurationPropertiesArgs',
+    'PaymentManagerAuthorizerConfigurationPropertiesArgsDict',
+    'PaymentManagerAuthorizingClaimMatchValueArgs',
+    'PaymentManagerAuthorizingClaimMatchValueArgsDict',
+    'PaymentManagerClaimMatchValue0PropertiesArgs',
+    'PaymentManagerClaimMatchValue0PropertiesArgsDict',
+    'PaymentManagerClaimMatchValue1PropertiesArgs',
+    'PaymentManagerClaimMatchValue1PropertiesArgsDict',
     'PaymentManagerCustomClaimValidationTypeArgs',
     'PaymentManagerCustomClaimValidationTypeArgsDict',
-    'PaymentManagerCustomJwtAuthorizerConfigurationArgs',
-    'PaymentManagerCustomJwtAuthorizerConfigurationArgsDict',
+    'PaymentManagerCustomJwtAuthorizerArgs',
+    'PaymentManagerCustomJwtAuthorizerArgsDict',
     'PolicyCedarPolicyArgs',
     'PolicyCedarPolicyArgsDict',
     'PolicyDefinitionArgs',
@@ -9644,6 +9648,8 @@ class MemoryCustomMemoryStrategyArgsDict(TypedDict):
     memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
     namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    record_expiry_duration_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    record_expiry_specification: NotRequired[pulumi.Input[Optional['MemoryRecordExpirySpecificationArgsDict']]]
     status: NotRequired[pulumi.Input[Optional['MemoryCustomMemoryStrategyStatus']]]
     """
     Status of the memory strategy
@@ -9671,6 +9677,8 @@ class MemoryCustomMemoryStrategyArgs:
                  memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 record_expiry_duration_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 record_expiry_specification: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']] = None,
                  status: pulumi.Input[Optional['MemoryCustomMemoryStrategyStatus']] = None,
                  strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional['MemoryCustomMemoryStrategyType']] = None,
@@ -9695,6 +9703,10 @@ class MemoryCustomMemoryStrategyArgs:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
+        if record_expiry_duration_days is not None:
+            pulumi.set(__self__, "record_expiry_duration_days", record_expiry_duration_days)
+        if record_expiry_specification is not None:
+            pulumi.set(__self__, "record_expiry_specification", record_expiry_specification)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if strategy_id is not None:
@@ -9771,6 +9783,24 @@ class MemoryCustomMemoryStrategyArgs:
         pulumi.set(self, "namespaces", value)
 
     @_builtins.property
+    @pulumi.getter(name="recordExpiryDurationDays")
+    def record_expiry_duration_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "record_expiry_duration_days")
+
+    @record_expiry_duration_days.setter
+    def record_expiry_duration_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "record_expiry_duration_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpirySpecification")
+    def record_expiry_specification(self) -> pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]:
+        return pulumi.get(self, "record_expiry_specification")
+
+    @record_expiry_specification.setter
+    def record_expiry_specification(self, value: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]):
+        pulumi.set(self, "record_expiry_specification", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional['MemoryCustomMemoryStrategyStatus']]:
         """
@@ -9829,6 +9859,8 @@ class MemoryEpisodicMemoryStrategyArgsDict(TypedDict):
     memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
     namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    record_expiry_duration_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    record_expiry_specification: NotRequired[pulumi.Input[Optional['MemoryRecordExpirySpecificationArgsDict']]]
     reflection_configuration: NotRequired[pulumi.Input[Optional['MemoryEpisodicReflectionConfigurationInputArgsDict']]]
     status: NotRequired[pulumi.Input[Optional['MemoryEpisodicMemoryStrategyStatus']]]
     """
@@ -9856,6 +9888,8 @@ class MemoryEpisodicMemoryStrategyArgs:
                  memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 record_expiry_duration_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 record_expiry_specification: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']] = None,
                  reflection_configuration: pulumi.Input[Optional['MemoryEpisodicReflectionConfigurationInputArgs']] = None,
                  status: pulumi.Input[Optional['MemoryEpisodicMemoryStrategyStatus']] = None,
                  strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -9879,6 +9913,10 @@ class MemoryEpisodicMemoryStrategyArgs:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
+        if record_expiry_duration_days is not None:
+            pulumi.set(__self__, "record_expiry_duration_days", record_expiry_duration_days)
+        if record_expiry_specification is not None:
+            pulumi.set(__self__, "record_expiry_specification", record_expiry_specification)
         if reflection_configuration is not None:
             pulumi.set(__self__, "reflection_configuration", reflection_configuration)
         if status is not None:
@@ -9946,6 +9984,24 @@ class MemoryEpisodicMemoryStrategyArgs:
     @namespaces.setter
     def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpiryDurationDays")
+    def record_expiry_duration_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "record_expiry_duration_days")
+
+    @record_expiry_duration_days.setter
+    def record_expiry_duration_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "record_expiry_duration_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpirySpecification")
+    def record_expiry_specification(self) -> pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]:
+        return pulumi.get(self, "record_expiry_specification")
+
+    @record_expiry_specification.setter
+    def record_expiry_specification(self, value: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]):
+        pulumi.set(self, "record_expiry_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="reflectionConfiguration")
@@ -10585,6 +10641,32 @@ class MemoryNumberValidationArgs:
         pulumi.set(self, "min_value", value)
 
 
+class MemoryRecordExpirySpecificationArgsDict(TypedDict):
+    """
+    Specifies the record expiry (LTM TTL) for a strategy. Provide RecordExpiryDurationDays to configure the duration after which records expire. Omit the specification entirely to leave records without an expiry on create, or to clear a previously configured expiry on update (the handler derives the removal from the previous and desired state).
+    """
+    record_expiry_duration_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class MemoryRecordExpirySpecificationArgs:
+    def __init__(__self__, *,
+                 record_expiry_duration_days: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Specifies the record expiry (LTM TTL) for a strategy. Provide RecordExpiryDurationDays to configure the duration after which records expire. Omit the specification entirely to leave records without an expiry on create, or to clear a previously configured expiry on update (the handler derives the removal from the previous and desired state).
+        """
+        if record_expiry_duration_days is not None:
+            pulumi.set(__self__, "record_expiry_duration_days", record_expiry_duration_days)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpiryDurationDays")
+    def record_expiry_duration_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "record_expiry_duration_days")
+
+    @record_expiry_duration_days.setter
+    def record_expiry_duration_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "record_expiry_duration_days", value)
+
+
 class MemoryRecordSchemaArgsDict(TypedDict):
     metadata_schema: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MemoryMetadataSchemaEntryArgsDict']]]]]
 
@@ -10661,6 +10743,8 @@ class MemorySemanticMemoryStrategyArgsDict(TypedDict):
     memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
     namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    record_expiry_duration_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    record_expiry_specification: NotRequired[pulumi.Input[Optional['MemoryRecordExpirySpecificationArgsDict']]]
     status: NotRequired[pulumi.Input[Optional['MemorySemanticMemoryStrategyStatus']]]
     """
     Status of the memory strategy
@@ -10687,6 +10771,8 @@ class MemorySemanticMemoryStrategyArgs:
                  memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 record_expiry_duration_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 record_expiry_specification: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']] = None,
                  status: pulumi.Input[Optional['MemorySemanticMemoryStrategyStatus']] = None,
                  strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional['MemorySemanticMemoryStrategyType']] = None,
@@ -10709,6 +10795,10 @@ class MemorySemanticMemoryStrategyArgs:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
+        if record_expiry_duration_days is not None:
+            pulumi.set(__self__, "record_expiry_duration_days", record_expiry_duration_days)
+        if record_expiry_specification is not None:
+            pulumi.set(__self__, "record_expiry_specification", record_expiry_specification)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if strategy_id is not None:
@@ -10774,6 +10864,24 @@ class MemorySemanticMemoryStrategyArgs:
     @namespaces.setter
     def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpiryDurationDays")
+    def record_expiry_duration_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "record_expiry_duration_days")
+
+    @record_expiry_duration_days.setter
+    def record_expiry_duration_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "record_expiry_duration_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpirySpecification")
+    def record_expiry_specification(self) -> pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]:
+        return pulumi.get(self, "record_expiry_specification")
+
+    @record_expiry_specification.setter
+    def record_expiry_specification(self, value: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]):
+        pulumi.set(self, "record_expiry_specification", value)
 
     @_builtins.property
     @pulumi.getter
@@ -11092,6 +11200,8 @@ class MemorySummaryMemoryStrategyArgsDict(TypedDict):
     memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
     namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    record_expiry_duration_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    record_expiry_specification: NotRequired[pulumi.Input[Optional['MemoryRecordExpirySpecificationArgsDict']]]
     status: NotRequired[pulumi.Input[Optional['MemorySummaryMemoryStrategyStatus']]]
     """
     Status of the memory strategy
@@ -11118,6 +11228,8 @@ class MemorySummaryMemoryStrategyArgs:
                  memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 record_expiry_duration_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 record_expiry_specification: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']] = None,
                  status: pulumi.Input[Optional['MemorySummaryMemoryStrategyStatus']] = None,
                  strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional['MemorySummaryMemoryStrategyType']] = None,
@@ -11140,6 +11252,10 @@ class MemorySummaryMemoryStrategyArgs:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
+        if record_expiry_duration_days is not None:
+            pulumi.set(__self__, "record_expiry_duration_days", record_expiry_duration_days)
+        if record_expiry_specification is not None:
+            pulumi.set(__self__, "record_expiry_specification", record_expiry_specification)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if strategy_id is not None:
@@ -11205,6 +11321,24 @@ class MemorySummaryMemoryStrategyArgs:
     @namespaces.setter
     def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpiryDurationDays")
+    def record_expiry_duration_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "record_expiry_duration_days")
+
+    @record_expiry_duration_days.setter
+    def record_expiry_duration_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "record_expiry_duration_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpirySpecification")
+    def record_expiry_specification(self) -> pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]:
+        return pulumi.get(self, "record_expiry_specification")
+
+    @record_expiry_specification.setter
+    def record_expiry_specification(self, value: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]):
+        pulumi.set(self, "record_expiry_specification", value)
 
     @_builtins.property
     @pulumi.getter
@@ -11402,6 +11536,8 @@ class MemoryUserPreferenceMemoryStrategyArgsDict(TypedDict):
     memory_record_schema: NotRequired[pulumi.Input[Optional['MemoryRecordSchemaArgsDict']]]
     namespace_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     namespaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    record_expiry_duration_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    record_expiry_specification: NotRequired[pulumi.Input[Optional['MemoryRecordExpirySpecificationArgsDict']]]
     status: NotRequired[pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyStatus']]]
     """
     Status of the memory strategy
@@ -11428,6 +11564,8 @@ class MemoryUserPreferenceMemoryStrategyArgs:
                  memory_record_schema: pulumi.Input[Optional['MemoryRecordSchemaArgs']] = None,
                  namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 record_expiry_duration_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 record_expiry_specification: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']] = None,
                  status: pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyStatus']] = None,
                  strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional['MemoryUserPreferenceMemoryStrategyType']] = None,
@@ -11450,6 +11588,10 @@ class MemoryUserPreferenceMemoryStrategyArgs:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
+        if record_expiry_duration_days is not None:
+            pulumi.set(__self__, "record_expiry_duration_days", record_expiry_duration_days)
+        if record_expiry_specification is not None:
+            pulumi.set(__self__, "record_expiry_specification", record_expiry_specification)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if strategy_id is not None:
@@ -11515,6 +11657,24 @@ class MemoryUserPreferenceMemoryStrategyArgs:
     @namespaces.setter
     def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpiryDurationDays")
+    def record_expiry_duration_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "record_expiry_duration_days")
+
+    @record_expiry_duration_days.setter
+    def record_expiry_duration_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "record_expiry_duration_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpirySpecification")
+    def record_expiry_specification(self) -> pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]:
+        return pulumi.get(self, "record_expiry_specification")
+
+    @record_expiry_specification.setter
+    def record_expiry_specification(self, value: pulumi.Input[Optional['MemoryRecordExpirySpecificationArgs']]):
+        pulumi.set(self, "record_expiry_specification", value)
 
     @_builtins.property
     @pulumi.getter
@@ -14258,98 +14418,109 @@ class PaymentCredentialProviderStripePrivyConfigurationInputArgs:
         pulumi.set(self, "authorization_private_key_source", value)
 
 
-class PaymentManagerAuthorizerConfigurationArgsDict(TypedDict):
-    custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgsDict']
+class PaymentManagerAuthorizerConfigurationPropertiesArgsDict(TypedDict):
+    """
+    The authorizer configuration for the payment manager
+    """
+    custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerArgsDict']
 
 @pulumi.input_type
-class PaymentManagerAuthorizerConfigurationArgs:
+class PaymentManagerAuthorizerConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgs']):
+                 custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerArgs']):
+        """
+        The authorizer configuration for the payment manager
+        """
         pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
 
     @_builtins.property
     @pulumi.getter(name="customJwtAuthorizer")
-    def custom_jwt_authorizer(self) -> pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgs']:
+    def custom_jwt_authorizer(self) -> pulumi.Input['PaymentManagerCustomJwtAuthorizerArgs']:
         return pulumi.get(self, "custom_jwt_authorizer")
 
     @custom_jwt_authorizer.setter
-    def custom_jwt_authorizer(self, value: pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgs']):
+    def custom_jwt_authorizer(self, value: pulumi.Input['PaymentManagerCustomJwtAuthorizerArgs']):
         pulumi.set(self, "custom_jwt_authorizer", value)
 
 
-class PaymentManagerAuthorizingClaimMatchValueTypeArgsDict(TypedDict):
-    claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator']
-    claim_match_value: pulumi.Input['PaymentManagerClaimMatchValueTypeArgsDict']
+class PaymentManagerAuthorizingClaimMatchValueArgsDict(TypedDict):
+    claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator']
+    claim_match_value: pulumi.Input[Union['PaymentManagerClaimMatchValue0PropertiesArgsDict', 'PaymentManagerClaimMatchValue1PropertiesArgsDict']]
 
 @pulumi.input_type
-class PaymentManagerAuthorizingClaimMatchValueTypeArgs:
+class PaymentManagerAuthorizingClaimMatchValueArgs:
     def __init__(__self__, *,
-                 claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator'],
-                 claim_match_value: pulumi.Input['PaymentManagerClaimMatchValueTypeArgs']):
+                 claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator'],
+                 claim_match_value: pulumi.Input[Union['PaymentManagerClaimMatchValue0PropertiesArgs', 'PaymentManagerClaimMatchValue1PropertiesArgs']]):
         pulumi.set(__self__, "claim_match_operator", claim_match_operator)
         pulumi.set(__self__, "claim_match_value", claim_match_value)
 
     @_builtins.property
     @pulumi.getter(name="claimMatchOperator")
-    def claim_match_operator(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator']:
+    def claim_match_operator(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator']:
         return pulumi.get(self, "claim_match_operator")
 
     @claim_match_operator.setter
-    def claim_match_operator(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator']):
+    def claim_match_operator(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator']):
         pulumi.set(self, "claim_match_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="claimMatchValue")
-    def claim_match_value(self) -> pulumi.Input['PaymentManagerClaimMatchValueTypeArgs']:
+    def claim_match_value(self) -> pulumi.Input[Union['PaymentManagerClaimMatchValue0PropertiesArgs', 'PaymentManagerClaimMatchValue1PropertiesArgs']]:
         return pulumi.get(self, "claim_match_value")
 
     @claim_match_value.setter
-    def claim_match_value(self, value: pulumi.Input['PaymentManagerClaimMatchValueTypeArgs']):
+    def claim_match_value(self, value: pulumi.Input[Union['PaymentManagerClaimMatchValue0PropertiesArgs', 'PaymentManagerClaimMatchValue1PropertiesArgs']]):
         pulumi.set(self, "claim_match_value", value)
 
 
-class PaymentManagerClaimMatchValueTypeArgsDict(TypedDict):
-    match_value_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    match_value_string_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+class PaymentManagerClaimMatchValue0PropertiesArgsDict(TypedDict):
+    match_value_string: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
-class PaymentManagerClaimMatchValueTypeArgs:
+class PaymentManagerClaimMatchValue0PropertiesArgs:
     def __init__(__self__, *,
-                 match_value_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 match_value_string_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        if match_value_string is not None:
-            pulumi.set(__self__, "match_value_string", match_value_string)
-        if match_value_string_list is not None:
-            pulumi.set(__self__, "match_value_string_list", match_value_string_list)
+                 match_value_string: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "match_value_string", match_value_string)
 
     @_builtins.property
     @pulumi.getter(name="matchValueString")
-    def match_value_string(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def match_value_string(self) -> pulumi.Input[_builtins.str]:
         return pulumi.get(self, "match_value_string")
 
     @match_value_string.setter
-    def match_value_string(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def match_value_string(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "match_value_string", value)
+
+
+class PaymentManagerClaimMatchValue1PropertiesArgsDict(TypedDict):
+    match_value_string_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class PaymentManagerClaimMatchValue1PropertiesArgs:
+    def __init__(__self__, *,
+                 match_value_string_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "match_value_string_list", match_value_string_list)
 
     @_builtins.property
     @pulumi.getter(name="matchValueStringList")
-    def match_value_string_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_value_string_list(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         return pulumi.get(self, "match_value_string_list")
 
     @match_value_string_list.setter
-    def match_value_string_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_value_string_list(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "match_value_string_list", value)
 
 
 class PaymentManagerCustomClaimValidationTypeArgsDict(TypedDict):
-    authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgsDict']
+    authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueArgsDict']
     inbound_token_claim_name: pulumi.Input[_builtins.str]
     inbound_token_claim_value_type: pulumi.Input['PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType']
 
 @pulumi.input_type
 class PaymentManagerCustomClaimValidationTypeArgs:
     def __init__(__self__, *,
-                 authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgs'],
+                 authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueArgs'],
                  inbound_token_claim_name: pulumi.Input[_builtins.str],
                  inbound_token_claim_value_type: pulumi.Input['PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType']):
         pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
@@ -14358,11 +14529,11 @@ class PaymentManagerCustomClaimValidationTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizingClaimMatchValue")
-    def authorizing_claim_match_value(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgs']:
+    def authorizing_claim_match_value(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueArgs']:
         return pulumi.get(self, "authorizing_claim_match_value")
 
     @authorizing_claim_match_value.setter
-    def authorizing_claim_match_value(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgs']):
+    def authorizing_claim_match_value(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueArgs']):
         pulumi.set(self, "authorizing_claim_match_value", value)
 
     @_builtins.property
@@ -14384,7 +14555,7 @@ class PaymentManagerCustomClaimValidationTypeArgs:
         pulumi.set(self, "inbound_token_claim_value_type", value)
 
 
-class PaymentManagerCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
+class PaymentManagerCustomJwtAuthorizerArgsDict(TypedDict):
     discovery_url: pulumi.Input[_builtins.str]
     allowed_audience: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     allowed_clients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
@@ -14392,7 +14563,7 @@ class PaymentManagerCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
     custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PaymentManagerCustomClaimValidationTypeArgsDict']]]]]
 
 @pulumi.input_type
-class PaymentManagerCustomJwtAuthorizerConfigurationArgs:
+class PaymentManagerCustomJwtAuthorizerArgs:
     def __init__(__self__, *,
                  discovery_url: pulumi.Input[_builtins.str],
                  allowed_audience: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,

@@ -810,6 +810,11 @@
         },
         "Arn" : {
           "type" : "string"
+        },
+        "Payload" : {
+          "type" : "string",
+          "maxLength" : 786432,
+          "minLength" : 1
         }
       },
       "additionalProperties" : false

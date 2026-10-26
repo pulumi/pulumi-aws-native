@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.CodeDeploy
         public Output<Outputs.DeploymentGroupDeploymentStyle?> DeploymentStyle { get; private set; } = null!;
 
         /// <summary>
+        /// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+        /// </summary>
+        [Output("ec2DeploymentOptions")]
+        public Output<Outputs.DeploymentGroupEc2DeploymentOptions?> Ec2DeploymentOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
         /// </summary>
         [Output("ec2TagFilters")]
@@ -244,6 +250,12 @@ namespace Pulumi.AwsNative.CodeDeploy
         /// </summary>
         [Input("deploymentStyle")]
         public Input<Inputs.DeploymentGroupDeploymentStyleArgs>? DeploymentStyle { get; set; }
+
+        /// <summary>
+        /// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+        /// </summary>
+        [Input("ec2DeploymentOptions")]
+        public Input<Inputs.DeploymentGroupEc2DeploymentOptionsArgs>? Ec2DeploymentOptions { get; set; }
 
         [Input("ec2TagFilters")]
         private InputList<Inputs.DeploymentGroupEc2TagFilterArgs>? _ec2TagFilters;

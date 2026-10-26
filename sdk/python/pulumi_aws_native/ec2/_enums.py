@@ -107,6 +107,8 @@ __all__ = [
     'SqlHaStandbyDetectedInstanceSqlServerLicenseUsage',
     'SubnetCidrReservationReservationType',
     'TrafficMirrorFilterTrafficMirrorNetworkService',
+    'TransitGatewayAttachmentNatConfigurationNatGatewaySupport',
+    'TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport',
     'TransitGatewayEncryptionSupport',
     'TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType',
     'TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType',
@@ -1284,6 +1286,24 @@ class TrafficMirrorFilterTrafficMirrorNetworkService(_builtins.str, Enum):
     The network service traffic that is associated with the traffic mirror filter.
     """
     AMAZON_DNS = "amazon-dns"
+
+
+@pulumi.type_token("aws-native:ec2:TransitGatewayAttachmentNatConfigurationNatGatewaySupport")
+class TransitGatewayAttachmentNatConfigurationNatGatewaySupport(_builtins.str, Enum):
+    """
+    Whether NAT gateway support is enabled on the attachment. Set to disable to stage NAT rules without activating them; the rules are retained and become active when this is later set to enable.
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport")
+class TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport(_builtins.str, Enum):
+    """
+    Whether routes for the NAT CIDRs are installed into the transit gateway route tables associated with the attachment. Whether this is configurable depends on the attachment; where the value is forced, supplying the opposite value is rejected. Omitting this property leaves the setting to the service: on a new configuration the service applies the attachment's default, but on an attachment where the value is configurable it keeps the value already in effect rather than reverting to that default. Removing this property from a template, or deleting this resource, therefore leaves the setting at its last value rather than restoring the default, and a resource later created on the same attachment without this property inherits that value.
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
 
 
 @pulumi.type_token("aws-native:ec2:TransitGatewayEncryptionSupport")

@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Ses.Inputs
         }
 
         /// <summary>
-        /// The name of the event destination set.
+        /// The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

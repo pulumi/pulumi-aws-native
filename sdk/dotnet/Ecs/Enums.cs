@@ -757,6 +757,259 @@ namespace Pulumi.AwsNative.Ecs
     }
 
     /// <summary>
+    /// The access type for the gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayAccessType : IEquatable<GatewayAccessType>
+    {
+        private readonly string _value;
+
+        private GatewayAccessType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayAccessType Public { get; } = new GatewayAccessType("PUBLIC");
+        public static GatewayAccessType Private { get; } = new GatewayAccessType("PRIVATE");
+
+        public static bool operator ==(GatewayAccessType left, GatewayAccessType right) => left.Equals(right);
+        public static bool operator !=(GatewayAccessType left, GatewayAccessType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayAccessType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayAccessType other && Equals(other);
+        public bool Equals(GatewayAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The HTTP desync mitigation mode for the ALB.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayAlbDesyncMitigationMode : IEquatable<GatewayAlbDesyncMitigationMode>
+    {
+        private readonly string _value;
+
+        private GatewayAlbDesyncMitigationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayAlbDesyncMitigationMode Monitor { get; } = new GatewayAlbDesyncMitigationMode("monitor");
+        public static GatewayAlbDesyncMitigationMode Defensive { get; } = new GatewayAlbDesyncMitigationMode("defensive");
+        public static GatewayAlbDesyncMitigationMode Strictest { get; } = new GatewayAlbDesyncMitigationMode("strictest");
+
+        public static bool operator ==(GatewayAlbDesyncMitigationMode left, GatewayAlbDesyncMitigationMode right) => left.Equals(right);
+        public static bool operator !=(GatewayAlbDesyncMitigationMode left, GatewayAlbDesyncMitigationMode right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayAlbDesyncMitigationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayAlbDesyncMitigationMode other && Equals(other);
+        public bool Equals(GatewayAlbDesyncMitigationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The protocol for the ALB listener.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayAlbProtocol : IEquatable<GatewayAlbProtocol>
+    {
+        private readonly string _value;
+
+        private GatewayAlbProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayAlbProtocol Http { get; } = new GatewayAlbProtocol("HTTP");
+        public static GatewayAlbProtocol Https { get; } = new GatewayAlbProtocol("HTTPS");
+
+        public static bool operator ==(GatewayAlbProtocol left, GatewayAlbProtocol right) => left.Equals(right);
+        public static bool operator !=(GatewayAlbProtocol left, GatewayAlbProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayAlbProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayAlbProtocol other && Equals(other);
+        public bool Equals(GatewayAlbProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the association between the gateway and the cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayClusterAssociationsGatewayClusterAssociationStatus : IEquatable<GatewayClusterAssociationsGatewayClusterAssociationStatus>
+    {
+        private readonly string _value;
+
+        private GatewayClusterAssociationsGatewayClusterAssociationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayClusterAssociationsGatewayClusterAssociationStatus Active { get; } = new GatewayClusterAssociationsGatewayClusterAssociationStatus("ACTIVE");
+        public static GatewayClusterAssociationsGatewayClusterAssociationStatus Disassociating { get; } = new GatewayClusterAssociationsGatewayClusterAssociationStatus("DISASSOCIATING");
+
+        public static bool operator ==(GatewayClusterAssociationsGatewayClusterAssociationStatus left, GatewayClusterAssociationsGatewayClusterAssociationStatus right) => left.Equals(right);
+        public static bool operator !=(GatewayClusterAssociationsGatewayClusterAssociationStatus left, GatewayClusterAssociationsGatewayClusterAssociationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayClusterAssociationsGatewayClusterAssociationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayClusterAssociationsGatewayClusterAssociationStatus other && Equals(other);
+        public bool Equals(GatewayClusterAssociationsGatewayClusterAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP address type for the ALB.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayElbIpAddressType : IEquatable<GatewayElbIpAddressType>
+    {
+        private readonly string _value;
+
+        private GatewayElbIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayElbIpAddressType Ipv4 { get; } = new GatewayElbIpAddressType("ipv4");
+        public static GatewayElbIpAddressType Dualstack { get; } = new GatewayElbIpAddressType("dualstack");
+        public static GatewayElbIpAddressType DualstackWithoutPublicIpv4 { get; } = new GatewayElbIpAddressType("dualstack-without-public-ipv4");
+
+        public static bool operator ==(GatewayElbIpAddressType left, GatewayElbIpAddressType right) => left.Equals(right);
+        public static bool operator !=(GatewayElbIpAddressType left, GatewayElbIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayElbIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayElbIpAddressType other && Equals(other);
+        public bool Equals(GatewayElbIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scheme for the ALB.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayElbScheme : IEquatable<GatewayElbScheme>
+    {
+        private readonly string _value;
+
+        private GatewayElbScheme(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayElbScheme InternetFacing { get; } = new GatewayElbScheme("internet-facing");
+        public static GatewayElbScheme Internal { get; } = new GatewayElbScheme("internal");
+
+        public static bool operator ==(GatewayElbScheme left, GatewayElbScheme right) => left.Equals(right);
+        public static bool operator !=(GatewayElbScheme left, GatewayElbScheme right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayElbScheme value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayElbScheme other && Equals(other);
+        public bool Equals(GatewayElbScheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether to propagate the tags from the gateway to other resources.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayPropagateGatewayTags : IEquatable<GatewayPropagateGatewayTags>
+    {
+        private readonly string _value;
+
+        private GatewayPropagateGatewayTags(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayPropagateGatewayTags None { get; } = new GatewayPropagateGatewayTags("NONE");
+        public static GatewayPropagateGatewayTags Gateway { get; } = new GatewayPropagateGatewayTags("GATEWAY");
+
+        public static bool operator ==(GatewayPropagateGatewayTags left, GatewayPropagateGatewayTags right) => left.Equals(right);
+        public static bool operator !=(GatewayPropagateGatewayTags left, GatewayPropagateGatewayTags right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayPropagateGatewayTags value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayPropagateGatewayTags other && Equals(other);
+        public bool Equals(GatewayPropagateGatewayTags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayStatus : IEquatable<GatewayStatus>
+    {
+        private readonly string _value;
+
+        private GatewayStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayStatus Active { get; } = new GatewayStatus("ACTIVE");
+        public static GatewayStatus UpdateInProgress { get; } = new GatewayStatus("UPDATE_IN_PROGRESS");
+        public static GatewayStatus UpdateComplete { get; } = new GatewayStatus("UPDATE_COMPLETE");
+        public static GatewayStatus UpdateFailed { get; } = new GatewayStatus("UPDATE_FAILED");
+        public static GatewayStatus Deleted { get; } = new GatewayStatus("DELETED");
+
+        public static bool operator ==(GatewayStatus left, GatewayStatus right) => left.Equals(right);
+        public static bool operator !=(GatewayStatus left, GatewayStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayStatus other && Equals(other);
+        public bool Equals(GatewayStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether to use Availability Zone rebalancing for the service.
     ///  For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
     ///  The default behavior of ``AvailabilityZoneRebalancing`` differs between create and update requests:
@@ -881,6 +1134,34 @@ namespace Pulumi.AwsNative.Ecs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceConnectAccessLogConfigurationIncludeQueryParameters other && Equals(other);
         public bool Equals(ServiceConnectAccessLogConfigurationIncludeQueryParameters other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServiceConnectContainerConfigurationLogLevel : IEquatable<ServiceConnectContainerConfigurationLogLevel>
+    {
+        private readonly string _value;
+
+        private ServiceConnectContainerConfigurationLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceConnectContainerConfigurationLogLevel Debug { get; } = new ServiceConnectContainerConfigurationLogLevel("debug");
+        public static ServiceConnectContainerConfigurationLogLevel Info { get; } = new ServiceConnectContainerConfigurationLogLevel("info");
+
+        public static bool operator ==(ServiceConnectContainerConfigurationLogLevel left, ServiceConnectContainerConfigurationLogLevel right) => left.Equals(right);
+        public static bool operator !=(ServiceConnectContainerConfigurationLogLevel left, ServiceConnectContainerConfigurationLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceConnectContainerConfigurationLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceConnectContainerConfigurationLogLevel other && Equals(other);
+        public bool Equals(ServiceConnectContainerConfigurationLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1116,6 +1397,62 @@ namespace Pulumi.AwsNative.Ecs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceEbsTagSpecificationPropagateTags other && Equals(other);
         public bool Equals(ServiceEbsTagSpecificationPropagateTags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServiceGatewayConnectorFiltersAccessTypesItem : IEquatable<ServiceGatewayConnectorFiltersAccessTypesItem>
+    {
+        private readonly string _value;
+
+        private ServiceGatewayConnectorFiltersAccessTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceGatewayConnectorFiltersAccessTypesItem Public { get; } = new ServiceGatewayConnectorFiltersAccessTypesItem("PUBLIC");
+        public static ServiceGatewayConnectorFiltersAccessTypesItem Private { get; } = new ServiceGatewayConnectorFiltersAccessTypesItem("PRIVATE");
+
+        public static bool operator ==(ServiceGatewayConnectorFiltersAccessTypesItem left, ServiceGatewayConnectorFiltersAccessTypesItem right) => left.Equals(right);
+        public static bool operator !=(ServiceGatewayConnectorFiltersAccessTypesItem left, ServiceGatewayConnectorFiltersAccessTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceGatewayConnectorFiltersAccessTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceGatewayConnectorFiltersAccessTypesItem other && Equals(other);
+        public bool Equals(ServiceGatewayConnectorFiltersAccessTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServiceGatewayConnectorHealthCheckHealthCheckProtocol : IEquatable<ServiceGatewayConnectorHealthCheckHealthCheckProtocol>
+    {
+        private readonly string _value;
+
+        private ServiceGatewayConnectorHealthCheckHealthCheckProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceGatewayConnectorHealthCheckHealthCheckProtocol Http { get; } = new ServiceGatewayConnectorHealthCheckHealthCheckProtocol("HTTP");
+        public static ServiceGatewayConnectorHealthCheckHealthCheckProtocol Https { get; } = new ServiceGatewayConnectorHealthCheckHealthCheckProtocol("HTTPS");
+
+        public static bool operator ==(ServiceGatewayConnectorHealthCheckHealthCheckProtocol left, ServiceGatewayConnectorHealthCheckHealthCheckProtocol right) => left.Equals(right);
+        public static bool operator !=(ServiceGatewayConnectorHealthCheckHealthCheckProtocol left, ServiceGatewayConnectorHealthCheckHealthCheckProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceGatewayConnectorHealthCheckHealthCheckProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceGatewayConnectorHealthCheckHealthCheckProtocol other && Equals(other);
+        public bool Equals(ServiceGatewayConnectorHealthCheckHealthCheckProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

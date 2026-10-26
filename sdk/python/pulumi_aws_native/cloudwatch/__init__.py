@@ -7,19 +7,24 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .access_profile import *
 from .alarm import *
 from .alarm_mute_rule import *
 from .composite_alarm import *
 from .dashboard import *
+from .domain_for_organization import *
+from .get_access_profile import *
 from .get_alarm import *
 from .get_alarm_mute_rule import *
 from .get_composite_alarm import *
 from .get_dashboard import *
+from .get_domain_for_organization import *
 from .get_insight_rule import *
 from .get_integration import *
 from .get_log_alarm import *
 from .get_metric_stream import *
 from .get_o_tel_enrichment import *
+from .get_omni_dashboard import *
 from .get_resource_metrics_configuration import *
 from .get_view import *
 from .insight_rule import *
@@ -27,6 +32,7 @@ from .integration import *
 from .log_alarm import *
 from .metric_stream import *
 from .o_tel_enrichment import *
+from .omni_dashboard import *
 from .resource_metrics_configuration import *
 from .view import *
 from ._inputs import *

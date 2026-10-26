@@ -42,6 +42,11 @@ __all__ = [
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
     'MitigationActionUpdateCaCertificateParamsAction',
     'MitigationActionUpdateDeviceCertificateParamsAction',
+    'OtaUpdateAwsJobAbortCriteriaAction',
+    'OtaUpdateAwsJobAbortCriteriaFailureType',
+    'OtaUpdateProtocolsItem',
+    'OtaUpdateStatus',
+    'OtaUpdateTargetSelection',
     'ProvisioningTemplateTemplateType',
     'ResourceSpecificLoggingLogLevel',
     'ResourceSpecificLoggingTargetType',
@@ -408,6 +413,53 @@ class MitigationActionUpdateDeviceCertificateParamsAction(_builtins.str, Enum):
     """
     DEACTIVATE = "DEACTIVATE"
     UNSET_VALUE = "UNSET_VALUE"
+
+
+@pulumi.type_token("aws-native:iot:OtaUpdateAwsJobAbortCriteriaAction")
+class OtaUpdateAwsJobAbortCriteriaAction(_builtins.str, Enum):
+    """
+    The type of job action to take to initiate the job abort.
+    """
+    CANCEL = "CANCEL"
+
+
+@pulumi.type_token("aws-native:iot:OtaUpdateAwsJobAbortCriteriaFailureType")
+class OtaUpdateAwsJobAbortCriteriaFailureType(_builtins.str, Enum):
+    """
+    The type of job execution failures that can initiate a job abort.
+    """
+    FAILED = "FAILED"
+    REJECTED = "REJECTED"
+    TIMED_OUT = "TIMED_OUT"
+    ALL = "ALL"
+
+
+@pulumi.type_token("aws-native:iot:OtaUpdateProtocolsItem")
+class OtaUpdateProtocolsItem(_builtins.str, Enum):
+    MQTT = "MQTT"
+    HTTP = "HTTP"
+
+
+@pulumi.type_token("aws-native:iot:OtaUpdateStatus")
+class OtaUpdateStatus(_builtins.str, Enum):
+    """
+    The status of the OTA update.
+    """
+    CREATE_PENDING = "CREATE_PENDING"
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_COMPLETE = "CREATE_COMPLETE"
+    CREATE_FAILED = "CREATE_FAILED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:iot:OtaUpdateTargetSelection")
+class OtaUpdateTargetSelection(_builtins.str, Enum):
+    """
+    Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all things specified as targets have completed the update (SNAPSHOT).
+    """
+    CONTINUOUS = "CONTINUOUS"
+    SNAPSHOT = "SNAPSHOT"
 
 
 @pulumi.type_token("aws-native:iot:ProvisioningTemplateTemplateType")

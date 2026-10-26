@@ -402,9 +402,126 @@
         },
         "ToolConfigurations" : {
           "$ref" : "#/definitions/ToolConfigurationList"
+        },
+        "MultiAgentConfigurations" : {
+          "$ref" : "#/definitions/MultiAgentConfigurationList"
+        },
+        "InputSchemas" : {
+          "type" : "array",
+          "maxItems" : 1,
+          "items" : {
+            "type" : "object"
+          }
+        },
+        "OutputSchemas" : {
+          "type" : "array",
+          "maxItems" : 1,
+          "items" : {
+            "type" : "object"
+          }
         }
       },
-      "required" : [ "OrchestrationAIPromptId" ],
+      "additionalProperties" : false
+    },
+    "MultiAgentConfigurationList" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/MultiAgentConfiguration"
+      }
+    },
+    "MultiAgentConfiguration" : {
+      "oneOf" : [ {
+        "type" : "object",
+        "title" : "DelegateAgentConfiguration",
+        "properties" : {
+          "DelegateAgentConfiguration" : {
+            "$ref" : "#/definitions/DelegateAgentConfiguration"
+          }
+        },
+        "required" : [ "DelegateAgentConfiguration" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "HandoffAgentConfiguration",
+        "properties" : {
+          "HandoffAgentConfiguration" : {
+            "$ref" : "#/definitions/HandoffAgentConfiguration"
+          }
+        },
+        "required" : [ "HandoffAgentConfiguration" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "DelegateAgentConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "AgentTarget" : {
+          "$ref" : "#/definitions/AgentTarget"
+        },
+        "Instruction" : {
+          "$ref" : "#/definitions/MultiAgentInstruction"
+        }
+      },
+      "required" : [ "AgentTarget" ],
+      "additionalProperties" : false
+    },
+    "HandoffAgentConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "AgentTarget" : {
+          "$ref" : "#/definitions/AgentTarget"
+        },
+        "Instruction" : {
+          "$ref" : "#/definitions/MultiAgentInstruction"
+        },
+        "AudioStreamingEnabled" : {
+          "type" : "boolean"
+        },
+        "ImmediateHandoff" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "AgentTarget" ],
+      "additionalProperties" : false
+    },
+    "AgentTarget" : {
+      "oneOf" : [ {
+        "type" : "object",
+        "title" : "AIAgentId",
+        "properties" : {
+          "AIAgentId" : {
+            "type" : "string",
+            "minLength" : 1
+          }
+        },
+        "required" : [ "AIAgentId" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "ApplicationId",
+        "properties" : {
+          "ApplicationId" : {
+            "type" : "string",
+            "minLength" : 1
+          }
+        },
+        "required" : [ "ApplicationId" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "MultiAgentInstruction" : {
+      "type" : "object",
+      "properties" : {
+        "Instruction" : {
+          "type" : "string"
+        },
+        "Examples" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
       "additionalProperties" : false
     },
     "NoteTakingAIAgentConfiguration" : {

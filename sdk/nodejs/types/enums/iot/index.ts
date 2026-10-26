@@ -388,6 +388,58 @@ export const MitigationActionUpdateDeviceCertificateParamsAction = {
  */
 export type MitigationActionUpdateDeviceCertificateParamsAction = (typeof MitigationActionUpdateDeviceCertificateParamsAction)[keyof typeof MitigationActionUpdateDeviceCertificateParamsAction];
 
+export const OtaUpdateAwsJobAbortCriteriaAction = {
+    Cancel: "CANCEL",
+} as const;
+
+/**
+ * The type of job action to take to initiate the job abort.
+ */
+export type OtaUpdateAwsJobAbortCriteriaAction = (typeof OtaUpdateAwsJobAbortCriteriaAction)[keyof typeof OtaUpdateAwsJobAbortCriteriaAction];
+
+export const OtaUpdateAwsJobAbortCriteriaFailureType = {
+    Failed: "FAILED",
+    Rejected: "REJECTED",
+    TimedOut: "TIMED_OUT",
+    All: "ALL",
+} as const;
+
+/**
+ * The type of job execution failures that can initiate a job abort.
+ */
+export type OtaUpdateAwsJobAbortCriteriaFailureType = (typeof OtaUpdateAwsJobAbortCriteriaFailureType)[keyof typeof OtaUpdateAwsJobAbortCriteriaFailureType];
+
+export const OtaUpdateProtocolsItem = {
+    Mqtt: "MQTT",
+    Http: "HTTP",
+} as const;
+
+export type OtaUpdateProtocolsItem = (typeof OtaUpdateProtocolsItem)[keyof typeof OtaUpdateProtocolsItem];
+
+export const OtaUpdateStatus = {
+    CreatePending: "CREATE_PENDING",
+    CreateInProgress: "CREATE_IN_PROGRESS",
+    CreateComplete: "CREATE_COMPLETE",
+    CreateFailed: "CREATE_FAILED",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+/**
+ * The status of the OTA update.
+ */
+export type OtaUpdateStatus = (typeof OtaUpdateStatus)[keyof typeof OtaUpdateStatus];
+
+export const OtaUpdateTargetSelection = {
+    Continuous: "CONTINUOUS",
+    Snapshot: "SNAPSHOT",
+} as const;
+
+/**
+ * Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all things specified as targets have completed the update (SNAPSHOT).
+ */
+export type OtaUpdateTargetSelection = (typeof OtaUpdateTargetSelection)[keyof typeof OtaUpdateTargetSelection];
+
 export const ProvisioningTemplateTemplateType = {
     FleetProvisioning: "FLEET_PROVISIONING",
     Jitp: "JITP",

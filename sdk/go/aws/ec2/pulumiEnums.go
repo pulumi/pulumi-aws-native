@@ -16730,6 +16730,338 @@ func (o TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput) Index(i pulum
 	}).(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput)
 }
 
+// Whether NAT gateway support is enabled on the attachment. Set to disable to stage NAT rules without activating them; the rules are retained and become active when this is later set to enable.
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupport string
+
+const (
+	TransitGatewayAttachmentNatConfigurationNatGatewaySupportEnable  = TransitGatewayAttachmentNatConfigurationNatGatewaySupport("enable")
+	TransitGatewayAttachmentNatConfigurationNatGatewaySupportDisable = TransitGatewayAttachmentNatConfigurationNatGatewaySupport("disable")
+)
+
+func (TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatGatewaySupport)(nil)).Elem()
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return pulumi.ToOutput(e).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return e.ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return TransitGatewayAttachmentNatConfigurationNatGatewaySupport(e).ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutputWithContext(ctx).ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatGatewaySupport)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return o.ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayAttachmentNatConfigurationNatGatewaySupport) *TransitGatewayAttachmentNatConfigurationNatGatewaySupport {
+		return &v
+	}).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentNatConfigurationNatGatewaySupport)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) Elem() TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentNatConfigurationNatGatewaySupport) TransitGatewayAttachmentNatConfigurationNatGatewaySupport {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayAttachmentNatConfigurationNatGatewaySupport
+		return ret
+	}).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransitGatewayAttachmentNatConfigurationNatGatewaySupport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransitGatewayAttachmentNatConfigurationNatGatewaySupportInput is an input type that accepts values of the TransitGatewayAttachmentNatConfigurationNatGatewaySupport enum
+// A concrete instance of `TransitGatewayAttachmentNatConfigurationNatGatewaySupportInput` can be one of the following:
+//
+//	TransitGatewayAttachmentNatConfigurationNatGatewaySupportEnable
+//	TransitGatewayAttachmentNatConfigurationNatGatewaySupportDisable
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupportInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput
+	ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput
+}
+
+var transitGatewayAttachmentNatConfigurationNatGatewaySupportPtrType = reflect.TypeOf((**TransitGatewayAttachmentNatConfigurationNatGatewaySupport)(nil)).Elem()
+
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput
+	ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput
+}
+
+type transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr string
+
+func TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtr(v string) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrInput {
+	return (*transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr)(&v)
+}
+
+func (*transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr) ElementType() reflect.Type {
+	return transitGatewayAttachmentNatConfigurationNatGatewaySupportPtrType
+}
+
+func (in *transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return pulumi.ToOutput(in).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput)
+}
+
+func (in *transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput)
+}
+
+// Whether routes for the NAT CIDRs are installed into the transit gateway route tables associated with the attachment. Whether this is configurable depends on the attachment; where the value is forced, supplying the opposite value is rejected. Omitting this property leaves the setting to the service: on a new configuration the service applies the attachment's default, but on an attachment where the value is configurable it keeps the value already in effect rather than reverting to that default. Removing this property from a template, or deleting this resource, therefore leaves the setting at its last value rather than restoring the default, and a resource later created on the same attachment without this property inherits that value.
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport string
+
+const (
+	TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportEnable  = TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("enable")
+	TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportDisable = TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("disable")
+)
+
+func (TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport)(nil)).Elem()
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return pulumi.ToOutput(e).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return e.ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport(e).ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutputWithContext(ctx).ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return o.ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) *TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport {
+		return &v
+	}).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) Elem() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport
+		return ret
+	}).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportInput is an input type that accepts values of the TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport enum
+// A concrete instance of `TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportInput` can be one of the following:
+//
+//	TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportEnable
+//	TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportDisable
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput
+	ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput
+}
+
+var transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrType = reflect.TypeOf((**TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport)(nil)).Elem()
+
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput
+	ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput
+}
+
+type transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr string
+
+func TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr(v string) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrInput {
+	return (*transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr)(&v)
+}
+
+func (*transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr) ElementType() reflect.Type {
+	return transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrType
+}
+
+func (in *transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return pulumi.ToOutput(in).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput)
+}
+
+func (in *transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput)
+}
+
 // Enable or disable encryption support. Disabled by default.
 type TransitGatewayEncryptionSupport string
 
@@ -23591,6 +23923,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServicePtrInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceArrayInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatGatewaySupportInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatGatewaySupport("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatGatewaySupport("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayEncryptionSupportInput)(nil)).Elem(), TransitGatewayEncryptionSupport("disable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayEncryptionSupportPtrInput)(nil)).Elem(), TransitGatewayEncryptionSupport("disable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeInput)(nil)).Elem(), TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpc"))
@@ -23886,6 +24222,10 @@ func init() {
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayEncryptionSupportOutput{})
 	pulumi.RegisterOutputType(TransitGatewayEncryptionSupportPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput{})

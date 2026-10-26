@@ -400,6 +400,7 @@ __all__ = [
     'PromptVersionToolConfiguration',
     'PromptVersionToolInputSchemaProperties',
     'PromptVersionToolSpecification',
+    'RetrievalInstructionInstruction',
 ]
 
 @pulumi.output_type
@@ -17221,5 +17222,86 @@ class PromptVersionToolSpecification(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class RetrievalInstructionInstruction(dict):
+    """
+    The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "answerFormat":
+            suggest = "answer_format"
+        elif key == "answerPolicy":
+            suggest = "answer_policy"
+        elif key == "retrievalGuidance":
+            suggest = "retrieval_guidance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RetrievalInstructionInstruction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RetrievalInstructionInstruction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RetrievalInstructionInstruction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 answer_format: Optional[_builtins.str] = None,
+                 answer_policy: Optional[_builtins.str] = None,
+                 persona: Optional[_builtins.str] = None,
+                 retrieval_guidance: Optional[_builtins.str] = None):
+        """
+        The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+
+        :param _builtins.str answer_format: How the answer is structured, including how sources are cited.
+        :param _builtins.str answer_policy: Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+        :param _builtins.str persona: Who the assistant is: identity, tone and language.
+        :param _builtins.str retrieval_guidance: How to interpret and decompose the question, and what to prioritise when searching.
+        """
+        if answer_format is not None:
+            pulumi.set(__self__, "answer_format", answer_format)
+        if answer_policy is not None:
+            pulumi.set(__self__, "answer_policy", answer_policy)
+        if persona is not None:
+            pulumi.set(__self__, "persona", persona)
+        if retrieval_guidance is not None:
+            pulumi.set(__self__, "retrieval_guidance", retrieval_guidance)
+
+    @_builtins.property
+    @pulumi.getter(name="answerFormat")
+    def answer_format(self) -> Optional[_builtins.str]:
+        """
+        How the answer is structured, including how sources are cited.
+        """
+        return pulumi.get(self, "answer_format")
+
+    @_builtins.property
+    @pulumi.getter(name="answerPolicy")
+    def answer_policy(self) -> Optional[_builtins.str]:
+        """
+        Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+        """
+        return pulumi.get(self, "answer_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def persona(self) -> Optional[_builtins.str]:
+        """
+        Who the assistant is: identity, tone and language.
+        """
+        return pulumi.get(self, "persona")
+
+    @_builtins.property
+    @pulumi.getter(name="retrievalGuidance")
+    def retrieval_guidance(self) -> Optional[_builtins.str]:
+        """
+        How to interpret and decompose the question, and what to prioritise when searching.
+        """
+        return pulumi.get(self, "retrieval_guidance")
 
 

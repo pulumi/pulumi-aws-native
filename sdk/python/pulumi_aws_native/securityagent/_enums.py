@@ -16,8 +16,18 @@ __all__ = [
     'PentestCodeRemediationStrategy',
     'PentestNetworkTrafficRuleEffect',
     'PentestNetworkTrafficRuleNetworkTrafficRuleType',
+    'PentestReportFiltersConfidenceLevelsItem',
+    'PentestReportFiltersRiskLevelsItem',
+    'PentestReportFiltersStatusesItem',
+    'PentestReportFiltersTaskStatusesItem',
     'PentestRiskType',
     'PentestSkillType',
+    'PentestTestScopeType',
+    'PrivateConnectionDnsResolution',
+    'PrivateConnectionServiceManagedDnsResolution',
+    'PrivateConnectionServiceManagedIpAddressType',
+    'PrivateConnectionStatus',
+    'PrivateConnectionType',
     'SecurityRequirementPackStatus',
     'TargetDomainDnsVerificationDnsRecordType',
     'TargetDomainVerificationDetailsMethod',
@@ -117,6 +127,42 @@ class PentestNetworkTrafficRuleNetworkTrafficRuleType(_builtins.str, Enum):
     URL = "URL"
 
 
+@pulumi.type_token("aws-native:securityagent:PentestReportFiltersConfidenceLevelsItem")
+class PentestReportFiltersConfidenceLevelsItem(_builtins.str, Enum):
+    FALSE_POSITIVE = "FALSE_POSITIVE"
+    UNCONFIRMED = "UNCONFIRMED"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
+@pulumi.type_token("aws-native:securityagent:PentestReportFiltersRiskLevelsItem")
+class PentestReportFiltersRiskLevelsItem(_builtins.str, Enum):
+    UNKNOWN = "UNKNOWN"
+    INFORMATIONAL = "INFORMATIONAL"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+    CRITICAL = "CRITICAL"
+
+
+@pulumi.type_token("aws-native:securityagent:PentestReportFiltersStatusesItem")
+class PentestReportFiltersStatusesItem(_builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    RESOLVED = "RESOLVED"
+    ACCEPTED = "ACCEPTED"
+    FALSE_POSITIVE = "FALSE_POSITIVE"
+
+
+@pulumi.type_token("aws-native:securityagent:PentestReportFiltersTaskStatusesItem")
+class PentestReportFiltersTaskStatusesItem(_builtins.str, Enum):
+    IN_PROGRESS = "IN_PROGRESS"
+    ABORTED = "ABORTED"
+    COMPLETED = "COMPLETED"
+    INTERNAL_ERROR = "INTERNAL_ERROR"
+    FAILED = "FAILED"
+
+
 @pulumi.type_token("aws-native:securityagent:PentestRiskType")
 class PentestRiskType(_builtins.str, Enum):
     """
@@ -159,6 +205,64 @@ class PentestSkillType(_builtins.str, Enum):
     """
     FINDING_PERSONALIZATION = "FINDING_PERSONALIZATION"
     LOGIN_OPTIMIZATION = "LOGIN_OPTIMIZATION"
+
+
+@pulumi.type_token("aws-native:securityagent:PentestTestScopeType")
+class PentestTestScopeType(_builtins.str, Enum):
+    """
+    The kind of application a pentest target is tested as
+    """
+    WEB_APP = "WEB_APP"
+    GENERATIVE_AI_APP = "GENERATIVE_AI_APP"
+
+
+@pulumi.type_token("aws-native:securityagent:PrivateConnectionDnsResolution")
+class PrivateConnectionDnsResolution(_builtins.str, Enum):
+    """
+    The DNS resolution mode for the resource gateway.
+    """
+    PUBLIC = "PUBLIC"
+    IN_VPC = "IN_VPC"
+
+
+@pulumi.type_token("aws-native:securityagent:PrivateConnectionServiceManagedDnsResolution")
+class PrivateConnectionServiceManagedDnsResolution(_builtins.str, Enum):
+    """
+    The DNS resolution mode for the resource gateway.
+    """
+    PUBLIC = "PUBLIC"
+    IN_VPC = "IN_VPC"
+
+
+@pulumi.type_token("aws-native:securityagent:PrivateConnectionServiceManagedIpAddressType")
+class PrivateConnectionServiceManagedIpAddressType(_builtins.str, Enum):
+    """
+    The IP address type of the service-managed resource gateway.
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+    DUAL_STACK = "DUAL_STACK"
+
+
+@pulumi.type_token("aws-native:securityagent:PrivateConnectionStatus")
+class PrivateConnectionStatus(_builtins.str, Enum):
+    """
+    The current status of the private connection.
+    """
+    ACTIVE = "ACTIVE"
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_FAILED = "CREATE_FAILED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:securityagent:PrivateConnectionType")
+class PrivateConnectionType(_builtins.str, Enum):
+    """
+    The type of the private connection, indicating whether it is service-managed or self-managed.
+    """
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    SELF_MANAGED = "SELF_MANAGED"
 
 
 @pulumi.type_token("aws-native:securityagent:SecurityRequirementPackStatus")

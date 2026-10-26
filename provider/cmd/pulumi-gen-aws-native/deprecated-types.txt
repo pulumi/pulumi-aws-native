@@ -3,9 +3,12 @@ AWS::DynamoDB::Backup
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::IoTEvents::AlarmModel
+AWS::IoTEvents::DetectorModel
+AWS::IoTEvents::Input
 AWS::IoTFleetHub::Application
 AWS::LookoutMetrics::Alert
 AWS::LookoutMetrics::AnomalyDetector
+AWS::LookoutVision::Project
 AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio

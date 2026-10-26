@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class InstanceAttributesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoMuteAgentOnHold")]
+        public Input<bool>? AutoMuteAgentOnHold { get; set; }
+
         [Input("autoResolveBestVoices")]
         public Input<bool>? AutoResolveBestVoices { get; set; }
 

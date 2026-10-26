@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
+    /// </summary>
     [OutputType]
     public sealed class ServiceVpcLatticeAdvancedConfiguration
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
+        /// </summary>
         public readonly string? AlternateTargetGroupArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
+        /// </summary>
         public readonly string? ProductionListenerRule;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
+        /// </summary>
         public readonly string? TestListenerRule;
 
         [OutputConstructor]

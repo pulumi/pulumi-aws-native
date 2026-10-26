@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessProfileAssumeStatus = {
+    Allowed: "ALLOWED",
+    Denied: "DENIED",
+} as const;
+
+/**
+ * Whether the calling principal is authorized to assume the access profile.
+ */
+export type AccessProfileAssumeStatus = (typeof AccessProfileAssumeStatus)[keyof typeof AccessProfileAssumeStatus];
+
+export const AccessProfileProfileType = {
+    ServiceManaged: "SERVICE_MANAGED",
+    CustomerManaged: "CUSTOMER_MANAGED",
+} as const;
+
+/**
+ * Whether the access profile is managed by the service or by the customer.
+ */
+export type AccessProfileProfileType = (typeof AccessProfileProfileType)[keyof typeof AccessProfileProfileType];
+
 export const AlarmMuteRuleStatus = {
     Scheduled: "SCHEDULED",
     Active: "ACTIVE",
@@ -12,6 +32,22 @@ export const AlarmMuteRuleStatus = {
  * The current status of the AlarmMuteRule
  */
 export type AlarmMuteRuleStatus = (typeof AlarmMuteRuleStatus)[keyof typeof AlarmMuteRuleStatus];
+
+export const DomainForOrganizationIdentityProvidersItem = {
+    Iam: "IAM",
+    Idc: "IDC",
+} as const;
+
+export type DomainForOrganizationIdentityProvidersItem = (typeof DomainForOrganizationIdentityProvidersItem)[keyof typeof DomainForOrganizationIdentityProvidersItem];
+
+export const DomainForOrganizationStatus = {
+    Active: "ACTIVE",
+} as const;
+
+/**
+ * Current status of the domain.
+ */
+export type DomainForOrganizationStatus = (typeof DomainForOrganizationStatus)[keyof typeof DomainForOrganizationStatus];
 
 export const InsightRuleRuleState = {
     Enabled: "ENABLED",

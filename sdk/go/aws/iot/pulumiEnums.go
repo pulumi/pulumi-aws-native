@@ -5726,6 +5726,811 @@ func (in *mitigationActionUpdateDeviceCertificateParamsActionPtr) ToMitigationAc
 	return pulumi.ToOutputWithContext(ctx, in).(MitigationActionUpdateDeviceCertificateParamsActionPtrOutput)
 }
 
+// The type of job action to take to initiate the job abort.
+type OtaUpdateAwsJobAbortCriteriaAction string
+
+const (
+	OtaUpdateAwsJobAbortCriteriaActionCancel = OtaUpdateAwsJobAbortCriteriaAction("CANCEL")
+)
+
+func (OtaUpdateAwsJobAbortCriteriaAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaAction)(nil)).Elem()
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaAction) ToOtaUpdateAwsJobAbortCriteriaActionOutput() OtaUpdateAwsJobAbortCriteriaActionOutput {
+	return pulumi.ToOutput(e).(OtaUpdateAwsJobAbortCriteriaActionOutput)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaAction) ToOtaUpdateAwsJobAbortCriteriaActionOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OtaUpdateAwsJobAbortCriteriaActionOutput)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaAction) ToOtaUpdateAwsJobAbortCriteriaActionPtrOutput() OtaUpdateAwsJobAbortCriteriaActionPtrOutput {
+	return e.ToOtaUpdateAwsJobAbortCriteriaActionPtrOutputWithContext(context.Background())
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaAction) ToOtaUpdateAwsJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaActionPtrOutput {
+	return OtaUpdateAwsJobAbortCriteriaAction(e).ToOtaUpdateAwsJobAbortCriteriaActionOutputWithContext(ctx).ToOtaUpdateAwsJobAbortCriteriaActionPtrOutputWithContext(ctx)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OtaUpdateAwsJobAbortCriteriaActionOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobAbortCriteriaActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaAction)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionOutput) ToOtaUpdateAwsJobAbortCriteriaActionOutput() OtaUpdateAwsJobAbortCriteriaActionOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionOutput) ToOtaUpdateAwsJobAbortCriteriaActionOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaActionOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionOutput) ToOtaUpdateAwsJobAbortCriteriaActionPtrOutput() OtaUpdateAwsJobAbortCriteriaActionPtrOutput {
+	return o.ToOtaUpdateAwsJobAbortCriteriaActionPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionOutput) ToOtaUpdateAwsJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateAwsJobAbortCriteriaAction) *OtaUpdateAwsJobAbortCriteriaAction {
+		return &v
+	}).(OtaUpdateAwsJobAbortCriteriaActionPtrOutput)
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateAwsJobAbortCriteriaAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateAwsJobAbortCriteriaAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateAwsJobAbortCriteriaActionPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobAbortCriteriaActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobAbortCriteriaAction)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionPtrOutput) ToOtaUpdateAwsJobAbortCriteriaActionPtrOutput() OtaUpdateAwsJobAbortCriteriaActionPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionPtrOutput) ToOtaUpdateAwsJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaActionPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionPtrOutput) Elem() OtaUpdateAwsJobAbortCriteriaActionOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobAbortCriteriaAction) OtaUpdateAwsJobAbortCriteriaAction {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateAwsJobAbortCriteriaAction
+		return ret
+	}).(OtaUpdateAwsJobAbortCriteriaActionOutput)
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OtaUpdateAwsJobAbortCriteriaAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OtaUpdateAwsJobAbortCriteriaActionInput is an input type that accepts values of the OtaUpdateAwsJobAbortCriteriaAction enum
+// A concrete instance of `OtaUpdateAwsJobAbortCriteriaActionInput` can be one of the following:
+//
+//	OtaUpdateAwsJobAbortCriteriaActionCancel
+type OtaUpdateAwsJobAbortCriteriaActionInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobAbortCriteriaActionOutput() OtaUpdateAwsJobAbortCriteriaActionOutput
+	ToOtaUpdateAwsJobAbortCriteriaActionOutputWithContext(context.Context) OtaUpdateAwsJobAbortCriteriaActionOutput
+}
+
+var otaUpdateAwsJobAbortCriteriaActionPtrType = reflect.TypeOf((**OtaUpdateAwsJobAbortCriteriaAction)(nil)).Elem()
+
+type OtaUpdateAwsJobAbortCriteriaActionPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobAbortCriteriaActionPtrOutput() OtaUpdateAwsJobAbortCriteriaActionPtrOutput
+	ToOtaUpdateAwsJobAbortCriteriaActionPtrOutputWithContext(context.Context) OtaUpdateAwsJobAbortCriteriaActionPtrOutput
+}
+
+type otaUpdateAwsJobAbortCriteriaActionPtr string
+
+func OtaUpdateAwsJobAbortCriteriaActionPtr(v string) OtaUpdateAwsJobAbortCriteriaActionPtrInput {
+	return (*otaUpdateAwsJobAbortCriteriaActionPtr)(&v)
+}
+
+func (*otaUpdateAwsJobAbortCriteriaActionPtr) ElementType() reflect.Type {
+	return otaUpdateAwsJobAbortCriteriaActionPtrType
+}
+
+func (in *otaUpdateAwsJobAbortCriteriaActionPtr) ToOtaUpdateAwsJobAbortCriteriaActionPtrOutput() OtaUpdateAwsJobAbortCriteriaActionPtrOutput {
+	return pulumi.ToOutput(in).(OtaUpdateAwsJobAbortCriteriaActionPtrOutput)
+}
+
+func (in *otaUpdateAwsJobAbortCriteriaActionPtr) ToOtaUpdateAwsJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OtaUpdateAwsJobAbortCriteriaActionPtrOutput)
+}
+
+// The type of job execution failures that can initiate a job abort.
+type OtaUpdateAwsJobAbortCriteriaFailureType string
+
+const (
+	OtaUpdateAwsJobAbortCriteriaFailureTypeFailed   = OtaUpdateAwsJobAbortCriteriaFailureType("FAILED")
+	OtaUpdateAwsJobAbortCriteriaFailureTypeRejected = OtaUpdateAwsJobAbortCriteriaFailureType("REJECTED")
+	OtaUpdateAwsJobAbortCriteriaFailureTypeTimedOut = OtaUpdateAwsJobAbortCriteriaFailureType("TIMED_OUT")
+	OtaUpdateAwsJobAbortCriteriaFailureTypeAll      = OtaUpdateAwsJobAbortCriteriaFailureType("ALL")
+)
+
+func (OtaUpdateAwsJobAbortCriteriaFailureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaFailureType)(nil)).Elem()
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaFailureType) ToOtaUpdateAwsJobAbortCriteriaFailureTypeOutput() OtaUpdateAwsJobAbortCriteriaFailureTypeOutput {
+	return pulumi.ToOutput(e).(OtaUpdateAwsJobAbortCriteriaFailureTypeOutput)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaFailureType) ToOtaUpdateAwsJobAbortCriteriaFailureTypeOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaFailureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OtaUpdateAwsJobAbortCriteriaFailureTypeOutput)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaFailureType) ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput() OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput {
+	return e.ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaFailureType) ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput {
+	return OtaUpdateAwsJobAbortCriteriaFailureType(e).ToOtaUpdateAwsJobAbortCriteriaFailureTypeOutputWithContext(ctx).ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutputWithContext(ctx)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaFailureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaFailureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaFailureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OtaUpdateAwsJobAbortCriteriaFailureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OtaUpdateAwsJobAbortCriteriaFailureTypeOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobAbortCriteriaFailureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaFailureType)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypeOutput) ToOtaUpdateAwsJobAbortCriteriaFailureTypeOutput() OtaUpdateAwsJobAbortCriteriaFailureTypeOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypeOutput) ToOtaUpdateAwsJobAbortCriteriaFailureTypeOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaFailureTypeOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypeOutput) ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput() OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput {
+	return o.ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypeOutput) ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateAwsJobAbortCriteriaFailureType) *OtaUpdateAwsJobAbortCriteriaFailureType {
+		return &v
+	}).(OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput)
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateAwsJobAbortCriteriaFailureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateAwsJobAbortCriteriaFailureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobAbortCriteriaFailureType)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput) ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput() OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput) ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput) Elem() OtaUpdateAwsJobAbortCriteriaFailureTypeOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobAbortCriteriaFailureType) OtaUpdateAwsJobAbortCriteriaFailureType {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateAwsJobAbortCriteriaFailureType
+		return ret
+	}).(OtaUpdateAwsJobAbortCriteriaFailureTypeOutput)
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OtaUpdateAwsJobAbortCriteriaFailureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OtaUpdateAwsJobAbortCriteriaFailureTypeInput is an input type that accepts values of the OtaUpdateAwsJobAbortCriteriaFailureType enum
+// A concrete instance of `OtaUpdateAwsJobAbortCriteriaFailureTypeInput` can be one of the following:
+//
+//	OtaUpdateAwsJobAbortCriteriaFailureTypeFailed
+//	OtaUpdateAwsJobAbortCriteriaFailureTypeRejected
+//	OtaUpdateAwsJobAbortCriteriaFailureTypeTimedOut
+//	OtaUpdateAwsJobAbortCriteriaFailureTypeAll
+type OtaUpdateAwsJobAbortCriteriaFailureTypeInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobAbortCriteriaFailureTypeOutput() OtaUpdateAwsJobAbortCriteriaFailureTypeOutput
+	ToOtaUpdateAwsJobAbortCriteriaFailureTypeOutputWithContext(context.Context) OtaUpdateAwsJobAbortCriteriaFailureTypeOutput
+}
+
+var otaUpdateAwsJobAbortCriteriaFailureTypePtrType = reflect.TypeOf((**OtaUpdateAwsJobAbortCriteriaFailureType)(nil)).Elem()
+
+type OtaUpdateAwsJobAbortCriteriaFailureTypePtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput() OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput
+	ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutputWithContext(context.Context) OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput
+}
+
+type otaUpdateAwsJobAbortCriteriaFailureTypePtr string
+
+func OtaUpdateAwsJobAbortCriteriaFailureTypePtr(v string) OtaUpdateAwsJobAbortCriteriaFailureTypePtrInput {
+	return (*otaUpdateAwsJobAbortCriteriaFailureTypePtr)(&v)
+}
+
+func (*otaUpdateAwsJobAbortCriteriaFailureTypePtr) ElementType() reflect.Type {
+	return otaUpdateAwsJobAbortCriteriaFailureTypePtrType
+}
+
+func (in *otaUpdateAwsJobAbortCriteriaFailureTypePtr) ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput() OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput {
+	return pulumi.ToOutput(in).(OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput)
+}
+
+func (in *otaUpdateAwsJobAbortCriteriaFailureTypePtr) ToOtaUpdateAwsJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput)
+}
+
+type OtaUpdateProtocolsItem string
+
+const (
+	OtaUpdateProtocolsItemMqtt = OtaUpdateProtocolsItem("MQTT")
+	OtaUpdateProtocolsItemHttp = OtaUpdateProtocolsItem("HTTP")
+)
+
+func (OtaUpdateProtocolsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateProtocolsItem)(nil)).Elem()
+}
+
+func (e OtaUpdateProtocolsItem) ToOtaUpdateProtocolsItemOutput() OtaUpdateProtocolsItemOutput {
+	return pulumi.ToOutput(e).(OtaUpdateProtocolsItemOutput)
+}
+
+func (e OtaUpdateProtocolsItem) ToOtaUpdateProtocolsItemOutputWithContext(ctx context.Context) OtaUpdateProtocolsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OtaUpdateProtocolsItemOutput)
+}
+
+func (e OtaUpdateProtocolsItem) ToOtaUpdateProtocolsItemPtrOutput() OtaUpdateProtocolsItemPtrOutput {
+	return e.ToOtaUpdateProtocolsItemPtrOutputWithContext(context.Background())
+}
+
+func (e OtaUpdateProtocolsItem) ToOtaUpdateProtocolsItemPtrOutputWithContext(ctx context.Context) OtaUpdateProtocolsItemPtrOutput {
+	return OtaUpdateProtocolsItem(e).ToOtaUpdateProtocolsItemOutputWithContext(ctx).ToOtaUpdateProtocolsItemPtrOutputWithContext(ctx)
+}
+
+func (e OtaUpdateProtocolsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OtaUpdateProtocolsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OtaUpdateProtocolsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OtaUpdateProtocolsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OtaUpdateProtocolsItemOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateProtocolsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateProtocolsItem)(nil)).Elem()
+}
+
+func (o OtaUpdateProtocolsItemOutput) ToOtaUpdateProtocolsItemOutput() OtaUpdateProtocolsItemOutput {
+	return o
+}
+
+func (o OtaUpdateProtocolsItemOutput) ToOtaUpdateProtocolsItemOutputWithContext(ctx context.Context) OtaUpdateProtocolsItemOutput {
+	return o
+}
+
+func (o OtaUpdateProtocolsItemOutput) ToOtaUpdateProtocolsItemPtrOutput() OtaUpdateProtocolsItemPtrOutput {
+	return o.ToOtaUpdateProtocolsItemPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateProtocolsItemOutput) ToOtaUpdateProtocolsItemPtrOutputWithContext(ctx context.Context) OtaUpdateProtocolsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateProtocolsItem) *OtaUpdateProtocolsItem {
+		return &v
+	}).(OtaUpdateProtocolsItemPtrOutput)
+}
+
+func (o OtaUpdateProtocolsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateProtocolsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateProtocolsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OtaUpdateProtocolsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateProtocolsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateProtocolsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateProtocolsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateProtocolsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateProtocolsItem)(nil)).Elem()
+}
+
+func (o OtaUpdateProtocolsItemPtrOutput) ToOtaUpdateProtocolsItemPtrOutput() OtaUpdateProtocolsItemPtrOutput {
+	return o
+}
+
+func (o OtaUpdateProtocolsItemPtrOutput) ToOtaUpdateProtocolsItemPtrOutputWithContext(ctx context.Context) OtaUpdateProtocolsItemPtrOutput {
+	return o
+}
+
+func (o OtaUpdateProtocolsItemPtrOutput) Elem() OtaUpdateProtocolsItemOutput {
+	return o.ApplyT(func(v *OtaUpdateProtocolsItem) OtaUpdateProtocolsItem {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateProtocolsItem
+		return ret
+	}).(OtaUpdateProtocolsItemOutput)
+}
+
+func (o OtaUpdateProtocolsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateProtocolsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OtaUpdateProtocolsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OtaUpdateProtocolsItemInput is an input type that accepts values of the OtaUpdateProtocolsItem enum
+// A concrete instance of `OtaUpdateProtocolsItemInput` can be one of the following:
+//
+//	OtaUpdateProtocolsItemMqtt
+//	OtaUpdateProtocolsItemHttp
+type OtaUpdateProtocolsItemInput interface {
+	pulumi.Input
+
+	ToOtaUpdateProtocolsItemOutput() OtaUpdateProtocolsItemOutput
+	ToOtaUpdateProtocolsItemOutputWithContext(context.Context) OtaUpdateProtocolsItemOutput
+}
+
+var otaUpdateProtocolsItemPtrType = reflect.TypeOf((**OtaUpdateProtocolsItem)(nil)).Elem()
+
+type OtaUpdateProtocolsItemPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateProtocolsItemPtrOutput() OtaUpdateProtocolsItemPtrOutput
+	ToOtaUpdateProtocolsItemPtrOutputWithContext(context.Context) OtaUpdateProtocolsItemPtrOutput
+}
+
+type otaUpdateProtocolsItemPtr string
+
+func OtaUpdateProtocolsItemPtr(v string) OtaUpdateProtocolsItemPtrInput {
+	return (*otaUpdateProtocolsItemPtr)(&v)
+}
+
+func (*otaUpdateProtocolsItemPtr) ElementType() reflect.Type {
+	return otaUpdateProtocolsItemPtrType
+}
+
+func (in *otaUpdateProtocolsItemPtr) ToOtaUpdateProtocolsItemPtrOutput() OtaUpdateProtocolsItemPtrOutput {
+	return pulumi.ToOutput(in).(OtaUpdateProtocolsItemPtrOutput)
+}
+
+func (in *otaUpdateProtocolsItemPtr) ToOtaUpdateProtocolsItemPtrOutputWithContext(ctx context.Context) OtaUpdateProtocolsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OtaUpdateProtocolsItemPtrOutput)
+}
+
+// OtaUpdateProtocolsItemArrayInput is an input type that accepts OtaUpdateProtocolsItemArray and OtaUpdateProtocolsItemArrayOutput values.
+// You can construct a concrete instance of `OtaUpdateProtocolsItemArrayInput` via:
+//
+//	OtaUpdateProtocolsItemArray{ OtaUpdateProtocolsItemArgs{...} }
+type OtaUpdateProtocolsItemArrayInput interface {
+	pulumi.Input
+
+	ToOtaUpdateProtocolsItemArrayOutput() OtaUpdateProtocolsItemArrayOutput
+	ToOtaUpdateProtocolsItemArrayOutputWithContext(context.Context) OtaUpdateProtocolsItemArrayOutput
+}
+
+type OtaUpdateProtocolsItemArray []OtaUpdateProtocolsItem
+
+func (OtaUpdateProtocolsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtaUpdateProtocolsItem)(nil)).Elem()
+}
+
+func (i OtaUpdateProtocolsItemArray) ToOtaUpdateProtocolsItemArrayOutput() OtaUpdateProtocolsItemArrayOutput {
+	return i.ToOtaUpdateProtocolsItemArrayOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateProtocolsItemArray) ToOtaUpdateProtocolsItemArrayOutputWithContext(ctx context.Context) OtaUpdateProtocolsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateProtocolsItemArrayOutput)
+}
+
+type OtaUpdateProtocolsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateProtocolsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtaUpdateProtocolsItem)(nil)).Elem()
+}
+
+func (o OtaUpdateProtocolsItemArrayOutput) ToOtaUpdateProtocolsItemArrayOutput() OtaUpdateProtocolsItemArrayOutput {
+	return o
+}
+
+func (o OtaUpdateProtocolsItemArrayOutput) ToOtaUpdateProtocolsItemArrayOutputWithContext(ctx context.Context) OtaUpdateProtocolsItemArrayOutput {
+	return o
+}
+
+func (o OtaUpdateProtocolsItemArrayOutput) Index(i pulumi.IntInput) OtaUpdateProtocolsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OtaUpdateProtocolsItem {
+		return vs[0].([]OtaUpdateProtocolsItem)[vs[1].(int)]
+	}).(OtaUpdateProtocolsItemOutput)
+}
+
+// The status of the OTA update.
+type OtaUpdateStatus string
+
+const (
+	OtaUpdateStatusCreatePending    = OtaUpdateStatus("CREATE_PENDING")
+	OtaUpdateStatusCreateInProgress = OtaUpdateStatus("CREATE_IN_PROGRESS")
+	OtaUpdateStatusCreateComplete   = OtaUpdateStatus("CREATE_COMPLETE")
+	OtaUpdateStatusCreateFailed     = OtaUpdateStatus("CREATE_FAILED")
+	OtaUpdateStatusDeleteInProgress = OtaUpdateStatus("DELETE_IN_PROGRESS")
+	OtaUpdateStatusDeleteFailed     = OtaUpdateStatus("DELETE_FAILED")
+)
+
+type OtaUpdateStatusOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateStatus)(nil)).Elem()
+}
+
+func (o OtaUpdateStatusOutput) ToOtaUpdateStatusOutput() OtaUpdateStatusOutput {
+	return o
+}
+
+func (o OtaUpdateStatusOutput) ToOtaUpdateStatusOutputWithContext(ctx context.Context) OtaUpdateStatusOutput {
+	return o
+}
+
+func (o OtaUpdateStatusOutput) ToOtaUpdateStatusPtrOutput() OtaUpdateStatusPtrOutput {
+	return o.ToOtaUpdateStatusPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateStatusOutput) ToOtaUpdateStatusPtrOutputWithContext(ctx context.Context) OtaUpdateStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateStatus) *OtaUpdateStatus {
+		return &v
+	}).(OtaUpdateStatusPtrOutput)
+}
+
+func (o OtaUpdateStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OtaUpdateStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateStatus)(nil)).Elem()
+}
+
+func (o OtaUpdateStatusPtrOutput) ToOtaUpdateStatusPtrOutput() OtaUpdateStatusPtrOutput {
+	return o
+}
+
+func (o OtaUpdateStatusPtrOutput) ToOtaUpdateStatusPtrOutputWithContext(ctx context.Context) OtaUpdateStatusPtrOutput {
+	return o
+}
+
+func (o OtaUpdateStatusPtrOutput) Elem() OtaUpdateStatusOutput {
+	return o.ApplyT(func(v *OtaUpdateStatus) OtaUpdateStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateStatus
+		return ret
+	}).(OtaUpdateStatusOutput)
+}
+
+func (o OtaUpdateStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OtaUpdateStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all things specified as targets have completed the update (SNAPSHOT).
+type OtaUpdateTargetSelection string
+
+const (
+	OtaUpdateTargetSelectionContinuous = OtaUpdateTargetSelection("CONTINUOUS")
+	OtaUpdateTargetSelectionSnapshot   = OtaUpdateTargetSelection("SNAPSHOT")
+)
+
+func (OtaUpdateTargetSelection) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateTargetSelection)(nil)).Elem()
+}
+
+func (e OtaUpdateTargetSelection) ToOtaUpdateTargetSelectionOutput() OtaUpdateTargetSelectionOutput {
+	return pulumi.ToOutput(e).(OtaUpdateTargetSelectionOutput)
+}
+
+func (e OtaUpdateTargetSelection) ToOtaUpdateTargetSelectionOutputWithContext(ctx context.Context) OtaUpdateTargetSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OtaUpdateTargetSelectionOutput)
+}
+
+func (e OtaUpdateTargetSelection) ToOtaUpdateTargetSelectionPtrOutput() OtaUpdateTargetSelectionPtrOutput {
+	return e.ToOtaUpdateTargetSelectionPtrOutputWithContext(context.Background())
+}
+
+func (e OtaUpdateTargetSelection) ToOtaUpdateTargetSelectionPtrOutputWithContext(ctx context.Context) OtaUpdateTargetSelectionPtrOutput {
+	return OtaUpdateTargetSelection(e).ToOtaUpdateTargetSelectionOutputWithContext(ctx).ToOtaUpdateTargetSelectionPtrOutputWithContext(ctx)
+}
+
+func (e OtaUpdateTargetSelection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OtaUpdateTargetSelection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OtaUpdateTargetSelection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OtaUpdateTargetSelection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OtaUpdateTargetSelectionOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateTargetSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateTargetSelection)(nil)).Elem()
+}
+
+func (o OtaUpdateTargetSelectionOutput) ToOtaUpdateTargetSelectionOutput() OtaUpdateTargetSelectionOutput {
+	return o
+}
+
+func (o OtaUpdateTargetSelectionOutput) ToOtaUpdateTargetSelectionOutputWithContext(ctx context.Context) OtaUpdateTargetSelectionOutput {
+	return o
+}
+
+func (o OtaUpdateTargetSelectionOutput) ToOtaUpdateTargetSelectionPtrOutput() OtaUpdateTargetSelectionPtrOutput {
+	return o.ToOtaUpdateTargetSelectionPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateTargetSelectionOutput) ToOtaUpdateTargetSelectionPtrOutputWithContext(ctx context.Context) OtaUpdateTargetSelectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateTargetSelection) *OtaUpdateTargetSelection {
+		return &v
+	}).(OtaUpdateTargetSelectionPtrOutput)
+}
+
+func (o OtaUpdateTargetSelectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateTargetSelectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateTargetSelection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OtaUpdateTargetSelectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateTargetSelectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OtaUpdateTargetSelection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateTargetSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateTargetSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateTargetSelection)(nil)).Elem()
+}
+
+func (o OtaUpdateTargetSelectionPtrOutput) ToOtaUpdateTargetSelectionPtrOutput() OtaUpdateTargetSelectionPtrOutput {
+	return o
+}
+
+func (o OtaUpdateTargetSelectionPtrOutput) ToOtaUpdateTargetSelectionPtrOutputWithContext(ctx context.Context) OtaUpdateTargetSelectionPtrOutput {
+	return o
+}
+
+func (o OtaUpdateTargetSelectionPtrOutput) Elem() OtaUpdateTargetSelectionOutput {
+	return o.ApplyT(func(v *OtaUpdateTargetSelection) OtaUpdateTargetSelection {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateTargetSelection
+		return ret
+	}).(OtaUpdateTargetSelectionOutput)
+}
+
+func (o OtaUpdateTargetSelectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateTargetSelectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OtaUpdateTargetSelection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OtaUpdateTargetSelectionInput is an input type that accepts values of the OtaUpdateTargetSelection enum
+// A concrete instance of `OtaUpdateTargetSelectionInput` can be one of the following:
+//
+//	OtaUpdateTargetSelectionContinuous
+//	OtaUpdateTargetSelectionSnapshot
+type OtaUpdateTargetSelectionInput interface {
+	pulumi.Input
+
+	ToOtaUpdateTargetSelectionOutput() OtaUpdateTargetSelectionOutput
+	ToOtaUpdateTargetSelectionOutputWithContext(context.Context) OtaUpdateTargetSelectionOutput
+}
+
+var otaUpdateTargetSelectionPtrType = reflect.TypeOf((**OtaUpdateTargetSelection)(nil)).Elem()
+
+type OtaUpdateTargetSelectionPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateTargetSelectionPtrOutput() OtaUpdateTargetSelectionPtrOutput
+	ToOtaUpdateTargetSelectionPtrOutputWithContext(context.Context) OtaUpdateTargetSelectionPtrOutput
+}
+
+type otaUpdateTargetSelectionPtr string
+
+func OtaUpdateTargetSelectionPtr(v string) OtaUpdateTargetSelectionPtrInput {
+	return (*otaUpdateTargetSelectionPtr)(&v)
+}
+
+func (*otaUpdateTargetSelectionPtr) ElementType() reflect.Type {
+	return otaUpdateTargetSelectionPtrType
+}
+
+func (in *otaUpdateTargetSelectionPtr) ToOtaUpdateTargetSelectionPtrOutput() OtaUpdateTargetSelectionPtrOutput {
+	return pulumi.ToOutput(in).(OtaUpdateTargetSelectionPtrOutput)
+}
+
+func (in *otaUpdateTargetSelectionPtr) ToOtaUpdateTargetSelectionPtrOutputWithContext(ctx context.Context) OtaUpdateTargetSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OtaUpdateTargetSelectionPtrOutput)
+}
+
 // The type of the provisioning template.
 type ProvisioningTemplateTemplateType string
 
@@ -8046,6 +8851,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCaCertificateParamsActionPtrInput)(nil)).Elem(), MitigationActionUpdateCaCertificateParamsAction("DEACTIVATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsActionInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsAction("DEACTIVATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsActionPtrInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsAction("DEACTIVATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaActionInput)(nil)).Elem(), OtaUpdateAwsJobAbortCriteriaAction("CANCEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaActionPtrInput)(nil)).Elem(), OtaUpdateAwsJobAbortCriteriaAction("CANCEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaFailureTypeInput)(nil)).Elem(), OtaUpdateAwsJobAbortCriteriaFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaFailureTypePtrInput)(nil)).Elem(), OtaUpdateAwsJobAbortCriteriaFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateProtocolsItemInput)(nil)).Elem(), OtaUpdateProtocolsItem("MQTT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateProtocolsItemPtrInput)(nil)).Elem(), OtaUpdateProtocolsItem("MQTT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateProtocolsItemArrayInput)(nil)).Elem(), OtaUpdateProtocolsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateTargetSelectionInput)(nil)).Elem(), OtaUpdateTargetSelection("CONTINUOUS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateTargetSelectionPtrInput)(nil)).Elem(), OtaUpdateTargetSelection("CONTINUOUS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateTemplateTypeInput)(nil)).Elem(), ProvisioningTemplateTemplateType("FLEET_PROVISIONING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateTemplateTypePtrInput)(nil)).Elem(), ProvisioningTemplateTemplateType("FLEET_PROVISIONING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSpecificLoggingLogLevelInput)(nil)).Elem(), ResourceSpecificLoggingLogLevel("ERROR"))
@@ -8141,6 +8955,17 @@ func init() {
 	pulumi.RegisterOutputType(MitigationActionUpdateCaCertificateParamsActionPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsActionOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsActionPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobAbortCriteriaActionOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobAbortCriteriaActionPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobAbortCriteriaFailureTypeOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobAbortCriteriaFailureTypePtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateProtocolsItemOutput{})
+	pulumi.RegisterOutputType(OtaUpdateProtocolsItemPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateProtocolsItemArrayOutput{})
+	pulumi.RegisterOutputType(OtaUpdateStatusOutput{})
+	pulumi.RegisterOutputType(OtaUpdateStatusPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateTargetSelectionOutput{})
+	pulumi.RegisterOutputType(OtaUpdateTargetSelectionPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateTemplateTypeOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateTemplateTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSpecificLoggingLogLevelOutput{})

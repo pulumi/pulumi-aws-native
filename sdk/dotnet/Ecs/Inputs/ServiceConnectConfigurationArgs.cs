@@ -23,6 +23,14 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("accessLogConfiguration")]
         public Input<Inputs.ServiceConnectAccessLogConfigurationArgs>? AccessLogConfiguration { get; set; }
 
+        [Input("containerConfigurations")]
+        private InputList<Inputs.ServiceConnectContainerConfigurationArgs>? _containerConfigurations;
+        public InputList<Inputs.ServiceConnectContainerConfigurationArgs> ContainerConfigurations
+        {
+            get => _containerConfigurations ?? (_containerConfigurations = new InputList<Inputs.ServiceConnectContainerConfigurationArgs>());
+            set => _containerConfigurations = value;
+        }
+
         /// <summary>
         /// Specifies whether to use Service Connect with this service.
         /// </summary>

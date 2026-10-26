@@ -26,8 +26,9 @@ type Service struct {
 	// Dependency discovery state.
 	DependencyDiscovery ServiceDependencyDiscoveryPtrOutput `pulumi:"dependencyDiscovery"`
 	// The description of the service.
-	Description           pulumi.StringPtrOutput             `pulumi:"description"`
-	EffectivePolicyValues ServiceEffectivePolicyValuesOutput `pulumi:"effectivePolicyValues"`
+	Description              pulumi.StringPtrOutput                   `pulumi:"description"`
+	DevOpsAgentConfiguration ServiceDevOpsAgentConfigurationPtrOutput `pulumi:"devOpsAgentConfiguration"`
+	EffectivePolicyValues    ServiceEffectivePolicyValuesOutput       `pulumi:"effectivePolicyValues"`
 	// Input sources for this service.
 	InputSources ServiceInputSourceDefinitionArrayOutput `pulumi:"inputSources"`
 	// The KMS key ID for encrypting service data.
@@ -104,7 +105,8 @@ type serviceArgs struct {
 	// Dependency discovery state.
 	DependencyDiscovery *ServiceDependencyDiscovery `pulumi:"dependencyDiscovery"`
 	// The description of the service.
-	Description *string `pulumi:"description"`
+	Description              *string                          `pulumi:"description"`
+	DevOpsAgentConfiguration *ServiceDevOpsAgentConfiguration `pulumi:"devOpsAgentConfiguration"`
 	// Input sources for this service.
 	InputSources []ServiceInputSourceDefinition `pulumi:"inputSources"`
 	// The KMS key ID for encrypting service data.
@@ -130,7 +132,8 @@ type ServiceArgs struct {
 	// Dependency discovery state.
 	DependencyDiscovery ServiceDependencyDiscoveryPtrInput
 	// The description of the service.
-	Description pulumi.StringPtrInput
+	Description              pulumi.StringPtrInput
+	DevOpsAgentConfiguration ServiceDevOpsAgentConfigurationPtrInput
 	// Input sources for this service.
 	InputSources ServiceInputSourceDefinitionArrayInput
 	// The KMS key ID for encrypting service data.
@@ -207,6 +210,10 @@ func (o ServiceOutput) DependencyDiscovery() ServiceDependencyDiscoveryPtrOutput
 // The description of the service.
 func (o ServiceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) DevOpsAgentConfiguration() ServiceDevOpsAgentConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceDevOpsAgentConfigurationPtrOutput { return v.DevOpsAgentConfiguration }).(ServiceDevOpsAgentConfigurationPtrOutput)
 }
 
 func (o ServiceOutput) EffectivePolicyValues() ServiceEffectivePolicyValuesOutput {

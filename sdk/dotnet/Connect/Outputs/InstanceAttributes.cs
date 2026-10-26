@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class InstanceAttributes
     {
+        public readonly bool? AutoMuteAgentOnHold;
         public readonly bool? AutoResolveBestVoices;
         public readonly bool? ContactLens;
         public readonly bool? ContactflowLogs;
@@ -29,6 +30,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
         [OutputConstructor]
         private InstanceAttributes(
+            bool? autoMuteAgentOnHold,
+
             bool? autoResolveBestVoices,
 
             bool? contactLens,
@@ -55,6 +58,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             bool? useCustomTtsVoices)
         {
+            AutoMuteAgentOnHold = autoMuteAgentOnHold;
             AutoResolveBestVoices = autoResolveBestVoices;
             ContactLens = contactLens;
             ContactflowLogs = contactflowLogs;

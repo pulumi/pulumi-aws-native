@@ -23522,6 +23522,593 @@ func (in *analysisWordCloudWordScalingPtr) ToAnalysisWordCloudWordScalingPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisWordCloudWordScalingPtrOutput)
 }
 
+type ApprovalPolicyApplicableToType string
+
+const (
+	ApprovalPolicyApplicableToTypeGroup = ApprovalPolicyApplicableToType("GROUP")
+)
+
+func (ApprovalPolicyApplicableToType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApprovalPolicyApplicableToType)(nil)).Elem()
+}
+
+func (e ApprovalPolicyApplicableToType) ToApprovalPolicyApplicableToTypeOutput() ApprovalPolicyApplicableToTypeOutput {
+	return pulumi.ToOutput(e).(ApprovalPolicyApplicableToTypeOutput)
+}
+
+func (e ApprovalPolicyApplicableToType) ToApprovalPolicyApplicableToTypeOutputWithContext(ctx context.Context) ApprovalPolicyApplicableToTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApprovalPolicyApplicableToTypeOutput)
+}
+
+func (e ApprovalPolicyApplicableToType) ToApprovalPolicyApplicableToTypePtrOutput() ApprovalPolicyApplicableToTypePtrOutput {
+	return e.ToApprovalPolicyApplicableToTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApprovalPolicyApplicableToType) ToApprovalPolicyApplicableToTypePtrOutputWithContext(ctx context.Context) ApprovalPolicyApplicableToTypePtrOutput {
+	return ApprovalPolicyApplicableToType(e).ToApprovalPolicyApplicableToTypeOutputWithContext(ctx).ToApprovalPolicyApplicableToTypePtrOutputWithContext(ctx)
+}
+
+func (e ApprovalPolicyApplicableToType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApprovalPolicyApplicableToType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApprovalPolicyApplicableToType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApprovalPolicyApplicableToType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApprovalPolicyApplicableToTypeOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyApplicableToTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApprovalPolicyApplicableToType)(nil)).Elem()
+}
+
+func (o ApprovalPolicyApplicableToTypeOutput) ToApprovalPolicyApplicableToTypeOutput() ApprovalPolicyApplicableToTypeOutput {
+	return o
+}
+
+func (o ApprovalPolicyApplicableToTypeOutput) ToApprovalPolicyApplicableToTypeOutputWithContext(ctx context.Context) ApprovalPolicyApplicableToTypeOutput {
+	return o
+}
+
+func (o ApprovalPolicyApplicableToTypeOutput) ToApprovalPolicyApplicableToTypePtrOutput() ApprovalPolicyApplicableToTypePtrOutput {
+	return o.ToApprovalPolicyApplicableToTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyApplicableToTypeOutput) ToApprovalPolicyApplicableToTypePtrOutputWithContext(ctx context.Context) ApprovalPolicyApplicableToTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApprovalPolicyApplicableToType) *ApprovalPolicyApplicableToType {
+		return &v
+	}).(ApprovalPolicyApplicableToTypePtrOutput)
+}
+
+func (o ApprovalPolicyApplicableToTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyApplicableToTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApprovalPolicyApplicableToType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApprovalPolicyApplicableToTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyApplicableToTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApprovalPolicyApplicableToType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApprovalPolicyApplicableToTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyApplicableToTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApprovalPolicyApplicableToType)(nil)).Elem()
+}
+
+func (o ApprovalPolicyApplicableToTypePtrOutput) ToApprovalPolicyApplicableToTypePtrOutput() ApprovalPolicyApplicableToTypePtrOutput {
+	return o
+}
+
+func (o ApprovalPolicyApplicableToTypePtrOutput) ToApprovalPolicyApplicableToTypePtrOutputWithContext(ctx context.Context) ApprovalPolicyApplicableToTypePtrOutput {
+	return o
+}
+
+func (o ApprovalPolicyApplicableToTypePtrOutput) Elem() ApprovalPolicyApplicableToTypeOutput {
+	return o.ApplyT(func(v *ApprovalPolicyApplicableToType) ApprovalPolicyApplicableToType {
+		if v != nil {
+			return *v
+		}
+		var ret ApprovalPolicyApplicableToType
+		return ret
+	}).(ApprovalPolicyApplicableToTypeOutput)
+}
+
+func (o ApprovalPolicyApplicableToTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyApplicableToTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApprovalPolicyApplicableToType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApprovalPolicyApplicableToTypeInput is an input type that accepts values of the ApprovalPolicyApplicableToType enum
+// A concrete instance of `ApprovalPolicyApplicableToTypeInput` can be one of the following:
+//
+//	ApprovalPolicyApplicableToTypeGroup
+type ApprovalPolicyApplicableToTypeInput interface {
+	pulumi.Input
+
+	ToApprovalPolicyApplicableToTypeOutput() ApprovalPolicyApplicableToTypeOutput
+	ToApprovalPolicyApplicableToTypeOutputWithContext(context.Context) ApprovalPolicyApplicableToTypeOutput
+}
+
+var approvalPolicyApplicableToTypePtrType = reflect.TypeOf((**ApprovalPolicyApplicableToType)(nil)).Elem()
+
+type ApprovalPolicyApplicableToTypePtrInput interface {
+	pulumi.Input
+
+	ToApprovalPolicyApplicableToTypePtrOutput() ApprovalPolicyApplicableToTypePtrOutput
+	ToApprovalPolicyApplicableToTypePtrOutputWithContext(context.Context) ApprovalPolicyApplicableToTypePtrOutput
+}
+
+type approvalPolicyApplicableToTypePtr string
+
+func ApprovalPolicyApplicableToTypePtr(v string) ApprovalPolicyApplicableToTypePtrInput {
+	return (*approvalPolicyApplicableToTypePtr)(&v)
+}
+
+func (*approvalPolicyApplicableToTypePtr) ElementType() reflect.Type {
+	return approvalPolicyApplicableToTypePtrType
+}
+
+func (in *approvalPolicyApplicableToTypePtr) ToApprovalPolicyApplicableToTypePtrOutput() ApprovalPolicyApplicableToTypePtrOutput {
+	return pulumi.ToOutput(in).(ApprovalPolicyApplicableToTypePtrOutput)
+}
+
+func (in *approvalPolicyApplicableToTypePtr) ToApprovalPolicyApplicableToTypePtrOutputWithContext(ctx context.Context) ApprovalPolicyApplicableToTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApprovalPolicyApplicableToTypePtrOutput)
+}
+
+// Asset types that can be governed by approval policies.
+type ApprovalPolicyAssetType string
+
+const (
+	ApprovalPolicyAssetTypeAgent         = ApprovalPolicyAssetType("AGENT")
+	ApprovalPolicyAssetTypeSpace         = ApprovalPolicyAssetType("SPACE")
+	ApprovalPolicyAssetTypeKnowledgeBase = ApprovalPolicyAssetType("KNOWLEDGE_BASE")
+	ApprovalPolicyAssetTypeFlow          = ApprovalPolicyAssetType("FLOW")
+)
+
+func (ApprovalPolicyAssetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApprovalPolicyAssetType)(nil)).Elem()
+}
+
+func (e ApprovalPolicyAssetType) ToApprovalPolicyAssetTypeOutput() ApprovalPolicyAssetTypeOutput {
+	return pulumi.ToOutput(e).(ApprovalPolicyAssetTypeOutput)
+}
+
+func (e ApprovalPolicyAssetType) ToApprovalPolicyAssetTypeOutputWithContext(ctx context.Context) ApprovalPolicyAssetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApprovalPolicyAssetTypeOutput)
+}
+
+func (e ApprovalPolicyAssetType) ToApprovalPolicyAssetTypePtrOutput() ApprovalPolicyAssetTypePtrOutput {
+	return e.ToApprovalPolicyAssetTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApprovalPolicyAssetType) ToApprovalPolicyAssetTypePtrOutputWithContext(ctx context.Context) ApprovalPolicyAssetTypePtrOutput {
+	return ApprovalPolicyAssetType(e).ToApprovalPolicyAssetTypeOutputWithContext(ctx).ToApprovalPolicyAssetTypePtrOutputWithContext(ctx)
+}
+
+func (e ApprovalPolicyAssetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApprovalPolicyAssetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApprovalPolicyAssetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApprovalPolicyAssetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApprovalPolicyAssetTypeOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyAssetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApprovalPolicyAssetType)(nil)).Elem()
+}
+
+func (o ApprovalPolicyAssetTypeOutput) ToApprovalPolicyAssetTypeOutput() ApprovalPolicyAssetTypeOutput {
+	return o
+}
+
+func (o ApprovalPolicyAssetTypeOutput) ToApprovalPolicyAssetTypeOutputWithContext(ctx context.Context) ApprovalPolicyAssetTypeOutput {
+	return o
+}
+
+func (o ApprovalPolicyAssetTypeOutput) ToApprovalPolicyAssetTypePtrOutput() ApprovalPolicyAssetTypePtrOutput {
+	return o.ToApprovalPolicyAssetTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyAssetTypeOutput) ToApprovalPolicyAssetTypePtrOutputWithContext(ctx context.Context) ApprovalPolicyAssetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApprovalPolicyAssetType) *ApprovalPolicyAssetType {
+		return &v
+	}).(ApprovalPolicyAssetTypePtrOutput)
+}
+
+func (o ApprovalPolicyAssetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyAssetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApprovalPolicyAssetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApprovalPolicyAssetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyAssetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApprovalPolicyAssetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApprovalPolicyAssetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyAssetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApprovalPolicyAssetType)(nil)).Elem()
+}
+
+func (o ApprovalPolicyAssetTypePtrOutput) ToApprovalPolicyAssetTypePtrOutput() ApprovalPolicyAssetTypePtrOutput {
+	return o
+}
+
+func (o ApprovalPolicyAssetTypePtrOutput) ToApprovalPolicyAssetTypePtrOutputWithContext(ctx context.Context) ApprovalPolicyAssetTypePtrOutput {
+	return o
+}
+
+func (o ApprovalPolicyAssetTypePtrOutput) Elem() ApprovalPolicyAssetTypeOutput {
+	return o.ApplyT(func(v *ApprovalPolicyAssetType) ApprovalPolicyAssetType {
+		if v != nil {
+			return *v
+		}
+		var ret ApprovalPolicyAssetType
+		return ret
+	}).(ApprovalPolicyAssetTypeOutput)
+}
+
+func (o ApprovalPolicyAssetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyAssetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApprovalPolicyAssetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApprovalPolicyAssetTypeInput is an input type that accepts values of the ApprovalPolicyAssetType enum
+// A concrete instance of `ApprovalPolicyAssetTypeInput` can be one of the following:
+//
+//	ApprovalPolicyAssetTypeAgent
+//	ApprovalPolicyAssetTypeSpace
+//	ApprovalPolicyAssetTypeKnowledgeBase
+//	ApprovalPolicyAssetTypeFlow
+type ApprovalPolicyAssetTypeInput interface {
+	pulumi.Input
+
+	ToApprovalPolicyAssetTypeOutput() ApprovalPolicyAssetTypeOutput
+	ToApprovalPolicyAssetTypeOutputWithContext(context.Context) ApprovalPolicyAssetTypeOutput
+}
+
+var approvalPolicyAssetTypePtrType = reflect.TypeOf((**ApprovalPolicyAssetType)(nil)).Elem()
+
+type ApprovalPolicyAssetTypePtrInput interface {
+	pulumi.Input
+
+	ToApprovalPolicyAssetTypePtrOutput() ApprovalPolicyAssetTypePtrOutput
+	ToApprovalPolicyAssetTypePtrOutputWithContext(context.Context) ApprovalPolicyAssetTypePtrOutput
+}
+
+type approvalPolicyAssetTypePtr string
+
+func ApprovalPolicyAssetTypePtr(v string) ApprovalPolicyAssetTypePtrInput {
+	return (*approvalPolicyAssetTypePtr)(&v)
+}
+
+func (*approvalPolicyAssetTypePtr) ElementType() reflect.Type {
+	return approvalPolicyAssetTypePtrType
+}
+
+func (in *approvalPolicyAssetTypePtr) ToApprovalPolicyAssetTypePtrOutput() ApprovalPolicyAssetTypePtrOutput {
+	return pulumi.ToOutput(in).(ApprovalPolicyAssetTypePtrOutput)
+}
+
+func (in *approvalPolicyAssetTypePtr) ToApprovalPolicyAssetTypePtrOutputWithContext(ctx context.Context) ApprovalPolicyAssetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApprovalPolicyAssetTypePtrOutput)
+}
+
+// ApprovalPolicyAssetTypeArrayInput is an input type that accepts ApprovalPolicyAssetTypeArray and ApprovalPolicyAssetTypeArrayOutput values.
+// You can construct a concrete instance of `ApprovalPolicyAssetTypeArrayInput` via:
+//
+//	ApprovalPolicyAssetTypeArray{ ApprovalPolicyAssetTypeArgs{...} }
+type ApprovalPolicyAssetTypeArrayInput interface {
+	pulumi.Input
+
+	ToApprovalPolicyAssetTypeArrayOutput() ApprovalPolicyAssetTypeArrayOutput
+	ToApprovalPolicyAssetTypeArrayOutputWithContext(context.Context) ApprovalPolicyAssetTypeArrayOutput
+}
+
+type ApprovalPolicyAssetTypeArray []ApprovalPolicyAssetType
+
+func (ApprovalPolicyAssetTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApprovalPolicyAssetType)(nil)).Elem()
+}
+
+func (i ApprovalPolicyAssetTypeArray) ToApprovalPolicyAssetTypeArrayOutput() ApprovalPolicyAssetTypeArrayOutput {
+	return i.ToApprovalPolicyAssetTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ApprovalPolicyAssetTypeArray) ToApprovalPolicyAssetTypeArrayOutputWithContext(ctx context.Context) ApprovalPolicyAssetTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApprovalPolicyAssetTypeArrayOutput)
+}
+
+type ApprovalPolicyAssetTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyAssetTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApprovalPolicyAssetType)(nil)).Elem()
+}
+
+func (o ApprovalPolicyAssetTypeArrayOutput) ToApprovalPolicyAssetTypeArrayOutput() ApprovalPolicyAssetTypeArrayOutput {
+	return o
+}
+
+func (o ApprovalPolicyAssetTypeArrayOutput) ToApprovalPolicyAssetTypeArrayOutputWithContext(ctx context.Context) ApprovalPolicyAssetTypeArrayOutput {
+	return o
+}
+
+func (o ApprovalPolicyAssetTypeArrayOutput) Index(i pulumi.IntInput) ApprovalPolicyAssetTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApprovalPolicyAssetType {
+		return vs[0].([]ApprovalPolicyAssetType)[vs[1].(int)]
+	}).(ApprovalPolicyAssetTypeOutput)
+}
+
+// Actions that can be governed by approval policies.
+type ApprovalPolicyGovernedAction string
+
+const (
+	ApprovalPolicyGovernedActionShare = ApprovalPolicyGovernedAction("SHARE")
+)
+
+func (ApprovalPolicyGovernedAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApprovalPolicyGovernedAction)(nil)).Elem()
+}
+
+func (e ApprovalPolicyGovernedAction) ToApprovalPolicyGovernedActionOutput() ApprovalPolicyGovernedActionOutput {
+	return pulumi.ToOutput(e).(ApprovalPolicyGovernedActionOutput)
+}
+
+func (e ApprovalPolicyGovernedAction) ToApprovalPolicyGovernedActionOutputWithContext(ctx context.Context) ApprovalPolicyGovernedActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApprovalPolicyGovernedActionOutput)
+}
+
+func (e ApprovalPolicyGovernedAction) ToApprovalPolicyGovernedActionPtrOutput() ApprovalPolicyGovernedActionPtrOutput {
+	return e.ToApprovalPolicyGovernedActionPtrOutputWithContext(context.Background())
+}
+
+func (e ApprovalPolicyGovernedAction) ToApprovalPolicyGovernedActionPtrOutputWithContext(ctx context.Context) ApprovalPolicyGovernedActionPtrOutput {
+	return ApprovalPolicyGovernedAction(e).ToApprovalPolicyGovernedActionOutputWithContext(ctx).ToApprovalPolicyGovernedActionPtrOutputWithContext(ctx)
+}
+
+func (e ApprovalPolicyGovernedAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApprovalPolicyGovernedAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApprovalPolicyGovernedAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApprovalPolicyGovernedAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApprovalPolicyGovernedActionOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyGovernedActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApprovalPolicyGovernedAction)(nil)).Elem()
+}
+
+func (o ApprovalPolicyGovernedActionOutput) ToApprovalPolicyGovernedActionOutput() ApprovalPolicyGovernedActionOutput {
+	return o
+}
+
+func (o ApprovalPolicyGovernedActionOutput) ToApprovalPolicyGovernedActionOutputWithContext(ctx context.Context) ApprovalPolicyGovernedActionOutput {
+	return o
+}
+
+func (o ApprovalPolicyGovernedActionOutput) ToApprovalPolicyGovernedActionPtrOutput() ApprovalPolicyGovernedActionPtrOutput {
+	return o.ToApprovalPolicyGovernedActionPtrOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyGovernedActionOutput) ToApprovalPolicyGovernedActionPtrOutputWithContext(ctx context.Context) ApprovalPolicyGovernedActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApprovalPolicyGovernedAction) *ApprovalPolicyGovernedAction {
+		return &v
+	}).(ApprovalPolicyGovernedActionPtrOutput)
+}
+
+func (o ApprovalPolicyGovernedActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyGovernedActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApprovalPolicyGovernedAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApprovalPolicyGovernedActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyGovernedActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApprovalPolicyGovernedAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApprovalPolicyGovernedActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyGovernedActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApprovalPolicyGovernedAction)(nil)).Elem()
+}
+
+func (o ApprovalPolicyGovernedActionPtrOutput) ToApprovalPolicyGovernedActionPtrOutput() ApprovalPolicyGovernedActionPtrOutput {
+	return o
+}
+
+func (o ApprovalPolicyGovernedActionPtrOutput) ToApprovalPolicyGovernedActionPtrOutputWithContext(ctx context.Context) ApprovalPolicyGovernedActionPtrOutput {
+	return o
+}
+
+func (o ApprovalPolicyGovernedActionPtrOutput) Elem() ApprovalPolicyGovernedActionOutput {
+	return o.ApplyT(func(v *ApprovalPolicyGovernedAction) ApprovalPolicyGovernedAction {
+		if v != nil {
+			return *v
+		}
+		var ret ApprovalPolicyGovernedAction
+		return ret
+	}).(ApprovalPolicyGovernedActionOutput)
+}
+
+func (o ApprovalPolicyGovernedActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApprovalPolicyGovernedActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApprovalPolicyGovernedAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApprovalPolicyGovernedActionInput is an input type that accepts values of the ApprovalPolicyGovernedAction enum
+// A concrete instance of `ApprovalPolicyGovernedActionInput` can be one of the following:
+//
+//	ApprovalPolicyGovernedActionShare
+type ApprovalPolicyGovernedActionInput interface {
+	pulumi.Input
+
+	ToApprovalPolicyGovernedActionOutput() ApprovalPolicyGovernedActionOutput
+	ToApprovalPolicyGovernedActionOutputWithContext(context.Context) ApprovalPolicyGovernedActionOutput
+}
+
+var approvalPolicyGovernedActionPtrType = reflect.TypeOf((**ApprovalPolicyGovernedAction)(nil)).Elem()
+
+type ApprovalPolicyGovernedActionPtrInput interface {
+	pulumi.Input
+
+	ToApprovalPolicyGovernedActionPtrOutput() ApprovalPolicyGovernedActionPtrOutput
+	ToApprovalPolicyGovernedActionPtrOutputWithContext(context.Context) ApprovalPolicyGovernedActionPtrOutput
+}
+
+type approvalPolicyGovernedActionPtr string
+
+func ApprovalPolicyGovernedActionPtr(v string) ApprovalPolicyGovernedActionPtrInput {
+	return (*approvalPolicyGovernedActionPtr)(&v)
+}
+
+func (*approvalPolicyGovernedActionPtr) ElementType() reflect.Type {
+	return approvalPolicyGovernedActionPtrType
+}
+
+func (in *approvalPolicyGovernedActionPtr) ToApprovalPolicyGovernedActionPtrOutput() ApprovalPolicyGovernedActionPtrOutput {
+	return pulumi.ToOutput(in).(ApprovalPolicyGovernedActionPtrOutput)
+}
+
+func (in *approvalPolicyGovernedActionPtr) ToApprovalPolicyGovernedActionPtrOutputWithContext(ctx context.Context) ApprovalPolicyGovernedActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApprovalPolicyGovernedActionPtrOutput)
+}
+
+// ApprovalPolicyGovernedActionArrayInput is an input type that accepts ApprovalPolicyGovernedActionArray and ApprovalPolicyGovernedActionArrayOutput values.
+// You can construct a concrete instance of `ApprovalPolicyGovernedActionArrayInput` via:
+//
+//	ApprovalPolicyGovernedActionArray{ ApprovalPolicyGovernedActionArgs{...} }
+type ApprovalPolicyGovernedActionArrayInput interface {
+	pulumi.Input
+
+	ToApprovalPolicyGovernedActionArrayOutput() ApprovalPolicyGovernedActionArrayOutput
+	ToApprovalPolicyGovernedActionArrayOutputWithContext(context.Context) ApprovalPolicyGovernedActionArrayOutput
+}
+
+type ApprovalPolicyGovernedActionArray []ApprovalPolicyGovernedAction
+
+func (ApprovalPolicyGovernedActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApprovalPolicyGovernedAction)(nil)).Elem()
+}
+
+func (i ApprovalPolicyGovernedActionArray) ToApprovalPolicyGovernedActionArrayOutput() ApprovalPolicyGovernedActionArrayOutput {
+	return i.ToApprovalPolicyGovernedActionArrayOutputWithContext(context.Background())
+}
+
+func (i ApprovalPolicyGovernedActionArray) ToApprovalPolicyGovernedActionArrayOutputWithContext(ctx context.Context) ApprovalPolicyGovernedActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApprovalPolicyGovernedActionArrayOutput)
+}
+
+type ApprovalPolicyGovernedActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyGovernedActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApprovalPolicyGovernedAction)(nil)).Elem()
+}
+
+func (o ApprovalPolicyGovernedActionArrayOutput) ToApprovalPolicyGovernedActionArrayOutput() ApprovalPolicyGovernedActionArrayOutput {
+	return o
+}
+
+func (o ApprovalPolicyGovernedActionArrayOutput) ToApprovalPolicyGovernedActionArrayOutputWithContext(ctx context.Context) ApprovalPolicyGovernedActionArrayOutput {
+	return o
+}
+
+func (o ApprovalPolicyGovernedActionArrayOutput) Index(i pulumi.IntInput) ApprovalPolicyGovernedActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApprovalPolicyGovernedAction {
+		return vs[0].([]ApprovalPolicyGovernedAction)[vs[1].(int)]
+	}).(ApprovalPolicyGovernedActionOutput)
+}
+
 type CustomPermissionsCapabilityState string
 
 const (
@@ -81468,6 +82055,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWordCloudWordPaddingPtrInput)(nil)).Elem(), AnalysisWordCloudWordPadding("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWordCloudWordScalingInput)(nil)).Elem(), AnalysisWordCloudWordScaling("EMPHASIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWordCloudWordScalingPtrInput)(nil)).Elem(), AnalysisWordCloudWordScaling("EMPHASIZE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalPolicyApplicableToTypeInput)(nil)).Elem(), ApprovalPolicyApplicableToType("GROUP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalPolicyApplicableToTypePtrInput)(nil)).Elem(), ApprovalPolicyApplicableToType("GROUP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalPolicyAssetTypeInput)(nil)).Elem(), ApprovalPolicyAssetType("AGENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalPolicyAssetTypePtrInput)(nil)).Elem(), ApprovalPolicyAssetType("AGENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalPolicyAssetTypeArrayInput)(nil)).Elem(), ApprovalPolicyAssetTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalPolicyGovernedActionInput)(nil)).Elem(), ApprovalPolicyGovernedAction("SHARE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalPolicyGovernedActionPtrInput)(nil)).Elem(), ApprovalPolicyGovernedAction("SHARE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalPolicyGovernedActionArrayInput)(nil)).Elem(), ApprovalPolicyGovernedActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomPermissionsCapabilityStateInput)(nil)).Elem(), CustomPermissionsCapabilityState("DENY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomPermissionsCapabilityStatePtrInput)(nil)).Elem(), CustomPermissionsCapabilityState("DENY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAnchorOptionInput)(nil)).Elem(), DashboardAnchorOption("NOW"))
@@ -82422,6 +83017,14 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisWordCloudWordPaddingPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisWordCloudWordScalingOutput{})
 	pulumi.RegisterOutputType(AnalysisWordCloudWordScalingPtrOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyApplicableToTypeOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyApplicableToTypePtrOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyAssetTypeOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyAssetTypePtrOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyAssetTypeArrayOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyGovernedActionOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyGovernedActionPtrOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyGovernedActionArrayOutput{})
 	pulumi.RegisterOutputType(CustomPermissionsCapabilityStateOutput{})
 	pulumi.RegisterOutputType(CustomPermissionsCapabilityStatePtrOutput{})
 	pulumi.RegisterOutputType(DashboardAnchorOptionOutput{})

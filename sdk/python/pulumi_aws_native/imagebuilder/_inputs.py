@@ -92,10 +92,14 @@ __all__ = [
     'ImageWorkflowConfigurationArgsDict',
     'ImageWorkflowParameterArgs',
     'ImageWorkflowParameterArgsDict',
+    'InfrastructureConfigurationAutoScalingGroupArgs',
+    'InfrastructureConfigurationAutoScalingGroupArgsDict',
     'InfrastructureConfigurationInstanceMetadataOptionsArgs',
     'InfrastructureConfigurationInstanceMetadataOptionsArgsDict',
     'InfrastructureConfigurationLoggingArgs',
     'InfrastructureConfigurationLoggingArgsDict',
+    'InfrastructureConfigurationParentInstanceArgs',
+    'InfrastructureConfigurationParentInstanceArgsDict',
     'InfrastructureConfigurationPlacementArgs',
     'InfrastructureConfigurationPlacementArgsDict',
     'InfrastructureConfigurationS3LogsArgs',
@@ -2864,6 +2868,59 @@ class ImageWorkflowParameterArgs:
         pulumi.set(self, "value", value)
 
 
+class InfrastructureConfigurationAutoScalingGroupArgsDict(TypedDict):
+    """
+    Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+    """
+    capacity_wait_timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+    """
+
+@pulumi.input_type
+class InfrastructureConfigurationAutoScalingGroupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 capacity_wait_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+
+        :param pulumi.Input[_builtins.str] name: The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+        :param pulumi.Input[_builtins.int] capacity_wait_timeout_seconds: The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity_wait_timeout_seconds is not None:
+            pulumi.set(__self__, "capacity_wait_timeout_seconds", capacity_wait_timeout_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityWaitTimeoutSeconds")
+    def capacity_wait_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+        """
+        return pulumi.get(self, "capacity_wait_timeout_seconds")
+
+    @capacity_wait_timeout_seconds.setter
+    def capacity_wait_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "capacity_wait_timeout_seconds", value)
+
+
 class InfrastructureConfigurationInstanceMetadataOptionsArgsDict(TypedDict):
     """
     The instance metadata option settings for the infrastructure configuration.
@@ -2950,6 +3007,39 @@ class InfrastructureConfigurationLoggingArgs:
     @s3_logs.setter
     def s3_logs(self, value: pulumi.Input[Optional['InfrastructureConfigurationS3LogsArgs']]):
         pulumi.set(self, "s3_logs", value)
+
+
+class InfrastructureConfigurationParentInstanceArgsDict(TypedDict):
+    """
+    Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+    """
+    auto_scaling_group: pulumi.Input['InfrastructureConfigurationAutoScalingGroupArgsDict']
+    """
+    The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+    """
+
+@pulumi.input_type
+class InfrastructureConfigurationParentInstanceArgs:
+    def __init__(__self__, *,
+                 auto_scaling_group: pulumi.Input['InfrastructureConfigurationAutoScalingGroupArgs']):
+        """
+        Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+
+        :param pulumi.Input['InfrastructureConfigurationAutoScalingGroupArgs'] auto_scaling_group: The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+        """
+        pulumi.set(__self__, "auto_scaling_group", auto_scaling_group)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingGroup")
+    def auto_scaling_group(self) -> pulumi.Input['InfrastructureConfigurationAutoScalingGroupArgs']:
+        """
+        The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+        """
+        return pulumi.get(self, "auto_scaling_group")
+
+    @auto_scaling_group.setter
+    def auto_scaling_group(self, value: pulumi.Input['InfrastructureConfigurationAutoScalingGroupArgs']):
+        pulumi.set(self, "auto_scaling_group", value)
 
 
 class InfrastructureConfigurationPlacementArgsDict(TypedDict):

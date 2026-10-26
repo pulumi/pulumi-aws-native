@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.MediaTailor.Outputs
         /// </summary>
         public readonly string? Body;
         /// <summary>
+        /// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+        /// </summary>
+        public readonly Outputs.FunctionHttpRequestCacheConfiguration? Cache;
+        /// <summary>
         /// A map of HTTP headers to include in the request.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Headers;
@@ -49,6 +53,8 @@ namespace Pulumi.AwsNative.MediaTailor.Outputs
         private FunctionHttpRequestConfiguration(
             string? body,
 
+            Outputs.FunctionHttpRequestCacheConfiguration? cache,
+
             ImmutableDictionary<string, string>? headers,
 
             Pulumi.AwsNative.MediaTailor.FunctionMethodType methodType,
@@ -62,6 +68,7 @@ namespace Pulumi.AwsNative.MediaTailor.Outputs
             string url)
         {
             Body = body;
+            Cache = cache;
             Headers = headers;
             MethodType = methodType;
             Output = output;

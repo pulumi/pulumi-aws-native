@@ -48016,9 +48016,8 @@ class AnalysisYAxisOptionsArgs:
 class ApprovalPolicyApplicableToArgsDict(TypedDict):
     """
     Scoping: who the policy applies to.
-    GROUP: `groupArns` required (one or more group ARNs).
     """
-    type: Any
+    type: pulumi.Input['ApprovalPolicyApplicableToType']
     group_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Required when type = GROUP. One or more group ARNs.
@@ -48027,11 +48026,10 @@ class ApprovalPolicyApplicableToArgsDict(TypedDict):
 @pulumi.input_type
 class ApprovalPolicyApplicableToArgs:
     def __init__(__self__, *,
-                 type: Any,
+                 type: pulumi.Input['ApprovalPolicyApplicableToType'],
                  group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Scoping: who the policy applies to.
-        GROUP: `groupArns` required (one or more group ARNs).
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_arns: Required when type = GROUP. One or more group ARNs.
         """
@@ -48041,11 +48039,11 @@ class ApprovalPolicyApplicableToArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> pulumi.Input['ApprovalPolicyApplicableToType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Any):
+    def type(self, value: pulumi.Input['ApprovalPolicyApplicableToType']):
         pulumi.set(self, "type", value)
 
     @_builtins.property

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInfrastructureConfigurationResult:
-    def __init__(__self__, arn=None, description=None, instance_metadata_options=None, instance_profile_name=None, instance_types=None, key_pair=None, logging=None, placement=None, resource_tags=None, security_group_ids=None, sns_topic_arn=None, subnet_id=None, tags=None, terminate_instance_on_failure=None):
+    def __init__(__self__, arn=None, description=None, instance_metadata_options=None, instance_profile_name=None, instance_types=None, key_pair=None, logging=None, parent_instance=None, placement=None, resource_tags=None, security_group_ids=None, sns_topic_arn=None, subnet_id=None, tags=None, terminate_instance_on_completion=None, terminate_instance_on_failure=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetInfrastructureConfigurationResult:
         if logging and not isinstance(logging, dict):
             raise TypeError("Expected argument 'logging' to be a dict")
         pulumi.set(__self__, "logging", logging)
+        if parent_instance and not isinstance(parent_instance, dict):
+            raise TypeError("Expected argument 'parent_instance' to be a dict")
+        pulumi.set(__self__, "parent_instance", parent_instance)
         if placement and not isinstance(placement, dict):
             raise TypeError("Expected argument 'placement' to be a dict")
         pulumi.set(__self__, "placement", placement)
@@ -65,6 +68,9 @@ class GetInfrastructureConfigurationResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if terminate_instance_on_completion and not isinstance(terminate_instance_on_completion, bool):
+            raise TypeError("Expected argument 'terminate_instance_on_completion' to be a bool")
+        pulumi.set(__self__, "terminate_instance_on_completion", terminate_instance_on_completion)
         if terminate_instance_on_failure and not isinstance(terminate_instance_on_failure, bool):
             raise TypeError("Expected argument 'terminate_instance_on_failure' to be a bool")
         pulumi.set(__self__, "terminate_instance_on_failure", terminate_instance_on_failure)
@@ -126,6 +132,14 @@ class GetInfrastructureConfigurationResult:
         return pulumi.get(self, "logging")
 
     @_builtins.property
+    @pulumi.getter(name="parentInstance")
+    def parent_instance(self) -> Optional['outputs.InfrastructureConfigurationParentInstance']:
+        """
+        The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+        """
+        return pulumi.get(self, "parent_instance")
+
+    @_builtins.property
     @pulumi.getter
     def placement(self) -> Optional['outputs.InfrastructureConfigurationPlacement']:
         """
@@ -174,6 +188,14 @@ class GetInfrastructureConfigurationResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="terminateInstanceOnCompletion")
+    def terminate_instance_on_completion(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+        """
+        return pulumi.get(self, "terminate_instance_on_completion")
+
+    @_builtins.property
     @pulumi.getter(name="terminateInstanceOnFailure")
     def terminate_instance_on_failure(self) -> Optional[_builtins.bool]:
         """
@@ -195,12 +217,14 @@ class AwaitableGetInfrastructureConfigurationResult(GetInfrastructureConfigurati
             instance_types=self.instance_types,
             key_pair=self.key_pair,
             logging=self.logging,
+            parent_instance=self.parent_instance,
             placement=self.placement,
             resource_tags=self.resource_tags,
             security_group_ids=self.security_group_ids,
             sns_topic_arn=self.sns_topic_arn,
             subnet_id=self.subnet_id,
             tags=self.tags,
+            terminate_instance_on_completion=self.terminate_instance_on_completion,
             terminate_instance_on_failure=self.terminate_instance_on_failure)
 
 
@@ -224,12 +248,14 @@ def get_infrastructure_configuration(arn: Optional[_builtins.str] = None,
         instance_types=pulumi.get(__ret__, 'instance_types'),
         key_pair=pulumi.get(__ret__, 'key_pair'),
         logging=pulumi.get(__ret__, 'logging'),
+        parent_instance=pulumi.get(__ret__, 'parent_instance'),
         placement=pulumi.get(__ret__, 'placement'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
+        terminate_instance_on_completion=pulumi.get(__ret__, 'terminate_instance_on_completion'),
         terminate_instance_on_failure=pulumi.get(__ret__, 'terminate_instance_on_failure'))
 def get_infrastructure_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfrastructureConfigurationResult]:
@@ -250,10 +276,12 @@ def get_infrastructure_configuration_output(arn: pulumi.Input[Optional[_builtins
         instance_types=pulumi.get(__response__, 'instance_types'),
         key_pair=pulumi.get(__response__, 'key_pair'),
         logging=pulumi.get(__response__, 'logging'),
+        parent_instance=pulumi.get(__response__, 'parent_instance'),
         placement=pulumi.get(__response__, 'placement'),
         resource_tags=pulumi.get(__response__, 'resource_tags'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn'),
         subnet_id=pulumi.get(__response__, 'subnet_id'),
         tags=pulumi.get(__response__, 'tags'),
+        terminate_instance_on_completion=pulumi.get(__response__, 'terminate_instance_on_completion'),
         terminate_instance_on_failure=pulumi.get(__response__, 'terminate_instance_on_failure')))

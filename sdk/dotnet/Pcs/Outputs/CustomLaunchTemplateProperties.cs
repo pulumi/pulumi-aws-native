@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.Pcs.Outputs
         /// <summary>
         /// The version of the EC2 launch template to use to provision instances.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private CustomLaunchTemplateProperties(
             string? templateId,
 
-            string version)
+            string? version)
         {
             TemplateId = templateId;
             Version = version;

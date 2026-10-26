@@ -8006,6 +8006,2923 @@ func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Action() Mitigat
 	}).(MitigationActionUpdateDeviceCertificateParamsActionPtrOutput)
 }
 
+type OtaUpdateAwsJobAbortConfig struct {
+	// The list of criteria that determine when and how to abort the job.
+	AbortCriteriaList []OtaUpdateAwsJobAbortCriteria `pulumi:"abortCriteriaList"`
+}
+
+// OtaUpdateAwsJobAbortConfigInput is an input type that accepts OtaUpdateAwsJobAbortConfigArgs and OtaUpdateAwsJobAbortConfigOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobAbortConfigInput` via:
+//
+//	OtaUpdateAwsJobAbortConfigArgs{...}
+type OtaUpdateAwsJobAbortConfigInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobAbortConfigOutput() OtaUpdateAwsJobAbortConfigOutput
+	ToOtaUpdateAwsJobAbortConfigOutputWithContext(context.Context) OtaUpdateAwsJobAbortConfigOutput
+}
+
+type OtaUpdateAwsJobAbortConfigArgs struct {
+	// The list of criteria that determine when and how to abort the job.
+	AbortCriteriaList OtaUpdateAwsJobAbortCriteriaArrayInput `pulumi:"abortCriteriaList"`
+}
+
+func (OtaUpdateAwsJobAbortConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobAbortConfig)(nil)).Elem()
+}
+
+func (i OtaUpdateAwsJobAbortConfigArgs) ToOtaUpdateAwsJobAbortConfigOutput() OtaUpdateAwsJobAbortConfigOutput {
+	return i.ToOtaUpdateAwsJobAbortConfigOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobAbortConfigArgs) ToOtaUpdateAwsJobAbortConfigOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobAbortConfigOutput)
+}
+
+func (i OtaUpdateAwsJobAbortConfigArgs) ToOtaUpdateAwsJobAbortConfigPtrOutput() OtaUpdateAwsJobAbortConfigPtrOutput {
+	return i.ToOtaUpdateAwsJobAbortConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobAbortConfigArgs) ToOtaUpdateAwsJobAbortConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobAbortConfigOutput).ToOtaUpdateAwsJobAbortConfigPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateAwsJobAbortConfigPtrInput is an input type that accepts OtaUpdateAwsJobAbortConfigArgs, OtaUpdateAwsJobAbortConfigPtr and OtaUpdateAwsJobAbortConfigPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobAbortConfigPtrInput` via:
+//
+//	        OtaUpdateAwsJobAbortConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateAwsJobAbortConfigPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobAbortConfigPtrOutput() OtaUpdateAwsJobAbortConfigPtrOutput
+	ToOtaUpdateAwsJobAbortConfigPtrOutputWithContext(context.Context) OtaUpdateAwsJobAbortConfigPtrOutput
+}
+
+type otaUpdateAwsJobAbortConfigPtrType OtaUpdateAwsJobAbortConfigArgs
+
+func OtaUpdateAwsJobAbortConfigPtr(v *OtaUpdateAwsJobAbortConfigArgs) OtaUpdateAwsJobAbortConfigPtrInput {
+	return (*otaUpdateAwsJobAbortConfigPtrType)(v)
+}
+
+func (*otaUpdateAwsJobAbortConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobAbortConfig)(nil)).Elem()
+}
+
+func (i *otaUpdateAwsJobAbortConfigPtrType) ToOtaUpdateAwsJobAbortConfigPtrOutput() OtaUpdateAwsJobAbortConfigPtrOutput {
+	return i.ToOtaUpdateAwsJobAbortConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateAwsJobAbortConfigPtrType) ToOtaUpdateAwsJobAbortConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobAbortConfigPtrOutput)
+}
+
+type OtaUpdateAwsJobAbortConfigOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobAbortConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobAbortConfig)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobAbortConfigOutput) ToOtaUpdateAwsJobAbortConfigOutput() OtaUpdateAwsJobAbortConfigOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortConfigOutput) ToOtaUpdateAwsJobAbortConfigOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortConfigOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortConfigOutput) ToOtaUpdateAwsJobAbortConfigPtrOutput() OtaUpdateAwsJobAbortConfigPtrOutput {
+	return o.ToOtaUpdateAwsJobAbortConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobAbortConfigOutput) ToOtaUpdateAwsJobAbortConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateAwsJobAbortConfig) *OtaUpdateAwsJobAbortConfig {
+		return &v
+	}).(OtaUpdateAwsJobAbortConfigPtrOutput)
+}
+
+// The list of criteria that determine when and how to abort the job.
+func (o OtaUpdateAwsJobAbortConfigOutput) AbortCriteriaList() OtaUpdateAwsJobAbortCriteriaArrayOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobAbortConfig) []OtaUpdateAwsJobAbortCriteria { return v.AbortCriteriaList }).(OtaUpdateAwsJobAbortCriteriaArrayOutput)
+}
+
+type OtaUpdateAwsJobAbortConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobAbortConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobAbortConfig)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobAbortConfigPtrOutput) ToOtaUpdateAwsJobAbortConfigPtrOutput() OtaUpdateAwsJobAbortConfigPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortConfigPtrOutput) ToOtaUpdateAwsJobAbortConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortConfigPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortConfigPtrOutput) Elem() OtaUpdateAwsJobAbortConfigOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobAbortConfig) OtaUpdateAwsJobAbortConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateAwsJobAbortConfig
+		return ret
+	}).(OtaUpdateAwsJobAbortConfigOutput)
+}
+
+// The list of criteria that determine when and how to abort the job.
+func (o OtaUpdateAwsJobAbortConfigPtrOutput) AbortCriteriaList() OtaUpdateAwsJobAbortCriteriaArrayOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobAbortConfig) []OtaUpdateAwsJobAbortCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.AbortCriteriaList
+	}).(OtaUpdateAwsJobAbortCriteriaArrayOutput)
+}
+
+type OtaUpdateAwsJobAbortCriteria struct {
+	// The type of job action to take to initiate the job abort.
+	Action OtaUpdateAwsJobAbortCriteriaAction `pulumi:"action"`
+	// The type of job execution failures that can initiate a job abort.
+	FailureType OtaUpdateAwsJobAbortCriteriaFailureType `pulumi:"failureType"`
+	// The minimum number of things which must receive job execution notifications before the job can be aborted.
+	MinNumberOfExecutedThings int `pulumi:"minNumberOfExecutedThings"`
+	// The minimum percentage of job execution failures that must occur to initiate the job abort.
+	ThresholdPercentage float64 `pulumi:"thresholdPercentage"`
+}
+
+// OtaUpdateAwsJobAbortCriteriaInput is an input type that accepts OtaUpdateAwsJobAbortCriteriaArgs and OtaUpdateAwsJobAbortCriteriaOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobAbortCriteriaInput` via:
+//
+//	OtaUpdateAwsJobAbortCriteriaArgs{...}
+type OtaUpdateAwsJobAbortCriteriaInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobAbortCriteriaOutput() OtaUpdateAwsJobAbortCriteriaOutput
+	ToOtaUpdateAwsJobAbortCriteriaOutputWithContext(context.Context) OtaUpdateAwsJobAbortCriteriaOutput
+}
+
+type OtaUpdateAwsJobAbortCriteriaArgs struct {
+	// The type of job action to take to initiate the job abort.
+	Action OtaUpdateAwsJobAbortCriteriaActionInput `pulumi:"action"`
+	// The type of job execution failures that can initiate a job abort.
+	FailureType OtaUpdateAwsJobAbortCriteriaFailureTypeInput `pulumi:"failureType"`
+	// The minimum number of things which must receive job execution notifications before the job can be aborted.
+	MinNumberOfExecutedThings pulumi.IntInput `pulumi:"minNumberOfExecutedThings"`
+	// The minimum percentage of job execution failures that must occur to initiate the job abort.
+	ThresholdPercentage pulumi.Float64Input `pulumi:"thresholdPercentage"`
+}
+
+func (OtaUpdateAwsJobAbortCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobAbortCriteria)(nil)).Elem()
+}
+
+func (i OtaUpdateAwsJobAbortCriteriaArgs) ToOtaUpdateAwsJobAbortCriteriaOutput() OtaUpdateAwsJobAbortCriteriaOutput {
+	return i.ToOtaUpdateAwsJobAbortCriteriaOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobAbortCriteriaArgs) ToOtaUpdateAwsJobAbortCriteriaOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobAbortCriteriaOutput)
+}
+
+// OtaUpdateAwsJobAbortCriteriaArrayInput is an input type that accepts OtaUpdateAwsJobAbortCriteriaArray and OtaUpdateAwsJobAbortCriteriaArrayOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobAbortCriteriaArrayInput` via:
+//
+//	OtaUpdateAwsJobAbortCriteriaArray{ OtaUpdateAwsJobAbortCriteriaArgs{...} }
+type OtaUpdateAwsJobAbortCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobAbortCriteriaArrayOutput() OtaUpdateAwsJobAbortCriteriaArrayOutput
+	ToOtaUpdateAwsJobAbortCriteriaArrayOutputWithContext(context.Context) OtaUpdateAwsJobAbortCriteriaArrayOutput
+}
+
+type OtaUpdateAwsJobAbortCriteriaArray []OtaUpdateAwsJobAbortCriteriaInput
+
+func (OtaUpdateAwsJobAbortCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtaUpdateAwsJobAbortCriteria)(nil)).Elem()
+}
+
+func (i OtaUpdateAwsJobAbortCriteriaArray) ToOtaUpdateAwsJobAbortCriteriaArrayOutput() OtaUpdateAwsJobAbortCriteriaArrayOutput {
+	return i.ToOtaUpdateAwsJobAbortCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobAbortCriteriaArray) ToOtaUpdateAwsJobAbortCriteriaArrayOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobAbortCriteriaArrayOutput)
+}
+
+type OtaUpdateAwsJobAbortCriteriaOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobAbortCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobAbortCriteria)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaOutput) ToOtaUpdateAwsJobAbortCriteriaOutput() OtaUpdateAwsJobAbortCriteriaOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaOutput) ToOtaUpdateAwsJobAbortCriteriaOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaOutput {
+	return o
+}
+
+// The type of job action to take to initiate the job abort.
+func (o OtaUpdateAwsJobAbortCriteriaOutput) Action() OtaUpdateAwsJobAbortCriteriaActionOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobAbortCriteria) OtaUpdateAwsJobAbortCriteriaAction { return v.Action }).(OtaUpdateAwsJobAbortCriteriaActionOutput)
+}
+
+// The type of job execution failures that can initiate a job abort.
+func (o OtaUpdateAwsJobAbortCriteriaOutput) FailureType() OtaUpdateAwsJobAbortCriteriaFailureTypeOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobAbortCriteria) OtaUpdateAwsJobAbortCriteriaFailureType { return v.FailureType }).(OtaUpdateAwsJobAbortCriteriaFailureTypeOutput)
+}
+
+// The minimum number of things which must receive job execution notifications before the job can be aborted.
+func (o OtaUpdateAwsJobAbortCriteriaOutput) MinNumberOfExecutedThings() pulumi.IntOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobAbortCriteria) int { return v.MinNumberOfExecutedThings }).(pulumi.IntOutput)
+}
+
+// The minimum percentage of job execution failures that must occur to initiate the job abort.
+func (o OtaUpdateAwsJobAbortCriteriaOutput) ThresholdPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v OtaUpdateAwsJobAbortCriteria) float64 { return v.ThresholdPercentage }).(pulumi.Float64Output)
+}
+
+type OtaUpdateAwsJobAbortCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobAbortCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtaUpdateAwsJobAbortCriteria)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaArrayOutput) ToOtaUpdateAwsJobAbortCriteriaArrayOutput() OtaUpdateAwsJobAbortCriteriaArrayOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaArrayOutput) ToOtaUpdateAwsJobAbortCriteriaArrayOutputWithContext(ctx context.Context) OtaUpdateAwsJobAbortCriteriaArrayOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobAbortCriteriaArrayOutput) Index(i pulumi.IntInput) OtaUpdateAwsJobAbortCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OtaUpdateAwsJobAbortCriteria {
+		return vs[0].([]OtaUpdateAwsJobAbortCriteria)[vs[1].(int)]
+	}).(OtaUpdateAwsJobAbortCriteriaOutput)
+}
+
+type OtaUpdateAwsJobExecutionsRolloutConfig struct {
+	ExponentialRate *OtaUpdateAwsJobExponentialRolloutRate `pulumi:"exponentialRate"`
+	// The maximum number of OTA update job executions started per minute.
+	MaximumPerMinute *int `pulumi:"maximumPerMinute"`
+}
+
+// OtaUpdateAwsJobExecutionsRolloutConfigInput is an input type that accepts OtaUpdateAwsJobExecutionsRolloutConfigArgs and OtaUpdateAwsJobExecutionsRolloutConfigOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobExecutionsRolloutConfigInput` via:
+//
+//	OtaUpdateAwsJobExecutionsRolloutConfigArgs{...}
+type OtaUpdateAwsJobExecutionsRolloutConfigInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobExecutionsRolloutConfigOutput() OtaUpdateAwsJobExecutionsRolloutConfigOutput
+	ToOtaUpdateAwsJobExecutionsRolloutConfigOutputWithContext(context.Context) OtaUpdateAwsJobExecutionsRolloutConfigOutput
+}
+
+type OtaUpdateAwsJobExecutionsRolloutConfigArgs struct {
+	ExponentialRate OtaUpdateAwsJobExponentialRolloutRatePtrInput `pulumi:"exponentialRate"`
+	// The maximum number of OTA update job executions started per minute.
+	MaximumPerMinute pulumi.IntPtrInput `pulumi:"maximumPerMinute"`
+}
+
+func (OtaUpdateAwsJobExecutionsRolloutConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (i OtaUpdateAwsJobExecutionsRolloutConfigArgs) ToOtaUpdateAwsJobExecutionsRolloutConfigOutput() OtaUpdateAwsJobExecutionsRolloutConfigOutput {
+	return i.ToOtaUpdateAwsJobExecutionsRolloutConfigOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobExecutionsRolloutConfigArgs) ToOtaUpdateAwsJobExecutionsRolloutConfigOutputWithContext(ctx context.Context) OtaUpdateAwsJobExecutionsRolloutConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobExecutionsRolloutConfigOutput)
+}
+
+func (i OtaUpdateAwsJobExecutionsRolloutConfigArgs) ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutput() OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput {
+	return i.ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobExecutionsRolloutConfigArgs) ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobExecutionsRolloutConfigOutput).ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateAwsJobExecutionsRolloutConfigPtrInput is an input type that accepts OtaUpdateAwsJobExecutionsRolloutConfigArgs, OtaUpdateAwsJobExecutionsRolloutConfigPtr and OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobExecutionsRolloutConfigPtrInput` via:
+//
+//	        OtaUpdateAwsJobExecutionsRolloutConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateAwsJobExecutionsRolloutConfigPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutput() OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput
+	ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutputWithContext(context.Context) OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput
+}
+
+type otaUpdateAwsJobExecutionsRolloutConfigPtrType OtaUpdateAwsJobExecutionsRolloutConfigArgs
+
+func OtaUpdateAwsJobExecutionsRolloutConfigPtr(v *OtaUpdateAwsJobExecutionsRolloutConfigArgs) OtaUpdateAwsJobExecutionsRolloutConfigPtrInput {
+	return (*otaUpdateAwsJobExecutionsRolloutConfigPtrType)(v)
+}
+
+func (*otaUpdateAwsJobExecutionsRolloutConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (i *otaUpdateAwsJobExecutionsRolloutConfigPtrType) ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutput() OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput {
+	return i.ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateAwsJobExecutionsRolloutConfigPtrType) ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput)
+}
+
+type OtaUpdateAwsJobExecutionsRolloutConfigOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobExecutionsRolloutConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobExecutionsRolloutConfigOutput) ToOtaUpdateAwsJobExecutionsRolloutConfigOutput() OtaUpdateAwsJobExecutionsRolloutConfigOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobExecutionsRolloutConfigOutput) ToOtaUpdateAwsJobExecutionsRolloutConfigOutputWithContext(ctx context.Context) OtaUpdateAwsJobExecutionsRolloutConfigOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobExecutionsRolloutConfigOutput) ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutput() OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput {
+	return o.ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobExecutionsRolloutConfigOutput) ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateAwsJobExecutionsRolloutConfig) *OtaUpdateAwsJobExecutionsRolloutConfig {
+		return &v
+	}).(OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput)
+}
+
+func (o OtaUpdateAwsJobExecutionsRolloutConfigOutput) ExponentialRate() OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobExecutionsRolloutConfig) *OtaUpdateAwsJobExponentialRolloutRate {
+		return v.ExponentialRate
+	}).(OtaUpdateAwsJobExponentialRolloutRatePtrOutput)
+}
+
+// The maximum number of OTA update job executions started per minute.
+func (o OtaUpdateAwsJobExecutionsRolloutConfigOutput) MaximumPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobExecutionsRolloutConfig) *int { return v.MaximumPerMinute }).(pulumi.IntPtrOutput)
+}
+
+type OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput) ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutput() OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput) ToOtaUpdateAwsJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput) Elem() OtaUpdateAwsJobExecutionsRolloutConfigOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobExecutionsRolloutConfig) OtaUpdateAwsJobExecutionsRolloutConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateAwsJobExecutionsRolloutConfig
+		return ret
+	}).(OtaUpdateAwsJobExecutionsRolloutConfigOutput)
+}
+
+func (o OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput) ExponentialRate() OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobExecutionsRolloutConfig) *OtaUpdateAwsJobExponentialRolloutRate {
+		if v == nil {
+			return nil
+		}
+		return v.ExponentialRate
+	}).(OtaUpdateAwsJobExponentialRolloutRatePtrOutput)
+}
+
+// The maximum number of OTA update job executions started per minute.
+func (o OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput) MaximumPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobExecutionsRolloutConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumPerMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+type OtaUpdateAwsJobExponentialRolloutRate struct {
+	// The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+	BaseRatePerMinute int `pulumi:"baseRatePerMinute"`
+	// The rate of increase for a job rollout.
+	IncrementFactor      float64                             `pulumi:"incrementFactor"`
+	RateIncreaseCriteria OtaUpdateAwsJobRateIncreaseCriteria `pulumi:"rateIncreaseCriteria"`
+}
+
+// OtaUpdateAwsJobExponentialRolloutRateInput is an input type that accepts OtaUpdateAwsJobExponentialRolloutRateArgs and OtaUpdateAwsJobExponentialRolloutRateOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobExponentialRolloutRateInput` via:
+//
+//	OtaUpdateAwsJobExponentialRolloutRateArgs{...}
+type OtaUpdateAwsJobExponentialRolloutRateInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobExponentialRolloutRateOutput() OtaUpdateAwsJobExponentialRolloutRateOutput
+	ToOtaUpdateAwsJobExponentialRolloutRateOutputWithContext(context.Context) OtaUpdateAwsJobExponentialRolloutRateOutput
+}
+
+type OtaUpdateAwsJobExponentialRolloutRateArgs struct {
+	// The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+	BaseRatePerMinute pulumi.IntInput `pulumi:"baseRatePerMinute"`
+	// The rate of increase for a job rollout.
+	IncrementFactor      pulumi.Float64Input                      `pulumi:"incrementFactor"`
+	RateIncreaseCriteria OtaUpdateAwsJobRateIncreaseCriteriaInput `pulumi:"rateIncreaseCriteria"`
+}
+
+func (OtaUpdateAwsJobExponentialRolloutRateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (i OtaUpdateAwsJobExponentialRolloutRateArgs) ToOtaUpdateAwsJobExponentialRolloutRateOutput() OtaUpdateAwsJobExponentialRolloutRateOutput {
+	return i.ToOtaUpdateAwsJobExponentialRolloutRateOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobExponentialRolloutRateArgs) ToOtaUpdateAwsJobExponentialRolloutRateOutputWithContext(ctx context.Context) OtaUpdateAwsJobExponentialRolloutRateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobExponentialRolloutRateOutput)
+}
+
+func (i OtaUpdateAwsJobExponentialRolloutRateArgs) ToOtaUpdateAwsJobExponentialRolloutRatePtrOutput() OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return i.ToOtaUpdateAwsJobExponentialRolloutRatePtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobExponentialRolloutRateArgs) ToOtaUpdateAwsJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobExponentialRolloutRateOutput).ToOtaUpdateAwsJobExponentialRolloutRatePtrOutputWithContext(ctx)
+}
+
+// OtaUpdateAwsJobExponentialRolloutRatePtrInput is an input type that accepts OtaUpdateAwsJobExponentialRolloutRateArgs, OtaUpdateAwsJobExponentialRolloutRatePtr and OtaUpdateAwsJobExponentialRolloutRatePtrOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobExponentialRolloutRatePtrInput` via:
+//
+//	        OtaUpdateAwsJobExponentialRolloutRateArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateAwsJobExponentialRolloutRatePtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobExponentialRolloutRatePtrOutput() OtaUpdateAwsJobExponentialRolloutRatePtrOutput
+	ToOtaUpdateAwsJobExponentialRolloutRatePtrOutputWithContext(context.Context) OtaUpdateAwsJobExponentialRolloutRatePtrOutput
+}
+
+type otaUpdateAwsJobExponentialRolloutRatePtrType OtaUpdateAwsJobExponentialRolloutRateArgs
+
+func OtaUpdateAwsJobExponentialRolloutRatePtr(v *OtaUpdateAwsJobExponentialRolloutRateArgs) OtaUpdateAwsJobExponentialRolloutRatePtrInput {
+	return (*otaUpdateAwsJobExponentialRolloutRatePtrType)(v)
+}
+
+func (*otaUpdateAwsJobExponentialRolloutRatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (i *otaUpdateAwsJobExponentialRolloutRatePtrType) ToOtaUpdateAwsJobExponentialRolloutRatePtrOutput() OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return i.ToOtaUpdateAwsJobExponentialRolloutRatePtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateAwsJobExponentialRolloutRatePtrType) ToOtaUpdateAwsJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobExponentialRolloutRatePtrOutput)
+}
+
+type OtaUpdateAwsJobExponentialRolloutRateOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobExponentialRolloutRateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobExponentialRolloutRateOutput) ToOtaUpdateAwsJobExponentialRolloutRateOutput() OtaUpdateAwsJobExponentialRolloutRateOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobExponentialRolloutRateOutput) ToOtaUpdateAwsJobExponentialRolloutRateOutputWithContext(ctx context.Context) OtaUpdateAwsJobExponentialRolloutRateOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobExponentialRolloutRateOutput) ToOtaUpdateAwsJobExponentialRolloutRatePtrOutput() OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return o.ToOtaUpdateAwsJobExponentialRolloutRatePtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobExponentialRolloutRateOutput) ToOtaUpdateAwsJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateAwsJobExponentialRolloutRate) *OtaUpdateAwsJobExponentialRolloutRate {
+		return &v
+	}).(OtaUpdateAwsJobExponentialRolloutRatePtrOutput)
+}
+
+// The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+func (o OtaUpdateAwsJobExponentialRolloutRateOutput) BaseRatePerMinute() pulumi.IntOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobExponentialRolloutRate) int { return v.BaseRatePerMinute }).(pulumi.IntOutput)
+}
+
+// The rate of increase for a job rollout.
+func (o OtaUpdateAwsJobExponentialRolloutRateOutput) IncrementFactor() pulumi.Float64Output {
+	return o.ApplyT(func(v OtaUpdateAwsJobExponentialRolloutRate) float64 { return v.IncrementFactor }).(pulumi.Float64Output)
+}
+
+func (o OtaUpdateAwsJobExponentialRolloutRateOutput) RateIncreaseCriteria() OtaUpdateAwsJobRateIncreaseCriteriaOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobExponentialRolloutRate) OtaUpdateAwsJobRateIncreaseCriteria {
+		return v.RateIncreaseCriteria
+	}).(OtaUpdateAwsJobRateIncreaseCriteriaOutput)
+}
+
+type OtaUpdateAwsJobExponentialRolloutRatePtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobExponentialRolloutRatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobExponentialRolloutRatePtrOutput) ToOtaUpdateAwsJobExponentialRolloutRatePtrOutput() OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobExponentialRolloutRatePtrOutput) ToOtaUpdateAwsJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobExponentialRolloutRatePtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobExponentialRolloutRatePtrOutput) Elem() OtaUpdateAwsJobExponentialRolloutRateOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobExponentialRolloutRate) OtaUpdateAwsJobExponentialRolloutRate {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateAwsJobExponentialRolloutRate
+		return ret
+	}).(OtaUpdateAwsJobExponentialRolloutRateOutput)
+}
+
+// The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+func (o OtaUpdateAwsJobExponentialRolloutRatePtrOutput) BaseRatePerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobExponentialRolloutRate) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseRatePerMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+// The rate of increase for a job rollout.
+func (o OtaUpdateAwsJobExponentialRolloutRatePtrOutput) IncrementFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobExponentialRolloutRate) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.IncrementFactor
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o OtaUpdateAwsJobExponentialRolloutRatePtrOutput) RateIncreaseCriteria() OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobExponentialRolloutRate) *OtaUpdateAwsJobRateIncreaseCriteria {
+		if v == nil {
+			return nil
+		}
+		return &v.RateIncreaseCriteria
+	}).(OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput)
+}
+
+type OtaUpdateAwsJobPresignedUrlConfig struct {
+	// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+	ExpiresInSec *int `pulumi:"expiresInSec"`
+}
+
+// OtaUpdateAwsJobPresignedUrlConfigInput is an input type that accepts OtaUpdateAwsJobPresignedUrlConfigArgs and OtaUpdateAwsJobPresignedUrlConfigOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobPresignedUrlConfigInput` via:
+//
+//	OtaUpdateAwsJobPresignedUrlConfigArgs{...}
+type OtaUpdateAwsJobPresignedUrlConfigInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobPresignedUrlConfigOutput() OtaUpdateAwsJobPresignedUrlConfigOutput
+	ToOtaUpdateAwsJobPresignedUrlConfigOutputWithContext(context.Context) OtaUpdateAwsJobPresignedUrlConfigOutput
+}
+
+type OtaUpdateAwsJobPresignedUrlConfigArgs struct {
+	// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+	ExpiresInSec pulumi.IntPtrInput `pulumi:"expiresInSec"`
+}
+
+func (OtaUpdateAwsJobPresignedUrlConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobPresignedUrlConfig)(nil)).Elem()
+}
+
+func (i OtaUpdateAwsJobPresignedUrlConfigArgs) ToOtaUpdateAwsJobPresignedUrlConfigOutput() OtaUpdateAwsJobPresignedUrlConfigOutput {
+	return i.ToOtaUpdateAwsJobPresignedUrlConfigOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobPresignedUrlConfigArgs) ToOtaUpdateAwsJobPresignedUrlConfigOutputWithContext(ctx context.Context) OtaUpdateAwsJobPresignedUrlConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobPresignedUrlConfigOutput)
+}
+
+func (i OtaUpdateAwsJobPresignedUrlConfigArgs) ToOtaUpdateAwsJobPresignedUrlConfigPtrOutput() OtaUpdateAwsJobPresignedUrlConfigPtrOutput {
+	return i.ToOtaUpdateAwsJobPresignedUrlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobPresignedUrlConfigArgs) ToOtaUpdateAwsJobPresignedUrlConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobPresignedUrlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobPresignedUrlConfigOutput).ToOtaUpdateAwsJobPresignedUrlConfigPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateAwsJobPresignedUrlConfigPtrInput is an input type that accepts OtaUpdateAwsJobPresignedUrlConfigArgs, OtaUpdateAwsJobPresignedUrlConfigPtr and OtaUpdateAwsJobPresignedUrlConfigPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobPresignedUrlConfigPtrInput` via:
+//
+//	        OtaUpdateAwsJobPresignedUrlConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateAwsJobPresignedUrlConfigPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobPresignedUrlConfigPtrOutput() OtaUpdateAwsJobPresignedUrlConfigPtrOutput
+	ToOtaUpdateAwsJobPresignedUrlConfigPtrOutputWithContext(context.Context) OtaUpdateAwsJobPresignedUrlConfigPtrOutput
+}
+
+type otaUpdateAwsJobPresignedUrlConfigPtrType OtaUpdateAwsJobPresignedUrlConfigArgs
+
+func OtaUpdateAwsJobPresignedUrlConfigPtr(v *OtaUpdateAwsJobPresignedUrlConfigArgs) OtaUpdateAwsJobPresignedUrlConfigPtrInput {
+	return (*otaUpdateAwsJobPresignedUrlConfigPtrType)(v)
+}
+
+func (*otaUpdateAwsJobPresignedUrlConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobPresignedUrlConfig)(nil)).Elem()
+}
+
+func (i *otaUpdateAwsJobPresignedUrlConfigPtrType) ToOtaUpdateAwsJobPresignedUrlConfigPtrOutput() OtaUpdateAwsJobPresignedUrlConfigPtrOutput {
+	return i.ToOtaUpdateAwsJobPresignedUrlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateAwsJobPresignedUrlConfigPtrType) ToOtaUpdateAwsJobPresignedUrlConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobPresignedUrlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobPresignedUrlConfigPtrOutput)
+}
+
+type OtaUpdateAwsJobPresignedUrlConfigOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobPresignedUrlConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobPresignedUrlConfig)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobPresignedUrlConfigOutput) ToOtaUpdateAwsJobPresignedUrlConfigOutput() OtaUpdateAwsJobPresignedUrlConfigOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobPresignedUrlConfigOutput) ToOtaUpdateAwsJobPresignedUrlConfigOutputWithContext(ctx context.Context) OtaUpdateAwsJobPresignedUrlConfigOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobPresignedUrlConfigOutput) ToOtaUpdateAwsJobPresignedUrlConfigPtrOutput() OtaUpdateAwsJobPresignedUrlConfigPtrOutput {
+	return o.ToOtaUpdateAwsJobPresignedUrlConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobPresignedUrlConfigOutput) ToOtaUpdateAwsJobPresignedUrlConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobPresignedUrlConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateAwsJobPresignedUrlConfig) *OtaUpdateAwsJobPresignedUrlConfig {
+		return &v
+	}).(OtaUpdateAwsJobPresignedUrlConfigPtrOutput)
+}
+
+// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+func (o OtaUpdateAwsJobPresignedUrlConfigOutput) ExpiresInSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobPresignedUrlConfig) *int { return v.ExpiresInSec }).(pulumi.IntPtrOutput)
+}
+
+type OtaUpdateAwsJobPresignedUrlConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobPresignedUrlConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobPresignedUrlConfig)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobPresignedUrlConfigPtrOutput) ToOtaUpdateAwsJobPresignedUrlConfigPtrOutput() OtaUpdateAwsJobPresignedUrlConfigPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobPresignedUrlConfigPtrOutput) ToOtaUpdateAwsJobPresignedUrlConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobPresignedUrlConfigPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobPresignedUrlConfigPtrOutput) Elem() OtaUpdateAwsJobPresignedUrlConfigOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobPresignedUrlConfig) OtaUpdateAwsJobPresignedUrlConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateAwsJobPresignedUrlConfig
+		return ret
+	}).(OtaUpdateAwsJobPresignedUrlConfigOutput)
+}
+
+// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+func (o OtaUpdateAwsJobPresignedUrlConfigPtrOutput) ExpiresInSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobPresignedUrlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiresInSec
+	}).(pulumi.IntPtrOutput)
+}
+
+type OtaUpdateAwsJobRateIncreaseCriteria struct {
+	// When this number of things have been notified, it will initiate an increase in the rollout rate.
+	NumberOfNotifiedThings *int `pulumi:"numberOfNotifiedThings"`
+	// When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+	NumberOfSucceededThings *int `pulumi:"numberOfSucceededThings"`
+}
+
+// OtaUpdateAwsJobRateIncreaseCriteriaInput is an input type that accepts OtaUpdateAwsJobRateIncreaseCriteriaArgs and OtaUpdateAwsJobRateIncreaseCriteriaOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobRateIncreaseCriteriaInput` via:
+//
+//	OtaUpdateAwsJobRateIncreaseCriteriaArgs{...}
+type OtaUpdateAwsJobRateIncreaseCriteriaInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobRateIncreaseCriteriaOutput() OtaUpdateAwsJobRateIncreaseCriteriaOutput
+	ToOtaUpdateAwsJobRateIncreaseCriteriaOutputWithContext(context.Context) OtaUpdateAwsJobRateIncreaseCriteriaOutput
+}
+
+type OtaUpdateAwsJobRateIncreaseCriteriaArgs struct {
+	// When this number of things have been notified, it will initiate an increase in the rollout rate.
+	NumberOfNotifiedThings pulumi.IntPtrInput `pulumi:"numberOfNotifiedThings"`
+	// When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+	NumberOfSucceededThings pulumi.IntPtrInput `pulumi:"numberOfSucceededThings"`
+}
+
+func (OtaUpdateAwsJobRateIncreaseCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (i OtaUpdateAwsJobRateIncreaseCriteriaArgs) ToOtaUpdateAwsJobRateIncreaseCriteriaOutput() OtaUpdateAwsJobRateIncreaseCriteriaOutput {
+	return i.ToOtaUpdateAwsJobRateIncreaseCriteriaOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobRateIncreaseCriteriaArgs) ToOtaUpdateAwsJobRateIncreaseCriteriaOutputWithContext(ctx context.Context) OtaUpdateAwsJobRateIncreaseCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobRateIncreaseCriteriaOutput)
+}
+
+func (i OtaUpdateAwsJobRateIncreaseCriteriaArgs) ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutput() OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput {
+	return i.ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobRateIncreaseCriteriaArgs) ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobRateIncreaseCriteriaOutput).ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateAwsJobRateIncreaseCriteriaPtrInput is an input type that accepts OtaUpdateAwsJobRateIncreaseCriteriaArgs, OtaUpdateAwsJobRateIncreaseCriteriaPtr and OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobRateIncreaseCriteriaPtrInput` via:
+//
+//	        OtaUpdateAwsJobRateIncreaseCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateAwsJobRateIncreaseCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutput() OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput
+	ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutputWithContext(context.Context) OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput
+}
+
+type otaUpdateAwsJobRateIncreaseCriteriaPtrType OtaUpdateAwsJobRateIncreaseCriteriaArgs
+
+func OtaUpdateAwsJobRateIncreaseCriteriaPtr(v *OtaUpdateAwsJobRateIncreaseCriteriaArgs) OtaUpdateAwsJobRateIncreaseCriteriaPtrInput {
+	return (*otaUpdateAwsJobRateIncreaseCriteriaPtrType)(v)
+}
+
+func (*otaUpdateAwsJobRateIncreaseCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (i *otaUpdateAwsJobRateIncreaseCriteriaPtrType) ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutput() OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput {
+	return i.ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateAwsJobRateIncreaseCriteriaPtrType) ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput)
+}
+
+type OtaUpdateAwsJobRateIncreaseCriteriaOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobRateIncreaseCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobRateIncreaseCriteriaOutput) ToOtaUpdateAwsJobRateIncreaseCriteriaOutput() OtaUpdateAwsJobRateIncreaseCriteriaOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobRateIncreaseCriteriaOutput) ToOtaUpdateAwsJobRateIncreaseCriteriaOutputWithContext(ctx context.Context) OtaUpdateAwsJobRateIncreaseCriteriaOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobRateIncreaseCriteriaOutput) ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutput() OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput {
+	return o.ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobRateIncreaseCriteriaOutput) ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateAwsJobRateIncreaseCriteria) *OtaUpdateAwsJobRateIncreaseCriteria {
+		return &v
+	}).(OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput)
+}
+
+// When this number of things have been notified, it will initiate an increase in the rollout rate.
+func (o OtaUpdateAwsJobRateIncreaseCriteriaOutput) NumberOfNotifiedThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobRateIncreaseCriteria) *int { return v.NumberOfNotifiedThings }).(pulumi.IntPtrOutput)
+}
+
+// When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+func (o OtaUpdateAwsJobRateIncreaseCriteriaOutput) NumberOfSucceededThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobRateIncreaseCriteria) *int { return v.NumberOfSucceededThings }).(pulumi.IntPtrOutput)
+}
+
+type OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput) ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutput() OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput) ToOtaUpdateAwsJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput) Elem() OtaUpdateAwsJobRateIncreaseCriteriaOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobRateIncreaseCriteria) OtaUpdateAwsJobRateIncreaseCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateAwsJobRateIncreaseCriteria
+		return ret
+	}).(OtaUpdateAwsJobRateIncreaseCriteriaOutput)
+}
+
+// When this number of things have been notified, it will initiate an increase in the rollout rate.
+func (o OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput) NumberOfNotifiedThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobRateIncreaseCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfNotifiedThings
+	}).(pulumi.IntPtrOutput)
+}
+
+// When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+func (o OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput) NumberOfSucceededThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobRateIncreaseCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfSucceededThings
+	}).(pulumi.IntPtrOutput)
+}
+
+type OtaUpdateAwsJobTimeoutConfig struct {
+	// Specifies the amount of time, in minutes, this device has to finish execution of this job.
+	InProgressTimeoutInMinutes *int `pulumi:"inProgressTimeoutInMinutes"`
+}
+
+// OtaUpdateAwsJobTimeoutConfigInput is an input type that accepts OtaUpdateAwsJobTimeoutConfigArgs and OtaUpdateAwsJobTimeoutConfigOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobTimeoutConfigInput` via:
+//
+//	OtaUpdateAwsJobTimeoutConfigArgs{...}
+type OtaUpdateAwsJobTimeoutConfigInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobTimeoutConfigOutput() OtaUpdateAwsJobTimeoutConfigOutput
+	ToOtaUpdateAwsJobTimeoutConfigOutputWithContext(context.Context) OtaUpdateAwsJobTimeoutConfigOutput
+}
+
+type OtaUpdateAwsJobTimeoutConfigArgs struct {
+	// Specifies the amount of time, in minutes, this device has to finish execution of this job.
+	InProgressTimeoutInMinutes pulumi.IntPtrInput `pulumi:"inProgressTimeoutInMinutes"`
+}
+
+func (OtaUpdateAwsJobTimeoutConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobTimeoutConfig)(nil)).Elem()
+}
+
+func (i OtaUpdateAwsJobTimeoutConfigArgs) ToOtaUpdateAwsJobTimeoutConfigOutput() OtaUpdateAwsJobTimeoutConfigOutput {
+	return i.ToOtaUpdateAwsJobTimeoutConfigOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobTimeoutConfigArgs) ToOtaUpdateAwsJobTimeoutConfigOutputWithContext(ctx context.Context) OtaUpdateAwsJobTimeoutConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobTimeoutConfigOutput)
+}
+
+func (i OtaUpdateAwsJobTimeoutConfigArgs) ToOtaUpdateAwsJobTimeoutConfigPtrOutput() OtaUpdateAwsJobTimeoutConfigPtrOutput {
+	return i.ToOtaUpdateAwsJobTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateAwsJobTimeoutConfigArgs) ToOtaUpdateAwsJobTimeoutConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobTimeoutConfigOutput).ToOtaUpdateAwsJobTimeoutConfigPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateAwsJobTimeoutConfigPtrInput is an input type that accepts OtaUpdateAwsJobTimeoutConfigArgs, OtaUpdateAwsJobTimeoutConfigPtr and OtaUpdateAwsJobTimeoutConfigPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateAwsJobTimeoutConfigPtrInput` via:
+//
+//	        OtaUpdateAwsJobTimeoutConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateAwsJobTimeoutConfigPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateAwsJobTimeoutConfigPtrOutput() OtaUpdateAwsJobTimeoutConfigPtrOutput
+	ToOtaUpdateAwsJobTimeoutConfigPtrOutputWithContext(context.Context) OtaUpdateAwsJobTimeoutConfigPtrOutput
+}
+
+type otaUpdateAwsJobTimeoutConfigPtrType OtaUpdateAwsJobTimeoutConfigArgs
+
+func OtaUpdateAwsJobTimeoutConfigPtr(v *OtaUpdateAwsJobTimeoutConfigArgs) OtaUpdateAwsJobTimeoutConfigPtrInput {
+	return (*otaUpdateAwsJobTimeoutConfigPtrType)(v)
+}
+
+func (*otaUpdateAwsJobTimeoutConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobTimeoutConfig)(nil)).Elem()
+}
+
+func (i *otaUpdateAwsJobTimeoutConfigPtrType) ToOtaUpdateAwsJobTimeoutConfigPtrOutput() OtaUpdateAwsJobTimeoutConfigPtrOutput {
+	return i.ToOtaUpdateAwsJobTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateAwsJobTimeoutConfigPtrType) ToOtaUpdateAwsJobTimeoutConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateAwsJobTimeoutConfigPtrOutput)
+}
+
+type OtaUpdateAwsJobTimeoutConfigOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobTimeoutConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateAwsJobTimeoutConfig)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobTimeoutConfigOutput) ToOtaUpdateAwsJobTimeoutConfigOutput() OtaUpdateAwsJobTimeoutConfigOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobTimeoutConfigOutput) ToOtaUpdateAwsJobTimeoutConfigOutputWithContext(ctx context.Context) OtaUpdateAwsJobTimeoutConfigOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobTimeoutConfigOutput) ToOtaUpdateAwsJobTimeoutConfigPtrOutput() OtaUpdateAwsJobTimeoutConfigPtrOutput {
+	return o.ToOtaUpdateAwsJobTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateAwsJobTimeoutConfigOutput) ToOtaUpdateAwsJobTimeoutConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobTimeoutConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateAwsJobTimeoutConfig) *OtaUpdateAwsJobTimeoutConfig {
+		return &v
+	}).(OtaUpdateAwsJobTimeoutConfigPtrOutput)
+}
+
+// Specifies the amount of time, in minutes, this device has to finish execution of this job.
+func (o OtaUpdateAwsJobTimeoutConfigOutput) InProgressTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OtaUpdateAwsJobTimeoutConfig) *int { return v.InProgressTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type OtaUpdateAwsJobTimeoutConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateAwsJobTimeoutConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateAwsJobTimeoutConfig)(nil)).Elem()
+}
+
+func (o OtaUpdateAwsJobTimeoutConfigPtrOutput) ToOtaUpdateAwsJobTimeoutConfigPtrOutput() OtaUpdateAwsJobTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobTimeoutConfigPtrOutput) ToOtaUpdateAwsJobTimeoutConfigPtrOutputWithContext(ctx context.Context) OtaUpdateAwsJobTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o OtaUpdateAwsJobTimeoutConfigPtrOutput) Elem() OtaUpdateAwsJobTimeoutConfigOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobTimeoutConfig) OtaUpdateAwsJobTimeoutConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateAwsJobTimeoutConfig
+		return ret
+	}).(OtaUpdateAwsJobTimeoutConfigOutput)
+}
+
+// Specifies the amount of time, in minutes, this device has to finish execution of this job.
+func (o OtaUpdateAwsJobTimeoutConfigPtrOutput) InProgressTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateAwsJobTimeoutConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InProgressTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type OtaUpdateCodeSigning struct {
+	// The ID of the AWSSignerJob which was created to sign the file.
+	AwsSignerJobId           *string                            `pulumi:"awsSignerJobId"`
+	CustomCodeSigning        *OtaUpdateCustomCodeSigning        `pulumi:"customCodeSigning"`
+	StartSigningJobParameter *OtaUpdateStartSigningJobParameter `pulumi:"startSigningJobParameter"`
+}
+
+// OtaUpdateCodeSigningInput is an input type that accepts OtaUpdateCodeSigningArgs and OtaUpdateCodeSigningOutput values.
+// You can construct a concrete instance of `OtaUpdateCodeSigningInput` via:
+//
+//	OtaUpdateCodeSigningArgs{...}
+type OtaUpdateCodeSigningInput interface {
+	pulumi.Input
+
+	ToOtaUpdateCodeSigningOutput() OtaUpdateCodeSigningOutput
+	ToOtaUpdateCodeSigningOutputWithContext(context.Context) OtaUpdateCodeSigningOutput
+}
+
+type OtaUpdateCodeSigningArgs struct {
+	// The ID of the AWSSignerJob which was created to sign the file.
+	AwsSignerJobId           pulumi.StringPtrInput                     `pulumi:"awsSignerJobId"`
+	CustomCodeSigning        OtaUpdateCustomCodeSigningPtrInput        `pulumi:"customCodeSigning"`
+	StartSigningJobParameter OtaUpdateStartSigningJobParameterPtrInput `pulumi:"startSigningJobParameter"`
+}
+
+func (OtaUpdateCodeSigningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateCodeSigning)(nil)).Elem()
+}
+
+func (i OtaUpdateCodeSigningArgs) ToOtaUpdateCodeSigningOutput() OtaUpdateCodeSigningOutput {
+	return i.ToOtaUpdateCodeSigningOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateCodeSigningArgs) ToOtaUpdateCodeSigningOutputWithContext(ctx context.Context) OtaUpdateCodeSigningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCodeSigningOutput)
+}
+
+func (i OtaUpdateCodeSigningArgs) ToOtaUpdateCodeSigningPtrOutput() OtaUpdateCodeSigningPtrOutput {
+	return i.ToOtaUpdateCodeSigningPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateCodeSigningArgs) ToOtaUpdateCodeSigningPtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCodeSigningOutput).ToOtaUpdateCodeSigningPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateCodeSigningPtrInput is an input type that accepts OtaUpdateCodeSigningArgs, OtaUpdateCodeSigningPtr and OtaUpdateCodeSigningPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateCodeSigningPtrInput` via:
+//
+//	        OtaUpdateCodeSigningArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateCodeSigningPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateCodeSigningPtrOutput() OtaUpdateCodeSigningPtrOutput
+	ToOtaUpdateCodeSigningPtrOutputWithContext(context.Context) OtaUpdateCodeSigningPtrOutput
+}
+
+type otaUpdateCodeSigningPtrType OtaUpdateCodeSigningArgs
+
+func OtaUpdateCodeSigningPtr(v *OtaUpdateCodeSigningArgs) OtaUpdateCodeSigningPtrInput {
+	return (*otaUpdateCodeSigningPtrType)(v)
+}
+
+func (*otaUpdateCodeSigningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateCodeSigning)(nil)).Elem()
+}
+
+func (i *otaUpdateCodeSigningPtrType) ToOtaUpdateCodeSigningPtrOutput() OtaUpdateCodeSigningPtrOutput {
+	return i.ToOtaUpdateCodeSigningPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateCodeSigningPtrType) ToOtaUpdateCodeSigningPtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCodeSigningPtrOutput)
+}
+
+type OtaUpdateCodeSigningOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateCodeSigningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateCodeSigning)(nil)).Elem()
+}
+
+func (o OtaUpdateCodeSigningOutput) ToOtaUpdateCodeSigningOutput() OtaUpdateCodeSigningOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningOutput) ToOtaUpdateCodeSigningOutputWithContext(ctx context.Context) OtaUpdateCodeSigningOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningOutput) ToOtaUpdateCodeSigningPtrOutput() OtaUpdateCodeSigningPtrOutput {
+	return o.ToOtaUpdateCodeSigningPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateCodeSigningOutput) ToOtaUpdateCodeSigningPtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateCodeSigning) *OtaUpdateCodeSigning {
+		return &v
+	}).(OtaUpdateCodeSigningPtrOutput)
+}
+
+// The ID of the AWSSignerJob which was created to sign the file.
+func (o OtaUpdateCodeSigningOutput) AwsSignerJobId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateCodeSigning) *string { return v.AwsSignerJobId }).(pulumi.StringPtrOutput)
+}
+
+func (o OtaUpdateCodeSigningOutput) CustomCodeSigning() OtaUpdateCustomCodeSigningPtrOutput {
+	return o.ApplyT(func(v OtaUpdateCodeSigning) *OtaUpdateCustomCodeSigning { return v.CustomCodeSigning }).(OtaUpdateCustomCodeSigningPtrOutput)
+}
+
+func (o OtaUpdateCodeSigningOutput) StartSigningJobParameter() OtaUpdateStartSigningJobParameterPtrOutput {
+	return o.ApplyT(func(v OtaUpdateCodeSigning) *OtaUpdateStartSigningJobParameter { return v.StartSigningJobParameter }).(OtaUpdateStartSigningJobParameterPtrOutput)
+}
+
+type OtaUpdateCodeSigningPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateCodeSigningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateCodeSigning)(nil)).Elem()
+}
+
+func (o OtaUpdateCodeSigningPtrOutput) ToOtaUpdateCodeSigningPtrOutput() OtaUpdateCodeSigningPtrOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningPtrOutput) ToOtaUpdateCodeSigningPtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningPtrOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningPtrOutput) Elem() OtaUpdateCodeSigningOutput {
+	return o.ApplyT(func(v *OtaUpdateCodeSigning) OtaUpdateCodeSigning {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateCodeSigning
+		return ret
+	}).(OtaUpdateCodeSigningOutput)
+}
+
+// The ID of the AWSSignerJob which was created to sign the file.
+func (o OtaUpdateCodeSigningPtrOutput) AwsSignerJobId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCodeSigning) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsSignerJobId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OtaUpdateCodeSigningPtrOutput) CustomCodeSigning() OtaUpdateCustomCodeSigningPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCodeSigning) *OtaUpdateCustomCodeSigning {
+		if v == nil {
+			return nil
+		}
+		return v.CustomCodeSigning
+	}).(OtaUpdateCustomCodeSigningPtrOutput)
+}
+
+func (o OtaUpdateCodeSigningPtrOutput) StartSigningJobParameter() OtaUpdateStartSigningJobParameterPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCodeSigning) *OtaUpdateStartSigningJobParameter {
+		if v == nil {
+			return nil
+		}
+		return v.StartSigningJobParameter
+	}).(OtaUpdateStartSigningJobParameterPtrOutput)
+}
+
+type OtaUpdateCodeSigningCertificateChain struct {
+	// The name of the certificate.
+	CertificateName *string `pulumi:"certificateName"`
+	// A base64 encoded binary representation of the code signing certificate chain.
+	InlineDocument *string `pulumi:"inlineDocument"`
+}
+
+// OtaUpdateCodeSigningCertificateChainInput is an input type that accepts OtaUpdateCodeSigningCertificateChainArgs and OtaUpdateCodeSigningCertificateChainOutput values.
+// You can construct a concrete instance of `OtaUpdateCodeSigningCertificateChainInput` via:
+//
+//	OtaUpdateCodeSigningCertificateChainArgs{...}
+type OtaUpdateCodeSigningCertificateChainInput interface {
+	pulumi.Input
+
+	ToOtaUpdateCodeSigningCertificateChainOutput() OtaUpdateCodeSigningCertificateChainOutput
+	ToOtaUpdateCodeSigningCertificateChainOutputWithContext(context.Context) OtaUpdateCodeSigningCertificateChainOutput
+}
+
+type OtaUpdateCodeSigningCertificateChainArgs struct {
+	// The name of the certificate.
+	CertificateName pulumi.StringPtrInput `pulumi:"certificateName"`
+	// A base64 encoded binary representation of the code signing certificate chain.
+	InlineDocument pulumi.StringPtrInput `pulumi:"inlineDocument"`
+}
+
+func (OtaUpdateCodeSigningCertificateChainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateCodeSigningCertificateChain)(nil)).Elem()
+}
+
+func (i OtaUpdateCodeSigningCertificateChainArgs) ToOtaUpdateCodeSigningCertificateChainOutput() OtaUpdateCodeSigningCertificateChainOutput {
+	return i.ToOtaUpdateCodeSigningCertificateChainOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateCodeSigningCertificateChainArgs) ToOtaUpdateCodeSigningCertificateChainOutputWithContext(ctx context.Context) OtaUpdateCodeSigningCertificateChainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCodeSigningCertificateChainOutput)
+}
+
+func (i OtaUpdateCodeSigningCertificateChainArgs) ToOtaUpdateCodeSigningCertificateChainPtrOutput() OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return i.ToOtaUpdateCodeSigningCertificateChainPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateCodeSigningCertificateChainArgs) ToOtaUpdateCodeSigningCertificateChainPtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCodeSigningCertificateChainOutput).ToOtaUpdateCodeSigningCertificateChainPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateCodeSigningCertificateChainPtrInput is an input type that accepts OtaUpdateCodeSigningCertificateChainArgs, OtaUpdateCodeSigningCertificateChainPtr and OtaUpdateCodeSigningCertificateChainPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateCodeSigningCertificateChainPtrInput` via:
+//
+//	        OtaUpdateCodeSigningCertificateChainArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateCodeSigningCertificateChainPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateCodeSigningCertificateChainPtrOutput() OtaUpdateCodeSigningCertificateChainPtrOutput
+	ToOtaUpdateCodeSigningCertificateChainPtrOutputWithContext(context.Context) OtaUpdateCodeSigningCertificateChainPtrOutput
+}
+
+type otaUpdateCodeSigningCertificateChainPtrType OtaUpdateCodeSigningCertificateChainArgs
+
+func OtaUpdateCodeSigningCertificateChainPtr(v *OtaUpdateCodeSigningCertificateChainArgs) OtaUpdateCodeSigningCertificateChainPtrInput {
+	return (*otaUpdateCodeSigningCertificateChainPtrType)(v)
+}
+
+func (*otaUpdateCodeSigningCertificateChainPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateCodeSigningCertificateChain)(nil)).Elem()
+}
+
+func (i *otaUpdateCodeSigningCertificateChainPtrType) ToOtaUpdateCodeSigningCertificateChainPtrOutput() OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return i.ToOtaUpdateCodeSigningCertificateChainPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateCodeSigningCertificateChainPtrType) ToOtaUpdateCodeSigningCertificateChainPtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCodeSigningCertificateChainPtrOutput)
+}
+
+type OtaUpdateCodeSigningCertificateChainOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateCodeSigningCertificateChainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateCodeSigningCertificateChain)(nil)).Elem()
+}
+
+func (o OtaUpdateCodeSigningCertificateChainOutput) ToOtaUpdateCodeSigningCertificateChainOutput() OtaUpdateCodeSigningCertificateChainOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningCertificateChainOutput) ToOtaUpdateCodeSigningCertificateChainOutputWithContext(ctx context.Context) OtaUpdateCodeSigningCertificateChainOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningCertificateChainOutput) ToOtaUpdateCodeSigningCertificateChainPtrOutput() OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return o.ToOtaUpdateCodeSigningCertificateChainPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateCodeSigningCertificateChainOutput) ToOtaUpdateCodeSigningCertificateChainPtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateCodeSigningCertificateChain) *OtaUpdateCodeSigningCertificateChain {
+		return &v
+	}).(OtaUpdateCodeSigningCertificateChainPtrOutput)
+}
+
+// The name of the certificate.
+func (o OtaUpdateCodeSigningCertificateChainOutput) CertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateCodeSigningCertificateChain) *string { return v.CertificateName }).(pulumi.StringPtrOutput)
+}
+
+// A base64 encoded binary representation of the code signing certificate chain.
+func (o OtaUpdateCodeSigningCertificateChainOutput) InlineDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateCodeSigningCertificateChain) *string { return v.InlineDocument }).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateCodeSigningCertificateChainPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateCodeSigningCertificateChainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateCodeSigningCertificateChain)(nil)).Elem()
+}
+
+func (o OtaUpdateCodeSigningCertificateChainPtrOutput) ToOtaUpdateCodeSigningCertificateChainPtrOutput() OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningCertificateChainPtrOutput) ToOtaUpdateCodeSigningCertificateChainPtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningCertificateChainPtrOutput) Elem() OtaUpdateCodeSigningCertificateChainOutput {
+	return o.ApplyT(func(v *OtaUpdateCodeSigningCertificateChain) OtaUpdateCodeSigningCertificateChain {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateCodeSigningCertificateChain
+		return ret
+	}).(OtaUpdateCodeSigningCertificateChainOutput)
+}
+
+// The name of the certificate.
+func (o OtaUpdateCodeSigningCertificateChainPtrOutput) CertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCodeSigningCertificateChain) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A base64 encoded binary representation of the code signing certificate chain.
+func (o OtaUpdateCodeSigningCertificateChainPtrOutput) InlineDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCodeSigningCertificateChain) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InlineDocument
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateCodeSigningSignature struct {
+	// A base64 encoded binary representation of the code signing signature.
+	InlineDocument *string `pulumi:"inlineDocument"`
+}
+
+// OtaUpdateCodeSigningSignatureInput is an input type that accepts OtaUpdateCodeSigningSignatureArgs and OtaUpdateCodeSigningSignatureOutput values.
+// You can construct a concrete instance of `OtaUpdateCodeSigningSignatureInput` via:
+//
+//	OtaUpdateCodeSigningSignatureArgs{...}
+type OtaUpdateCodeSigningSignatureInput interface {
+	pulumi.Input
+
+	ToOtaUpdateCodeSigningSignatureOutput() OtaUpdateCodeSigningSignatureOutput
+	ToOtaUpdateCodeSigningSignatureOutputWithContext(context.Context) OtaUpdateCodeSigningSignatureOutput
+}
+
+type OtaUpdateCodeSigningSignatureArgs struct {
+	// A base64 encoded binary representation of the code signing signature.
+	InlineDocument pulumi.StringPtrInput `pulumi:"inlineDocument"`
+}
+
+func (OtaUpdateCodeSigningSignatureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateCodeSigningSignature)(nil)).Elem()
+}
+
+func (i OtaUpdateCodeSigningSignatureArgs) ToOtaUpdateCodeSigningSignatureOutput() OtaUpdateCodeSigningSignatureOutput {
+	return i.ToOtaUpdateCodeSigningSignatureOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateCodeSigningSignatureArgs) ToOtaUpdateCodeSigningSignatureOutputWithContext(ctx context.Context) OtaUpdateCodeSigningSignatureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCodeSigningSignatureOutput)
+}
+
+func (i OtaUpdateCodeSigningSignatureArgs) ToOtaUpdateCodeSigningSignaturePtrOutput() OtaUpdateCodeSigningSignaturePtrOutput {
+	return i.ToOtaUpdateCodeSigningSignaturePtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateCodeSigningSignatureArgs) ToOtaUpdateCodeSigningSignaturePtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningSignaturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCodeSigningSignatureOutput).ToOtaUpdateCodeSigningSignaturePtrOutputWithContext(ctx)
+}
+
+// OtaUpdateCodeSigningSignaturePtrInput is an input type that accepts OtaUpdateCodeSigningSignatureArgs, OtaUpdateCodeSigningSignaturePtr and OtaUpdateCodeSigningSignaturePtrOutput values.
+// You can construct a concrete instance of `OtaUpdateCodeSigningSignaturePtrInput` via:
+//
+//	        OtaUpdateCodeSigningSignatureArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateCodeSigningSignaturePtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateCodeSigningSignaturePtrOutput() OtaUpdateCodeSigningSignaturePtrOutput
+	ToOtaUpdateCodeSigningSignaturePtrOutputWithContext(context.Context) OtaUpdateCodeSigningSignaturePtrOutput
+}
+
+type otaUpdateCodeSigningSignaturePtrType OtaUpdateCodeSigningSignatureArgs
+
+func OtaUpdateCodeSigningSignaturePtr(v *OtaUpdateCodeSigningSignatureArgs) OtaUpdateCodeSigningSignaturePtrInput {
+	return (*otaUpdateCodeSigningSignaturePtrType)(v)
+}
+
+func (*otaUpdateCodeSigningSignaturePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateCodeSigningSignature)(nil)).Elem()
+}
+
+func (i *otaUpdateCodeSigningSignaturePtrType) ToOtaUpdateCodeSigningSignaturePtrOutput() OtaUpdateCodeSigningSignaturePtrOutput {
+	return i.ToOtaUpdateCodeSigningSignaturePtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateCodeSigningSignaturePtrType) ToOtaUpdateCodeSigningSignaturePtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningSignaturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCodeSigningSignaturePtrOutput)
+}
+
+type OtaUpdateCodeSigningSignatureOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateCodeSigningSignatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateCodeSigningSignature)(nil)).Elem()
+}
+
+func (o OtaUpdateCodeSigningSignatureOutput) ToOtaUpdateCodeSigningSignatureOutput() OtaUpdateCodeSigningSignatureOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningSignatureOutput) ToOtaUpdateCodeSigningSignatureOutputWithContext(ctx context.Context) OtaUpdateCodeSigningSignatureOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningSignatureOutput) ToOtaUpdateCodeSigningSignaturePtrOutput() OtaUpdateCodeSigningSignaturePtrOutput {
+	return o.ToOtaUpdateCodeSigningSignaturePtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateCodeSigningSignatureOutput) ToOtaUpdateCodeSigningSignaturePtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningSignaturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateCodeSigningSignature) *OtaUpdateCodeSigningSignature {
+		return &v
+	}).(OtaUpdateCodeSigningSignaturePtrOutput)
+}
+
+// A base64 encoded binary representation of the code signing signature.
+func (o OtaUpdateCodeSigningSignatureOutput) InlineDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateCodeSigningSignature) *string { return v.InlineDocument }).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateCodeSigningSignaturePtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateCodeSigningSignaturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateCodeSigningSignature)(nil)).Elem()
+}
+
+func (o OtaUpdateCodeSigningSignaturePtrOutput) ToOtaUpdateCodeSigningSignaturePtrOutput() OtaUpdateCodeSigningSignaturePtrOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningSignaturePtrOutput) ToOtaUpdateCodeSigningSignaturePtrOutputWithContext(ctx context.Context) OtaUpdateCodeSigningSignaturePtrOutput {
+	return o
+}
+
+func (o OtaUpdateCodeSigningSignaturePtrOutput) Elem() OtaUpdateCodeSigningSignatureOutput {
+	return o.ApplyT(func(v *OtaUpdateCodeSigningSignature) OtaUpdateCodeSigningSignature {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateCodeSigningSignature
+		return ret
+	}).(OtaUpdateCodeSigningSignatureOutput)
+}
+
+// A base64 encoded binary representation of the code signing signature.
+func (o OtaUpdateCodeSigningSignaturePtrOutput) InlineDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCodeSigningSignature) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InlineDocument
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateCustomCodeSigning struct {
+	CertificateChain *OtaUpdateCodeSigningCertificateChain `pulumi:"certificateChain"`
+	// The hash algorithm used to code sign the file.
+	HashAlgorithm *string                        `pulumi:"hashAlgorithm"`
+	Signature     *OtaUpdateCodeSigningSignature `pulumi:"signature"`
+	// The signature algorithm used to code sign the file.
+	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
+}
+
+// OtaUpdateCustomCodeSigningInput is an input type that accepts OtaUpdateCustomCodeSigningArgs and OtaUpdateCustomCodeSigningOutput values.
+// You can construct a concrete instance of `OtaUpdateCustomCodeSigningInput` via:
+//
+//	OtaUpdateCustomCodeSigningArgs{...}
+type OtaUpdateCustomCodeSigningInput interface {
+	pulumi.Input
+
+	ToOtaUpdateCustomCodeSigningOutput() OtaUpdateCustomCodeSigningOutput
+	ToOtaUpdateCustomCodeSigningOutputWithContext(context.Context) OtaUpdateCustomCodeSigningOutput
+}
+
+type OtaUpdateCustomCodeSigningArgs struct {
+	CertificateChain OtaUpdateCodeSigningCertificateChainPtrInput `pulumi:"certificateChain"`
+	// The hash algorithm used to code sign the file.
+	HashAlgorithm pulumi.StringPtrInput                 `pulumi:"hashAlgorithm"`
+	Signature     OtaUpdateCodeSigningSignaturePtrInput `pulumi:"signature"`
+	// The signature algorithm used to code sign the file.
+	SignatureAlgorithm pulumi.StringPtrInput `pulumi:"signatureAlgorithm"`
+}
+
+func (OtaUpdateCustomCodeSigningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateCustomCodeSigning)(nil)).Elem()
+}
+
+func (i OtaUpdateCustomCodeSigningArgs) ToOtaUpdateCustomCodeSigningOutput() OtaUpdateCustomCodeSigningOutput {
+	return i.ToOtaUpdateCustomCodeSigningOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateCustomCodeSigningArgs) ToOtaUpdateCustomCodeSigningOutputWithContext(ctx context.Context) OtaUpdateCustomCodeSigningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCustomCodeSigningOutput)
+}
+
+func (i OtaUpdateCustomCodeSigningArgs) ToOtaUpdateCustomCodeSigningPtrOutput() OtaUpdateCustomCodeSigningPtrOutput {
+	return i.ToOtaUpdateCustomCodeSigningPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateCustomCodeSigningArgs) ToOtaUpdateCustomCodeSigningPtrOutputWithContext(ctx context.Context) OtaUpdateCustomCodeSigningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCustomCodeSigningOutput).ToOtaUpdateCustomCodeSigningPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateCustomCodeSigningPtrInput is an input type that accepts OtaUpdateCustomCodeSigningArgs, OtaUpdateCustomCodeSigningPtr and OtaUpdateCustomCodeSigningPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateCustomCodeSigningPtrInput` via:
+//
+//	        OtaUpdateCustomCodeSigningArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateCustomCodeSigningPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateCustomCodeSigningPtrOutput() OtaUpdateCustomCodeSigningPtrOutput
+	ToOtaUpdateCustomCodeSigningPtrOutputWithContext(context.Context) OtaUpdateCustomCodeSigningPtrOutput
+}
+
+type otaUpdateCustomCodeSigningPtrType OtaUpdateCustomCodeSigningArgs
+
+func OtaUpdateCustomCodeSigningPtr(v *OtaUpdateCustomCodeSigningArgs) OtaUpdateCustomCodeSigningPtrInput {
+	return (*otaUpdateCustomCodeSigningPtrType)(v)
+}
+
+func (*otaUpdateCustomCodeSigningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateCustomCodeSigning)(nil)).Elem()
+}
+
+func (i *otaUpdateCustomCodeSigningPtrType) ToOtaUpdateCustomCodeSigningPtrOutput() OtaUpdateCustomCodeSigningPtrOutput {
+	return i.ToOtaUpdateCustomCodeSigningPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateCustomCodeSigningPtrType) ToOtaUpdateCustomCodeSigningPtrOutputWithContext(ctx context.Context) OtaUpdateCustomCodeSigningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateCustomCodeSigningPtrOutput)
+}
+
+type OtaUpdateCustomCodeSigningOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateCustomCodeSigningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateCustomCodeSigning)(nil)).Elem()
+}
+
+func (o OtaUpdateCustomCodeSigningOutput) ToOtaUpdateCustomCodeSigningOutput() OtaUpdateCustomCodeSigningOutput {
+	return o
+}
+
+func (o OtaUpdateCustomCodeSigningOutput) ToOtaUpdateCustomCodeSigningOutputWithContext(ctx context.Context) OtaUpdateCustomCodeSigningOutput {
+	return o
+}
+
+func (o OtaUpdateCustomCodeSigningOutput) ToOtaUpdateCustomCodeSigningPtrOutput() OtaUpdateCustomCodeSigningPtrOutput {
+	return o.ToOtaUpdateCustomCodeSigningPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateCustomCodeSigningOutput) ToOtaUpdateCustomCodeSigningPtrOutputWithContext(ctx context.Context) OtaUpdateCustomCodeSigningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateCustomCodeSigning) *OtaUpdateCustomCodeSigning {
+		return &v
+	}).(OtaUpdateCustomCodeSigningPtrOutput)
+}
+
+func (o OtaUpdateCustomCodeSigningOutput) CertificateChain() OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return o.ApplyT(func(v OtaUpdateCustomCodeSigning) *OtaUpdateCodeSigningCertificateChain { return v.CertificateChain }).(OtaUpdateCodeSigningCertificateChainPtrOutput)
+}
+
+// The hash algorithm used to code sign the file.
+func (o OtaUpdateCustomCodeSigningOutput) HashAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateCustomCodeSigning) *string { return v.HashAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+func (o OtaUpdateCustomCodeSigningOutput) Signature() OtaUpdateCodeSigningSignaturePtrOutput {
+	return o.ApplyT(func(v OtaUpdateCustomCodeSigning) *OtaUpdateCodeSigningSignature { return v.Signature }).(OtaUpdateCodeSigningSignaturePtrOutput)
+}
+
+// The signature algorithm used to code sign the file.
+func (o OtaUpdateCustomCodeSigningOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateCustomCodeSigning) *string { return v.SignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateCustomCodeSigningPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateCustomCodeSigningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateCustomCodeSigning)(nil)).Elem()
+}
+
+func (o OtaUpdateCustomCodeSigningPtrOutput) ToOtaUpdateCustomCodeSigningPtrOutput() OtaUpdateCustomCodeSigningPtrOutput {
+	return o
+}
+
+func (o OtaUpdateCustomCodeSigningPtrOutput) ToOtaUpdateCustomCodeSigningPtrOutputWithContext(ctx context.Context) OtaUpdateCustomCodeSigningPtrOutput {
+	return o
+}
+
+func (o OtaUpdateCustomCodeSigningPtrOutput) Elem() OtaUpdateCustomCodeSigningOutput {
+	return o.ApplyT(func(v *OtaUpdateCustomCodeSigning) OtaUpdateCustomCodeSigning {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateCustomCodeSigning
+		return ret
+	}).(OtaUpdateCustomCodeSigningOutput)
+}
+
+func (o OtaUpdateCustomCodeSigningPtrOutput) CertificateChain() OtaUpdateCodeSigningCertificateChainPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCustomCodeSigning) *OtaUpdateCodeSigningCertificateChain {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateChain
+	}).(OtaUpdateCodeSigningCertificateChainPtrOutput)
+}
+
+// The hash algorithm used to code sign the file.
+func (o OtaUpdateCustomCodeSigningPtrOutput) HashAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCustomCodeSigning) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HashAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OtaUpdateCustomCodeSigningPtrOutput) Signature() OtaUpdateCodeSigningSignaturePtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCustomCodeSigning) *OtaUpdateCodeSigningSignature {
+		if v == nil {
+			return nil
+		}
+		return v.Signature
+	}).(OtaUpdateCodeSigningSignaturePtrOutput)
+}
+
+// The signature algorithm used to code sign the file.
+func (o OtaUpdateCustomCodeSigningPtrOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateCustomCodeSigning) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SignatureAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateDestination struct {
+	S3Destination *OtaUpdateS3Destination `pulumi:"s3Destination"`
+}
+
+// OtaUpdateDestinationInput is an input type that accepts OtaUpdateDestinationArgs and OtaUpdateDestinationOutput values.
+// You can construct a concrete instance of `OtaUpdateDestinationInput` via:
+//
+//	OtaUpdateDestinationArgs{...}
+type OtaUpdateDestinationInput interface {
+	pulumi.Input
+
+	ToOtaUpdateDestinationOutput() OtaUpdateDestinationOutput
+	ToOtaUpdateDestinationOutputWithContext(context.Context) OtaUpdateDestinationOutput
+}
+
+type OtaUpdateDestinationArgs struct {
+	S3Destination OtaUpdateS3DestinationPtrInput `pulumi:"s3Destination"`
+}
+
+func (OtaUpdateDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateDestination)(nil)).Elem()
+}
+
+func (i OtaUpdateDestinationArgs) ToOtaUpdateDestinationOutput() OtaUpdateDestinationOutput {
+	return i.ToOtaUpdateDestinationOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateDestinationArgs) ToOtaUpdateDestinationOutputWithContext(ctx context.Context) OtaUpdateDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateDestinationOutput)
+}
+
+func (i OtaUpdateDestinationArgs) ToOtaUpdateDestinationPtrOutput() OtaUpdateDestinationPtrOutput {
+	return i.ToOtaUpdateDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateDestinationArgs) ToOtaUpdateDestinationPtrOutputWithContext(ctx context.Context) OtaUpdateDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateDestinationOutput).ToOtaUpdateDestinationPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateDestinationPtrInput is an input type that accepts OtaUpdateDestinationArgs, OtaUpdateDestinationPtr and OtaUpdateDestinationPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateDestinationPtrInput` via:
+//
+//	        OtaUpdateDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateDestinationPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateDestinationPtrOutput() OtaUpdateDestinationPtrOutput
+	ToOtaUpdateDestinationPtrOutputWithContext(context.Context) OtaUpdateDestinationPtrOutput
+}
+
+type otaUpdateDestinationPtrType OtaUpdateDestinationArgs
+
+func OtaUpdateDestinationPtr(v *OtaUpdateDestinationArgs) OtaUpdateDestinationPtrInput {
+	return (*otaUpdateDestinationPtrType)(v)
+}
+
+func (*otaUpdateDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateDestination)(nil)).Elem()
+}
+
+func (i *otaUpdateDestinationPtrType) ToOtaUpdateDestinationPtrOutput() OtaUpdateDestinationPtrOutput {
+	return i.ToOtaUpdateDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateDestinationPtrType) ToOtaUpdateDestinationPtrOutputWithContext(ctx context.Context) OtaUpdateDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateDestinationPtrOutput)
+}
+
+type OtaUpdateDestinationOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateDestination)(nil)).Elem()
+}
+
+func (o OtaUpdateDestinationOutput) ToOtaUpdateDestinationOutput() OtaUpdateDestinationOutput {
+	return o
+}
+
+func (o OtaUpdateDestinationOutput) ToOtaUpdateDestinationOutputWithContext(ctx context.Context) OtaUpdateDestinationOutput {
+	return o
+}
+
+func (o OtaUpdateDestinationOutput) ToOtaUpdateDestinationPtrOutput() OtaUpdateDestinationPtrOutput {
+	return o.ToOtaUpdateDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateDestinationOutput) ToOtaUpdateDestinationPtrOutputWithContext(ctx context.Context) OtaUpdateDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateDestination) *OtaUpdateDestination {
+		return &v
+	}).(OtaUpdateDestinationPtrOutput)
+}
+
+func (o OtaUpdateDestinationOutput) S3Destination() OtaUpdateS3DestinationPtrOutput {
+	return o.ApplyT(func(v OtaUpdateDestination) *OtaUpdateS3Destination { return v.S3Destination }).(OtaUpdateS3DestinationPtrOutput)
+}
+
+type OtaUpdateDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateDestination)(nil)).Elem()
+}
+
+func (o OtaUpdateDestinationPtrOutput) ToOtaUpdateDestinationPtrOutput() OtaUpdateDestinationPtrOutput {
+	return o
+}
+
+func (o OtaUpdateDestinationPtrOutput) ToOtaUpdateDestinationPtrOutputWithContext(ctx context.Context) OtaUpdateDestinationPtrOutput {
+	return o
+}
+
+func (o OtaUpdateDestinationPtrOutput) Elem() OtaUpdateDestinationOutput {
+	return o.ApplyT(func(v *OtaUpdateDestination) OtaUpdateDestination {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateDestination
+		return ret
+	}).(OtaUpdateDestinationOutput)
+}
+
+func (o OtaUpdateDestinationPtrOutput) S3Destination() OtaUpdateS3DestinationPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateDestination) *OtaUpdateS3Destination {
+		if v == nil {
+			return nil
+		}
+		return v.S3Destination
+	}).(OtaUpdateS3DestinationPtrOutput)
+}
+
+type OtaUpdateFileLocation struct {
+	S3Location *OtaUpdateS3Location `pulumi:"s3Location"`
+	Stream     *OtaUpdateStream     `pulumi:"stream"`
+}
+
+// OtaUpdateFileLocationInput is an input type that accepts OtaUpdateFileLocationArgs and OtaUpdateFileLocationOutput values.
+// You can construct a concrete instance of `OtaUpdateFileLocationInput` via:
+//
+//	OtaUpdateFileLocationArgs{...}
+type OtaUpdateFileLocationInput interface {
+	pulumi.Input
+
+	ToOtaUpdateFileLocationOutput() OtaUpdateFileLocationOutput
+	ToOtaUpdateFileLocationOutputWithContext(context.Context) OtaUpdateFileLocationOutput
+}
+
+type OtaUpdateFileLocationArgs struct {
+	S3Location OtaUpdateS3LocationPtrInput `pulumi:"s3Location"`
+	Stream     OtaUpdateStreamPtrInput     `pulumi:"stream"`
+}
+
+func (OtaUpdateFileLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateFileLocation)(nil)).Elem()
+}
+
+func (i OtaUpdateFileLocationArgs) ToOtaUpdateFileLocationOutput() OtaUpdateFileLocationOutput {
+	return i.ToOtaUpdateFileLocationOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateFileLocationArgs) ToOtaUpdateFileLocationOutputWithContext(ctx context.Context) OtaUpdateFileLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateFileLocationOutput)
+}
+
+func (i OtaUpdateFileLocationArgs) ToOtaUpdateFileLocationPtrOutput() OtaUpdateFileLocationPtrOutput {
+	return i.ToOtaUpdateFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateFileLocationArgs) ToOtaUpdateFileLocationPtrOutputWithContext(ctx context.Context) OtaUpdateFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateFileLocationOutput).ToOtaUpdateFileLocationPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateFileLocationPtrInput is an input type that accepts OtaUpdateFileLocationArgs, OtaUpdateFileLocationPtr and OtaUpdateFileLocationPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateFileLocationPtrInput` via:
+//
+//	        OtaUpdateFileLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateFileLocationPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateFileLocationPtrOutput() OtaUpdateFileLocationPtrOutput
+	ToOtaUpdateFileLocationPtrOutputWithContext(context.Context) OtaUpdateFileLocationPtrOutput
+}
+
+type otaUpdateFileLocationPtrType OtaUpdateFileLocationArgs
+
+func OtaUpdateFileLocationPtr(v *OtaUpdateFileLocationArgs) OtaUpdateFileLocationPtrInput {
+	return (*otaUpdateFileLocationPtrType)(v)
+}
+
+func (*otaUpdateFileLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateFileLocation)(nil)).Elem()
+}
+
+func (i *otaUpdateFileLocationPtrType) ToOtaUpdateFileLocationPtrOutput() OtaUpdateFileLocationPtrOutput {
+	return i.ToOtaUpdateFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateFileLocationPtrType) ToOtaUpdateFileLocationPtrOutputWithContext(ctx context.Context) OtaUpdateFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateFileLocationPtrOutput)
+}
+
+type OtaUpdateFileLocationOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateFileLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateFileLocation)(nil)).Elem()
+}
+
+func (o OtaUpdateFileLocationOutput) ToOtaUpdateFileLocationOutput() OtaUpdateFileLocationOutput {
+	return o
+}
+
+func (o OtaUpdateFileLocationOutput) ToOtaUpdateFileLocationOutputWithContext(ctx context.Context) OtaUpdateFileLocationOutput {
+	return o
+}
+
+func (o OtaUpdateFileLocationOutput) ToOtaUpdateFileLocationPtrOutput() OtaUpdateFileLocationPtrOutput {
+	return o.ToOtaUpdateFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateFileLocationOutput) ToOtaUpdateFileLocationPtrOutputWithContext(ctx context.Context) OtaUpdateFileLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateFileLocation) *OtaUpdateFileLocation {
+		return &v
+	}).(OtaUpdateFileLocationPtrOutput)
+}
+
+func (o OtaUpdateFileLocationOutput) S3Location() OtaUpdateS3LocationPtrOutput {
+	return o.ApplyT(func(v OtaUpdateFileLocation) *OtaUpdateS3Location { return v.S3Location }).(OtaUpdateS3LocationPtrOutput)
+}
+
+func (o OtaUpdateFileLocationOutput) Stream() OtaUpdateStreamPtrOutput {
+	return o.ApplyT(func(v OtaUpdateFileLocation) *OtaUpdateStream { return v.Stream }).(OtaUpdateStreamPtrOutput)
+}
+
+type OtaUpdateFileLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateFileLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateFileLocation)(nil)).Elem()
+}
+
+func (o OtaUpdateFileLocationPtrOutput) ToOtaUpdateFileLocationPtrOutput() OtaUpdateFileLocationPtrOutput {
+	return o
+}
+
+func (o OtaUpdateFileLocationPtrOutput) ToOtaUpdateFileLocationPtrOutputWithContext(ctx context.Context) OtaUpdateFileLocationPtrOutput {
+	return o
+}
+
+func (o OtaUpdateFileLocationPtrOutput) Elem() OtaUpdateFileLocationOutput {
+	return o.ApplyT(func(v *OtaUpdateFileLocation) OtaUpdateFileLocation {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateFileLocation
+		return ret
+	}).(OtaUpdateFileLocationOutput)
+}
+
+func (o OtaUpdateFileLocationPtrOutput) S3Location() OtaUpdateS3LocationPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateFileLocation) *OtaUpdateS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.S3Location
+	}).(OtaUpdateS3LocationPtrOutput)
+}
+
+func (o OtaUpdateFileLocationPtrOutput) Stream() OtaUpdateStreamPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateFileLocation) *OtaUpdateStream {
+		if v == nil {
+			return nil
+		}
+		return v.Stream
+	}).(OtaUpdateStreamPtrOutput)
+}
+
+type OtaUpdateOtaUpdateFile struct {
+	// A list of name-attribute pairs.
+	Attributes   map[string]string      `pulumi:"attributes"`
+	CodeSigning  *OtaUpdateCodeSigning  `pulumi:"codeSigning"`
+	FileLocation *OtaUpdateFileLocation `pulumi:"fileLocation"`
+	// The name of the file.
+	FileName *string `pulumi:"fileName"`
+	// An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+	FileType *int `pulumi:"fileType"`
+	// The file version.
+	FileVersion *string `pulumi:"fileVersion"`
+}
+
+// OtaUpdateOtaUpdateFileInput is an input type that accepts OtaUpdateOtaUpdateFileArgs and OtaUpdateOtaUpdateFileOutput values.
+// You can construct a concrete instance of `OtaUpdateOtaUpdateFileInput` via:
+//
+//	OtaUpdateOtaUpdateFileArgs{...}
+type OtaUpdateOtaUpdateFileInput interface {
+	pulumi.Input
+
+	ToOtaUpdateOtaUpdateFileOutput() OtaUpdateOtaUpdateFileOutput
+	ToOtaUpdateOtaUpdateFileOutputWithContext(context.Context) OtaUpdateOtaUpdateFileOutput
+}
+
+type OtaUpdateOtaUpdateFileArgs struct {
+	// A list of name-attribute pairs.
+	Attributes   pulumi.StringMapInput         `pulumi:"attributes"`
+	CodeSigning  OtaUpdateCodeSigningPtrInput  `pulumi:"codeSigning"`
+	FileLocation OtaUpdateFileLocationPtrInput `pulumi:"fileLocation"`
+	// The name of the file.
+	FileName pulumi.StringPtrInput `pulumi:"fileName"`
+	// An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+	FileType pulumi.IntPtrInput `pulumi:"fileType"`
+	// The file version.
+	FileVersion pulumi.StringPtrInput `pulumi:"fileVersion"`
+}
+
+func (OtaUpdateOtaUpdateFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateOtaUpdateFile)(nil)).Elem()
+}
+
+func (i OtaUpdateOtaUpdateFileArgs) ToOtaUpdateOtaUpdateFileOutput() OtaUpdateOtaUpdateFileOutput {
+	return i.ToOtaUpdateOtaUpdateFileOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateOtaUpdateFileArgs) ToOtaUpdateOtaUpdateFileOutputWithContext(ctx context.Context) OtaUpdateOtaUpdateFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateOtaUpdateFileOutput)
+}
+
+// OtaUpdateOtaUpdateFileArrayInput is an input type that accepts OtaUpdateOtaUpdateFileArray and OtaUpdateOtaUpdateFileArrayOutput values.
+// You can construct a concrete instance of `OtaUpdateOtaUpdateFileArrayInput` via:
+//
+//	OtaUpdateOtaUpdateFileArray{ OtaUpdateOtaUpdateFileArgs{...} }
+type OtaUpdateOtaUpdateFileArrayInput interface {
+	pulumi.Input
+
+	ToOtaUpdateOtaUpdateFileArrayOutput() OtaUpdateOtaUpdateFileArrayOutput
+	ToOtaUpdateOtaUpdateFileArrayOutputWithContext(context.Context) OtaUpdateOtaUpdateFileArrayOutput
+}
+
+type OtaUpdateOtaUpdateFileArray []OtaUpdateOtaUpdateFileInput
+
+func (OtaUpdateOtaUpdateFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtaUpdateOtaUpdateFile)(nil)).Elem()
+}
+
+func (i OtaUpdateOtaUpdateFileArray) ToOtaUpdateOtaUpdateFileArrayOutput() OtaUpdateOtaUpdateFileArrayOutput {
+	return i.ToOtaUpdateOtaUpdateFileArrayOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateOtaUpdateFileArray) ToOtaUpdateOtaUpdateFileArrayOutputWithContext(ctx context.Context) OtaUpdateOtaUpdateFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateOtaUpdateFileArrayOutput)
+}
+
+type OtaUpdateOtaUpdateFileOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateOtaUpdateFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateOtaUpdateFile)(nil)).Elem()
+}
+
+func (o OtaUpdateOtaUpdateFileOutput) ToOtaUpdateOtaUpdateFileOutput() OtaUpdateOtaUpdateFileOutput {
+	return o
+}
+
+func (o OtaUpdateOtaUpdateFileOutput) ToOtaUpdateOtaUpdateFileOutputWithContext(ctx context.Context) OtaUpdateOtaUpdateFileOutput {
+	return o
+}
+
+// A list of name-attribute pairs.
+func (o OtaUpdateOtaUpdateFileOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v OtaUpdateOtaUpdateFile) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+}
+
+func (o OtaUpdateOtaUpdateFileOutput) CodeSigning() OtaUpdateCodeSigningPtrOutput {
+	return o.ApplyT(func(v OtaUpdateOtaUpdateFile) *OtaUpdateCodeSigning { return v.CodeSigning }).(OtaUpdateCodeSigningPtrOutput)
+}
+
+func (o OtaUpdateOtaUpdateFileOutput) FileLocation() OtaUpdateFileLocationPtrOutput {
+	return o.ApplyT(func(v OtaUpdateOtaUpdateFile) *OtaUpdateFileLocation { return v.FileLocation }).(OtaUpdateFileLocationPtrOutput)
+}
+
+// The name of the file.
+func (o OtaUpdateOtaUpdateFileOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateOtaUpdateFile) *string { return v.FileName }).(pulumi.StringPtrOutput)
+}
+
+// An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+func (o OtaUpdateOtaUpdateFileOutput) FileType() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OtaUpdateOtaUpdateFile) *int { return v.FileType }).(pulumi.IntPtrOutput)
+}
+
+// The file version.
+func (o OtaUpdateOtaUpdateFileOutput) FileVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateOtaUpdateFile) *string { return v.FileVersion }).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateOtaUpdateFileArrayOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateOtaUpdateFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtaUpdateOtaUpdateFile)(nil)).Elem()
+}
+
+func (o OtaUpdateOtaUpdateFileArrayOutput) ToOtaUpdateOtaUpdateFileArrayOutput() OtaUpdateOtaUpdateFileArrayOutput {
+	return o
+}
+
+func (o OtaUpdateOtaUpdateFileArrayOutput) ToOtaUpdateOtaUpdateFileArrayOutputWithContext(ctx context.Context) OtaUpdateOtaUpdateFileArrayOutput {
+	return o
+}
+
+func (o OtaUpdateOtaUpdateFileArrayOutput) Index(i pulumi.IntInput) OtaUpdateOtaUpdateFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OtaUpdateOtaUpdateFile {
+		return vs[0].([]OtaUpdateOtaUpdateFile)[vs[1].(int)]
+	}).(OtaUpdateOtaUpdateFileOutput)
+}
+
+type OtaUpdateS3Destination struct {
+	// The S3 bucket that contains the updated firmware.
+	Bucket *string `pulumi:"bucket"`
+	// The S3 prefix.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// OtaUpdateS3DestinationInput is an input type that accepts OtaUpdateS3DestinationArgs and OtaUpdateS3DestinationOutput values.
+// You can construct a concrete instance of `OtaUpdateS3DestinationInput` via:
+//
+//	OtaUpdateS3DestinationArgs{...}
+type OtaUpdateS3DestinationInput interface {
+	pulumi.Input
+
+	ToOtaUpdateS3DestinationOutput() OtaUpdateS3DestinationOutput
+	ToOtaUpdateS3DestinationOutputWithContext(context.Context) OtaUpdateS3DestinationOutput
+}
+
+type OtaUpdateS3DestinationArgs struct {
+	// The S3 bucket that contains the updated firmware.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The S3 prefix.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (OtaUpdateS3DestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateS3Destination)(nil)).Elem()
+}
+
+func (i OtaUpdateS3DestinationArgs) ToOtaUpdateS3DestinationOutput() OtaUpdateS3DestinationOutput {
+	return i.ToOtaUpdateS3DestinationOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateS3DestinationArgs) ToOtaUpdateS3DestinationOutputWithContext(ctx context.Context) OtaUpdateS3DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateS3DestinationOutput)
+}
+
+func (i OtaUpdateS3DestinationArgs) ToOtaUpdateS3DestinationPtrOutput() OtaUpdateS3DestinationPtrOutput {
+	return i.ToOtaUpdateS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateS3DestinationArgs) ToOtaUpdateS3DestinationPtrOutputWithContext(ctx context.Context) OtaUpdateS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateS3DestinationOutput).ToOtaUpdateS3DestinationPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateS3DestinationPtrInput is an input type that accepts OtaUpdateS3DestinationArgs, OtaUpdateS3DestinationPtr and OtaUpdateS3DestinationPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateS3DestinationPtrInput` via:
+//
+//	        OtaUpdateS3DestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateS3DestinationPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateS3DestinationPtrOutput() OtaUpdateS3DestinationPtrOutput
+	ToOtaUpdateS3DestinationPtrOutputWithContext(context.Context) OtaUpdateS3DestinationPtrOutput
+}
+
+type otaUpdateS3DestinationPtrType OtaUpdateS3DestinationArgs
+
+func OtaUpdateS3DestinationPtr(v *OtaUpdateS3DestinationArgs) OtaUpdateS3DestinationPtrInput {
+	return (*otaUpdateS3DestinationPtrType)(v)
+}
+
+func (*otaUpdateS3DestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateS3Destination)(nil)).Elem()
+}
+
+func (i *otaUpdateS3DestinationPtrType) ToOtaUpdateS3DestinationPtrOutput() OtaUpdateS3DestinationPtrOutput {
+	return i.ToOtaUpdateS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateS3DestinationPtrType) ToOtaUpdateS3DestinationPtrOutputWithContext(ctx context.Context) OtaUpdateS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateS3DestinationPtrOutput)
+}
+
+type OtaUpdateS3DestinationOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateS3DestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateS3Destination)(nil)).Elem()
+}
+
+func (o OtaUpdateS3DestinationOutput) ToOtaUpdateS3DestinationOutput() OtaUpdateS3DestinationOutput {
+	return o
+}
+
+func (o OtaUpdateS3DestinationOutput) ToOtaUpdateS3DestinationOutputWithContext(ctx context.Context) OtaUpdateS3DestinationOutput {
+	return o
+}
+
+func (o OtaUpdateS3DestinationOutput) ToOtaUpdateS3DestinationPtrOutput() OtaUpdateS3DestinationPtrOutput {
+	return o.ToOtaUpdateS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateS3DestinationOutput) ToOtaUpdateS3DestinationPtrOutputWithContext(ctx context.Context) OtaUpdateS3DestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateS3Destination) *OtaUpdateS3Destination {
+		return &v
+	}).(OtaUpdateS3DestinationPtrOutput)
+}
+
+// The S3 bucket that contains the updated firmware.
+func (o OtaUpdateS3DestinationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateS3Destination) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The S3 prefix.
+func (o OtaUpdateS3DestinationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateS3Destination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateS3DestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateS3DestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateS3Destination)(nil)).Elem()
+}
+
+func (o OtaUpdateS3DestinationPtrOutput) ToOtaUpdateS3DestinationPtrOutput() OtaUpdateS3DestinationPtrOutput {
+	return o
+}
+
+func (o OtaUpdateS3DestinationPtrOutput) ToOtaUpdateS3DestinationPtrOutputWithContext(ctx context.Context) OtaUpdateS3DestinationPtrOutput {
+	return o
+}
+
+func (o OtaUpdateS3DestinationPtrOutput) Elem() OtaUpdateS3DestinationOutput {
+	return o.ApplyT(func(v *OtaUpdateS3Destination) OtaUpdateS3Destination {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateS3Destination
+		return ret
+	}).(OtaUpdateS3DestinationOutput)
+}
+
+// The S3 bucket that contains the updated firmware.
+func (o OtaUpdateS3DestinationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 prefix.
+func (o OtaUpdateS3DestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateS3Location struct {
+	// The S3 bucket.
+	Bucket *string `pulumi:"bucket"`
+	// The S3 key.
+	Key *string `pulumi:"key"`
+	// The S3 bucket version.
+	Version *string `pulumi:"version"`
+}
+
+// OtaUpdateS3LocationInput is an input type that accepts OtaUpdateS3LocationArgs and OtaUpdateS3LocationOutput values.
+// You can construct a concrete instance of `OtaUpdateS3LocationInput` via:
+//
+//	OtaUpdateS3LocationArgs{...}
+type OtaUpdateS3LocationInput interface {
+	pulumi.Input
+
+	ToOtaUpdateS3LocationOutput() OtaUpdateS3LocationOutput
+	ToOtaUpdateS3LocationOutputWithContext(context.Context) OtaUpdateS3LocationOutput
+}
+
+type OtaUpdateS3LocationArgs struct {
+	// The S3 bucket.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The S3 key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The S3 bucket version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (OtaUpdateS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateS3Location)(nil)).Elem()
+}
+
+func (i OtaUpdateS3LocationArgs) ToOtaUpdateS3LocationOutput() OtaUpdateS3LocationOutput {
+	return i.ToOtaUpdateS3LocationOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateS3LocationArgs) ToOtaUpdateS3LocationOutputWithContext(ctx context.Context) OtaUpdateS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateS3LocationOutput)
+}
+
+func (i OtaUpdateS3LocationArgs) ToOtaUpdateS3LocationPtrOutput() OtaUpdateS3LocationPtrOutput {
+	return i.ToOtaUpdateS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateS3LocationArgs) ToOtaUpdateS3LocationPtrOutputWithContext(ctx context.Context) OtaUpdateS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateS3LocationOutput).ToOtaUpdateS3LocationPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateS3LocationPtrInput is an input type that accepts OtaUpdateS3LocationArgs, OtaUpdateS3LocationPtr and OtaUpdateS3LocationPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateS3LocationPtrInput` via:
+//
+//	        OtaUpdateS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateS3LocationPtrOutput() OtaUpdateS3LocationPtrOutput
+	ToOtaUpdateS3LocationPtrOutputWithContext(context.Context) OtaUpdateS3LocationPtrOutput
+}
+
+type otaUpdateS3LocationPtrType OtaUpdateS3LocationArgs
+
+func OtaUpdateS3LocationPtr(v *OtaUpdateS3LocationArgs) OtaUpdateS3LocationPtrInput {
+	return (*otaUpdateS3LocationPtrType)(v)
+}
+
+func (*otaUpdateS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateS3Location)(nil)).Elem()
+}
+
+func (i *otaUpdateS3LocationPtrType) ToOtaUpdateS3LocationPtrOutput() OtaUpdateS3LocationPtrOutput {
+	return i.ToOtaUpdateS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateS3LocationPtrType) ToOtaUpdateS3LocationPtrOutputWithContext(ctx context.Context) OtaUpdateS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateS3LocationPtrOutput)
+}
+
+type OtaUpdateS3LocationOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateS3Location)(nil)).Elem()
+}
+
+func (o OtaUpdateS3LocationOutput) ToOtaUpdateS3LocationOutput() OtaUpdateS3LocationOutput {
+	return o
+}
+
+func (o OtaUpdateS3LocationOutput) ToOtaUpdateS3LocationOutputWithContext(ctx context.Context) OtaUpdateS3LocationOutput {
+	return o
+}
+
+func (o OtaUpdateS3LocationOutput) ToOtaUpdateS3LocationPtrOutput() OtaUpdateS3LocationPtrOutput {
+	return o.ToOtaUpdateS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateS3LocationOutput) ToOtaUpdateS3LocationPtrOutputWithContext(ctx context.Context) OtaUpdateS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateS3Location) *OtaUpdateS3Location {
+		return &v
+	}).(OtaUpdateS3LocationPtrOutput)
+}
+
+// The S3 bucket.
+func (o OtaUpdateS3LocationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateS3Location) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The S3 key.
+func (o OtaUpdateS3LocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The S3 bucket version.
+func (o OtaUpdateS3LocationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateS3Location)(nil)).Elem()
+}
+
+func (o OtaUpdateS3LocationPtrOutput) ToOtaUpdateS3LocationPtrOutput() OtaUpdateS3LocationPtrOutput {
+	return o
+}
+
+func (o OtaUpdateS3LocationPtrOutput) ToOtaUpdateS3LocationPtrOutputWithContext(ctx context.Context) OtaUpdateS3LocationPtrOutput {
+	return o
+}
+
+func (o OtaUpdateS3LocationPtrOutput) Elem() OtaUpdateS3LocationOutput {
+	return o.ApplyT(func(v *OtaUpdateS3Location) OtaUpdateS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateS3Location
+		return ret
+	}).(OtaUpdateS3LocationOutput)
+}
+
+// The S3 bucket.
+func (o OtaUpdateS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 key.
+func (o OtaUpdateS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 bucket version.
+func (o OtaUpdateS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateSigningProfileParameter struct {
+	// Certificate ARN.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// The location of the code-signing certificate on your device.
+	CertificatePathOnDevice *string `pulumi:"certificatePathOnDevice"`
+	// The hardware platform of your device.
+	Platform *string `pulumi:"platform"`
+}
+
+// OtaUpdateSigningProfileParameterInput is an input type that accepts OtaUpdateSigningProfileParameterArgs and OtaUpdateSigningProfileParameterOutput values.
+// You can construct a concrete instance of `OtaUpdateSigningProfileParameterInput` via:
+//
+//	OtaUpdateSigningProfileParameterArgs{...}
+type OtaUpdateSigningProfileParameterInput interface {
+	pulumi.Input
+
+	ToOtaUpdateSigningProfileParameterOutput() OtaUpdateSigningProfileParameterOutput
+	ToOtaUpdateSigningProfileParameterOutputWithContext(context.Context) OtaUpdateSigningProfileParameterOutput
+}
+
+type OtaUpdateSigningProfileParameterArgs struct {
+	// Certificate ARN.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// The location of the code-signing certificate on your device.
+	CertificatePathOnDevice pulumi.StringPtrInput `pulumi:"certificatePathOnDevice"`
+	// The hardware platform of your device.
+	Platform pulumi.StringPtrInput `pulumi:"platform"`
+}
+
+func (OtaUpdateSigningProfileParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateSigningProfileParameter)(nil)).Elem()
+}
+
+func (i OtaUpdateSigningProfileParameterArgs) ToOtaUpdateSigningProfileParameterOutput() OtaUpdateSigningProfileParameterOutput {
+	return i.ToOtaUpdateSigningProfileParameterOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateSigningProfileParameterArgs) ToOtaUpdateSigningProfileParameterOutputWithContext(ctx context.Context) OtaUpdateSigningProfileParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateSigningProfileParameterOutput)
+}
+
+func (i OtaUpdateSigningProfileParameterArgs) ToOtaUpdateSigningProfileParameterPtrOutput() OtaUpdateSigningProfileParameterPtrOutput {
+	return i.ToOtaUpdateSigningProfileParameterPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateSigningProfileParameterArgs) ToOtaUpdateSigningProfileParameterPtrOutputWithContext(ctx context.Context) OtaUpdateSigningProfileParameterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateSigningProfileParameterOutput).ToOtaUpdateSigningProfileParameterPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateSigningProfileParameterPtrInput is an input type that accepts OtaUpdateSigningProfileParameterArgs, OtaUpdateSigningProfileParameterPtr and OtaUpdateSigningProfileParameterPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateSigningProfileParameterPtrInput` via:
+//
+//	        OtaUpdateSigningProfileParameterArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateSigningProfileParameterPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateSigningProfileParameterPtrOutput() OtaUpdateSigningProfileParameterPtrOutput
+	ToOtaUpdateSigningProfileParameterPtrOutputWithContext(context.Context) OtaUpdateSigningProfileParameterPtrOutput
+}
+
+type otaUpdateSigningProfileParameterPtrType OtaUpdateSigningProfileParameterArgs
+
+func OtaUpdateSigningProfileParameterPtr(v *OtaUpdateSigningProfileParameterArgs) OtaUpdateSigningProfileParameterPtrInput {
+	return (*otaUpdateSigningProfileParameterPtrType)(v)
+}
+
+func (*otaUpdateSigningProfileParameterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateSigningProfileParameter)(nil)).Elem()
+}
+
+func (i *otaUpdateSigningProfileParameterPtrType) ToOtaUpdateSigningProfileParameterPtrOutput() OtaUpdateSigningProfileParameterPtrOutput {
+	return i.ToOtaUpdateSigningProfileParameterPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateSigningProfileParameterPtrType) ToOtaUpdateSigningProfileParameterPtrOutputWithContext(ctx context.Context) OtaUpdateSigningProfileParameterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateSigningProfileParameterPtrOutput)
+}
+
+type OtaUpdateSigningProfileParameterOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateSigningProfileParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateSigningProfileParameter)(nil)).Elem()
+}
+
+func (o OtaUpdateSigningProfileParameterOutput) ToOtaUpdateSigningProfileParameterOutput() OtaUpdateSigningProfileParameterOutput {
+	return o
+}
+
+func (o OtaUpdateSigningProfileParameterOutput) ToOtaUpdateSigningProfileParameterOutputWithContext(ctx context.Context) OtaUpdateSigningProfileParameterOutput {
+	return o
+}
+
+func (o OtaUpdateSigningProfileParameterOutput) ToOtaUpdateSigningProfileParameterPtrOutput() OtaUpdateSigningProfileParameterPtrOutput {
+	return o.ToOtaUpdateSigningProfileParameterPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateSigningProfileParameterOutput) ToOtaUpdateSigningProfileParameterPtrOutputWithContext(ctx context.Context) OtaUpdateSigningProfileParameterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateSigningProfileParameter) *OtaUpdateSigningProfileParameter {
+		return &v
+	}).(OtaUpdateSigningProfileParameterPtrOutput)
+}
+
+// Certificate ARN.
+func (o OtaUpdateSigningProfileParameterOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateSigningProfileParameter) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// The location of the code-signing certificate on your device.
+func (o OtaUpdateSigningProfileParameterOutput) CertificatePathOnDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateSigningProfileParameter) *string { return v.CertificatePathOnDevice }).(pulumi.StringPtrOutput)
+}
+
+// The hardware platform of your device.
+func (o OtaUpdateSigningProfileParameterOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateSigningProfileParameter) *string { return v.Platform }).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateSigningProfileParameterPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateSigningProfileParameterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateSigningProfileParameter)(nil)).Elem()
+}
+
+func (o OtaUpdateSigningProfileParameterPtrOutput) ToOtaUpdateSigningProfileParameterPtrOutput() OtaUpdateSigningProfileParameterPtrOutput {
+	return o
+}
+
+func (o OtaUpdateSigningProfileParameterPtrOutput) ToOtaUpdateSigningProfileParameterPtrOutputWithContext(ctx context.Context) OtaUpdateSigningProfileParameterPtrOutput {
+	return o
+}
+
+func (o OtaUpdateSigningProfileParameterPtrOutput) Elem() OtaUpdateSigningProfileParameterOutput {
+	return o.ApplyT(func(v *OtaUpdateSigningProfileParameter) OtaUpdateSigningProfileParameter {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateSigningProfileParameter
+		return ret
+	}).(OtaUpdateSigningProfileParameterOutput)
+}
+
+// Certificate ARN.
+func (o OtaUpdateSigningProfileParameterPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateSigningProfileParameter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The location of the code-signing certificate on your device.
+func (o OtaUpdateSigningProfileParameterPtrOutput) CertificatePathOnDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateSigningProfileParameter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificatePathOnDevice
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hardware platform of your device.
+func (o OtaUpdateSigningProfileParameterPtrOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateSigningProfileParameter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Platform
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateStartSigningJobParameter struct {
+	Destination *OtaUpdateDestination `pulumi:"destination"`
+	// The code-signing profile name.
+	SigningProfileName      *string                           `pulumi:"signingProfileName"`
+	SigningProfileParameter *OtaUpdateSigningProfileParameter `pulumi:"signingProfileParameter"`
+}
+
+// OtaUpdateStartSigningJobParameterInput is an input type that accepts OtaUpdateStartSigningJobParameterArgs and OtaUpdateStartSigningJobParameterOutput values.
+// You can construct a concrete instance of `OtaUpdateStartSigningJobParameterInput` via:
+//
+//	OtaUpdateStartSigningJobParameterArgs{...}
+type OtaUpdateStartSigningJobParameterInput interface {
+	pulumi.Input
+
+	ToOtaUpdateStartSigningJobParameterOutput() OtaUpdateStartSigningJobParameterOutput
+	ToOtaUpdateStartSigningJobParameterOutputWithContext(context.Context) OtaUpdateStartSigningJobParameterOutput
+}
+
+type OtaUpdateStartSigningJobParameterArgs struct {
+	Destination OtaUpdateDestinationPtrInput `pulumi:"destination"`
+	// The code-signing profile name.
+	SigningProfileName      pulumi.StringPtrInput                    `pulumi:"signingProfileName"`
+	SigningProfileParameter OtaUpdateSigningProfileParameterPtrInput `pulumi:"signingProfileParameter"`
+}
+
+func (OtaUpdateStartSigningJobParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateStartSigningJobParameter)(nil)).Elem()
+}
+
+func (i OtaUpdateStartSigningJobParameterArgs) ToOtaUpdateStartSigningJobParameterOutput() OtaUpdateStartSigningJobParameterOutput {
+	return i.ToOtaUpdateStartSigningJobParameterOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateStartSigningJobParameterArgs) ToOtaUpdateStartSigningJobParameterOutputWithContext(ctx context.Context) OtaUpdateStartSigningJobParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateStartSigningJobParameterOutput)
+}
+
+func (i OtaUpdateStartSigningJobParameterArgs) ToOtaUpdateStartSigningJobParameterPtrOutput() OtaUpdateStartSigningJobParameterPtrOutput {
+	return i.ToOtaUpdateStartSigningJobParameterPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateStartSigningJobParameterArgs) ToOtaUpdateStartSigningJobParameterPtrOutputWithContext(ctx context.Context) OtaUpdateStartSigningJobParameterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateStartSigningJobParameterOutput).ToOtaUpdateStartSigningJobParameterPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateStartSigningJobParameterPtrInput is an input type that accepts OtaUpdateStartSigningJobParameterArgs, OtaUpdateStartSigningJobParameterPtr and OtaUpdateStartSigningJobParameterPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateStartSigningJobParameterPtrInput` via:
+//
+//	        OtaUpdateStartSigningJobParameterArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateStartSigningJobParameterPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateStartSigningJobParameterPtrOutput() OtaUpdateStartSigningJobParameterPtrOutput
+	ToOtaUpdateStartSigningJobParameterPtrOutputWithContext(context.Context) OtaUpdateStartSigningJobParameterPtrOutput
+}
+
+type otaUpdateStartSigningJobParameterPtrType OtaUpdateStartSigningJobParameterArgs
+
+func OtaUpdateStartSigningJobParameterPtr(v *OtaUpdateStartSigningJobParameterArgs) OtaUpdateStartSigningJobParameterPtrInput {
+	return (*otaUpdateStartSigningJobParameterPtrType)(v)
+}
+
+func (*otaUpdateStartSigningJobParameterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateStartSigningJobParameter)(nil)).Elem()
+}
+
+func (i *otaUpdateStartSigningJobParameterPtrType) ToOtaUpdateStartSigningJobParameterPtrOutput() OtaUpdateStartSigningJobParameterPtrOutput {
+	return i.ToOtaUpdateStartSigningJobParameterPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateStartSigningJobParameterPtrType) ToOtaUpdateStartSigningJobParameterPtrOutputWithContext(ctx context.Context) OtaUpdateStartSigningJobParameterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateStartSigningJobParameterPtrOutput)
+}
+
+type OtaUpdateStartSigningJobParameterOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateStartSigningJobParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateStartSigningJobParameter)(nil)).Elem()
+}
+
+func (o OtaUpdateStartSigningJobParameterOutput) ToOtaUpdateStartSigningJobParameterOutput() OtaUpdateStartSigningJobParameterOutput {
+	return o
+}
+
+func (o OtaUpdateStartSigningJobParameterOutput) ToOtaUpdateStartSigningJobParameterOutputWithContext(ctx context.Context) OtaUpdateStartSigningJobParameterOutput {
+	return o
+}
+
+func (o OtaUpdateStartSigningJobParameterOutput) ToOtaUpdateStartSigningJobParameterPtrOutput() OtaUpdateStartSigningJobParameterPtrOutput {
+	return o.ToOtaUpdateStartSigningJobParameterPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateStartSigningJobParameterOutput) ToOtaUpdateStartSigningJobParameterPtrOutputWithContext(ctx context.Context) OtaUpdateStartSigningJobParameterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateStartSigningJobParameter) *OtaUpdateStartSigningJobParameter {
+		return &v
+	}).(OtaUpdateStartSigningJobParameterPtrOutput)
+}
+
+func (o OtaUpdateStartSigningJobParameterOutput) Destination() OtaUpdateDestinationPtrOutput {
+	return o.ApplyT(func(v OtaUpdateStartSigningJobParameter) *OtaUpdateDestination { return v.Destination }).(OtaUpdateDestinationPtrOutput)
+}
+
+// The code-signing profile name.
+func (o OtaUpdateStartSigningJobParameterOutput) SigningProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateStartSigningJobParameter) *string { return v.SigningProfileName }).(pulumi.StringPtrOutput)
+}
+
+func (o OtaUpdateStartSigningJobParameterOutput) SigningProfileParameter() OtaUpdateSigningProfileParameterPtrOutput {
+	return o.ApplyT(func(v OtaUpdateStartSigningJobParameter) *OtaUpdateSigningProfileParameter {
+		return v.SigningProfileParameter
+	}).(OtaUpdateSigningProfileParameterPtrOutput)
+}
+
+type OtaUpdateStartSigningJobParameterPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateStartSigningJobParameterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateStartSigningJobParameter)(nil)).Elem()
+}
+
+func (o OtaUpdateStartSigningJobParameterPtrOutput) ToOtaUpdateStartSigningJobParameterPtrOutput() OtaUpdateStartSigningJobParameterPtrOutput {
+	return o
+}
+
+func (o OtaUpdateStartSigningJobParameterPtrOutput) ToOtaUpdateStartSigningJobParameterPtrOutputWithContext(ctx context.Context) OtaUpdateStartSigningJobParameterPtrOutput {
+	return o
+}
+
+func (o OtaUpdateStartSigningJobParameterPtrOutput) Elem() OtaUpdateStartSigningJobParameterOutput {
+	return o.ApplyT(func(v *OtaUpdateStartSigningJobParameter) OtaUpdateStartSigningJobParameter {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateStartSigningJobParameter
+		return ret
+	}).(OtaUpdateStartSigningJobParameterOutput)
+}
+
+func (o OtaUpdateStartSigningJobParameterPtrOutput) Destination() OtaUpdateDestinationPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateStartSigningJobParameter) *OtaUpdateDestination {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(OtaUpdateDestinationPtrOutput)
+}
+
+// The code-signing profile name.
+func (o OtaUpdateStartSigningJobParameterPtrOutput) SigningProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateStartSigningJobParameter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SigningProfileName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OtaUpdateStartSigningJobParameterPtrOutput) SigningProfileParameter() OtaUpdateSigningProfileParameterPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateStartSigningJobParameter) *OtaUpdateSigningProfileParameter {
+		if v == nil {
+			return nil
+		}
+		return v.SigningProfileParameter
+	}).(OtaUpdateSigningProfileParameterPtrOutput)
+}
+
+type OtaUpdateStream struct {
+	// The ID of a file associated with a stream.
+	FileId *int `pulumi:"fileId"`
+	// The stream ID.
+	StreamId *string `pulumi:"streamId"`
+}
+
+// OtaUpdateStreamInput is an input type that accepts OtaUpdateStreamArgs and OtaUpdateStreamOutput values.
+// You can construct a concrete instance of `OtaUpdateStreamInput` via:
+//
+//	OtaUpdateStreamArgs{...}
+type OtaUpdateStreamInput interface {
+	pulumi.Input
+
+	ToOtaUpdateStreamOutput() OtaUpdateStreamOutput
+	ToOtaUpdateStreamOutputWithContext(context.Context) OtaUpdateStreamOutput
+}
+
+type OtaUpdateStreamArgs struct {
+	// The ID of a file associated with a stream.
+	FileId pulumi.IntPtrInput `pulumi:"fileId"`
+	// The stream ID.
+	StreamId pulumi.StringPtrInput `pulumi:"streamId"`
+}
+
+func (OtaUpdateStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateStream)(nil)).Elem()
+}
+
+func (i OtaUpdateStreamArgs) ToOtaUpdateStreamOutput() OtaUpdateStreamOutput {
+	return i.ToOtaUpdateStreamOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateStreamArgs) ToOtaUpdateStreamOutputWithContext(ctx context.Context) OtaUpdateStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateStreamOutput)
+}
+
+func (i OtaUpdateStreamArgs) ToOtaUpdateStreamPtrOutput() OtaUpdateStreamPtrOutput {
+	return i.ToOtaUpdateStreamPtrOutputWithContext(context.Background())
+}
+
+func (i OtaUpdateStreamArgs) ToOtaUpdateStreamPtrOutputWithContext(ctx context.Context) OtaUpdateStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateStreamOutput).ToOtaUpdateStreamPtrOutputWithContext(ctx)
+}
+
+// OtaUpdateStreamPtrInput is an input type that accepts OtaUpdateStreamArgs, OtaUpdateStreamPtr and OtaUpdateStreamPtrOutput values.
+// You can construct a concrete instance of `OtaUpdateStreamPtrInput` via:
+//
+//	        OtaUpdateStreamArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtaUpdateStreamPtrInput interface {
+	pulumi.Input
+
+	ToOtaUpdateStreamPtrOutput() OtaUpdateStreamPtrOutput
+	ToOtaUpdateStreamPtrOutputWithContext(context.Context) OtaUpdateStreamPtrOutput
+}
+
+type otaUpdateStreamPtrType OtaUpdateStreamArgs
+
+func OtaUpdateStreamPtr(v *OtaUpdateStreamArgs) OtaUpdateStreamPtrInput {
+	return (*otaUpdateStreamPtrType)(v)
+}
+
+func (*otaUpdateStreamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateStream)(nil)).Elem()
+}
+
+func (i *otaUpdateStreamPtrType) ToOtaUpdateStreamPtrOutput() OtaUpdateStreamPtrOutput {
+	return i.ToOtaUpdateStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *otaUpdateStreamPtrType) ToOtaUpdateStreamPtrOutputWithContext(ctx context.Context) OtaUpdateStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtaUpdateStreamPtrOutput)
+}
+
+type OtaUpdateStreamOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtaUpdateStream)(nil)).Elem()
+}
+
+func (o OtaUpdateStreamOutput) ToOtaUpdateStreamOutput() OtaUpdateStreamOutput {
+	return o
+}
+
+func (o OtaUpdateStreamOutput) ToOtaUpdateStreamOutputWithContext(ctx context.Context) OtaUpdateStreamOutput {
+	return o
+}
+
+func (o OtaUpdateStreamOutput) ToOtaUpdateStreamPtrOutput() OtaUpdateStreamPtrOutput {
+	return o.ToOtaUpdateStreamPtrOutputWithContext(context.Background())
+}
+
+func (o OtaUpdateStreamOutput) ToOtaUpdateStreamPtrOutputWithContext(ctx context.Context) OtaUpdateStreamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtaUpdateStream) *OtaUpdateStream {
+		return &v
+	}).(OtaUpdateStreamPtrOutput)
+}
+
+// The ID of a file associated with a stream.
+func (o OtaUpdateStreamOutput) FileId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OtaUpdateStream) *int { return v.FileId }).(pulumi.IntPtrOutput)
+}
+
+// The stream ID.
+func (o OtaUpdateStreamOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtaUpdateStream) *string { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateStreamPtrOutput struct{ *pulumi.OutputState }
+
+func (OtaUpdateStreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtaUpdateStream)(nil)).Elem()
+}
+
+func (o OtaUpdateStreamPtrOutput) ToOtaUpdateStreamPtrOutput() OtaUpdateStreamPtrOutput {
+	return o
+}
+
+func (o OtaUpdateStreamPtrOutput) ToOtaUpdateStreamPtrOutputWithContext(ctx context.Context) OtaUpdateStreamPtrOutput {
+	return o
+}
+
+func (o OtaUpdateStreamPtrOutput) Elem() OtaUpdateStreamOutput {
+	return o.ApplyT(func(v *OtaUpdateStream) OtaUpdateStream {
+		if v != nil {
+			return *v
+		}
+		var ret OtaUpdateStream
+		return ret
+	}).(OtaUpdateStreamOutput)
+}
+
+// The ID of a file associated with a stream.
+func (o OtaUpdateStreamPtrOutput) FileId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateStream) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FileId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The stream ID.
+func (o OtaUpdateStreamPtrOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtaUpdateStream) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamId
+	}).(pulumi.StringPtrOutput)
+}
+
+type OtaUpdateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type PolicyTag struct {
 	// The tag's key.
 	Key string `pulumi:"key"`
@@ -19785,6 +22702,44 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCaCertificateParamsPtrInput)(nil)).Elem(), MitigationActionUpdateCaCertificateParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsPtrInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobAbortConfigInput)(nil)).Elem(), OtaUpdateAwsJobAbortConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobAbortConfigPtrInput)(nil)).Elem(), OtaUpdateAwsJobAbortConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaInput)(nil)).Elem(), OtaUpdateAwsJobAbortCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobAbortCriteriaArrayInput)(nil)).Elem(), OtaUpdateAwsJobAbortCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobExecutionsRolloutConfigInput)(nil)).Elem(), OtaUpdateAwsJobExecutionsRolloutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobExecutionsRolloutConfigPtrInput)(nil)).Elem(), OtaUpdateAwsJobExecutionsRolloutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobExponentialRolloutRateInput)(nil)).Elem(), OtaUpdateAwsJobExponentialRolloutRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobExponentialRolloutRatePtrInput)(nil)).Elem(), OtaUpdateAwsJobExponentialRolloutRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobPresignedUrlConfigInput)(nil)).Elem(), OtaUpdateAwsJobPresignedUrlConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobPresignedUrlConfigPtrInput)(nil)).Elem(), OtaUpdateAwsJobPresignedUrlConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobRateIncreaseCriteriaInput)(nil)).Elem(), OtaUpdateAwsJobRateIncreaseCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobRateIncreaseCriteriaPtrInput)(nil)).Elem(), OtaUpdateAwsJobRateIncreaseCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobTimeoutConfigInput)(nil)).Elem(), OtaUpdateAwsJobTimeoutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateAwsJobTimeoutConfigPtrInput)(nil)).Elem(), OtaUpdateAwsJobTimeoutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateCodeSigningInput)(nil)).Elem(), OtaUpdateCodeSigningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateCodeSigningPtrInput)(nil)).Elem(), OtaUpdateCodeSigningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateCodeSigningCertificateChainInput)(nil)).Elem(), OtaUpdateCodeSigningCertificateChainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateCodeSigningCertificateChainPtrInput)(nil)).Elem(), OtaUpdateCodeSigningCertificateChainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateCodeSigningSignatureInput)(nil)).Elem(), OtaUpdateCodeSigningSignatureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateCodeSigningSignaturePtrInput)(nil)).Elem(), OtaUpdateCodeSigningSignatureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateCustomCodeSigningInput)(nil)).Elem(), OtaUpdateCustomCodeSigningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateCustomCodeSigningPtrInput)(nil)).Elem(), OtaUpdateCustomCodeSigningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateDestinationInput)(nil)).Elem(), OtaUpdateDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateDestinationPtrInput)(nil)).Elem(), OtaUpdateDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateFileLocationInput)(nil)).Elem(), OtaUpdateFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateFileLocationPtrInput)(nil)).Elem(), OtaUpdateFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateOtaUpdateFileInput)(nil)).Elem(), OtaUpdateOtaUpdateFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateOtaUpdateFileArrayInput)(nil)).Elem(), OtaUpdateOtaUpdateFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateS3DestinationInput)(nil)).Elem(), OtaUpdateS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateS3DestinationPtrInput)(nil)).Elem(), OtaUpdateS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateS3LocationInput)(nil)).Elem(), OtaUpdateS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateS3LocationPtrInput)(nil)).Elem(), OtaUpdateS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateSigningProfileParameterInput)(nil)).Elem(), OtaUpdateSigningProfileParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateSigningProfileParameterPtrInput)(nil)).Elem(), OtaUpdateSigningProfileParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateStartSigningJobParameterInput)(nil)).Elem(), OtaUpdateStartSigningJobParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateStartSigningJobParameterPtrInput)(nil)).Elem(), OtaUpdateStartSigningJobParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateStreamInput)(nil)).Elem(), OtaUpdateStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtaUpdateStreamPtrInput)(nil)).Elem(), OtaUpdateStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PresignedUrlConfigPropertiesInput)(nil)).Elem(), PresignedUrlConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PresignedUrlConfigPropertiesPtrInput)(nil)).Elem(), PresignedUrlConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateProvisioningHookInput)(nil)).Elem(), ProvisioningTemplateProvisioningHookArgs{})
@@ -20020,6 +22975,44 @@ func init() {
 	pulumi.RegisterOutputType(MitigationActionUpdateCaCertificateParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobAbortConfigOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobAbortConfigPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobAbortCriteriaOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobAbortCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobExecutionsRolloutConfigOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobExecutionsRolloutConfigPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobExponentialRolloutRateOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobExponentialRolloutRatePtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobPresignedUrlConfigOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobPresignedUrlConfigPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobRateIncreaseCriteriaOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobRateIncreaseCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobTimeoutConfigOutput{})
+	pulumi.RegisterOutputType(OtaUpdateAwsJobTimeoutConfigPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateCodeSigningOutput{})
+	pulumi.RegisterOutputType(OtaUpdateCodeSigningPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateCodeSigningCertificateChainOutput{})
+	pulumi.RegisterOutputType(OtaUpdateCodeSigningCertificateChainPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateCodeSigningSignatureOutput{})
+	pulumi.RegisterOutputType(OtaUpdateCodeSigningSignaturePtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateCustomCodeSigningOutput{})
+	pulumi.RegisterOutputType(OtaUpdateCustomCodeSigningPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateDestinationOutput{})
+	pulumi.RegisterOutputType(OtaUpdateDestinationPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateFileLocationOutput{})
+	pulumi.RegisterOutputType(OtaUpdateFileLocationPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateOtaUpdateFileOutput{})
+	pulumi.RegisterOutputType(OtaUpdateOtaUpdateFileArrayOutput{})
+	pulumi.RegisterOutputType(OtaUpdateS3DestinationOutput{})
+	pulumi.RegisterOutputType(OtaUpdateS3DestinationPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateS3LocationOutput{})
+	pulumi.RegisterOutputType(OtaUpdateS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateSigningProfileParameterOutput{})
+	pulumi.RegisterOutputType(OtaUpdateSigningProfileParameterPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateStartSigningJobParameterOutput{})
+	pulumi.RegisterOutputType(OtaUpdateStartSigningJobParameterPtrOutput{})
+	pulumi.RegisterOutputType(OtaUpdateStreamOutput{})
+	pulumi.RegisterOutputType(OtaUpdateStreamPtrOutput{})
 	pulumi.RegisterOutputType(PresignedUrlConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(PresignedUrlConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateProvisioningHookOutput{})

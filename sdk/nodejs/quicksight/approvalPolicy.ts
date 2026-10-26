@@ -40,19 +40,18 @@ export class ApprovalPolicy extends pulumi.CustomResource {
     /**
      * List of governed actions a policy applies to.
      */
-    declare public readonly actions: pulumi.Output<any[]>;
+    declare public readonly actions: pulumi.Output<enums.quicksight.ApprovalPolicyGovernedAction[]>;
     declare public readonly applicableTo: pulumi.Output<outputs.quicksight.ApprovalPolicyApplicableTo>;
     /**
      * List of approval group ARNs (e.g. QuickSight group ARNs).
-     * At least one approval group is required; the upper bound is enforced
-     * per-account at the service layer via the configurable approver-group limit.
+     * At least one approval group is required.
      */
     declare public readonly approvalGroups: pulumi.Output<string[]>;
     /**
      * List of asset types a policy applies to.
      * At least one asset type is required.
      */
-    declare public readonly assetTypes: pulumi.Output<any[]>;
+    declare public readonly assetTypes: pulumi.Output<enums.quicksight.ApprovalPolicyAssetType[]>;
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public readonly name: pulumi.Output<string>;
@@ -122,19 +121,18 @@ export interface ApprovalPolicyArgs {
     /**
      * List of governed actions a policy applies to.
      */
-    actions: pulumi.Input<any[]>;
+    actions: pulumi.Input<pulumi.Input<enums.quicksight.ApprovalPolicyGovernedAction>[]>;
     applicableTo: pulumi.Input<inputs.quicksight.ApprovalPolicyApplicableToArgs>;
     /**
      * List of approval group ARNs (e.g. QuickSight group ARNs).
-     * At least one approval group is required; the upper bound is enforced
-     * per-account at the service layer via the configurable approver-group limit.
+     * At least one approval group is required.
      */
     approvalGroups: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of asset types a policy applies to.
      * At least one asset type is required.
      */
-    assetTypes: pulumi.Input<any[]>;
+    assetTypes: pulumi.Input<pulumi.Input<enums.quicksight.ApprovalPolicyAssetType>[]>;
     description?: pulumi.Input<string | undefined>;
     name?: pulumi.Input<string | undefined>;
     policyId: pulumi.Input<string>;

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     public sealed class PaymentManagerCustomClaimValidationTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizingClaimMatchValue", required: true)]
-        public Input<Inputs.PaymentManagerAuthorizingClaimMatchValueTypeArgs> AuthorizingClaimMatchValue { get; set; } = null!;
+        public Input<Inputs.PaymentManagerAuthorizingClaimMatchValueArgs> AuthorizingClaimMatchValue { get; set; } = null!;
 
         [Input("inboundTokenClaimName", required: true)]
         public Input<string> InboundTokenClaimName { get; set; } = null!;

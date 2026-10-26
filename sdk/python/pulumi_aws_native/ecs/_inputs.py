@@ -128,6 +128,22 @@ __all__ = [
     'ExpressGatewayServiceNetworkConfigurationArgsDict',
     'ExpressGatewayServiceSecretArgs',
     'ExpressGatewayServiceSecretArgsDict',
+    'GatewayAlbTestTrafficRulesArgs',
+    'GatewayAlbTestTrafficRulesArgsDict',
+    'GatewayConfigurationArgs',
+    'GatewayConfigurationArgsDict',
+    'GatewayElbAccessLogConfigurationArgs',
+    'GatewayElbAccessLogConfigurationArgsDict',
+    'GatewayElbAccessLogDestinationArgs',
+    'GatewayElbAccessLogDestinationArgsDict',
+    'GatewayElbAccessLogS3DestinationArgs',
+    'GatewayElbAccessLogS3DestinationArgsDict',
+    'GatewayElbNetworkConfigurationArgs',
+    'GatewayElbNetworkConfigurationArgsDict',
+    'GatewayHostSharedAlbConfigurationArgs',
+    'GatewayHostSharedAlbConfigurationArgsDict',
+    'GatewayTestTrafficHeaderArgs',
+    'GatewayTestTrafficHeaderArgsDict',
     'ServiceAdvancedConfigurationArgs',
     'ServiceAdvancedConfigurationArgsDict',
     'ServiceAwsVpcConfigurationArgs',
@@ -142,6 +158,8 @@ __all__ = [
     'ServiceConnectClientAliasArgsDict',
     'ServiceConnectConfigurationArgs',
     'ServiceConnectConfigurationArgsDict',
+    'ServiceConnectContainerConfigurationArgs',
+    'ServiceConnectContainerConfigurationArgsDict',
     'ServiceConnectServiceArgs',
     'ServiceConnectServiceArgsDict',
     'ServiceConnectTestTrafficRulesArgs',
@@ -170,6 +188,14 @@ __all__ = [
     'ServiceEbsTagSpecificationArgsDict',
     'ServiceForceNewDeploymentArgs',
     'ServiceForceNewDeploymentArgsDict',
+    'ServiceGatewayConnectorArgs',
+    'ServiceGatewayConnectorArgsDict',
+    'ServiceGatewayConnectorFiltersArgs',
+    'ServiceGatewayConnectorFiltersArgsDict',
+    'ServiceGatewayConnectorHealthCheckArgs',
+    'ServiceGatewayConnectorHealthCheckArgsDict',
+    'ServiceGatewayConnectorHealthCheckMatcherArgs',
+    'ServiceGatewayConnectorHealthCheckMatcherArgsDict',
     'ServiceHookTimeoutConfigArgs',
     'ServiceHookTimeoutConfigArgsDict',
     'ServiceLinearConfigurationArgs',
@@ -246,6 +272,8 @@ __all__ = [
     'TaskDefinitionLogConfigurationArgsDict',
     'TaskDefinitionMountPointArgs',
     'TaskDefinitionMountPointArgsDict',
+    'TaskDefinitionNvidiaMpsAllocationArgs',
+    'TaskDefinitionNvidiaMpsAllocationArgsDict',
     'TaskDefinitionPlacementConstraintArgs',
     'TaskDefinitionPlacementConstraintArgsDict',
     'TaskDefinitionPortMappingArgs',
@@ -264,6 +292,8 @@ __all__ = [
     'TaskDefinitionS3FilesVolumeConfigurationArgsDict',
     'TaskDefinitionSecretArgs',
     'TaskDefinitionSecretArgsDict',
+    'TaskDefinitionSharingStrategyArgs',
+    'TaskDefinitionSharingStrategyArgsDict',
     'TaskDefinitionSystemControlArgs',
     'TaskDefinitionSystemControlArgsDict',
     'TaskDefinitionTmpfsArgs',
@@ -5217,6 +5247,453 @@ class ExpressGatewayServiceSecretArgs:
         pulumi.set(self, "value_from", value)
 
 
+class GatewayAlbTestTrafficRulesArgsDict(TypedDict):
+    """
+    The test traffic rules for the gateway ALB.
+    """
+    header: NotRequired[pulumi.Input[Optional['GatewayTestTrafficHeaderArgsDict']]]
+
+@pulumi.input_type
+class GatewayAlbTestTrafficRulesArgs:
+    def __init__(__self__, *,
+                 header: pulumi.Input[Optional['GatewayTestTrafficHeaderArgs']] = None):
+        """
+        The test traffic rules for the gateway ALB.
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> pulumi.Input[Optional['GatewayTestTrafficHeaderArgs']]:
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: pulumi.Input[Optional['GatewayTestTrafficHeaderArgs']]):
+        pulumi.set(self, "header", value)
+
+
+class GatewayConfigurationArgsDict(TypedDict):
+    """
+    The configuration for the gateway. Currently only supports hostSharedAlb.
+    """
+    host_shared_alb: pulumi.Input['GatewayHostSharedAlbConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayConfigurationArgs:
+    def __init__(__self__, *,
+                 host_shared_alb: pulumi.Input['GatewayHostSharedAlbConfigurationArgs']):
+        """
+        The configuration for the gateway. Currently only supports hostSharedAlb.
+        """
+        pulumi.set(__self__, "host_shared_alb", host_shared_alb)
+
+    @_builtins.property
+    @pulumi.getter(name="hostSharedAlb")
+    def host_shared_alb(self) -> pulumi.Input['GatewayHostSharedAlbConfigurationArgs']:
+        return pulumi.get(self, "host_shared_alb")
+
+    @host_shared_alb.setter
+    def host_shared_alb(self, value: pulumi.Input['GatewayHostSharedAlbConfigurationArgs']):
+        pulumi.set(self, "host_shared_alb", value)
+
+
+class GatewayElbAccessLogConfigurationArgsDict(TypedDict):
+    """
+    The access log configuration for the gateway ALB. Access logging is enabled by the presence of a destination.
+    """
+    destination: NotRequired[pulumi.Input[Optional['GatewayElbAccessLogDestinationArgsDict']]]
+
+@pulumi.input_type
+class GatewayElbAccessLogConfigurationArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[Optional['GatewayElbAccessLogDestinationArgs']] = None):
+        """
+        The access log configuration for the gateway ALB. Access logging is enabled by the presence of a destination.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[Optional['GatewayElbAccessLogDestinationArgs']]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[Optional['GatewayElbAccessLogDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+
+class GatewayElbAccessLogDestinationArgsDict(TypedDict):
+    """
+    The destination for gateway ALB access logs. Exactly one destination type must be specified.
+    """
+    s3: NotRequired[pulumi.Input[Optional['GatewayElbAccessLogS3DestinationArgsDict']]]
+
+@pulumi.input_type
+class GatewayElbAccessLogDestinationArgs:
+    def __init__(__self__, *,
+                 s3: pulumi.Input[Optional['GatewayElbAccessLogS3DestinationArgs']] = None):
+        """
+        The destination for gateway ALB access logs. Exactly one destination type must be specified.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input[Optional['GatewayElbAccessLogS3DestinationArgs']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input[Optional['GatewayElbAccessLogS3DestinationArgs']]):
+        pulumi.set(self, "s3", value)
+
+
+class GatewayElbAccessLogS3DestinationArgsDict(TypedDict):
+    """
+    The S3 destination for gateway ALB access logs.
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket for access logs.
+    """
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 prefix for access logs.
+    """
+
+@pulumi.input_type
+class GatewayElbAccessLogS3DestinationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The S3 destination for gateway ALB access logs.
+
+        :param pulumi.Input[_builtins.str] bucket: The S3 bucket for access logs.
+        :param pulumi.Input[_builtins.str] prefix: The S3 prefix for access logs.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 bucket for access logs.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 prefix for access logs.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
+
+
+class GatewayElbNetworkConfigurationArgsDict(TypedDict):
+    """
+    The network configuration for the gateway ALB.
+    """
+    inbound_security_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The inbound security group for the ALB.
+    """
+    ip_address_type: NotRequired[pulumi.Input[Optional['GatewayElbIpAddressType']]]
+    subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The subnets for the ALB.
+    """
+
+@pulumi.input_type
+class GatewayElbNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 inbound_security_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address_type: pulumi.Input[Optional['GatewayElbIpAddressType']] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The network configuration for the gateway ALB.
+
+        :param pulumi.Input[_builtins.str] inbound_security_group: The inbound security group for the ALB.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The subnets for the ALB.
+        """
+        if inbound_security_group is not None:
+            pulumi.set(__self__, "inbound_security_group", inbound_security_group)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundSecurityGroup")
+    def inbound_security_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The inbound security group for the ALB.
+        """
+        return pulumi.get(self, "inbound_security_group")
+
+    @inbound_security_group.setter
+    def inbound_security_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "inbound_security_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Input[Optional['GatewayElbIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: pulumi.Input[Optional['GatewayElbIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The subnets for the ALB.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "subnets", value)
+
+
+class GatewayHostSharedAlbConfigurationArgsDict(TypedDict):
+    """
+    The host shared ALB configuration for the gateway.
+    """
+    access_logs: NotRequired[pulumi.Input[Optional['GatewayElbAccessLogConfigurationArgsDict']]]
+    current_alb_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The current number of ALBs provisioned for the gateway.
+    """
+    http_desync: NotRequired[pulumi.Input[Optional['GatewayAlbDesyncMitigationMode']]]
+    max_alb_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum number of ALBs to provision for the gateway.
+    """
+    network_configuration: NotRequired[pulumi.Input[Optional['GatewayElbNetworkConfigurationArgsDict']]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The port on which the ALB listens.
+    """
+    protocol: NotRequired[pulumi.Input[Optional['GatewayAlbProtocol']]]
+    scheme: NotRequired[pulumi.Input[Optional['GatewayElbScheme']]]
+    test_traffic_rules: NotRequired[pulumi.Input[Optional['GatewayAlbTestTrafficRulesArgsDict']]]
+    web_acl_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the WAFv2 web ACL to associate with the ALB.
+    """
+
+@pulumi.input_type
+class GatewayHostSharedAlbConfigurationArgs:
+    def __init__(__self__, *,
+                 access_logs: pulumi.Input[Optional['GatewayElbAccessLogConfigurationArgs']] = None,
+                 current_alb_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_desync: pulumi.Input[Optional['GatewayAlbDesyncMitigationMode']] = None,
+                 max_alb_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_configuration: pulumi.Input[Optional['GatewayElbNetworkConfigurationArgs']] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional['GatewayAlbProtocol']] = None,
+                 scheme: pulumi.Input[Optional['GatewayElbScheme']] = None,
+                 test_traffic_rules: pulumi.Input[Optional['GatewayAlbTestTrafficRulesArgs']] = None,
+                 web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The host shared ALB configuration for the gateway.
+
+        :param pulumi.Input[_builtins.int] current_alb_count: The current number of ALBs provisioned for the gateway.
+        :param pulumi.Input[_builtins.int] max_alb_count: The maximum number of ALBs to provision for the gateway.
+        :param pulumi.Input[_builtins.int] port: The port on which the ALB listens.
+        :param pulumi.Input[_builtins.str] web_acl_arn: The ARN of the WAFv2 web ACL to associate with the ALB.
+        """
+        if access_logs is not None:
+            pulumi.set(__self__, "access_logs", access_logs)
+        if current_alb_count is not None:
+            pulumi.set(__self__, "current_alb_count", current_alb_count)
+        if http_desync is not None:
+            pulumi.set(__self__, "http_desync", http_desync)
+        if max_alb_count is not None:
+            pulumi.set(__self__, "max_alb_count", max_alb_count)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+        if test_traffic_rules is not None:
+            pulumi.set(__self__, "test_traffic_rules", test_traffic_rules)
+        if web_acl_arn is not None:
+            pulumi.set(__self__, "web_acl_arn", web_acl_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="accessLogs")
+    def access_logs(self) -> pulumi.Input[Optional['GatewayElbAccessLogConfigurationArgs']]:
+        return pulumi.get(self, "access_logs")
+
+    @access_logs.setter
+    def access_logs(self, value: pulumi.Input[Optional['GatewayElbAccessLogConfigurationArgs']]):
+        pulumi.set(self, "access_logs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="currentAlbCount")
+    def current_alb_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The current number of ALBs provisioned for the gateway.
+        """
+        return pulumi.get(self, "current_alb_count")
+
+    @current_alb_count.setter
+    def current_alb_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "current_alb_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="httpDesync")
+    def http_desync(self) -> pulumi.Input[Optional['GatewayAlbDesyncMitigationMode']]:
+        return pulumi.get(self, "http_desync")
+
+    @http_desync.setter
+    def http_desync(self, value: pulumi.Input[Optional['GatewayAlbDesyncMitigationMode']]):
+        pulumi.set(self, "http_desync", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxAlbCount")
+    def max_alb_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum number of ALBs to provision for the gateway.
+        """
+        return pulumi.get(self, "max_alb_count")
+
+    @max_alb_count.setter
+    def max_alb_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_alb_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Input[Optional['GatewayElbNetworkConfigurationArgs']]:
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: pulumi.Input[Optional['GatewayElbNetworkConfigurationArgs']]):
+        pulumi.set(self, "network_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The port on which the ALB listens.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Optional['GatewayAlbProtocol']]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Optional['GatewayAlbProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scheme(self) -> pulumi.Input[Optional['GatewayElbScheme']]:
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[Optional['GatewayElbScheme']]):
+        pulumi.set(self, "scheme", value)
+
+    @_builtins.property
+    @pulumi.getter(name="testTrafficRules")
+    def test_traffic_rules(self) -> pulumi.Input[Optional['GatewayAlbTestTrafficRulesArgs']]:
+        return pulumi.get(self, "test_traffic_rules")
+
+    @test_traffic_rules.setter
+    def test_traffic_rules(self, value: pulumi.Input[Optional['GatewayAlbTestTrafficRulesArgs']]):
+        pulumi.set(self, "test_traffic_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webAclArn")
+    def web_acl_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the WAFv2 web ACL to associate with the ALB.
+        """
+        return pulumi.get(self, "web_acl_arn")
+
+    @web_acl_arn.setter
+    def web_acl_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "web_acl_arn", value)
+
+
+class GatewayTestTrafficHeaderArgsDict(TypedDict):
+    """
+    The header configuration for test traffic routing.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the header.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The values for the header.
+    """
+
+@pulumi.input_type
+class GatewayTestTrafficHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        The header configuration for test traffic routing.
+
+        :param pulumi.Input[_builtins.str] name: The name of the header.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The values for the header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the header.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The values for the header.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
 class ServiceAdvancedConfigurationArgsDict(TypedDict):
     """
     The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -5757,6 +6234,7 @@ class ServiceConnectConfigurationArgsDict(TypedDict):
     The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
       To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
     """
+    container_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceConnectContainerConfigurationArgsDict']]]]]
     log_configuration: NotRequired[pulumi.Input[Optional['ServiceLogConfigurationArgsDict']]]
     """
     The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
@@ -5785,6 +6263,7 @@ class ServiceConnectConfigurationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  access_log_configuration: pulumi.Input[Optional['ServiceConnectAccessLogConfigurationArgs']] = None,
+                 container_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceConnectContainerConfigurationArgs']]]] = None,
                  log_configuration: pulumi.Input[Optional['ServiceLogConfigurationArgs']] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  services: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceConnectServiceArgs']]]] = None):
@@ -5812,6 +6291,8 @@ class ServiceConnectConfigurationArgs:
         pulumi.set(__self__, "enabled", enabled)
         if access_log_configuration is not None:
             pulumi.set(__self__, "access_log_configuration", access_log_configuration)
+        if container_configurations is not None:
+            pulumi.set(__self__, "container_configurations", container_configurations)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
         if namespace is not None:
@@ -5843,6 +6324,15 @@ class ServiceConnectConfigurationArgs:
     @access_log_configuration.setter
     def access_log_configuration(self, value: pulumi.Input[Optional['ServiceConnectAccessLogConfigurationArgs']]):
         pulumi.set(self, "access_log_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerConfigurations")
+    def container_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceConnectContainerConfigurationArgs']]]]:
+        return pulumi.get(self, "container_configurations")
+
+    @container_configurations.setter
+    def container_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceConnectContainerConfigurationArgs']]]]):
+        pulumi.set(self, "container_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
@@ -5889,6 +6379,26 @@ class ServiceConnectConfigurationArgs:
     @services.setter
     def services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceConnectServiceArgs']]]]):
         pulumi.set(self, "services", value)
+
+
+class ServiceConnectContainerConfigurationArgsDict(TypedDict):
+    log_level: NotRequired[pulumi.Input[Optional['ServiceConnectContainerConfigurationLogLevel']]]
+
+@pulumi.input_type
+class ServiceConnectContainerConfigurationArgs:
+    def __init__(__self__, *,
+                 log_level: pulumi.Input[Optional['ServiceConnectContainerConfigurationLogLevel']] = None):
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
+
+    @_builtins.property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> pulumi.Input[Optional['ServiceConnectContainerConfigurationLogLevel']]:
+        return pulumi.get(self, "log_level")
+
+    @log_level.setter
+    def log_level(self, value: pulumi.Input[Optional['ServiceConnectContainerConfigurationLogLevel']]):
+        pulumi.set(self, "log_level", value)
 
 
 class ServiceConnectServiceArgsDict(TypedDict):
@@ -7293,6 +7803,215 @@ class ServiceForceNewDeploymentArgs:
         pulumi.set(self, "force_new_deployment_nonce", value)
 
 
+class ServiceGatewayConnectorArgsDict(TypedDict):
+    port_name: pulumi.Input[_builtins.str]
+    filters: NotRequired[pulumi.Input[Optional['ServiceGatewayConnectorFiltersArgsDict']]]
+    health_check: NotRequired[pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckArgsDict']]]
+
+@pulumi.input_type
+class ServiceGatewayConnectorArgs:
+    def __init__(__self__, *,
+                 port_name: pulumi.Input[_builtins.str],
+                 filters: pulumi.Input[Optional['ServiceGatewayConnectorFiltersArgs']] = None,
+                 health_check: pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckArgs']] = None):
+        pulumi.set(__self__, "port_name", port_name)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+
+    @_builtins.property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "port_name")
+
+    @port_name.setter
+    def port_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "port_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Optional['ServiceGatewayConnectorFiltersArgs']]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Optional['ServiceGatewayConnectorFiltersArgs']]):
+        pulumi.set(self, "filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckArgs']]:
+        return pulumi.get(self, "health_check")
+
+    @health_check.setter
+    def health_check(self, value: pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckArgs']]):
+        pulumi.set(self, "health_check", value)
+
+
+class ServiceGatewayConnectorFiltersArgsDict(TypedDict):
+    access_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceGatewayConnectorFiltersAccessTypesItem']]]]]
+
+@pulumi.input_type
+class ServiceGatewayConnectorFiltersArgs:
+    def __init__(__self__, *,
+                 access_types: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceGatewayConnectorFiltersAccessTypesItem']]]] = None):
+        if access_types is not None:
+            pulumi.set(__self__, "access_types", access_types)
+
+    @_builtins.property
+    @pulumi.getter(name="accessTypes")
+    def access_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceGatewayConnectorFiltersAccessTypesItem']]]]:
+        return pulumi.get(self, "access_types")
+
+    @access_types.setter
+    def access_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceGatewayConnectorFiltersAccessTypesItem']]]]):
+        pulumi.set(self, "access_types", value)
+
+
+class ServiceGatewayConnectorHealthCheckArgsDict(TypedDict):
+    health_check_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    health_check_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    health_check_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    health_check_protocol: NotRequired[pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckHealthCheckProtocol']]]
+    health_check_timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    healthy_threshold_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    matcher: NotRequired[pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckMatcherArgsDict']]]
+    unhealthy_threshold_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class ServiceGatewayConnectorHealthCheckArgs:
+    def __init__(__self__, *,
+                 health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_protocol: pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckHealthCheckProtocol']] = None,
+                 health_check_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 healthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 matcher: pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckMatcherArgs']] = None,
+                 unhealthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None):
+        if health_check_interval_seconds is not None:
+            pulumi.set(__self__, "health_check_interval_seconds", health_check_interval_seconds)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if health_check_port is not None:
+            pulumi.set(__self__, "health_check_port", health_check_port)
+        if health_check_protocol is not None:
+            pulumi.set(__self__, "health_check_protocol", health_check_protocol)
+        if health_check_timeout_seconds is not None:
+            pulumi.set(__self__, "health_check_timeout_seconds", health_check_timeout_seconds)
+        if healthy_threshold_count is not None:
+            pulumi.set(__self__, "healthy_threshold_count", healthy_threshold_count)
+        if matcher is not None:
+            pulumi.set(__self__, "matcher", matcher)
+        if unhealthy_threshold_count is not None:
+            pulumi.set(__self__, "unhealthy_threshold_count", unhealthy_threshold_count)
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckIntervalSeconds")
+    def health_check_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "health_check_interval_seconds")
+
+    @health_check_interval_seconds.setter
+    def health_check_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "health_check_interval_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckPort")
+    def health_check_port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "health_check_port")
+
+    @health_check_port.setter
+    def health_check_port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "health_check_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckProtocol")
+    def health_check_protocol(self) -> pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckHealthCheckProtocol']]:
+        return pulumi.get(self, "health_check_protocol")
+
+    @health_check_protocol.setter
+    def health_check_protocol(self, value: pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckHealthCheckProtocol']]):
+        pulumi.set(self, "health_check_protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckTimeoutSeconds")
+    def health_check_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "health_check_timeout_seconds")
+
+    @health_check_timeout_seconds.setter
+    def health_check_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "health_check_timeout_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthyThresholdCount")
+    def healthy_threshold_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "healthy_threshold_count")
+
+    @healthy_threshold_count.setter
+    def healthy_threshold_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "healthy_threshold_count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def matcher(self) -> pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckMatcherArgs']]:
+        return pulumi.get(self, "matcher")
+
+    @matcher.setter
+    def matcher(self, value: pulumi.Input[Optional['ServiceGatewayConnectorHealthCheckMatcherArgs']]):
+        pulumi.set(self, "matcher", value)
+
+    @_builtins.property
+    @pulumi.getter(name="unhealthyThresholdCount")
+    def unhealthy_threshold_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "unhealthy_threshold_count")
+
+    @unhealthy_threshold_count.setter
+    def unhealthy_threshold_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "unhealthy_threshold_count", value)
+
+
+class ServiceGatewayConnectorHealthCheckMatcherArgsDict(TypedDict):
+    grpc_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    http_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceGatewayConnectorHealthCheckMatcherArgs:
+    def __init__(__self__, *,
+                 grpc_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_code: pulumi.Input[Optional[_builtins.str]] = None):
+        if grpc_code is not None:
+            pulumi.set(__self__, "grpc_code", grpc_code)
+        if http_code is not None:
+            pulumi.set(__self__, "http_code", http_code)
+
+    @_builtins.property
+    @pulumi.getter(name="grpcCode")
+    def grpc_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "grpc_code")
+
+    @grpc_code.setter
+    def grpc_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "grpc_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="httpCode")
+    def http_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "http_code")
+
+    @http_code.setter
+    def http_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "http_code", value)
+
+
 class ServiceHookTimeoutConfigArgsDict(TypedDict):
     action: NotRequired[pulumi.Input[Optional['ServiceHookTimeoutConfigAction']]]
     timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
@@ -8622,9 +9341,21 @@ class ServiceVolumeConfigurationArgs:
 
 
 class ServiceVpcLatticeAdvancedConfigurationArgsDict(TypedDict):
+    """
+    The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
+    """
     alternate_target_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
+    """
     production_listener_rule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
+    """
     test_listener_rule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
+    """
 
 @pulumi.input_type
 class ServiceVpcLatticeAdvancedConfigurationArgs:
@@ -8632,6 +9363,13 @@ class ServiceVpcLatticeAdvancedConfigurationArgs:
                  alternate_target_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  production_listener_rule: pulumi.Input[Optional[_builtins.str]] = None,
                  test_listener_rule: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
+
+        :param pulumi.Input[_builtins.str] alternate_target_group_arn: The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
+        :param pulumi.Input[_builtins.str] production_listener_rule: The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
+        :param pulumi.Input[_builtins.str] test_listener_rule: The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
+        """
         if alternate_target_group_arn is not None:
             pulumi.set(__self__, "alternate_target_group_arn", alternate_target_group_arn)
         if production_listener_rule is not None:
@@ -8642,6 +9380,9 @@ class ServiceVpcLatticeAdvancedConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="alternateTargetGroupArn")
     def alternate_target_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
+        """
         return pulumi.get(self, "alternate_target_group_arn")
 
     @alternate_target_group_arn.setter
@@ -8651,6 +9392,9 @@ class ServiceVpcLatticeAdvancedConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="productionListenerRule")
     def production_listener_rule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
+        """
         return pulumi.get(self, "production_listener_rule")
 
     @production_listener_rule.setter
@@ -8660,6 +9404,9 @@ class ServiceVpcLatticeAdvancedConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="testListenerRule")
     def test_listener_rule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
+        """
         return pulumi.get(self, "test_listener_rule")
 
     @test_listener_rule.setter
@@ -11373,6 +12120,54 @@ class TaskDefinitionMountPointArgs:
         pulumi.set(self, "source_volume", value)
 
 
+class TaskDefinitionNvidiaMpsAllocationArgsDict(TypedDict):
+    memory: pulumi.Input[_builtins.int]
+    """
+    The amount of GPU memory, in MiB, allocated to the container.
+    """
+    max_compute_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum percentage of the GPU's compute capacity that the container can use.
+    """
+
+@pulumi.input_type
+class TaskDefinitionNvidiaMpsAllocationArgs:
+    def __init__(__self__, *,
+                 memory: pulumi.Input[_builtins.int],
+                 max_compute_percent: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] memory: The amount of GPU memory, in MiB, allocated to the container.
+        :param pulumi.Input[_builtins.int] max_compute_percent: The maximum percentage of the GPU's compute capacity that the container can use.
+        """
+        pulumi.set(__self__, "memory", memory)
+        if max_compute_percent is not None:
+            pulumi.set(__self__, "max_compute_percent", max_compute_percent)
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> pulumi.Input[_builtins.int]:
+        """
+        The amount of GPU memory, in MiB, allocated to the container.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "memory", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxComputePercent")
+    def max_compute_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum percentage of the GPU's compute capacity that the container can use.
+        """
+        return pulumi.get(self, "max_compute_percent")
+
+    @max_compute_percent.setter
+    def max_compute_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_compute_percent", value)
+
+
 class TaskDefinitionPlacementConstraintArgsDict(TypedDict):
     """
     The constraint on task placement in the task definition. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -11803,7 +12598,8 @@ class TaskDefinitionResourceRequirementArgsDict(TypedDict):
     """
     The type of resource to assign to a container.
     """
-    value: pulumi.Input[_builtins.str]
+    sharing_strategy: NotRequired[pulumi.Input[Optional['TaskDefinitionSharingStrategyArgsDict']]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value for the specified resource type.
      When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
@@ -11815,7 +12611,8 @@ class TaskDefinitionResourceRequirementArgsDict(TypedDict):
 class TaskDefinitionResourceRequirementArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 value: pulumi.Input[_builtins.str]):
+                 sharing_strategy: pulumi.Input[Optional['TaskDefinitionSharingStrategyArgs']] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
 
@@ -11826,7 +12623,10 @@ class TaskDefinitionResourceRequirementArgs:
                 When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
         """
         pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        if sharing_strategy is not None:
+            pulumi.set(__self__, "sharing_strategy", sharing_strategy)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
@@ -11841,8 +12641,17 @@ class TaskDefinitionResourceRequirementArgs:
         pulumi.set(self, "type", value)
 
     @_builtins.property
+    @pulumi.getter(name="sharingStrategy")
+    def sharing_strategy(self) -> pulumi.Input[Optional['TaskDefinitionSharingStrategyArgs']]:
+        return pulumi.get(self, "sharing_strategy")
+
+    @sharing_strategy.setter
+    def sharing_strategy(self, value: pulumi.Input[Optional['TaskDefinitionSharingStrategyArgs']]):
+        pulumi.set(self, "sharing_strategy", value)
+
+    @_builtins.property
     @pulumi.getter
-    def value(self) -> pulumi.Input[_builtins.str]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value for the specified resource type.
          When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
@@ -11852,7 +12661,7 @@ class TaskDefinitionResourceRequirementArgs:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[_builtins.str]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -12151,6 +12960,25 @@ class TaskDefinitionSecretArgs:
     @value_from.setter
     def value_from(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value_from", value)
+
+
+class TaskDefinitionSharingStrategyArgsDict(TypedDict):
+    nvidia_mps: pulumi.Input['TaskDefinitionNvidiaMpsAllocationArgsDict']
+
+@pulumi.input_type
+class TaskDefinitionSharingStrategyArgs:
+    def __init__(__self__, *,
+                 nvidia_mps: pulumi.Input['TaskDefinitionNvidiaMpsAllocationArgs']):
+        pulumi.set(__self__, "nvidia_mps", nvidia_mps)
+
+    @_builtins.property
+    @pulumi.getter(name="nvidiaMps")
+    def nvidia_mps(self) -> pulumi.Input['TaskDefinitionNvidiaMpsAllocationArgs']:
+        return pulumi.get(self, "nvidia_mps")
+
+    @nvidia_mps.setter
+    def nvidia_mps(self, value: pulumi.Input['TaskDefinitionNvidiaMpsAllocationArgs']):
+        pulumi.set(self, "nvidia_mps", value)
 
 
 class TaskDefinitionSystemControlArgsDict(TypedDict):

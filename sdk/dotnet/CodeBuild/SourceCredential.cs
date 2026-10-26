@@ -93,6 +93,200 @@ namespace Pulumi.AwsNative.CodeBuild
     /// 
     /// 
     /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mySourceCreds = new AwsNative.CodeBuild.SourceCredential("mySourceCreds", new()
+    ///     {
+    ///         Token = "{{resolve:secretsmanager:bitbucket:SecretString:token}}",
+    ///         ServerType = "BITBUCKET",
+    ///         Username = "{{resolve:secretsmanager:bitbucket:SecretString:username}}",
+    ///         AuthType = "BASIC_AUTH",
+    ///     });
+    /// 
+    ///     var myProject = new AwsNative.CodeBuild.Project("myProject", new()
+    ///     {
+    ///         Name = "myProjectName",
+    ///         Description = "A description about my project",
+    ///         ServiceRole = "testServiceRoleArn",
+    ///         Artifacts = new AwsNative.CodeBuild.Inputs.ProjectArtifactsArgs
+    ///         {
+    ///             Type = "NO_ARTIFACTS",
+    ///         },
+    ///         Environment = new AwsNative.CodeBuild.Inputs.ProjectEnvironmentArgs
+    ///         {
+    ///             Type = "LINUX_CONTAINER",
+    ///             ComputeType = "BUILD_GENERAL1_SMALL",
+    ///             Image = "aws/codebuild/standard:5.0",
+    ///         },
+    ///         Source = new AwsNative.CodeBuild.Inputs.ProjectSourceArgs
+    ///         {
+    ///             Type = "BITBUCKET",
+    ///             Location = "your-bitbucket-repo-url",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             mySourceCreds,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mySourceCreds = new AwsNative.CodeBuild.SourceCredential("mySourceCreds", new()
+    ///     {
+    ///         Token = "{{resolve:secretsmanager:bitbucket:SecretString:token}}",
+    ///         ServerType = "BITBUCKET",
+    ///         Username = "{{resolve:secretsmanager:bitbucket:SecretString:username}}",
+    ///         AuthType = "BASIC_AUTH",
+    ///     });
+    /// 
+    ///     var myProject = new AwsNative.CodeBuild.Project("myProject", new()
+    ///     {
+    ///         Name = "myProjectName",
+    ///         Description = "A description about my project",
+    ///         ServiceRole = "testServiceRoleAr",
+    ///         Artifacts = new AwsNative.CodeBuild.Inputs.ProjectArtifactsArgs
+    ///         {
+    ///             Type = "NO_ARTIFACTS",
+    ///         },
+    ///         Environment = new AwsNative.CodeBuild.Inputs.ProjectEnvironmentArgs
+    ///         {
+    ///             Type = "LINUX_CONTAINER",
+    ///             ComputeType = "BUILD_GENERAL1_SMALL",
+    ///             Image = "aws/codebuild/standard:5.0",
+    ///         },
+    ///         Source = new AwsNative.CodeBuild.Inputs.ProjectSourceArgs
+    ///         {
+    ///             Type = "BITBUCKET",
+    ///             Location = "your-bitbucket-repo-url",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             mySourceCreds,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mySourceCreds = new AwsNative.CodeBuild.SourceCredential("mySourceCreds", new()
+    ///     {
+    ///         Token = "{{resolve:secretsmanager:github:SecretString:token}}",
+    ///         ServerType = "GITHUB",
+    ///         AuthType = "PERSONAL_ACCESS_TOKEN",
+    ///     });
+    /// 
+    ///     var myProject = new AwsNative.CodeBuild.Project("myProject", new()
+    ///     {
+    ///         Name = "myProjectName",
+    ///         Description = "A description about my project",
+    ///         ServiceRole = "testServiceRoleArn",
+    ///         Artifacts = new AwsNative.CodeBuild.Inputs.ProjectArtifactsArgs
+    ///         {
+    ///             Type = "NO_ARTIFACTS",
+    ///         },
+    ///         Environment = new AwsNative.CodeBuild.Inputs.ProjectEnvironmentArgs
+    ///         {
+    ///             Type = "LINUX_CONTAINER",
+    ///             ComputeType = "BUILD_GENERAL1_SMALL",
+    ///             Image = "aws/codebuild/standard:5.0",
+    ///         },
+    ///         Source = new AwsNative.CodeBuild.Inputs.ProjectSourceArgs
+    ///         {
+    ///             Type = "GITHUB",
+    ///             Location = "your-github-repo-url",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             mySourceCreds,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mySourceCreds = new AwsNative.CodeBuild.SourceCredential("mySourceCreds", new()
+    ///     {
+    ///         Token = "{{resolve:secretsmanager:github:SecretString:token}}",
+    ///         ServerType = "GITHUB",
+    ///         AuthType = "PERSONAL_ACCESS_TOKEN",
+    ///     });
+    /// 
+    ///     var myProject = new AwsNative.CodeBuild.Project("myProject", new()
+    ///     {
+    ///         Name = "myProjectName",
+    ///         Description = "A description about my project",
+    ///         ServiceRole = "testServiceRoleArn",
+    ///         Artifacts = new AwsNative.CodeBuild.Inputs.ProjectArtifactsArgs
+    ///         {
+    ///             Type = "NO_ARTIFACTS",
+    ///         },
+    ///         Environment = new AwsNative.CodeBuild.Inputs.ProjectEnvironmentArgs
+    ///         {
+    ///             Type = "LINUX_CONTAINER",
+    ///             ComputeType = "BUILD_GENERAL1_SMALL",
+    ///             Image = "aws/codebuild/standard:5.0",
+    ///         },
+    ///         Source = new AwsNative.CodeBuild.Inputs.ProjectSourceArgs
+    ///         {
+    ///             Type = "GITHUB",
+    ///             Location = "your-github-repo-url",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             mySourceCreds,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
     /// </summary>
     [AwsNativeResourceType("aws-native:codebuild:SourceCredential")]
     public partial class SourceCredential : global::Pulumi.CustomResource

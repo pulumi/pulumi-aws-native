@@ -1317,6 +1317,7 @@ _utilities.register(
    "aws-native:bedrock:Prompt": "Prompt",
    "aws-native:bedrock:PromptVersion": "PromptVersion",
    "aws-native:bedrock:ResourcePolicy": "ResourcePolicy",
+   "aws-native:bedrock:RetrievalInstruction": "RetrievalInstruction",
    "aws-native:bedrock:Session": "Session"
   }
  },
@@ -1560,15 +1561,18 @@ _utilities.register(
   "mod": "cloudwatch",
   "fqn": "pulumi_aws_native.cloudwatch",
   "classes": {
+   "aws-native:cloudwatch:AccessProfile": "AccessProfile",
    "aws-native:cloudwatch:Alarm": "Alarm",
    "aws-native:cloudwatch:AlarmMuteRule": "AlarmMuteRule",
    "aws-native:cloudwatch:CompositeAlarm": "CompositeAlarm",
    "aws-native:cloudwatch:Dashboard": "Dashboard",
+   "aws-native:cloudwatch:DomainForOrganization": "DomainForOrganization",
    "aws-native:cloudwatch:InsightRule": "InsightRule",
    "aws-native:cloudwatch:Integration": "Integration",
    "aws-native:cloudwatch:LogAlarm": "LogAlarm",
    "aws-native:cloudwatch:MetricStream": "MetricStream",
    "aws-native:cloudwatch:OTelEnrichment": "OTelEnrichment",
+   "aws-native:cloudwatch:OmniDashboard": "OmniDashboard",
    "aws-native:cloudwatch:ResourceMetricsConfiguration": "ResourceMetricsConfiguration",
    "aws-native:cloudwatch:View": "View"
   }
@@ -1589,6 +1593,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.codebuild",
   "classes": {
    "aws-native:codebuild:Fleet": "Fleet",
+   "aws-native:codebuild:Project": "Project",
    "aws-native:codebuild:ReportGroup": "ReportGroup",
    "aws-native:codebuild:SourceCredential": "SourceCredential"
   }
@@ -2149,6 +2154,7 @@ _utilities.register(
    "aws-native:ec2:TrafficMirrorTarget": "TrafficMirrorTarget",
    "aws-native:ec2:TransitGateway": "TransitGateway",
    "aws-native:ec2:TransitGatewayAttachment": "TransitGatewayAttachment",
+   "aws-native:ec2:TransitGatewayAttachmentNatConfiguration": "TransitGatewayAttachmentNatConfiguration",
    "aws-native:ec2:TransitGatewayConnect": "TransitGatewayConnect",
    "aws-native:ec2:TransitGatewayConnectPeer": "TransitGatewayConnectPeer",
    "aws-native:ec2:TransitGatewayMeteringPolicy": "TransitGatewayMeteringPolicy",
@@ -2216,6 +2222,8 @@ _utilities.register(
    "aws-native:ecs:Daemon": "Daemon",
    "aws-native:ecs:DaemonTaskDefinition": "DaemonTaskDefinition",
    "aws-native:ecs:ExpressGatewayService": "ExpressGatewayService",
+   "aws-native:ecs:Gateway": "Gateway",
+   "aws-native:ecs:GatewayClusterAssociations": "GatewayClusterAssociations",
    "aws-native:ecs:PrimaryTaskSet": "PrimaryTaskSet",
    "aws-native:ecs:Service": "Service",
    "aws-native:ecs:TaskDefinition": "TaskDefinition",
@@ -2738,6 +2746,7 @@ _utilities.register(
    "aws-native:iot:JobTemplate": "JobTemplate",
    "aws-native:iot:Logging": "Logging",
    "aws-native:iot:MitigationAction": "MitigationAction",
+   "aws-native:iot:OtaUpdate": "OtaUpdate",
    "aws-native:iot:Policy": "Policy",
    "aws-native:iot:PolicyPrincipalAttachment": "PolicyPrincipalAttachment",
    "aws-native:iot:ProvisioningTemplate": "ProvisioningTemplate",
@@ -3343,7 +3352,8 @@ _utilities.register(
   "mod": "networkmonitor",
   "fqn": "pulumi_aws_native.networkmonitor",
   "classes": {
-   "aws-native:networkmonitor:Monitor": "Monitor"
+   "aws-native:networkmonitor:Monitor": "Monitor",
+   "aws-native:networkmonitor:Probe": "Probe"
   }
  },
  {
@@ -3870,6 +3880,7 @@ _utilities.register(
   "mod": "route53resolver",
   "fqn": "pulumi_aws_native.route53resolver",
   "classes": {
+   "aws-native:route53resolver:FirewallConfig": "FirewallConfig",
    "aws-native:route53resolver:FirewallDomainList": "FirewallDomainList",
    "aws-native:route53resolver:FirewallRuleGroup": "FirewallRuleGroup",
    "aws-native:route53resolver:FirewallRuleGroupAssociation": "FirewallRuleGroupAssociation",
@@ -4076,6 +4087,7 @@ _utilities.register(
    "aws-native:securityagent:Artifact": "Artifact",
    "aws-native:securityagent:Integration": "Integration",
    "aws-native:securityagent:Pentest": "Pentest",
+   "aws-native:securityagent:PrivateConnection": "PrivateConnection",
    "aws-native:securityagent:SecurityRequirementPack": "SecurityRequirementPack",
    "aws-native:securityagent:TargetDomain": "TargetDomain"
   }

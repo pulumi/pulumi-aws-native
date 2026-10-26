@@ -70,6 +70,25 @@ __all__ = [
     'MitigationActionReplaceDefaultPolicyVersionParams',
     'MitigationActionUpdateCaCertificateParams',
     'MitigationActionUpdateDeviceCertificateParams',
+    'OtaUpdateAwsJobAbortConfig',
+    'OtaUpdateAwsJobAbortCriteria',
+    'OtaUpdateAwsJobExecutionsRolloutConfig',
+    'OtaUpdateAwsJobExponentialRolloutRate',
+    'OtaUpdateAwsJobPresignedUrlConfig',
+    'OtaUpdateAwsJobRateIncreaseCriteria',
+    'OtaUpdateAwsJobTimeoutConfig',
+    'OtaUpdateCodeSigning',
+    'OtaUpdateCodeSigningCertificateChain',
+    'OtaUpdateCodeSigningSignature',
+    'OtaUpdateCustomCodeSigning',
+    'OtaUpdateDestination',
+    'OtaUpdateFileLocation',
+    'OtaUpdateOtaUpdateFile',
+    'OtaUpdateS3Destination',
+    'OtaUpdateS3Location',
+    'OtaUpdateSigningProfileParameter',
+    'OtaUpdateStartSigningJobParameter',
+    'OtaUpdateStream',
     'PresignedUrlConfigProperties',
     'ProvisioningTemplateProvisioningHook',
     'SecurityProfileAlertTarget',
@@ -2978,6 +2997,952 @@ class MitigationActionUpdateDeviceCertificateParams(dict):
         The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
         """
         return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class OtaUpdateAwsJobAbortConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "abortCriteriaList":
+            suggest = "abort_criteria_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateAwsJobAbortConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateAwsJobAbortConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateAwsJobAbortConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 abort_criteria_list: Sequence['outputs.OtaUpdateAwsJobAbortCriteria']):
+        """
+        :param Sequence['OtaUpdateAwsJobAbortCriteria'] abort_criteria_list: The list of criteria that determine when and how to abort the job.
+        """
+        pulumi.set(__self__, "abort_criteria_list", abort_criteria_list)
+
+    @_builtins.property
+    @pulumi.getter(name="abortCriteriaList")
+    def abort_criteria_list(self) -> Sequence['outputs.OtaUpdateAwsJobAbortCriteria']:
+        """
+        The list of criteria that determine when and how to abort the job.
+        """
+        return pulumi.get(self, "abort_criteria_list")
+
+
+@pulumi.output_type
+class OtaUpdateAwsJobAbortCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureType":
+            suggest = "failure_type"
+        elif key == "minNumberOfExecutedThings":
+            suggest = "min_number_of_executed_things"
+        elif key == "thresholdPercentage":
+            suggest = "threshold_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateAwsJobAbortCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateAwsJobAbortCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateAwsJobAbortCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'OtaUpdateAwsJobAbortCriteriaAction',
+                 failure_type: 'OtaUpdateAwsJobAbortCriteriaFailureType',
+                 min_number_of_executed_things: _builtins.int,
+                 threshold_percentage: _builtins.float):
+        """
+        :param 'OtaUpdateAwsJobAbortCriteriaAction' action: The type of job action to take to initiate the job abort.
+        :param 'OtaUpdateAwsJobAbortCriteriaFailureType' failure_type: The type of job execution failures that can initiate a job abort.
+        :param _builtins.int min_number_of_executed_things: The minimum number of things which must receive job execution notifications before the job can be aborted.
+        :param _builtins.float threshold_percentage: The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "failure_type", failure_type)
+        pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
+        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'OtaUpdateAwsJobAbortCriteriaAction':
+        """
+        The type of job action to take to initiate the job abort.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> 'OtaUpdateAwsJobAbortCriteriaFailureType':
+        """
+        The type of job execution failures that can initiate a job abort.
+        """
+        return pulumi.get(self, "failure_type")
+
+    @_builtins.property
+    @pulumi.getter(name="minNumberOfExecutedThings")
+    def min_number_of_executed_things(self) -> _builtins.int:
+        """
+        The minimum number of things which must receive job execution notifications before the job can be aborted.
+        """
+        return pulumi.get(self, "min_number_of_executed_things")
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdPercentage")
+    def threshold_percentage(self) -> _builtins.float:
+        """
+        The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        return pulumi.get(self, "threshold_percentage")
+
+
+@pulumi.output_type
+class OtaUpdateAwsJobExecutionsRolloutConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exponentialRate":
+            suggest = "exponential_rate"
+        elif key == "maximumPerMinute":
+            suggest = "maximum_per_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateAwsJobExecutionsRolloutConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateAwsJobExecutionsRolloutConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateAwsJobExecutionsRolloutConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exponential_rate: Optional['outputs.OtaUpdateAwsJobExponentialRolloutRate'] = None,
+                 maximum_per_minute: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int maximum_per_minute: The maximum number of OTA update job executions started per minute.
+        """
+        if exponential_rate is not None:
+            pulumi.set(__self__, "exponential_rate", exponential_rate)
+        if maximum_per_minute is not None:
+            pulumi.set(__self__, "maximum_per_minute", maximum_per_minute)
+
+    @_builtins.property
+    @pulumi.getter(name="exponentialRate")
+    def exponential_rate(self) -> Optional['outputs.OtaUpdateAwsJobExponentialRolloutRate']:
+        return pulumi.get(self, "exponential_rate")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumPerMinute")
+    def maximum_per_minute(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of OTA update job executions started per minute.
+        """
+        return pulumi.get(self, "maximum_per_minute")
+
+
+@pulumi.output_type
+class OtaUpdateAwsJobExponentialRolloutRate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseRatePerMinute":
+            suggest = "base_rate_per_minute"
+        elif key == "incrementFactor":
+            suggest = "increment_factor"
+        elif key == "rateIncreaseCriteria":
+            suggest = "rate_increase_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateAwsJobExponentialRolloutRate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateAwsJobExponentialRolloutRate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateAwsJobExponentialRolloutRate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_rate_per_minute: _builtins.int,
+                 increment_factor: _builtins.float,
+                 rate_increase_criteria: 'outputs.OtaUpdateAwsJobRateIncreaseCriteria'):
+        """
+        :param _builtins.int base_rate_per_minute: The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+        :param _builtins.float increment_factor: The rate of increase for a job rollout.
+        """
+        pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
+        pulumi.set(__self__, "increment_factor", increment_factor)
+        pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="baseRatePerMinute")
+    def base_rate_per_minute(self) -> _builtins.int:
+        """
+        The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+        """
+        return pulumi.get(self, "base_rate_per_minute")
+
+    @_builtins.property
+    @pulumi.getter(name="incrementFactor")
+    def increment_factor(self) -> _builtins.float:
+        """
+        The rate of increase for a job rollout.
+        """
+        return pulumi.get(self, "increment_factor")
+
+    @_builtins.property
+    @pulumi.getter(name="rateIncreaseCriteria")
+    def rate_increase_criteria(self) -> 'outputs.OtaUpdateAwsJobRateIncreaseCriteria':
+        return pulumi.get(self, "rate_increase_criteria")
+
+
+@pulumi.output_type
+class OtaUpdateAwsJobPresignedUrlConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiresInSec":
+            suggest = "expires_in_sec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateAwsJobPresignedUrlConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateAwsJobPresignedUrlConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateAwsJobPresignedUrlConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expires_in_sec: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int expires_in_sec: How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+        """
+        if expires_in_sec is not None:
+            pulumi.set(__self__, "expires_in_sec", expires_in_sec)
+
+    @_builtins.property
+    @pulumi.getter(name="expiresInSec")
+    def expires_in_sec(self) -> Optional[_builtins.int]:
+        """
+        How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+        """
+        return pulumi.get(self, "expires_in_sec")
+
+
+@pulumi.output_type
+class OtaUpdateAwsJobRateIncreaseCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfNotifiedThings":
+            suggest = "number_of_notified_things"
+        elif key == "numberOfSucceededThings":
+            suggest = "number_of_succeeded_things"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateAwsJobRateIncreaseCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateAwsJobRateIncreaseCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateAwsJobRateIncreaseCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_of_notified_things: Optional[_builtins.int] = None,
+                 number_of_succeeded_things: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int number_of_notified_things: When this number of things have been notified, it will initiate an increase in the rollout rate.
+        :param _builtins.int number_of_succeeded_things: When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+        """
+        if number_of_notified_things is not None:
+            pulumi.set(__self__, "number_of_notified_things", number_of_notified_things)
+        if number_of_succeeded_things is not None:
+            pulumi.set(__self__, "number_of_succeeded_things", number_of_succeeded_things)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfNotifiedThings")
+    def number_of_notified_things(self) -> Optional[_builtins.int]:
+        """
+        When this number of things have been notified, it will initiate an increase in the rollout rate.
+        """
+        return pulumi.get(self, "number_of_notified_things")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfSucceededThings")
+    def number_of_succeeded_things(self) -> Optional[_builtins.int]:
+        """
+        When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+        """
+        return pulumi.get(self, "number_of_succeeded_things")
+
+
+@pulumi.output_type
+class OtaUpdateAwsJobTimeoutConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inProgressTimeoutInMinutes":
+            suggest = "in_progress_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateAwsJobTimeoutConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateAwsJobTimeoutConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateAwsJobTimeoutConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 in_progress_timeout_in_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int in_progress_timeout_in_minutes: Specifies the amount of time, in minutes, this device has to finish execution of this job.
+        """
+        if in_progress_timeout_in_minutes is not None:
+            pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="inProgressTimeoutInMinutes")
+    def in_progress_timeout_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Specifies the amount of time, in minutes, this device has to finish execution of this job.
+        """
+        return pulumi.get(self, "in_progress_timeout_in_minutes")
+
+
+@pulumi.output_type
+class OtaUpdateCodeSigning(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsSignerJobId":
+            suggest = "aws_signer_job_id"
+        elif key == "customCodeSigning":
+            suggest = "custom_code_signing"
+        elif key == "startSigningJobParameter":
+            suggest = "start_signing_job_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateCodeSigning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateCodeSigning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateCodeSigning.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_signer_job_id: Optional[_builtins.str] = None,
+                 custom_code_signing: Optional['outputs.OtaUpdateCustomCodeSigning'] = None,
+                 start_signing_job_parameter: Optional['outputs.OtaUpdateStartSigningJobParameter'] = None):
+        """
+        :param _builtins.str aws_signer_job_id: The ID of the AWSSignerJob which was created to sign the file.
+        """
+        if aws_signer_job_id is not None:
+            pulumi.set(__self__, "aws_signer_job_id", aws_signer_job_id)
+        if custom_code_signing is not None:
+            pulumi.set(__self__, "custom_code_signing", custom_code_signing)
+        if start_signing_job_parameter is not None:
+            pulumi.set(__self__, "start_signing_job_parameter", start_signing_job_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSignerJobId")
+    def aws_signer_job_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the AWSSignerJob which was created to sign the file.
+        """
+        return pulumi.get(self, "aws_signer_job_id")
+
+    @_builtins.property
+    @pulumi.getter(name="customCodeSigning")
+    def custom_code_signing(self) -> Optional['outputs.OtaUpdateCustomCodeSigning']:
+        return pulumi.get(self, "custom_code_signing")
+
+    @_builtins.property
+    @pulumi.getter(name="startSigningJobParameter")
+    def start_signing_job_parameter(self) -> Optional['outputs.OtaUpdateStartSigningJobParameter']:
+        return pulumi.get(self, "start_signing_job_parameter")
+
+
+@pulumi.output_type
+class OtaUpdateCodeSigningCertificateChain(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateName":
+            suggest = "certificate_name"
+        elif key == "inlineDocument":
+            suggest = "inline_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateCodeSigningCertificateChain. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateCodeSigningCertificateChain.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateCodeSigningCertificateChain.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_name: Optional[_builtins.str] = None,
+                 inline_document: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str certificate_name: The name of the certificate.
+        :param _builtins.str inline_document: A base64 encoded binary representation of the code signing certificate chain.
+        """
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
+        if inline_document is not None:
+            pulumi.set(__self__, "inline_document", inline_document)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the certificate.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @_builtins.property
+    @pulumi.getter(name="inlineDocument")
+    def inline_document(self) -> Optional[_builtins.str]:
+        """
+        A base64 encoded binary representation of the code signing certificate chain.
+        """
+        return pulumi.get(self, "inline_document")
+
+
+@pulumi.output_type
+class OtaUpdateCodeSigningSignature(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlineDocument":
+            suggest = "inline_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateCodeSigningSignature. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateCodeSigningSignature.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateCodeSigningSignature.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_document: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str inline_document: A base64 encoded binary representation of the code signing signature.
+        """
+        if inline_document is not None:
+            pulumi.set(__self__, "inline_document", inline_document)
+
+    @_builtins.property
+    @pulumi.getter(name="inlineDocument")
+    def inline_document(self) -> Optional[_builtins.str]:
+        """
+        A base64 encoded binary representation of the code signing signature.
+        """
+        return pulumi.get(self, "inline_document")
+
+
+@pulumi.output_type
+class OtaUpdateCustomCodeSigning(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+        elif key == "hashAlgorithm":
+            suggest = "hash_algorithm"
+        elif key == "signatureAlgorithm":
+            suggest = "signature_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateCustomCodeSigning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateCustomCodeSigning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateCustomCodeSigning.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_chain: Optional['outputs.OtaUpdateCodeSigningCertificateChain'] = None,
+                 hash_algorithm: Optional[_builtins.str] = None,
+                 signature: Optional['outputs.OtaUpdateCodeSigningSignature'] = None,
+                 signature_algorithm: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str hash_algorithm: The hash algorithm used to code sign the file.
+        :param _builtins.str signature_algorithm: The signature algorithm used to code sign the file.
+        """
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if hash_algorithm is not None:
+            pulumi.set(__self__, "hash_algorithm", hash_algorithm)
+        if signature is not None:
+            pulumi.set(__self__, "signature", signature)
+        if signature_algorithm is not None:
+            pulumi.set(__self__, "signature_algorithm", signature_algorithm)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> Optional['outputs.OtaUpdateCodeSigningCertificateChain']:
+        return pulumi.get(self, "certificate_chain")
+
+    @_builtins.property
+    @pulumi.getter(name="hashAlgorithm")
+    def hash_algorithm(self) -> Optional[_builtins.str]:
+        """
+        The hash algorithm used to code sign the file.
+        """
+        return pulumi.get(self, "hash_algorithm")
+
+    @_builtins.property
+    @pulumi.getter
+    def signature(self) -> Optional['outputs.OtaUpdateCodeSigningSignature']:
+        return pulumi.get(self, "signature")
+
+    @_builtins.property
+    @pulumi.getter(name="signatureAlgorithm")
+    def signature_algorithm(self) -> Optional[_builtins.str]:
+        """
+        The signature algorithm used to code sign the file.
+        """
+        return pulumi.get(self, "signature_algorithm")
+
+
+@pulumi.output_type
+class OtaUpdateDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Destination":
+            suggest = "s3_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_destination: Optional['outputs.OtaUpdateS3Destination'] = None):
+        if s3_destination is not None:
+            pulumi.set(__self__, "s3_destination", s3_destination)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Destination")
+    def s3_destination(self) -> Optional['outputs.OtaUpdateS3Destination']:
+        return pulumi.get(self, "s3_destination")
+
+
+@pulumi.output_type
+class OtaUpdateFileLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateFileLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateFileLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateFileLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_location: Optional['outputs.OtaUpdateS3Location'] = None,
+                 stream: Optional['outputs.OtaUpdateStream'] = None):
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+        if stream is not None:
+            pulumi.set(__self__, "stream", stream)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> Optional['outputs.OtaUpdateS3Location']:
+        return pulumi.get(self, "s3_location")
+
+    @_builtins.property
+    @pulumi.getter
+    def stream(self) -> Optional['outputs.OtaUpdateStream']:
+        return pulumi.get(self, "stream")
+
+
+@pulumi.output_type
+class OtaUpdateOtaUpdateFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeSigning":
+            suggest = "code_signing"
+        elif key == "fileLocation":
+            suggest = "file_location"
+        elif key == "fileName":
+            suggest = "file_name"
+        elif key == "fileType":
+            suggest = "file_type"
+        elif key == "fileVersion":
+            suggest = "file_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateOtaUpdateFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateOtaUpdateFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateOtaUpdateFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attributes: Optional[Mapping[str, _builtins.str]] = None,
+                 code_signing: Optional['outputs.OtaUpdateCodeSigning'] = None,
+                 file_location: Optional['outputs.OtaUpdateFileLocation'] = None,
+                 file_name: Optional[_builtins.str] = None,
+                 file_type: Optional[_builtins.int] = None,
+                 file_version: Optional[_builtins.str] = None):
+        """
+        :param Mapping[str, _builtins.str] attributes: A list of name-attribute pairs.
+        :param _builtins.str file_name: The name of the file.
+        :param _builtins.int file_type: An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+        :param _builtins.str file_version: The file version.
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if code_signing is not None:
+            pulumi.set(__self__, "code_signing", code_signing)
+        if file_location is not None:
+            pulumi.set(__self__, "file_location", file_location)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if file_type is not None:
+            pulumi.set(__self__, "file_type", file_type)
+        if file_version is not None:
+            pulumi.set(__self__, "file_version", file_version)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A list of name-attribute pairs.
+        """
+        return pulumi.get(self, "attributes")
+
+    @_builtins.property
+    @pulumi.getter(name="codeSigning")
+    def code_signing(self) -> Optional['outputs.OtaUpdateCodeSigning']:
+        return pulumi.get(self, "code_signing")
+
+    @_builtins.property
+    @pulumi.getter(name="fileLocation")
+    def file_location(self) -> Optional['outputs.OtaUpdateFileLocation']:
+        return pulumi.get(self, "file_location")
+
+    @_builtins.property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the file.
+        """
+        return pulumi.get(self, "file_name")
+
+    @_builtins.property
+    @pulumi.getter(name="fileType")
+    def file_type(self) -> Optional[_builtins.int]:
+        """
+        An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+        """
+        return pulumi.get(self, "file_type")
+
+    @_builtins.property
+    @pulumi.getter(name="fileVersion")
+    def file_version(self) -> Optional[_builtins.str]:
+        """
+        The file version.
+        """
+        return pulumi.get(self, "file_version")
+
+
+@pulumi.output_type
+class OtaUpdateS3Destination(dict):
+    def __init__(__self__, *,
+                 bucket: Optional[_builtins.str] = None,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket: The S3 bucket that contains the updated firmware.
+        :param _builtins.str prefix: The S3 prefix.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional[_builtins.str]:
+        """
+        The S3 bucket that contains the updated firmware.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        The S3 prefix.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class OtaUpdateS3Location(dict):
+    def __init__(__self__, *,
+                 bucket: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket: The S3 bucket.
+        :param _builtins.str key: The S3 key.
+        :param _builtins.str version: The S3 bucket version.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional[_builtins.str]:
+        """
+        The S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        The S3 key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        The S3 bucket version.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class OtaUpdateSigningProfileParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+        elif key == "certificatePathOnDevice":
+            suggest = "certificate_path_on_device"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateSigningProfileParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateSigningProfileParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateSigningProfileParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_arn: Optional[_builtins.str] = None,
+                 certificate_path_on_device: Optional[_builtins.str] = None,
+                 platform: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str certificate_arn: Certificate ARN.
+        :param _builtins.str certificate_path_on_device: The location of the code-signing certificate on your device.
+        :param _builtins.str platform: The hardware platform of your device.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if certificate_path_on_device is not None:
+            pulumi.set(__self__, "certificate_path_on_device", certificate_path_on_device)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[_builtins.str]:
+        """
+        Certificate ARN.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="certificatePathOnDevice")
+    def certificate_path_on_device(self) -> Optional[_builtins.str]:
+        """
+        The location of the code-signing certificate on your device.
+        """
+        return pulumi.get(self, "certificate_path_on_device")
+
+    @_builtins.property
+    @pulumi.getter
+    def platform(self) -> Optional[_builtins.str]:
+        """
+        The hardware platform of your device.
+        """
+        return pulumi.get(self, "platform")
+
+
+@pulumi.output_type
+class OtaUpdateStartSigningJobParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signingProfileName":
+            suggest = "signing_profile_name"
+        elif key == "signingProfileParameter":
+            suggest = "signing_profile_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateStartSigningJobParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateStartSigningJobParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateStartSigningJobParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.OtaUpdateDestination'] = None,
+                 signing_profile_name: Optional[_builtins.str] = None,
+                 signing_profile_parameter: Optional['outputs.OtaUpdateSigningProfileParameter'] = None):
+        """
+        :param _builtins.str signing_profile_name: The code-signing profile name.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if signing_profile_name is not None:
+            pulumi.set(__self__, "signing_profile_name", signing_profile_name)
+        if signing_profile_parameter is not None:
+            pulumi.set(__self__, "signing_profile_parameter", signing_profile_parameter)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.OtaUpdateDestination']:
+        return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter(name="signingProfileName")
+    def signing_profile_name(self) -> Optional[_builtins.str]:
+        """
+        The code-signing profile name.
+        """
+        return pulumi.get(self, "signing_profile_name")
+
+    @_builtins.property
+    @pulumi.getter(name="signingProfileParameter")
+    def signing_profile_parameter(self) -> Optional['outputs.OtaUpdateSigningProfileParameter']:
+        return pulumi.get(self, "signing_profile_parameter")
+
+
+@pulumi.output_type
+class OtaUpdateStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileId":
+            suggest = "file_id"
+        elif key == "streamId":
+            suggest = "stream_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtaUpdateStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtaUpdateStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtaUpdateStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_id: Optional[_builtins.int] = None,
+                 stream_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int file_id: The ID of a file associated with a stream.
+        :param _builtins.str stream_id: The stream ID.
+        """
+        if file_id is not None:
+            pulumi.set(__self__, "file_id", file_id)
+        if stream_id is not None:
+            pulumi.set(__self__, "stream_id", stream_id)
+
+    @_builtins.property
+    @pulumi.getter(name="fileId")
+    def file_id(self) -> Optional[_builtins.int]:
+        """
+        The ID of a file associated with a stream.
+        """
+        return pulumi.get(self, "file_id")
+
+    @_builtins.property
+    @pulumi.getter(name="streamId")
+    def stream_id(self) -> Optional[_builtins.str]:
+        """
+        The stream ID.
+        """
+        return pulumi.get(self, "stream_id")
 
 
 @pulumi.output_type

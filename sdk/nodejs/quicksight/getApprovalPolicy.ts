@@ -25,19 +25,18 @@ export interface GetApprovalPolicyResult {
     /**
      * List of governed actions a policy applies to.
      */
-    readonly actions?: any[];
+    readonly actions?: enums.quicksight.ApprovalPolicyGovernedAction[];
     readonly applicableTo?: outputs.quicksight.ApprovalPolicyApplicableTo;
     /**
      * List of approval group ARNs (e.g. QuickSight group ARNs).
-     * At least one approval group is required; the upper bound is enforced
-     * per-account at the service layer via the configurable approver-group limit.
+     * At least one approval group is required.
      */
     readonly approvalGroups?: string[];
     /**
      * List of asset types a policy applies to.
      * At least one asset type is required.
      */
-    readonly assetTypes?: any[];
+    readonly assetTypes?: enums.quicksight.ApprovalPolicyAssetType[];
     readonly createdAt?: string;
     readonly description?: string;
     readonly name?: string;

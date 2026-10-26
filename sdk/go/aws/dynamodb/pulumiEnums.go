@@ -1029,6 +1029,171 @@ func (in *globalTableSearchSchemaElementSearchSchemaElementTypePtr) ToGlobalTabl
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableSearchSchemaElementSearchSchemaElementTypePtrOutput)
 }
 
+type GlobalTableTableType string
+
+const (
+	GlobalTableTableTypeGlobalTableReplica = GlobalTableTableType("GlobalTableReplica")
+	GlobalTableTableTypeRegional           = GlobalTableTableType("Regional")
+)
+
+func (GlobalTableTableType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableTableType)(nil)).Elem()
+}
+
+func (e GlobalTableTableType) ToGlobalTableTableTypeOutput() GlobalTableTableTypeOutput {
+	return pulumi.ToOutput(e).(GlobalTableTableTypeOutput)
+}
+
+func (e GlobalTableTableType) ToGlobalTableTableTypeOutputWithContext(ctx context.Context) GlobalTableTableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GlobalTableTableTypeOutput)
+}
+
+func (e GlobalTableTableType) ToGlobalTableTableTypePtrOutput() GlobalTableTableTypePtrOutput {
+	return e.ToGlobalTableTableTypePtrOutputWithContext(context.Background())
+}
+
+func (e GlobalTableTableType) ToGlobalTableTableTypePtrOutputWithContext(ctx context.Context) GlobalTableTableTypePtrOutput {
+	return GlobalTableTableType(e).ToGlobalTableTableTypeOutputWithContext(ctx).ToGlobalTableTableTypePtrOutputWithContext(ctx)
+}
+
+func (e GlobalTableTableType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalTableTableType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalTableTableType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GlobalTableTableType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GlobalTableTableTypeOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableTableTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableTableType)(nil)).Elem()
+}
+
+func (o GlobalTableTableTypeOutput) ToGlobalTableTableTypeOutput() GlobalTableTableTypeOutput {
+	return o
+}
+
+func (o GlobalTableTableTypeOutput) ToGlobalTableTableTypeOutputWithContext(ctx context.Context) GlobalTableTableTypeOutput {
+	return o
+}
+
+func (o GlobalTableTableTypeOutput) ToGlobalTableTableTypePtrOutput() GlobalTableTableTypePtrOutput {
+	return o.ToGlobalTableTableTypePtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableTableTypeOutput) ToGlobalTableTableTypePtrOutputWithContext(ctx context.Context) GlobalTableTableTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableTableType) *GlobalTableTableType {
+		return &v
+	}).(GlobalTableTableTypePtrOutput)
+}
+
+func (o GlobalTableTableTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GlobalTableTableTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalTableTableType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GlobalTableTableTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableTableTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalTableTableType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalTableTableTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableTableTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableTableType)(nil)).Elem()
+}
+
+func (o GlobalTableTableTypePtrOutput) ToGlobalTableTableTypePtrOutput() GlobalTableTableTypePtrOutput {
+	return o
+}
+
+func (o GlobalTableTableTypePtrOutput) ToGlobalTableTableTypePtrOutputWithContext(ctx context.Context) GlobalTableTableTypePtrOutput {
+	return o
+}
+
+func (o GlobalTableTableTypePtrOutput) Elem() GlobalTableTableTypeOutput {
+	return o.ApplyT(func(v *GlobalTableTableType) GlobalTableTableType {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableTableType
+		return ret
+	}).(GlobalTableTableTypeOutput)
+}
+
+func (o GlobalTableTableTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableTableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GlobalTableTableType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GlobalTableTableTypeInput is an input type that accepts values of the GlobalTableTableType enum
+// A concrete instance of `GlobalTableTableTypeInput` can be one of the following:
+//
+//	GlobalTableTableTypeGlobalTableReplica
+//	GlobalTableTableTypeRegional
+type GlobalTableTableTypeInput interface {
+	pulumi.Input
+
+	ToGlobalTableTableTypeOutput() GlobalTableTableTypeOutput
+	ToGlobalTableTableTypeOutputWithContext(context.Context) GlobalTableTableTypeOutput
+}
+
+var globalTableTableTypePtrType = reflect.TypeOf((**GlobalTableTableType)(nil)).Elem()
+
+type GlobalTableTableTypePtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableTableTypePtrOutput() GlobalTableTableTypePtrOutput
+	ToGlobalTableTableTypePtrOutputWithContext(context.Context) GlobalTableTableTypePtrOutput
+}
+
+type globalTableTableTypePtr string
+
+func GlobalTableTableTypePtr(v string) GlobalTableTableTypePtrInput {
+	return (*globalTableTableTypePtr)(&v)
+}
+
+func (*globalTableTableTypePtr) ElementType() reflect.Type {
+	return globalTableTableTypePtrType
+}
+
+func (in *globalTableTableTypePtr) ToGlobalTableTableTypePtrOutput() GlobalTableTableTypePtrOutput {
+	return pulumi.ToOutput(in).(GlobalTableTableTypePtrOutput)
+}
+
+func (in *globalTableTableTypePtr) ToGlobalTableTableTypePtrOutputWithContext(ctx context.Context) GlobalTableTableTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableTableTypePtrOutput)
+}
+
 type GlobalTableVectorIndexDistanceFunction string
 
 const (
@@ -1871,6 +2036,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSpecificationGlobalTableSettingsReplicationModePtrInput)(nil)).Elem(), GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSearchSchemaElementSearchSchemaElementTypeInput)(nil)).Elem(), GlobalTableSearchSchemaElementSearchSchemaElementType("HASH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSearchSchemaElementSearchSchemaElementTypePtrInput)(nil)).Elem(), GlobalTableSearchSchemaElementSearchSchemaElementType("HASH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTableTypeInput)(nil)).Elem(), GlobalTableTableType("GlobalTableReplica"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTableTypePtrInput)(nil)).Elem(), GlobalTableTableType("GlobalTableReplica"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableVectorIndexDistanceFunctionInput)(nil)).Elem(), GlobalTableVectorIndexDistanceFunction("COSINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableVectorIndexDistanceFunctionPtrInput)(nil)).Elem(), GlobalTableVectorIndexDistanceFunction("COSINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableContributorInsightsSpecificationModeInput)(nil)).Elem(), TableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS"))
@@ -1895,6 +2062,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableReplicaSpecificationGlobalTableSettingsReplicationModePtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableSearchSchemaElementSearchSchemaElementTypeOutput{})
 	pulumi.RegisterOutputType(GlobalTableSearchSchemaElementSearchSchemaElementTypePtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableTableTypeOutput{})
+	pulumi.RegisterOutputType(GlobalTableTableTypePtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableVectorIndexDistanceFunctionOutput{})
 	pulumi.RegisterOutputType(GlobalTableVectorIndexDistanceFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TableContributorInsightsSpecificationModeOutput{})

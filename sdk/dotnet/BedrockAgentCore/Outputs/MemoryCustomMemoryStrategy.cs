@@ -23,6 +23,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         public readonly string Name;
         public readonly ImmutableArray<string> NamespaceTemplates;
         public readonly ImmutableArray<string> Namespaces;
+        public readonly int? RecordExpiryDurationDays;
+        public readonly Outputs.MemoryRecordExpirySpecification? RecordExpirySpecification;
         /// <summary>
         /// Status of the memory strategy
         /// </summary>
@@ -56,6 +58,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<string> namespaces,
 
+            int? recordExpiryDurationDays,
+
+            Outputs.MemoryRecordExpirySpecification? recordExpirySpecification,
+
             Pulumi.AwsNative.BedrockAgentCore.MemoryCustomMemoryStrategyStatus? status,
 
             string? strategyId,
@@ -71,6 +77,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             Name = name;
             NamespaceTemplates = namespaceTemplates;
             Namespaces = namespaces;
+            RecordExpiryDurationDays = recordExpiryDurationDays;
+            RecordExpirySpecification = recordExpirySpecification;
             Status = status;
             StrategyId = strategyId;
             Type = type;

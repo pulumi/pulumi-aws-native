@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'FirewallConfigFirewallFailOpen',
     'FirewallDomainListStatus',
     'FirewallRuleGroupAssociationMutationProtection',
     'FirewallRuleGroupAssociationStatus',
@@ -31,6 +32,16 @@ __all__ = [
     'ResolverRuleRuleType',
     'ResolverRuleTargetAddressProtocol',
 ]
+
+
+@pulumi.type_token("aws-native:route53resolver:FirewallConfigFirewallFailOpen")
+class FirewallConfigFirewallFailOpen(_builtins.str, Enum):
+    """
+    Determines how DNS Firewall operates during failures. By default, fail open is disabled, which means the failure mode is closed. If you enable this option, the failure mode is open. This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+    USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING"
 
 
 @pulumi.type_token("aws-native:route53resolver:FirewallDomainListStatus")

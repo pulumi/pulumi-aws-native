@@ -33,6 +33,7 @@ class DeploymentGroupArgs:
                  deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_style: pulumi.Input[Optional['DeploymentGroupDeploymentStyleArgs']] = None,
+                 ec2_deployment_options: pulumi.Input[Optional['DeploymentGroupEc2DeploymentOptionsArgs']] = None,
                  ec2_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]] = None,
                  ec2_tag_set: pulumi.Input[Optional['DeploymentGroupEc2TagSetArgs']] = None,
                  ecs_services: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEcsServiceArgs']]]] = None,
@@ -56,6 +57,7 @@ class DeploymentGroupArgs:
         :param pulumi.Input[_builtins.str] deployment_config_name: A deployment configuration name or a predefined configuration name. With predefined configurations, you can deploy application revisions to one instance at a time (CodeDeployDefault.OneAtATime), half of the instances at a time (CodeDeployDefault.HalfAtATime), or all the instances at once (CodeDeployDefault.AllAtOnce).
         :param pulumi.Input[_builtins.str] deployment_group_name: A name for the deployment group. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name.
         :param pulumi.Input['DeploymentGroupDeploymentStyleArgs'] deployment_style: Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
+        :param pulumi.Input['DeploymentGroupEc2DeploymentOptionsArgs'] ec2_deployment_options: Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]] ec2_tag_filters: The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
         :param pulumi.Input['DeploymentGroupEc2TagSetArgs'] ec2_tag_set: Information about groups of tags applied to Amazon EC2 instances. Use when the deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilter.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEcsServiceArgs']]] ecs_services: The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format <clustername>:<servicename>.
@@ -85,6 +87,8 @@ class DeploymentGroupArgs:
             pulumi.set(__self__, "deployment_group_name", deployment_group_name)
         if deployment_style is not None:
             pulumi.set(__self__, "deployment_style", deployment_style)
+        if ec2_deployment_options is not None:
+            pulumi.set(__self__, "ec2_deployment_options", ec2_deployment_options)
         if ec2_tag_filters is not None:
             pulumi.set(__self__, "ec2_tag_filters", ec2_tag_filters)
         if ec2_tag_set is not None:
@@ -227,6 +231,18 @@ class DeploymentGroupArgs:
         pulumi.set(self, "deployment_style", value)
 
     @_builtins.property
+    @pulumi.getter(name="ec2DeploymentOptions")
+    def ec2_deployment_options(self) -> pulumi.Input[Optional['DeploymentGroupEc2DeploymentOptionsArgs']]:
+        """
+        Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+        """
+        return pulumi.get(self, "ec2_deployment_options")
+
+    @ec2_deployment_options.setter
+    def ec2_deployment_options(self, value: pulumi.Input[Optional['DeploymentGroupEc2DeploymentOptionsArgs']]):
+        pulumi.set(self, "ec2_deployment_options", value)
+
+    @_builtins.property
     @pulumi.getter(name="ec2TagFilters")
     def ec2_tag_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]:
         """
@@ -362,6 +378,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_style: pulumi.Input[Optional[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict']]] = None,
+                 ec2_deployment_options: pulumi.Input[Optional[Union['DeploymentGroupEc2DeploymentOptionsArgs', 'DeploymentGroupEc2DeploymentOptionsArgsDict']]] = None,
                  ec2_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict']]]]] = None,
                  ec2_tag_set: pulumi.Input[Optional[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict']]] = None,
                  ecs_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict']]]]] = None,
@@ -388,6 +405,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] deployment_config_name: A deployment configuration name or a predefined configuration name. With predefined configurations, you can deploy application revisions to one instance at a time (CodeDeployDefault.OneAtATime), half of the instances at a time (CodeDeployDefault.HalfAtATime), or all the instances at once (CodeDeployDefault.AllAtOnce).
         :param pulumi.Input[_builtins.str] deployment_group_name: A name for the deployment group. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name.
         :param pulumi.Input[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict']] deployment_style: Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
+        :param pulumi.Input[Union['DeploymentGroupEc2DeploymentOptionsArgs', 'DeploymentGroupEc2DeploymentOptionsArgsDict']] ec2_deployment_options: Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict']]]] ec2_tag_filters: The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
         :param pulumi.Input[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict']] ec2_tag_set: Information about groups of tags applied to Amazon EC2 instances. Use when the deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilter.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict']]]] ecs_services: The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format <clustername>:<servicename>.
@@ -433,6 +451,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_style: pulumi.Input[Optional[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict']]] = None,
+                 ec2_deployment_options: pulumi.Input[Optional[Union['DeploymentGroupEc2DeploymentOptionsArgs', 'DeploymentGroupEc2DeploymentOptionsArgsDict']]] = None,
                  ec2_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict']]]]] = None,
                  ec2_tag_set: pulumi.Input[Optional[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict']]] = None,
                  ecs_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict']]]]] = None,
@@ -464,6 +483,7 @@ class DeploymentGroup(pulumi.CustomResource):
             __props__.__dict__["deployment_config_name"] = deployment_config_name
             __props__.__dict__["deployment_group_name"] = deployment_group_name
             __props__.__dict__["deployment_style"] = deployment_style
+            __props__.__dict__["ec2_deployment_options"] = ec2_deployment_options
             __props__.__dict__["ec2_tag_filters"] = ec2_tag_filters
             __props__.__dict__["ec2_tag_set"] = ec2_tag_set
             __props__.__dict__["ecs_services"] = ecs_services
@@ -510,6 +530,7 @@ class DeploymentGroup(pulumi.CustomResource):
         __props__.__dict__["deployment_config_name"] = None
         __props__.__dict__["deployment_group_name"] = None
         __props__.__dict__["deployment_style"] = None
+        __props__.__dict__["ec2_deployment_options"] = None
         __props__.__dict__["ec2_tag_filters"] = None
         __props__.__dict__["ec2_tag_set"] = None
         __props__.__dict__["ecs_services"] = None
@@ -594,6 +615,14 @@ class DeploymentGroup(pulumi.CustomResource):
         Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
         """
         return pulumi.get(self, "deployment_style")
+
+    @_builtins.property
+    @pulumi.getter(name="ec2DeploymentOptions")
+    def ec2_deployment_options(self) -> pulumi.Output[Optional['outputs.DeploymentGroupEc2DeploymentOptions']]:
+        """
+        Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+        """
+        return pulumi.get(self, "ec2_deployment_options")
 
     @_builtins.property
     @pulumi.getter(name="ec2TagFilters")

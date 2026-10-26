@@ -944,6 +944,8 @@ func (o ChannelTimeShiftConfigurationPtrOutput) MaxTimeDelaySeconds() pulumi.Flo
 type FunctionAwsServiceRequestConfiguration struct {
 	// An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
 	Body *string `pulumi:"body"`
+	// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+	Cache *FunctionHttpRequestCacheConfiguration `pulumi:"cache"`
 	// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
 	Headers    map[string]string  `pulumi:"headers"`
 	MethodType FunctionMethodType `pulumi:"methodType"`
@@ -975,6 +977,8 @@ type FunctionAwsServiceRequestConfigurationInput interface {
 type FunctionAwsServiceRequestConfigurationArgs struct {
 	// An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
 	Body pulumi.StringPtrInput `pulumi:"body"`
+	// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+	Cache FunctionHttpRequestCacheConfigurationPtrInput `pulumi:"cache"`
 	// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
 	Headers    pulumi.StringMapInput   `pulumi:"headers"`
 	MethodType FunctionMethodTypeInput `pulumi:"methodType"`
@@ -1074,6 +1078,11 @@ func (o FunctionAwsServiceRequestConfigurationOutput) Body() pulumi.StringPtrOut
 	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
+// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+func (o FunctionAwsServiceRequestConfigurationOutput) Cache() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) *FunctionHttpRequestCacheConfiguration { return v.Cache }).(FunctionHttpRequestCacheConfigurationPtrOutput)
+}
+
 // A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
 func (o FunctionAwsServiceRequestConfigurationOutput) Headers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
@@ -1144,6 +1153,16 @@ func (o FunctionAwsServiceRequestConfigurationPtrOutput) Body() pulumi.StringPtr
 		}
 		return v.Body
 	}).(pulumi.StringPtrOutput)
+}
+
+// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) Cache() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) *FunctionHttpRequestCacheConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Cache
+	}).(FunctionHttpRequestCacheConfigurationPtrOutput)
 }
 
 // A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
@@ -1595,10 +1614,190 @@ func (o FunctionCustomOutputConfigurationPtrOutput) Runtime() FunctionRuntimeTyp
 	}).(FunctionRuntimeTypePtrOutput)
 }
 
+// The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST). When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+type FunctionHttpRequestCacheConfiguration struct {
+	// A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, request body, and HTTP method; request headers are not included. The evaluated key must be smaller than 1 KB.
+	Key *string `pulumi:"key"`
+	// The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to TtlMinimumSeconds.
+	TtlMaximumSeconds int `pulumi:"ttlMaximumSeconds"`
+	// The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no Cache-Control max-age directive.
+	TtlMinimumSeconds int `pulumi:"ttlMinimumSeconds"`
+}
+
+// FunctionHttpRequestCacheConfigurationInput is an input type that accepts FunctionHttpRequestCacheConfigurationArgs and FunctionHttpRequestCacheConfigurationOutput values.
+// You can construct a concrete instance of `FunctionHttpRequestCacheConfigurationInput` via:
+//
+//	FunctionHttpRequestCacheConfigurationArgs{...}
+type FunctionHttpRequestCacheConfigurationInput interface {
+	pulumi.Input
+
+	ToFunctionHttpRequestCacheConfigurationOutput() FunctionHttpRequestCacheConfigurationOutput
+	ToFunctionHttpRequestCacheConfigurationOutputWithContext(context.Context) FunctionHttpRequestCacheConfigurationOutput
+}
+
+// The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST). When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+type FunctionHttpRequestCacheConfigurationArgs struct {
+	// A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, request body, and HTTP method; request headers are not included. The evaluated key must be smaller than 1 KB.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to TtlMinimumSeconds.
+	TtlMaximumSeconds pulumi.IntInput `pulumi:"ttlMaximumSeconds"`
+	// The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no Cache-Control max-age directive.
+	TtlMinimumSeconds pulumi.IntInput `pulumi:"ttlMinimumSeconds"`
+}
+
+func (FunctionHttpRequestCacheConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionHttpRequestCacheConfiguration)(nil)).Elem()
+}
+
+func (i FunctionHttpRequestCacheConfigurationArgs) ToFunctionHttpRequestCacheConfigurationOutput() FunctionHttpRequestCacheConfigurationOutput {
+	return i.ToFunctionHttpRequestCacheConfigurationOutputWithContext(context.Background())
+}
+
+func (i FunctionHttpRequestCacheConfigurationArgs) ToFunctionHttpRequestCacheConfigurationOutputWithContext(ctx context.Context) FunctionHttpRequestCacheConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionHttpRequestCacheConfigurationOutput)
+}
+
+func (i FunctionHttpRequestCacheConfigurationArgs) ToFunctionHttpRequestCacheConfigurationPtrOutput() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return i.ToFunctionHttpRequestCacheConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionHttpRequestCacheConfigurationArgs) ToFunctionHttpRequestCacheConfigurationPtrOutputWithContext(ctx context.Context) FunctionHttpRequestCacheConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionHttpRequestCacheConfigurationOutput).ToFunctionHttpRequestCacheConfigurationPtrOutputWithContext(ctx)
+}
+
+// FunctionHttpRequestCacheConfigurationPtrInput is an input type that accepts FunctionHttpRequestCacheConfigurationArgs, FunctionHttpRequestCacheConfigurationPtr and FunctionHttpRequestCacheConfigurationPtrOutput values.
+// You can construct a concrete instance of `FunctionHttpRequestCacheConfigurationPtrInput` via:
+//
+//	        FunctionHttpRequestCacheConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionHttpRequestCacheConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFunctionHttpRequestCacheConfigurationPtrOutput() FunctionHttpRequestCacheConfigurationPtrOutput
+	ToFunctionHttpRequestCacheConfigurationPtrOutputWithContext(context.Context) FunctionHttpRequestCacheConfigurationPtrOutput
+}
+
+type functionHttpRequestCacheConfigurationPtrType FunctionHttpRequestCacheConfigurationArgs
+
+func FunctionHttpRequestCacheConfigurationPtr(v *FunctionHttpRequestCacheConfigurationArgs) FunctionHttpRequestCacheConfigurationPtrInput {
+	return (*functionHttpRequestCacheConfigurationPtrType)(v)
+}
+
+func (*functionHttpRequestCacheConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionHttpRequestCacheConfiguration)(nil)).Elem()
+}
+
+func (i *functionHttpRequestCacheConfigurationPtrType) ToFunctionHttpRequestCacheConfigurationPtrOutput() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return i.ToFunctionHttpRequestCacheConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *functionHttpRequestCacheConfigurationPtrType) ToFunctionHttpRequestCacheConfigurationPtrOutputWithContext(ctx context.Context) FunctionHttpRequestCacheConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionHttpRequestCacheConfigurationPtrOutput)
+}
+
+// The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST). When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+type FunctionHttpRequestCacheConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FunctionHttpRequestCacheConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionHttpRequestCacheConfiguration)(nil)).Elem()
+}
+
+func (o FunctionHttpRequestCacheConfigurationOutput) ToFunctionHttpRequestCacheConfigurationOutput() FunctionHttpRequestCacheConfigurationOutput {
+	return o
+}
+
+func (o FunctionHttpRequestCacheConfigurationOutput) ToFunctionHttpRequestCacheConfigurationOutputWithContext(ctx context.Context) FunctionHttpRequestCacheConfigurationOutput {
+	return o
+}
+
+func (o FunctionHttpRequestCacheConfigurationOutput) ToFunctionHttpRequestCacheConfigurationPtrOutput() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o.ToFunctionHttpRequestCacheConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionHttpRequestCacheConfigurationOutput) ToFunctionHttpRequestCacheConfigurationPtrOutputWithContext(ctx context.Context) FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionHttpRequestCacheConfiguration) *FunctionHttpRequestCacheConfiguration {
+		return &v
+	}).(FunctionHttpRequestCacheConfigurationPtrOutput)
+}
+
+// A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, request body, and HTTP method; request headers are not included. The evaluated key must be smaller than 1 KB.
+func (o FunctionHttpRequestCacheConfigurationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionHttpRequestCacheConfiguration) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to TtlMinimumSeconds.
+func (o FunctionHttpRequestCacheConfigurationOutput) TtlMaximumSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionHttpRequestCacheConfiguration) int { return v.TtlMaximumSeconds }).(pulumi.IntOutput)
+}
+
+// The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no Cache-Control max-age directive.
+func (o FunctionHttpRequestCacheConfigurationOutput) TtlMinimumSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionHttpRequestCacheConfiguration) int { return v.TtlMinimumSeconds }).(pulumi.IntOutput)
+}
+
+type FunctionHttpRequestCacheConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionHttpRequestCacheConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionHttpRequestCacheConfiguration)(nil)).Elem()
+}
+
+func (o FunctionHttpRequestCacheConfigurationPtrOutput) ToFunctionHttpRequestCacheConfigurationPtrOutput() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionHttpRequestCacheConfigurationPtrOutput) ToFunctionHttpRequestCacheConfigurationPtrOutputWithContext(ctx context.Context) FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionHttpRequestCacheConfigurationPtrOutput) Elem() FunctionHttpRequestCacheConfigurationOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestCacheConfiguration) FunctionHttpRequestCacheConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionHttpRequestCacheConfiguration
+		return ret
+	}).(FunctionHttpRequestCacheConfigurationOutput)
+}
+
+// A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, request body, and HTTP method; request headers are not included. The evaluated key must be smaller than 1 KB.
+func (o FunctionHttpRequestCacheConfigurationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestCacheConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to TtlMinimumSeconds.
+func (o FunctionHttpRequestCacheConfigurationPtrOutput) TtlMaximumSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestCacheConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TtlMaximumSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no Cache-Control max-age directive.
+func (o FunctionHttpRequestCacheConfigurationPtrOutput) TtlMinimumSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestCacheConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TtlMinimumSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // Configuration for HTTP request functions.
 type FunctionHttpRequestConfiguration struct {
 	// The body of the HTTP request.
 	Body *string `pulumi:"body"`
+	// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+	Cache *FunctionHttpRequestCacheConfiguration `pulumi:"cache"`
 	// A map of HTTP headers to include in the request.
 	Headers map[string]string `pulumi:"headers"`
 	// The HTTP method type for the request.
@@ -1628,6 +1827,8 @@ type FunctionHttpRequestConfigurationInput interface {
 type FunctionHttpRequestConfigurationArgs struct {
 	// The body of the HTTP request.
 	Body pulumi.StringPtrInput `pulumi:"body"`
+	// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+	Cache FunctionHttpRequestCacheConfigurationPtrInput `pulumi:"cache"`
 	// A map of HTTP headers to include in the request.
 	Headers pulumi.StringMapInput `pulumi:"headers"`
 	// The HTTP method type for the request.
@@ -1725,6 +1926,11 @@ func (o FunctionHttpRequestConfigurationOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionHttpRequestConfiguration) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
+// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+func (o FunctionHttpRequestConfigurationOutput) Cache() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o.ApplyT(func(v FunctionHttpRequestConfiguration) *FunctionHttpRequestCacheConfiguration { return v.Cache }).(FunctionHttpRequestCacheConfigurationPtrOutput)
+}
+
 // A map of HTTP headers to include in the request.
 func (o FunctionHttpRequestConfigurationOutput) Headers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionHttpRequestConfiguration) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
@@ -1787,6 +1993,16 @@ func (o FunctionHttpRequestConfigurationPtrOutput) Body() pulumi.StringPtrOutput
 		}
 		return v.Body
 	}).(pulumi.StringPtrOutput)
+}
+
+// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+func (o FunctionHttpRequestConfigurationPtrOutput) Cache() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestConfiguration) *FunctionHttpRequestCacheConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Cache
+	}).(FunctionHttpRequestCacheConfigurationPtrOutput)
 }
 
 // A map of HTTP headers to include in the request.
@@ -2169,6 +2385,8 @@ type FunctionTag struct {
 type FunctionVastRequestConfiguration struct {
 	// An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
 	Body *string `pulumi:"body"`
+	// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+	Cache *FunctionHttpRequestCacheConfiguration `pulumi:"cache"`
 	// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
 	Headers    map[string]string  `pulumi:"headers"`
 	MethodType FunctionMethodType `pulumi:"methodType"`
@@ -2196,6 +2414,8 @@ type FunctionVastRequestConfigurationInput interface {
 type FunctionVastRequestConfigurationArgs struct {
 	// An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
 	Body pulumi.StringPtrInput `pulumi:"body"`
+	// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+	Cache FunctionHttpRequestCacheConfigurationPtrInput `pulumi:"cache"`
 	// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
 	Headers    pulumi.StringMapInput   `pulumi:"headers"`
 	MethodType FunctionMethodTypeInput `pulumi:"methodType"`
@@ -2291,6 +2511,11 @@ func (o FunctionVastRequestConfigurationOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionVastRequestConfiguration) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
+// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+func (o FunctionVastRequestConfigurationOutput) Cache() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o.ApplyT(func(v FunctionVastRequestConfiguration) *FunctionHttpRequestCacheConfiguration { return v.Cache }).(FunctionHttpRequestCacheConfigurationPtrOutput)
+}
+
 // A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
 func (o FunctionVastRequestConfigurationOutput) Headers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionVastRequestConfiguration) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
@@ -2351,6 +2576,16 @@ func (o FunctionVastRequestConfigurationPtrOutput) Body() pulumi.StringPtrOutput
 		}
 		return v.Body
 	}).(pulumi.StringPtrOutput)
+}
+
+// The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+func (o FunctionVastRequestConfigurationPtrOutput) Cache() FunctionHttpRequestCacheConfigurationPtrOutput {
+	return o.ApplyT(func(v *FunctionVastRequestConfiguration) *FunctionHttpRequestCacheConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Cache
+	}).(FunctionHttpRequestCacheConfigurationPtrOutput)
 }
 
 // A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
@@ -9837,6 +10072,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConcurrentExecutorConfigurationPtrInput)(nil)).Elem(), FunctionConcurrentExecutorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCustomOutputConfigurationInput)(nil)).Elem(), FunctionCustomOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCustomOutputConfigurationPtrInput)(nil)).Elem(), FunctionCustomOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionHttpRequestCacheConfigurationInput)(nil)).Elem(), FunctionHttpRequestCacheConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionHttpRequestCacheConfigurationPtrInput)(nil)).Elem(), FunctionHttpRequestCacheConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionHttpRequestConfigurationInput)(nil)).Elem(), FunctionHttpRequestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionHttpRequestConfigurationPtrInput)(nil)).Elem(), FunctionHttpRequestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRefInput)(nil)).Elem(), FunctionRefArgs{})
@@ -9956,6 +10193,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionConcurrentExecutorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FunctionCustomOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(FunctionCustomOutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FunctionHttpRequestCacheConfigurationOutput{})
+	pulumi.RegisterOutputType(FunctionHttpRequestCacheConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FunctionHttpRequestConfigurationOutput{})
 	pulumi.RegisterOutputType(FunctionHttpRequestConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FunctionRefOutput{})

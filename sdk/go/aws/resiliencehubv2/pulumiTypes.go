@@ -960,6 +960,146 @@ func (o ServiceCrossAccountRoleConfigurationArrayOutput) Index(i pulumi.IntInput
 	}).(ServiceCrossAccountRoleConfigurationOutput)
 }
 
+// Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+type ServiceDevOpsAgentConfiguration struct {
+	// The ARN of the DevOps Agent Agent Space to link to this service.
+	AgentSpaceArn string `pulumi:"agentSpaceArn"`
+}
+
+// ServiceDevOpsAgentConfigurationInput is an input type that accepts ServiceDevOpsAgentConfigurationArgs and ServiceDevOpsAgentConfigurationOutput values.
+// You can construct a concrete instance of `ServiceDevOpsAgentConfigurationInput` via:
+//
+//	ServiceDevOpsAgentConfigurationArgs{...}
+type ServiceDevOpsAgentConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceDevOpsAgentConfigurationOutput() ServiceDevOpsAgentConfigurationOutput
+	ToServiceDevOpsAgentConfigurationOutputWithContext(context.Context) ServiceDevOpsAgentConfigurationOutput
+}
+
+// Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+type ServiceDevOpsAgentConfigurationArgs struct {
+	// The ARN of the DevOps Agent Agent Space to link to this service.
+	AgentSpaceArn pulumi.StringInput `pulumi:"agentSpaceArn"`
+}
+
+func (ServiceDevOpsAgentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDevOpsAgentConfiguration)(nil)).Elem()
+}
+
+func (i ServiceDevOpsAgentConfigurationArgs) ToServiceDevOpsAgentConfigurationOutput() ServiceDevOpsAgentConfigurationOutput {
+	return i.ToServiceDevOpsAgentConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceDevOpsAgentConfigurationArgs) ToServiceDevOpsAgentConfigurationOutputWithContext(ctx context.Context) ServiceDevOpsAgentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDevOpsAgentConfigurationOutput)
+}
+
+func (i ServiceDevOpsAgentConfigurationArgs) ToServiceDevOpsAgentConfigurationPtrOutput() ServiceDevOpsAgentConfigurationPtrOutput {
+	return i.ToServiceDevOpsAgentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDevOpsAgentConfigurationArgs) ToServiceDevOpsAgentConfigurationPtrOutputWithContext(ctx context.Context) ServiceDevOpsAgentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDevOpsAgentConfigurationOutput).ToServiceDevOpsAgentConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceDevOpsAgentConfigurationPtrInput is an input type that accepts ServiceDevOpsAgentConfigurationArgs, ServiceDevOpsAgentConfigurationPtr and ServiceDevOpsAgentConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceDevOpsAgentConfigurationPtrInput` via:
+//
+//	        ServiceDevOpsAgentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDevOpsAgentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceDevOpsAgentConfigurationPtrOutput() ServiceDevOpsAgentConfigurationPtrOutput
+	ToServiceDevOpsAgentConfigurationPtrOutputWithContext(context.Context) ServiceDevOpsAgentConfigurationPtrOutput
+}
+
+type serviceDevOpsAgentConfigurationPtrType ServiceDevOpsAgentConfigurationArgs
+
+func ServiceDevOpsAgentConfigurationPtr(v *ServiceDevOpsAgentConfigurationArgs) ServiceDevOpsAgentConfigurationPtrInput {
+	return (*serviceDevOpsAgentConfigurationPtrType)(v)
+}
+
+func (*serviceDevOpsAgentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDevOpsAgentConfiguration)(nil)).Elem()
+}
+
+func (i *serviceDevOpsAgentConfigurationPtrType) ToServiceDevOpsAgentConfigurationPtrOutput() ServiceDevOpsAgentConfigurationPtrOutput {
+	return i.ToServiceDevOpsAgentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDevOpsAgentConfigurationPtrType) ToServiceDevOpsAgentConfigurationPtrOutputWithContext(ctx context.Context) ServiceDevOpsAgentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDevOpsAgentConfigurationPtrOutput)
+}
+
+// Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+type ServiceDevOpsAgentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceDevOpsAgentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDevOpsAgentConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDevOpsAgentConfigurationOutput) ToServiceDevOpsAgentConfigurationOutput() ServiceDevOpsAgentConfigurationOutput {
+	return o
+}
+
+func (o ServiceDevOpsAgentConfigurationOutput) ToServiceDevOpsAgentConfigurationOutputWithContext(ctx context.Context) ServiceDevOpsAgentConfigurationOutput {
+	return o
+}
+
+func (o ServiceDevOpsAgentConfigurationOutput) ToServiceDevOpsAgentConfigurationPtrOutput() ServiceDevOpsAgentConfigurationPtrOutput {
+	return o.ToServiceDevOpsAgentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDevOpsAgentConfigurationOutput) ToServiceDevOpsAgentConfigurationPtrOutputWithContext(ctx context.Context) ServiceDevOpsAgentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDevOpsAgentConfiguration) *ServiceDevOpsAgentConfiguration {
+		return &v
+	}).(ServiceDevOpsAgentConfigurationPtrOutput)
+}
+
+// The ARN of the DevOps Agent Agent Space to link to this service.
+func (o ServiceDevOpsAgentConfigurationOutput) AgentSpaceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceDevOpsAgentConfiguration) string { return v.AgentSpaceArn }).(pulumi.StringOutput)
+}
+
+type ServiceDevOpsAgentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDevOpsAgentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDevOpsAgentConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDevOpsAgentConfigurationPtrOutput) ToServiceDevOpsAgentConfigurationPtrOutput() ServiceDevOpsAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDevOpsAgentConfigurationPtrOutput) ToServiceDevOpsAgentConfigurationPtrOutputWithContext(ctx context.Context) ServiceDevOpsAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDevOpsAgentConfigurationPtrOutput) Elem() ServiceDevOpsAgentConfigurationOutput {
+	return o.ApplyT(func(v *ServiceDevOpsAgentConfiguration) ServiceDevOpsAgentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDevOpsAgentConfiguration
+		return ret
+	}).(ServiceDevOpsAgentConfigurationOutput)
+}
+
+// The ARN of the DevOps Agent Agent Space to link to this service.
+func (o ServiceDevOpsAgentConfigurationPtrOutput) AgentSpaceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDevOpsAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AgentSpaceArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceDisasterRecoverySource struct {
 	PolicyName *string `pulumi:"policyName"`
 	Value      *string `pulumi:"value"`
@@ -2630,6 +2770,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAssociatedSystemArrayInput)(nil)).Elem(), ServiceAssociatedSystemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCrossAccountRoleConfigurationInput)(nil)).Elem(), ServiceCrossAccountRoleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCrossAccountRoleConfigurationArrayInput)(nil)).Elem(), ServiceCrossAccountRoleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDevOpsAgentConfigurationInput)(nil)).Elem(), ServiceDevOpsAgentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDevOpsAgentConfigurationPtrInput)(nil)).Elem(), ServiceDevOpsAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksLabelSelectorInput)(nil)).Elem(), ServiceEksLabelSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksLabelSelectorPtrInput)(nil)).Elem(), ServiceEksLabelSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEksLabelSelectorRequirementInput)(nil)).Elem(), ServiceEksLabelSelectorRequirementArgs{})
@@ -2663,6 +2805,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAssociatedSystemArrayOutput{})
 	pulumi.RegisterOutputType(ServiceCrossAccountRoleConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceCrossAccountRoleConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDevOpsAgentConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceDevOpsAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDisasterRecoverySourceOutput{})
 	pulumi.RegisterOutputType(ServiceDisasterRecoverySourcePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEffectivePolicyValuesOutput{})

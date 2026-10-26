@@ -23,6 +23,7 @@ __all__ = ['HostedZoneArgs', 'HostedZone']
 @pulumi.input_type
 class HostedZoneArgs:
     def __init__(__self__, *,
+                 delegation_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hosted_zone_config: pulumi.Input[Optional['HostedZoneConfigArgs']] = None,
                  hosted_zone_features: pulumi.Input[Optional['HostedZoneFeaturesArgs']] = None,
                  hosted_zone_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -50,6 +51,8 @@ class HostedZoneArgs:
         :param pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]] vpcs: *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
                  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
+        if delegation_set_id is not None:
+            pulumi.set(__self__, "delegation_set_id", delegation_set_id)
         if hosted_zone_config is not None:
             pulumi.set(__self__, "hosted_zone_config", hosted_zone_config)
         if hosted_zone_features is not None:
@@ -62,6 +65,15 @@ class HostedZoneArgs:
             pulumi.set(__self__, "query_logging_config", query_logging_config)
         if vpcs is not None:
             pulumi.set(__self__, "vpcs", vpcs)
+
+    @_builtins.property
+    @pulumi.getter(name="delegationSetId")
+    def delegation_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "delegation_set_id")
+
+    @delegation_set_id.setter
+    def delegation_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delegation_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneConfig")
@@ -153,6 +165,7 @@ class HostedZone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delegation_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hosted_zone_config: pulumi.Input[Optional[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
                  hosted_zone_features: pulumi.Input[Optional[Union['HostedZoneFeaturesArgs', 'HostedZoneFeaturesArgsDict']]] = None,
                  hosted_zone_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -237,6 +250,7 @@ class HostedZone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delegation_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hosted_zone_config: pulumi.Input[Optional[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
                  hosted_zone_features: pulumi.Input[Optional[Union['HostedZoneFeaturesArgs', 'HostedZoneFeaturesArgsDict']]] = None,
                  hosted_zone_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -252,6 +266,7 @@ class HostedZone(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HostedZoneArgs.__new__(HostedZoneArgs)
 
+            __props__.__dict__["delegation_set_id"] = delegation_set_id
             __props__.__dict__["hosted_zone_config"] = hosted_zone_config
             __props__.__dict__["hosted_zone_features"] = hosted_zone_features
             __props__.__dict__["hosted_zone_tags"] = hosted_zone_tags
@@ -260,7 +275,7 @@ class HostedZone(pulumi.CustomResource):
             __props__.__dict__["vpcs"] = vpcs
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["name_servers"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["delegationSetId", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(HostedZone, __self__).__init__(
             'aws-native:route53:HostedZone',
@@ -285,6 +300,7 @@ class HostedZone(pulumi.CustomResource):
         __props__ = HostedZoneArgs.__new__(HostedZoneArgs)
 
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["delegation_set_id"] = None
         __props__.__dict__["hosted_zone_config"] = None
         __props__.__dict__["hosted_zone_features"] = None
         __props__.__dict__["hosted_zone_tags"] = None
@@ -301,6 +317,11 @@ class HostedZone(pulumi.CustomResource):
         The ID that Amazon Route 53 assigned to the hosted zone when you created it.
         """
         return pulumi.get(self, "aws_id")
+
+    @_builtins.property
+    @pulumi.getter(name="delegationSetId")
+    def delegation_set_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "delegation_set_id")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneConfig")

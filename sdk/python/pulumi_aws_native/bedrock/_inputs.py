@@ -582,6 +582,8 @@ __all__ = [
     'PromptToolSpecificationArgsDict',
     'PromptVariantArgs',
     'PromptVariantArgsDict',
+    'RetrievalInstructionInstructionArgs',
+    'RetrievalInstructionInstructionArgsDict',
 ]
 
 class AgentActionGroupArgsDict(TypedDict):
@@ -15685,5 +15687,99 @@ class PromptVariantArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_id", value)
+
+
+class RetrievalInstructionInstructionArgsDict(TypedDict):
+    """
+    The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+    """
+    answer_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How the answer is structured, including how sources are cited.
+    """
+    answer_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+    """
+    persona: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Who the assistant is: identity, tone and language.
+    """
+    retrieval_guidance: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How to interpret and decompose the question, and what to prioritise when searching.
+    """
+
+@pulumi.input_type
+class RetrievalInstructionInstructionArgs:
+    def __init__(__self__, *,
+                 answer_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 answer_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 persona: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_guidance: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+
+        :param pulumi.Input[_builtins.str] answer_format: How the answer is structured, including how sources are cited.
+        :param pulumi.Input[_builtins.str] answer_policy: Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+        :param pulumi.Input[_builtins.str] persona: Who the assistant is: identity, tone and language.
+        :param pulumi.Input[_builtins.str] retrieval_guidance: How to interpret and decompose the question, and what to prioritise when searching.
+        """
+        if answer_format is not None:
+            pulumi.set(__self__, "answer_format", answer_format)
+        if answer_policy is not None:
+            pulumi.set(__self__, "answer_policy", answer_policy)
+        if persona is not None:
+            pulumi.set(__self__, "persona", persona)
+        if retrieval_guidance is not None:
+            pulumi.set(__self__, "retrieval_guidance", retrieval_guidance)
+
+    @_builtins.property
+    @pulumi.getter(name="answerFormat")
+    def answer_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How the answer is structured, including how sources are cited.
+        """
+        return pulumi.get(self, "answer_format")
+
+    @answer_format.setter
+    def answer_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "answer_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="answerPolicy")
+    def answer_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+        """
+        return pulumi.get(self, "answer_policy")
+
+    @answer_policy.setter
+    def answer_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "answer_policy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def persona(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Who the assistant is: identity, tone and language.
+        """
+        return pulumi.get(self, "persona")
+
+    @persona.setter
+    def persona(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "persona", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retrievalGuidance")
+    def retrieval_guidance(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How to interpret and decompose the question, and what to prioritise when searching.
+        """
+        return pulumi.get(self, "retrieval_guidance")
+
+    @retrieval_guidance.setter
+    def retrieval_guidance(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "retrieval_guidance", value)
 
 

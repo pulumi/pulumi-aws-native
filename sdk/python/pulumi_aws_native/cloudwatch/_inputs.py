@@ -42,6 +42,10 @@ __all__ = [
     'CompositeAlarmActionConfigurationArgsDict',
     'CompositeAlarmAlarmTagsPropagationArgs',
     'CompositeAlarmAlarmTagsPropagationArgsDict',
+    'DomainForOrganizationIdentityCenterConfigurationArgs',
+    'DomainForOrganizationIdentityCenterConfigurationArgsDict',
+    'DomainForOrganizationIdentityProviderConfigurationArgs',
+    'DomainForOrganizationIdentityProviderConfigurationArgsDict',
     'IntegrationCredentialArgs',
     'IntegrationCredentialArgsDict',
     'IntegrationCredentialApiKeyCredentialPropertiesArgs',
@@ -943,6 +947,66 @@ class CompositeAlarmAlarmTagsPropagationArgs:
     @included_tag_keys.setter
     def included_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_tag_keys", value)
+
+
+class DomainForOrganizationIdentityCenterConfigurationArgsDict(TypedDict):
+    """
+    Identity Center configuration. Required when identityProviders includes IDC.
+    """
+    identity_center_instance_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identity Center instance ARN
+    """
+
+@pulumi.input_type
+class DomainForOrganizationIdentityCenterConfigurationArgs:
+    def __init__(__self__, *,
+                 identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Identity Center configuration. Required when identityProviders includes IDC.
+
+        :param pulumi.Input[_builtins.str] identity_center_instance_arn: Identity Center instance ARN
+        """
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identity Center instance ARN
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+    @identity_center_instance_arn.setter
+    def identity_center_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "identity_center_instance_arn", value)
+
+
+class DomainForOrganizationIdentityProviderConfigurationArgsDict(TypedDict):
+    """
+    Identity provider configuration for the domain.
+    """
+    identity_center_configuration: NotRequired[pulumi.Input[Optional['DomainForOrganizationIdentityCenterConfigurationArgsDict']]]
+
+@pulumi.input_type
+class DomainForOrganizationIdentityProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 identity_center_configuration: pulumi.Input[Optional['DomainForOrganizationIdentityCenterConfigurationArgs']] = None):
+        """
+        Identity provider configuration for the domain.
+        """
+        if identity_center_configuration is not None:
+            pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> pulumi.Input[Optional['DomainForOrganizationIdentityCenterConfigurationArgs']]:
+        return pulumi.get(self, "identity_center_configuration")
+
+    @identity_center_configuration.setter
+    def identity_center_configuration(self, value: pulumi.Input[Optional['DomainForOrganizationIdentityCenterConfigurationArgs']]):
+        pulumi.set(self, "identity_center_configuration", value)
 
 
 class IntegrationCredentialArgsDict(TypedDict):

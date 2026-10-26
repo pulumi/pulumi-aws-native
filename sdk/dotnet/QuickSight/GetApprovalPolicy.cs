@@ -60,19 +60,18 @@ namespace Pulumi.AwsNative.QuickSight
         /// <summary>
         /// List of governed actions a policy applies to.
         /// </summary>
-        public readonly ImmutableArray<object> Actions;
+        public readonly ImmutableArray<Pulumi.AwsNative.QuickSight.ApprovalPolicyGovernedAction> Actions;
         public readonly Outputs.ApprovalPolicyApplicableTo? ApplicableTo;
         /// <summary>
         /// List of approval group ARNs (e.g. QuickSight group ARNs).
-        /// At least one approval group is required; the upper bound is enforced
-        /// per-account at the service layer via the configurable approver-group limit.
+        /// At least one approval group is required.
         /// </summary>
         public readonly ImmutableArray<string> ApprovalGroups;
         /// <summary>
         /// List of asset types a policy applies to.
         /// At least one asset type is required.
         /// </summary>
-        public readonly ImmutableArray<object> AssetTypes;
+        public readonly ImmutableArray<Pulumi.AwsNative.QuickSight.ApprovalPolicyAssetType> AssetTypes;
         public readonly string? CreatedAt;
         public readonly string? Description;
         public readonly string? Name;
@@ -81,13 +80,13 @@ namespace Pulumi.AwsNative.QuickSight
 
         [OutputConstructor]
         private GetApprovalPolicyResult(
-            ImmutableArray<object> actions,
+            ImmutableArray<Pulumi.AwsNative.QuickSight.ApprovalPolicyGovernedAction> actions,
 
             Outputs.ApprovalPolicyApplicableTo? applicableTo,
 
             ImmutableArray<string> approvalGroups,
 
-            ImmutableArray<object> assetTypes,
+            ImmutableArray<Pulumi.AwsNative.QuickSight.ApprovalPolicyAssetType> assetTypes,
 
             string? createdAt,
 

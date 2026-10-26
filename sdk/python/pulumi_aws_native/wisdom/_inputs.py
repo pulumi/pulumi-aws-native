@@ -16,6 +16,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AiAgentAgentTarget0PropertiesArgs',
+    'AiAgentAgentTarget0PropertiesArgsDict',
+    'AiAgentAgentTarget1PropertiesArgs',
+    'AiAgentAgentTarget1PropertiesArgsDict',
     'AiAgentAiAgentConfiguration0PropertiesArgs',
     'AiAgentAiAgentConfiguration0PropertiesArgsDict',
     'AiAgentAiAgentConfiguration1PropertiesArgs',
@@ -44,16 +48,26 @@ __all__ = [
     'AiAgentAssociationConfigurationDataPropertiesArgsDict',
     'AiAgentCaseSummarizationAiAgentConfigurationArgs',
     'AiAgentCaseSummarizationAiAgentConfigurationArgsDict',
+    'AiAgentDelegateAgentConfigurationArgs',
+    'AiAgentDelegateAgentConfigurationArgsDict',
     'AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs',
     'AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict',
     'AiAgentEmailOverviewAiAgentConfigurationArgs',
     'AiAgentEmailOverviewAiAgentConfigurationArgsDict',
     'AiAgentEmailResponseAiAgentConfigurationArgs',
     'AiAgentEmailResponseAiAgentConfigurationArgsDict',
+    'AiAgentHandoffAgentConfigurationArgs',
+    'AiAgentHandoffAgentConfigurationArgsDict',
     'AiAgentKnowledgeBaseAssociationConfigurationDataArgs',
     'AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict',
     'AiAgentManualSearchAiAgentConfigurationArgs',
     'AiAgentManualSearchAiAgentConfigurationArgsDict',
+    'AiAgentMultiAgentConfiguration0PropertiesArgs',
+    'AiAgentMultiAgentConfiguration0PropertiesArgsDict',
+    'AiAgentMultiAgentConfiguration1PropertiesArgs',
+    'AiAgentMultiAgentConfiguration1PropertiesArgsDict',
+    'AiAgentMultiAgentInstructionArgs',
+    'AiAgentMultiAgentInstructionArgsDict',
     'AiAgentNoteTakingAiAgentConfigurationArgs',
     'AiAgentNoteTakingAiAgentConfigurationArgsDict',
     'AiAgentOrCondition0PropertiesArgs',
@@ -199,6 +213,44 @@ __all__ = [
     'QuickResponseGroupingConfigurationArgs',
     'QuickResponseGroupingConfigurationArgsDict',
 ]
+
+class AiAgentAgentTarget0PropertiesArgsDict(TypedDict):
+    ai_agent_id: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AiAgentAgentTarget0PropertiesArgs:
+    def __init__(__self__, *,
+                 ai_agent_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "ai_agent_id", ai_agent_id)
+
+    @_builtins.property
+    @pulumi.getter(name="aiAgentId")
+    def ai_agent_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "ai_agent_id")
+
+    @ai_agent_id.setter
+    def ai_agent_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ai_agent_id", value)
+
+
+class AiAgentAgentTarget1PropertiesArgsDict(TypedDict):
+    application_id: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AiAgentAgentTarget1PropertiesArgs:
+    def __init__(__self__, *,
+                 application_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "application_id", application_id)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_id", value)
+
 
 class AiAgentAiAgentConfiguration0PropertiesArgsDict(TypedDict):
     manual_search_ai_agent_configuration: pulumi.Input['AiAgentManualSearchAiAgentConfigurationArgsDict']
@@ -576,6 +628,38 @@ class AiAgentCaseSummarizationAiAgentConfigurationArgs:
         pulumi.set(self, "locale", value)
 
 
+class AiAgentDelegateAgentConfigurationArgsDict(TypedDict):
+    agent_target: pulumi.Input[Union['AiAgentAgentTarget0PropertiesArgsDict', 'AiAgentAgentTarget1PropertiesArgsDict']]
+    instruction: NotRequired[pulumi.Input[Optional['AiAgentMultiAgentInstructionArgsDict']]]
+
+@pulumi.input_type
+class AiAgentDelegateAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 agent_target: pulumi.Input[Union['AiAgentAgentTarget0PropertiesArgs', 'AiAgentAgentTarget1PropertiesArgs']],
+                 instruction: pulumi.Input[Optional['AiAgentMultiAgentInstructionArgs']] = None):
+        pulumi.set(__self__, "agent_target", agent_target)
+        if instruction is not None:
+            pulumi.set(__self__, "instruction", instruction)
+
+    @_builtins.property
+    @pulumi.getter(name="agentTarget")
+    def agent_target(self) -> pulumi.Input[Union['AiAgentAgentTarget0PropertiesArgs', 'AiAgentAgentTarget1PropertiesArgs']]:
+        return pulumi.get(self, "agent_target")
+
+    @agent_target.setter
+    def agent_target(self, value: pulumi.Input[Union['AiAgentAgentTarget0PropertiesArgs', 'AiAgentAgentTarget1PropertiesArgs']]):
+        pulumi.set(self, "agent_target", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def instruction(self) -> pulumi.Input[Optional['AiAgentMultiAgentInstructionArgs']]:
+        return pulumi.get(self, "instruction")
+
+    @instruction.setter
+    def instruction(self, value: pulumi.Input[Optional['AiAgentMultiAgentInstructionArgs']]):
+        pulumi.set(self, "instruction", value)
+
+
 class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict(TypedDict):
     association_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]]
     email_generative_answer_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -727,6 +811,64 @@ class AiAgentEmailResponseAiAgentConfigurationArgs:
         pulumi.set(self, "locale", value)
 
 
+class AiAgentHandoffAgentConfigurationArgsDict(TypedDict):
+    agent_target: pulumi.Input[Union['AiAgentAgentTarget0PropertiesArgsDict', 'AiAgentAgentTarget1PropertiesArgsDict']]
+    audio_streaming_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    immediate_handoff: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    instruction: NotRequired[pulumi.Input[Optional['AiAgentMultiAgentInstructionArgsDict']]]
+
+@pulumi.input_type
+class AiAgentHandoffAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 agent_target: pulumi.Input[Union['AiAgentAgentTarget0PropertiesArgs', 'AiAgentAgentTarget1PropertiesArgs']],
+                 audio_streaming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 immediate_handoff: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instruction: pulumi.Input[Optional['AiAgentMultiAgentInstructionArgs']] = None):
+        pulumi.set(__self__, "agent_target", agent_target)
+        if audio_streaming_enabled is not None:
+            pulumi.set(__self__, "audio_streaming_enabled", audio_streaming_enabled)
+        if immediate_handoff is not None:
+            pulumi.set(__self__, "immediate_handoff", immediate_handoff)
+        if instruction is not None:
+            pulumi.set(__self__, "instruction", instruction)
+
+    @_builtins.property
+    @pulumi.getter(name="agentTarget")
+    def agent_target(self) -> pulumi.Input[Union['AiAgentAgentTarget0PropertiesArgs', 'AiAgentAgentTarget1PropertiesArgs']]:
+        return pulumi.get(self, "agent_target")
+
+    @agent_target.setter
+    def agent_target(self, value: pulumi.Input[Union['AiAgentAgentTarget0PropertiesArgs', 'AiAgentAgentTarget1PropertiesArgs']]):
+        pulumi.set(self, "agent_target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="audioStreamingEnabled")
+    def audio_streaming_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "audio_streaming_enabled")
+
+    @audio_streaming_enabled.setter
+    def audio_streaming_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "audio_streaming_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="immediateHandoff")
+    def immediate_handoff(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "immediate_handoff")
+
+    @immediate_handoff.setter
+    def immediate_handoff(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "immediate_handoff", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def instruction(self) -> pulumi.Input[Optional['AiAgentMultiAgentInstructionArgs']]:
+        return pulumi.get(self, "instruction")
+
+    @instruction.setter
+    def instruction(self, value: pulumi.Input[Optional['AiAgentMultiAgentInstructionArgs']]):
+        pulumi.set(self, "instruction", value)
+
+
 class AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict(TypedDict):
     content_tag_filter: NotRequired[pulumi.Input[Optional[Union['AiAgentTagFilter0PropertiesArgsDict', 'AiAgentTagFilter1PropertiesArgsDict', 'AiAgentTagFilter2PropertiesArgsDict']]]]
     max_results: NotRequired[pulumi.Input[Optional[_builtins.float]]]
@@ -832,6 +974,77 @@ class AiAgentManualSearchAiAgentConfigurationArgs:
         pulumi.set(self, "locale", value)
 
 
+class AiAgentMultiAgentConfiguration0PropertiesArgsDict(TypedDict):
+    delegate_agent_configuration: pulumi.Input['AiAgentDelegateAgentConfigurationArgsDict']
+
+@pulumi.input_type
+class AiAgentMultiAgentConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 delegate_agent_configuration: pulumi.Input['AiAgentDelegateAgentConfigurationArgs']):
+        pulumi.set(__self__, "delegate_agent_configuration", delegate_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="delegateAgentConfiguration")
+    def delegate_agent_configuration(self) -> pulumi.Input['AiAgentDelegateAgentConfigurationArgs']:
+        return pulumi.get(self, "delegate_agent_configuration")
+
+    @delegate_agent_configuration.setter
+    def delegate_agent_configuration(self, value: pulumi.Input['AiAgentDelegateAgentConfigurationArgs']):
+        pulumi.set(self, "delegate_agent_configuration", value)
+
+
+class AiAgentMultiAgentConfiguration1PropertiesArgsDict(TypedDict):
+    handoff_agent_configuration: pulumi.Input['AiAgentHandoffAgentConfigurationArgsDict']
+
+@pulumi.input_type
+class AiAgentMultiAgentConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 handoff_agent_configuration: pulumi.Input['AiAgentHandoffAgentConfigurationArgs']):
+        pulumi.set(__self__, "handoff_agent_configuration", handoff_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="handoffAgentConfiguration")
+    def handoff_agent_configuration(self) -> pulumi.Input['AiAgentHandoffAgentConfigurationArgs']:
+        return pulumi.get(self, "handoff_agent_configuration")
+
+    @handoff_agent_configuration.setter
+    def handoff_agent_configuration(self, value: pulumi.Input['AiAgentHandoffAgentConfigurationArgs']):
+        pulumi.set(self, "handoff_agent_configuration", value)
+
+
+class AiAgentMultiAgentInstructionArgsDict(TypedDict):
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    instruction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class AiAgentMultiAgentInstructionArgs:
+    def __init__(__self__, *,
+                 examples: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instruction: pulumi.Input[Optional[_builtins.str]] = None):
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
+        if instruction is not None:
+            pulumi.set(__self__, "instruction", instruction)
+
+    @_builtins.property
+    @pulumi.getter
+    def examples(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "examples")
+
+    @examples.setter
+    def examples(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "examples", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "instruction")
+
+    @instruction.setter
+    def instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instruction", value)
+
+
 class AiAgentNoteTakingAiAgentConfigurationArgsDict(TypedDict):
     locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     note_taking_ai_guardrail_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -917,38 +1130,42 @@ class AiAgentOrCondition1PropertiesArgs:
 
 
 class AiAgentOrchestrationAiAgentConfigurationArgsDict(TypedDict):
-    orchestration_ai_prompt_id: pulumi.Input[_builtins.str]
     connect_instance_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    input_schemas: NotRequired[pulumi.Input[Optional[Sequence[Any]]]]
     locale: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    multi_agent_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['AiAgentMultiAgentConfiguration0PropertiesArgsDict', 'AiAgentMultiAgentConfiguration1PropertiesArgsDict']]]]]]
     orchestration_ai_guardrail_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    orchestration_ai_prompt_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    output_schemas: NotRequired[pulumi.Input[Optional[Sequence[Any]]]]
     tool_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolConfigurationArgsDict']]]]]
 
 @pulumi.input_type
 class AiAgentOrchestrationAiAgentConfigurationArgs:
     def __init__(__self__, *,
-                 orchestration_ai_prompt_id: pulumi.Input[_builtins.str],
                  connect_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_schemas: pulumi.Input[Optional[Sequence[Any]]] = None,
                  locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_agent_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AiAgentMultiAgentConfiguration0PropertiesArgs', 'AiAgentMultiAgentConfiguration1PropertiesArgs']]]]] = None,
                  orchestration_ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 orchestration_ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_schemas: pulumi.Input[Optional[Sequence[Any]]] = None,
                  tool_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]] = None):
-        pulumi.set(__self__, "orchestration_ai_prompt_id", orchestration_ai_prompt_id)
         if connect_instance_arn is not None:
             pulumi.set(__self__, "connect_instance_arn", connect_instance_arn)
+        if input_schemas is not None:
+            pulumi.set(__self__, "input_schemas", input_schemas)
         if locale is not None:
             pulumi.set(__self__, "locale", locale)
+        if multi_agent_configurations is not None:
+            pulumi.set(__self__, "multi_agent_configurations", multi_agent_configurations)
         if orchestration_ai_guardrail_id is not None:
             pulumi.set(__self__, "orchestration_ai_guardrail_id", orchestration_ai_guardrail_id)
+        if orchestration_ai_prompt_id is not None:
+            pulumi.set(__self__, "orchestration_ai_prompt_id", orchestration_ai_prompt_id)
+        if output_schemas is not None:
+            pulumi.set(__self__, "output_schemas", output_schemas)
         if tool_configurations is not None:
             pulumi.set(__self__, "tool_configurations", tool_configurations)
-
-    @_builtins.property
-    @pulumi.getter(name="orchestrationAiPromptId")
-    def orchestration_ai_prompt_id(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "orchestration_ai_prompt_id")
-
-    @orchestration_ai_prompt_id.setter
-    def orchestration_ai_prompt_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "orchestration_ai_prompt_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectInstanceArn")
@@ -960,6 +1177,15 @@ class AiAgentOrchestrationAiAgentConfigurationArgs:
         pulumi.set(self, "connect_instance_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="inputSchemas")
+    def input_schemas(self) -> pulumi.Input[Optional[Sequence[Any]]]:
+        return pulumi.get(self, "input_schemas")
+
+    @input_schemas.setter
+    def input_schemas(self, value: pulumi.Input[Optional[Sequence[Any]]]):
+        pulumi.set(self, "input_schemas", value)
+
+    @_builtins.property
     @pulumi.getter
     def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locale")
@@ -969,6 +1195,15 @@ class AiAgentOrchestrationAiAgentConfigurationArgs:
         pulumi.set(self, "locale", value)
 
     @_builtins.property
+    @pulumi.getter(name="multiAgentConfigurations")
+    def multi_agent_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['AiAgentMultiAgentConfiguration0PropertiesArgs', 'AiAgentMultiAgentConfiguration1PropertiesArgs']]]]]:
+        return pulumi.get(self, "multi_agent_configurations")
+
+    @multi_agent_configurations.setter
+    def multi_agent_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AiAgentMultiAgentConfiguration0PropertiesArgs', 'AiAgentMultiAgentConfiguration1PropertiesArgs']]]]]):
+        pulumi.set(self, "multi_agent_configurations", value)
+
+    @_builtins.property
     @pulumi.getter(name="orchestrationAiGuardrailId")
     def orchestration_ai_guardrail_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "orchestration_ai_guardrail_id")
@@ -976,6 +1211,24 @@ class AiAgentOrchestrationAiAgentConfigurationArgs:
     @orchestration_ai_guardrail_id.setter
     def orchestration_ai_guardrail_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "orchestration_ai_guardrail_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orchestrationAiPromptId")
+    def orchestration_ai_prompt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "orchestration_ai_prompt_id")
+
+    @orchestration_ai_prompt_id.setter
+    def orchestration_ai_prompt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "orchestration_ai_prompt_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputSchemas")
+    def output_schemas(self) -> pulumi.Input[Optional[Sequence[Any]]]:
+        return pulumi.get(self, "output_schemas")
+
+    @output_schemas.setter
+    def output_schemas(self, value: pulumi.Input[Optional[Sequence[Any]]]):
+        pulumi.set(self, "output_schemas", value)
 
     @_builtins.property
     @pulumi.getter(name="toolConfigurations")

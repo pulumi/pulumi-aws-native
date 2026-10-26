@@ -1024,6 +1024,7 @@ class GlobalTableReplicaSpecificationArgsDict(TypedDict):
     """
     Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
     """
+    disassociation_protection_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     global_secondary_indexes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgsDict']]]]]
     """
     Defines additional settings for the global secondary indexes of this replica.
@@ -1076,6 +1077,7 @@ class GlobalTableReplicaSpecificationArgs:
                  region: pulumi.Input[_builtins.str],
                  contributor_insights_specification: pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']] = None,
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disassociation_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]] = None,
                  global_table_settings_replication_mode: pulumi.Input[Optional['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']] = None,
                  kinesis_stream_specification: pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationArgs']] = None,
@@ -1111,6 +1113,8 @@ class GlobalTableReplicaSpecificationArgs:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
         if deletion_protection_enabled is not None:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
+        if disassociation_protection_enabled is not None:
+            pulumi.set(__self__, "disassociation_protection_enabled", disassociation_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if global_table_settings_replication_mode is not None:
@@ -1169,6 +1173,15 @@ class GlobalTableReplicaSpecificationArgs:
     @deletion_protection_enabled.setter
     def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disassociationProtectionEnabled")
+    def disassociation_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "disassociation_protection_enabled")
+
+    @disassociation_protection_enabled.setter
+    def disassociation_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disassociation_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="globalSecondaryIndexes")

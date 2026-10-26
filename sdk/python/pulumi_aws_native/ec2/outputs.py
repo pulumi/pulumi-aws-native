@@ -221,6 +221,7 @@ __all__ = [
     'SseSpecificationProperties',
     'TagSpecification',
     'TrafficMirrorFilterRuleTrafficMirrorPortRange',
+    'TransitGatewayAttachmentNatConfigurationNatRule',
     'TransitGatewayConnectOptions',
     'TransitGatewayConnectPeerConfiguration',
     'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration',
@@ -16316,6 +16317,72 @@ class TrafficMirrorFilterRuleTrafficMirrorPortRange(dict):
         The last port in the Traffic Mirror port range.
         """
         return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class TransitGatewayAttachmentNatConfigurationNatRule(dict):
+    """
+    A static 1:1 NAT rule. Traffic whose source address falls within MatchSourceCidr is translated to the corresponding address in NatCidr.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchSourceCidr":
+            suggest = "match_source_cidr"
+        elif key == "natCidr":
+            suggest = "nat_cidr"
+        elif key == "ruleNumber":
+            suggest = "rule_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransitGatewayAttachmentNatConfigurationNatRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransitGatewayAttachmentNatConfigurationNatRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransitGatewayAttachmentNatConfigurationNatRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_source_cidr: _builtins.str,
+                 nat_cidr: _builtins.str,
+                 rule_number: _builtins.int):
+        """
+        A static 1:1 NAT rule. Traffic whose source address falls within MatchSourceCidr is translated to the corresponding address in NatCidr.
+
+        :param _builtins.str match_source_cidr: The source CIDR that the rule matches on.
+        :param _builtins.str nat_cidr: The CIDR that the matched source addresses are translated to.
+        :param _builtins.int rule_number: The rule number.
+        """
+        pulumi.set(__self__, "match_source_cidr", match_source_cidr)
+        pulumi.set(__self__, "nat_cidr", nat_cidr)
+        pulumi.set(__self__, "rule_number", rule_number)
+
+    @_builtins.property
+    @pulumi.getter(name="matchSourceCidr")
+    def match_source_cidr(self) -> _builtins.str:
+        """
+        The source CIDR that the rule matches on.
+        """
+        return pulumi.get(self, "match_source_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="natCidr")
+    def nat_cidr(self) -> _builtins.str:
+        """
+        The CIDR that the matched source addresses are translated to.
+        """
+        return pulumi.get(self, "nat_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> _builtins.int:
+        """
+        The rule number.
+        """
+        return pulumi.get(self, "rule_number")
 
 
 @pulumi.output_type

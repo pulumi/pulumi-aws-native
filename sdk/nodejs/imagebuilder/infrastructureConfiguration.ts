@@ -70,6 +70,10 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+     */
+    declare public readonly parentInstance: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationParentInstance | undefined>;
+    /**
      * The placement option settings for the infrastructure configuration.
      */
     declare public readonly placement: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
@@ -93,6 +97,10 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      * The tags associated with the component.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+     */
+    declare public readonly terminateInstanceOnCompletion: pulumi.Output<boolean | undefined>;
     /**
      * The terminate instance on failure configuration of the infrastructure configuration.
      */
@@ -119,12 +127,14 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["keyPair"] = args?.keyPair;
             resourceInputs["logging"] = args?.logging;
             resourceInputs["name"] = args?.name;
+            resourceInputs["parentInstance"] = args?.parentInstance;
             resourceInputs["placement"] = args?.placement;
             resourceInputs["resourceTags"] = args?.resourceTags;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["snsTopicArn"] = args?.snsTopicArn;
             resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminateInstanceOnCompletion"] = args?.terminateInstanceOnCompletion;
             resourceInputs["terminateInstanceOnFailure"] = args?.terminateInstanceOnFailure;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -136,12 +146,14 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["keyPair"] = undefined /*out*/;
             resourceInputs["logging"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parentInstance"] = undefined /*out*/;
             resourceInputs["placement"] = undefined /*out*/;
             resourceInputs["resourceTags"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["terminateInstanceOnCompletion"] = undefined /*out*/;
             resourceInputs["terminateInstanceOnFailure"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -184,6 +196,10 @@ export interface InfrastructureConfigurationArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+     */
+    parentInstance?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationParentInstanceArgs | undefined>;
+    /**
      * The placement option settings for the infrastructure configuration.
      */
     placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacementArgs | undefined>;
@@ -207,6 +223,10 @@ export interface InfrastructureConfigurationArgs {
      * The tags associated with the component.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+     */
+    terminateInstanceOnCompletion?: pulumi.Input<boolean | undefined>;
     /**
      * The terminate instance on failure configuration of the infrastructure configuration.
      */

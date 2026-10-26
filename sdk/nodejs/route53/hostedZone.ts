@@ -56,6 +56,7 @@ export class HostedZone extends pulumi.CustomResource {
      * The ID that Amazon Route 53 assigned to the hosted zone when you created it.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
+    declare public readonly delegationSetId: pulumi.Output<string | undefined>;
     /**
      * A complex type that contains an optional comment.
      *  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
@@ -109,6 +110,7 @@ export class HostedZone extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["delegationSetId"] = args?.delegationSetId;
             resourceInputs["hostedZoneConfig"] = args?.hostedZoneConfig;
             resourceInputs["hostedZoneFeatures"] = args?.hostedZoneFeatures;
             resourceInputs["hostedZoneTags"] = args?.hostedZoneTags;
@@ -119,6 +121,7 @@ export class HostedZone extends pulumi.CustomResource {
             resourceInputs["nameServers"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["delegationSetId"] = undefined /*out*/;
             resourceInputs["hostedZoneConfig"] = undefined /*out*/;
             resourceInputs["hostedZoneFeatures"] = undefined /*out*/;
             resourceInputs["hostedZoneTags"] = undefined /*out*/;
@@ -128,7 +131,7 @@ export class HostedZone extends pulumi.CustomResource {
             resourceInputs["vpcs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["delegationSetId", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(HostedZone.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,6 +141,7 @@ export class HostedZone extends pulumi.CustomResource {
  * The set of arguments for constructing a HostedZone resource.
  */
 export interface HostedZoneArgs {
+    delegationSetId?: pulumi.Input<string | undefined>;
     /**
      * A complex type that contains an optional comment.
      *  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.

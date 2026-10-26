@@ -74,6 +74,10 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     declare public readonly deploymentStyle: pulumi.Output<outputs.codedeploy.DeploymentGroupDeploymentStyle | undefined>;
     /**
+     * Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+     */
+    declare public readonly ec2DeploymentOptions: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2DeploymentOptions | undefined>;
+    /**
      * The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
      */
     declare public readonly ec2TagFilters: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2TagFilter[] | undefined>;
@@ -144,6 +148,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["deploymentConfigName"] = args?.deploymentConfigName;
             resourceInputs["deploymentGroupName"] = args?.deploymentGroupName;
             resourceInputs["deploymentStyle"] = args?.deploymentStyle;
+            resourceInputs["ec2DeploymentOptions"] = args?.ec2DeploymentOptions;
             resourceInputs["ec2TagFilters"] = args?.ec2TagFilters;
             resourceInputs["ec2TagSet"] = args?.ec2TagSet;
             resourceInputs["ecsServices"] = args?.ecsServices;
@@ -165,6 +170,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["deploymentConfigName"] = undefined /*out*/;
             resourceInputs["deploymentGroupName"] = undefined /*out*/;
             resourceInputs["deploymentStyle"] = undefined /*out*/;
+            resourceInputs["ec2DeploymentOptions"] = undefined /*out*/;
             resourceInputs["ec2TagFilters"] = undefined /*out*/;
             resourceInputs["ec2TagSet"] = undefined /*out*/;
             resourceInputs["ecsServices"] = undefined /*out*/;
@@ -224,6 +230,10 @@ export interface DeploymentGroupArgs {
      * Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
      */
     deploymentStyle?: pulumi.Input<inputs.codedeploy.DeploymentGroupDeploymentStyleArgs | undefined>;
+    /**
+     * Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+     */
+    ec2DeploymentOptions?: pulumi.Input<inputs.codedeploy.DeploymentGroupEc2DeploymentOptionsArgs | undefined>;
     /**
      * The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
      */

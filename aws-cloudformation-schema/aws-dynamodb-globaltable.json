@@ -99,6 +99,9 @@
         "PointInTimeRecoverySpecification" : {
           "$ref" : "#/definitions/PointInTimeRecoverySpecification"
         },
+        "DisassociationProtectionEnabled" : {
+          "type" : "boolean"
+        },
         "ReplicaStreamSpecification" : {
           "$ref" : "#/definitions/ReplicaStreamSpecification"
         },
@@ -568,6 +571,10 @@
     },
     "SSESpecification" : {
       "$ref" : "#/definitions/SSESpecification"
+    },
+    "TableType" : {
+      "type" : "string",
+      "enum" : [ "GlobalTableReplica", "Regional" ]
     },
     "StreamSpecification" : {
       "$ref" : "#/definitions/StreamSpecification"

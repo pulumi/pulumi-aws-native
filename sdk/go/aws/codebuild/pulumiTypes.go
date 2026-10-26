@@ -966,6 +966,4713 @@ func (o FleetVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProjectArtifacts struct {
+	// An identifier for this artifact definition.
+	ArtifactIdentifier *string `pulumi:"artifactIdentifier"`
+	// Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an `invalidInputException` is thrown.
+	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
+	// Information about the build output artifact location:
+	// * If `type` is set to `CODEPIPELINE`, AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output locations instead of CodeBuild.
+	// * If `type` is set to `NO_ARTIFACTS`, this value is ignored if specified, because no build output is produced.
+	// * If `type` is set to `S3`, this is the name of the output bucket.
+	//   If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+	Location *string `pulumi:"location"`
+	// Along with `path` and `namespaceType` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+	//
+	// - If `type` is set to `CODEPIPELINE` , AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+	// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+	// - If `type` is set to `S3` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket.
+	//
+	// For example:
+	//
+	// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , then the output artifact is stored in `MyArtifacts/ *build-ID* /MyArtifact.zip` .
+	// - If `path` is empty, `namespaceType` is set to `NONE` , and `name` is set to " `/` ", the output artifact is stored in the root of the output bucket.
+	// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to " `/` ", the output artifact is stored in `MyArtifacts/ *build-ID*` .
+	//
+	// If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+	Name *string `pulumi:"name"`
+	// Along with `path` and `name` , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:
+	//
+	// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+	// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+	// - If `type` is set to `S3` , valid values include:
+	//
+	// - `BUILD_ID` : Include the build ID in the location of the build output artifact.
+	// - `NONE` : Do not include the build ID. This is the default if `namespaceType` is not specified.
+	//
+	// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in `MyArtifacts/<build-ID>/MyArtifact.zip` .
+	NamespaceType *string `pulumi:"namespaceType"`
+	// If set to true a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique.
+	OverrideArtifactName *bool `pulumi:"overrideArtifactName"`
+	// The type of build output artifact to create:
+	//
+	// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output artifacts instead of AWS CodeBuild .
+	// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+	// - If `type` is set to `S3` , valid values include:
+	//
+	// - `NONE` : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if `packaging` is not specified.
+	// - `ZIP` : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+	Packaging *string `pulumi:"packaging"`
+	// Along with `namespaceType` and `name` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+	//
+	// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+	// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+	// - If `type` is set to `S3` , this is the path to the output artifact. If `path` is not specified, `path` is not used.
+	//
+	// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `NONE` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in the output bucket at `MyArtifacts/MyArtifact.zip` .
+	Path *string `pulumi:"path"`
+	// The type of build output artifact. Valid values include:
+	// * `CODEPIPELINE`: The build project has build output generated through CodePipeline.
+	//   The `CODEPIPELINE` type is not supported for `secondaryArtifacts`.
+	// * `NO_ARTIFACTS`: The build project does not produce any build output.
+	// * `S3`: The build project stores build output in Amazon S3.
+	Type string `pulumi:"type"`
+}
+
+// ProjectArtifactsInput is an input type that accepts ProjectArtifactsArgs and ProjectArtifactsOutput values.
+// You can construct a concrete instance of `ProjectArtifactsInput` via:
+//
+//	ProjectArtifactsArgs{...}
+type ProjectArtifactsInput interface {
+	pulumi.Input
+
+	ToProjectArtifactsOutput() ProjectArtifactsOutput
+	ToProjectArtifactsOutputWithContext(context.Context) ProjectArtifactsOutput
+}
+
+type ProjectArtifactsArgs struct {
+	// An identifier for this artifact definition.
+	ArtifactIdentifier pulumi.StringPtrInput `pulumi:"artifactIdentifier"`
+	// Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an `invalidInputException` is thrown.
+	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
+	// Information about the build output artifact location:
+	// * If `type` is set to `CODEPIPELINE`, AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output locations instead of CodeBuild.
+	// * If `type` is set to `NO_ARTIFACTS`, this value is ignored if specified, because no build output is produced.
+	// * If `type` is set to `S3`, this is the name of the output bucket.
+	//   If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Along with `path` and `namespaceType` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+	//
+	// - If `type` is set to `CODEPIPELINE` , AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+	// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+	// - If `type` is set to `S3` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket.
+	//
+	// For example:
+	//
+	// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , then the output artifact is stored in `MyArtifacts/ *build-ID* /MyArtifact.zip` .
+	// - If `path` is empty, `namespaceType` is set to `NONE` , and `name` is set to " `/` ", the output artifact is stored in the root of the output bucket.
+	// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to " `/` ", the output artifact is stored in `MyArtifacts/ *build-ID*` .
+	//
+	// If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Along with `path` and `name` , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:
+	//
+	// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+	// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+	// - If `type` is set to `S3` , valid values include:
+	//
+	// - `BUILD_ID` : Include the build ID in the location of the build output artifact.
+	// - `NONE` : Do not include the build ID. This is the default if `namespaceType` is not specified.
+	//
+	// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in `MyArtifacts/<build-ID>/MyArtifact.zip` .
+	NamespaceType pulumi.StringPtrInput `pulumi:"namespaceType"`
+	// If set to true a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique.
+	OverrideArtifactName pulumi.BoolPtrInput `pulumi:"overrideArtifactName"`
+	// The type of build output artifact to create:
+	//
+	// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output artifacts instead of AWS CodeBuild .
+	// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+	// - If `type` is set to `S3` , valid values include:
+	//
+	// - `NONE` : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if `packaging` is not specified.
+	// - `ZIP` : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
+	// Along with `namespaceType` and `name` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+	//
+	// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+	// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+	// - If `type` is set to `S3` , this is the path to the output artifact. If `path` is not specified, `path` is not used.
+	//
+	// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `NONE` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in the output bucket at `MyArtifacts/MyArtifact.zip` .
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The type of build output artifact. Valid values include:
+	// * `CODEPIPELINE`: The build project has build output generated through CodePipeline.
+	//   The `CODEPIPELINE` type is not supported for `secondaryArtifacts`.
+	// * `NO_ARTIFACTS`: The build project does not produce any build output.
+	// * `S3`: The build project stores build output in Amazon S3.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectArtifactsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectArtifacts)(nil)).Elem()
+}
+
+func (i ProjectArtifactsArgs) ToProjectArtifactsOutput() ProjectArtifactsOutput {
+	return i.ToProjectArtifactsOutputWithContext(context.Background())
+}
+
+func (i ProjectArtifactsArgs) ToProjectArtifactsOutputWithContext(ctx context.Context) ProjectArtifactsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectArtifactsOutput)
+}
+
+// ProjectArtifactsArrayInput is an input type that accepts ProjectArtifactsArray and ProjectArtifactsArrayOutput values.
+// You can construct a concrete instance of `ProjectArtifactsArrayInput` via:
+//
+//	ProjectArtifactsArray{ ProjectArtifactsArgs{...} }
+type ProjectArtifactsArrayInput interface {
+	pulumi.Input
+
+	ToProjectArtifactsArrayOutput() ProjectArtifactsArrayOutput
+	ToProjectArtifactsArrayOutputWithContext(context.Context) ProjectArtifactsArrayOutput
+}
+
+type ProjectArtifactsArray []ProjectArtifactsInput
+
+func (ProjectArtifactsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectArtifacts)(nil)).Elem()
+}
+
+func (i ProjectArtifactsArray) ToProjectArtifactsArrayOutput() ProjectArtifactsArrayOutput {
+	return i.ToProjectArtifactsArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectArtifactsArray) ToProjectArtifactsArrayOutputWithContext(ctx context.Context) ProjectArtifactsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectArtifactsArrayOutput)
+}
+
+type ProjectArtifactsOutput struct{ *pulumi.OutputState }
+
+func (ProjectArtifactsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectArtifacts)(nil)).Elem()
+}
+
+func (o ProjectArtifactsOutput) ToProjectArtifactsOutput() ProjectArtifactsOutput {
+	return o
+}
+
+func (o ProjectArtifactsOutput) ToProjectArtifactsOutputWithContext(ctx context.Context) ProjectArtifactsOutput {
+	return o
+}
+
+// An identifier for this artifact definition.
+func (o ProjectArtifactsOutput) ArtifactIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectArtifacts) *string { return v.ArtifactIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an `invalidInputException` is thrown.
+func (o ProjectArtifactsOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectArtifacts) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// Information about the build output artifact location:
+//   - If `type` is set to `CODEPIPELINE`, AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output locations instead of CodeBuild.
+//   - If `type` is set to `NO_ARTIFACTS`, this value is ignored if specified, because no build output is produced.
+//   - If `type` is set to `S3`, this is the name of the output bucket.
+//     If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+func (o ProjectArtifactsOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectArtifacts) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Along with `path` and `namespaceType` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+//
+// - If `type` is set to `CODEPIPELINE` , AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+// - If `type` is set to `S3` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket.
+//
+// For example:
+//
+// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , then the output artifact is stored in `MyArtifacts/ *build-ID* /MyArtifact.zip` .
+// - If `path` is empty, `namespaceType` is set to `NONE` , and `name` is set to " `/` ", the output artifact is stored in the root of the output bucket.
+// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to " `/` ", the output artifact is stored in `MyArtifacts/ *build-ID*` .
+//
+// If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+func (o ProjectArtifactsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectArtifacts) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Along with `path` and `name` , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:
+//
+// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+// - If `type` is set to `S3` , valid values include:
+//
+// - `BUILD_ID` : Include the build ID in the location of the build output artifact.
+// - `NONE` : Do not include the build ID. This is the default if `namespaceType` is not specified.
+//
+// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in `MyArtifacts/<build-ID>/MyArtifact.zip` .
+func (o ProjectArtifactsOutput) NamespaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectArtifacts) *string { return v.NamespaceType }).(pulumi.StringPtrOutput)
+}
+
+// If set to true a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique.
+func (o ProjectArtifactsOutput) OverrideArtifactName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectArtifacts) *bool { return v.OverrideArtifactName }).(pulumi.BoolPtrOutput)
+}
+
+// The type of build output artifact to create:
+//
+// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output artifacts instead of AWS CodeBuild .
+// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+// - If `type` is set to `S3` , valid values include:
+//
+// - `NONE` : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if `packaging` is not specified.
+// - `ZIP` : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+func (o ProjectArtifactsOutput) Packaging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectArtifacts) *string { return v.Packaging }).(pulumi.StringPtrOutput)
+}
+
+// Along with `namespaceType` and `name` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+//
+// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+// - If `type` is set to `S3` , this is the path to the output artifact. If `path` is not specified, `path` is not used.
+//
+// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `NONE` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in the output bucket at `MyArtifacts/MyArtifact.zip` .
+func (o ProjectArtifactsOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectArtifacts) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The type of build output artifact. Valid values include:
+//   - `CODEPIPELINE`: The build project has build output generated through CodePipeline.
+//     The `CODEPIPELINE` type is not supported for `secondaryArtifacts`.
+//   - `NO_ARTIFACTS`: The build project does not produce any build output.
+//   - `S3`: The build project stores build output in Amazon S3.
+func (o ProjectArtifactsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectArtifacts) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectArtifactsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectArtifactsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectArtifacts)(nil)).Elem()
+}
+
+func (o ProjectArtifactsPtrOutput) ToProjectArtifactsPtrOutput() ProjectArtifactsPtrOutput {
+	return o
+}
+
+func (o ProjectArtifactsPtrOutput) ToProjectArtifactsPtrOutputWithContext(ctx context.Context) ProjectArtifactsPtrOutput {
+	return o
+}
+
+func (o ProjectArtifactsPtrOutput) Elem() ProjectArtifactsOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) ProjectArtifacts {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectArtifacts
+		return ret
+	}).(ProjectArtifactsOutput)
+}
+
+// An identifier for this artifact definition.
+func (o ProjectArtifactsPtrOutput) ArtifactIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an `invalidInputException` is thrown.
+func (o ProjectArtifactsPtrOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Information about the build output artifact location:
+//   - If `type` is set to `CODEPIPELINE`, AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output locations instead of CodeBuild.
+//   - If `type` is set to `NO_ARTIFACTS`, this value is ignored if specified, because no build output is produced.
+//   - If `type` is set to `S3`, this is the name of the output bucket.
+//     If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+func (o ProjectArtifactsPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// Along with `path` and `namespaceType` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+//
+// - If `type` is set to `CODEPIPELINE` , AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+// - If `type` is set to `S3` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket.
+//
+// For example:
+//
+// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , then the output artifact is stored in `MyArtifacts/ *build-ID* /MyArtifact.zip` .
+// - If `path` is empty, `namespaceType` is set to `NONE` , and `name` is set to " `/` ", the output artifact is stored in the root of the output bucket.
+// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to " `/` ", the output artifact is stored in `MyArtifacts/ *build-ID*` .
+//
+// If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+func (o ProjectArtifactsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Along with `path` and `name` , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:
+//
+// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+// - If `type` is set to `S3` , valid values include:
+//
+// - `BUILD_ID` : Include the build ID in the location of the build output artifact.
+// - `NONE` : Do not include the build ID. This is the default if `namespaceType` is not specified.
+//
+// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in `MyArtifacts/<build-ID>/MyArtifact.zip` .
+func (o ProjectArtifactsPtrOutput) NamespaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set to true a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique.
+func (o ProjectArtifactsPtrOutput) OverrideArtifactName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OverrideArtifactName
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of build output artifact to create:
+//
+// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output artifacts instead of AWS CodeBuild .
+// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+// - If `type` is set to `S3` , valid values include:
+//
+// - `NONE` : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if `packaging` is not specified.
+// - `ZIP` : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+func (o ProjectArtifactsPtrOutput) Packaging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Packaging
+	}).(pulumi.StringPtrOutput)
+}
+
+// Along with `namespaceType` and `name` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+//
+// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+// - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+// - If `type` is set to `S3` , this is the path to the output artifact. If `path` is not specified, `path` is not used.
+//
+// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `NONE` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in the output bucket at `MyArtifacts/MyArtifact.zip` .
+func (o ProjectArtifactsPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of build output artifact. Valid values include:
+//   - `CODEPIPELINE`: The build project has build output generated through CodePipeline.
+//     The `CODEPIPELINE` type is not supported for `secondaryArtifacts`.
+//   - `NO_ARTIFACTS`: The build project does not produce any build output.
+//   - `S3`: The build project stores build output in Amazon S3.
+func (o ProjectArtifactsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectArtifacts) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectArtifactsArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectArtifactsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectArtifacts)(nil)).Elem()
+}
+
+func (o ProjectArtifactsArrayOutput) ToProjectArtifactsArrayOutput() ProjectArtifactsArrayOutput {
+	return o
+}
+
+func (o ProjectArtifactsArrayOutput) ToProjectArtifactsArrayOutputWithContext(ctx context.Context) ProjectArtifactsArrayOutput {
+	return o
+}
+
+func (o ProjectArtifactsArrayOutput) Index(i pulumi.IntInput) ProjectArtifactsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectArtifacts {
+		return vs[0].([]ProjectArtifacts)[vs[1].(int)]
+	}).(ProjectArtifactsOutput)
+}
+
+type ProjectBatchRestrictions struct {
+	// An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide* for these values.
+	ComputeTypesAllowed []string `pulumi:"computeTypesAllowed"`
+	FleetsAllowed       []string `pulumi:"fleetsAllowed"`
+	// Specifies the maximum number of builds allowed.
+	MaximumBuildsAllowed *int `pulumi:"maximumBuildsAllowed"`
+}
+
+// ProjectBatchRestrictionsInput is an input type that accepts ProjectBatchRestrictionsArgs and ProjectBatchRestrictionsOutput values.
+// You can construct a concrete instance of `ProjectBatchRestrictionsInput` via:
+//
+//	ProjectBatchRestrictionsArgs{...}
+type ProjectBatchRestrictionsInput interface {
+	pulumi.Input
+
+	ToProjectBatchRestrictionsOutput() ProjectBatchRestrictionsOutput
+	ToProjectBatchRestrictionsOutputWithContext(context.Context) ProjectBatchRestrictionsOutput
+}
+
+type ProjectBatchRestrictionsArgs struct {
+	// An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide* for these values.
+	ComputeTypesAllowed pulumi.StringArrayInput `pulumi:"computeTypesAllowed"`
+	FleetsAllowed       pulumi.StringArrayInput `pulumi:"fleetsAllowed"`
+	// Specifies the maximum number of builds allowed.
+	MaximumBuildsAllowed pulumi.IntPtrInput `pulumi:"maximumBuildsAllowed"`
+}
+
+func (ProjectBatchRestrictionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBatchRestrictions)(nil)).Elem()
+}
+
+func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsOutput() ProjectBatchRestrictionsOutput {
+	return i.ToProjectBatchRestrictionsOutputWithContext(context.Background())
+}
+
+func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsOutputWithContext(ctx context.Context) ProjectBatchRestrictionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBatchRestrictionsOutput)
+}
+
+func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput {
+	return i.ToProjectBatchRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectBatchRestrictionsArgs) ToProjectBatchRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBatchRestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBatchRestrictionsOutput).ToProjectBatchRestrictionsPtrOutputWithContext(ctx)
+}
+
+// ProjectBatchRestrictionsPtrInput is an input type that accepts ProjectBatchRestrictionsArgs, ProjectBatchRestrictionsPtr and ProjectBatchRestrictionsPtrOutput values.
+// You can construct a concrete instance of `ProjectBatchRestrictionsPtrInput` via:
+//
+//	        ProjectBatchRestrictionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectBatchRestrictionsPtrInput interface {
+	pulumi.Input
+
+	ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput
+	ToProjectBatchRestrictionsPtrOutputWithContext(context.Context) ProjectBatchRestrictionsPtrOutput
+}
+
+type projectBatchRestrictionsPtrType ProjectBatchRestrictionsArgs
+
+func ProjectBatchRestrictionsPtr(v *ProjectBatchRestrictionsArgs) ProjectBatchRestrictionsPtrInput {
+	return (*projectBatchRestrictionsPtrType)(v)
+}
+
+func (*projectBatchRestrictionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBatchRestrictions)(nil)).Elem()
+}
+
+func (i *projectBatchRestrictionsPtrType) ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput {
+	return i.ToProjectBatchRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i *projectBatchRestrictionsPtrType) ToProjectBatchRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBatchRestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBatchRestrictionsPtrOutput)
+}
+
+type ProjectBatchRestrictionsOutput struct{ *pulumi.OutputState }
+
+func (ProjectBatchRestrictionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBatchRestrictions)(nil)).Elem()
+}
+
+func (o ProjectBatchRestrictionsOutput) ToProjectBatchRestrictionsOutput() ProjectBatchRestrictionsOutput {
+	return o
+}
+
+func (o ProjectBatchRestrictionsOutput) ToProjectBatchRestrictionsOutputWithContext(ctx context.Context) ProjectBatchRestrictionsOutput {
+	return o
+}
+
+func (o ProjectBatchRestrictionsOutput) ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput {
+	return o.ToProjectBatchRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectBatchRestrictionsOutput) ToProjectBatchRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBatchRestrictionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectBatchRestrictions) *ProjectBatchRestrictions {
+		return &v
+	}).(ProjectBatchRestrictionsPtrOutput)
+}
+
+// An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide* for these values.
+func (o ProjectBatchRestrictionsOutput) ComputeTypesAllowed() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectBatchRestrictions) []string { return v.ComputeTypesAllowed }).(pulumi.StringArrayOutput)
+}
+
+func (o ProjectBatchRestrictionsOutput) FleetsAllowed() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectBatchRestrictions) []string { return v.FleetsAllowed }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of builds allowed.
+func (o ProjectBatchRestrictionsOutput) MaximumBuildsAllowed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectBatchRestrictions) *int { return v.MaximumBuildsAllowed }).(pulumi.IntPtrOutput)
+}
+
+type ProjectBatchRestrictionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectBatchRestrictionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBatchRestrictions)(nil)).Elem()
+}
+
+func (o ProjectBatchRestrictionsPtrOutput) ToProjectBatchRestrictionsPtrOutput() ProjectBatchRestrictionsPtrOutput {
+	return o
+}
+
+func (o ProjectBatchRestrictionsPtrOutput) ToProjectBatchRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBatchRestrictionsPtrOutput {
+	return o
+}
+
+func (o ProjectBatchRestrictionsPtrOutput) Elem() ProjectBatchRestrictionsOutput {
+	return o.ApplyT(func(v *ProjectBatchRestrictions) ProjectBatchRestrictions {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectBatchRestrictions
+		return ret
+	}).(ProjectBatchRestrictionsOutput)
+}
+
+// An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide* for these values.
+func (o ProjectBatchRestrictionsPtrOutput) ComputeTypesAllowed() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectBatchRestrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeTypesAllowed
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ProjectBatchRestrictionsPtrOutput) FleetsAllowed() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectBatchRestrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FleetsAllowed
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of builds allowed.
+func (o ProjectBatchRestrictionsPtrOutput) MaximumBuildsAllowed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectBatchRestrictions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumBuildsAllowed
+	}).(pulumi.IntPtrOutput)
+}
+
+type ProjectBuildBatchConfig struct {
+	// Specifies how build status reports are sent to the source provider for the batch build. This property is only used when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider.
+	//
+	// - **REPORT_AGGREGATED_BATCH** - (Default) Aggregate all of the build statuses into a single status report.
+	// - **REPORT_INDIVIDUAL_BUILDS** - Send a separate status report for each individual build.
+	BatchReportMode *string `pulumi:"batchReportMode"`
+	// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+	CombineArtifacts *bool `pulumi:"combineArtifacts"`
+	// A `BatchRestrictions` object that specifies the restrictions for the batch build.
+	Restrictions *ProjectBatchRestrictions `pulumi:"restrictions"`
+	// Specifies the service role ARN for the batch build project.
+	ServiceRole *string `pulumi:"serviceRole"`
+	// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+	TimeoutInMins *int `pulumi:"timeoutInMins"`
+}
+
+// ProjectBuildBatchConfigInput is an input type that accepts ProjectBuildBatchConfigArgs and ProjectBuildBatchConfigOutput values.
+// You can construct a concrete instance of `ProjectBuildBatchConfigInput` via:
+//
+//	ProjectBuildBatchConfigArgs{...}
+type ProjectBuildBatchConfigInput interface {
+	pulumi.Input
+
+	ToProjectBuildBatchConfigOutput() ProjectBuildBatchConfigOutput
+	ToProjectBuildBatchConfigOutputWithContext(context.Context) ProjectBuildBatchConfigOutput
+}
+
+type ProjectBuildBatchConfigArgs struct {
+	// Specifies how build status reports are sent to the source provider for the batch build. This property is only used when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider.
+	//
+	// - **REPORT_AGGREGATED_BATCH** - (Default) Aggregate all of the build statuses into a single status report.
+	// - **REPORT_INDIVIDUAL_BUILDS** - Send a separate status report for each individual build.
+	BatchReportMode pulumi.StringPtrInput `pulumi:"batchReportMode"`
+	// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+	CombineArtifacts pulumi.BoolPtrInput `pulumi:"combineArtifacts"`
+	// A `BatchRestrictions` object that specifies the restrictions for the batch build.
+	Restrictions ProjectBatchRestrictionsPtrInput `pulumi:"restrictions"`
+	// Specifies the service role ARN for the batch build project.
+	ServiceRole pulumi.StringPtrInput `pulumi:"serviceRole"`
+	// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+	TimeoutInMins pulumi.IntPtrInput `pulumi:"timeoutInMins"`
+}
+
+func (ProjectBuildBatchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigOutput() ProjectBuildBatchConfigOutput {
+	return i.ToProjectBuildBatchConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectBuildBatchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigOutput)
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return i.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigOutput).ToProjectBuildBatchConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectBuildBatchConfigPtrInput is an input type that accepts ProjectBuildBatchConfigArgs, ProjectBuildBatchConfigPtr and ProjectBuildBatchConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectBuildBatchConfigPtrInput` via:
+//
+//	        ProjectBuildBatchConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectBuildBatchConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput
+	ToProjectBuildBatchConfigPtrOutputWithContext(context.Context) ProjectBuildBatchConfigPtrOutput
+}
+
+type projectBuildBatchConfigPtrType ProjectBuildBatchConfigArgs
+
+func ProjectBuildBatchConfigPtr(v *ProjectBuildBatchConfigArgs) ProjectBuildBatchConfigPtrInput {
+	return (*projectBuildBatchConfigPtrType)(v)
+}
+
+func (*projectBuildBatchConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (i *projectBuildBatchConfigPtrType) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return i.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectBuildBatchConfigPtrType) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigPtrOutput)
+}
+
+type ProjectBuildBatchConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildBatchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigOutput() ProjectBuildBatchConfigOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectBuildBatchConfigOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return o.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectBuildBatchConfig) *ProjectBuildBatchConfig {
+		return &v
+	}).(ProjectBuildBatchConfigPtrOutput)
+}
+
+// Specifies how build status reports are sent to the source provider for the batch build. This property is only used when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider.
+//
+// - **REPORT_AGGREGATED_BATCH** - (Default) Aggregate all of the build statuses into a single status report.
+// - **REPORT_INDIVIDUAL_BUILDS** - Send a separate status report for each individual build.
+func (o ProjectBuildBatchConfigOutput) BatchReportMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *string { return v.BatchReportMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+func (o ProjectBuildBatchConfigOutput) CombineArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *bool { return v.CombineArtifacts }).(pulumi.BoolPtrOutput)
+}
+
+// A `BatchRestrictions` object that specifies the restrictions for the batch build.
+func (o ProjectBuildBatchConfigOutput) Restrictions() ProjectBatchRestrictionsPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *ProjectBatchRestrictions { return v.Restrictions }).(ProjectBatchRestrictionsPtrOutput)
+}
+
+// Specifies the service role ARN for the batch build project.
+func (o ProjectBuildBatchConfigOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+func (o ProjectBuildBatchConfigOutput) TimeoutInMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *int { return v.TimeoutInMins }).(pulumi.IntPtrOutput)
+}
+
+type ProjectBuildBatchConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildBatchConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) Elem() ProjectBuildBatchConfigOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) ProjectBuildBatchConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectBuildBatchConfig
+		return ret
+	}).(ProjectBuildBatchConfigOutput)
+}
+
+// Specifies how build status reports are sent to the source provider for the batch build. This property is only used when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider.
+//
+// - **REPORT_AGGREGATED_BATCH** - (Default) Aggregate all of the build statuses into a single status report.
+// - **REPORT_INDIVIDUAL_BUILDS** - Send a separate status report for each individual build.
+func (o ProjectBuildBatchConfigPtrOutput) BatchReportMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BatchReportMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+func (o ProjectBuildBatchConfigPtrOutput) CombineArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CombineArtifacts
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `BatchRestrictions` object that specifies the restrictions for the batch build.
+func (o ProjectBuildBatchConfigPtrOutput) Restrictions() ProjectBatchRestrictionsPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *ProjectBatchRestrictions {
+		if v == nil {
+			return nil
+		}
+		return v.Restrictions
+	}).(ProjectBatchRestrictionsPtrOutput)
+}
+
+// Specifies the service role ARN for the batch build project.
+func (o ProjectBuildBatchConfigPtrOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+func (o ProjectBuildBatchConfigPtrOutput) TimeoutInMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMins
+	}).(pulumi.IntPtrOutput)
+}
+
+type ProjectBuildStatusConfig struct {
+	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	//
+	// - **Bitbucket** - This parameter is used for the `name` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+	// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `context` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+	Context *string `pulumi:"context"`
+	// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	//
+	// - **Bitbucket** - This parameter is used for the `url` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+	// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `target_url` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+	TargetUrl *string `pulumi:"targetUrl"`
+}
+
+// ProjectBuildStatusConfigInput is an input type that accepts ProjectBuildStatusConfigArgs and ProjectBuildStatusConfigOutput values.
+// You can construct a concrete instance of `ProjectBuildStatusConfigInput` via:
+//
+//	ProjectBuildStatusConfigArgs{...}
+type ProjectBuildStatusConfigInput interface {
+	pulumi.Input
+
+	ToProjectBuildStatusConfigOutput() ProjectBuildStatusConfigOutput
+	ToProjectBuildStatusConfigOutputWithContext(context.Context) ProjectBuildStatusConfigOutput
+}
+
+type ProjectBuildStatusConfigArgs struct {
+	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	//
+	// - **Bitbucket** - This parameter is used for the `name` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+	// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `context` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+	Context pulumi.StringPtrInput `pulumi:"context"`
+	// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	//
+	// - **Bitbucket** - This parameter is used for the `url` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+	// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `target_url` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
+}
+
+func (ProjectBuildStatusConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildStatusConfig)(nil)).Elem()
+}
+
+func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigOutput() ProjectBuildStatusConfigOutput {
+	return i.ToProjectBuildStatusConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigOutputWithContext(ctx context.Context) ProjectBuildStatusConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildStatusConfigOutput)
+}
+
+func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput {
+	return i.ToProjectBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildStatusConfigArgs) ToProjectBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectBuildStatusConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildStatusConfigOutput).ToProjectBuildStatusConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectBuildStatusConfigPtrInput is an input type that accepts ProjectBuildStatusConfigArgs, ProjectBuildStatusConfigPtr and ProjectBuildStatusConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectBuildStatusConfigPtrInput` via:
+//
+//	        ProjectBuildStatusConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectBuildStatusConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput
+	ToProjectBuildStatusConfigPtrOutputWithContext(context.Context) ProjectBuildStatusConfigPtrOutput
+}
+
+type projectBuildStatusConfigPtrType ProjectBuildStatusConfigArgs
+
+func ProjectBuildStatusConfigPtr(v *ProjectBuildStatusConfigArgs) ProjectBuildStatusConfigPtrInput {
+	return (*projectBuildStatusConfigPtrType)(v)
+}
+
+func (*projectBuildStatusConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildStatusConfig)(nil)).Elem()
+}
+
+func (i *projectBuildStatusConfigPtrType) ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput {
+	return i.ToProjectBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectBuildStatusConfigPtrType) ToProjectBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectBuildStatusConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildStatusConfigPtrOutput)
+}
+
+type ProjectBuildStatusConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildStatusConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildStatusConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildStatusConfigOutput) ToProjectBuildStatusConfigOutput() ProjectBuildStatusConfigOutput {
+	return o
+}
+
+func (o ProjectBuildStatusConfigOutput) ToProjectBuildStatusConfigOutputWithContext(ctx context.Context) ProjectBuildStatusConfigOutput {
+	return o
+}
+
+func (o ProjectBuildStatusConfigOutput) ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput {
+	return o.ToProjectBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectBuildStatusConfigOutput) ToProjectBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectBuildStatusConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectBuildStatusConfig) *ProjectBuildStatusConfig {
+		return &v
+	}).(ProjectBuildStatusConfigPtrOutput)
+}
+
+// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+//
+// - **Bitbucket** - This parameter is used for the `name` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `context` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+func (o ProjectBuildStatusConfigOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectBuildStatusConfig) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+//
+// - **Bitbucket** - This parameter is used for the `url` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `target_url` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+func (o ProjectBuildStatusConfigOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectBuildStatusConfig) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+type ProjectBuildStatusConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildStatusConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildStatusConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildStatusConfigPtrOutput) ToProjectBuildStatusConfigPtrOutput() ProjectBuildStatusConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildStatusConfigPtrOutput) ToProjectBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectBuildStatusConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildStatusConfigPtrOutput) Elem() ProjectBuildStatusConfigOutput {
+	return o.ApplyT(func(v *ProjectBuildStatusConfig) ProjectBuildStatusConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectBuildStatusConfig
+		return ret
+	}).(ProjectBuildStatusConfigOutput)
+}
+
+// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+//
+// - **Bitbucket** - This parameter is used for the `name` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `context` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+func (o ProjectBuildStatusConfigPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildStatusConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+//
+// - **Bitbucket** - This parameter is used for the `url` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `target_url` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+func (o ProjectBuildStatusConfigPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildStatusConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectCache struct {
+	// Defines the scope of the cache. You can use this namespace to share a cache across multiple projects.
+	CacheNamespace *string `pulumi:"cacheNamespace"`
+	// Information about the cache location:
+	//
+	// - `NO_CACHE` or `LOCAL` : This value is ignored.
+	// - `S3` : This is the S3 bucket name/prefix.
+	Location *string `pulumi:"location"`
+	// An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for `LOCAL` cache types.
+	//
+	// Possible values are:
+	//
+	// - **LOCAL_SOURCE_CACHE** - Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+	// - **LOCAL_DOCKER_LAYER_CACHE** - Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
+	//
+	// > - You can use a Docker layer cache in the Linux environment only.
+	// > - The `privileged` flag must be set so that your project has the required Docker permissions.
+	// > - You should consider the security implications before you use a Docker layer cache.
+	// - **LOCAL_CUSTOM_CACHE** - Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
+	//
+	// - Only directories can be specified for caching. You cannot specify individual files.
+	// - Symlinks are used to reference cached directories.
+	// - Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+	Modes []string `pulumi:"modes"`
+	// The type of cache used by the build project. Allowed values: NO_CACHE | S3 | LOCAL.
+	Type string `pulumi:"type"`
+}
+
+// ProjectCacheInput is an input type that accepts ProjectCacheArgs and ProjectCacheOutput values.
+// You can construct a concrete instance of `ProjectCacheInput` via:
+//
+//	ProjectCacheArgs{...}
+type ProjectCacheInput interface {
+	pulumi.Input
+
+	ToProjectCacheOutput() ProjectCacheOutput
+	ToProjectCacheOutputWithContext(context.Context) ProjectCacheOutput
+}
+
+type ProjectCacheArgs struct {
+	// Defines the scope of the cache. You can use this namespace to share a cache across multiple projects.
+	CacheNamespace pulumi.StringPtrInput `pulumi:"cacheNamespace"`
+	// Information about the cache location:
+	//
+	// - `NO_CACHE` or `LOCAL` : This value is ignored.
+	// - `S3` : This is the S3 bucket name/prefix.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for `LOCAL` cache types.
+	//
+	// Possible values are:
+	//
+	// - **LOCAL_SOURCE_CACHE** - Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+	// - **LOCAL_DOCKER_LAYER_CACHE** - Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
+	//
+	// > - You can use a Docker layer cache in the Linux environment only.
+	// > - The `privileged` flag must be set so that your project has the required Docker permissions.
+	// > - You should consider the security implications before you use a Docker layer cache.
+	// - **LOCAL_CUSTOM_CACHE** - Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
+	//
+	// - Only directories can be specified for caching. You cannot specify individual files.
+	// - Symlinks are used to reference cached directories.
+	// - Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+	Modes pulumi.StringArrayInput `pulumi:"modes"`
+	// The type of cache used by the build project. Allowed values: NO_CACHE | S3 | LOCAL.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectCacheArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCache)(nil)).Elem()
+}
+
+func (i ProjectCacheArgs) ToProjectCacheOutput() ProjectCacheOutput {
+	return i.ToProjectCacheOutputWithContext(context.Background())
+}
+
+func (i ProjectCacheArgs) ToProjectCacheOutputWithContext(ctx context.Context) ProjectCacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCacheOutput)
+}
+
+func (i ProjectCacheArgs) ToProjectCachePtrOutput() ProjectCachePtrOutput {
+	return i.ToProjectCachePtrOutputWithContext(context.Background())
+}
+
+func (i ProjectCacheArgs) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCacheOutput).ToProjectCachePtrOutputWithContext(ctx)
+}
+
+// ProjectCachePtrInput is an input type that accepts ProjectCacheArgs, ProjectCachePtr and ProjectCachePtrOutput values.
+// You can construct a concrete instance of `ProjectCachePtrInput` via:
+//
+//	        ProjectCacheArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectCachePtrInput interface {
+	pulumi.Input
+
+	ToProjectCachePtrOutput() ProjectCachePtrOutput
+	ToProjectCachePtrOutputWithContext(context.Context) ProjectCachePtrOutput
+}
+
+type projectCachePtrType ProjectCacheArgs
+
+func ProjectCachePtr(v *ProjectCacheArgs) ProjectCachePtrInput {
+	return (*projectCachePtrType)(v)
+}
+
+func (*projectCachePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCache)(nil)).Elem()
+}
+
+func (i *projectCachePtrType) ToProjectCachePtrOutput() ProjectCachePtrOutput {
+	return i.ToProjectCachePtrOutputWithContext(context.Background())
+}
+
+func (i *projectCachePtrType) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCachePtrOutput)
+}
+
+type ProjectCacheOutput struct{ *pulumi.OutputState }
+
+func (ProjectCacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCache)(nil)).Elem()
+}
+
+func (o ProjectCacheOutput) ToProjectCacheOutput() ProjectCacheOutput {
+	return o
+}
+
+func (o ProjectCacheOutput) ToProjectCacheOutputWithContext(ctx context.Context) ProjectCacheOutput {
+	return o
+}
+
+func (o ProjectCacheOutput) ToProjectCachePtrOutput() ProjectCachePtrOutput {
+	return o.ToProjectCachePtrOutputWithContext(context.Background())
+}
+
+func (o ProjectCacheOutput) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectCache) *ProjectCache {
+		return &v
+	}).(ProjectCachePtrOutput)
+}
+
+// Defines the scope of the cache. You can use this namespace to share a cache across multiple projects.
+func (o ProjectCacheOutput) CacheNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectCache) *string { return v.CacheNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Information about the cache location:
+//
+// - `NO_CACHE` or `LOCAL` : This value is ignored.
+// - `S3` : This is the S3 bucket name/prefix.
+func (o ProjectCacheOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectCache) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for `LOCAL` cache types.
+//
+// Possible values are:
+//
+// - **LOCAL_SOURCE_CACHE** - Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+// - **LOCAL_DOCKER_LAYER_CACHE** - Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
+//
+// > - You can use a Docker layer cache in the Linux environment only.
+// > - The `privileged` flag must be set so that your project has the required Docker permissions.
+// > - You should consider the security implications before you use a Docker layer cache.
+// - **LOCAL_CUSTOM_CACHE** - Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
+//
+// - Only directories can be specified for caching. You cannot specify individual files.
+// - Symlinks are used to reference cached directories.
+// - Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+func (o ProjectCacheOutput) Modes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectCache) []string { return v.Modes }).(pulumi.StringArrayOutput)
+}
+
+// The type of cache used by the build project. Allowed values: NO_CACHE | S3 | LOCAL.
+func (o ProjectCacheOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectCache) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectCachePtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectCachePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCache)(nil)).Elem()
+}
+
+func (o ProjectCachePtrOutput) ToProjectCachePtrOutput() ProjectCachePtrOutput {
+	return o
+}
+
+func (o ProjectCachePtrOutput) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
+	return o
+}
+
+func (o ProjectCachePtrOutput) Elem() ProjectCacheOutput {
+	return o.ApplyT(func(v *ProjectCache) ProjectCache {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectCache
+		return ret
+	}).(ProjectCacheOutput)
+}
+
+// Defines the scope of the cache. You can use this namespace to share a cache across multiple projects.
+func (o ProjectCachePtrOutput) CacheNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCache) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CacheNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the cache location:
+//
+// - `NO_CACHE` or `LOCAL` : This value is ignored.
+// - `S3` : This is the S3 bucket name/prefix.
+func (o ProjectCachePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCache) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for `LOCAL` cache types.
+//
+// Possible values are:
+//
+// - **LOCAL_SOURCE_CACHE** - Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+// - **LOCAL_DOCKER_LAYER_CACHE** - Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
+//
+// > - You can use a Docker layer cache in the Linux environment only.
+// > - The `privileged` flag must be set so that your project has the required Docker permissions.
+// > - You should consider the security implications before you use a Docker layer cache.
+// - **LOCAL_CUSTOM_CACHE** - Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
+//
+// - Only directories can be specified for caching. You cannot specify individual files.
+// - Symlinks are used to reference cached directories.
+// - Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+func (o ProjectCachePtrOutput) Modes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectCache) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Modes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of cache used by the build project. Allowed values: NO_CACHE | S3 | LOCAL.
+func (o ProjectCachePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCache) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectCloudWatchLogsConfig struct {
+	// The group name of the logs in CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+	GroupName *string `pulumi:"groupName"`
+	// The current status of the logs in CloudWatch Logs for a build project. Valid values are:
+	//
+	// - `ENABLED` : CloudWatch Logs are enabled for this build project.
+	// - `DISABLED` : CloudWatch Logs are not enabled for this build project.
+	Status string `pulumi:"status"`
+	// The prefix of the stream name of the CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+	StreamName *string `pulumi:"streamName"`
+}
+
+// ProjectCloudWatchLogsConfigInput is an input type that accepts ProjectCloudWatchLogsConfigArgs and ProjectCloudWatchLogsConfigOutput values.
+// You can construct a concrete instance of `ProjectCloudWatchLogsConfigInput` via:
+//
+//	ProjectCloudWatchLogsConfigArgs{...}
+type ProjectCloudWatchLogsConfigInput interface {
+	pulumi.Input
+
+	ToProjectCloudWatchLogsConfigOutput() ProjectCloudWatchLogsConfigOutput
+	ToProjectCloudWatchLogsConfigOutputWithContext(context.Context) ProjectCloudWatchLogsConfigOutput
+}
+
+type ProjectCloudWatchLogsConfigArgs struct {
+	// The group name of the logs in CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	// The current status of the logs in CloudWatch Logs for a build project. Valid values are:
+	//
+	// - `ENABLED` : CloudWatch Logs are enabled for this build project.
+	// - `DISABLED` : CloudWatch Logs are not enabled for this build project.
+	Status pulumi.StringInput `pulumi:"status"`
+	// The prefix of the stream name of the CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
+}
+
+func (ProjectCloudWatchLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCloudWatchLogsConfig)(nil)).Elem()
+}
+
+func (i ProjectCloudWatchLogsConfigArgs) ToProjectCloudWatchLogsConfigOutput() ProjectCloudWatchLogsConfigOutput {
+	return i.ToProjectCloudWatchLogsConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectCloudWatchLogsConfigArgs) ToProjectCloudWatchLogsConfigOutputWithContext(ctx context.Context) ProjectCloudWatchLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCloudWatchLogsConfigOutput)
+}
+
+func (i ProjectCloudWatchLogsConfigArgs) ToProjectCloudWatchLogsConfigPtrOutput() ProjectCloudWatchLogsConfigPtrOutput {
+	return i.ToProjectCloudWatchLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectCloudWatchLogsConfigArgs) ToProjectCloudWatchLogsConfigPtrOutputWithContext(ctx context.Context) ProjectCloudWatchLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCloudWatchLogsConfigOutput).ToProjectCloudWatchLogsConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectCloudWatchLogsConfigPtrInput is an input type that accepts ProjectCloudWatchLogsConfigArgs, ProjectCloudWatchLogsConfigPtr and ProjectCloudWatchLogsConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectCloudWatchLogsConfigPtrInput` via:
+//
+//	        ProjectCloudWatchLogsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectCloudWatchLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectCloudWatchLogsConfigPtrOutput() ProjectCloudWatchLogsConfigPtrOutput
+	ToProjectCloudWatchLogsConfigPtrOutputWithContext(context.Context) ProjectCloudWatchLogsConfigPtrOutput
+}
+
+type projectCloudWatchLogsConfigPtrType ProjectCloudWatchLogsConfigArgs
+
+func ProjectCloudWatchLogsConfigPtr(v *ProjectCloudWatchLogsConfigArgs) ProjectCloudWatchLogsConfigPtrInput {
+	return (*projectCloudWatchLogsConfigPtrType)(v)
+}
+
+func (*projectCloudWatchLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCloudWatchLogsConfig)(nil)).Elem()
+}
+
+func (i *projectCloudWatchLogsConfigPtrType) ToProjectCloudWatchLogsConfigPtrOutput() ProjectCloudWatchLogsConfigPtrOutput {
+	return i.ToProjectCloudWatchLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectCloudWatchLogsConfigPtrType) ToProjectCloudWatchLogsConfigPtrOutputWithContext(ctx context.Context) ProjectCloudWatchLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCloudWatchLogsConfigPtrOutput)
+}
+
+type ProjectCloudWatchLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectCloudWatchLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCloudWatchLogsConfig)(nil)).Elem()
+}
+
+func (o ProjectCloudWatchLogsConfigOutput) ToProjectCloudWatchLogsConfigOutput() ProjectCloudWatchLogsConfigOutput {
+	return o
+}
+
+func (o ProjectCloudWatchLogsConfigOutput) ToProjectCloudWatchLogsConfigOutputWithContext(ctx context.Context) ProjectCloudWatchLogsConfigOutput {
+	return o
+}
+
+func (o ProjectCloudWatchLogsConfigOutput) ToProjectCloudWatchLogsConfigPtrOutput() ProjectCloudWatchLogsConfigPtrOutput {
+	return o.ToProjectCloudWatchLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectCloudWatchLogsConfigOutput) ToProjectCloudWatchLogsConfigPtrOutputWithContext(ctx context.Context) ProjectCloudWatchLogsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectCloudWatchLogsConfig) *ProjectCloudWatchLogsConfig {
+		return &v
+	}).(ProjectCloudWatchLogsConfigPtrOutput)
+}
+
+// The group name of the logs in CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+func (o ProjectCloudWatchLogsConfigOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectCloudWatchLogsConfig) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the logs in CloudWatch Logs for a build project. Valid values are:
+//
+// - `ENABLED` : CloudWatch Logs are enabled for this build project.
+// - `DISABLED` : CloudWatch Logs are not enabled for this build project.
+func (o ProjectCloudWatchLogsConfigOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectCloudWatchLogsConfig) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The prefix of the stream name of the CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+func (o ProjectCloudWatchLogsConfigOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectCloudWatchLogsConfig) *string { return v.StreamName }).(pulumi.StringPtrOutput)
+}
+
+type ProjectCloudWatchLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectCloudWatchLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCloudWatchLogsConfig)(nil)).Elem()
+}
+
+func (o ProjectCloudWatchLogsConfigPtrOutput) ToProjectCloudWatchLogsConfigPtrOutput() ProjectCloudWatchLogsConfigPtrOutput {
+	return o
+}
+
+func (o ProjectCloudWatchLogsConfigPtrOutput) ToProjectCloudWatchLogsConfigPtrOutputWithContext(ctx context.Context) ProjectCloudWatchLogsConfigPtrOutput {
+	return o
+}
+
+func (o ProjectCloudWatchLogsConfigPtrOutput) Elem() ProjectCloudWatchLogsConfigOutput {
+	return o.ApplyT(func(v *ProjectCloudWatchLogsConfig) ProjectCloudWatchLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectCloudWatchLogsConfig
+		return ret
+	}).(ProjectCloudWatchLogsConfigOutput)
+}
+
+// The group name of the logs in CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+func (o ProjectCloudWatchLogsConfigPtrOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCloudWatchLogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the logs in CloudWatch Logs for a build project. Valid values are:
+//
+// - `ENABLED` : CloudWatch Logs are enabled for this build project.
+// - `DISABLED` : CloudWatch Logs are not enabled for this build project.
+func (o ProjectCloudWatchLogsConfigPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCloudWatchLogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix of the stream name of the CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+func (o ProjectCloudWatchLogsConfigPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCloudWatchLogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectDockerServer struct {
+	// Information about the compute resources the docker server uses. Valid Values: BUILD_GENERAL1_SMALL | BUILD_GENERAL1_MEDIUM | BUILD_GENERAL1_LARGE | BUILD_GENERAL1_XLARGE | BUILD_GENERAL1_2XLARGE | BUILD_LAMBDA_1GB | BUILD_LAMBDA_2GB | BUILD_LAMBDA_4GB | BUILD_LAMBDA_8GB | BUILD_LAMBDA_10GB | ATTRIBUTE_BASED_COMPUTE | CUSTOM_INSTANCE_TYPE
+	ComputeType string `pulumi:"computeType"`
+	// A list of one or more security groups IDs.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+}
+
+// ProjectDockerServerInput is an input type that accepts ProjectDockerServerArgs and ProjectDockerServerOutput values.
+// You can construct a concrete instance of `ProjectDockerServerInput` via:
+//
+//	ProjectDockerServerArgs{...}
+type ProjectDockerServerInput interface {
+	pulumi.Input
+
+	ToProjectDockerServerOutput() ProjectDockerServerOutput
+	ToProjectDockerServerOutputWithContext(context.Context) ProjectDockerServerOutput
+}
+
+type ProjectDockerServerArgs struct {
+	// Information about the compute resources the docker server uses. Valid Values: BUILD_GENERAL1_SMALL | BUILD_GENERAL1_MEDIUM | BUILD_GENERAL1_LARGE | BUILD_GENERAL1_XLARGE | BUILD_GENERAL1_2XLARGE | BUILD_LAMBDA_1GB | BUILD_LAMBDA_2GB | BUILD_LAMBDA_4GB | BUILD_LAMBDA_8GB | BUILD_LAMBDA_10GB | ATTRIBUTE_BASED_COMPUTE | CUSTOM_INSTANCE_TYPE
+	ComputeType pulumi.StringInput `pulumi:"computeType"`
+	// A list of one or more security groups IDs.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+}
+
+func (ProjectDockerServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectDockerServer)(nil)).Elem()
+}
+
+func (i ProjectDockerServerArgs) ToProjectDockerServerOutput() ProjectDockerServerOutput {
+	return i.ToProjectDockerServerOutputWithContext(context.Background())
+}
+
+func (i ProjectDockerServerArgs) ToProjectDockerServerOutputWithContext(ctx context.Context) ProjectDockerServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectDockerServerOutput)
+}
+
+func (i ProjectDockerServerArgs) ToProjectDockerServerPtrOutput() ProjectDockerServerPtrOutput {
+	return i.ToProjectDockerServerPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectDockerServerArgs) ToProjectDockerServerPtrOutputWithContext(ctx context.Context) ProjectDockerServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectDockerServerOutput).ToProjectDockerServerPtrOutputWithContext(ctx)
+}
+
+// ProjectDockerServerPtrInput is an input type that accepts ProjectDockerServerArgs, ProjectDockerServerPtr and ProjectDockerServerPtrOutput values.
+// You can construct a concrete instance of `ProjectDockerServerPtrInput` via:
+//
+//	        ProjectDockerServerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectDockerServerPtrInput interface {
+	pulumi.Input
+
+	ToProjectDockerServerPtrOutput() ProjectDockerServerPtrOutput
+	ToProjectDockerServerPtrOutputWithContext(context.Context) ProjectDockerServerPtrOutput
+}
+
+type projectDockerServerPtrType ProjectDockerServerArgs
+
+func ProjectDockerServerPtr(v *ProjectDockerServerArgs) ProjectDockerServerPtrInput {
+	return (*projectDockerServerPtrType)(v)
+}
+
+func (*projectDockerServerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectDockerServer)(nil)).Elem()
+}
+
+func (i *projectDockerServerPtrType) ToProjectDockerServerPtrOutput() ProjectDockerServerPtrOutput {
+	return i.ToProjectDockerServerPtrOutputWithContext(context.Background())
+}
+
+func (i *projectDockerServerPtrType) ToProjectDockerServerPtrOutputWithContext(ctx context.Context) ProjectDockerServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectDockerServerPtrOutput)
+}
+
+type ProjectDockerServerOutput struct{ *pulumi.OutputState }
+
+func (ProjectDockerServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectDockerServer)(nil)).Elem()
+}
+
+func (o ProjectDockerServerOutput) ToProjectDockerServerOutput() ProjectDockerServerOutput {
+	return o
+}
+
+func (o ProjectDockerServerOutput) ToProjectDockerServerOutputWithContext(ctx context.Context) ProjectDockerServerOutput {
+	return o
+}
+
+func (o ProjectDockerServerOutput) ToProjectDockerServerPtrOutput() ProjectDockerServerPtrOutput {
+	return o.ToProjectDockerServerPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectDockerServerOutput) ToProjectDockerServerPtrOutputWithContext(ctx context.Context) ProjectDockerServerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectDockerServer) *ProjectDockerServer {
+		return &v
+	}).(ProjectDockerServerPtrOutput)
+}
+
+// Information about the compute resources the docker server uses. Valid Values: BUILD_GENERAL1_SMALL | BUILD_GENERAL1_MEDIUM | BUILD_GENERAL1_LARGE | BUILD_GENERAL1_XLARGE | BUILD_GENERAL1_2XLARGE | BUILD_LAMBDA_1GB | BUILD_LAMBDA_2GB | BUILD_LAMBDA_4GB | BUILD_LAMBDA_8GB | BUILD_LAMBDA_10GB | ATTRIBUTE_BASED_COMPUTE | CUSTOM_INSTANCE_TYPE
+func (o ProjectDockerServerOutput) ComputeType() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectDockerServer) string { return v.ComputeType }).(pulumi.StringOutput)
+}
+
+// A list of one or more security groups IDs.
+func (o ProjectDockerServerOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectDockerServer) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+type ProjectDockerServerPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectDockerServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectDockerServer)(nil)).Elem()
+}
+
+func (o ProjectDockerServerPtrOutput) ToProjectDockerServerPtrOutput() ProjectDockerServerPtrOutput {
+	return o
+}
+
+func (o ProjectDockerServerPtrOutput) ToProjectDockerServerPtrOutputWithContext(ctx context.Context) ProjectDockerServerPtrOutput {
+	return o
+}
+
+func (o ProjectDockerServerPtrOutput) Elem() ProjectDockerServerOutput {
+	return o.ApplyT(func(v *ProjectDockerServer) ProjectDockerServer {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectDockerServer
+		return ret
+	}).(ProjectDockerServerOutput)
+}
+
+// Information about the compute resources the docker server uses. Valid Values: BUILD_GENERAL1_SMALL | BUILD_GENERAL1_MEDIUM | BUILD_GENERAL1_LARGE | BUILD_GENERAL1_XLARGE | BUILD_GENERAL1_2XLARGE | BUILD_LAMBDA_1GB | BUILD_LAMBDA_2GB | BUILD_LAMBDA_4GB | BUILD_LAMBDA_8GB | BUILD_LAMBDA_10GB | ATTRIBUTE_BASED_COMPUTE | CUSTOM_INSTANCE_TYPE
+func (o ProjectDockerServerPtrOutput) ComputeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectDockerServer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of one or more security groups IDs.
+func (o ProjectDockerServerPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectDockerServer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type ProjectEnvironment struct {
+	// The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project. For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
+	Certificate *string `pulumi:"certificate"`
+	// The type of compute environment. This determines the number of CPU cores and memory the build environment uses. Available values include:
+	//
+	// - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
+	//
+	// > If you use `ATTRIBUTE_BASED_COMPUTE` , you must define your attributes by using `computeConfiguration` . AWS CodeBuild will select the cheapest instance that satisfies your specified attributes. For more information, see [Reserved capacity environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types) in the *AWS CodeBuild User Guide* .
+	// - `BUILD_GENERAL1_SMALL` : Use up to 4 GiB memory and 2 vCPUs for builds.
+	// - `BUILD_GENERAL1_MEDIUM` : Use up to 8 GiB memory and 4 vCPUs for builds.
+	// - `BUILD_GENERAL1_LARGE` : Use up to 16 GiB memory and 8 vCPUs for builds, depending on your environment type.
+	// - `BUILD_GENERAL1_XLARGE` : Use up to 72 GiB memory and 36 vCPUs for builds, depending on your environment type.
+	// - `BUILD_GENERAL1_2XLARGE` : Use up to 144 GiB memory, 72 vCPUs, and 824 GB of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.
+	// - `BUILD_LAMBDA_1GB` : Use up to 1 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	// - `BUILD_LAMBDA_2GB` : Use up to 2 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	// - `BUILD_LAMBDA_4GB` : Use up to 4 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	// - `BUILD_LAMBDA_8GB` : Use up to 8 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	// - `BUILD_LAMBDA_10GB` : Use up to 10 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	//
+	// If you use `BUILD_GENERAL1_SMALL` :
+	//
+	// - For environment type `LINUX_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs for builds.
+	// - For environment type `LINUX_GPU_CONTAINER` , you can use up to 16 GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.
+	// - For environment type `ARM_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs on ARM-based processors for builds.
+	//
+	// If you use `BUILD_GENERAL1_LARGE` :
+	//
+	// - For environment type `LINUX_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs for builds.
+	// - For environment type `LINUX_GPU_CONTAINER` , you can use up to 255 GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.
+	// - For environment type `ARM_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs on ARM-based processors for builds.
+	//
+	// For more information, see [On-demand environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) in the *AWS CodeBuild User Guide.*
+	ComputeType string `pulumi:"computeType"`
+	// Contains docker server information.
+	DockerServer *ProjectDockerServer `pulumi:"dockerServer"`
+	// A set of environment variables to make available to builds for this build project.
+	EnvironmentVariables []ProjectEnvironmentVariable `pulumi:"environmentVariables"`
+	Fleet                *ProjectFleet                `pulumi:"fleet"`
+	// The kernel version of the host operating system for the build environment. Allowed values: LINUX_KERNEL_4 | LINUX_KERNEL_6 | LINUX_KERNEL_LATEST
+	HostKernel *string `pulumi:"hostKernel"`
+	// The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:
+	//
+	// - For an image tag: `<registry>/<repository>:<tag>` . For example, in the Docker repository that CodeBuild uses to manage its Docker images, this would be `aws/codebuild/standard:4.0` .
+	// - For an image digest: `<registry>/<repository>@<digest>` . For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use `<registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf` .
+	//
+	// For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-available.html) in the *AWS CodeBuild user guide* .
+	Image string `pulumi:"image"`
+	// The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
+	//
+	// - `CODEBUILD` specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.
+	// - `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role.
+	//
+	// When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+	ImagePullCredentialsType *string `pulumi:"imagePullCredentialsType"`
+	// Enables running the Docker daemon inside a Docker container. Set to true only if the build project is used to build Docker images. Otherwise, a build that attempts to interact with the Docker daemon fails. The default setting is `false` .
+	//
+	// You can initialize the Docker daemon during the install phase of your build by adding one of the following sets of commands to the install phase of your buildspec file:
+	//
+	// If the operating system's base image is Ubuntu Linux:
+	//
+	// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+	//
+	// `- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"`
+	//
+	// If the operating system's base image is Alpine Linux and the previous command does not work, add the `-t` argument to `timeout` :
+	//
+	// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+	//
+	// `- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"`
+	PrivilegedMode *bool `pulumi:"privilegedMode"`
+	// `RegistryCredential` is a property of the [AWS::CodeBuild::Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment) property that specifies information about credentials that provide access to a private Docker registry. When this is set:
+	//
+	// - `imagePullCredentialsType` must be set to `SERVICE_ROLE` .
+	// - images cannot be curated or an Amazon ECR image.
+	RegistryCredential *ProjectRegistryCredential `pulumi:"registryCredential"`
+	// The type of build environment to use for related builds.
+	//
+	// > If you're using compute fleets during project creation, `type` will be ignored.
+	//
+	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+	Type string `pulumi:"type"`
+}
+
+// ProjectEnvironmentInput is an input type that accepts ProjectEnvironmentArgs and ProjectEnvironmentOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentInput` via:
+//
+//	ProjectEnvironmentArgs{...}
+type ProjectEnvironmentInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentOutput() ProjectEnvironmentOutput
+	ToProjectEnvironmentOutputWithContext(context.Context) ProjectEnvironmentOutput
+}
+
+type ProjectEnvironmentArgs struct {
+	// The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project. For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The type of compute environment. This determines the number of CPU cores and memory the build environment uses. Available values include:
+	//
+	// - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
+	//
+	// > If you use `ATTRIBUTE_BASED_COMPUTE` , you must define your attributes by using `computeConfiguration` . AWS CodeBuild will select the cheapest instance that satisfies your specified attributes. For more information, see [Reserved capacity environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types) in the *AWS CodeBuild User Guide* .
+	// - `BUILD_GENERAL1_SMALL` : Use up to 4 GiB memory and 2 vCPUs for builds.
+	// - `BUILD_GENERAL1_MEDIUM` : Use up to 8 GiB memory and 4 vCPUs for builds.
+	// - `BUILD_GENERAL1_LARGE` : Use up to 16 GiB memory and 8 vCPUs for builds, depending on your environment type.
+	// - `BUILD_GENERAL1_XLARGE` : Use up to 72 GiB memory and 36 vCPUs for builds, depending on your environment type.
+	// - `BUILD_GENERAL1_2XLARGE` : Use up to 144 GiB memory, 72 vCPUs, and 824 GB of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.
+	// - `BUILD_LAMBDA_1GB` : Use up to 1 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	// - `BUILD_LAMBDA_2GB` : Use up to 2 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	// - `BUILD_LAMBDA_4GB` : Use up to 4 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	// - `BUILD_LAMBDA_8GB` : Use up to 8 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	// - `BUILD_LAMBDA_10GB` : Use up to 10 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+	//
+	// If you use `BUILD_GENERAL1_SMALL` :
+	//
+	// - For environment type `LINUX_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs for builds.
+	// - For environment type `LINUX_GPU_CONTAINER` , you can use up to 16 GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.
+	// - For environment type `ARM_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs on ARM-based processors for builds.
+	//
+	// If you use `BUILD_GENERAL1_LARGE` :
+	//
+	// - For environment type `LINUX_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs for builds.
+	// - For environment type `LINUX_GPU_CONTAINER` , you can use up to 255 GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.
+	// - For environment type `ARM_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs on ARM-based processors for builds.
+	//
+	// For more information, see [On-demand environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) in the *AWS CodeBuild User Guide.*
+	ComputeType pulumi.StringInput `pulumi:"computeType"`
+	// Contains docker server information.
+	DockerServer ProjectDockerServerPtrInput `pulumi:"dockerServer"`
+	// A set of environment variables to make available to builds for this build project.
+	EnvironmentVariables ProjectEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
+	Fleet                ProjectFleetPtrInput                 `pulumi:"fleet"`
+	// The kernel version of the host operating system for the build environment. Allowed values: LINUX_KERNEL_4 | LINUX_KERNEL_6 | LINUX_KERNEL_LATEST
+	HostKernel pulumi.StringPtrInput `pulumi:"hostKernel"`
+	// The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:
+	//
+	// - For an image tag: `<registry>/<repository>:<tag>` . For example, in the Docker repository that CodeBuild uses to manage its Docker images, this would be `aws/codebuild/standard:4.0` .
+	// - For an image digest: `<registry>/<repository>@<digest>` . For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use `<registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf` .
+	//
+	// For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-available.html) in the *AWS CodeBuild user guide* .
+	Image pulumi.StringInput `pulumi:"image"`
+	// The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
+	//
+	// - `CODEBUILD` specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.
+	// - `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role.
+	//
+	// When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+	ImagePullCredentialsType pulumi.StringPtrInput `pulumi:"imagePullCredentialsType"`
+	// Enables running the Docker daemon inside a Docker container. Set to true only if the build project is used to build Docker images. Otherwise, a build that attempts to interact with the Docker daemon fails. The default setting is `false` .
+	//
+	// You can initialize the Docker daemon during the install phase of your build by adding one of the following sets of commands to the install phase of your buildspec file:
+	//
+	// If the operating system's base image is Ubuntu Linux:
+	//
+	// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+	//
+	// `- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"`
+	//
+	// If the operating system's base image is Alpine Linux and the previous command does not work, add the `-t` argument to `timeout` :
+	//
+	// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+	//
+	// `- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"`
+	PrivilegedMode pulumi.BoolPtrInput `pulumi:"privilegedMode"`
+	// `RegistryCredential` is a property of the [AWS::CodeBuild::Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment) property that specifies information about credentials that provide access to a private Docker registry. When this is set:
+	//
+	// - `imagePullCredentialsType` must be set to `SERVICE_ROLE` .
+	// - images cannot be curated or an Amazon ECR image.
+	RegistryCredential ProjectRegistryCredentialPtrInput `pulumi:"registryCredential"`
+	// The type of build environment to use for related builds.
+	//
+	// > If you're using compute fleets during project creation, `type` will be ignored.
+	//
+	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironment)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentArgs) ToProjectEnvironmentOutput() ProjectEnvironmentOutput {
+	return i.ToProjectEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentArgs) ToProjectEnvironmentOutputWithContext(ctx context.Context) ProjectEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentOutput)
+}
+
+type ProjectEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironment)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentOutput) ToProjectEnvironmentOutput() ProjectEnvironmentOutput {
+	return o
+}
+
+func (o ProjectEnvironmentOutput) ToProjectEnvironmentOutputWithContext(ctx context.Context) ProjectEnvironmentOutput {
+	return o
+}
+
+// The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project. For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
+func (o ProjectEnvironmentOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The type of compute environment. This determines the number of CPU cores and memory the build environment uses. Available values include:
+//
+// - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
+//
+// > If you use `ATTRIBUTE_BASED_COMPUTE` , you must define your attributes by using `computeConfiguration` . AWS CodeBuild will select the cheapest instance that satisfies your specified attributes. For more information, see [Reserved capacity environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types) in the *AWS CodeBuild User Guide* .
+// - `BUILD_GENERAL1_SMALL` : Use up to 4 GiB memory and 2 vCPUs for builds.
+// - `BUILD_GENERAL1_MEDIUM` : Use up to 8 GiB memory and 4 vCPUs for builds.
+// - `BUILD_GENERAL1_LARGE` : Use up to 16 GiB memory and 8 vCPUs for builds, depending on your environment type.
+// - `BUILD_GENERAL1_XLARGE` : Use up to 72 GiB memory and 36 vCPUs for builds, depending on your environment type.
+// - `BUILD_GENERAL1_2XLARGE` : Use up to 144 GiB memory, 72 vCPUs, and 824 GB of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.
+// - `BUILD_LAMBDA_1GB` : Use up to 1 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+// - `BUILD_LAMBDA_2GB` : Use up to 2 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+// - `BUILD_LAMBDA_4GB` : Use up to 4 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+// - `BUILD_LAMBDA_8GB` : Use up to 8 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+// - `BUILD_LAMBDA_10GB` : Use up to 10 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+//
+// If you use `BUILD_GENERAL1_SMALL` :
+//
+// - For environment type `LINUX_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs for builds.
+// - For environment type `LINUX_GPU_CONTAINER` , you can use up to 16 GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.
+// - For environment type `ARM_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs on ARM-based processors for builds.
+//
+// If you use `BUILD_GENERAL1_LARGE` :
+//
+// - For environment type `LINUX_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs for builds.
+// - For environment type `LINUX_GPU_CONTAINER` , you can use up to 255 GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.
+// - For environment type `ARM_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs on ARM-based processors for builds.
+//
+// For more information, see [On-demand environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) in the *AWS CodeBuild User Guide.*
+func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironment) string { return v.ComputeType }).(pulumi.StringOutput)
+}
+
+// Contains docker server information.
+func (o ProjectEnvironmentOutput) DockerServer() ProjectDockerServerPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *ProjectDockerServer { return v.DockerServer }).(ProjectDockerServerPtrOutput)
+}
+
+// A set of environment variables to make available to builds for this build project.
+func (o ProjectEnvironmentOutput) EnvironmentVariables() ProjectEnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v ProjectEnvironment) []ProjectEnvironmentVariable { return v.EnvironmentVariables }).(ProjectEnvironmentVariableArrayOutput)
+}
+
+func (o ProjectEnvironmentOutput) Fleet() ProjectFleetPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *ProjectFleet { return v.Fleet }).(ProjectFleetPtrOutput)
+}
+
+// The kernel version of the host operating system for the build environment. Allowed values: LINUX_KERNEL_4 | LINUX_KERNEL_6 | LINUX_KERNEL_LATEST
+func (o ProjectEnvironmentOutput) HostKernel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *string { return v.HostKernel }).(pulumi.StringPtrOutput)
+}
+
+// The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:
+//
+// - For an image tag: `<registry>/<repository>:<tag>` . For example, in the Docker repository that CodeBuild uses to manage its Docker images, this would be `aws/codebuild/standard:4.0` .
+// - For an image digest: `<registry>/<repository>@<digest>` . For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use `<registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf` .
+//
+// For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-available.html) in the *AWS CodeBuild user guide* .
+func (o ProjectEnvironmentOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironment) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
+//
+// - `CODEBUILD` specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.
+// - `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role.
+//
+// When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+func (o ProjectEnvironmentOutput) ImagePullCredentialsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *string { return v.ImagePullCredentialsType }).(pulumi.StringPtrOutput)
+}
+
+// Enables running the Docker daemon inside a Docker container. Set to true only if the build project is used to build Docker images. Otherwise, a build that attempts to interact with the Docker daemon fails. The default setting is `false` .
+//
+// You can initialize the Docker daemon during the install phase of your build by adding one of the following sets of commands to the install phase of your buildspec file:
+//
+// If the operating system's base image is Ubuntu Linux:
+//
+// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+//
+// `- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"`
+//
+// If the operating system's base image is Alpine Linux and the previous command does not work, add the `-t` argument to `timeout` :
+//
+// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+//
+// `- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"`
+func (o ProjectEnvironmentOutput) PrivilegedMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *bool { return v.PrivilegedMode }).(pulumi.BoolPtrOutput)
+}
+
+// `RegistryCredential` is a property of the [AWS::CodeBuild::Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment) property that specifies information about credentials that provide access to a private Docker registry. When this is set:
+//
+// - `imagePullCredentialsType` must be set to `SERVICE_ROLE` .
+// - images cannot be curated or an Amazon ECR image.
+func (o ProjectEnvironmentOutput) RegistryCredential() ProjectRegistryCredentialPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *ProjectRegistryCredential { return v.RegistryCredential }).(ProjectRegistryCredentialPtrOutput)
+}
+
+// The type of build environment to use for related builds.
+//
+// > If you're using compute fleets during project creation, `type` will be ignored.
+//
+// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectEnvironment)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentPtrOutput) ToProjectEnvironmentPtrOutput() ProjectEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentPtrOutput) ToProjectEnvironmentPtrOutputWithContext(ctx context.Context) ProjectEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentPtrOutput) Elem() ProjectEnvironmentOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) ProjectEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectEnvironment
+		return ret
+	}).(ProjectEnvironmentOutput)
+}
+
+// The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project. For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
+func (o ProjectEnvironmentPtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of compute environment. This determines the number of CPU cores and memory the build environment uses. Available values include:
+//
+// - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
+//
+// > If you use `ATTRIBUTE_BASED_COMPUTE` , you must define your attributes by using `computeConfiguration` . AWS CodeBuild will select the cheapest instance that satisfies your specified attributes. For more information, see [Reserved capacity environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types) in the *AWS CodeBuild User Guide* .
+// - `BUILD_GENERAL1_SMALL` : Use up to 4 GiB memory and 2 vCPUs for builds.
+// - `BUILD_GENERAL1_MEDIUM` : Use up to 8 GiB memory and 4 vCPUs for builds.
+// - `BUILD_GENERAL1_LARGE` : Use up to 16 GiB memory and 8 vCPUs for builds, depending on your environment type.
+// - `BUILD_GENERAL1_XLARGE` : Use up to 72 GiB memory and 36 vCPUs for builds, depending on your environment type.
+// - `BUILD_GENERAL1_2XLARGE` : Use up to 144 GiB memory, 72 vCPUs, and 824 GB of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.
+// - `BUILD_LAMBDA_1GB` : Use up to 1 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+// - `BUILD_LAMBDA_2GB` : Use up to 2 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+// - `BUILD_LAMBDA_4GB` : Use up to 4 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+// - `BUILD_LAMBDA_8GB` : Use up to 8 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+// - `BUILD_LAMBDA_10GB` : Use up to 10 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+//
+// If you use `BUILD_GENERAL1_SMALL` :
+//
+// - For environment type `LINUX_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs for builds.
+// - For environment type `LINUX_GPU_CONTAINER` , you can use up to 16 GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.
+// - For environment type `ARM_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs on ARM-based processors for builds.
+//
+// If you use `BUILD_GENERAL1_LARGE` :
+//
+// - For environment type `LINUX_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs for builds.
+// - For environment type `LINUX_GPU_CONTAINER` , you can use up to 255 GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.
+// - For environment type `ARM_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs on ARM-based processors for builds.
+//
+// For more information, see [On-demand environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) in the *AWS CodeBuild User Guide.*
+func (o ProjectEnvironmentPtrOutput) ComputeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains docker server information.
+func (o ProjectEnvironmentPtrOutput) DockerServer() ProjectDockerServerPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *ProjectDockerServer {
+		if v == nil {
+			return nil
+		}
+		return v.DockerServer
+	}).(ProjectDockerServerPtrOutput)
+}
+
+// A set of environment variables to make available to builds for this build project.
+func (o ProjectEnvironmentPtrOutput) EnvironmentVariables() ProjectEnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) []ProjectEnvironmentVariable {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentVariables
+	}).(ProjectEnvironmentVariableArrayOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) Fleet() ProjectFleetPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *ProjectFleet {
+		if v == nil {
+			return nil
+		}
+		return v.Fleet
+	}).(ProjectFleetPtrOutput)
+}
+
+// The kernel version of the host operating system for the build environment. Allowed values: LINUX_KERNEL_4 | LINUX_KERNEL_6 | LINUX_KERNEL_LATEST
+func (o ProjectEnvironmentPtrOutput) HostKernel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostKernel
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:
+//
+// - For an image tag: `<registry>/<repository>:<tag>` . For example, in the Docker repository that CodeBuild uses to manage its Docker images, this would be `aws/codebuild/standard:4.0` .
+// - For an image digest: `<registry>/<repository>@<digest>` . For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use `<registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf` .
+//
+// For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-available.html) in the *AWS CodeBuild user guide* .
+func (o ProjectEnvironmentPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
+//
+// - `CODEBUILD` specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.
+// - `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role.
+//
+// When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+func (o ProjectEnvironmentPtrOutput) ImagePullCredentialsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImagePullCredentialsType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables running the Docker daemon inside a Docker container. Set to true only if the build project is used to build Docker images. Otherwise, a build that attempts to interact with the Docker daemon fails. The default setting is `false` .
+//
+// You can initialize the Docker daemon during the install phase of your build by adding one of the following sets of commands to the install phase of your buildspec file:
+//
+// If the operating system's base image is Ubuntu Linux:
+//
+// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+//
+// `- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"`
+//
+// If the operating system's base image is Alpine Linux and the previous command does not work, add the `-t` argument to `timeout` :
+//
+// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+//
+// `- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"`
+func (o ProjectEnvironmentPtrOutput) PrivilegedMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivilegedMode
+	}).(pulumi.BoolPtrOutput)
+}
+
+// `RegistryCredential` is a property of the [AWS::CodeBuild::Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment) property that specifies information about credentials that provide access to a private Docker registry. When this is set:
+//
+// - `imagePullCredentialsType` must be set to `SERVICE_ROLE` .
+// - images cannot be curated or an Amazon ECR image.
+func (o ProjectEnvironmentPtrOutput) RegistryCredential() ProjectRegistryCredentialPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *ProjectRegistryCredential {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryCredential
+	}).(ProjectRegistryCredentialPtrOutput)
+}
+
+// The type of build environment to use for related builds.
+//
+// > If you're using compute fleets during project creation, `type` will be ignored.
+//
+// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectEnvironmentVariable struct {
+	// The name or key of the environment variable.
+	Name string `pulumi:"name"`
+	// The type of environment variable. Valid values include:
+	//
+	// - `PARAMETER_STORE` : An environment variable stored in Systems Manager Parameter Store. For environment variables of this type, specify the name of the parameter as the `value` of the EnvironmentVariable. The parameter value will be substituted for the name at runtime. You can also define Parameter Store environment variables in the buildspec. To learn how to do so, see [env/parameter-store](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) in the *AWS CodeBuild User Guide* .
+	// - `PLAINTEXT` : An environment variable in plain text format. This is the default value.
+	// - `SECRETS_MANAGER` : An environment variable stored in AWS Secrets Manager . For environment variables of this type, specify the name of the secret as the `value` of the EnvironmentVariable. The secret value will be substituted for the name at runtime. You can also define AWS Secrets Manager environment variables in the buildspec. To learn how to do so, see [env/secrets-manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager) in the *AWS CodeBuild User Guide* .
+	Type *string `pulumi:"type"`
+	// The value of the environment variable.
+	//
+	// > We strongly discourage the use of `PLAINTEXT` environment variables to store sensitive values, especially AWS secret key IDs. `PLAINTEXT` environment variables can be displayed in plain text using the AWS CodeBuild console and the AWS CLI . For sensitive values, we recommend you use an environment variable of type `PARAMETER_STORE` or `SECRETS_MANAGER` .
+	Value string `pulumi:"value"`
+}
+
+// ProjectEnvironmentVariableInput is an input type that accepts ProjectEnvironmentVariableArgs and ProjectEnvironmentVariableOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentVariableInput` via:
+//
+//	ProjectEnvironmentVariableArgs{...}
+type ProjectEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentVariableOutput() ProjectEnvironmentVariableOutput
+	ToProjectEnvironmentVariableOutputWithContext(context.Context) ProjectEnvironmentVariableOutput
+}
+
+type ProjectEnvironmentVariableArgs struct {
+	// The name or key of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of environment variable. Valid values include:
+	//
+	// - `PARAMETER_STORE` : An environment variable stored in Systems Manager Parameter Store. For environment variables of this type, specify the name of the parameter as the `value` of the EnvironmentVariable. The parameter value will be substituted for the name at runtime. You can also define Parameter Store environment variables in the buildspec. To learn how to do so, see [env/parameter-store](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) in the *AWS CodeBuild User Guide* .
+	// - `PLAINTEXT` : An environment variable in plain text format. This is the default value.
+	// - `SECRETS_MANAGER` : An environment variable stored in AWS Secrets Manager . For environment variables of this type, specify the name of the secret as the `value` of the EnvironmentVariable. The secret value will be substituted for the name at runtime. You can also define AWS Secrets Manager environment variables in the buildspec. To learn how to do so, see [env/secrets-manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager) in the *AWS CodeBuild User Guide* .
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value of the environment variable.
+	//
+	// > We strongly discourage the use of `PLAINTEXT` environment variables to store sensitive values, especially AWS secret key IDs. `PLAINTEXT` environment variables can be displayed in plain text using the AWS CodeBuild console and the AWS CLI . For sensitive values, we recommend you use an environment variable of type `PARAMETER_STORE` or `SECRETS_MANAGER` .
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentVariableArgs) ToProjectEnvironmentVariableOutput() ProjectEnvironmentVariableOutput {
+	return i.ToProjectEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentVariableArgs) ToProjectEnvironmentVariableOutputWithContext(ctx context.Context) ProjectEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentVariableOutput)
+}
+
+// ProjectEnvironmentVariableArrayInput is an input type that accepts ProjectEnvironmentVariableArray and ProjectEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentVariableArrayInput` via:
+//
+//	ProjectEnvironmentVariableArray{ ProjectEnvironmentVariableArgs{...} }
+type ProjectEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentVariableArrayOutput() ProjectEnvironmentVariableArrayOutput
+	ToProjectEnvironmentVariableArrayOutputWithContext(context.Context) ProjectEnvironmentVariableArrayOutput
+}
+
+type ProjectEnvironmentVariableArray []ProjectEnvironmentVariableInput
+
+func (ProjectEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentVariableArray) ToProjectEnvironmentVariableArrayOutput() ProjectEnvironmentVariableArrayOutput {
+	return i.ToProjectEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentVariableArray) ToProjectEnvironmentVariableArrayOutputWithContext(ctx context.Context) ProjectEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentVariableArrayOutput)
+}
+
+type ProjectEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentVariableOutput) ToProjectEnvironmentVariableOutput() ProjectEnvironmentVariableOutput {
+	return o
+}
+
+func (o ProjectEnvironmentVariableOutput) ToProjectEnvironmentVariableOutputWithContext(ctx context.Context) ProjectEnvironmentVariableOutput {
+	return o
+}
+
+// The name or key of the environment variable.
+func (o ProjectEnvironmentVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of environment variable. Valid values include:
+//
+// - `PARAMETER_STORE` : An environment variable stored in Systems Manager Parameter Store. For environment variables of this type, specify the name of the parameter as the `value` of the EnvironmentVariable. The parameter value will be substituted for the name at runtime. You can also define Parameter Store environment variables in the buildspec. To learn how to do so, see [env/parameter-store](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) in the *AWS CodeBuild User Guide* .
+// - `PLAINTEXT` : An environment variable in plain text format. This is the default value.
+// - `SECRETS_MANAGER` : An environment variable stored in AWS Secrets Manager . For environment variables of this type, specify the name of the secret as the `value` of the EnvironmentVariable. The secret value will be substituted for the name at runtime. You can also define AWS Secrets Manager environment variables in the buildspec. To learn how to do so, see [env/secrets-manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager) in the *AWS CodeBuild User Guide* .
+func (o ProjectEnvironmentVariableOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value of the environment variable.
+//
+// > We strongly discourage the use of `PLAINTEXT` environment variables to store sensitive values, especially AWS secret key IDs. `PLAINTEXT` environment variables can be displayed in plain text using the AWS CodeBuild console and the AWS CLI . For sensitive values, we recommend you use an environment variable of type `PARAMETER_STORE` or `SECRETS_MANAGER` .
+func (o ProjectEnvironmentVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProjectEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentVariableArrayOutput) ToProjectEnvironmentVariableArrayOutput() ProjectEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentVariableArrayOutput) ToProjectEnvironmentVariableArrayOutputWithContext(ctx context.Context) ProjectEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ProjectEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectEnvironmentVariable {
+		return vs[0].([]ProjectEnvironmentVariable)[vs[1].(int)]
+	}).(ProjectEnvironmentVariableOutput)
+}
+
+type ProjectFileSystemLocation struct {
+	// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the `identifier` in all capital letters to `CODEBUILD_` . For example, if you specify `my_efs` for `identifier` , a new environment variable is create named `CODEBUILD_MY_EFS` .
+	//
+	// The `identifier` is used to mount your file system.
+	Identifier string `pulumi:"identifier"`
+	// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path` . You can find the DNS name of file system when you view it in the Amazon EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is `fs-abcd1234.efs.us-west-2.amazonaws.com` , and its mount directory is `my-efs-mount-directory` , then the `location` is `fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory` .
+	//
+	// The directory path in the format `efs-dns-name:/directory-path` is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+	Location string `pulumi:"location"`
+	// The mount options for a file system created by Amazon EFS. The default mount options used by CodeBuild are `nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2` . For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) .
+	MountOptions *string `pulumi:"mountOptions"`
+	// The location in the container where you mount the file system.
+	MountPoint string `pulumi:"mountPoint"`
+	// The type of the file system. The one supported type is `EFS` .
+	Type string `pulumi:"type"`
+}
+
+// ProjectFileSystemLocationInput is an input type that accepts ProjectFileSystemLocationArgs and ProjectFileSystemLocationOutput values.
+// You can construct a concrete instance of `ProjectFileSystemLocationInput` via:
+//
+//	ProjectFileSystemLocationArgs{...}
+type ProjectFileSystemLocationInput interface {
+	pulumi.Input
+
+	ToProjectFileSystemLocationOutput() ProjectFileSystemLocationOutput
+	ToProjectFileSystemLocationOutputWithContext(context.Context) ProjectFileSystemLocationOutput
+}
+
+type ProjectFileSystemLocationArgs struct {
+	// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the `identifier` in all capital letters to `CODEBUILD_` . For example, if you specify `my_efs` for `identifier` , a new environment variable is create named `CODEBUILD_MY_EFS` .
+	//
+	// The `identifier` is used to mount your file system.
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+	// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path` . You can find the DNS name of file system when you view it in the Amazon EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is `fs-abcd1234.efs.us-west-2.amazonaws.com` , and its mount directory is `my-efs-mount-directory` , then the `location` is `fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory` .
+	//
+	// The directory path in the format `efs-dns-name:/directory-path` is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The mount options for a file system created by Amazon EFS. The default mount options used by CodeBuild are `nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2` . For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) .
+	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
+	// The location in the container where you mount the file system.
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	// The type of the file system. The one supported type is `EFS` .
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectFileSystemLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (i ProjectFileSystemLocationArgs) ToProjectFileSystemLocationOutput() ProjectFileSystemLocationOutput {
+	return i.ToProjectFileSystemLocationOutputWithContext(context.Background())
+}
+
+func (i ProjectFileSystemLocationArgs) ToProjectFileSystemLocationOutputWithContext(ctx context.Context) ProjectFileSystemLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFileSystemLocationOutput)
+}
+
+// ProjectFileSystemLocationArrayInput is an input type that accepts ProjectFileSystemLocationArray and ProjectFileSystemLocationArrayOutput values.
+// You can construct a concrete instance of `ProjectFileSystemLocationArrayInput` via:
+//
+//	ProjectFileSystemLocationArray{ ProjectFileSystemLocationArgs{...} }
+type ProjectFileSystemLocationArrayInput interface {
+	pulumi.Input
+
+	ToProjectFileSystemLocationArrayOutput() ProjectFileSystemLocationArrayOutput
+	ToProjectFileSystemLocationArrayOutputWithContext(context.Context) ProjectFileSystemLocationArrayOutput
+}
+
+type ProjectFileSystemLocationArray []ProjectFileSystemLocationInput
+
+func (ProjectFileSystemLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (i ProjectFileSystemLocationArray) ToProjectFileSystemLocationArrayOutput() ProjectFileSystemLocationArrayOutput {
+	return i.ToProjectFileSystemLocationArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectFileSystemLocationArray) ToProjectFileSystemLocationArrayOutputWithContext(ctx context.Context) ProjectFileSystemLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFileSystemLocationArrayOutput)
+}
+
+type ProjectFileSystemLocationOutput struct{ *pulumi.OutputState }
+
+func (ProjectFileSystemLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (o ProjectFileSystemLocationOutput) ToProjectFileSystemLocationOutput() ProjectFileSystemLocationOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationOutput) ToProjectFileSystemLocationOutputWithContext(ctx context.Context) ProjectFileSystemLocationOutput {
+	return o
+}
+
+// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the `identifier` in all capital letters to `CODEBUILD_` . For example, if you specify `my_efs` for `identifier` , a new environment variable is create named `CODEBUILD_MY_EFS` .
+//
+// The `identifier` is used to mount your file system.
+func (o ProjectFileSystemLocationOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path` . You can find the DNS name of file system when you view it in the Amazon EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is `fs-abcd1234.efs.us-west-2.amazonaws.com` , and its mount directory is `my-efs-mount-directory` , then the `location` is `fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory` .
+//
+// The directory path in the format `efs-dns-name:/directory-path` is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+func (o ProjectFileSystemLocationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The mount options for a file system created by Amazon EFS. The default mount options used by CodeBuild are `nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2` . For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) .
+func (o ProjectFileSystemLocationOutput) MountOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.MountOptions }).(pulumi.StringPtrOutput)
+}
+
+// The location in the container where you mount the file system.
+func (o ProjectFileSystemLocationOutput) MountPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+// The type of the file system. The one supported type is `EFS` .
+func (o ProjectFileSystemLocationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectFileSystemLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectFileSystemLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (o ProjectFileSystemLocationArrayOutput) ToProjectFileSystemLocationArrayOutput() ProjectFileSystemLocationArrayOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationArrayOutput) ToProjectFileSystemLocationArrayOutputWithContext(ctx context.Context) ProjectFileSystemLocationArrayOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationArrayOutput) Index(i pulumi.IntInput) ProjectFileSystemLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectFileSystemLocation {
+		return vs[0].([]ProjectFileSystemLocation)[vs[1].(int)]
+	}).(ProjectFileSystemLocationOutput)
+}
+
+type ProjectFleet struct {
+	// Specifies the compute fleet ARN for the build project.
+	FleetArn *string `pulumi:"fleetArn"`
+}
+
+// ProjectFleetInput is an input type that accepts ProjectFleetArgs and ProjectFleetOutput values.
+// You can construct a concrete instance of `ProjectFleetInput` via:
+//
+//	ProjectFleetArgs{...}
+type ProjectFleetInput interface {
+	pulumi.Input
+
+	ToProjectFleetOutput() ProjectFleetOutput
+	ToProjectFleetOutputWithContext(context.Context) ProjectFleetOutput
+}
+
+type ProjectFleetArgs struct {
+	// Specifies the compute fleet ARN for the build project.
+	FleetArn pulumi.StringPtrInput `pulumi:"fleetArn"`
+}
+
+func (ProjectFleetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFleet)(nil)).Elem()
+}
+
+func (i ProjectFleetArgs) ToProjectFleetOutput() ProjectFleetOutput {
+	return i.ToProjectFleetOutputWithContext(context.Background())
+}
+
+func (i ProjectFleetArgs) ToProjectFleetOutputWithContext(ctx context.Context) ProjectFleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFleetOutput)
+}
+
+func (i ProjectFleetArgs) ToProjectFleetPtrOutput() ProjectFleetPtrOutput {
+	return i.ToProjectFleetPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectFleetArgs) ToProjectFleetPtrOutputWithContext(ctx context.Context) ProjectFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFleetOutput).ToProjectFleetPtrOutputWithContext(ctx)
+}
+
+// ProjectFleetPtrInput is an input type that accepts ProjectFleetArgs, ProjectFleetPtr and ProjectFleetPtrOutput values.
+// You can construct a concrete instance of `ProjectFleetPtrInput` via:
+//
+//	        ProjectFleetArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectFleetPtrInput interface {
+	pulumi.Input
+
+	ToProjectFleetPtrOutput() ProjectFleetPtrOutput
+	ToProjectFleetPtrOutputWithContext(context.Context) ProjectFleetPtrOutput
+}
+
+type projectFleetPtrType ProjectFleetArgs
+
+func ProjectFleetPtr(v *ProjectFleetArgs) ProjectFleetPtrInput {
+	return (*projectFleetPtrType)(v)
+}
+
+func (*projectFleetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectFleet)(nil)).Elem()
+}
+
+func (i *projectFleetPtrType) ToProjectFleetPtrOutput() ProjectFleetPtrOutput {
+	return i.ToProjectFleetPtrOutputWithContext(context.Background())
+}
+
+func (i *projectFleetPtrType) ToProjectFleetPtrOutputWithContext(ctx context.Context) ProjectFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFleetPtrOutput)
+}
+
+type ProjectFleetOutput struct{ *pulumi.OutputState }
+
+func (ProjectFleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFleet)(nil)).Elem()
+}
+
+func (o ProjectFleetOutput) ToProjectFleetOutput() ProjectFleetOutput {
+	return o
+}
+
+func (o ProjectFleetOutput) ToProjectFleetOutputWithContext(ctx context.Context) ProjectFleetOutput {
+	return o
+}
+
+func (o ProjectFleetOutput) ToProjectFleetPtrOutput() ProjectFleetPtrOutput {
+	return o.ToProjectFleetPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectFleetOutput) ToProjectFleetPtrOutputWithContext(ctx context.Context) ProjectFleetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectFleet) *ProjectFleet {
+		return &v
+	}).(ProjectFleetPtrOutput)
+}
+
+// Specifies the compute fleet ARN for the build project.
+func (o ProjectFleetOutput) FleetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectFleet) *string { return v.FleetArn }).(pulumi.StringPtrOutput)
+}
+
+type ProjectFleetPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectFleetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectFleet)(nil)).Elem()
+}
+
+func (o ProjectFleetPtrOutput) ToProjectFleetPtrOutput() ProjectFleetPtrOutput {
+	return o
+}
+
+func (o ProjectFleetPtrOutput) ToProjectFleetPtrOutputWithContext(ctx context.Context) ProjectFleetPtrOutput {
+	return o
+}
+
+func (o ProjectFleetPtrOutput) Elem() ProjectFleetOutput {
+	return o.ApplyT(func(v *ProjectFleet) ProjectFleet {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectFleet
+		return ret
+	}).(ProjectFleetOutput)
+}
+
+// Specifies the compute fleet ARN for the build project.
+func (o ProjectFleetPtrOutput) FleetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectFleet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FleetArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectGitSubmodulesConfig struct {
+	// Set to true to fetch Git submodules for your AWS CodeBuild build project.
+	FetchSubmodules bool `pulumi:"fetchSubmodules"`
+}
+
+// ProjectGitSubmodulesConfigInput is an input type that accepts ProjectGitSubmodulesConfigArgs and ProjectGitSubmodulesConfigOutput values.
+// You can construct a concrete instance of `ProjectGitSubmodulesConfigInput` via:
+//
+//	ProjectGitSubmodulesConfigArgs{...}
+type ProjectGitSubmodulesConfigInput interface {
+	pulumi.Input
+
+	ToProjectGitSubmodulesConfigOutput() ProjectGitSubmodulesConfigOutput
+	ToProjectGitSubmodulesConfigOutputWithContext(context.Context) ProjectGitSubmodulesConfigOutput
+}
+
+type ProjectGitSubmodulesConfigArgs struct {
+	// Set to true to fetch Git submodules for your AWS CodeBuild build project.
+	FetchSubmodules pulumi.BoolInput `pulumi:"fetchSubmodules"`
+}
+
+func (ProjectGitSubmodulesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (i ProjectGitSubmodulesConfigArgs) ToProjectGitSubmodulesConfigOutput() ProjectGitSubmodulesConfigOutput {
+	return i.ToProjectGitSubmodulesConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectGitSubmodulesConfigArgs) ToProjectGitSubmodulesConfigOutputWithContext(ctx context.Context) ProjectGitSubmodulesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectGitSubmodulesConfigOutput)
+}
+
+func (i ProjectGitSubmodulesConfigArgs) ToProjectGitSubmodulesConfigPtrOutput() ProjectGitSubmodulesConfigPtrOutput {
+	return i.ToProjectGitSubmodulesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectGitSubmodulesConfigArgs) ToProjectGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectGitSubmodulesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectGitSubmodulesConfigOutput).ToProjectGitSubmodulesConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectGitSubmodulesConfigPtrInput is an input type that accepts ProjectGitSubmodulesConfigArgs, ProjectGitSubmodulesConfigPtr and ProjectGitSubmodulesConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectGitSubmodulesConfigPtrInput` via:
+//
+//	        ProjectGitSubmodulesConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectGitSubmodulesConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectGitSubmodulesConfigPtrOutput() ProjectGitSubmodulesConfigPtrOutput
+	ToProjectGitSubmodulesConfigPtrOutputWithContext(context.Context) ProjectGitSubmodulesConfigPtrOutput
+}
+
+type projectGitSubmodulesConfigPtrType ProjectGitSubmodulesConfigArgs
+
+func ProjectGitSubmodulesConfigPtr(v *ProjectGitSubmodulesConfigArgs) ProjectGitSubmodulesConfigPtrInput {
+	return (*projectGitSubmodulesConfigPtrType)(v)
+}
+
+func (*projectGitSubmodulesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (i *projectGitSubmodulesConfigPtrType) ToProjectGitSubmodulesConfigPtrOutput() ProjectGitSubmodulesConfigPtrOutput {
+	return i.ToProjectGitSubmodulesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectGitSubmodulesConfigPtrType) ToProjectGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectGitSubmodulesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectGitSubmodulesConfigPtrOutput)
+}
+
+type ProjectGitSubmodulesConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectGitSubmodulesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (o ProjectGitSubmodulesConfigOutput) ToProjectGitSubmodulesConfigOutput() ProjectGitSubmodulesConfigOutput {
+	return o
+}
+
+func (o ProjectGitSubmodulesConfigOutput) ToProjectGitSubmodulesConfigOutputWithContext(ctx context.Context) ProjectGitSubmodulesConfigOutput {
+	return o
+}
+
+func (o ProjectGitSubmodulesConfigOutput) ToProjectGitSubmodulesConfigPtrOutput() ProjectGitSubmodulesConfigPtrOutput {
+	return o.ToProjectGitSubmodulesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectGitSubmodulesConfigOutput) ToProjectGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectGitSubmodulesConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectGitSubmodulesConfig) *ProjectGitSubmodulesConfig {
+		return &v
+	}).(ProjectGitSubmodulesConfigPtrOutput)
+}
+
+// Set to true to fetch Git submodules for your AWS CodeBuild build project.
+func (o ProjectGitSubmodulesConfigOutput) FetchSubmodules() pulumi.BoolOutput {
+	return o.ApplyT(func(v ProjectGitSubmodulesConfig) bool { return v.FetchSubmodules }).(pulumi.BoolOutput)
+}
+
+type ProjectGitSubmodulesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectGitSubmodulesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (o ProjectGitSubmodulesConfigPtrOutput) ToProjectGitSubmodulesConfigPtrOutput() ProjectGitSubmodulesConfigPtrOutput {
+	return o
+}
+
+func (o ProjectGitSubmodulesConfigPtrOutput) ToProjectGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectGitSubmodulesConfigPtrOutput {
+	return o
+}
+
+func (o ProjectGitSubmodulesConfigPtrOutput) Elem() ProjectGitSubmodulesConfigOutput {
+	return o.ApplyT(func(v *ProjectGitSubmodulesConfig) ProjectGitSubmodulesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectGitSubmodulesConfig
+		return ret
+	}).(ProjectGitSubmodulesConfigOutput)
+}
+
+// Set to true to fetch Git submodules for your AWS CodeBuild build project.
+func (o ProjectGitSubmodulesConfigPtrOutput) FetchSubmodules() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectGitSubmodulesConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.FetchSubmodules
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ProjectLogsConfig struct {
+	// Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default.
+	CloudWatchLogs *ProjectCloudWatchLogsConfig `pulumi:"cloudWatchLogs"`
+	// Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+	S3Logs *ProjectS3LogsConfig `pulumi:"s3Logs"`
+}
+
+// ProjectLogsConfigInput is an input type that accepts ProjectLogsConfigArgs and ProjectLogsConfigOutput values.
+// You can construct a concrete instance of `ProjectLogsConfigInput` via:
+//
+//	ProjectLogsConfigArgs{...}
+type ProjectLogsConfigInput interface {
+	pulumi.Input
+
+	ToProjectLogsConfigOutput() ProjectLogsConfigOutput
+	ToProjectLogsConfigOutputWithContext(context.Context) ProjectLogsConfigOutput
+}
+
+type ProjectLogsConfigArgs struct {
+	// Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default.
+	CloudWatchLogs ProjectCloudWatchLogsConfigPtrInput `pulumi:"cloudWatchLogs"`
+	// Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+	S3Logs ProjectS3LogsConfigPtrInput `pulumi:"s3Logs"`
+}
+
+func (ProjectLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectLogsConfig)(nil)).Elem()
+}
+
+func (i ProjectLogsConfigArgs) ToProjectLogsConfigOutput() ProjectLogsConfigOutput {
+	return i.ToProjectLogsConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectLogsConfigArgs) ToProjectLogsConfigOutputWithContext(ctx context.Context) ProjectLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectLogsConfigOutput)
+}
+
+func (i ProjectLogsConfigArgs) ToProjectLogsConfigPtrOutput() ProjectLogsConfigPtrOutput {
+	return i.ToProjectLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectLogsConfigArgs) ToProjectLogsConfigPtrOutputWithContext(ctx context.Context) ProjectLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectLogsConfigOutput).ToProjectLogsConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectLogsConfigPtrInput is an input type that accepts ProjectLogsConfigArgs, ProjectLogsConfigPtr and ProjectLogsConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectLogsConfigPtrInput` via:
+//
+//	        ProjectLogsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectLogsConfigPtrOutput() ProjectLogsConfigPtrOutput
+	ToProjectLogsConfigPtrOutputWithContext(context.Context) ProjectLogsConfigPtrOutput
+}
+
+type projectLogsConfigPtrType ProjectLogsConfigArgs
+
+func ProjectLogsConfigPtr(v *ProjectLogsConfigArgs) ProjectLogsConfigPtrInput {
+	return (*projectLogsConfigPtrType)(v)
+}
+
+func (*projectLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectLogsConfig)(nil)).Elem()
+}
+
+func (i *projectLogsConfigPtrType) ToProjectLogsConfigPtrOutput() ProjectLogsConfigPtrOutput {
+	return i.ToProjectLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectLogsConfigPtrType) ToProjectLogsConfigPtrOutputWithContext(ctx context.Context) ProjectLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectLogsConfigPtrOutput)
+}
+
+type ProjectLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectLogsConfig)(nil)).Elem()
+}
+
+func (o ProjectLogsConfigOutput) ToProjectLogsConfigOutput() ProjectLogsConfigOutput {
+	return o
+}
+
+func (o ProjectLogsConfigOutput) ToProjectLogsConfigOutputWithContext(ctx context.Context) ProjectLogsConfigOutput {
+	return o
+}
+
+func (o ProjectLogsConfigOutput) ToProjectLogsConfigPtrOutput() ProjectLogsConfigPtrOutput {
+	return o.ToProjectLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectLogsConfigOutput) ToProjectLogsConfigPtrOutputWithContext(ctx context.Context) ProjectLogsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectLogsConfig) *ProjectLogsConfig {
+		return &v
+	}).(ProjectLogsConfigPtrOutput)
+}
+
+// Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default.
+func (o ProjectLogsConfigOutput) CloudWatchLogs() ProjectCloudWatchLogsConfigPtrOutput {
+	return o.ApplyT(func(v ProjectLogsConfig) *ProjectCloudWatchLogsConfig { return v.CloudWatchLogs }).(ProjectCloudWatchLogsConfigPtrOutput)
+}
+
+// Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+func (o ProjectLogsConfigOutput) S3Logs() ProjectS3LogsConfigPtrOutput {
+	return o.ApplyT(func(v ProjectLogsConfig) *ProjectS3LogsConfig { return v.S3Logs }).(ProjectS3LogsConfigPtrOutput)
+}
+
+type ProjectLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectLogsConfig)(nil)).Elem()
+}
+
+func (o ProjectLogsConfigPtrOutput) ToProjectLogsConfigPtrOutput() ProjectLogsConfigPtrOutput {
+	return o
+}
+
+func (o ProjectLogsConfigPtrOutput) ToProjectLogsConfigPtrOutputWithContext(ctx context.Context) ProjectLogsConfigPtrOutput {
+	return o
+}
+
+func (o ProjectLogsConfigPtrOutput) Elem() ProjectLogsConfigOutput {
+	return o.ApplyT(func(v *ProjectLogsConfig) ProjectLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectLogsConfig
+		return ret
+	}).(ProjectLogsConfigOutput)
+}
+
+// Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default.
+func (o ProjectLogsConfigPtrOutput) CloudWatchLogs() ProjectCloudWatchLogsConfigPtrOutput {
+	return o.ApplyT(func(v *ProjectLogsConfig) *ProjectCloudWatchLogsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogs
+	}).(ProjectCloudWatchLogsConfigPtrOutput)
+}
+
+// Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+func (o ProjectLogsConfigPtrOutput) S3Logs() ProjectS3LogsConfigPtrOutput {
+	return o.ApplyT(func(v *ProjectLogsConfig) *ProjectS3LogsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.S3Logs
+	}).(ProjectS3LogsConfigPtrOutput)
+}
+
+type ProjectPullRequestBuildPolicy struct {
+	ApproverRoles           []string `pulumi:"approverRoles"`
+	RequiresCommentApproval string   `pulumi:"requiresCommentApproval"`
+}
+
+// ProjectPullRequestBuildPolicyInput is an input type that accepts ProjectPullRequestBuildPolicyArgs and ProjectPullRequestBuildPolicyOutput values.
+// You can construct a concrete instance of `ProjectPullRequestBuildPolicyInput` via:
+//
+//	ProjectPullRequestBuildPolicyArgs{...}
+type ProjectPullRequestBuildPolicyInput interface {
+	pulumi.Input
+
+	ToProjectPullRequestBuildPolicyOutput() ProjectPullRequestBuildPolicyOutput
+	ToProjectPullRequestBuildPolicyOutputWithContext(context.Context) ProjectPullRequestBuildPolicyOutput
+}
+
+type ProjectPullRequestBuildPolicyArgs struct {
+	ApproverRoles           pulumi.StringArrayInput `pulumi:"approverRoles"`
+	RequiresCommentApproval pulumi.StringInput      `pulumi:"requiresCommentApproval"`
+}
+
+func (ProjectPullRequestBuildPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectPullRequestBuildPolicy)(nil)).Elem()
+}
+
+func (i ProjectPullRequestBuildPolicyArgs) ToProjectPullRequestBuildPolicyOutput() ProjectPullRequestBuildPolicyOutput {
+	return i.ToProjectPullRequestBuildPolicyOutputWithContext(context.Background())
+}
+
+func (i ProjectPullRequestBuildPolicyArgs) ToProjectPullRequestBuildPolicyOutputWithContext(ctx context.Context) ProjectPullRequestBuildPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectPullRequestBuildPolicyOutput)
+}
+
+func (i ProjectPullRequestBuildPolicyArgs) ToProjectPullRequestBuildPolicyPtrOutput() ProjectPullRequestBuildPolicyPtrOutput {
+	return i.ToProjectPullRequestBuildPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectPullRequestBuildPolicyArgs) ToProjectPullRequestBuildPolicyPtrOutputWithContext(ctx context.Context) ProjectPullRequestBuildPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectPullRequestBuildPolicyOutput).ToProjectPullRequestBuildPolicyPtrOutputWithContext(ctx)
+}
+
+// ProjectPullRequestBuildPolicyPtrInput is an input type that accepts ProjectPullRequestBuildPolicyArgs, ProjectPullRequestBuildPolicyPtr and ProjectPullRequestBuildPolicyPtrOutput values.
+// You can construct a concrete instance of `ProjectPullRequestBuildPolicyPtrInput` via:
+//
+//	        ProjectPullRequestBuildPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectPullRequestBuildPolicyPtrInput interface {
+	pulumi.Input
+
+	ToProjectPullRequestBuildPolicyPtrOutput() ProjectPullRequestBuildPolicyPtrOutput
+	ToProjectPullRequestBuildPolicyPtrOutputWithContext(context.Context) ProjectPullRequestBuildPolicyPtrOutput
+}
+
+type projectPullRequestBuildPolicyPtrType ProjectPullRequestBuildPolicyArgs
+
+func ProjectPullRequestBuildPolicyPtr(v *ProjectPullRequestBuildPolicyArgs) ProjectPullRequestBuildPolicyPtrInput {
+	return (*projectPullRequestBuildPolicyPtrType)(v)
+}
+
+func (*projectPullRequestBuildPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectPullRequestBuildPolicy)(nil)).Elem()
+}
+
+func (i *projectPullRequestBuildPolicyPtrType) ToProjectPullRequestBuildPolicyPtrOutput() ProjectPullRequestBuildPolicyPtrOutput {
+	return i.ToProjectPullRequestBuildPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *projectPullRequestBuildPolicyPtrType) ToProjectPullRequestBuildPolicyPtrOutputWithContext(ctx context.Context) ProjectPullRequestBuildPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectPullRequestBuildPolicyPtrOutput)
+}
+
+type ProjectPullRequestBuildPolicyOutput struct{ *pulumi.OutputState }
+
+func (ProjectPullRequestBuildPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectPullRequestBuildPolicy)(nil)).Elem()
+}
+
+func (o ProjectPullRequestBuildPolicyOutput) ToProjectPullRequestBuildPolicyOutput() ProjectPullRequestBuildPolicyOutput {
+	return o
+}
+
+func (o ProjectPullRequestBuildPolicyOutput) ToProjectPullRequestBuildPolicyOutputWithContext(ctx context.Context) ProjectPullRequestBuildPolicyOutput {
+	return o
+}
+
+func (o ProjectPullRequestBuildPolicyOutput) ToProjectPullRequestBuildPolicyPtrOutput() ProjectPullRequestBuildPolicyPtrOutput {
+	return o.ToProjectPullRequestBuildPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectPullRequestBuildPolicyOutput) ToProjectPullRequestBuildPolicyPtrOutputWithContext(ctx context.Context) ProjectPullRequestBuildPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectPullRequestBuildPolicy) *ProjectPullRequestBuildPolicy {
+		return &v
+	}).(ProjectPullRequestBuildPolicyPtrOutput)
+}
+
+func (o ProjectPullRequestBuildPolicyOutput) ApproverRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectPullRequestBuildPolicy) []string { return v.ApproverRoles }).(pulumi.StringArrayOutput)
+}
+
+func (o ProjectPullRequestBuildPolicyOutput) RequiresCommentApproval() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectPullRequestBuildPolicy) string { return v.RequiresCommentApproval }).(pulumi.StringOutput)
+}
+
+type ProjectPullRequestBuildPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectPullRequestBuildPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectPullRequestBuildPolicy)(nil)).Elem()
+}
+
+func (o ProjectPullRequestBuildPolicyPtrOutput) ToProjectPullRequestBuildPolicyPtrOutput() ProjectPullRequestBuildPolicyPtrOutput {
+	return o
+}
+
+func (o ProjectPullRequestBuildPolicyPtrOutput) ToProjectPullRequestBuildPolicyPtrOutputWithContext(ctx context.Context) ProjectPullRequestBuildPolicyPtrOutput {
+	return o
+}
+
+func (o ProjectPullRequestBuildPolicyPtrOutput) Elem() ProjectPullRequestBuildPolicyOutput {
+	return o.ApplyT(func(v *ProjectPullRequestBuildPolicy) ProjectPullRequestBuildPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectPullRequestBuildPolicy
+		return ret
+	}).(ProjectPullRequestBuildPolicyOutput)
+}
+
+func (o ProjectPullRequestBuildPolicyPtrOutput) ApproverRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectPullRequestBuildPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ApproverRoles
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ProjectPullRequestBuildPolicyPtrOutput) RequiresCommentApproval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectPullRequestBuildPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RequiresCommentApproval
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectRegistryCredential struct {
+	// The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager .
+	//
+	// > The `credential` can use the name of the credentials only if they exist in your current AWS Region .
+	Credential string `pulumi:"credential"`
+	// The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager .
+	CredentialProvider string `pulumi:"credentialProvider"`
+}
+
+// ProjectRegistryCredentialInput is an input type that accepts ProjectRegistryCredentialArgs and ProjectRegistryCredentialOutput values.
+// You can construct a concrete instance of `ProjectRegistryCredentialInput` via:
+//
+//	ProjectRegistryCredentialArgs{...}
+type ProjectRegistryCredentialInput interface {
+	pulumi.Input
+
+	ToProjectRegistryCredentialOutput() ProjectRegistryCredentialOutput
+	ToProjectRegistryCredentialOutputWithContext(context.Context) ProjectRegistryCredentialOutput
+}
+
+type ProjectRegistryCredentialArgs struct {
+	// The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager .
+	//
+	// > The `credential` can use the name of the credentials only if they exist in your current AWS Region .
+	Credential pulumi.StringInput `pulumi:"credential"`
+	// The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager .
+	CredentialProvider pulumi.StringInput `pulumi:"credentialProvider"`
+}
+
+func (ProjectRegistryCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectRegistryCredential)(nil)).Elem()
+}
+
+func (i ProjectRegistryCredentialArgs) ToProjectRegistryCredentialOutput() ProjectRegistryCredentialOutput {
+	return i.ToProjectRegistryCredentialOutputWithContext(context.Background())
+}
+
+func (i ProjectRegistryCredentialArgs) ToProjectRegistryCredentialOutputWithContext(ctx context.Context) ProjectRegistryCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectRegistryCredentialOutput)
+}
+
+func (i ProjectRegistryCredentialArgs) ToProjectRegistryCredentialPtrOutput() ProjectRegistryCredentialPtrOutput {
+	return i.ToProjectRegistryCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectRegistryCredentialArgs) ToProjectRegistryCredentialPtrOutputWithContext(ctx context.Context) ProjectRegistryCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectRegistryCredentialOutput).ToProjectRegistryCredentialPtrOutputWithContext(ctx)
+}
+
+// ProjectRegistryCredentialPtrInput is an input type that accepts ProjectRegistryCredentialArgs, ProjectRegistryCredentialPtr and ProjectRegistryCredentialPtrOutput values.
+// You can construct a concrete instance of `ProjectRegistryCredentialPtrInput` via:
+//
+//	        ProjectRegistryCredentialArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectRegistryCredentialPtrInput interface {
+	pulumi.Input
+
+	ToProjectRegistryCredentialPtrOutput() ProjectRegistryCredentialPtrOutput
+	ToProjectRegistryCredentialPtrOutputWithContext(context.Context) ProjectRegistryCredentialPtrOutput
+}
+
+type projectRegistryCredentialPtrType ProjectRegistryCredentialArgs
+
+func ProjectRegistryCredentialPtr(v *ProjectRegistryCredentialArgs) ProjectRegistryCredentialPtrInput {
+	return (*projectRegistryCredentialPtrType)(v)
+}
+
+func (*projectRegistryCredentialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectRegistryCredential)(nil)).Elem()
+}
+
+func (i *projectRegistryCredentialPtrType) ToProjectRegistryCredentialPtrOutput() ProjectRegistryCredentialPtrOutput {
+	return i.ToProjectRegistryCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *projectRegistryCredentialPtrType) ToProjectRegistryCredentialPtrOutputWithContext(ctx context.Context) ProjectRegistryCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectRegistryCredentialPtrOutput)
+}
+
+type ProjectRegistryCredentialOutput struct{ *pulumi.OutputState }
+
+func (ProjectRegistryCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectRegistryCredential)(nil)).Elem()
+}
+
+func (o ProjectRegistryCredentialOutput) ToProjectRegistryCredentialOutput() ProjectRegistryCredentialOutput {
+	return o
+}
+
+func (o ProjectRegistryCredentialOutput) ToProjectRegistryCredentialOutputWithContext(ctx context.Context) ProjectRegistryCredentialOutput {
+	return o
+}
+
+func (o ProjectRegistryCredentialOutput) ToProjectRegistryCredentialPtrOutput() ProjectRegistryCredentialPtrOutput {
+	return o.ToProjectRegistryCredentialPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectRegistryCredentialOutput) ToProjectRegistryCredentialPtrOutputWithContext(ctx context.Context) ProjectRegistryCredentialPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectRegistryCredential) *ProjectRegistryCredential {
+		return &v
+	}).(ProjectRegistryCredentialPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager .
+//
+// > The `credential` can use the name of the credentials only if they exist in your current AWS Region .
+func (o ProjectRegistryCredentialOutput) Credential() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectRegistryCredential) string { return v.Credential }).(pulumi.StringOutput)
+}
+
+// The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager .
+func (o ProjectRegistryCredentialOutput) CredentialProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectRegistryCredential) string { return v.CredentialProvider }).(pulumi.StringOutput)
+}
+
+type ProjectRegistryCredentialPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectRegistryCredentialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectRegistryCredential)(nil)).Elem()
+}
+
+func (o ProjectRegistryCredentialPtrOutput) ToProjectRegistryCredentialPtrOutput() ProjectRegistryCredentialPtrOutput {
+	return o
+}
+
+func (o ProjectRegistryCredentialPtrOutput) ToProjectRegistryCredentialPtrOutputWithContext(ctx context.Context) ProjectRegistryCredentialPtrOutput {
+	return o
+}
+
+func (o ProjectRegistryCredentialPtrOutput) Elem() ProjectRegistryCredentialOutput {
+	return o.ApplyT(func(v *ProjectRegistryCredential) ProjectRegistryCredential {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectRegistryCredential
+		return ret
+	}).(ProjectRegistryCredentialOutput)
+}
+
+// The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager .
+//
+// > The `credential` can use the name of the credentials only if they exist in your current AWS Region .
+func (o ProjectRegistryCredentialPtrOutput) Credential() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectRegistryCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Credential
+	}).(pulumi.StringPtrOutput)
+}
+
+// The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager .
+func (o ProjectRegistryCredentialPtrOutput) CredentialProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectRegistryCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialProvider
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectS3LogsConfig struct {
+	// Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
+	// The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is `my-bucket` , and your path prefix is `build-log` , then acceptable formats are `my-bucket/build-log` or `arn:aws:s3:::my-bucket/build-log` .
+	Location *string `pulumi:"location"`
+	// The current status of the S3 build logs. Valid values are:
+	//
+	// - `ENABLED` : S3 build logs are enabled for this build project.
+	// - `DISABLED` : S3 build logs are not enabled for this build project.
+	Status string `pulumi:"status"`
+}
+
+// ProjectS3LogsConfigInput is an input type that accepts ProjectS3LogsConfigArgs and ProjectS3LogsConfigOutput values.
+// You can construct a concrete instance of `ProjectS3LogsConfigInput` via:
+//
+//	ProjectS3LogsConfigArgs{...}
+type ProjectS3LogsConfigInput interface {
+	pulumi.Input
+
+	ToProjectS3LogsConfigOutput() ProjectS3LogsConfigOutput
+	ToProjectS3LogsConfigOutputWithContext(context.Context) ProjectS3LogsConfigOutput
+}
+
+type ProjectS3LogsConfigArgs struct {
+	// Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
+	// The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is `my-bucket` , and your path prefix is `build-log` , then acceptable formats are `my-bucket/build-log` or `arn:aws:s3:::my-bucket/build-log` .
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The current status of the S3 build logs. Valid values are:
+	//
+	// - `ENABLED` : S3 build logs are enabled for this build project.
+	// - `DISABLED` : S3 build logs are not enabled for this build project.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (ProjectS3LogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectS3LogsConfig)(nil)).Elem()
+}
+
+func (i ProjectS3LogsConfigArgs) ToProjectS3LogsConfigOutput() ProjectS3LogsConfigOutput {
+	return i.ToProjectS3LogsConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectS3LogsConfigArgs) ToProjectS3LogsConfigOutputWithContext(ctx context.Context) ProjectS3LogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectS3LogsConfigOutput)
+}
+
+func (i ProjectS3LogsConfigArgs) ToProjectS3LogsConfigPtrOutput() ProjectS3LogsConfigPtrOutput {
+	return i.ToProjectS3LogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectS3LogsConfigArgs) ToProjectS3LogsConfigPtrOutputWithContext(ctx context.Context) ProjectS3LogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectS3LogsConfigOutput).ToProjectS3LogsConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectS3LogsConfigPtrInput is an input type that accepts ProjectS3LogsConfigArgs, ProjectS3LogsConfigPtr and ProjectS3LogsConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectS3LogsConfigPtrInput` via:
+//
+//	        ProjectS3LogsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectS3LogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectS3LogsConfigPtrOutput() ProjectS3LogsConfigPtrOutput
+	ToProjectS3LogsConfigPtrOutputWithContext(context.Context) ProjectS3LogsConfigPtrOutput
+}
+
+type projectS3LogsConfigPtrType ProjectS3LogsConfigArgs
+
+func ProjectS3LogsConfigPtr(v *ProjectS3LogsConfigArgs) ProjectS3LogsConfigPtrInput {
+	return (*projectS3LogsConfigPtrType)(v)
+}
+
+func (*projectS3LogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectS3LogsConfig)(nil)).Elem()
+}
+
+func (i *projectS3LogsConfigPtrType) ToProjectS3LogsConfigPtrOutput() ProjectS3LogsConfigPtrOutput {
+	return i.ToProjectS3LogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectS3LogsConfigPtrType) ToProjectS3LogsConfigPtrOutputWithContext(ctx context.Context) ProjectS3LogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectS3LogsConfigPtrOutput)
+}
+
+type ProjectS3LogsConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectS3LogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectS3LogsConfig)(nil)).Elem()
+}
+
+func (o ProjectS3LogsConfigOutput) ToProjectS3LogsConfigOutput() ProjectS3LogsConfigOutput {
+	return o
+}
+
+func (o ProjectS3LogsConfigOutput) ToProjectS3LogsConfigOutputWithContext(ctx context.Context) ProjectS3LogsConfigOutput {
+	return o
+}
+
+func (o ProjectS3LogsConfigOutput) ToProjectS3LogsConfigPtrOutput() ProjectS3LogsConfigPtrOutput {
+	return o.ToProjectS3LogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectS3LogsConfigOutput) ToProjectS3LogsConfigPtrOutputWithContext(ctx context.Context) ProjectS3LogsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectS3LogsConfig) *ProjectS3LogsConfig {
+		return &v
+	}).(ProjectS3LogsConfigPtrOutput)
+}
+
+// Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+func (o ProjectS3LogsConfigOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectS3LogsConfig) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is `my-bucket` , and your path prefix is `build-log` , then acceptable formats are `my-bucket/build-log` or `arn:aws:s3:::my-bucket/build-log` .
+func (o ProjectS3LogsConfigOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectS3LogsConfig) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the S3 build logs. Valid values are:
+//
+// - `ENABLED` : S3 build logs are enabled for this build project.
+// - `DISABLED` : S3 build logs are not enabled for this build project.
+func (o ProjectS3LogsConfigOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectS3LogsConfig) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type ProjectS3LogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectS3LogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectS3LogsConfig)(nil)).Elem()
+}
+
+func (o ProjectS3LogsConfigPtrOutput) ToProjectS3LogsConfigPtrOutput() ProjectS3LogsConfigPtrOutput {
+	return o
+}
+
+func (o ProjectS3LogsConfigPtrOutput) ToProjectS3LogsConfigPtrOutputWithContext(ctx context.Context) ProjectS3LogsConfigPtrOutput {
+	return o
+}
+
+func (o ProjectS3LogsConfigPtrOutput) Elem() ProjectS3LogsConfigOutput {
+	return o.ApplyT(func(v *ProjectS3LogsConfig) ProjectS3LogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectS3LogsConfig
+		return ret
+	}).(ProjectS3LogsConfigOutput)
+}
+
+// Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+func (o ProjectS3LogsConfigPtrOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectS3LogsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is `my-bucket` , and your path prefix is `build-log` , then acceptable formats are `my-bucket/build-log` or `arn:aws:s3:::my-bucket/build-log` .
+func (o ProjectS3LogsConfigPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectS3LogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the S3 build logs. Valid values are:
+//
+// - `ENABLED` : S3 build logs are enabled for this build project.
+// - `DISABLED` : S3 build logs are not enabled for this build project.
+func (o ProjectS3LogsConfigPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectS3LogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectScopeConfiguration struct {
+	// The domain of the GitHub Enterprise organization or the GitLab Self Managed group. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE or GITLAB_SELF_MANAGED.
+	Domain *string `pulumi:"domain"`
+	// The name of either the enterprise or organization that will send webhook events to CodeBuild, depending on if the webhook is a global or organization webhook respectively.
+	Name string `pulumi:"name"`
+	// The type of scope for a GitHub or GitLab webhook. The scope default is GITHUB_ORGANIZATION. Allowed values: GITHUB_ORGANIZATION | GITHUB_GLOBAL | GITLAB_GROUP
+	Scope *string `pulumi:"scope"`
+}
+
+// ProjectScopeConfigurationInput is an input type that accepts ProjectScopeConfigurationArgs and ProjectScopeConfigurationOutput values.
+// You can construct a concrete instance of `ProjectScopeConfigurationInput` via:
+//
+//	ProjectScopeConfigurationArgs{...}
+type ProjectScopeConfigurationInput interface {
+	pulumi.Input
+
+	ToProjectScopeConfigurationOutput() ProjectScopeConfigurationOutput
+	ToProjectScopeConfigurationOutputWithContext(context.Context) ProjectScopeConfigurationOutput
+}
+
+type ProjectScopeConfigurationArgs struct {
+	// The domain of the GitHub Enterprise organization or the GitLab Self Managed group. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE or GITLAB_SELF_MANAGED.
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// The name of either the enterprise or organization that will send webhook events to CodeBuild, depending on if the webhook is a global or organization webhook respectively.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of scope for a GitHub or GitLab webhook. The scope default is GITHUB_ORGANIZATION. Allowed values: GITHUB_ORGANIZATION | GITHUB_GLOBAL | GITLAB_GROUP
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (ProjectScopeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectScopeConfiguration)(nil)).Elem()
+}
+
+func (i ProjectScopeConfigurationArgs) ToProjectScopeConfigurationOutput() ProjectScopeConfigurationOutput {
+	return i.ToProjectScopeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ProjectScopeConfigurationArgs) ToProjectScopeConfigurationOutputWithContext(ctx context.Context) ProjectScopeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectScopeConfigurationOutput)
+}
+
+func (i ProjectScopeConfigurationArgs) ToProjectScopeConfigurationPtrOutput() ProjectScopeConfigurationPtrOutput {
+	return i.ToProjectScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectScopeConfigurationArgs) ToProjectScopeConfigurationPtrOutputWithContext(ctx context.Context) ProjectScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectScopeConfigurationOutput).ToProjectScopeConfigurationPtrOutputWithContext(ctx)
+}
+
+// ProjectScopeConfigurationPtrInput is an input type that accepts ProjectScopeConfigurationArgs, ProjectScopeConfigurationPtr and ProjectScopeConfigurationPtrOutput values.
+// You can construct a concrete instance of `ProjectScopeConfigurationPtrInput` via:
+//
+//	        ProjectScopeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectScopeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToProjectScopeConfigurationPtrOutput() ProjectScopeConfigurationPtrOutput
+	ToProjectScopeConfigurationPtrOutputWithContext(context.Context) ProjectScopeConfigurationPtrOutput
+}
+
+type projectScopeConfigurationPtrType ProjectScopeConfigurationArgs
+
+func ProjectScopeConfigurationPtr(v *ProjectScopeConfigurationArgs) ProjectScopeConfigurationPtrInput {
+	return (*projectScopeConfigurationPtrType)(v)
+}
+
+func (*projectScopeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectScopeConfiguration)(nil)).Elem()
+}
+
+func (i *projectScopeConfigurationPtrType) ToProjectScopeConfigurationPtrOutput() ProjectScopeConfigurationPtrOutput {
+	return i.ToProjectScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *projectScopeConfigurationPtrType) ToProjectScopeConfigurationPtrOutputWithContext(ctx context.Context) ProjectScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectScopeConfigurationPtrOutput)
+}
+
+type ProjectScopeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ProjectScopeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectScopeConfiguration)(nil)).Elem()
+}
+
+func (o ProjectScopeConfigurationOutput) ToProjectScopeConfigurationOutput() ProjectScopeConfigurationOutput {
+	return o
+}
+
+func (o ProjectScopeConfigurationOutput) ToProjectScopeConfigurationOutputWithContext(ctx context.Context) ProjectScopeConfigurationOutput {
+	return o
+}
+
+func (o ProjectScopeConfigurationOutput) ToProjectScopeConfigurationPtrOutput() ProjectScopeConfigurationPtrOutput {
+	return o.ToProjectScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectScopeConfigurationOutput) ToProjectScopeConfigurationPtrOutputWithContext(ctx context.Context) ProjectScopeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectScopeConfiguration) *ProjectScopeConfiguration {
+		return &v
+	}).(ProjectScopeConfigurationPtrOutput)
+}
+
+// The domain of the GitHub Enterprise organization or the GitLab Self Managed group. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE or GITLAB_SELF_MANAGED.
+func (o ProjectScopeConfigurationOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectScopeConfiguration) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The name of either the enterprise or organization that will send webhook events to CodeBuild, depending on if the webhook is a global or organization webhook respectively.
+func (o ProjectScopeConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectScopeConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of scope for a GitHub or GitLab webhook. The scope default is GITHUB_ORGANIZATION. Allowed values: GITHUB_ORGANIZATION | GITHUB_GLOBAL | GITLAB_GROUP
+func (o ProjectScopeConfigurationOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectScopeConfiguration) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+type ProjectScopeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectScopeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectScopeConfiguration)(nil)).Elem()
+}
+
+func (o ProjectScopeConfigurationPtrOutput) ToProjectScopeConfigurationPtrOutput() ProjectScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o ProjectScopeConfigurationPtrOutput) ToProjectScopeConfigurationPtrOutputWithContext(ctx context.Context) ProjectScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o ProjectScopeConfigurationPtrOutput) Elem() ProjectScopeConfigurationOutput {
+	return o.ApplyT(func(v *ProjectScopeConfiguration) ProjectScopeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectScopeConfiguration
+		return ret
+	}).(ProjectScopeConfigurationOutput)
+}
+
+// The domain of the GitHub Enterprise organization or the GitLab Self Managed group. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE or GITLAB_SELF_MANAGED.
+func (o ProjectScopeConfigurationPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectScopeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of either the enterprise or organization that will send webhook events to CodeBuild, depending on if the webhook is a global or organization webhook respectively.
+func (o ProjectScopeConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectScopeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of scope for a GitHub or GitLab webhook. The scope default is GITHUB_ORGANIZATION. Allowed values: GITHUB_ORGANIZATION | GITHUB_GLOBAL | GITLAB_GROUP
+func (o ProjectScopeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectScopeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectSource struct {
+	// Information about the authorization settings for AWS CodeBuild to access the source code to be built.
+	Auth *ProjectSourceAuth `pulumi:"auth"`
+	// The build specification for the project. If this value is not provided, then the source code must contain a buildspec file named `buildspec.yml` at the root level. If this value is provided, it can be either a single string containing the entire build specification, or the path to an alternate buildspec file relative to the value of the built-in environment variable `CODEBUILD_SRC_DIR` . The alternate buildspec file can have a name other than `buildspec.yml` , for example `myspec.yml` or `build_spec_qa.yml` or similar. For more information, see the [Build Spec Reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example) in the *AWS CodeBuild User Guide* .
+	BuildSpec *string `pulumi:"buildSpec"`
+	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB` , `GITHUB_ENTERPRISE` , or `BITBUCKET` .
+	BuildStatusConfig *ProjectBuildStatusConfig `pulumi:"buildStatusConfig"`
+	// The depth of history to download. Minimum value is 0. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project. If your source type is Amazon S3, this value is not supported.
+	GitCloneDepth *int `pulumi:"gitCloneDepth"`
+	// Information about the Git submodules configuration for the build project.
+	GitSubmodulesConfig *ProjectGitSubmodulesConfig `pulumi:"gitSubmodulesConfig"`
+	// This is used with GitHub Enterprise only. Set to true to ignore SSL warnings while connecting to your GitHub Enterprise project repository. The default value is `false` . `InsecureSsl` should be used for testing purposes only. It should not be used in a production environment.
+	InsecureSsl *bool `pulumi:"insecureSsl"`
+	// Information about the location of the source code to be built. Valid values include:
+	//
+	// - For source code settings that are specified in the source action of a pipeline in CodePipeline, `location` should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source action instead of this value.
+	// - For source code in an CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the buildspec file (for example, `https://git-codecommit.<region-ID>.amazonaws.com/v1/repos/<repo-name>` ).
+	// - For source code in an Amazon S3 input bucket, one of the following.
+	//
+	// - The path to the ZIP file that contains the source code (for example, `<bucket-name>/<path>/<object-name>.zip` ).
+	// - The path to the folder that contains the source code (for example, `<bucket-name>/<path-to-source-code>/<folder>/` ).
+	// - For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub *Authorize application* page, for *Organization access* , choose *Request access* next to each repository you want to allow AWS CodeBuild to have access to, and then choose *Authorize application* . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+	// - For source code in an GitLab or self-managed GitLab repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitLab account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitLab, on the Connections *Authorize application* page, choose *Authorize* . Then on the AWS CodeConnections *Create GitLab connection* page, choose *Connect to GitLab* . (After you have connected to your GitLab account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to override the default connection and use this connection instead, set the `auth` object's `type` value to `CODECONNECTIONS` in the `source` object.
+	// - For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket *Confirm access to your account* page, choose *Grant access* . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+	//
+	// If you specify `CODEPIPELINE` for the `Type` property, don't specify this property. For all of the other types, you must specify `Location` .
+	Location *string `pulumi:"location"`
+	// Set to true to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an `invalidInputException` is thrown.
+	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
+	// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+	SourceIdentifier *string `pulumi:"sourceIdentifier"`
+	// The type of repository that contains the source code to be built. Valid values include:
+	//
+	// - `BITBUCKET` : The source code is in a Bitbucket repository.
+	// - `CODECOMMIT` : The source code is in an CodeCommit repository.
+	// - `CODEPIPELINE` : The source code settings are specified in the source action of a pipeline in CodePipeline.
+	// - `GITHUB` : The source code is in a GitHub repository.
+	// - `GITHUB_ENTERPRISE` : The source code is in a GitHub Enterprise Server repository.
+	// - `GITLAB` : The source code is in a GitLab repository.
+	// - `GITLAB_SELF_MANAGED` : The source code is in a self-managed GitLab repository.
+	// - `NO_SOURCE` : The project does not have input source code.
+	// - `S3` : The source code is in an Amazon S3 bucket.
+	Type string `pulumi:"type"`
+}
+
+// ProjectSourceInput is an input type that accepts ProjectSourceArgs and ProjectSourceOutput values.
+// You can construct a concrete instance of `ProjectSourceInput` via:
+//
+//	ProjectSourceArgs{...}
+type ProjectSourceInput interface {
+	pulumi.Input
+
+	ToProjectSourceOutput() ProjectSourceOutput
+	ToProjectSourceOutputWithContext(context.Context) ProjectSourceOutput
+}
+
+type ProjectSourceArgs struct {
+	// Information about the authorization settings for AWS CodeBuild to access the source code to be built.
+	Auth ProjectSourceAuthPtrInput `pulumi:"auth"`
+	// The build specification for the project. If this value is not provided, then the source code must contain a buildspec file named `buildspec.yml` at the root level. If this value is provided, it can be either a single string containing the entire build specification, or the path to an alternate buildspec file relative to the value of the built-in environment variable `CODEBUILD_SRC_DIR` . The alternate buildspec file can have a name other than `buildspec.yml` , for example `myspec.yml` or `build_spec_qa.yml` or similar. For more information, see the [Build Spec Reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example) in the *AWS CodeBuild User Guide* .
+	BuildSpec pulumi.StringPtrInput `pulumi:"buildSpec"`
+	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB` , `GITHUB_ENTERPRISE` , or `BITBUCKET` .
+	BuildStatusConfig ProjectBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
+	// The depth of history to download. Minimum value is 0. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project. If your source type is Amazon S3, this value is not supported.
+	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
+	// Information about the Git submodules configuration for the build project.
+	GitSubmodulesConfig ProjectGitSubmodulesConfigPtrInput `pulumi:"gitSubmodulesConfig"`
+	// This is used with GitHub Enterprise only. Set to true to ignore SSL warnings while connecting to your GitHub Enterprise project repository. The default value is `false` . `InsecureSsl` should be used for testing purposes only. It should not be used in a production environment.
+	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
+	// Information about the location of the source code to be built. Valid values include:
+	//
+	// - For source code settings that are specified in the source action of a pipeline in CodePipeline, `location` should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source action instead of this value.
+	// - For source code in an CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the buildspec file (for example, `https://git-codecommit.<region-ID>.amazonaws.com/v1/repos/<repo-name>` ).
+	// - For source code in an Amazon S3 input bucket, one of the following.
+	//
+	// - The path to the ZIP file that contains the source code (for example, `<bucket-name>/<path>/<object-name>.zip` ).
+	// - The path to the folder that contains the source code (for example, `<bucket-name>/<path-to-source-code>/<folder>/` ).
+	// - For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub *Authorize application* page, for *Organization access* , choose *Request access* next to each repository you want to allow AWS CodeBuild to have access to, and then choose *Authorize application* . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+	// - For source code in an GitLab or self-managed GitLab repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitLab account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitLab, on the Connections *Authorize application* page, choose *Authorize* . Then on the AWS CodeConnections *Create GitLab connection* page, choose *Connect to GitLab* . (After you have connected to your GitLab account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to override the default connection and use this connection instead, set the `auth` object's `type` value to `CODECONNECTIONS` in the `source` object.
+	// - For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket *Confirm access to your account* page, choose *Grant access* . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+	//
+	// If you specify `CODEPIPELINE` for the `Type` property, don't specify this property. For all of the other types, you must specify `Location` .
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Set to true to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an `invalidInputException` is thrown.
+	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
+	// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+	SourceIdentifier pulumi.StringPtrInput `pulumi:"sourceIdentifier"`
+	// The type of repository that contains the source code to be built. Valid values include:
+	//
+	// - `BITBUCKET` : The source code is in a Bitbucket repository.
+	// - `CODECOMMIT` : The source code is in an CodeCommit repository.
+	// - `CODEPIPELINE` : The source code settings are specified in the source action of a pipeline in CodePipeline.
+	// - `GITHUB` : The source code is in a GitHub repository.
+	// - `GITHUB_ENTERPRISE` : The source code is in a GitHub Enterprise Server repository.
+	// - `GITLAB` : The source code is in a GitLab repository.
+	// - `GITLAB_SELF_MANAGED` : The source code is in a self-managed GitLab repository.
+	// - `NO_SOURCE` : The project does not have input source code.
+	// - `S3` : The source code is in an Amazon S3 bucket.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSource)(nil)).Elem()
+}
+
+func (i ProjectSourceArgs) ToProjectSourceOutput() ProjectSourceOutput {
+	return i.ToProjectSourceOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceArgs) ToProjectSourceOutputWithContext(ctx context.Context) ProjectSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceOutput)
+}
+
+// ProjectSourceArrayInput is an input type that accepts ProjectSourceArray and ProjectSourceArrayOutput values.
+// You can construct a concrete instance of `ProjectSourceArrayInput` via:
+//
+//	ProjectSourceArray{ ProjectSourceArgs{...} }
+type ProjectSourceArrayInput interface {
+	pulumi.Input
+
+	ToProjectSourceArrayOutput() ProjectSourceArrayOutput
+	ToProjectSourceArrayOutputWithContext(context.Context) ProjectSourceArrayOutput
+}
+
+type ProjectSourceArray []ProjectSourceInput
+
+func (ProjectSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSource)(nil)).Elem()
+}
+
+func (i ProjectSourceArray) ToProjectSourceArrayOutput() ProjectSourceArrayOutput {
+	return i.ToProjectSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceArray) ToProjectSourceArrayOutputWithContext(ctx context.Context) ProjectSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceArrayOutput)
+}
+
+type ProjectSourceOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSource)(nil)).Elem()
+}
+
+func (o ProjectSourceOutput) ToProjectSourceOutput() ProjectSourceOutput {
+	return o
+}
+
+func (o ProjectSourceOutput) ToProjectSourceOutputWithContext(ctx context.Context) ProjectSourceOutput {
+	return o
+}
+
+// Information about the authorization settings for AWS CodeBuild to access the source code to be built.
+func (o ProjectSourceOutput) Auth() ProjectSourceAuthPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *ProjectSourceAuth { return v.Auth }).(ProjectSourceAuthPtrOutput)
+}
+
+// The build specification for the project. If this value is not provided, then the source code must contain a buildspec file named `buildspec.yml` at the root level. If this value is provided, it can be either a single string containing the entire build specification, or the path to an alternate buildspec file relative to the value of the built-in environment variable `CODEBUILD_SRC_DIR` . The alternate buildspec file can have a name other than `buildspec.yml` , for example `myspec.yml` or `build_spec_qa.yml` or similar. For more information, see the [Build Spec Reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example) in the *AWS CodeBuild User Guide* .
+func (o ProjectSourceOutput) BuildSpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *string { return v.BuildSpec }).(pulumi.StringPtrOutput)
+}
+
+// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB` , `GITHUB_ENTERPRISE` , or `BITBUCKET` .
+func (o ProjectSourceOutput) BuildStatusConfig() ProjectBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *ProjectBuildStatusConfig { return v.BuildStatusConfig }).(ProjectBuildStatusConfigPtrOutput)
+}
+
+// The depth of history to download. Minimum value is 0. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project. If your source type is Amazon S3, this value is not supported.
+func (o ProjectSourceOutput) GitCloneDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *int { return v.GitCloneDepth }).(pulumi.IntPtrOutput)
+}
+
+// Information about the Git submodules configuration for the build project.
+func (o ProjectSourceOutput) GitSubmodulesConfig() ProjectGitSubmodulesConfigPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *ProjectGitSubmodulesConfig { return v.GitSubmodulesConfig }).(ProjectGitSubmodulesConfigPtrOutput)
+}
+
+// This is used with GitHub Enterprise only. Set to true to ignore SSL warnings while connecting to your GitHub Enterprise project repository. The default value is `false` . `InsecureSsl` should be used for testing purposes only. It should not be used in a production environment.
+func (o ProjectSourceOutput) InsecureSsl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *bool { return v.InsecureSsl }).(pulumi.BoolPtrOutput)
+}
+
+// Information about the location of the source code to be built. Valid values include:
+//
+// - For source code settings that are specified in the source action of a pipeline in CodePipeline, `location` should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source action instead of this value.
+// - For source code in an CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the buildspec file (for example, `https://git-codecommit.<region-ID>.amazonaws.com/v1/repos/<repo-name>` ).
+// - For source code in an Amazon S3 input bucket, one of the following.
+//
+// - The path to the ZIP file that contains the source code (for example, `<bucket-name>/<path>/<object-name>.zip` ).
+// - The path to the folder that contains the source code (for example, `<bucket-name>/<path-to-source-code>/<folder>/` ).
+// - For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub *Authorize application* page, for *Organization access* , choose *Request access* next to each repository you want to allow AWS CodeBuild to have access to, and then choose *Authorize application* . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+// - For source code in an GitLab or self-managed GitLab repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitLab account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitLab, on the Connections *Authorize application* page, choose *Authorize* . Then on the AWS CodeConnections *Create GitLab connection* page, choose *Connect to GitLab* . (After you have connected to your GitLab account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to override the default connection and use this connection instead, set the `auth` object's `type` value to `CODECONNECTIONS` in the `source` object.
+// - For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket *Confirm access to your account* page, choose *Grant access* . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+//
+// If you specify `CODEPIPELINE` for the `Type` property, don't specify this property. For all of the other types, you must specify `Location` .
+func (o ProjectSourceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Set to true to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an `invalidInputException` is thrown.
+func (o ProjectSourceOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
+}
+
+// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+func (o ProjectSourceOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *string { return v.SourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values include:
+//
+// - `BITBUCKET` : The source code is in a Bitbucket repository.
+// - `CODECOMMIT` : The source code is in an CodeCommit repository.
+// - `CODEPIPELINE` : The source code settings are specified in the source action of a pipeline in CodePipeline.
+// - `GITHUB` : The source code is in a GitHub repository.
+// - `GITHUB_ENTERPRISE` : The source code is in a GitHub Enterprise Server repository.
+// - `GITLAB` : The source code is in a GitLab repository.
+// - `GITLAB_SELF_MANAGED` : The source code is in a self-managed GitLab repository.
+// - `NO_SOURCE` : The project does not have input source code.
+// - `S3` : The source code is in an Amazon S3 bucket.
+func (o ProjectSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSource)(nil)).Elem()
+}
+
+func (o ProjectSourcePtrOutput) ToProjectSourcePtrOutput() ProjectSourcePtrOutput {
+	return o
+}
+
+func (o ProjectSourcePtrOutput) ToProjectSourcePtrOutputWithContext(ctx context.Context) ProjectSourcePtrOutput {
+	return o
+}
+
+func (o ProjectSourcePtrOutput) Elem() ProjectSourceOutput {
+	return o.ApplyT(func(v *ProjectSource) ProjectSource {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSource
+		return ret
+	}).(ProjectSourceOutput)
+}
+
+// Information about the authorization settings for AWS CodeBuild to access the source code to be built.
+func (o ProjectSourcePtrOutput) Auth() ProjectSourceAuthPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *ProjectSourceAuth {
+		if v == nil {
+			return nil
+		}
+		return v.Auth
+	}).(ProjectSourceAuthPtrOutput)
+}
+
+// The build specification for the project. If this value is not provided, then the source code must contain a buildspec file named `buildspec.yml` at the root level. If this value is provided, it can be either a single string containing the entire build specification, or the path to an alternate buildspec file relative to the value of the built-in environment variable `CODEBUILD_SRC_DIR` . The alternate buildspec file can have a name other than `buildspec.yml` , for example `myspec.yml` or `build_spec_qa.yml` or similar. For more information, see the [Build Spec Reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example) in the *AWS CodeBuild User Guide* .
+func (o ProjectSourcePtrOutput) BuildSpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildSpec
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB` , `GITHUB_ENTERPRISE` , or `BITBUCKET` .
+func (o ProjectSourcePtrOutput) BuildStatusConfig() ProjectBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *ProjectBuildStatusConfig {
+		if v == nil {
+			return nil
+		}
+		return v.BuildStatusConfig
+	}).(ProjectBuildStatusConfigPtrOutput)
+}
+
+// The depth of history to download. Minimum value is 0. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project. If your source type is Amazon S3, this value is not supported.
+func (o ProjectSourcePtrOutput) GitCloneDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GitCloneDepth
+	}).(pulumi.IntPtrOutput)
+}
+
+// Information about the Git submodules configuration for the build project.
+func (o ProjectSourcePtrOutput) GitSubmodulesConfig() ProjectGitSubmodulesConfigPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *ProjectGitSubmodulesConfig {
+		if v == nil {
+			return nil
+		}
+		return v.GitSubmodulesConfig
+	}).(ProjectGitSubmodulesConfigPtrOutput)
+}
+
+// This is used with GitHub Enterprise only. Set to true to ignore SSL warnings while connecting to your GitHub Enterprise project repository. The default value is `false` . `InsecureSsl` should be used for testing purposes only. It should not be used in a production environment.
+func (o ProjectSourcePtrOutput) InsecureSsl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InsecureSsl
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Information about the location of the source code to be built. Valid values include:
+//
+// - For source code settings that are specified in the source action of a pipeline in CodePipeline, `location` should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source action instead of this value.
+// - For source code in an CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the buildspec file (for example, `https://git-codecommit.<region-ID>.amazonaws.com/v1/repos/<repo-name>` ).
+// - For source code in an Amazon S3 input bucket, one of the following.
+//
+// - The path to the ZIP file that contains the source code (for example, `<bucket-name>/<path>/<object-name>.zip` ).
+// - The path to the folder that contains the source code (for example, `<bucket-name>/<path-to-source-code>/<folder>/` ).
+// - For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub *Authorize application* page, for *Organization access* , choose *Request access* next to each repository you want to allow AWS CodeBuild to have access to, and then choose *Authorize application* . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+// - For source code in an GitLab or self-managed GitLab repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitLab account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitLab, on the Connections *Authorize application* page, choose *Authorize* . Then on the AWS CodeConnections *Create GitLab connection* page, choose *Connect to GitLab* . (After you have connected to your GitLab account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to override the default connection and use this connection instead, set the `auth` object's `type` value to `CODECONNECTIONS` in the `source` object.
+// - For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket *Confirm access to your account* page, choose *Grant access* . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+//
+// If you specify `CODEPIPELINE` for the `Type` property, don't specify this property. For all of the other types, you must specify `Location` .
+func (o ProjectSourcePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set to true to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an `invalidInputException` is thrown.
+func (o ProjectSourcePtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReportBuildStatus
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+func (o ProjectSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values include:
+//
+// - `BITBUCKET` : The source code is in a Bitbucket repository.
+// - `CODECOMMIT` : The source code is in an CodeCommit repository.
+// - `CODEPIPELINE` : The source code settings are specified in the source action of a pipeline in CodePipeline.
+// - `GITHUB` : The source code is in a GitHub repository.
+// - `GITHUB_ENTERPRISE` : The source code is in a GitHub Enterprise Server repository.
+// - `GITLAB` : The source code is in a GitLab repository.
+// - `GITLAB_SELF_MANAGED` : The source code is in a self-managed GitLab repository.
+// - `NO_SOURCE` : The project does not have input source code.
+// - `S3` : The source code is in an Amazon S3 bucket.
+func (o ProjectSourcePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSource)(nil)).Elem()
+}
+
+func (o ProjectSourceArrayOutput) ToProjectSourceArrayOutput() ProjectSourceArrayOutput {
+	return o
+}
+
+func (o ProjectSourceArrayOutput) ToProjectSourceArrayOutputWithContext(ctx context.Context) ProjectSourceArrayOutput {
+	return o
+}
+
+func (o ProjectSourceArrayOutput) Index(i pulumi.IntInput) ProjectSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSource {
+		return vs[0].([]ProjectSource)[vs[1].(int)]
+	}).(ProjectSourceOutput)
+}
+
+type ProjectSourceAuth struct {
+	// The resource value that applies to the specified authorization type.
+	Resource *string `pulumi:"resource"`
+	// The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.
+	Type string `pulumi:"type"`
+}
+
+// ProjectSourceAuthInput is an input type that accepts ProjectSourceAuthArgs and ProjectSourceAuthOutput values.
+// You can construct a concrete instance of `ProjectSourceAuthInput` via:
+//
+//	ProjectSourceAuthArgs{...}
+type ProjectSourceAuthInput interface {
+	pulumi.Input
+
+	ToProjectSourceAuthOutput() ProjectSourceAuthOutput
+	ToProjectSourceAuthOutputWithContext(context.Context) ProjectSourceAuthOutput
+}
+
+type ProjectSourceAuthArgs struct {
+	// The resource value that applies to the specified authorization type.
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+	// The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectSourceAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceAuth)(nil)).Elem()
+}
+
+func (i ProjectSourceAuthArgs) ToProjectSourceAuthOutput() ProjectSourceAuthOutput {
+	return i.ToProjectSourceAuthOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceAuthArgs) ToProjectSourceAuthOutputWithContext(ctx context.Context) ProjectSourceAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceAuthOutput)
+}
+
+func (i ProjectSourceAuthArgs) ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput {
+	return i.ToProjectSourceAuthPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceAuthArgs) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceAuthOutput).ToProjectSourceAuthPtrOutputWithContext(ctx)
+}
+
+// ProjectSourceAuthPtrInput is an input type that accepts ProjectSourceAuthArgs, ProjectSourceAuthPtr and ProjectSourceAuthPtrOutput values.
+// You can construct a concrete instance of `ProjectSourceAuthPtrInput` via:
+//
+//	        ProjectSourceAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectSourceAuthPtrInput interface {
+	pulumi.Input
+
+	ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput
+	ToProjectSourceAuthPtrOutputWithContext(context.Context) ProjectSourceAuthPtrOutput
+}
+
+type projectSourceAuthPtrType ProjectSourceAuthArgs
+
+func ProjectSourceAuthPtr(v *ProjectSourceAuthArgs) ProjectSourceAuthPtrInput {
+	return (*projectSourceAuthPtrType)(v)
+}
+
+func (*projectSourceAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSourceAuth)(nil)).Elem()
+}
+
+func (i *projectSourceAuthPtrType) ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput {
+	return i.ToProjectSourceAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *projectSourceAuthPtrType) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceAuthPtrOutput)
+}
+
+type ProjectSourceAuthOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceAuth)(nil)).Elem()
+}
+
+func (o ProjectSourceAuthOutput) ToProjectSourceAuthOutput() ProjectSourceAuthOutput {
+	return o
+}
+
+func (o ProjectSourceAuthOutput) ToProjectSourceAuthOutputWithContext(ctx context.Context) ProjectSourceAuthOutput {
+	return o
+}
+
+func (o ProjectSourceAuthOutput) ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput {
+	return o.ToProjectSourceAuthPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectSourceAuthOutput) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSourceAuth) *ProjectSourceAuth {
+		return &v
+	}).(ProjectSourceAuthPtrOutput)
+}
+
+// The resource value that applies to the specified authorization type.
+func (o ProjectSourceAuthOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
+}
+
+// The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.
+func (o ProjectSourceAuthOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSourceAuth) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectSourceAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSourceAuth)(nil)).Elem()
+}
+
+func (o ProjectSourceAuthPtrOutput) ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput {
+	return o
+}
+
+func (o ProjectSourceAuthPtrOutput) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
+	return o
+}
+
+func (o ProjectSourceAuthPtrOutput) Elem() ProjectSourceAuthOutput {
+	return o.ApplyT(func(v *ProjectSourceAuth) ProjectSourceAuth {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSourceAuth
+		return ret
+	}).(ProjectSourceAuthOutput)
+}
+
+// The resource value that applies to the specified authorization type.
+func (o ProjectSourceAuthPtrOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSourceAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Resource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.
+func (o ProjectSourceAuthPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSourceAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectSourceVersion struct {
+	// An identifier for a source in the build project. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+	SourceIdentifier string `pulumi:"sourceIdentifier"`
+	// The source version for the corresponding source identifier. If specified, must be one of:
+	//
+	// - For CodeCommit: the commit ID, branch, or Git tag to use.
+	// - For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format `pr/pull-request-ID` (for example, `pr/25` ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+	// - For GitLab: the commit ID, branch, or Git tag to use.
+	// - For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+	// - For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
+	//
+	// For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
+	SourceVersion *string `pulumi:"sourceVersion"`
+}
+
+// ProjectSourceVersionInput is an input type that accepts ProjectSourceVersionArgs and ProjectSourceVersionOutput values.
+// You can construct a concrete instance of `ProjectSourceVersionInput` via:
+//
+//	ProjectSourceVersionArgs{...}
+type ProjectSourceVersionInput interface {
+	pulumi.Input
+
+	ToProjectSourceVersionOutput() ProjectSourceVersionOutput
+	ToProjectSourceVersionOutputWithContext(context.Context) ProjectSourceVersionOutput
+}
+
+type ProjectSourceVersionArgs struct {
+	// An identifier for a source in the build project. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
+	// The source version for the corresponding source identifier. If specified, must be one of:
+	//
+	// - For CodeCommit: the commit ID, branch, or Git tag to use.
+	// - For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format `pr/pull-request-ID` (for example, `pr/25` ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+	// - For GitLab: the commit ID, branch, or Git tag to use.
+	// - For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+	// - For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
+	//
+	// For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
+	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
+}
+
+func (ProjectSourceVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceVersion)(nil)).Elem()
+}
+
+func (i ProjectSourceVersionArgs) ToProjectSourceVersionOutput() ProjectSourceVersionOutput {
+	return i.ToProjectSourceVersionOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceVersionArgs) ToProjectSourceVersionOutputWithContext(ctx context.Context) ProjectSourceVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceVersionOutput)
+}
+
+// ProjectSourceVersionArrayInput is an input type that accepts ProjectSourceVersionArray and ProjectSourceVersionArrayOutput values.
+// You can construct a concrete instance of `ProjectSourceVersionArrayInput` via:
+//
+//	ProjectSourceVersionArray{ ProjectSourceVersionArgs{...} }
+type ProjectSourceVersionArrayInput interface {
+	pulumi.Input
+
+	ToProjectSourceVersionArrayOutput() ProjectSourceVersionArrayOutput
+	ToProjectSourceVersionArrayOutputWithContext(context.Context) ProjectSourceVersionArrayOutput
+}
+
+type ProjectSourceVersionArray []ProjectSourceVersionInput
+
+func (ProjectSourceVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSourceVersion)(nil)).Elem()
+}
+
+func (i ProjectSourceVersionArray) ToProjectSourceVersionArrayOutput() ProjectSourceVersionArrayOutput {
+	return i.ToProjectSourceVersionArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceVersionArray) ToProjectSourceVersionArrayOutputWithContext(ctx context.Context) ProjectSourceVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceVersionArrayOutput)
+}
+
+type ProjectSourceVersionOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceVersion)(nil)).Elem()
+}
+
+func (o ProjectSourceVersionOutput) ToProjectSourceVersionOutput() ProjectSourceVersionOutput {
+	return o
+}
+
+func (o ProjectSourceVersionOutput) ToProjectSourceVersionOutputWithContext(ctx context.Context) ProjectSourceVersionOutput {
+	return o
+}
+
+// An identifier for a source in the build project. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+func (o ProjectSourceVersionOutput) SourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSourceVersion) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+}
+
+// The source version for the corresponding source identifier. If specified, must be one of:
+//
+// - For CodeCommit: the commit ID, branch, or Git tag to use.
+// - For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format `pr/pull-request-ID` (for example, `pr/25` ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+// - For GitLab: the commit ID, branch, or Git tag to use.
+// - For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+// - For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
+//
+// For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
+func (o ProjectSourceVersionOutput) SourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSourceVersion) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSourceVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSourceVersion)(nil)).Elem()
+}
+
+func (o ProjectSourceVersionArrayOutput) ToProjectSourceVersionArrayOutput() ProjectSourceVersionArrayOutput {
+	return o
+}
+
+func (o ProjectSourceVersionArrayOutput) ToProjectSourceVersionArrayOutputWithContext(ctx context.Context) ProjectSourceVersionArrayOutput {
+	return o
+}
+
+func (o ProjectSourceVersionArrayOutput) Index(i pulumi.IntInput) ProjectSourceVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSourceVersion {
+		return vs[0].([]ProjectSourceVersion)[vs[1].(int)]
+	}).(ProjectSourceVersionOutput)
+}
+
+type ProjectTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+type ProjectTriggers struct {
+	// Specifies the type of build this webhook will trigger. Allowed values are:
+	//
+	// - **BUILD** - A single build
+	// - **BUILD_BATCH** - A batch build
+	BuildType *string `pulumi:"buildType"`
+	// A list of lists of `WebhookFilter` objects used to determine which webhook events are triggered. At least one `WebhookFilter` in the array must specify `EVENT` as its type.
+	FilterGroups           [][]ProjectWebhookFilter       `pulumi:"filterGroups"`
+	PullRequestBuildPolicy *ProjectPullRequestBuildPolicy `pulumi:"pullRequestBuildPolicy"`
+	// Contains configuration information about the scope for a webhook.
+	ScopeConfiguration *ProjectScopeConfiguration `pulumi:"scopeConfiguration"`
+	// Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+	Webhook *bool `pulumi:"webhook"`
+}
+
+// ProjectTriggersInput is an input type that accepts ProjectTriggersArgs and ProjectTriggersOutput values.
+// You can construct a concrete instance of `ProjectTriggersInput` via:
+//
+//	ProjectTriggersArgs{...}
+type ProjectTriggersInput interface {
+	pulumi.Input
+
+	ToProjectTriggersOutput() ProjectTriggersOutput
+	ToProjectTriggersOutputWithContext(context.Context) ProjectTriggersOutput
+}
+
+type ProjectTriggersArgs struct {
+	// Specifies the type of build this webhook will trigger. Allowed values are:
+	//
+	// - **BUILD** - A single build
+	// - **BUILD_BATCH** - A batch build
+	BuildType pulumi.StringPtrInput `pulumi:"buildType"`
+	// A list of lists of `WebhookFilter` objects used to determine which webhook events are triggered. At least one `WebhookFilter` in the array must specify `EVENT` as its type.
+	FilterGroups           ProjectWebhookFilterArrayArrayInput   `pulumi:"filterGroups"`
+	PullRequestBuildPolicy ProjectPullRequestBuildPolicyPtrInput `pulumi:"pullRequestBuildPolicy"`
+	// Contains configuration information about the scope for a webhook.
+	ScopeConfiguration ProjectScopeConfigurationPtrInput `pulumi:"scopeConfiguration"`
+	// Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+	Webhook pulumi.BoolPtrInput `pulumi:"webhook"`
+}
+
+func (ProjectTriggersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTriggers)(nil)).Elem()
+}
+
+func (i ProjectTriggersArgs) ToProjectTriggersOutput() ProjectTriggersOutput {
+	return i.ToProjectTriggersOutputWithContext(context.Background())
+}
+
+func (i ProjectTriggersArgs) ToProjectTriggersOutputWithContext(ctx context.Context) ProjectTriggersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTriggersOutput)
+}
+
+func (i ProjectTriggersArgs) ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput {
+	return i.ToProjectTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectTriggersArgs) ToProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTriggersOutput).ToProjectTriggersPtrOutputWithContext(ctx)
+}
+
+// ProjectTriggersPtrInput is an input type that accepts ProjectTriggersArgs, ProjectTriggersPtr and ProjectTriggersPtrOutput values.
+// You can construct a concrete instance of `ProjectTriggersPtrInput` via:
+//
+//	        ProjectTriggersArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectTriggersPtrInput interface {
+	pulumi.Input
+
+	ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput
+	ToProjectTriggersPtrOutputWithContext(context.Context) ProjectTriggersPtrOutput
+}
+
+type projectTriggersPtrType ProjectTriggersArgs
+
+func ProjectTriggersPtr(v *ProjectTriggersArgs) ProjectTriggersPtrInput {
+	return (*projectTriggersPtrType)(v)
+}
+
+func (*projectTriggersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTriggers)(nil)).Elem()
+}
+
+func (i *projectTriggersPtrType) ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput {
+	return i.ToProjectTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i *projectTriggersPtrType) ToProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTriggersPtrOutput)
+}
+
+type ProjectTriggersOutput struct{ *pulumi.OutputState }
+
+func (ProjectTriggersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTriggers)(nil)).Elem()
+}
+
+func (o ProjectTriggersOutput) ToProjectTriggersOutput() ProjectTriggersOutput {
+	return o
+}
+
+func (o ProjectTriggersOutput) ToProjectTriggersOutputWithContext(ctx context.Context) ProjectTriggersOutput {
+	return o
+}
+
+func (o ProjectTriggersOutput) ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput {
+	return o.ToProjectTriggersPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectTriggersOutput) ToProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectTriggersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectTriggers) *ProjectTriggers {
+		return &v
+	}).(ProjectTriggersPtrOutput)
+}
+
+// Specifies the type of build this webhook will trigger. Allowed values are:
+//
+// - **BUILD** - A single build
+// - **BUILD_BATCH** - A batch build
+func (o ProjectTriggersOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectTriggers) *string { return v.BuildType }).(pulumi.StringPtrOutput)
+}
+
+// A list of lists of `WebhookFilter` objects used to determine which webhook events are triggered. At least one `WebhookFilter` in the array must specify `EVENT` as its type.
+func (o ProjectTriggersOutput) FilterGroups() ProjectWebhookFilterArrayArrayOutput {
+	return o.ApplyT(func(v ProjectTriggers) [][]ProjectWebhookFilter { return v.FilterGroups }).(ProjectWebhookFilterArrayArrayOutput)
+}
+
+func (o ProjectTriggersOutput) PullRequestBuildPolicy() ProjectPullRequestBuildPolicyPtrOutput {
+	return o.ApplyT(func(v ProjectTriggers) *ProjectPullRequestBuildPolicy { return v.PullRequestBuildPolicy }).(ProjectPullRequestBuildPolicyPtrOutput)
+}
+
+// Contains configuration information about the scope for a webhook.
+func (o ProjectTriggersOutput) ScopeConfiguration() ProjectScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v ProjectTriggers) *ProjectScopeConfiguration { return v.ScopeConfiguration }).(ProjectScopeConfigurationPtrOutput)
+}
+
+// Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+func (o ProjectTriggersOutput) Webhook() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectTriggers) *bool { return v.Webhook }).(pulumi.BoolPtrOutput)
+}
+
+type ProjectTriggersPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectTriggersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTriggers)(nil)).Elem()
+}
+
+func (o ProjectTriggersPtrOutput) ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput {
+	return o
+}
+
+func (o ProjectTriggersPtrOutput) ToProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectTriggersPtrOutput {
+	return o
+}
+
+func (o ProjectTriggersPtrOutput) Elem() ProjectTriggersOutput {
+	return o.ApplyT(func(v *ProjectTriggers) ProjectTriggers {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectTriggers
+		return ret
+	}).(ProjectTriggersOutput)
+}
+
+// Specifies the type of build this webhook will trigger. Allowed values are:
+//
+// - **BUILD** - A single build
+// - **BUILD_BATCH** - A batch build
+func (o ProjectTriggersPtrOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectTriggers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of lists of `WebhookFilter` objects used to determine which webhook events are triggered. At least one `WebhookFilter` in the array must specify `EVENT` as its type.
+func (o ProjectTriggersPtrOutput) FilterGroups() ProjectWebhookFilterArrayArrayOutput {
+	return o.ApplyT(func(v *ProjectTriggers) [][]ProjectWebhookFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FilterGroups
+	}).(ProjectWebhookFilterArrayArrayOutput)
+}
+
+func (o ProjectTriggersPtrOutput) PullRequestBuildPolicy() ProjectPullRequestBuildPolicyPtrOutput {
+	return o.ApplyT(func(v *ProjectTriggers) *ProjectPullRequestBuildPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequestBuildPolicy
+	}).(ProjectPullRequestBuildPolicyPtrOutput)
+}
+
+// Contains configuration information about the scope for a webhook.
+func (o ProjectTriggersPtrOutput) ScopeConfiguration() ProjectScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ProjectTriggers) *ProjectScopeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ScopeConfiguration
+	}).(ProjectScopeConfigurationPtrOutput)
+}
+
+// Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+func (o ProjectTriggersPtrOutput) Webhook() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectTriggers) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Webhook
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ProjectVpcConfig struct {
+	// A list of one or more security groups IDs in your Amazon VPC. The maximum count is 5.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of one or more subnet IDs in your Amazon VPC. The maximum count is 16.
+	Subnets []string `pulumi:"subnets"`
+	// The ID of the Amazon VPC.
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// ProjectVpcConfigInput is an input type that accepts ProjectVpcConfigArgs and ProjectVpcConfigOutput values.
+// You can construct a concrete instance of `ProjectVpcConfigInput` via:
+//
+//	ProjectVpcConfigArgs{...}
+type ProjectVpcConfigInput interface {
+	pulumi.Input
+
+	ToProjectVpcConfigOutput() ProjectVpcConfigOutput
+	ToProjectVpcConfigOutputWithContext(context.Context) ProjectVpcConfigOutput
+}
+
+type ProjectVpcConfigArgs struct {
+	// A list of one or more security groups IDs in your Amazon VPC. The maximum count is 5.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of one or more subnet IDs in your Amazon VPC. The maximum count is 16.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	// The ID of the Amazon VPC.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (ProjectVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectVpcConfig)(nil)).Elem()
+}
+
+func (i ProjectVpcConfigArgs) ToProjectVpcConfigOutput() ProjectVpcConfigOutput {
+	return i.ToProjectVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectVpcConfigArgs) ToProjectVpcConfigOutputWithContext(ctx context.Context) ProjectVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectVpcConfigOutput)
+}
+
+func (i ProjectVpcConfigArgs) ToProjectVpcConfigPtrOutput() ProjectVpcConfigPtrOutput {
+	return i.ToProjectVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectVpcConfigArgs) ToProjectVpcConfigPtrOutputWithContext(ctx context.Context) ProjectVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectVpcConfigOutput).ToProjectVpcConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectVpcConfigPtrInput is an input type that accepts ProjectVpcConfigArgs, ProjectVpcConfigPtr and ProjectVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectVpcConfigPtrInput` via:
+//
+//	        ProjectVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectVpcConfigPtrOutput() ProjectVpcConfigPtrOutput
+	ToProjectVpcConfigPtrOutputWithContext(context.Context) ProjectVpcConfigPtrOutput
+}
+
+type projectVpcConfigPtrType ProjectVpcConfigArgs
+
+func ProjectVpcConfigPtr(v *ProjectVpcConfigArgs) ProjectVpcConfigPtrInput {
+	return (*projectVpcConfigPtrType)(v)
+}
+
+func (*projectVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectVpcConfig)(nil)).Elem()
+}
+
+func (i *projectVpcConfigPtrType) ToProjectVpcConfigPtrOutput() ProjectVpcConfigPtrOutput {
+	return i.ToProjectVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectVpcConfigPtrType) ToProjectVpcConfigPtrOutputWithContext(ctx context.Context) ProjectVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectVpcConfigPtrOutput)
+}
+
+type ProjectVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectVpcConfig)(nil)).Elem()
+}
+
+func (o ProjectVpcConfigOutput) ToProjectVpcConfigOutput() ProjectVpcConfigOutput {
+	return o
+}
+
+func (o ProjectVpcConfigOutput) ToProjectVpcConfigOutputWithContext(ctx context.Context) ProjectVpcConfigOutput {
+	return o
+}
+
+func (o ProjectVpcConfigOutput) ToProjectVpcConfigPtrOutput() ProjectVpcConfigPtrOutput {
+	return o.ToProjectVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectVpcConfigOutput) ToProjectVpcConfigPtrOutputWithContext(ctx context.Context) ProjectVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectVpcConfig) *ProjectVpcConfig {
+		return &v
+	}).(ProjectVpcConfigPtrOutput)
+}
+
+// A list of one or more security groups IDs in your Amazon VPC. The maximum count is 5.
+func (o ProjectVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of one or more subnet IDs in your Amazon VPC. The maximum count is 16.
+func (o ProjectVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Amazon VPC.
+func (o ProjectVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type ProjectVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectVpcConfig)(nil)).Elem()
+}
+
+func (o ProjectVpcConfigPtrOutput) ToProjectVpcConfigPtrOutput() ProjectVpcConfigPtrOutput {
+	return o
+}
+
+func (o ProjectVpcConfigPtrOutput) ToProjectVpcConfigPtrOutputWithContext(ctx context.Context) ProjectVpcConfigPtrOutput {
+	return o
+}
+
+func (o ProjectVpcConfigPtrOutput) Elem() ProjectVpcConfigOutput {
+	return o.ApplyT(func(v *ProjectVpcConfig) ProjectVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectVpcConfig
+		return ret
+	}).(ProjectVpcConfigOutput)
+}
+
+// A list of one or more security groups IDs in your Amazon VPC. The maximum count is 5.
+func (o ProjectVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of one or more subnet IDs in your Amazon VPC. The maximum count is 16.
+func (o ProjectVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Amazon VPC.
+func (o ProjectVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectWebhookFilter struct {
+	ExcludeMatchedPattern *bool  `pulumi:"excludeMatchedPattern"`
+	Pattern               string `pulumi:"pattern"`
+	Type                  string `pulumi:"type"`
+}
+
+// ProjectWebhookFilterInput is an input type that accepts ProjectWebhookFilterArgs and ProjectWebhookFilterOutput values.
+// You can construct a concrete instance of `ProjectWebhookFilterInput` via:
+//
+//	ProjectWebhookFilterArgs{...}
+type ProjectWebhookFilterInput interface {
+	pulumi.Input
+
+	ToProjectWebhookFilterOutput() ProjectWebhookFilterOutput
+	ToProjectWebhookFilterOutputWithContext(context.Context) ProjectWebhookFilterOutput
+}
+
+type ProjectWebhookFilterArgs struct {
+	ExcludeMatchedPattern pulumi.BoolPtrInput `pulumi:"excludeMatchedPattern"`
+	Pattern               pulumi.StringInput  `pulumi:"pattern"`
+	Type                  pulumi.StringInput  `pulumi:"type"`
+}
+
+func (ProjectWebhookFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectWebhookFilter)(nil)).Elem()
+}
+
+func (i ProjectWebhookFilterArgs) ToProjectWebhookFilterOutput() ProjectWebhookFilterOutput {
+	return i.ToProjectWebhookFilterOutputWithContext(context.Background())
+}
+
+func (i ProjectWebhookFilterArgs) ToProjectWebhookFilterOutputWithContext(ctx context.Context) ProjectWebhookFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectWebhookFilterOutput)
+}
+
+// ProjectWebhookFilterArrayInput is an input type that accepts ProjectWebhookFilterArray and ProjectWebhookFilterArrayOutput values.
+// You can construct a concrete instance of `ProjectWebhookFilterArrayInput` via:
+//
+//	ProjectWebhookFilterArray{ ProjectWebhookFilterArgs{...} }
+type ProjectWebhookFilterArrayInput interface {
+	pulumi.Input
+
+	ToProjectWebhookFilterArrayOutput() ProjectWebhookFilterArrayOutput
+	ToProjectWebhookFilterArrayOutputWithContext(context.Context) ProjectWebhookFilterArrayOutput
+}
+
+type ProjectWebhookFilterArray []ProjectWebhookFilterInput
+
+func (ProjectWebhookFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectWebhookFilter)(nil)).Elem()
+}
+
+func (i ProjectWebhookFilterArray) ToProjectWebhookFilterArrayOutput() ProjectWebhookFilterArrayOutput {
+	return i.ToProjectWebhookFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectWebhookFilterArray) ToProjectWebhookFilterArrayOutputWithContext(ctx context.Context) ProjectWebhookFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectWebhookFilterArrayOutput)
+}
+
+type ProjectWebhookFilterOutput struct{ *pulumi.OutputState }
+
+func (ProjectWebhookFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectWebhookFilter)(nil)).Elem()
+}
+
+func (o ProjectWebhookFilterOutput) ToProjectWebhookFilterOutput() ProjectWebhookFilterOutput {
+	return o
+}
+
+func (o ProjectWebhookFilterOutput) ToProjectWebhookFilterOutputWithContext(ctx context.Context) ProjectWebhookFilterOutput {
+	return o
+}
+
+func (o ProjectWebhookFilterOutput) ExcludeMatchedPattern() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectWebhookFilter) *bool { return v.ExcludeMatchedPattern }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectWebhookFilterOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectWebhookFilter) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+func (o ProjectWebhookFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectWebhookFilter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectWebhookFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectWebhookFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectWebhookFilter)(nil)).Elem()
+}
+
+func (o ProjectWebhookFilterArrayOutput) ToProjectWebhookFilterArrayOutput() ProjectWebhookFilterArrayOutput {
+	return o
+}
+
+func (o ProjectWebhookFilterArrayOutput) ToProjectWebhookFilterArrayOutputWithContext(ctx context.Context) ProjectWebhookFilterArrayOutput {
+	return o
+}
+
+func (o ProjectWebhookFilterArrayOutput) Index(i pulumi.IntInput) ProjectWebhookFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectWebhookFilter {
+		return vs[0].([]ProjectWebhookFilter)[vs[1].(int)]
+	}).(ProjectWebhookFilterOutput)
+}
+
 type ReportGroupReportExportConfig struct {
 	// The export configuration type. Valid values are:
 	//
@@ -1336,6 +6043,51 @@ type ReportGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ProjectWebhookFilterArrayArray []ProjectWebhookFilterArrayInput
+
+func (ProjectWebhookFilterArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]ProjectWebhookFilter)(nil)).Elem()
+}
+
+func (i ProjectWebhookFilterArrayArray) ToProjectWebhookFilterArrayArrayOutput() ProjectWebhookFilterArrayArrayOutput {
+	return i.ToProjectWebhookFilterArrayArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectWebhookFilterArrayArray) ToProjectWebhookFilterArrayArrayOutputWithContext(ctx context.Context) ProjectWebhookFilterArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectWebhookFilterArrayArrayOutput)
+}
+
+// ProjectWebhookFilterArrayArrayInput is an input type that accepts ProjectWebhookFilterArrayArray and ProjectWebhookFilterArrayArrayOutput values.
+// You can construct a concrete instance of `ProjectWebhookFilterArrayArrayInput` via:
+//
+//	ProjectWebhookFilterArrayArray{ ProjectWebhookFilterArray{ ProjectWebhookFilterArgs{...} } }
+type ProjectWebhookFilterArrayArrayInput interface {
+	pulumi.Input
+
+	ToProjectWebhookFilterArrayArrayOutput() ProjectWebhookFilterArrayArrayOutput
+	ToProjectWebhookFilterArrayArrayOutputWithContext(context.Context) ProjectWebhookFilterArrayArrayOutput
+}
+
+type ProjectWebhookFilterArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectWebhookFilterArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]ProjectWebhookFilter)(nil)).Elem()
+}
+
+func (o ProjectWebhookFilterArrayArrayOutput) ToProjectWebhookFilterArrayArrayOutput() ProjectWebhookFilterArrayArrayOutput {
+	return o
+}
+
+func (o ProjectWebhookFilterArrayArrayOutput) ToProjectWebhookFilterArrayArrayOutputWithContext(ctx context.Context) ProjectWebhookFilterArrayArrayOutput {
+	return o
+}
+
+func (o ProjectWebhookFilterArrayArrayOutput) Index(i pulumi.IntInput) ProjectWebhookFilterArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []ProjectWebhookFilter {
+		return vs[0].([][]ProjectWebhookFilter)[vs[1].(int)]
+	}).(ProjectWebhookFilterArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationInput)(nil)).Elem(), FleetComputeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationPtrInput)(nil)).Elem(), FleetComputeConfigurationArgs{})
@@ -1349,9 +6101,55 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetTrackingScalingConfigurationArrayInput)(nil)).Elem(), FleetTargetTrackingScalingConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigInput)(nil)).Elem(), FleetVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigPtrInput)(nil)).Elem(), FleetVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsInput)(nil)).Elem(), ProjectArtifactsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsArrayInput)(nil)).Elem(), ProjectArtifactsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBatchRestrictionsInput)(nil)).Elem(), ProjectBatchRestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBatchRestrictionsPtrInput)(nil)).Elem(), ProjectBatchRestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBuildBatchConfigInput)(nil)).Elem(), ProjectBuildBatchConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBuildBatchConfigPtrInput)(nil)).Elem(), ProjectBuildBatchConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBuildStatusConfigInput)(nil)).Elem(), ProjectBuildStatusConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBuildStatusConfigPtrInput)(nil)).Elem(), ProjectBuildStatusConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCacheInput)(nil)).Elem(), ProjectCacheArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCachePtrInput)(nil)).Elem(), ProjectCacheArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCloudWatchLogsConfigInput)(nil)).Elem(), ProjectCloudWatchLogsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCloudWatchLogsConfigPtrInput)(nil)).Elem(), ProjectCloudWatchLogsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDockerServerInput)(nil)).Elem(), ProjectDockerServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDockerServerPtrInput)(nil)).Elem(), ProjectDockerServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentInput)(nil)).Elem(), ProjectEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentVariableInput)(nil)).Elem(), ProjectEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentVariableArrayInput)(nil)).Elem(), ProjectEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFileSystemLocationInput)(nil)).Elem(), ProjectFileSystemLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFileSystemLocationArrayInput)(nil)).Elem(), ProjectFileSystemLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFleetInput)(nil)).Elem(), ProjectFleetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFleetPtrInput)(nil)).Elem(), ProjectFleetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectGitSubmodulesConfigInput)(nil)).Elem(), ProjectGitSubmodulesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectGitSubmodulesConfigPtrInput)(nil)).Elem(), ProjectGitSubmodulesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectLogsConfigInput)(nil)).Elem(), ProjectLogsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectLogsConfigPtrInput)(nil)).Elem(), ProjectLogsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectPullRequestBuildPolicyInput)(nil)).Elem(), ProjectPullRequestBuildPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectPullRequestBuildPolicyPtrInput)(nil)).Elem(), ProjectPullRequestBuildPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectRegistryCredentialInput)(nil)).Elem(), ProjectRegistryCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectRegistryCredentialPtrInput)(nil)).Elem(), ProjectRegistryCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectS3LogsConfigInput)(nil)).Elem(), ProjectS3LogsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectS3LogsConfigPtrInput)(nil)).Elem(), ProjectS3LogsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectScopeConfigurationInput)(nil)).Elem(), ProjectScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectScopeConfigurationPtrInput)(nil)).Elem(), ProjectScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceInput)(nil)).Elem(), ProjectSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceArrayInput)(nil)).Elem(), ProjectSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceAuthInput)(nil)).Elem(), ProjectSourceAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceAuthPtrInput)(nil)).Elem(), ProjectSourceAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceVersionInput)(nil)).Elem(), ProjectSourceVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceVersionArrayInput)(nil)).Elem(), ProjectSourceVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTriggersInput)(nil)).Elem(), ProjectTriggersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTriggersPtrInput)(nil)).Elem(), ProjectTriggersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectVpcConfigInput)(nil)).Elem(), ProjectVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectVpcConfigPtrInput)(nil)).Elem(), ProjectVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectWebhookFilterInput)(nil)).Elem(), ProjectWebhookFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectWebhookFilterArrayInput)(nil)).Elem(), ProjectWebhookFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupReportExportConfigInput)(nil)).Elem(), ReportGroupReportExportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigInput)(nil)).Elem(), ReportGroupS3ReportExportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigPtrInput)(nil)).Elem(), ReportGroupS3ReportExportConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectWebhookFilterArrayArrayInput)(nil)).Elem(), ProjectWebhookFilterArrayArray{})
 	pulumi.RegisterOutputType(FleetComputeConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetComputeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetProxyConfigurationOutput{})
@@ -1364,8 +6162,57 @@ func init() {
 	pulumi.RegisterOutputType(FleetTargetTrackingScalingConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectArtifactsOutput{})
+	pulumi.RegisterOutputType(ProjectArtifactsPtrOutput{})
+	pulumi.RegisterOutputType(ProjectArtifactsArrayOutput{})
+	pulumi.RegisterOutputType(ProjectBatchRestrictionsOutput{})
+	pulumi.RegisterOutputType(ProjectBatchRestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(ProjectBuildBatchConfigOutput{})
+	pulumi.RegisterOutputType(ProjectBuildBatchConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectBuildStatusConfigOutput{})
+	pulumi.RegisterOutputType(ProjectBuildStatusConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectCacheOutput{})
+	pulumi.RegisterOutputType(ProjectCachePtrOutput{})
+	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigOutput{})
+	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectDockerServerOutput{})
+	pulumi.RegisterOutputType(ProjectDockerServerPtrOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(ProjectFileSystemLocationOutput{})
+	pulumi.RegisterOutputType(ProjectFileSystemLocationArrayOutput{})
+	pulumi.RegisterOutputType(ProjectFleetOutput{})
+	pulumi.RegisterOutputType(ProjectFleetPtrOutput{})
+	pulumi.RegisterOutputType(ProjectGitSubmodulesConfigOutput{})
+	pulumi.RegisterOutputType(ProjectGitSubmodulesConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectLogsConfigOutput{})
+	pulumi.RegisterOutputType(ProjectLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectPullRequestBuildPolicyOutput{})
+	pulumi.RegisterOutputType(ProjectPullRequestBuildPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ProjectRegistryCredentialOutput{})
+	pulumi.RegisterOutputType(ProjectRegistryCredentialPtrOutput{})
+	pulumi.RegisterOutputType(ProjectS3LogsConfigOutput{})
+	pulumi.RegisterOutputType(ProjectS3LogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectScopeConfigurationOutput{})
+	pulumi.RegisterOutputType(ProjectScopeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ProjectSourceOutput{})
+	pulumi.RegisterOutputType(ProjectSourcePtrOutput{})
+	pulumi.RegisterOutputType(ProjectSourceArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSourceAuthOutput{})
+	pulumi.RegisterOutputType(ProjectSourceAuthPtrOutput{})
+	pulumi.RegisterOutputType(ProjectSourceVersionOutput{})
+	pulumi.RegisterOutputType(ProjectSourceVersionArrayOutput{})
+	pulumi.RegisterOutputType(ProjectTriggersOutput{})
+	pulumi.RegisterOutputType(ProjectTriggersPtrOutput{})
+	pulumi.RegisterOutputType(ProjectVpcConfigOutput{})
+	pulumi.RegisterOutputType(ProjectVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectWebhookFilterOutput{})
+	pulumi.RegisterOutputType(ProjectWebhookFilterArrayOutput{})
 	pulumi.RegisterOutputType(ReportGroupReportExportConfigOutput{})
 	pulumi.RegisterOutputType(ReportGroupReportExportConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigOutput{})
 	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectWebhookFilterArrayArrayOutput{})
 }

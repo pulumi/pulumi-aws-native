@@ -1199,6 +1199,33 @@ export const AnalysisWordCloudWordScaling = {
 
 export type AnalysisWordCloudWordScaling = (typeof AnalysisWordCloudWordScaling)[keyof typeof AnalysisWordCloudWordScaling];
 
+export const ApprovalPolicyApplicableToType = {
+    Group: "GROUP",
+} as const;
+
+export type ApprovalPolicyApplicableToType = (typeof ApprovalPolicyApplicableToType)[keyof typeof ApprovalPolicyApplicableToType];
+
+export const ApprovalPolicyAssetType = {
+    Agent: "AGENT",
+    Space: "SPACE",
+    KnowledgeBase: "KNOWLEDGE_BASE",
+    Flow: "FLOW",
+} as const;
+
+/**
+ * Asset types that can be governed by approval policies.
+ */
+export type ApprovalPolicyAssetType = (typeof ApprovalPolicyAssetType)[keyof typeof ApprovalPolicyAssetType];
+
+export const ApprovalPolicyGovernedAction = {
+    Share: "SHARE",
+} as const;
+
+/**
+ * Actions that can be governed by approval policies.
+ */
+export type ApprovalPolicyGovernedAction = (typeof ApprovalPolicyGovernedAction)[keyof typeof ApprovalPolicyGovernedAction];
+
 export const CustomPermissionsCapabilityState = {
     Deny: "DENY",
 } as const;

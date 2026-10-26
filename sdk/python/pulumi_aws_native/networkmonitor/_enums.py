@@ -8,6 +8,9 @@ from enum import Enum
 
 __all__ = [
     'MonitorState',
+    'ProbeAddressFamily',
+    'ProbeProtocol',
+    'ProbeState',
 ]
 
 
@@ -21,3 +24,34 @@ class MonitorState(_builtins.str, Enum):
     INACTIVE = "INACTIVE"
     ERROR = "ERROR"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:networkmonitor:ProbeAddressFamily")
+class ProbeAddressFamily(_builtins.str, Enum):
+    """
+    The IP address family the probe uses, computed by the service from the source and destination.
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+
+
+@pulumi.type_token("aws-native:networkmonitor:ProbeProtocol")
+class ProbeProtocol(_builtins.str, Enum):
+    """
+    The protocol the probe uses.
+    """
+    TCP = "TCP"
+    ICMP = "ICMP"
+
+
+@pulumi.type_token("aws-native:networkmonitor:ProbeState")
+class ProbeState(_builtins.str, Enum):
+    """
+    The state of the probe.
+    """
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    ERROR = "ERROR"
+    DELETING = "DELETING"
+    DELETED = "DELETED"

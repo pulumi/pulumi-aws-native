@@ -30,6 +30,8 @@ __all__ = [
     'AlarmWarmUpConfiguration',
     'CompositeAlarmActionConfiguration',
     'CompositeAlarmAlarmTagsPropagation',
+    'DomainForOrganizationIdentityCenterConfiguration',
+    'DomainForOrganizationIdentityProviderConfiguration',
     'IntegrationCredential',
     'IntegrationCredentialApiKeyCredentialProperties',
     'LogAlarmActionConfiguration',
@@ -798,6 +800,83 @@ class CompositeAlarmAlarmTagsPropagation(dict):
         The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
         """
         return pulumi.get(self, "included_tag_keys")
+
+
+@pulumi.output_type
+class DomainForOrganizationIdentityCenterConfiguration(dict):
+    """
+    Identity Center configuration. Required when identityProviders includes IDC.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityCenterInstanceArn":
+            suggest = "identity_center_instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainForOrganizationIdentityCenterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainForOrganizationIdentityCenterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainForOrganizationIdentityCenterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_center_instance_arn: Optional[_builtins.str] = None):
+        """
+        Identity Center configuration. Required when identityProviders includes IDC.
+
+        :param _builtins.str identity_center_instance_arn: Identity Center instance ARN
+        """
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[_builtins.str]:
+        """
+        Identity Center instance ARN
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+
+@pulumi.output_type
+class DomainForOrganizationIdentityProviderConfiguration(dict):
+    """
+    Identity provider configuration for the domain.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityCenterConfiguration":
+            suggest = "identity_center_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainForOrganizationIdentityProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainForOrganizationIdentityProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainForOrganizationIdentityProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_center_configuration: Optional['outputs.DomainForOrganizationIdentityCenterConfiguration'] = None):
+        """
+        Identity provider configuration for the domain.
+        """
+        if identity_center_configuration is not None:
+            pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> Optional['outputs.DomainForOrganizationIdentityCenterConfiguration']:
+        return pulumi.get(self, "identity_center_configuration")
 
 
 @pulumi.output_type

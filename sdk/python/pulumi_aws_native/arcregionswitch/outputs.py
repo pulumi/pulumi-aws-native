@@ -1867,13 +1867,16 @@ class PlanLambdas(dict):
     def __init__(__self__, *,
                  arn: Optional[_builtins.str] = None,
                  cross_account_role: Optional[_builtins.str] = None,
-                 external_id: Optional[_builtins.str] = None):
+                 external_id: Optional[_builtins.str] = None,
+                 payload: Optional[_builtins.str] = None):
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if cross_account_role is not None:
             pulumi.set(__self__, "cross_account_role", cross_account_role)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
 
     @_builtins.property
     @pulumi.getter
@@ -1889,6 +1892,11 @@ class PlanLambdas(dict):
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "payload")
 
 
 @pulumi.output_type

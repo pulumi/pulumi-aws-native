@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DaemonTaskDefinition{}
 	case "aws-native:ecs:ExpressGatewayService":
 		r = &ExpressGatewayService{}
+	case "aws-native:ecs:Gateway":
+		r = &Gateway{}
+	case "aws-native:ecs:GatewayClusterAssociations":
+		r = &GatewayClusterAssociations{}
 	case "aws-native:ecs:PrimaryTaskSet":
 		r = &PrimaryTaskSet{}
 	case "aws-native:ecs:Service":

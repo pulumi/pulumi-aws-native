@@ -3321,6 +3321,7 @@ type PlanLambdas struct {
 	Arn              *string `pulumi:"arn"`
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
 	ExternalId       *string `pulumi:"externalId"`
+	Payload          *string `pulumi:"payload"`
 }
 
 // PlanLambdasInput is an input type that accepts PlanLambdasArgs and PlanLambdasOutput values.
@@ -3338,6 +3339,7 @@ type PlanLambdasArgs struct {
 	Arn              pulumi.StringPtrInput `pulumi:"arn"`
 	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
 	ExternalId       pulumi.StringPtrInput `pulumi:"externalId"`
+	Payload          pulumi.StringPtrInput `pulumi:"payload"`
 }
 
 func (PlanLambdasArgs) ElementType() reflect.Type {
@@ -3401,6 +3403,10 @@ func (o PlanLambdasOutput) CrossAccountRole() pulumi.StringPtrOutput {
 
 func (o PlanLambdasOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanLambdas) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanLambdasOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanLambdas) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
 
 type PlanLambdasArrayOutput struct{ *pulumi.OutputState }

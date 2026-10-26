@@ -15,6 +15,11 @@ export const getFleet: typeof import("./getFleet").getFleet = null as any;
 export const getFleetOutput: typeof import("./getFleet").getFleetOutput = null as any;
 utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getFleet"));
 
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+
 export { GetReportGroupArgs, GetReportGroupResult, GetReportGroupOutputArgs } from "./getReportGroup";
 export const getReportGroup: typeof import("./getReportGroup").getReportGroup = null as any;
 export const getReportGroupOutput: typeof import("./getReportGroup").getReportGroupOutput = null as any;
@@ -24,6 +29,11 @@ export { GetSourceCredentialArgs, GetSourceCredentialResult, GetSourceCredential
 export const getSourceCredential: typeof import("./getSourceCredential").getSourceCredential = null as any;
 export const getSourceCredentialOutput: typeof import("./getSourceCredential").getSourceCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["getSourceCredential","getSourceCredentialOutput"], () => require("./getSourceCredential"));
+
+export { ProjectArgs } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
 export { ReportGroupArgs } from "./reportGroup";
 export type ReportGroup = import("./reportGroup").ReportGroup;
@@ -45,6 +55,8 @@ const _module = {
         switch (type) {
             case "aws-native:codebuild:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
+            case "aws-native:codebuild:Project":
+                return new Project(name, <any>undefined, { urn })
             case "aws-native:codebuild:ReportGroup":
                 return new ReportGroup(name, <any>undefined, { urn })
             case "aws-native:codebuild:SourceCredential":

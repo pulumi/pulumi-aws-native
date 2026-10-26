@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { FirewallConfigArgs } from "./firewallConfig";
+export type FirewallConfig = import("./firewallConfig").FirewallConfig;
+export const FirewallConfig: typeof import("./firewallConfig").FirewallConfig = null as any;
+utilities.lazyLoad(exports, ["FirewallConfig"], () => require("./firewallConfig"));
+
 export { FirewallDomainListArgs } from "./firewallDomainList";
 export type FirewallDomainList = import("./firewallDomainList").FirewallDomainList;
 export const FirewallDomainList: typeof import("./firewallDomainList").FirewallDomainList = null as any;
@@ -19,6 +24,11 @@ export { FirewallRuleGroupAssociationArgs } from "./firewallRuleGroupAssociation
 export type FirewallRuleGroupAssociation = import("./firewallRuleGroupAssociation").FirewallRuleGroupAssociation;
 export const FirewallRuleGroupAssociation: typeof import("./firewallRuleGroupAssociation").FirewallRuleGroupAssociation = null as any;
 utilities.lazyLoad(exports, ["FirewallRuleGroupAssociation"], () => require("./firewallRuleGroupAssociation"));
+
+export { GetFirewallConfigArgs, GetFirewallConfigResult, GetFirewallConfigOutputArgs } from "./getFirewallConfig";
+export const getFirewallConfig: typeof import("./getFirewallConfig").getFirewallConfig = null as any;
+export const getFirewallConfigOutput: typeof import("./getFirewallConfig").getFirewallConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallConfig","getFirewallConfigOutput"], () => require("./getFirewallConfig"));
 
 export { GetFirewallDomainListArgs, GetFirewallDomainListResult, GetFirewallDomainListOutputArgs } from "./getFirewallDomainList";
 export const getFirewallDomainList: typeof import("./getFirewallDomainList").getFirewallDomainList = null as any;
@@ -123,6 +133,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:route53resolver:FirewallConfig":
+                return new FirewallConfig(name, <any>undefined, { urn })
             case "aws-native:route53resolver:FirewallDomainList":
                 return new FirewallDomainList(name, <any>undefined, { urn })
             case "aws-native:route53resolver:FirewallRuleGroup":

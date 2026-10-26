@@ -36,6 +36,7 @@ class GlobalTableArgs:
                  sse_specification: pulumi.Input[Optional['GlobalTableSseSpecificationArgs']] = None,
                  stream_specification: pulumi.Input[Optional['GlobalTableStreamSpecificationArgs']] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_type: pulumi.Input[Optional['GlobalTableTableType']] = None,
                  time_to_live_specification: pulumi.Input[Optional['GlobalTableTimeToLiveSpecificationArgs']] = None,
                  vector_indexes: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableVectorIndexArgs']]]] = None,
                  warm_throughput: pulumi.Input[Optional['GlobalTableWarmThroughputArgs']] = None,
@@ -109,6 +110,8 @@ class GlobalTableArgs:
             pulumi.set(__self__, "stream_specification", stream_specification)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
+        if table_type is not None:
+            pulumi.set(__self__, "table_type", table_type)
         if time_to_live_specification is not None:
             pulumi.set(__self__, "time_to_live_specification", time_to_live_specification)
         if vector_indexes is not None:
@@ -302,6 +305,15 @@ class GlobalTableArgs:
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="tableType")
+    def table_type(self) -> pulumi.Input[Optional['GlobalTableTableType']]:
+        return pulumi.get(self, "table_type")
+
+    @table_type.setter
+    def table_type(self, value: pulumi.Input[Optional['GlobalTableTableType']]):
+        pulumi.set(self, "table_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> pulumi.Input[Optional['GlobalTableTimeToLiveSpecificationArgs']]:
         """
@@ -379,6 +391,7 @@ class GlobalTable(pulumi.CustomResource):
                  sse_specification: pulumi.Input[Optional[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: pulumi.Input[Optional[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_type: pulumi.Input[Optional['GlobalTableTableType']] = None,
                  time_to_live_specification: pulumi.Input[Optional[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict']]] = None,
                  vector_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableVectorIndexArgs', 'GlobalTableVectorIndexArgsDict']]]]] = None,
                  warm_throughput: pulumi.Input[Optional[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict']]] = None,
@@ -466,6 +479,7 @@ class GlobalTable(pulumi.CustomResource):
                  sse_specification: pulumi.Input[Optional[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: pulumi.Input[Optional[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_type: pulumi.Input[Optional['GlobalTableTableType']] = None,
                  time_to_live_specification: pulumi.Input[Optional[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict']]] = None,
                  vector_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableVectorIndexArgs', 'GlobalTableVectorIndexArgsDict']]]]] = None,
                  warm_throughput: pulumi.Input[Optional[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict']]] = None,
@@ -496,6 +510,7 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["stream_specification"] = stream_specification
             __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["table_type"] = table_type
             __props__.__dict__["time_to_live_specification"] = time_to_live_specification
             __props__.__dict__["vector_indexes"] = vector_indexes
             __props__.__dict__["warm_throughput"] = warm_throughput
@@ -545,6 +560,7 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["stream_specification"] = None
         __props__.__dict__["table_id"] = None
         __props__.__dict__["table_name"] = None
+        __props__.__dict__["table_type"] = None
         __props__.__dict__["time_to_live_specification"] = None
         __props__.__dict__["vector_indexes"] = None
         __props__.__dict__["warm_throughput"] = None
@@ -702,6 +718,11 @@ class GlobalTable(pulumi.CustomResource):
         > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter(name="tableType")
+    def table_type(self) -> pulumi.Output[Optional['GlobalTableTableType']]:
+        return pulumi.get(self, "table_type")
 
     @_builtins.property
     @pulumi.getter(name="timeToLiveSpecification")
