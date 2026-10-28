@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws-native/examples/simple-go
 
-go 1.26.0
+go 1.26.10
 
 require (
 	github.com/pulumi/pulumi-aws-native/sdk v1.76.0
