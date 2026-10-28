@@ -16,6 +16,32 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DirectoryAccessEndpointArgs',
+    'DirectoryAccessEndpointArgsDict',
+    'DirectoryAccessEndpointConfigArgs',
+    'DirectoryAccessEndpointConfigArgsDict',
+    'DirectoryActiveDirectoryConfigArgs',
+    'DirectoryActiveDirectoryConfigArgsDict',
+    'DirectoryCertificateBasedAuthPropertiesArgs',
+    'DirectoryCertificateBasedAuthPropertiesArgsDict',
+    'DirectoryDefaultWorkspaceCreationPropertiesArgs',
+    'DirectoryDefaultWorkspaceCreationPropertiesArgsDict',
+    'DirectoryGlobalAcceleratorForDirectoryArgs',
+    'DirectoryGlobalAcceleratorForDirectoryArgsDict',
+    'DirectoryMicrosoftEntraConfigArgs',
+    'DirectoryMicrosoftEntraConfigArgsDict',
+    'DirectorySamlPropertiesArgs',
+    'DirectorySamlPropertiesArgsDict',
+    'DirectorySelfservicePermissionsArgs',
+    'DirectorySelfservicePermissionsArgsDict',
+    'DirectoryStorageConnectorArgs',
+    'DirectoryStorageConnectorArgsDict',
+    'DirectoryStreamingPropertiesArgs',
+    'DirectoryStreamingPropertiesArgsDict',
+    'DirectoryUserSettingArgs',
+    'DirectoryUserSettingArgsDict',
+    'DirectoryWorkspaceAccessPropertiesArgs',
+    'DirectoryWorkspaceAccessPropertiesArgsDict',
     'WorkspaceIpGroupIpRuleItemArgs',
     'WorkspaceIpGroupIpRuleItemArgsDict',
     'WorkspacePropertiesArgs',
@@ -27,6 +53,1066 @@ __all__ = [
     'WorkspacesPoolTimeoutSettingsArgs',
     'WorkspacesPoolTimeoutSettingsArgsDict',
 ]
+
+class DirectoryAccessEndpointArgsDict(TypedDict):
+    """
+    Describes the access type and endpoint for a WorkSpace.
+    """
+    access_endpoint_type: NotRequired[pulumi.Input[Optional['DirectoryAccessEndpointAccessEndpointType']]]
+    """
+    Indicates the type of access endpoint.
+    """
+    vpc_endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates the VPC endpoint to use for access.
+    """
+
+@pulumi.input_type
+class DirectoryAccessEndpointArgs:
+    def __init__(__self__, *,
+                 access_endpoint_type: pulumi.Input[Optional['DirectoryAccessEndpointAccessEndpointType']] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Describes the access type and endpoint for a WorkSpace.
+
+        :param pulumi.Input['DirectoryAccessEndpointAccessEndpointType'] access_endpoint_type: Indicates the type of access endpoint.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_id: Indicates the VPC endpoint to use for access.
+        """
+        if access_endpoint_type is not None:
+            pulumi.set(__self__, "access_endpoint_type", access_endpoint_type)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointType")
+    def access_endpoint_type(self) -> pulumi.Input[Optional['DirectoryAccessEndpointAccessEndpointType']]:
+        """
+        Indicates the type of access endpoint.
+        """
+        return pulumi.get(self, "access_endpoint_type")
+
+    @access_endpoint_type.setter
+    def access_endpoint_type(self, value: pulumi.Input[Optional['DirectoryAccessEndpointAccessEndpointType']]):
+        pulumi.set(self, "access_endpoint_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates the VPC endpoint to use for access.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_endpoint_id", value)
+
+
+class DirectoryAccessEndpointConfigArgsDict(TypedDict):
+    """
+    Describes the access endpoint configuration for a WorkSpace.
+    """
+    access_endpoints: pulumi.Input[Sequence[pulumi.Input['DirectoryAccessEndpointArgsDict']]]
+    """
+    Indicates a list of access endpoints associated with this directory.
+    """
+    internet_fallback_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryAccessEndpointConfigInternetFallbackProtocolsItem']]]]]
+    """
+    Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+    """
+
+@pulumi.input_type
+class DirectoryAccessEndpointConfigArgs:
+    def __init__(__self__, *,
+                 access_endpoints: pulumi.Input[Sequence[pulumi.Input['DirectoryAccessEndpointArgs']]],
+                 internet_fallback_protocols: pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryAccessEndpointConfigInternetFallbackProtocolsItem']]]] = None):
+        """
+        Describes the access endpoint configuration for a WorkSpace.
+
+        :param pulumi.Input[Sequence[pulumi.Input['DirectoryAccessEndpointArgs']]] access_endpoints: Indicates a list of access endpoints associated with this directory.
+        :param pulumi.Input[Sequence[pulumi.Input['DirectoryAccessEndpointConfigInternetFallbackProtocolsItem']]] internet_fallback_protocols: Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+        """
+        pulumi.set(__self__, "access_endpoints", access_endpoints)
+        if internet_fallback_protocols is not None:
+            pulumi.set(__self__, "internet_fallback_protocols", internet_fallback_protocols)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpoints")
+    def access_endpoints(self) -> pulumi.Input[Sequence[pulumi.Input['DirectoryAccessEndpointArgs']]]:
+        """
+        Indicates a list of access endpoints associated with this directory.
+        """
+        return pulumi.get(self, "access_endpoints")
+
+    @access_endpoints.setter
+    def access_endpoints(self, value: pulumi.Input[Sequence[pulumi.Input['DirectoryAccessEndpointArgs']]]):
+        pulumi.set(self, "access_endpoints", value)
+
+    @_builtins.property
+    @pulumi.getter(name="internetFallbackProtocols")
+    def internet_fallback_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryAccessEndpointConfigInternetFallbackProtocolsItem']]]]:
+        """
+        Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+        """
+        return pulumi.get(self, "internet_fallback_protocols")
+
+    @internet_fallback_protocols.setter
+    def internet_fallback_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryAccessEndpointConfigInternetFallbackProtocolsItem']]]]):
+        pulumi.set(self, "internet_fallback_protocols", value)
+
+
+class DirectoryActiveDirectoryConfigArgsDict(TypedDict):
+    """
+    Information about the Active Directory config.
+    """
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    The name of the domain.
+    """
+    service_account_secret_arn: pulumi.Input[_builtins.str]
+    """
+    Indicates the secret ARN on the service account.
+    """
+
+@pulumi.input_type
+class DirectoryActiveDirectoryConfigArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[_builtins.str],
+                 service_account_secret_arn: pulumi.Input[_builtins.str]):
+        """
+        Information about the Active Directory config.
+
+        :param pulumi.Input[_builtins.str] domain_name: The name of the domain.
+        :param pulumi.Input[_builtins.str] service_account_secret_arn: Indicates the secret ARN on the service account.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "service_account_secret_arn", service_account_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountSecretArn")
+    def service_account_secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Indicates the secret ARN on the service account.
+        """
+        return pulumi.get(self, "service_account_secret_arn")
+
+    @service_account_secret_arn.setter
+    def service_account_secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_account_secret_arn", value)
+
+
+class DirectoryCertificateBasedAuthPropertiesArgsDict(TypedDict):
+    """
+    Describes the properties of the certificate-based authentication you want to use with your WorkSpaces.
+    """
+    certificate_authority_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+    """
+    status: NotRequired[pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesStatus']]]
+    """
+    The status of the certificate-based authentication properties.
+    """
+
+@pulumi.input_type
+class DirectoryCertificateBasedAuthPropertiesArgs:
+    def __init__(__self__, *,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesStatus']] = None):
+        """
+        Describes the properties of the certificate-based authentication you want to use with your WorkSpaces.
+
+        :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+        :param pulumi.Input['DirectoryCertificateBasedAuthPropertiesStatus'] status: The status of the certificate-based authentication properties.
+        """
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+        """
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @certificate_authority_arn.setter
+    def certificate_authority_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_authority_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesStatus']]:
+        """
+        The status of the certificate-based authentication properties.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesStatus']]):
+        pulumi.set(self, "status", value)
+
+
+class DirectoryDefaultWorkspaceCreationPropertiesArgsDict(TypedDict):
+    """
+    The default values that are used to create WorkSpaces.
+    """
+    custom_security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identifier of the default security group to apply to WorkSpaces when they are created.
+    """
+    default_ou: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+    """
+    enable_internet_access: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+    """
+    enable_maintenance_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies whether maintenance mode is enabled for WorkSpaces.
+    """
+    instance_iam_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates the IAM role ARN of the instance.
+    """
+    user_enabled_as_local_administrator: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+    """
+
+@pulumi.input_type
+class DirectoryDefaultWorkspaceCreationPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ou: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_maintenance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_enabled_as_local_administrator: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        The default values that are used to create WorkSpaces.
+
+        :param pulumi.Input[_builtins.str] custom_security_group_id: The identifier of the default security group to apply to WorkSpaces when they are created.
+        :param pulumi.Input[_builtins.str] default_ou: The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+        :param pulumi.Input[_builtins.bool] enable_internet_access: Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+        :param pulumi.Input[_builtins.bool] enable_maintenance_mode: Specifies whether maintenance mode is enabled for WorkSpaces.
+        :param pulumi.Input[_builtins.str] instance_iam_role_arn: Indicates the IAM role ARN of the instance.
+        :param pulumi.Input[_builtins.bool] user_enabled_as_local_administrator: Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+        """
+        if custom_security_group_id is not None:
+            pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
+        if default_ou is not None:
+            pulumi.set(__self__, "default_ou", default_ou)
+        if enable_internet_access is not None:
+            pulumi.set(__self__, "enable_internet_access", enable_internet_access)
+        if enable_maintenance_mode is not None:
+            pulumi.set(__self__, "enable_maintenance_mode", enable_maintenance_mode)
+        if instance_iam_role_arn is not None:
+            pulumi.set(__self__, "instance_iam_role_arn", instance_iam_role_arn)
+        if user_enabled_as_local_administrator is not None:
+            pulumi.set(__self__, "user_enabled_as_local_administrator", user_enabled_as_local_administrator)
+
+    @_builtins.property
+    @pulumi.getter(name="customSecurityGroupId")
+    def custom_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identifier of the default security group to apply to WorkSpaces when they are created.
+        """
+        return pulumi.get(self, "custom_security_group_id")
+
+    @custom_security_group_id.setter
+    def custom_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_security_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultOu")
+    def default_ou(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+        """
+        return pulumi.get(self, "default_ou")
+
+    @default_ou.setter
+    def default_ou(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_ou", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableInternetAccess")
+    def enable_internet_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+        """
+        return pulumi.get(self, "enable_internet_access")
+
+    @enable_internet_access.setter
+    def enable_internet_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_internet_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableMaintenanceMode")
+    def enable_maintenance_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether maintenance mode is enabled for WorkSpaces.
+        """
+        return pulumi.get(self, "enable_maintenance_mode")
+
+    @enable_maintenance_mode.setter
+    def enable_maintenance_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_maintenance_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceIamRoleArn")
+    def instance_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates the IAM role ARN of the instance.
+        """
+        return pulumi.get(self, "instance_iam_role_arn")
+
+    @instance_iam_role_arn.setter
+    def instance_iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_iam_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userEnabledAsLocalAdministrator")
+    def user_enabled_as_local_administrator(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+        """
+        return pulumi.get(self, "user_enabled_as_local_administrator")
+
+    @user_enabled_as_local_administrator.setter
+    def user_enabled_as_local_administrator(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "user_enabled_as_local_administrator", value)
+
+
+class DirectoryGlobalAcceleratorForDirectoryArgsDict(TypedDict):
+    """
+    Describes the Global Accelerator for directory.
+    """
+    mode: pulumi.Input['DirectoryGlobalAcceleratorForDirectoryMode']
+    """
+    Indicates if Global Accelerator for directory is enabled or disabled.
+    """
+    preferred_protocol: NotRequired[pulumi.Input[Optional['DirectoryGlobalAcceleratorForDirectoryPreferredProtocol']]]
+    """
+    Indicates the preferred protocol for Global Accelerator.
+    """
+
+@pulumi.input_type
+class DirectoryGlobalAcceleratorForDirectoryArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input['DirectoryGlobalAcceleratorForDirectoryMode'],
+                 preferred_protocol: pulumi.Input[Optional['DirectoryGlobalAcceleratorForDirectoryPreferredProtocol']] = None):
+        """
+        Describes the Global Accelerator for directory.
+
+        :param pulumi.Input['DirectoryGlobalAcceleratorForDirectoryMode'] mode: Indicates if Global Accelerator for directory is enabled or disabled.
+        :param pulumi.Input['DirectoryGlobalAcceleratorForDirectoryPreferredProtocol'] preferred_protocol: Indicates the preferred protocol for Global Accelerator.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if preferred_protocol is not None:
+            pulumi.set(__self__, "preferred_protocol", preferred_protocol)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['DirectoryGlobalAcceleratorForDirectoryMode']:
+        """
+        Indicates if Global Accelerator for directory is enabled or disabled.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['DirectoryGlobalAcceleratorForDirectoryMode']):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preferredProtocol")
+    def preferred_protocol(self) -> pulumi.Input[Optional['DirectoryGlobalAcceleratorForDirectoryPreferredProtocol']]:
+        """
+        Indicates the preferred protocol for Global Accelerator.
+        """
+        return pulumi.get(self, "preferred_protocol")
+
+    @preferred_protocol.setter
+    def preferred_protocol(self, value: pulumi.Input[Optional['DirectoryGlobalAcceleratorForDirectoryPreferredProtocol']]):
+        pulumi.set(self, "preferred_protocol", value)
+
+
+class DirectoryMicrosoftEntraConfigArgsDict(TypedDict):
+    """
+    Specifies the configurations of the Microsoft Entra.
+    """
+    application_config_secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the application config.
+    """
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identifier of the tenant.
+    """
+
+@pulumi.input_type
+class DirectoryMicrosoftEntraConfigArgs:
+    def __init__(__self__, *,
+                 application_config_secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies the configurations of the Microsoft Entra.
+
+        :param pulumi.Input[_builtins.str] application_config_secret_arn: The Amazon Resource Name (ARN) of the application config.
+        :param pulumi.Input[_builtins.str] tenant_id: The identifier of the tenant.
+        """
+        if application_config_secret_arn is not None:
+            pulumi.set(__self__, "application_config_secret_arn", application_config_secret_arn)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationConfigSecretArn")
+    def application_config_secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the application config.
+        """
+        return pulumi.get(self, "application_config_secret_arn")
+
+    @application_config_secret_arn.setter
+    def application_config_secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "application_config_secret_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identifier of the tenant.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+class DirectorySamlPropertiesArgsDict(TypedDict):
+    """
+    Describes the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.
+    """
+    relay_state_parameter_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+    """
+    status: NotRequired[pulumi.Input[Optional['DirectorySamlPropertiesStatus']]]
+    """
+    Indicates the status of SAML 2.0 authentication.
+    """
+    user_access_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The SAML 2.0 identity provider (IdP) user access URL.
+    """
+
+@pulumi.input_type
+class DirectorySamlPropertiesArgs:
+    def __init__(__self__, *,
+                 relay_state_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['DirectorySamlPropertiesStatus']] = None,
+                 user_access_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Describes the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.
+
+        :param pulumi.Input[_builtins.str] relay_state_parameter_name: The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+        :param pulumi.Input['DirectorySamlPropertiesStatus'] status: Indicates the status of SAML 2.0 authentication.
+        :param pulumi.Input[_builtins.str] user_access_url: The SAML 2.0 identity provider (IdP) user access URL.
+        """
+        if relay_state_parameter_name is not None:
+            pulumi.set(__self__, "relay_state_parameter_name", relay_state_parameter_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if user_access_url is not None:
+            pulumi.set(__self__, "user_access_url", user_access_url)
+
+    @_builtins.property
+    @pulumi.getter(name="relayStateParameterName")
+    def relay_state_parameter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+        """
+        return pulumi.get(self, "relay_state_parameter_name")
+
+    @relay_state_parameter_name.setter
+    def relay_state_parameter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "relay_state_parameter_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['DirectorySamlPropertiesStatus']]:
+        """
+        Indicates the status of SAML 2.0 authentication.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['DirectorySamlPropertiesStatus']]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAccessUrl")
+    def user_access_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The SAML 2.0 identity provider (IdP) user access URL.
+        """
+        return pulumi.get(self, "user_access_url")
+
+    @user_access_url.setter
+    def user_access_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_access_url", value)
+
+
+class DirectorySelfservicePermissionsArgsDict(TypedDict):
+    """
+    Describes the self-service permissions for a directory.
+    """
+    change_compute_type: NotRequired[pulumi.Input[Optional['DirectorySelfservicePermissionsChangeComputeType']]]
+    """
+    Specifies whether users can change the compute type (bundle) for their WorkSpace.
+    """
+    increase_volume_size: NotRequired[pulumi.Input[Optional['DirectorySelfservicePermissionsIncreaseVolumeSize']]]
+    """
+    Specifies whether users can increase the volume size of the drives on their WorkSpace.
+    """
+    rebuild_workspace: NotRequired[pulumi.Input[Optional['DirectorySelfservicePermissionsRebuildWorkspace']]]
+    """
+    Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+    """
+    restart_workspace: NotRequired[pulumi.Input[Optional['DirectorySelfservicePermissionsRestartWorkspace']]]
+    """
+    Specifies whether users can restart their WorkSpace.
+    """
+    switch_running_mode: NotRequired[pulumi.Input[Optional['DirectorySelfservicePermissionsSwitchRunningMode']]]
+    """
+    Specifies whether users can switch the running mode of their WorkSpace.
+    """
+
+@pulumi.input_type
+class DirectorySelfservicePermissionsArgs:
+    def __init__(__self__, *,
+                 change_compute_type: pulumi.Input[Optional['DirectorySelfservicePermissionsChangeComputeType']] = None,
+                 increase_volume_size: pulumi.Input[Optional['DirectorySelfservicePermissionsIncreaseVolumeSize']] = None,
+                 rebuild_workspace: pulumi.Input[Optional['DirectorySelfservicePermissionsRebuildWorkspace']] = None,
+                 restart_workspace: pulumi.Input[Optional['DirectorySelfservicePermissionsRestartWorkspace']] = None,
+                 switch_running_mode: pulumi.Input[Optional['DirectorySelfservicePermissionsSwitchRunningMode']] = None):
+        """
+        Describes the self-service permissions for a directory.
+
+        :param pulumi.Input['DirectorySelfservicePermissionsChangeComputeType'] change_compute_type: Specifies whether users can change the compute type (bundle) for their WorkSpace.
+        :param pulumi.Input['DirectorySelfservicePermissionsIncreaseVolumeSize'] increase_volume_size: Specifies whether users can increase the volume size of the drives on their WorkSpace.
+        :param pulumi.Input['DirectorySelfservicePermissionsRebuildWorkspace'] rebuild_workspace: Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+        :param pulumi.Input['DirectorySelfservicePermissionsRestartWorkspace'] restart_workspace: Specifies whether users can restart their WorkSpace.
+        :param pulumi.Input['DirectorySelfservicePermissionsSwitchRunningMode'] switch_running_mode: Specifies whether users can switch the running mode of their WorkSpace.
+        """
+        if change_compute_type is not None:
+            pulumi.set(__self__, "change_compute_type", change_compute_type)
+        if increase_volume_size is not None:
+            pulumi.set(__self__, "increase_volume_size", increase_volume_size)
+        if rebuild_workspace is not None:
+            pulumi.set(__self__, "rebuild_workspace", rebuild_workspace)
+        if restart_workspace is not None:
+            pulumi.set(__self__, "restart_workspace", restart_workspace)
+        if switch_running_mode is not None:
+            pulumi.set(__self__, "switch_running_mode", switch_running_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="changeComputeType")
+    def change_compute_type(self) -> pulumi.Input[Optional['DirectorySelfservicePermissionsChangeComputeType']]:
+        """
+        Specifies whether users can change the compute type (bundle) for their WorkSpace.
+        """
+        return pulumi.get(self, "change_compute_type")
+
+    @change_compute_type.setter
+    def change_compute_type(self, value: pulumi.Input[Optional['DirectorySelfservicePermissionsChangeComputeType']]):
+        pulumi.set(self, "change_compute_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="increaseVolumeSize")
+    def increase_volume_size(self) -> pulumi.Input[Optional['DirectorySelfservicePermissionsIncreaseVolumeSize']]:
+        """
+        Specifies whether users can increase the volume size of the drives on their WorkSpace.
+        """
+        return pulumi.get(self, "increase_volume_size")
+
+    @increase_volume_size.setter
+    def increase_volume_size(self, value: pulumi.Input[Optional['DirectorySelfservicePermissionsIncreaseVolumeSize']]):
+        pulumi.set(self, "increase_volume_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rebuildWorkspace")
+    def rebuild_workspace(self) -> pulumi.Input[Optional['DirectorySelfservicePermissionsRebuildWorkspace']]:
+        """
+        Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+        """
+        return pulumi.get(self, "rebuild_workspace")
+
+    @rebuild_workspace.setter
+    def rebuild_workspace(self, value: pulumi.Input[Optional['DirectorySelfservicePermissionsRebuildWorkspace']]):
+        pulumi.set(self, "rebuild_workspace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="restartWorkspace")
+    def restart_workspace(self) -> pulumi.Input[Optional['DirectorySelfservicePermissionsRestartWorkspace']]:
+        """
+        Specifies whether users can restart their WorkSpace.
+        """
+        return pulumi.get(self, "restart_workspace")
+
+    @restart_workspace.setter
+    def restart_workspace(self, value: pulumi.Input[Optional['DirectorySelfservicePermissionsRestartWorkspace']]):
+        pulumi.set(self, "restart_workspace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="switchRunningMode")
+    def switch_running_mode(self) -> pulumi.Input[Optional['DirectorySelfservicePermissionsSwitchRunningMode']]:
+        """
+        Specifies whether users can switch the running mode of their WorkSpace.
+        """
+        return pulumi.get(self, "switch_running_mode")
+
+    @switch_running_mode.setter
+    def switch_running_mode(self, value: pulumi.Input[Optional['DirectorySelfservicePermissionsSwitchRunningMode']]):
+        pulumi.set(self, "switch_running_mode", value)
+
+
+class DirectoryStorageConnectorArgsDict(TypedDict):
+    """
+    Describes the storage connector.
+    """
+    connector_type: pulumi.Input['DirectoryStorageConnectorConnectorType']
+    """
+    The type of connector used to save user files.
+    """
+    status: pulumi.Input['DirectoryStorageConnectorStatus']
+    """
+    Indicates if the storage connector is enabled or disabled.
+    """
+
+@pulumi.input_type
+class DirectoryStorageConnectorArgs:
+    def __init__(__self__, *,
+                 connector_type: pulumi.Input['DirectoryStorageConnectorConnectorType'],
+                 status: pulumi.Input['DirectoryStorageConnectorStatus']):
+        """
+        Describes the storage connector.
+
+        :param pulumi.Input['DirectoryStorageConnectorConnectorType'] connector_type: The type of connector used to save user files.
+        :param pulumi.Input['DirectoryStorageConnectorStatus'] status: Indicates if the storage connector is enabled or disabled.
+        """
+        pulumi.set(__self__, "connector_type", connector_type)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> pulumi.Input['DirectoryStorageConnectorConnectorType']:
+        """
+        The type of connector used to save user files.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @connector_type.setter
+    def connector_type(self, value: pulumi.Input['DirectoryStorageConnectorConnectorType']):
+        pulumi.set(self, "connector_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['DirectoryStorageConnectorStatus']:
+        """
+        Indicates if the storage connector is enabled or disabled.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['DirectoryStorageConnectorStatus']):
+        pulumi.set(self, "status", value)
+
+
+class DirectoryStreamingPropertiesArgsDict(TypedDict):
+    """
+    Describes the streaming properties.
+    """
+    global_accelerator: NotRequired[pulumi.Input[Optional['DirectoryGlobalAcceleratorForDirectoryArgsDict']]]
+    storage_connectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryStorageConnectorArgsDict']]]]]
+    """
+    Indicates the storage connector used.
+    """
+    streaming_experience_preferred_protocol: NotRequired[pulumi.Input[Optional['DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol']]]
+    """
+    Indicates the type of preferred protocol for the streaming experience.
+    """
+    user_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryUserSettingArgsDict']]]]]
+    """
+    Indicates the permission settings associated with the user.
+    """
+
+@pulumi.input_type
+class DirectoryStreamingPropertiesArgs:
+    def __init__(__self__, *,
+                 global_accelerator: pulumi.Input[Optional['DirectoryGlobalAcceleratorForDirectoryArgs']] = None,
+                 storage_connectors: pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryStorageConnectorArgs']]]] = None,
+                 streaming_experience_preferred_protocol: pulumi.Input[Optional['DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol']] = None,
+                 user_settings: pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryUserSettingArgs']]]] = None):
+        """
+        Describes the streaming properties.
+
+        :param pulumi.Input[Sequence[pulumi.Input['DirectoryStorageConnectorArgs']]] storage_connectors: Indicates the storage connector used.
+        :param pulumi.Input['DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol'] streaming_experience_preferred_protocol: Indicates the type of preferred protocol for the streaming experience.
+        :param pulumi.Input[Sequence[pulumi.Input['DirectoryUserSettingArgs']]] user_settings: Indicates the permission settings associated with the user.
+        """
+        if global_accelerator is not None:
+            pulumi.set(__self__, "global_accelerator", global_accelerator)
+        if storage_connectors is not None:
+            pulumi.set(__self__, "storage_connectors", storage_connectors)
+        if streaming_experience_preferred_protocol is not None:
+            pulumi.set(__self__, "streaming_experience_preferred_protocol", streaming_experience_preferred_protocol)
+        if user_settings is not None:
+            pulumi.set(__self__, "user_settings", user_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="globalAccelerator")
+    def global_accelerator(self) -> pulumi.Input[Optional['DirectoryGlobalAcceleratorForDirectoryArgs']]:
+        return pulumi.get(self, "global_accelerator")
+
+    @global_accelerator.setter
+    def global_accelerator(self, value: pulumi.Input[Optional['DirectoryGlobalAcceleratorForDirectoryArgs']]):
+        pulumi.set(self, "global_accelerator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageConnectors")
+    def storage_connectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryStorageConnectorArgs']]]]:
+        """
+        Indicates the storage connector used.
+        """
+        return pulumi.get(self, "storage_connectors")
+
+    @storage_connectors.setter
+    def storage_connectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryStorageConnectorArgs']]]]):
+        pulumi.set(self, "storage_connectors", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamingExperiencePreferredProtocol")
+    def streaming_experience_preferred_protocol(self) -> pulumi.Input[Optional['DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol']]:
+        """
+        Indicates the type of preferred protocol for the streaming experience.
+        """
+        return pulumi.get(self, "streaming_experience_preferred_protocol")
+
+    @streaming_experience_preferred_protocol.setter
+    def streaming_experience_preferred_protocol(self, value: pulumi.Input[Optional['DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol']]):
+        pulumi.set(self, "streaming_experience_preferred_protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userSettings")
+    def user_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryUserSettingArgs']]]]:
+        """
+        Indicates the permission settings associated with the user.
+        """
+        return pulumi.get(self, "user_settings")
+
+    @user_settings.setter
+    def user_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryUserSettingArgs']]]]):
+        pulumi.set(self, "user_settings", value)
+
+
+class DirectoryUserSettingArgsDict(TypedDict):
+    """
+    Information about the user's permission settings.
+    """
+    action: pulumi.Input['DirectoryUserSettingAction']
+    """
+    Indicates the type of action.
+    """
+    permission: pulumi.Input['DirectoryUserSettingPermission']
+    """
+    Indicates if the setting is enabled or disabled.
+    """
+    maximum_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Indicates the maximum character length for the specified user setting.
+    """
+
+@pulumi.input_type
+class DirectoryUserSettingArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['DirectoryUserSettingAction'],
+                 permission: pulumi.Input['DirectoryUserSettingPermission'],
+                 maximum_length: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Information about the user's permission settings.
+
+        :param pulumi.Input['DirectoryUserSettingAction'] action: Indicates the type of action.
+        :param pulumi.Input['DirectoryUserSettingPermission'] permission: Indicates if the setting is enabled or disabled.
+        :param pulumi.Input[_builtins.int] maximum_length: Indicates the maximum character length for the specified user setting.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "permission", permission)
+        if maximum_length is not None:
+            pulumi.set(__self__, "maximum_length", maximum_length)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['DirectoryUserSettingAction']:
+        """
+        Indicates the type of action.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['DirectoryUserSettingAction']):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> pulumi.Input['DirectoryUserSettingPermission']:
+        """
+        Indicates if the setting is enabled or disabled.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: pulumi.Input['DirectoryUserSettingPermission']):
+        pulumi.set(self, "permission", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumLength")
+    def maximum_length(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Indicates the maximum character length for the specified user setting.
+        """
+        return pulumi.get(self, "maximum_length")
+
+    @maximum_length.setter
+    def maximum_length(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_length", value)
+
+
+class DirectoryWorkspaceAccessPropertiesArgsDict(TypedDict):
+    """
+    The device types and operating systems that can be used to access a WorkSpace.
+    """
+    access_endpoint_config: NotRequired[pulumi.Input[Optional['DirectoryAccessEndpointConfigArgsDict']]]
+    device_type_android: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid']]]
+    """
+    Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+    """
+    device_type_chrome_os: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs']]]
+    """
+    Indicates whether users can use Chromebooks to access their WorkSpaces.
+    """
+    device_type_ios: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeIos']]]
+    """
+    Indicates whether users can use iOS devices to access their WorkSpaces.
+    """
+    device_type_linux: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeLinux']]]
+    """
+    Indicates whether users can use Linux clients to access their WorkSpaces.
+    """
+    device_type_osx: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeOsx']]]
+    """
+    Indicates whether users can use macOS clients to access their WorkSpaces.
+    """
+    device_type_web: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWeb']]]
+    """
+    Indicates whether users can access their WorkSpaces through a web browser.
+    """
+    device_type_windows: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWindows']]]
+    """
+    Indicates whether users can use Windows clients to access their WorkSpaces.
+    """
+    device_type_work_spaces_thin_client: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient']]]
+    """
+    Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+    """
+    device_type_zero_client: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient']]]
+    """
+    Indicates whether users can use zero client devices to access their WorkSpaces.
+    """
+
+@pulumi.input_type
+class DirectoryWorkspaceAccessPropertiesArgs:
+    def __init__(__self__, *,
+                 access_endpoint_config: pulumi.Input[Optional['DirectoryAccessEndpointConfigArgs']] = None,
+                 device_type_android: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid']] = None,
+                 device_type_chrome_os: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs']] = None,
+                 device_type_ios: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeIos']] = None,
+                 device_type_linux: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeLinux']] = None,
+                 device_type_osx: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeOsx']] = None,
+                 device_type_web: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWeb']] = None,
+                 device_type_windows: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWindows']] = None,
+                 device_type_work_spaces_thin_client: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient']] = None,
+                 device_type_zero_client: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient']] = None):
+        """
+        The device types and operating systems that can be used to access a WorkSpace.
+
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid'] device_type_android: Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs'] device_type_chrome_os: Indicates whether users can use Chromebooks to access their WorkSpaces.
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesDeviceTypeIos'] device_type_ios: Indicates whether users can use iOS devices to access their WorkSpaces.
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesDeviceTypeLinux'] device_type_linux: Indicates whether users can use Linux clients to access their WorkSpaces.
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesDeviceTypeOsx'] device_type_osx: Indicates whether users can use macOS clients to access their WorkSpaces.
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesDeviceTypeWeb'] device_type_web: Indicates whether users can access their WorkSpaces through a web browser.
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesDeviceTypeWindows'] device_type_windows: Indicates whether users can use Windows clients to access their WorkSpaces.
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient'] device_type_work_spaces_thin_client: Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient'] device_type_zero_client: Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
+        if access_endpoint_config is not None:
+            pulumi.set(__self__, "access_endpoint_config", access_endpoint_config)
+        if device_type_android is not None:
+            pulumi.set(__self__, "device_type_android", device_type_android)
+        if device_type_chrome_os is not None:
+            pulumi.set(__self__, "device_type_chrome_os", device_type_chrome_os)
+        if device_type_ios is not None:
+            pulumi.set(__self__, "device_type_ios", device_type_ios)
+        if device_type_linux is not None:
+            pulumi.set(__self__, "device_type_linux", device_type_linux)
+        if device_type_osx is not None:
+            pulumi.set(__self__, "device_type_osx", device_type_osx)
+        if device_type_web is not None:
+            pulumi.set(__self__, "device_type_web", device_type_web)
+        if device_type_windows is not None:
+            pulumi.set(__self__, "device_type_windows", device_type_windows)
+        if device_type_work_spaces_thin_client is not None:
+            pulumi.set(__self__, "device_type_work_spaces_thin_client", device_type_work_spaces_thin_client)
+        if device_type_zero_client is not None:
+            pulumi.set(__self__, "device_type_zero_client", device_type_zero_client)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointConfig")
+    def access_endpoint_config(self) -> pulumi.Input[Optional['DirectoryAccessEndpointConfigArgs']]:
+        return pulumi.get(self, "access_endpoint_config")
+
+    @access_endpoint_config.setter
+    def access_endpoint_config(self, value: pulumi.Input[Optional['DirectoryAccessEndpointConfigArgs']]):
+        pulumi.set(self, "access_endpoint_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeAndroid")
+    def device_type_android(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid']]:
+        """
+        Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_android")
+
+    @device_type_android.setter
+    def device_type_android(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid']]):
+        pulumi.set(self, "device_type_android", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeChromeOs")
+    def device_type_chrome_os(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs']]:
+        """
+        Indicates whether users can use Chromebooks to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_chrome_os")
+
+    @device_type_chrome_os.setter
+    def device_type_chrome_os(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs']]):
+        pulumi.set(self, "device_type_chrome_os", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeIos")
+    def device_type_ios(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeIos']]:
+        """
+        Indicates whether users can use iOS devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_ios")
+
+    @device_type_ios.setter
+    def device_type_ios(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeIos']]):
+        pulumi.set(self, "device_type_ios", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeLinux")
+    def device_type_linux(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeLinux']]:
+        """
+        Indicates whether users can use Linux clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_linux")
+
+    @device_type_linux.setter
+    def device_type_linux(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeLinux']]):
+        pulumi.set(self, "device_type_linux", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeOsx")
+    def device_type_osx(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeOsx']]:
+        """
+        Indicates whether users can use macOS clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_osx")
+
+    @device_type_osx.setter
+    def device_type_osx(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeOsx']]):
+        pulumi.set(self, "device_type_osx", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeWeb")
+    def device_type_web(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWeb']]:
+        """
+        Indicates whether users can access their WorkSpaces through a web browser.
+        """
+        return pulumi.get(self, "device_type_web")
+
+    @device_type_web.setter
+    def device_type_web(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWeb']]):
+        pulumi.set(self, "device_type_web", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeWindows")
+    def device_type_windows(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWindows']]:
+        """
+        Indicates whether users can use Windows clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_windows")
+
+    @device_type_windows.setter
+    def device_type_windows(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWindows']]):
+        pulumi.set(self, "device_type_windows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeWorkSpacesThinClient")
+    def device_type_work_spaces_thin_client(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient']]:
+        """
+        Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+        """
+        return pulumi.get(self, "device_type_work_spaces_thin_client")
+
+    @device_type_work_spaces_thin_client.setter
+    def device_type_work_spaces_thin_client(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient']]):
+        pulumi.set(self, "device_type_work_spaces_thin_client", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeZeroClient")
+    def device_type_zero_client(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient']]:
+        """
+        Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_zero_client")
+
+    @device_type_zero_client.setter
+    def device_type_zero_client(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient']]):
+        pulumi.set(self, "device_type_zero_client", value)
+
 
 class WorkspaceIpGroupIpRuleItemArgsDict(TypedDict):
     """

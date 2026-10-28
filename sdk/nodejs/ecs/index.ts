@@ -35,6 +35,16 @@ export type ExpressGatewayService = import("./expressGatewayService").ExpressGat
 export const ExpressGatewayService: typeof import("./expressGatewayService").ExpressGatewayService = null as any;
 utilities.lazyLoad(exports, ["ExpressGatewayService"], () => require("./expressGatewayService"));
 
+export { GatewayArgs } from "./gateway";
+export type Gateway = import("./gateway").Gateway;
+export const Gateway: typeof import("./gateway").Gateway = null as any;
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
+
+export { GatewayClusterAssociationsArgs } from "./gatewayClusterAssociations";
+export type GatewayClusterAssociations = import("./gatewayClusterAssociations").GatewayClusterAssociations;
+export const GatewayClusterAssociations: typeof import("./gatewayClusterAssociations").GatewayClusterAssociations = null as any;
+utilities.lazyLoad(exports, ["GatewayClusterAssociations"], () => require("./gatewayClusterAssociations"));
+
 export { GetCapacityProviderArgs, GetCapacityProviderResult, GetCapacityProviderOutputArgs } from "./getCapacityProvider";
 export const getCapacityProvider: typeof import("./getCapacityProvider").getCapacityProvider = null as any;
 export const getCapacityProviderOutput: typeof import("./getCapacityProvider").getCapacityProviderOutput = null as any;
@@ -64,6 +74,16 @@ export { GetExpressGatewayServiceArgs, GetExpressGatewayServiceResult, GetExpres
 export const getExpressGatewayService: typeof import("./getExpressGatewayService").getExpressGatewayService = null as any;
 export const getExpressGatewayServiceOutput: typeof import("./getExpressGatewayService").getExpressGatewayServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getExpressGatewayService","getExpressGatewayServiceOutput"], () => require("./getExpressGatewayService"));
+
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
+
+export { GetGatewayClusterAssociationsArgs, GetGatewayClusterAssociationsResult, GetGatewayClusterAssociationsOutputArgs } from "./getGatewayClusterAssociations";
+export const getGatewayClusterAssociations: typeof import("./getGatewayClusterAssociations").getGatewayClusterAssociations = null as any;
+export const getGatewayClusterAssociationsOutput: typeof import("./getGatewayClusterAssociations").getGatewayClusterAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayClusterAssociations","getGatewayClusterAssociationsOutput"], () => require("./getGatewayClusterAssociations"));
 
 export { GetPrimaryTaskSetArgs, GetPrimaryTaskSetResult, GetPrimaryTaskSetOutputArgs } from "./getPrimaryTaskSet";
 export const getPrimaryTaskSet: typeof import("./getPrimaryTaskSet").getPrimaryTaskSet = null as any;
@@ -125,6 +145,10 @@ const _module = {
                 return new DaemonTaskDefinition(name, <any>undefined, { urn })
             case "aws-native:ecs:ExpressGatewayService":
                 return new ExpressGatewayService(name, <any>undefined, { urn })
+            case "aws-native:ecs:Gateway":
+                return new Gateway(name, <any>undefined, { urn })
+            case "aws-native:ecs:GatewayClusterAssociations":
+                return new GatewayClusterAssociations(name, <any>undefined, { urn })
             case "aws-native:ecs:PrimaryTaskSet":
                 return new PrimaryTaskSet(name, <any>undefined, { urn })
             case "aws-native:ecs:Service":

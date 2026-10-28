@@ -16,6 +16,30 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'InstanceFleetConfigApplicationConfigurationArgs',
+    'InstanceFleetConfigApplicationConfigurationArgsDict',
+    'InstanceFleetConfigEbsBlockDeviceConfigArgs',
+    'InstanceFleetConfigEbsBlockDeviceConfigArgsDict',
+    'InstanceFleetConfigEbsConfigurationArgs',
+    'InstanceFleetConfigEbsConfigurationArgsDict',
+    'InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs',
+    'InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgsDict',
+    'InstanceFleetConfigInstanceFleetResizingSpecificationsArgs',
+    'InstanceFleetConfigInstanceFleetResizingSpecificationsArgsDict',
+    'InstanceFleetConfigInstanceTypeConfigArgs',
+    'InstanceFleetConfigInstanceTypeConfigArgsDict',
+    'InstanceFleetConfigOnDemandCapacityReservationOptionsArgs',
+    'InstanceFleetConfigOnDemandCapacityReservationOptionsArgsDict',
+    'InstanceFleetConfigOnDemandProvisioningSpecificationArgs',
+    'InstanceFleetConfigOnDemandProvisioningSpecificationArgsDict',
+    'InstanceFleetConfigOnDemandResizingSpecificationArgs',
+    'InstanceFleetConfigOnDemandResizingSpecificationArgsDict',
+    'InstanceFleetConfigSpotProvisioningSpecificationArgs',
+    'InstanceFleetConfigSpotProvisioningSpecificationArgsDict',
+    'InstanceFleetConfigSpotResizingSpecificationArgs',
+    'InstanceFleetConfigSpotResizingSpecificationArgsDict',
+    'InstanceFleetConfigVolumeSpecificationArgs',
+    'InstanceFleetConfigVolumeSpecificationArgsDict',
     'InstanceGroupConfigAppConfigurationArgs',
     'InstanceGroupConfigAppConfigurationArgsDict',
     'InstanceGroupConfigAutoScalingPolicyArgs',
@@ -45,6 +69,887 @@ __all__ = [
     'StepKeyValueArgs',
     'StepKeyValueArgsDict',
 ]
+
+class InstanceFleetConfigApplicationConfigurationArgsDict(TypedDict):
+    """
+    Configuration specifies optional configurations for customizing open-source big data applications and environment parameters.
+    """
+    classification: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The classification within a configuration.
+    """
+    configuration_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
+    """
+    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgsDict']]]]]
+    """
+    A list of additional configurations to apply within a configuration object.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigApplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 classification: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgs']]]] = None):
+        """
+        Configuration specifies optional configurations for customizing open-source big data applications and environment parameters.
+
+        :param pulumi.Input[_builtins.str] classification: The classification within a configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_properties: Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgs']]] configurations: A list of additional configurations to apply within a configuration object.
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if configuration_properties is not None:
+            pulumi.set(__self__, "configuration_properties", configuration_properties)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The classification within a configuration.
+        """
+        return pulumi.get(self, "classification")
+
+    @classification.setter
+    def classification(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "classification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationProperties")
+    def configuration_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
+        """
+        return pulumi.get(self, "configuration_properties")
+
+    @configuration_properties.setter
+    def configuration_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "configuration_properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgs']]]]:
+        """
+        A list of additional configurations to apply within a configuration object.
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+
+class InstanceFleetConfigEbsBlockDeviceConfigArgsDict(TypedDict):
+    """
+    EbsBlockDeviceConfig defines the number and type of EBS volumes to associate with all EC2 instances in an EMR cluster.
+    """
+    volume_specification: pulumi.Input['InstanceFleetConfigVolumeSpecificationArgsDict']
+    """
+    EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+    """
+    volumes_per_instance: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigEbsBlockDeviceConfigArgs:
+    def __init__(__self__, *,
+                 volume_specification: pulumi.Input['InstanceFleetConfigVolumeSpecificationArgs'],
+                 volumes_per_instance: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        EbsBlockDeviceConfig defines the number and type of EBS volumes to associate with all EC2 instances in an EMR cluster.
+
+        :param pulumi.Input['InstanceFleetConfigVolumeSpecificationArgs'] volume_specification: EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+        :param pulumi.Input[_builtins.int] volumes_per_instance: Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+        """
+        pulumi.set(__self__, "volume_specification", volume_specification)
+        if volumes_per_instance is not None:
+            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSpecification")
+    def volume_specification(self) -> pulumi.Input['InstanceFleetConfigVolumeSpecificationArgs']:
+        """
+        EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+        """
+        return pulumi.get(self, "volume_specification")
+
+    @volume_specification.setter
+    def volume_specification(self, value: pulumi.Input['InstanceFleetConfigVolumeSpecificationArgs']):
+        pulumi.set(self, "volume_specification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumesPerInstance")
+    def volumes_per_instance(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+        """
+        return pulumi.get(self, "volumes_per_instance")
+
+    @volumes_per_instance.setter
+    def volumes_per_instance(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "volumes_per_instance", value)
+
+
+class InstanceFleetConfigEbsConfigurationArgsDict(TypedDict):
+    """
+    EbsConfiguration determines the EBS volumes to attach to EMR cluster instances.
+    """
+    ebs_block_device_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigEbsBlockDeviceConfigArgsDict']]]]]
+    """
+    An array of Amazon EBS volume specifications attached to a cluster instance.
+    """
+    ebs_optimized: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether an Amazon EBS volume is EBS-optimized.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigEbsConfigurationArgs:
+    def __init__(__self__, *,
+                 ebs_block_device_configs: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigEbsBlockDeviceConfigArgs']]]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        EbsConfiguration determines the EBS volumes to attach to EMR cluster instances.
+
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigEbsBlockDeviceConfigArgs']]] ebs_block_device_configs: An array of Amazon EBS volume specifications attached to a cluster instance.
+        :param pulumi.Input[_builtins.bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized.
+        """
+        if ebs_block_device_configs is not None:
+            pulumi.set(__self__, "ebs_block_device_configs", ebs_block_device_configs)
+        if ebs_optimized is not None:
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+
+    @_builtins.property
+    @pulumi.getter(name="ebsBlockDeviceConfigs")
+    def ebs_block_device_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigEbsBlockDeviceConfigArgs']]]]:
+        """
+        An array of Amazon EBS volume specifications attached to a cluster instance.
+        """
+        return pulumi.get(self, "ebs_block_device_configs")
+
+    @ebs_block_device_configs.setter
+    def ebs_block_device_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigEbsBlockDeviceConfigArgs']]]]):
+        pulumi.set(self, "ebs_block_device_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ebsOptimized")
+    def ebs_optimized(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether an Amazon EBS volume is EBS-optimized.
+        """
+        return pulumi.get(self, "ebs_optimized")
+
+    @ebs_optimized.setter
+    def ebs_optimized(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ebs_optimized", value)
+
+
+class InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgsDict(TypedDict):
+    """
+    InstanceTypeConfig determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+    """
+    on_demand_specification: NotRequired[pulumi.Input[Optional['InstanceFleetConfigOnDemandProvisioningSpecificationArgsDict']]]
+    """
+    The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+    """
+    spot_specification: NotRequired[pulumi.Input[Optional['InstanceFleetConfigSpotProvisioningSpecificationArgsDict']]]
+    """
+    The launch specification for Spot instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs:
+    def __init__(__self__, *,
+                 on_demand_specification: pulumi.Input[Optional['InstanceFleetConfigOnDemandProvisioningSpecificationArgs']] = None,
+                 spot_specification: pulumi.Input[Optional['InstanceFleetConfigSpotProvisioningSpecificationArgs']] = None):
+        """
+        InstanceTypeConfig determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+
+        :param pulumi.Input['InstanceFleetConfigOnDemandProvisioningSpecificationArgs'] on_demand_specification: The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+        :param pulumi.Input['InstanceFleetConfigSpotProvisioningSpecificationArgs'] spot_specification: The launch specification for Spot instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+        """
+        if on_demand_specification is not None:
+            pulumi.set(__self__, "on_demand_specification", on_demand_specification)
+        if spot_specification is not None:
+            pulumi.set(__self__, "spot_specification", spot_specification)
+
+    @_builtins.property
+    @pulumi.getter(name="onDemandSpecification")
+    def on_demand_specification(self) -> pulumi.Input[Optional['InstanceFleetConfigOnDemandProvisioningSpecificationArgs']]:
+        """
+        The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+        """
+        return pulumi.get(self, "on_demand_specification")
+
+    @on_demand_specification.setter
+    def on_demand_specification(self, value: pulumi.Input[Optional['InstanceFleetConfigOnDemandProvisioningSpecificationArgs']]):
+        pulumi.set(self, "on_demand_specification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spotSpecification")
+    def spot_specification(self) -> pulumi.Input[Optional['InstanceFleetConfigSpotProvisioningSpecificationArgs']]:
+        """
+        The launch specification for Spot instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+        """
+        return pulumi.get(self, "spot_specification")
+
+    @spot_specification.setter
+    def spot_specification(self, value: pulumi.Input[Optional['InstanceFleetConfigSpotProvisioningSpecificationArgs']]):
+        pulumi.set(self, "spot_specification", value)
+
+
+class InstanceFleetConfigInstanceFleetResizingSpecificationsArgsDict(TypedDict):
+    on_demand_resize_specification: NotRequired[pulumi.Input[Optional['InstanceFleetConfigOnDemandResizingSpecificationArgsDict']]]
+    """
+    The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+    """
+    spot_resize_specification: NotRequired[pulumi.Input[Optional['InstanceFleetConfigSpotResizingSpecificationArgsDict']]]
+    """
+    The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigInstanceFleetResizingSpecificationsArgs:
+    def __init__(__self__, *,
+                 on_demand_resize_specification: pulumi.Input[Optional['InstanceFleetConfigOnDemandResizingSpecificationArgs']] = None,
+                 spot_resize_specification: pulumi.Input[Optional['InstanceFleetConfigSpotResizingSpecificationArgs']] = None):
+        """
+        :param pulumi.Input['InstanceFleetConfigOnDemandResizingSpecificationArgs'] on_demand_resize_specification: The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+        :param pulumi.Input['InstanceFleetConfigSpotResizingSpecificationArgs'] spot_resize_specification: The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+        """
+        if on_demand_resize_specification is not None:
+            pulumi.set(__self__, "on_demand_resize_specification", on_demand_resize_specification)
+        if spot_resize_specification is not None:
+            pulumi.set(__self__, "spot_resize_specification", spot_resize_specification)
+
+    @_builtins.property
+    @pulumi.getter(name="onDemandResizeSpecification")
+    def on_demand_resize_specification(self) -> pulumi.Input[Optional['InstanceFleetConfigOnDemandResizingSpecificationArgs']]:
+        """
+        The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+        """
+        return pulumi.get(self, "on_demand_resize_specification")
+
+    @on_demand_resize_specification.setter
+    def on_demand_resize_specification(self, value: pulumi.Input[Optional['InstanceFleetConfigOnDemandResizingSpecificationArgs']]):
+        pulumi.set(self, "on_demand_resize_specification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spotResizeSpecification")
+    def spot_resize_specification(self) -> pulumi.Input[Optional['InstanceFleetConfigSpotResizingSpecificationArgs']]:
+        """
+        The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+        """
+        return pulumi.get(self, "spot_resize_specification")
+
+    @spot_resize_specification.setter
+    def spot_resize_specification(self, value: pulumi.Input[Optional['InstanceFleetConfigSpotResizingSpecificationArgs']]):
+        pulumi.set(self, "spot_resize_specification", value)
+
+
+class InstanceFleetConfigInstanceTypeConfigArgsDict(TypedDict):
+    """
+    The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    An Amazon EC2 instance type, such as m3.xlarge.
+    """
+    bid_price: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The bid price for each Amazon EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+    """
+    bid_price_as_percentage_of_on_demand_price: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+    """
+    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgsDict']]]]]
+    """
+    An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+    """
+    custom_ami_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The custom AMI ID to use for the instance type.
+    """
+    ebs_configuration: NotRequired[pulumi.Input[Optional['InstanceFleetConfigEbsConfigurationArgsDict']]]
+    """
+    The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+    """
+    priority: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+    """
+    weighted_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigInstanceTypeConfigArgs:
+    def __init__(__self__, *,
+                 instance_type: pulumi.Input[_builtins.str],
+                 bid_price: pulumi.Input[Optional[_builtins.str]] = None,
+                 bid_price_as_percentage_of_on_demand_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgs']]]] = None,
+                 custom_ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_configuration: pulumi.Input[Optional['InstanceFleetConfigEbsConfigurationArgs']] = None,
+                 priority: pulumi.Input[Optional[_builtins.float]] = None,
+                 weighted_capacity: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+
+        :param pulumi.Input[_builtins.str] instance_type: An Amazon EC2 instance type, such as m3.xlarge.
+        :param pulumi.Input[_builtins.str] bid_price: The bid price for each Amazon EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        :param pulumi.Input[_builtins.float] bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgs']]] configurations: An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+        :param pulumi.Input[_builtins.str] custom_ami_id: The custom AMI ID to use for the instance type.
+        :param pulumi.Input['InstanceFleetConfigEbsConfigurationArgs'] ebs_configuration: The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+        :param pulumi.Input[_builtins.float] priority: The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+        :param pulumi.Input[_builtins.int] weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        if bid_price is not None:
+            pulumi.set(__self__, "bid_price", bid_price)
+        if bid_price_as_percentage_of_on_demand_price is not None:
+            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
+        if ebs_configuration is not None:
+            pulumi.set(__self__, "ebs_configuration", ebs_configuration)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if weighted_capacity is not None:
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        An Amazon EC2 instance type, such as m3.xlarge.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bidPrice")
+    def bid_price(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The bid price for each Amazon EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price")
+
+    @bid_price.setter
+    def bid_price(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bid_price", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
+    def bid_price_as_percentage_of_on_demand_price(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
+
+    @bid_price_as_percentage_of_on_demand_price.setter
+    def bid_price_as_percentage_of_on_demand_price(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "bid_price_as_percentage_of_on_demand_price", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgs']]]]:
+        """
+        An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetConfigApplicationConfigurationArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The custom AMI ID to use for the instance type.
+        """
+        return pulumi.get(self, "custom_ami_id")
+
+    @custom_ami_id.setter
+    def custom_ami_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_ami_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ebsConfiguration")
+    def ebs_configuration(self) -> pulumi.Input[Optional['InstanceFleetConfigEbsConfigurationArgs']]:
+        """
+        The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+        """
+        return pulumi.get(self, "ebs_configuration")
+
+    @ebs_configuration.setter
+    def ebs_configuration(self, value: pulumi.Input[Optional['InstanceFleetConfigEbsConfigurationArgs']]):
+        pulumi.set(self, "ebs_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "priority", value)
+
+    @_builtins.property
+    @pulumi.getter(name="weightedCapacity")
+    def weighted_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+        """
+        return pulumi.get(self, "weighted_capacity")
+
+    @weighted_capacity.setter
+    def weighted_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "weighted_capacity", value)
+
+
+class InstanceFleetConfigOnDemandCapacityReservationOptionsArgsDict(TypedDict):
+    capacity_reservation_preference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates the instance's Capacity Reservation preferences.
+    """
+    capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the Capacity Reservation resource group in which to run the instance.
+    """
+    usage_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigOnDemandCapacityReservationOptionsArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_reservation_resource_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_strategy: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences.
+        :param pulumi.Input[_builtins.str] capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
+        :param pulumi.Input[_builtins.str] usage_strategy: Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
+        if usage_strategy is not None:
+            pulumi.set(__self__, "usage_strategy", usage_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates the instance's Capacity Reservation preferences.
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @capacity_reservation_preference.setter
+    def capacity_reservation_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "capacity_reservation_preference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+    @capacity_reservation_resource_group_arn.setter
+    def capacity_reservation_resource_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "capacity_reservation_resource_group_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usageStrategy")
+    def usage_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+        """
+        return pulumi.get(self, "usage_strategy")
+
+    @usage_strategy.setter
+    def usage_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "usage_strategy", value)
+
+
+class InstanceFleetConfigOnDemandProvisioningSpecificationArgsDict(TypedDict):
+    """
+    The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+    """
+    allocation_strategy: pulumi.Input[_builtins.str]
+    """
+    Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+    """
+    capacity_reservation_options: NotRequired[pulumi.Input[Optional['InstanceFleetConfigOnDemandCapacityReservationOptionsArgsDict']]]
+    """
+    The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigOnDemandProvisioningSpecificationArgs:
+    def __init__(__self__, *,
+                 allocation_strategy: pulumi.Input[_builtins.str],
+                 capacity_reservation_options: pulumi.Input[Optional['InstanceFleetConfigOnDemandCapacityReservationOptionsArgs']] = None):
+        """
+        The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+
+        :param pulumi.Input[_builtins.str] allocation_strategy: Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+        :param pulumi.Input['InstanceFleetConfigOnDemandCapacityReservationOptionsArgs'] capacity_reservation_options: The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+        """
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if capacity_reservation_options is not None:
+            pulumi.set(__self__, "capacity_reservation_options", capacity_reservation_options)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @allocation_strategy.setter
+    def allocation_strategy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "allocation_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationOptions")
+    def capacity_reservation_options(self) -> pulumi.Input[Optional['InstanceFleetConfigOnDemandCapacityReservationOptionsArgs']]:
+        """
+        The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+        """
+        return pulumi.get(self, "capacity_reservation_options")
+
+    @capacity_reservation_options.setter
+    def capacity_reservation_options(self, value: pulumi.Input[Optional['InstanceFleetConfigOnDemandCapacityReservationOptionsArgs']]):
+        pulumi.set(self, "capacity_reservation_options", value)
+
+
+class InstanceFleetConfigOnDemandResizingSpecificationArgsDict(TypedDict):
+    allocation_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is lowest-price.
+    """
+    capacity_reservation_options: NotRequired[pulumi.Input[Optional['InstanceFleetConfigOnDemandCapacityReservationOptionsArgsDict']]]
+    """
+    Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+    """
+    timeout_duration_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    On-Demand resize timeout in minutes.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigOnDemandResizingSpecificationArgs:
+    def __init__(__self__, *,
+                 allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_reservation_options: pulumi.Input[Optional['InstanceFleetConfigOnDemandCapacityReservationOptionsArgs']] = None,
+                 timeout_duration_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] allocation_strategy: Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is lowest-price.
+        :param pulumi.Input['InstanceFleetConfigOnDemandCapacityReservationOptionsArgs'] capacity_reservation_options: Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+        :param pulumi.Input[_builtins.int] timeout_duration_minutes: On-Demand resize timeout in minutes.
+        """
+        if allocation_strategy is not None:
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if capacity_reservation_options is not None:
+            pulumi.set(__self__, "capacity_reservation_options", capacity_reservation_options)
+        if timeout_duration_minutes is not None:
+            pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is lowest-price.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @allocation_strategy.setter
+    def allocation_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "allocation_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationOptions")
+    def capacity_reservation_options(self) -> pulumi.Input[Optional['InstanceFleetConfigOnDemandCapacityReservationOptionsArgs']]:
+        """
+        Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+        """
+        return pulumi.get(self, "capacity_reservation_options")
+
+    @capacity_reservation_options.setter
+    def capacity_reservation_options(self, value: pulumi.Input[Optional['InstanceFleetConfigOnDemandCapacityReservationOptionsArgs']]):
+        pulumi.set(self, "capacity_reservation_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutDurationMinutes")
+    def timeout_duration_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        On-Demand resize timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_duration_minutes")
+
+    @timeout_duration_minutes.setter
+    def timeout_duration_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_duration_minutes", value)
+
+
+class InstanceFleetConfigSpotProvisioningSpecificationArgsDict(TypedDict):
+    """
+    SpotProvisioningSpecification determines the launch specification for Spot instances in the instance fleet, which includes the defined duration and provisioning timeout behavior.
+    """
+    timeout_action: pulumi.Input[_builtins.str]
+    """
+    The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+    """
+    timeout_duration_minutes: pulumi.Input[_builtins.int]
+    """
+    The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+    """
+    allocation_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies one of the following strategies to launch Spot Instance fleets: price-capacity-optimized, capacity-optimized, lowest-price, or diversified
+    """
+    block_duration_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigSpotProvisioningSpecificationArgs:
+    def __init__(__self__, *,
+                 timeout_action: pulumi.Input[_builtins.str],
+                 timeout_duration_minutes: pulumi.Input[_builtins.int],
+                 allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_duration_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        SpotProvisioningSpecification determines the launch specification for Spot instances in the instance fleet, which includes the defined duration and provisioning timeout behavior.
+
+        :param pulumi.Input[_builtins.str] timeout_action: The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        :param pulumi.Input[_builtins.int] timeout_duration_minutes: The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        :param pulumi.Input[_builtins.str] allocation_strategy: Specifies one of the following strategies to launch Spot Instance fleets: price-capacity-optimized, capacity-optimized, lowest-price, or diversified
+        :param pulumi.Input[_builtins.int] block_duration_minutes: The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360.
+        """
+        pulumi.set(__self__, "timeout_action", timeout_action)
+        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+        if allocation_strategy is not None:
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if block_duration_minutes is not None:
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutAction")
+    def timeout_action(self) -> pulumi.Input[_builtins.str]:
+        """
+        The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        """
+        return pulumi.get(self, "timeout_action")
+
+    @timeout_action.setter
+    def timeout_action(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "timeout_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutDurationMinutes")
+    def timeout_duration_minutes(self) -> pulumi.Input[_builtins.int]:
+        """
+        The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        """
+        return pulumi.get(self, "timeout_duration_minutes")
+
+    @timeout_duration_minutes.setter
+    def timeout_duration_minutes(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "timeout_duration_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies one of the following strategies to launch Spot Instance fleets: price-capacity-optimized, capacity-optimized, lowest-price, or diversified
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @allocation_strategy.setter
+    def allocation_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "allocation_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="blockDurationMinutes")
+    def block_duration_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360.
+        """
+        return pulumi.get(self, "block_duration_minutes")
+
+    @block_duration_minutes.setter
+    def block_duration_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "block_duration_minutes", value)
+
+
+class InstanceFleetConfigSpotResizingSpecificationArgsDict(TypedDict):
+    allocation_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the allocation strategy to use to launch Spot instances during a resize.
+    """
+    timeout_duration_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Spot resize timeout in minutes.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigSpotResizingSpecificationArgs:
+    def __init__(__self__, *,
+                 allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_duration_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] allocation_strategy: Specifies the allocation strategy to use to launch Spot instances during a resize.
+        :param pulumi.Input[_builtins.int] timeout_duration_minutes: Spot resize timeout in minutes.
+        """
+        if allocation_strategy is not None:
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if timeout_duration_minutes is not None:
+            pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the allocation strategy to use to launch Spot instances during a resize.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @allocation_strategy.setter
+    def allocation_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "allocation_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutDurationMinutes")
+    def timeout_duration_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Spot resize timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_duration_minutes")
+
+    @timeout_duration_minutes.setter
+    def timeout_duration_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_duration_minutes", value)
+
+
+class InstanceFleetConfigVolumeSpecificationArgsDict(TypedDict):
+    """
+    VolumeSpecification is a subproperty of the EbsBlockDeviceConfig property type. VolumeSecification determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
+    """
+    size_in_gb: pulumi.Input[_builtins.int]
+    """
+    The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+    """
+    volume_type: pulumi.Input[_builtins.str]
+    """
+    The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+    """
+    iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of I/O operations per second (IOPS) that the volume supports.
+    """
+    throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+    """
+
+@pulumi.input_type
+class InstanceFleetConfigVolumeSpecificationArgs:
+    def __init__(__self__, *,
+                 size_in_gb: pulumi.Input[_builtins.int],
+                 volume_type: pulumi.Input[_builtins.str],
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        VolumeSpecification is a subproperty of the EbsBlockDeviceConfig property type. VolumeSecification determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
+
+        :param pulumi.Input[_builtins.int] size_in_gb: The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+        :param pulumi.Input[_builtins.str] volume_type: The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+        :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS) that the volume supports.
+        :param pulumi.Input[_builtins.int] throughput: The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+        """
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        pulumi.set(__self__, "volume_type", volume_type)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @_builtins.property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> pulumi.Input[_builtins.int]:
+        """
+        The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+        """
+        return pulumi.get(self, "size_in_gb")
+
+    @size_in_gb.setter
+    def size_in_gb(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "size_in_gb", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+        """
+        return pulumi.get(self, "volume_type")
+
+    @volume_type.setter
+    def volume_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "volume_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of I/O operations per second (IOPS) that the volume supports.
+        """
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "iops", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+        """
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "throughput", value)
+
 
 class InstanceGroupConfigAppConfigurationArgsDict(TypedDict):
     classification: NotRequired[pulumi.Input[Optional[_builtins.str]]]

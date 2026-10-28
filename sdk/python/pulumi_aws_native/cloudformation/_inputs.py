@@ -712,7 +712,7 @@ class StackSetDeploymentTargetsArgsDict(TypedDict):
     """
     accounts_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Returns the value of the AccountsUrl property.
+    Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
     """
     organizational_unit_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -731,7 +731,7 @@ class StackSetDeploymentTargetsArgs:
 
         :param pulumi.Input['StackSetDeploymentTargetsAccountFilterType'] account_filter_type: The filter type you want to apply on organizational units and accounts.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: AWS accounts that you want to create stack instances in the specified Region(s) for.
-        :param pulumi.Input[_builtins.str] accounts_url: Returns the value of the AccountsUrl property.
+        :param pulumi.Input[_builtins.str] accounts_url: Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_ids: The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         """
         if account_filter_type is not None:
@@ -771,7 +771,7 @@ class StackSetDeploymentTargetsArgs:
     @pulumi.getter(name="accountsUrl")
     def accounts_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Returns the value of the AccountsUrl property.
+        Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
         """
         return pulumi.get(self, "accounts_url")
 

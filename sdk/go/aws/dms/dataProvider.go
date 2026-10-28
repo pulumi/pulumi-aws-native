@@ -21,7 +21,7 @@ type DataProvider struct {
 	DataProviderArn pulumi.StringOutput `pulumi:"dataProviderArn"`
 	// The data provider creation time.
 	DataProviderCreationTime pulumi.StringOutput `pulumi:"dataProviderCreationTime"`
-	// The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	DataProviderIdentifier pulumi.StringPtrOutput `pulumi:"dataProviderIdentifier"`
 	// The property describes a name to identify the data provider.
 	DataProviderName pulumi.StringPtrOutput `pulumi:"dataProviderName"`
@@ -82,7 +82,7 @@ func (DataProviderState) ElementType() reflect.Type {
 }
 
 type dataProviderArgs struct {
-	// The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	DataProviderIdentifier *string `pulumi:"dataProviderIdentifier"`
 	// The property describes a name to identify the data provider.
 	DataProviderName *string `pulumi:"dataProviderName"`
@@ -102,7 +102,7 @@ type dataProviderArgs struct {
 
 // The set of arguments for constructing a DataProvider resource.
 type DataProviderArgs struct {
-	// The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	DataProviderIdentifier pulumi.StringPtrInput
 	// The property describes a name to identify the data provider.
 	DataProviderName pulumi.StringPtrInput
@@ -167,7 +167,7 @@ func (o DataProviderOutput) DataProviderCreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProvider) pulumi.StringOutput { return v.DataProviderCreationTime }).(pulumi.StringOutput)
 }
 
-// The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 func (o DataProviderOutput) DataProviderIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProvider) pulumi.StringPtrOutput { return v.DataProviderIdentifier }).(pulumi.StringPtrOutput)
 }

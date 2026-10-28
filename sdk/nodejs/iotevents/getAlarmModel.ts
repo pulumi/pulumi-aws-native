@@ -8,20 +8,17 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
+ * Resource Type definition for AWS::IoTEvents::AlarmModel
  */
 export function getAlarmModel(args: GetAlarmModelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmModelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotevents:getAlarmModel", {
-        "alarmModelName": args.alarmModelName,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetAlarmModelArgs {
-    /**
-     * The name of the alarm model.
-     */
-    alarmModelName: string;
+    id: string;
 }
 
 export interface GetAlarmModelResult {
@@ -41,8 +38,9 @@ export interface GetAlarmModelResult {
      * Defines when your alarm is invoked.
      */
     readonly alarmRule?: outputs.iotevents.AlarmModelAlarmRule;
+    readonly id?: string;
     /**
-     * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
+     * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
      */
     readonly roleArn?: string;
     /**
@@ -50,24 +48,22 @@ export interface GetAlarmModelResult {
      */
     readonly severity?: number;
     /**
-     * A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
-     *  You can create up to 50 tags for one alarm model.
+     * A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your AWS IoT Events resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *AWS IoT Events Developer Guide* .
+     *
+     * You can create up to 50 tags for one alarm model.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
+ * Resource Type definition for AWS::IoTEvents::AlarmModel
  */
 export function getAlarmModelOutput(args: GetAlarmModelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlarmModelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotevents:getAlarmModel", {
-        "alarmModelName": args.alarmModelName,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetAlarmModelOutputArgs {
-    /**
-     * The name of the alarm model.
-     */
-    alarmModelName: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

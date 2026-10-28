@@ -68,6 +68,28 @@ export const GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode =
 
 export type GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode = (typeof GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode)[keyof typeof GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode];
 
+export const GlobalTableSearchSchemaElementSearchSchemaElementType = {
+    Hash: "HASH",
+    InlineFilter: "INLINE_FILTER",
+} as const;
+
+export type GlobalTableSearchSchemaElementSearchSchemaElementType = (typeof GlobalTableSearchSchemaElementSearchSchemaElementType)[keyof typeof GlobalTableSearchSchemaElementSearchSchemaElementType];
+
+export const GlobalTableTableType = {
+    GlobalTableReplica: "GlobalTableReplica",
+    Regional: "Regional",
+} as const;
+
+export type GlobalTableTableType = (typeof GlobalTableTableType)[keyof typeof GlobalTableTableType];
+
+export const GlobalTableVectorIndexDistanceFunction = {
+    Cosine: "COSINE",
+    DotProduct: "DOT_PRODUCT",
+    Euclidean: "EUCLIDEAN",
+} as const;
+
+export type GlobalTableVectorIndexDistanceFunction = (typeof GlobalTableVectorIndexDistanceFunction)[keyof typeof GlobalTableVectorIndexDistanceFunction];
+
 export const TableContributorInsightsSpecificationMode = {
     AccessedAndThrottledKeys: "ACCESSED_AND_THROTTLED_KEYS",
     ThrottledKeys: "THROTTLED_KEYS",
@@ -87,3 +109,18 @@ export const TableKinesisStreamSpecificationApproximateCreationDateTimePrecision
  * The precision for the time and date that the stream was created.
  */
 export type TableKinesisStreamSpecificationApproximateCreationDateTimePrecision = (typeof TableKinesisStreamSpecificationApproximateCreationDateTimePrecision)[keyof typeof TableKinesisStreamSpecificationApproximateCreationDateTimePrecision];
+
+export const TableSearchSchemaElementSearchSchemaElementType = {
+    Hash: "HASH",
+    InlineFilter: "INLINE_FILTER",
+} as const;
+
+export type TableSearchSchemaElementSearchSchemaElementType = (typeof TableSearchSchemaElementSearchSchemaElementType)[keyof typeof TableSearchSchemaElementSearchSchemaElementType];
+
+export const TableVectorIndexDistanceFunction = {
+    Cosine: "COSINE",
+    DotProduct: "DOT_PRODUCT",
+    Euclidean: "EUCLIDEAN",
+} as const;
+
+export type TableVectorIndexDistanceFunction = (typeof TableVectorIndexDistanceFunction)[keyof typeof TableVectorIndexDistanceFunction];

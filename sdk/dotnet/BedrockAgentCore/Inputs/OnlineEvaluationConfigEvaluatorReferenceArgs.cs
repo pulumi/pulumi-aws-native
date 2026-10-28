@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     public sealed class OnlineEvaluationConfigEvaluatorReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier of the evaluator.
+        /// The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.&lt;provider&gt;.&lt;name&gt;), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
         /// </summary>
         [Input("evaluatorId", required: true)]
         public Input<string> EvaluatorId { get; set; } = null!;

@@ -83,7 +83,7 @@ class GetPaymentManagerResult:
     @pulumi.getter(name="paymentManagerArn")
     def payment_manager_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the payment manager
+        The Amazon Resource Name (ARN) of the resource.
         """
         return pulumi.get(self, "payment_manager_arn")
 
@@ -106,19 +106,25 @@ class GetPaymentManagerResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['PaymentManagerStatus']:
+        """
+        The current status of the payment manager
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Tags to assign to the payment manager
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityDetails")
     def workload_identity_details(self) -> Optional['outputs.PaymentManagerWorkloadIdentityDetails']:
+        """
+        The workload identity details for the payment manager
+        """
         return pulumi.get(self, "workload_identity_details")
 
 
@@ -144,7 +150,7 @@ def get_payment_manager(payment_manager_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::BedrockAgentCore::PaymentManager
 
-    :param _builtins.str payment_manager_arn: The Amazon Resource Name (ARN) of the payment manager
+    :param _builtins.str payment_manager_arn: The Amazon Resource Name (ARN) of the resource.
     """
     __args__ = dict()
     __args__['paymentManagerArn'] = payment_manager_arn
@@ -166,7 +172,7 @@ def get_payment_manager_output(payment_manager_arn: pulumi.Input[Optional[_built
     """
     Resource Type definition for AWS::BedrockAgentCore::PaymentManager
 
-    :param _builtins.str payment_manager_arn: The Amazon Resource Name (ARN) of the payment manager
+    :param _builtins.str payment_manager_arn: The Amazon Resource Name (ARN) of the resource.
     """
     __args__ = dict()
     __args__['paymentManagerArn'] = payment_manager_arn

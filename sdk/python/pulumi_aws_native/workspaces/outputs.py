@@ -13,10 +13,25 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'ConnectionAliasAssociation',
+    'DirectoryAccessEndpoint',
+    'DirectoryAccessEndpointConfig',
+    'DirectoryActiveDirectoryConfig',
+    'DirectoryCertificateBasedAuthProperties',
+    'DirectoryDefaultWorkspaceCreationProperties',
+    'DirectoryGlobalAcceleratorForDirectory',
+    'DirectoryIdcConfig',
+    'DirectoryMicrosoftEntraConfig',
+    'DirectorySamlProperties',
+    'DirectorySelfservicePermissions',
+    'DirectoryStorageConnector',
+    'DirectoryStreamingProperties',
+    'DirectoryUserSetting',
+    'DirectoryWorkspaceAccessProperties',
     'WorkspaceIpGroupIpRuleItem',
     'WorkspaceProperties',
     'WorkspacesPoolApplicationSettings',
@@ -100,6 +115,1014 @@ class ConnectionAliasAssociation(dict):
         The identifier of the directory associated with a connection alias.
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class DirectoryAccessEndpoint(dict):
+    """
+    Describes the access type and endpoint for a WorkSpace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessEndpointType":
+            suggest = "access_endpoint_type"
+        elif key == "vpcEndpointId":
+            suggest = "vpc_endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryAccessEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryAccessEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryAccessEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_endpoint_type: Optional['DirectoryAccessEndpointAccessEndpointType'] = None,
+                 vpc_endpoint_id: Optional[_builtins.str] = None):
+        """
+        Describes the access type and endpoint for a WorkSpace.
+
+        :param 'DirectoryAccessEndpointAccessEndpointType' access_endpoint_type: Indicates the type of access endpoint.
+        :param _builtins.str vpc_endpoint_id: Indicates the VPC endpoint to use for access.
+        """
+        if access_endpoint_type is not None:
+            pulumi.set(__self__, "access_endpoint_type", access_endpoint_type)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointType")
+    def access_endpoint_type(self) -> Optional['DirectoryAccessEndpointAccessEndpointType']:
+        """
+        Indicates the type of access endpoint.
+        """
+        return pulumi.get(self, "access_endpoint_type")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[_builtins.str]:
+        """
+        Indicates the VPC endpoint to use for access.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+
+@pulumi.output_type
+class DirectoryAccessEndpointConfig(dict):
+    """
+    Describes the access endpoint configuration for a WorkSpace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessEndpoints":
+            suggest = "access_endpoints"
+        elif key == "internetFallbackProtocols":
+            suggest = "internet_fallback_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryAccessEndpointConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryAccessEndpointConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryAccessEndpointConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_endpoints: Sequence['outputs.DirectoryAccessEndpoint'],
+                 internet_fallback_protocols: Optional[Sequence['DirectoryAccessEndpointConfigInternetFallbackProtocolsItem']] = None):
+        """
+        Describes the access endpoint configuration for a WorkSpace.
+
+        :param Sequence['DirectoryAccessEndpoint'] access_endpoints: Indicates a list of access endpoints associated with this directory.
+        :param Sequence['DirectoryAccessEndpointConfigInternetFallbackProtocolsItem'] internet_fallback_protocols: Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+        """
+        pulumi.set(__self__, "access_endpoints", access_endpoints)
+        if internet_fallback_protocols is not None:
+            pulumi.set(__self__, "internet_fallback_protocols", internet_fallback_protocols)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpoints")
+    def access_endpoints(self) -> Sequence['outputs.DirectoryAccessEndpoint']:
+        """
+        Indicates a list of access endpoints associated with this directory.
+        """
+        return pulumi.get(self, "access_endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="internetFallbackProtocols")
+    def internet_fallback_protocols(self) -> Optional[Sequence['DirectoryAccessEndpointConfigInternetFallbackProtocolsItem']]:
+        """
+        Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+        """
+        return pulumi.get(self, "internet_fallback_protocols")
+
+
+@pulumi.output_type
+class DirectoryActiveDirectoryConfig(dict):
+    """
+    Information about the Active Directory config.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "serviceAccountSecretArn":
+            suggest = "service_account_secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryActiveDirectoryConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryActiveDirectoryConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryActiveDirectoryConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: _builtins.str,
+                 service_account_secret_arn: _builtins.str):
+        """
+        Information about the Active Directory config.
+
+        :param _builtins.str domain_name: The name of the domain.
+        :param _builtins.str service_account_secret_arn: Indicates the secret ARN on the service account.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "service_account_secret_arn", service_account_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> _builtins.str:
+        """
+        The name of the domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountSecretArn")
+    def service_account_secret_arn(self) -> _builtins.str:
+        """
+        Indicates the secret ARN on the service account.
+        """
+        return pulumi.get(self, "service_account_secret_arn")
+
+
+@pulumi.output_type
+class DirectoryCertificateBasedAuthProperties(dict):
+    """
+    Describes the properties of the certificate-based authentication you want to use with your WorkSpaces.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArn":
+            suggest = "certificate_authority_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryCertificateBasedAuthProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryCertificateBasedAuthProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryCertificateBasedAuthProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_authority_arn: Optional[_builtins.str] = None,
+                 status: Optional['DirectoryCertificateBasedAuthPropertiesStatus'] = None):
+        """
+        Describes the properties of the certificate-based authentication you want to use with your WorkSpaces.
+
+        :param _builtins.str certificate_authority_arn: The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+        :param 'DirectoryCertificateBasedAuthPropertiesStatus' status: The status of the certificate-based authentication properties.
+        """
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+        """
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['DirectoryCertificateBasedAuthPropertiesStatus']:
+        """
+        The status of the certificate-based authentication properties.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DirectoryDefaultWorkspaceCreationProperties(dict):
+    """
+    The default values that are used to create WorkSpaces.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customSecurityGroupId":
+            suggest = "custom_security_group_id"
+        elif key == "defaultOu":
+            suggest = "default_ou"
+        elif key == "enableInternetAccess":
+            suggest = "enable_internet_access"
+        elif key == "enableMaintenanceMode":
+            suggest = "enable_maintenance_mode"
+        elif key == "instanceIamRoleArn":
+            suggest = "instance_iam_role_arn"
+        elif key == "userEnabledAsLocalAdministrator":
+            suggest = "user_enabled_as_local_administrator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryDefaultWorkspaceCreationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryDefaultWorkspaceCreationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryDefaultWorkspaceCreationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_security_group_id: Optional[_builtins.str] = None,
+                 default_ou: Optional[_builtins.str] = None,
+                 enable_internet_access: Optional[_builtins.bool] = None,
+                 enable_maintenance_mode: Optional[_builtins.bool] = None,
+                 instance_iam_role_arn: Optional[_builtins.str] = None,
+                 user_enabled_as_local_administrator: Optional[_builtins.bool] = None):
+        """
+        The default values that are used to create WorkSpaces.
+
+        :param _builtins.str custom_security_group_id: The identifier of the default security group to apply to WorkSpaces when they are created.
+        :param _builtins.str default_ou: The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+        :param _builtins.bool enable_internet_access: Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+        :param _builtins.bool enable_maintenance_mode: Specifies whether maintenance mode is enabled for WorkSpaces.
+        :param _builtins.str instance_iam_role_arn: Indicates the IAM role ARN of the instance.
+        :param _builtins.bool user_enabled_as_local_administrator: Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+        """
+        if custom_security_group_id is not None:
+            pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
+        if default_ou is not None:
+            pulumi.set(__self__, "default_ou", default_ou)
+        if enable_internet_access is not None:
+            pulumi.set(__self__, "enable_internet_access", enable_internet_access)
+        if enable_maintenance_mode is not None:
+            pulumi.set(__self__, "enable_maintenance_mode", enable_maintenance_mode)
+        if instance_iam_role_arn is not None:
+            pulumi.set(__self__, "instance_iam_role_arn", instance_iam_role_arn)
+        if user_enabled_as_local_administrator is not None:
+            pulumi.set(__self__, "user_enabled_as_local_administrator", user_enabled_as_local_administrator)
+
+    @_builtins.property
+    @pulumi.getter(name="customSecurityGroupId")
+    def custom_security_group_id(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the default security group to apply to WorkSpaces when they are created.
+        """
+        return pulumi.get(self, "custom_security_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultOu")
+    def default_ou(self) -> Optional[_builtins.str]:
+        """
+        The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+        """
+        return pulumi.get(self, "default_ou")
+
+    @_builtins.property
+    @pulumi.getter(name="enableInternetAccess")
+    def enable_internet_access(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+        """
+        return pulumi.get(self, "enable_internet_access")
+
+    @_builtins.property
+    @pulumi.getter(name="enableMaintenanceMode")
+    def enable_maintenance_mode(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether maintenance mode is enabled for WorkSpaces.
+        """
+        return pulumi.get(self, "enable_maintenance_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceIamRoleArn")
+    def instance_iam_role_arn(self) -> Optional[_builtins.str]:
+        """
+        Indicates the IAM role ARN of the instance.
+        """
+        return pulumi.get(self, "instance_iam_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="userEnabledAsLocalAdministrator")
+    def user_enabled_as_local_administrator(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+        """
+        return pulumi.get(self, "user_enabled_as_local_administrator")
+
+
+@pulumi.output_type
+class DirectoryGlobalAcceleratorForDirectory(dict):
+    """
+    Describes the Global Accelerator for directory.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredProtocol":
+            suggest = "preferred_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryGlobalAcceleratorForDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryGlobalAcceleratorForDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryGlobalAcceleratorForDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: 'DirectoryGlobalAcceleratorForDirectoryMode',
+                 preferred_protocol: Optional['DirectoryGlobalAcceleratorForDirectoryPreferredProtocol'] = None):
+        """
+        Describes the Global Accelerator for directory.
+
+        :param 'DirectoryGlobalAcceleratorForDirectoryMode' mode: Indicates if Global Accelerator for directory is enabled or disabled.
+        :param 'DirectoryGlobalAcceleratorForDirectoryPreferredProtocol' preferred_protocol: Indicates the preferred protocol for Global Accelerator.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if preferred_protocol is not None:
+            pulumi.set(__self__, "preferred_protocol", preferred_protocol)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> 'DirectoryGlobalAcceleratorForDirectoryMode':
+        """
+        Indicates if Global Accelerator for directory is enabled or disabled.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter(name="preferredProtocol")
+    def preferred_protocol(self) -> Optional['DirectoryGlobalAcceleratorForDirectoryPreferredProtocol']:
+        """
+        Indicates the preferred protocol for Global Accelerator.
+        """
+        return pulumi.get(self, "preferred_protocol")
+
+
+@pulumi.output_type
+class DirectoryIdcConfig(dict):
+    """
+    Specifies the configurations of the identity center.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationArn":
+            suggest = "application_arn"
+        elif key == "instanceArn":
+            suggest = "instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryIdcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryIdcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryIdcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_arn: Optional[_builtins.str] = None,
+                 instance_arn: Optional[_builtins.str] = None):
+        """
+        Specifies the configurations of the identity center.
+
+        :param _builtins.str application_arn: The Amazon Resource Name (ARN) of the application.
+        :param _builtins.str instance_arn: The Amazon Resource Name (ARN) of the identity center instance.
+        """
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if instance_arn is not None:
+            pulumi.set(__self__, "instance_arn", instance_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the application.
+        """
+        return pulumi.get(self, "application_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the identity center instance.
+        """
+        return pulumi.get(self, "instance_arn")
+
+
+@pulumi.output_type
+class DirectoryMicrosoftEntraConfig(dict):
+    """
+    Specifies the configurations of the Microsoft Entra.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationConfigSecretArn":
+            suggest = "application_config_secret_arn"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryMicrosoftEntraConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryMicrosoftEntraConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryMicrosoftEntraConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_config_secret_arn: Optional[_builtins.str] = None,
+                 tenant_id: Optional[_builtins.str] = None):
+        """
+        Specifies the configurations of the Microsoft Entra.
+
+        :param _builtins.str application_config_secret_arn: The Amazon Resource Name (ARN) of the application config.
+        :param _builtins.str tenant_id: The identifier of the tenant.
+        """
+        if application_config_secret_arn is not None:
+            pulumi.set(__self__, "application_config_secret_arn", application_config_secret_arn)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationConfigSecretArn")
+    def application_config_secret_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the application config.
+        """
+        return pulumi.get(self, "application_config_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the tenant.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class DirectorySamlProperties(dict):
+    """
+    Describes the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relayStateParameterName":
+            suggest = "relay_state_parameter_name"
+        elif key == "userAccessUrl":
+            suggest = "user_access_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectorySamlProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectorySamlProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectorySamlProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 relay_state_parameter_name: Optional[_builtins.str] = None,
+                 status: Optional['DirectorySamlPropertiesStatus'] = None,
+                 user_access_url: Optional[_builtins.str] = None):
+        """
+        Describes the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.
+
+        :param _builtins.str relay_state_parameter_name: The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+        :param 'DirectorySamlPropertiesStatus' status: Indicates the status of SAML 2.0 authentication.
+        :param _builtins.str user_access_url: The SAML 2.0 identity provider (IdP) user access URL.
+        """
+        if relay_state_parameter_name is not None:
+            pulumi.set(__self__, "relay_state_parameter_name", relay_state_parameter_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if user_access_url is not None:
+            pulumi.set(__self__, "user_access_url", user_access_url)
+
+    @_builtins.property
+    @pulumi.getter(name="relayStateParameterName")
+    def relay_state_parameter_name(self) -> Optional[_builtins.str]:
+        """
+        The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+        """
+        return pulumi.get(self, "relay_state_parameter_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['DirectorySamlPropertiesStatus']:
+        """
+        Indicates the status of SAML 2.0 authentication.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="userAccessUrl")
+    def user_access_url(self) -> Optional[_builtins.str]:
+        """
+        The SAML 2.0 identity provider (IdP) user access URL.
+        """
+        return pulumi.get(self, "user_access_url")
+
+
+@pulumi.output_type
+class DirectorySelfservicePermissions(dict):
+    """
+    Describes the self-service permissions for a directory.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changeComputeType":
+            suggest = "change_compute_type"
+        elif key == "increaseVolumeSize":
+            suggest = "increase_volume_size"
+        elif key == "rebuildWorkspace":
+            suggest = "rebuild_workspace"
+        elif key == "restartWorkspace":
+            suggest = "restart_workspace"
+        elif key == "switchRunningMode":
+            suggest = "switch_running_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectorySelfservicePermissions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectorySelfservicePermissions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectorySelfservicePermissions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 change_compute_type: Optional['DirectorySelfservicePermissionsChangeComputeType'] = None,
+                 increase_volume_size: Optional['DirectorySelfservicePermissionsIncreaseVolumeSize'] = None,
+                 rebuild_workspace: Optional['DirectorySelfservicePermissionsRebuildWorkspace'] = None,
+                 restart_workspace: Optional['DirectorySelfservicePermissionsRestartWorkspace'] = None,
+                 switch_running_mode: Optional['DirectorySelfservicePermissionsSwitchRunningMode'] = None):
+        """
+        Describes the self-service permissions for a directory.
+
+        :param 'DirectorySelfservicePermissionsChangeComputeType' change_compute_type: Specifies whether users can change the compute type (bundle) for their WorkSpace.
+        :param 'DirectorySelfservicePermissionsIncreaseVolumeSize' increase_volume_size: Specifies whether users can increase the volume size of the drives on their WorkSpace.
+        :param 'DirectorySelfservicePermissionsRebuildWorkspace' rebuild_workspace: Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+        :param 'DirectorySelfservicePermissionsRestartWorkspace' restart_workspace: Specifies whether users can restart their WorkSpace.
+        :param 'DirectorySelfservicePermissionsSwitchRunningMode' switch_running_mode: Specifies whether users can switch the running mode of their WorkSpace.
+        """
+        if change_compute_type is not None:
+            pulumi.set(__self__, "change_compute_type", change_compute_type)
+        if increase_volume_size is not None:
+            pulumi.set(__self__, "increase_volume_size", increase_volume_size)
+        if rebuild_workspace is not None:
+            pulumi.set(__self__, "rebuild_workspace", rebuild_workspace)
+        if restart_workspace is not None:
+            pulumi.set(__self__, "restart_workspace", restart_workspace)
+        if switch_running_mode is not None:
+            pulumi.set(__self__, "switch_running_mode", switch_running_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="changeComputeType")
+    def change_compute_type(self) -> Optional['DirectorySelfservicePermissionsChangeComputeType']:
+        """
+        Specifies whether users can change the compute type (bundle) for their WorkSpace.
+        """
+        return pulumi.get(self, "change_compute_type")
+
+    @_builtins.property
+    @pulumi.getter(name="increaseVolumeSize")
+    def increase_volume_size(self) -> Optional['DirectorySelfservicePermissionsIncreaseVolumeSize']:
+        """
+        Specifies whether users can increase the volume size of the drives on their WorkSpace.
+        """
+        return pulumi.get(self, "increase_volume_size")
+
+    @_builtins.property
+    @pulumi.getter(name="rebuildWorkspace")
+    def rebuild_workspace(self) -> Optional['DirectorySelfservicePermissionsRebuildWorkspace']:
+        """
+        Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+        """
+        return pulumi.get(self, "rebuild_workspace")
+
+    @_builtins.property
+    @pulumi.getter(name="restartWorkspace")
+    def restart_workspace(self) -> Optional['DirectorySelfservicePermissionsRestartWorkspace']:
+        """
+        Specifies whether users can restart their WorkSpace.
+        """
+        return pulumi.get(self, "restart_workspace")
+
+    @_builtins.property
+    @pulumi.getter(name="switchRunningMode")
+    def switch_running_mode(self) -> Optional['DirectorySelfservicePermissionsSwitchRunningMode']:
+        """
+        Specifies whether users can switch the running mode of their WorkSpace.
+        """
+        return pulumi.get(self, "switch_running_mode")
+
+
+@pulumi.output_type
+class DirectoryStorageConnector(dict):
+    """
+    Describes the storage connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorType":
+            suggest = "connector_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryStorageConnector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryStorageConnector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryStorageConnector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_type: 'DirectoryStorageConnectorConnectorType',
+                 status: 'DirectoryStorageConnectorStatus'):
+        """
+        Describes the storage connector.
+
+        :param 'DirectoryStorageConnectorConnectorType' connector_type: The type of connector used to save user files.
+        :param 'DirectoryStorageConnectorStatus' status: Indicates if the storage connector is enabled or disabled.
+        """
+        pulumi.set(__self__, "connector_type", connector_type)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> 'DirectoryStorageConnectorConnectorType':
+        """
+        The type of connector used to save user files.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'DirectoryStorageConnectorStatus':
+        """
+        Indicates if the storage connector is enabled or disabled.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DirectoryStreamingProperties(dict):
+    """
+    Describes the streaming properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalAccelerator":
+            suggest = "global_accelerator"
+        elif key == "storageConnectors":
+            suggest = "storage_connectors"
+        elif key == "streamingExperiencePreferredProtocol":
+            suggest = "streaming_experience_preferred_protocol"
+        elif key == "userSettings":
+            suggest = "user_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryStreamingProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryStreamingProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryStreamingProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 global_accelerator: Optional['outputs.DirectoryGlobalAcceleratorForDirectory'] = None,
+                 storage_connectors: Optional[Sequence['outputs.DirectoryStorageConnector']] = None,
+                 streaming_experience_preferred_protocol: Optional['DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol'] = None,
+                 user_settings: Optional[Sequence['outputs.DirectoryUserSetting']] = None):
+        """
+        Describes the streaming properties.
+
+        :param Sequence['DirectoryStorageConnector'] storage_connectors: Indicates the storage connector used.
+        :param 'DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol' streaming_experience_preferred_protocol: Indicates the type of preferred protocol for the streaming experience.
+        :param Sequence['DirectoryUserSetting'] user_settings: Indicates the permission settings associated with the user.
+        """
+        if global_accelerator is not None:
+            pulumi.set(__self__, "global_accelerator", global_accelerator)
+        if storage_connectors is not None:
+            pulumi.set(__self__, "storage_connectors", storage_connectors)
+        if streaming_experience_preferred_protocol is not None:
+            pulumi.set(__self__, "streaming_experience_preferred_protocol", streaming_experience_preferred_protocol)
+        if user_settings is not None:
+            pulumi.set(__self__, "user_settings", user_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="globalAccelerator")
+    def global_accelerator(self) -> Optional['outputs.DirectoryGlobalAcceleratorForDirectory']:
+        return pulumi.get(self, "global_accelerator")
+
+    @_builtins.property
+    @pulumi.getter(name="storageConnectors")
+    def storage_connectors(self) -> Optional[Sequence['outputs.DirectoryStorageConnector']]:
+        """
+        Indicates the storage connector used.
+        """
+        return pulumi.get(self, "storage_connectors")
+
+    @_builtins.property
+    @pulumi.getter(name="streamingExperiencePreferredProtocol")
+    def streaming_experience_preferred_protocol(self) -> Optional['DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol']:
+        """
+        Indicates the type of preferred protocol for the streaming experience.
+        """
+        return pulumi.get(self, "streaming_experience_preferred_protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="userSettings")
+    def user_settings(self) -> Optional[Sequence['outputs.DirectoryUserSetting']]:
+        """
+        Indicates the permission settings associated with the user.
+        """
+        return pulumi.get(self, "user_settings")
+
+
+@pulumi.output_type
+class DirectoryUserSetting(dict):
+    """
+    Information about the user's permission settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumLength":
+            suggest = "maximum_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryUserSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryUserSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryUserSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'DirectoryUserSettingAction',
+                 permission: 'DirectoryUserSettingPermission',
+                 maximum_length: Optional[_builtins.int] = None):
+        """
+        Information about the user's permission settings.
+
+        :param 'DirectoryUserSettingAction' action: Indicates the type of action.
+        :param 'DirectoryUserSettingPermission' permission: Indicates if the setting is enabled or disabled.
+        :param _builtins.int maximum_length: Indicates the maximum character length for the specified user setting.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "permission", permission)
+        if maximum_length is not None:
+            pulumi.set(__self__, "maximum_length", maximum_length)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'DirectoryUserSettingAction':
+        """
+        Indicates the type of action.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> 'DirectoryUserSettingPermission':
+        """
+        Indicates if the setting is enabled or disabled.
+        """
+        return pulumi.get(self, "permission")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumLength")
+    def maximum_length(self) -> Optional[_builtins.int]:
+        """
+        Indicates the maximum character length for the specified user setting.
+        """
+        return pulumi.get(self, "maximum_length")
+
+
+@pulumi.output_type
+class DirectoryWorkspaceAccessProperties(dict):
+    """
+    The device types and operating systems that can be used to access a WorkSpace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessEndpointConfig":
+            suggest = "access_endpoint_config"
+        elif key == "deviceTypeAndroid":
+            suggest = "device_type_android"
+        elif key == "deviceTypeChromeOs":
+            suggest = "device_type_chrome_os"
+        elif key == "deviceTypeIos":
+            suggest = "device_type_ios"
+        elif key == "deviceTypeLinux":
+            suggest = "device_type_linux"
+        elif key == "deviceTypeOsx":
+            suggest = "device_type_osx"
+        elif key == "deviceTypeWeb":
+            suggest = "device_type_web"
+        elif key == "deviceTypeWindows":
+            suggest = "device_type_windows"
+        elif key == "deviceTypeWorkSpacesThinClient":
+            suggest = "device_type_work_spaces_thin_client"
+        elif key == "deviceTypeZeroClient":
+            suggest = "device_type_zero_client"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryWorkspaceAccessProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryWorkspaceAccessProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryWorkspaceAccessProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_endpoint_config: Optional['outputs.DirectoryAccessEndpointConfig'] = None,
+                 device_type_android: Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid'] = None,
+                 device_type_chrome_os: Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs'] = None,
+                 device_type_ios: Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeIos'] = None,
+                 device_type_linux: Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeLinux'] = None,
+                 device_type_osx: Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeOsx'] = None,
+                 device_type_web: Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWeb'] = None,
+                 device_type_windows: Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWindows'] = None,
+                 device_type_work_spaces_thin_client: Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient'] = None,
+                 device_type_zero_client: Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient'] = None):
+        """
+        The device types and operating systems that can be used to access a WorkSpace.
+
+        :param 'DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid' device_type_android: Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+        :param 'DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs' device_type_chrome_os: Indicates whether users can use Chromebooks to access their WorkSpaces.
+        :param 'DirectoryWorkspaceAccessPropertiesDeviceTypeIos' device_type_ios: Indicates whether users can use iOS devices to access their WorkSpaces.
+        :param 'DirectoryWorkspaceAccessPropertiesDeviceTypeLinux' device_type_linux: Indicates whether users can use Linux clients to access their WorkSpaces.
+        :param 'DirectoryWorkspaceAccessPropertiesDeviceTypeOsx' device_type_osx: Indicates whether users can use macOS clients to access their WorkSpaces.
+        :param 'DirectoryWorkspaceAccessPropertiesDeviceTypeWeb' device_type_web: Indicates whether users can access their WorkSpaces through a web browser.
+        :param 'DirectoryWorkspaceAccessPropertiesDeviceTypeWindows' device_type_windows: Indicates whether users can use Windows clients to access their WorkSpaces.
+        :param 'DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient' device_type_work_spaces_thin_client: Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+        :param 'DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient' device_type_zero_client: Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
+        if access_endpoint_config is not None:
+            pulumi.set(__self__, "access_endpoint_config", access_endpoint_config)
+        if device_type_android is not None:
+            pulumi.set(__self__, "device_type_android", device_type_android)
+        if device_type_chrome_os is not None:
+            pulumi.set(__self__, "device_type_chrome_os", device_type_chrome_os)
+        if device_type_ios is not None:
+            pulumi.set(__self__, "device_type_ios", device_type_ios)
+        if device_type_linux is not None:
+            pulumi.set(__self__, "device_type_linux", device_type_linux)
+        if device_type_osx is not None:
+            pulumi.set(__self__, "device_type_osx", device_type_osx)
+        if device_type_web is not None:
+            pulumi.set(__self__, "device_type_web", device_type_web)
+        if device_type_windows is not None:
+            pulumi.set(__self__, "device_type_windows", device_type_windows)
+        if device_type_work_spaces_thin_client is not None:
+            pulumi.set(__self__, "device_type_work_spaces_thin_client", device_type_work_spaces_thin_client)
+        if device_type_zero_client is not None:
+            pulumi.set(__self__, "device_type_zero_client", device_type_zero_client)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointConfig")
+    def access_endpoint_config(self) -> Optional['outputs.DirectoryAccessEndpointConfig']:
+        return pulumi.get(self, "access_endpoint_config")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeAndroid")
+    def device_type_android(self) -> Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid']:
+        """
+        Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_android")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeChromeOs")
+    def device_type_chrome_os(self) -> Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs']:
+        """
+        Indicates whether users can use Chromebooks to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_chrome_os")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeIos")
+    def device_type_ios(self) -> Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeIos']:
+        """
+        Indicates whether users can use iOS devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_ios")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeLinux")
+    def device_type_linux(self) -> Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeLinux']:
+        """
+        Indicates whether users can use Linux clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_linux")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeOsx")
+    def device_type_osx(self) -> Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeOsx']:
+        """
+        Indicates whether users can use macOS clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_osx")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeWeb")
+    def device_type_web(self) -> Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWeb']:
+        """
+        Indicates whether users can access their WorkSpaces through a web browser.
+        """
+        return pulumi.get(self, "device_type_web")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeWindows")
+    def device_type_windows(self) -> Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWindows']:
+        """
+        Indicates whether users can use Windows clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_windows")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeWorkSpacesThinClient")
+    def device_type_work_spaces_thin_client(self) -> Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient']:
+        """
+        Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+        """
+        return pulumi.get(self, "device_type_work_spaces_thin_client")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypeZeroClient")
+    def device_type_zero_client(self) -> Optional['DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient']:
+        """
+        Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_zero_client")
 
 
 @pulumi.output_type

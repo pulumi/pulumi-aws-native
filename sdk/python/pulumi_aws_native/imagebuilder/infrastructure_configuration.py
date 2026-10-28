@@ -29,12 +29,14 @@ class InfrastructureConfigurationArgs:
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
                  logging: pulumi.Input[Optional['InfrastructureConfigurationLoggingArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_instance: pulumi.Input[Optional['InfrastructureConfigurationParentInstanceArgs']] = None,
                  placement: pulumi.Input[Optional['InfrastructureConfigurationPlacementArgs']] = None,
                  resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminate_instance_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
                  terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a InfrastructureConfiguration resource.
@@ -46,12 +48,14 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[_builtins.str] key_pair: The EC2 key pair of the infrastructure configuration..
         :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: The logging configuration of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] name: The name of the infrastructure configuration.
+        :param pulumi.Input['InfrastructureConfigurationParentInstanceArgs'] parent_instance: The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
         :param pulumi.Input['InfrastructureConfigurationPlacementArgs'] placement: The placement option settings for the infrastructure configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: The tags attached to the resource created by Image Builder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security group IDs of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] subnet_id: The subnet ID of the infrastructure configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags associated with the component.
+        :param pulumi.Input[_builtins.bool] terminate_instance_on_completion: Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
         :param pulumi.Input[_builtins.bool] terminate_instance_on_failure: The terminate instance on failure configuration of the infrastructure configuration.
         """
         pulumi.set(__self__, "instance_profile_name", instance_profile_name)
@@ -67,6 +71,8 @@ class InfrastructureConfigurationArgs:
             pulumi.set(__self__, "logging", logging)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if parent_instance is not None:
+            pulumi.set(__self__, "parent_instance", parent_instance)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
         if resource_tags is not None:
@@ -79,6 +85,8 @@ class InfrastructureConfigurationArgs:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if terminate_instance_on_completion is not None:
+            pulumi.set(__self__, "terminate_instance_on_completion", terminate_instance_on_completion)
         if terminate_instance_on_failure is not None:
             pulumi.set(__self__, "terminate_instance_on_failure", terminate_instance_on_failure)
 
@@ -167,6 +175,18 @@ class InfrastructureConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="parentInstance")
+    def parent_instance(self) -> pulumi.Input[Optional['InfrastructureConfigurationParentInstanceArgs']]:
+        """
+        The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+        """
+        return pulumi.get(self, "parent_instance")
+
+    @parent_instance.setter
+    def parent_instance(self, value: pulumi.Input[Optional['InfrastructureConfigurationParentInstanceArgs']]):
+        pulumi.set(self, "parent_instance", value)
+
+    @_builtins.property
     @pulumi.getter
     def placement(self) -> pulumi.Input[Optional['InfrastructureConfigurationPlacementArgs']]:
         """
@@ -239,6 +259,18 @@ class InfrastructureConfigurationArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="terminateInstanceOnCompletion")
+    def terminate_instance_on_completion(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+        """
+        return pulumi.get(self, "terminate_instance_on_completion")
+
+    @terminate_instance_on_completion.setter
+    def terminate_instance_on_completion(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "terminate_instance_on_completion", value)
+
+    @_builtins.property
     @pulumi.getter(name="terminateInstanceOnFailure")
     def terminate_instance_on_failure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -264,12 +296,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
                  logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_instance: pulumi.Input[Optional[Union['InfrastructureConfigurationParentInstanceArgs', 'InfrastructureConfigurationParentInstanceArgsDict']]] = None,
                  placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
                  resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminate_instance_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
                  terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -284,12 +318,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_pair: The EC2 key pair of the infrastructure configuration..
         :param pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']] logging: The logging configuration of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] name: The name of the infrastructure configuration.
+        :param pulumi.Input[Union['InfrastructureConfigurationParentInstanceArgs', 'InfrastructureConfigurationParentInstanceArgsDict']] parent_instance: The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
         :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']] placement: The placement option settings for the infrastructure configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: The tags attached to the resource created by Image Builder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security group IDs of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] subnet_id: The subnet ID of the infrastructure configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags associated with the component.
+        :param pulumi.Input[_builtins.bool] terminate_instance_on_completion: Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
         :param pulumi.Input[_builtins.bool] terminate_instance_on_failure: The terminate instance on failure configuration of the infrastructure configuration.
         """
         ...
@@ -323,12 +359,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
                  logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_instance: pulumi.Input[Optional[Union['InfrastructureConfigurationParentInstanceArgs', 'InfrastructureConfigurationParentInstanceArgsDict']]] = None,
                  placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
                  resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminate_instance_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
                  terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -348,12 +386,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__.__dict__["key_pair"] = key_pair
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
+            __props__.__dict__["parent_instance"] = parent_instance
             __props__.__dict__["placement"] = placement
             __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["terminate_instance_on_completion"] = terminate_instance_on_completion
             __props__.__dict__["terminate_instance_on_failure"] = terminate_instance_on_failure
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
@@ -388,12 +428,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         __props__.__dict__["key_pair"] = None
         __props__.__dict__["logging"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["parent_instance"] = None
         __props__.__dict__["placement"] = None
         __props__.__dict__["resource_tags"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["sns_topic_arn"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["terminate_instance_on_completion"] = None
         __props__.__dict__["terminate_instance_on_failure"] = None
         return InfrastructureConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -462,6 +504,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="parentInstance")
+    def parent_instance(self) -> pulumi.Output[Optional['outputs.InfrastructureConfigurationParentInstance']]:
+        """
+        The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+        """
+        return pulumi.get(self, "parent_instance")
+
+    @_builtins.property
     @pulumi.getter
     def placement(self) -> pulumi.Output[Optional['outputs.InfrastructureConfigurationPlacement']]:
         """
@@ -508,6 +558,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         The tags associated with the component.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="terminateInstanceOnCompletion")
+    def terminate_instance_on_completion(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+        """
+        return pulumi.get(self, "terminate_instance_on_completion")
 
     @_builtins.property
     @pulumi.getter(name="terminateInstanceOnFailure")

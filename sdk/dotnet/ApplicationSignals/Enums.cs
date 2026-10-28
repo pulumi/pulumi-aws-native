@@ -8,6 +8,99 @@ using Pulumi;
 namespace Pulumi.AwsNative.ApplicationSignals
 {
     /// <summary>
+    /// The programming language for this instrumentation point.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstrumentationConfigCodeLocationLanguage : IEquatable<InstrumentationConfigCodeLocationLanguage>
+    {
+        private readonly string _value;
+
+        private InstrumentationConfigCodeLocationLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstrumentationConfigCodeLocationLanguage Java { get; } = new InstrumentationConfigCodeLocationLanguage("Java");
+        public static InstrumentationConfigCodeLocationLanguage Python { get; } = new InstrumentationConfigCodeLocationLanguage("Python");
+        public static InstrumentationConfigCodeLocationLanguage Javascript { get; } = new InstrumentationConfigCodeLocationLanguage("Javascript");
+
+        public static bool operator ==(InstrumentationConfigCodeLocationLanguage left, InstrumentationConfigCodeLocationLanguage right) => left.Equals(right);
+        public static bool operator !=(InstrumentationConfigCodeLocationLanguage left, InstrumentationConfigCodeLocationLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(InstrumentationConfigCodeLocationLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstrumentationConfigCodeLocationLanguage other && Equals(other);
+        public bool Equals(InstrumentationConfigCodeLocationLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of instrumentation: BREAKPOINT (temporary, expires after 24 hours) or PROBE (permanent, persists until deleted).
+    /// </summary>
+    [EnumType]
+    public readonly struct InstrumentationConfigInstrumentationType : IEquatable<InstrumentationConfigInstrumentationType>
+    {
+        private readonly string _value;
+
+        private InstrumentationConfigInstrumentationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstrumentationConfigInstrumentationType Breakpoint { get; } = new InstrumentationConfigInstrumentationType("BREAKPOINT");
+        public static InstrumentationConfigInstrumentationType Probe { get; } = new InstrumentationConfigInstrumentationType("PROBE");
+
+        public static bool operator ==(InstrumentationConfigInstrumentationType left, InstrumentationConfigInstrumentationType right) => left.Equals(right);
+        public static bool operator !=(InstrumentationConfigInstrumentationType left, InstrumentationConfigInstrumentationType right) => !left.Equals(right);
+
+        public static explicit operator string(InstrumentationConfigInstrumentationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstrumentationConfigInstrumentationType other && Equals(other);
+        public bool Equals(InstrumentationConfigInstrumentationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The telemetry signal type to emit for this instrumentation. The supported value is SNAPSHOT.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstrumentationConfigSignalType : IEquatable<InstrumentationConfigSignalType>
+    {
+        private readonly string _value;
+
+        private InstrumentationConfigSignalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstrumentationConfigSignalType Snapshot { get; } = new InstrumentationConfigSignalType("SNAPSHOT");
+
+        public static bool operator ==(InstrumentationConfigSignalType left, InstrumentationConfigSignalType right) => left.Equals(right);
+        public static bool operator !=(InstrumentationConfigSignalType left, InstrumentationConfigSignalType right) => !left.Equals(right);
+
+        public static explicit operator string(InstrumentationConfigSignalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstrumentationConfigSignalType other && Equals(other);
+        public bool Equals(InstrumentationConfigSignalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the interval unit.
     /// </summary>
     [EnumType]

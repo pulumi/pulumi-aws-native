@@ -21,32 +21,21 @@ __all__ = ['VpnConcentratorArgs', 'VpnConcentrator']
 @pulumi.input_type
 class VpnConcentratorArgs:
     def __init__(__self__, *,
-                 transit_gateway_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpnConcentrator resource.
 
-        :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway associated with the VPN concentrator.
         :param pulumi.Input[_builtins.str] type: The type of VPN concentrator.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the VPN concentrator.
+        :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway associated with the VPN concentrator.
         """
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         pulumi.set(__self__, "type", type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the transit gateway associated with the VPN concentrator.
-        """
-        return pulumi.get(self, "transit_gateway_id")
-
-    @transit_gateway_id.setter
-    def transit_gateway_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "transit_gateway_id", value)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
 
     @_builtins.property
     @pulumi.getter
@@ -71,6 +60,18 @@ class VpnConcentratorArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the transit gateway associated with the VPN concentrator.
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+    @transit_gateway_id.setter
+    def transit_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "transit_gateway_id", value)
 
 
 @pulumi.type_token("aws-native:ec2:VpnConcentrator")
@@ -129,8 +130,6 @@ class VpnConcentrator(pulumi.CustomResource):
             __props__ = VpnConcentratorArgs.__new__(VpnConcentratorArgs)
 
             __props__.__dict__["tags"] = tags
-            if transit_gateway_id is None and not opts.urn:
-                raise TypeError("Missing required property 'transit_gateway_id'")
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -186,7 +185,7 @@ class VpnConcentrator(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> pulumi.Output[_builtins.str]:
+    def transit_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The ID of the transit gateway associated with the VPN concentrator.
         """

@@ -85,6 +85,10 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public readonly Outputs.PlaybackConfigurationAvailSuppression? AvailSuppression;
         /// <summary>
+        /// The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+        /// </summary>
+        public readonly Outputs.PlaybackConfigurationBeaconingConfiguration? BeaconingConfiguration;
+        /// <summary>
         /// The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         /// </summary>
         public readonly Outputs.PlaybackConfigurationBumper? Bumper;
@@ -171,6 +175,8 @@ namespace Pulumi.AwsNative.MediaTailor
 
             Outputs.PlaybackConfigurationAvailSuppression? availSuppression,
 
+            Outputs.PlaybackConfigurationBeaconingConfiguration? beaconingConfiguration,
+
             Outputs.PlaybackConfigurationBumper? bumper,
 
             Outputs.PlaybackConfigurationCdnConfiguration? cdnConfiguration,
@@ -213,6 +219,7 @@ namespace Pulumi.AwsNative.MediaTailor
             AdsPersonalizationConcurrency = adsPersonalizationConcurrency;
             AdsPersonalizationTimeouts = adsPersonalizationTimeouts;
             AvailSuppression = availSuppression;
+            BeaconingConfiguration = beaconingConfiguration;
             Bumper = bumper;
             CdnConfiguration = cdnConfiguration;
             ConfigurationAliases = configurationAliases;

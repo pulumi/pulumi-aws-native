@@ -32,6 +32,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.&lt;/p&gt;
         /// </summary>
         public readonly string? ManifestFilter;
+        public readonly Outputs.OriginEndpointMultiviewFilterConfiguration? Multiview;
         /// <summary>
         /// &lt;p&gt;Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.&lt;/p&gt;
         /// </summary>
@@ -51,6 +52,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             string? manifestFilter,
 
+            Outputs.OriginEndpointMultiviewFilterConfiguration? multiview,
+
             string? start,
 
             int? timeDelaySeconds)
@@ -59,6 +62,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
             DrmSettings = drmSettings;
             End = end;
             ManifestFilter = manifestFilter;
+            Multiview = multiview;
             Start = start;
             TimeDelaySeconds = timeDelaySeconds;
         }

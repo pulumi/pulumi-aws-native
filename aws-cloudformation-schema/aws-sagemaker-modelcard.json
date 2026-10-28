@@ -699,20 +699,22 @@
           "enum" : [ "linear_graph" ]
         },
         "Value" : {
-          "anyOf" : [ {
+          "type" : "array",
+          "insertionOrder" : true,
+          "items" : {
             "type" : "array",
             "insertionOrder" : true,
             "items" : {
-              "type" : "array",
-              "insertionOrder" : true,
-              "items" : {
+              "anyOf" : [ {
                 "type" : "number"
-              },
-              "minItems" : 2,
-              "maxItems" : 2
+              }, {
+                "type" : "string"
+              } ]
             },
-            "minItems" : 1
-          } ]
+            "minItems" : 2,
+            "maxItems" : 2
+          },
+          "minItems" : 1
         },
         "XAxisName" : {
           "$ref" : "#/definitions/AxisNameString"
@@ -740,14 +742,16 @@
           "enum" : [ "bar_chart" ]
         },
         "Value" : {
-          "anyOf" : [ {
-            "type" : "array",
-            "insertionOrder" : true,
-            "items" : {
+          "type" : "array",
+          "insertionOrder" : true,
+          "items" : {
+            "anyOf" : [ {
               "type" : "number"
-            },
-            "minItems" : 1
-          } ]
+            }, {
+              "type" : "string"
+            } ]
+          },
+          "minItems" : 1
         },
         "XAxisName" : {
           "$ref" : "#/definitions/AxisNameArray"
@@ -775,21 +779,23 @@
           "enum" : [ "matrix" ]
         },
         "Value" : {
-          "anyOf" : [ {
+          "type" : "array",
+          "insertionOrder" : true,
+          "items" : {
             "type" : "array",
             "insertionOrder" : true,
             "items" : {
-              "type" : "array",
-              "insertionOrder" : true,
-              "items" : {
+              "anyOf" : [ {
                 "type" : "number"
-              },
-              "minItems" : 1,
-              "maxItems" : 20
+              }, {
+                "type" : "string"
+              } ]
             },
             "minItems" : 1,
             "maxItems" : 20
-          } ]
+          },
+          "minItems" : 1,
+          "maxItems" : 20
         },
         "XAxisName" : {
           "$ref" : "#/definitions/AxisNameArray"

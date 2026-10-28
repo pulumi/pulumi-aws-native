@@ -33,6 +33,7 @@ class ServiceArgs:
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_new_deployment: pulumi.Input[Optional['ServiceForceNewDeploymentArgs']] = None,
+                 gateway_connectors: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceGatewayConnectorArgs']]]] = None,
                  health_check_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  launch_type: pulumi.Input[Optional['ServiceLaunchType']] = None,
                  load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
@@ -138,6 +139,8 @@ class ServiceArgs:
             pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if force_new_deployment is not None:
             pulumi.set(__self__, "force_new_deployment", force_new_deployment)
+        if gateway_connectors is not None:
+            pulumi.set(__self__, "gateway_connectors", gateway_connectors)
         if health_check_grace_period_seconds is not None:
             pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
         if launch_type is not None:
@@ -292,6 +295,15 @@ class ServiceArgs:
     @force_new_deployment.setter
     def force_new_deployment(self, value: pulumi.Input[Optional['ServiceForceNewDeploymentArgs']]):
         pulumi.set(self, "force_new_deployment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayConnectors")
+    def gateway_connectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceGatewayConnectorArgs']]]]:
+        return pulumi.get(self, "gateway_connectors")
+
+    @gateway_connectors.setter
+    def gateway_connectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceGatewayConnectorArgs']]]]):
+        pulumi.set(self, "gateway_connectors", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
@@ -553,6 +565,7 @@ class Service(pulumi.CustomResource):
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_new_deployment: pulumi.Input[Optional[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
+                 gateway_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceGatewayConnectorArgs', 'ServiceGatewayConnectorArgsDict']]]]] = None,
                  health_check_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  launch_type: pulumi.Input[Optional['ServiceLaunchType']] = None,
                  load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
@@ -724,6 +737,7 @@ class Service(pulumi.CustomResource):
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_new_deployment: pulumi.Input[Optional[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
+                 gateway_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceGatewayConnectorArgs', 'ServiceGatewayConnectorArgsDict']]]]] = None,
                  health_check_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  launch_type: pulumi.Input[Optional['ServiceLaunchType']] = None,
                  load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
@@ -760,6 +774,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["enable_ecs_managed_tags"] = enable_ecs_managed_tags
             __props__.__dict__["enable_execute_command"] = enable_execute_command
             __props__.__dict__["force_new_deployment"] = force_new_deployment
+            __props__.__dict__["gateway_connectors"] = gateway_connectors
             __props__.__dict__["health_check_grace_period_seconds"] = health_check_grace_period_seconds
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
@@ -813,6 +828,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["enable_ecs_managed_tags"] = None
         __props__.__dict__["enable_execute_command"] = None
         __props__.__dict__["force_new_deployment"] = None
+        __props__.__dict__["gateway_connectors"] = None
         __props__.__dict__["health_check_grace_period_seconds"] = None
         __props__.__dict__["launch_type"] = None
         __props__.__dict__["load_balancers"] = None
@@ -916,6 +932,11 @@ class Service(pulumi.CustomResource):
         Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
         """
         return pulumi.get(self, "force_new_deployment")
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayConnectors")
+    def gateway_connectors(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceGatewayConnector']]]:
+        return pulumi.get(self, "gateway_connectors")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")

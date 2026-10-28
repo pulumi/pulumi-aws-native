@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetCompositeAlarmResult
     {
         /// <summary>
+        /// Configuration that applies to the notifications this alarm sends when it performs its actions.
+        /// </summary>
+        public readonly Outputs.CompositeAlarmActionConfiguration? ActionConfiguration;
+        /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         /// </summary>
         public readonly bool? ActionsEnabled;
@@ -110,6 +114,8 @@ namespace Pulumi.AwsNative.CloudWatch
 
         [OutputConstructor]
         private GetCompositeAlarmResult(
+            Outputs.CompositeAlarmActionConfiguration? actionConfiguration,
+
             bool? actionsEnabled,
 
             string? actionsSuppressor,
@@ -132,6 +138,7 @@ namespace Pulumi.AwsNative.CloudWatch
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            ActionConfiguration = actionConfiguration;
             ActionsEnabled = actionsEnabled;
             ActionsSuppressor = actionsSuppressor;
             ActionsSuppressorExtensionPeriod = actionsSuppressorExtensionPeriod;

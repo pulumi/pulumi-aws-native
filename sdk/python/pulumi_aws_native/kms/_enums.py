@@ -83,6 +83,9 @@ class KeySpec(_builtins.str, Enum):
     ML_DSA65 = "ML_DSA_65"
     ML_DSA87 = "ML_DSA_87"
     ECC_NIST_EDWARDS25519 = "ECC_NIST_EDWARDS25519"
+    ML_KEM512 = "ML_KEM_512"
+    ML_KEM768 = "ML_KEM_768"
+    ML_KEM1024 = "ML_KEM_1024"
 
 
 @pulumi.type_token("aws-native:kms:KeyUsage")
@@ -103,3 +106,4 @@ class KeyUsage(_builtins.str, Enum):
     SIGN_VERIFY = "SIGN_VERIFY"
     GENERATE_VERIFY_MAC = "GENERATE_VERIFY_MAC"
     KEY_AGREEMENT = "KEY_AGREEMENT"
+    ENCAPSULATE_DECAPSULATE = "ENCAPSULATE_DECAPSULATE"

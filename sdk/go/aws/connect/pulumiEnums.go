@@ -9608,6 +9608,172 @@ func (in *ruleReferenceTypePtr) ToRuleReferenceTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(RuleReferenceTypePtrOutput)
 }
 
+// The priority of the notification.
+type RuleSendInAppNotificationActionPriority string
+
+const (
+	RuleSendInAppNotificationActionPriorityHigh = RuleSendInAppNotificationActionPriority("HIGH")
+	RuleSendInAppNotificationActionPriorityLow  = RuleSendInAppNotificationActionPriority("LOW")
+)
+
+func (RuleSendInAppNotificationActionPriority) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendInAppNotificationActionPriority)(nil)).Elem()
+}
+
+func (e RuleSendInAppNotificationActionPriority) ToRuleSendInAppNotificationActionPriorityOutput() RuleSendInAppNotificationActionPriorityOutput {
+	return pulumi.ToOutput(e).(RuleSendInAppNotificationActionPriorityOutput)
+}
+
+func (e RuleSendInAppNotificationActionPriority) ToRuleSendInAppNotificationActionPriorityOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionPriorityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleSendInAppNotificationActionPriorityOutput)
+}
+
+func (e RuleSendInAppNotificationActionPriority) ToRuleSendInAppNotificationActionPriorityPtrOutput() RuleSendInAppNotificationActionPriorityPtrOutput {
+	return e.ToRuleSendInAppNotificationActionPriorityPtrOutputWithContext(context.Background())
+}
+
+func (e RuleSendInAppNotificationActionPriority) ToRuleSendInAppNotificationActionPriorityPtrOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionPriorityPtrOutput {
+	return RuleSendInAppNotificationActionPriority(e).ToRuleSendInAppNotificationActionPriorityOutputWithContext(ctx).ToRuleSendInAppNotificationActionPriorityPtrOutputWithContext(ctx)
+}
+
+func (e RuleSendInAppNotificationActionPriority) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleSendInAppNotificationActionPriority) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleSendInAppNotificationActionPriority) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleSendInAppNotificationActionPriority) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleSendInAppNotificationActionPriorityOutput struct{ *pulumi.OutputState }
+
+func (RuleSendInAppNotificationActionPriorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendInAppNotificationActionPriority)(nil)).Elem()
+}
+
+func (o RuleSendInAppNotificationActionPriorityOutput) ToRuleSendInAppNotificationActionPriorityOutput() RuleSendInAppNotificationActionPriorityOutput {
+	return o
+}
+
+func (o RuleSendInAppNotificationActionPriorityOutput) ToRuleSendInAppNotificationActionPriorityOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionPriorityOutput {
+	return o
+}
+
+func (o RuleSendInAppNotificationActionPriorityOutput) ToRuleSendInAppNotificationActionPriorityPtrOutput() RuleSendInAppNotificationActionPriorityPtrOutput {
+	return o.ToRuleSendInAppNotificationActionPriorityPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSendInAppNotificationActionPriorityOutput) ToRuleSendInAppNotificationActionPriorityPtrOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionPriorityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSendInAppNotificationActionPriority) *RuleSendInAppNotificationActionPriority {
+		return &v
+	}).(RuleSendInAppNotificationActionPriorityPtrOutput)
+}
+
+func (o RuleSendInAppNotificationActionPriorityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleSendInAppNotificationActionPriorityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleSendInAppNotificationActionPriority) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleSendInAppNotificationActionPriorityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSendInAppNotificationActionPriorityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleSendInAppNotificationActionPriority) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSendInAppNotificationActionPriorityPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSendInAppNotificationActionPriorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSendInAppNotificationActionPriority)(nil)).Elem()
+}
+
+func (o RuleSendInAppNotificationActionPriorityPtrOutput) ToRuleSendInAppNotificationActionPriorityPtrOutput() RuleSendInAppNotificationActionPriorityPtrOutput {
+	return o
+}
+
+func (o RuleSendInAppNotificationActionPriorityPtrOutput) ToRuleSendInAppNotificationActionPriorityPtrOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionPriorityPtrOutput {
+	return o
+}
+
+func (o RuleSendInAppNotificationActionPriorityPtrOutput) Elem() RuleSendInAppNotificationActionPriorityOutput {
+	return o.ApplyT(func(v *RuleSendInAppNotificationActionPriority) RuleSendInAppNotificationActionPriority {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSendInAppNotificationActionPriority
+		return ret
+	}).(RuleSendInAppNotificationActionPriorityOutput)
+}
+
+func (o RuleSendInAppNotificationActionPriorityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSendInAppNotificationActionPriorityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleSendInAppNotificationActionPriority) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleSendInAppNotificationActionPriorityInput is an input type that accepts values of the RuleSendInAppNotificationActionPriority enum
+// A concrete instance of `RuleSendInAppNotificationActionPriorityInput` can be one of the following:
+//
+//	RuleSendInAppNotificationActionPriorityHigh
+//	RuleSendInAppNotificationActionPriorityLow
+type RuleSendInAppNotificationActionPriorityInput interface {
+	pulumi.Input
+
+	ToRuleSendInAppNotificationActionPriorityOutput() RuleSendInAppNotificationActionPriorityOutput
+	ToRuleSendInAppNotificationActionPriorityOutputWithContext(context.Context) RuleSendInAppNotificationActionPriorityOutput
+}
+
+var ruleSendInAppNotificationActionPriorityPtrType = reflect.TypeOf((**RuleSendInAppNotificationActionPriority)(nil)).Elem()
+
+type RuleSendInAppNotificationActionPriorityPtrInput interface {
+	pulumi.Input
+
+	ToRuleSendInAppNotificationActionPriorityPtrOutput() RuleSendInAppNotificationActionPriorityPtrOutput
+	ToRuleSendInAppNotificationActionPriorityPtrOutputWithContext(context.Context) RuleSendInAppNotificationActionPriorityPtrOutput
+}
+
+type ruleSendInAppNotificationActionPriorityPtr string
+
+func RuleSendInAppNotificationActionPriorityPtr(v string) RuleSendInAppNotificationActionPriorityPtrInput {
+	return (*ruleSendInAppNotificationActionPriorityPtr)(&v)
+}
+
+func (*ruleSendInAppNotificationActionPriorityPtr) ElementType() reflect.Type {
+	return ruleSendInAppNotificationActionPriorityPtrType
+}
+
+func (in *ruleSendInAppNotificationActionPriorityPtr) ToRuleSendInAppNotificationActionPriorityPtrOutput() RuleSendInAppNotificationActionPriorityPtrOutput {
+	return pulumi.ToOutput(in).(RuleSendInAppNotificationActionPriorityPtrOutput)
+}
+
+func (in *ruleSendInAppNotificationActionPriorityPtr) ToRuleSendInAppNotificationActionPriorityPtrOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionPriorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleSendInAppNotificationActionPriorityPtrOutput)
+}
+
 // Content type format.
 //
 //	*Allowed value*: ``PLAIN_TEXT``
@@ -13026,6 +13192,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusPtrInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceTypeInput)(nil)).Elem(), RuleReferenceType("URL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceTypePtrInput)(nil)).Elem(), RuleReferenceType("URL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendInAppNotificationActionPriorityInput)(nil)).Elem(), RuleSendInAppNotificationActionPriority("HIGH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendInAppNotificationActionPriorityPtrInput)(nil)).Elem(), RuleSendInAppNotificationActionPriority("HIGH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionContentTypeInput)(nil)).Elem(), RuleSendNotificationActionContentType("PLAIN_TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionContentTypePtrInput)(nil)).Elem(), RuleSendNotificationActionContentType("PLAIN_TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
@@ -13180,6 +13348,8 @@ func init() {
 	pulumi.RegisterOutputType(RulePublishStatusPtrOutput{})
 	pulumi.RegisterOutputType(RuleReferenceTypeOutput{})
 	pulumi.RegisterOutputType(RuleReferenceTypePtrOutput{})
+	pulumi.RegisterOutputType(RuleSendInAppNotificationActionPriorityOutput{})
+	pulumi.RegisterOutputType(RuleSendInAppNotificationActionPriorityPtrOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionContentTypeOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionContentTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionDeliveryMethodOutput{})

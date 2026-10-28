@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     public sealed class HarnessAgentCoreMemoryRetrievalConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+        /// Minimum relevance score for retrieved memories.
         /// </summary>
         [Input("relevanceScore")]
-        public InputUnion<double, string>? RelevanceScore { get; set; }
+        public Input<double>? RelevanceScore { get; set; }
 
         [Input("strategyId")]
         public Input<string>? StrategyId { get; set; }
 
         /// <summary>
-        /// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+        /// Maximum number of memory records to retrieve.
         /// </summary>
         [Input("topK")]
-        public InputUnion<int, string>? TopK { get; set; }
+        public Input<int>? TopK { get; set; }
 
         public HarnessAgentCoreMemoryRetrievalConfigArgs()
         {

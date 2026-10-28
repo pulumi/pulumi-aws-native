@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeploymentGroupResult:
-    def __init__(__self__, alarm_configuration=None, auto_rollback_configuration=None, auto_scaling_groups=None, blue_green_deployment_configuration=None, deployment=None, deployment_config_name=None, deployment_style=None, ec2_tag_filters=None, ec2_tag_set=None, ecs_services=None, load_balancer_info=None, on_premises_instance_tag_filters=None, on_premises_tag_set=None, outdated_instances_strategy=None, service_role_arn=None, tags=None, termination_hook_enabled=None, trigger_configurations=None):
+    def __init__(__self__, alarm_configuration=None, auto_rollback_configuration=None, auto_scaling_groups=None, blue_green_deployment_configuration=None, deployment=None, deployment_config_name=None, deployment_style=None, ec2_deployment_options=None, ec2_tag_filters=None, ec2_tag_set=None, ecs_services=None, load_balancer_info=None, on_premises_instance_tag_filters=None, on_premises_tag_set=None, outdated_instances_strategy=None, service_role_arn=None, tags=None, termination_hook_enabled=None, trigger_configurations=None):
         if alarm_configuration and not isinstance(alarm_configuration, dict):
             raise TypeError("Expected argument 'alarm_configuration' to be a dict")
         pulumi.set(__self__, "alarm_configuration", alarm_configuration)
@@ -47,6 +47,9 @@ class GetDeploymentGroupResult:
         if deployment_style and not isinstance(deployment_style, dict):
             raise TypeError("Expected argument 'deployment_style' to be a dict")
         pulumi.set(__self__, "deployment_style", deployment_style)
+        if ec2_deployment_options and not isinstance(ec2_deployment_options, dict):
+            raise TypeError("Expected argument 'ec2_deployment_options' to be a dict")
+        pulumi.set(__self__, "ec2_deployment_options", ec2_deployment_options)
         if ec2_tag_filters and not isinstance(ec2_tag_filters, list):
             raise TypeError("Expected argument 'ec2_tag_filters' to be a list")
         pulumi.set(__self__, "ec2_tag_filters", ec2_tag_filters)
@@ -136,6 +139,14 @@ class GetDeploymentGroupResult:
         Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
         """
         return pulumi.get(self, "deployment_style")
+
+    @_builtins.property
+    @pulumi.getter(name="ec2DeploymentOptions")
+    def ec2_deployment_options(self) -> Optional['outputs.DeploymentGroupEc2DeploymentOptions']:
+        """
+        Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+        """
+        return pulumi.get(self, "ec2_deployment_options")
 
     @_builtins.property
     @pulumi.getter(name="ec2TagFilters")
@@ -239,6 +250,7 @@ class AwaitableGetDeploymentGroupResult(GetDeploymentGroupResult):
             deployment=self.deployment,
             deployment_config_name=self.deployment_config_name,
             deployment_style=self.deployment_style,
+            ec2_deployment_options=self.ec2_deployment_options,
             ec2_tag_filters=self.ec2_tag_filters,
             ec2_tag_set=self.ec2_tag_set,
             ecs_services=self.ecs_services,
@@ -275,6 +287,7 @@ def get_deployment_group(application_name: Optional[_builtins.str] = None,
         deployment=pulumi.get(__ret__, 'deployment'),
         deployment_config_name=pulumi.get(__ret__, 'deployment_config_name'),
         deployment_style=pulumi.get(__ret__, 'deployment_style'),
+        ec2_deployment_options=pulumi.get(__ret__, 'ec2_deployment_options'),
         ec2_tag_filters=pulumi.get(__ret__, 'ec2_tag_filters'),
         ec2_tag_set=pulumi.get(__ret__, 'ec2_tag_set'),
         ecs_services=pulumi.get(__ret__, 'ecs_services'),
@@ -308,6 +321,7 @@ def get_deployment_group_output(application_name: pulumi.Input[Optional[_builtin
         deployment=pulumi.get(__response__, 'deployment'),
         deployment_config_name=pulumi.get(__response__, 'deployment_config_name'),
         deployment_style=pulumi.get(__response__, 'deployment_style'),
+        ec2_deployment_options=pulumi.get(__response__, 'ec2_deployment_options'),
         ec2_tag_filters=pulumi.get(__response__, 'ec2_tag_filters'),
         ec2_tag_set=pulumi.get(__response__, 'ec2_tag_set'),
         ecs_services=pulumi.get(__response__, 'ecs_services'),

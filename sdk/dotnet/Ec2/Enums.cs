@@ -1646,6 +1646,77 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The Regional Internet Registry to associate with. The service returns these values in upper case, so the enum uses the round-tripping form.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamInternetRegistryAssociationRir : IEquatable<IpamInternetRegistryAssociationRir>
+    {
+        private readonly string _value;
+
+        private IpamInternetRegistryAssociationRir(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamInternetRegistryAssociationRir Ripe { get; } = new IpamInternetRegistryAssociationRir("RIPE");
+        public static IpamInternetRegistryAssociationRir Apnic { get; } = new IpamInternetRegistryAssociationRir("APNIC");
+        public static IpamInternetRegistryAssociationRir Arin { get; } = new IpamInternetRegistryAssociationRir("ARIN");
+        public static IpamInternetRegistryAssociationRir Lacnic { get; } = new IpamInternetRegistryAssociationRir("LACNIC");
+
+        public static bool operator ==(IpamInternetRegistryAssociationRir left, IpamInternetRegistryAssociationRir right) => left.Equals(right);
+        public static bool operator !=(IpamInternetRegistryAssociationRir left, IpamInternetRegistryAssociationRir right) => !left.Equals(right);
+
+        public static explicit operator string(IpamInternetRegistryAssociationRir value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamInternetRegistryAssociationRir other && Equals(other);
+        public bool Equals(IpamInternetRegistryAssociationRir other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of the internet registry association.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamInternetRegistryAssociationState : IEquatable<IpamInternetRegistryAssociationState>
+    {
+        private readonly string _value;
+
+        private IpamInternetRegistryAssociationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamInternetRegistryAssociationState PendingEnable { get; } = new IpamInternetRegistryAssociationState("pending-enable");
+        public static IpamInternetRegistryAssociationState CreateInProgress { get; } = new IpamInternetRegistryAssociationState("create-in-progress");
+        public static IpamInternetRegistryAssociationState CreateFailed { get; } = new IpamInternetRegistryAssociationState("create-failed");
+        public static IpamInternetRegistryAssociationState EnableInProgress { get; } = new IpamInternetRegistryAssociationState("enable-in-progress");
+        public static IpamInternetRegistryAssociationState EnableComplete { get; } = new IpamInternetRegistryAssociationState("enable-complete");
+        public static IpamInternetRegistryAssociationState EnableFailed { get; } = new IpamInternetRegistryAssociationState("enable-failed");
+        public static IpamInternetRegistryAssociationState DeleteInProgress { get; } = new IpamInternetRegistryAssociationState("delete-in-progress");
+        public static IpamInternetRegistryAssociationState DeleteComplete { get; } = new IpamInternetRegistryAssociationState("delete-complete");
+        public static IpamInternetRegistryAssociationState DeleteFailed { get; } = new IpamInternetRegistryAssociationState("delete-failed");
+
+        public static bool operator ==(IpamInternetRegistryAssociationState left, IpamInternetRegistryAssociationState right) => left.Equals(right);
+        public static bool operator !=(IpamInternetRegistryAssociationState left, IpamInternetRegistryAssociationState right) => !left.Equals(right);
+
+        public static explicit operator string(IpamInternetRegistryAssociationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamInternetRegistryAssociationState other && Equals(other);
+        public bool Equals(IpamInternetRegistryAssociationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A metered account is an account that is charged for active IP addresses managed in IPAM
     /// </summary>
     [EnumType]
@@ -3265,6 +3336,68 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TrafficMirrorFilterTrafficMirrorNetworkService other && Equals(other);
         public bool Equals(TrafficMirrorFilterTrafficMirrorNetworkService other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether NAT gateway support is enabled on the attachment. Set to disable to stage NAT rules without activating them; the rules are retained and become active when this is later set to enable.
+    /// </summary>
+    [EnumType]
+    public readonly struct TransitGatewayAttachmentNatConfigurationNatGatewaySupport : IEquatable<TransitGatewayAttachmentNatConfigurationNatGatewaySupport>
+    {
+        private readonly string _value;
+
+        private TransitGatewayAttachmentNatConfigurationNatGatewaySupport(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransitGatewayAttachmentNatConfigurationNatGatewaySupport Enable { get; } = new TransitGatewayAttachmentNatConfigurationNatGatewaySupport("enable");
+        public static TransitGatewayAttachmentNatConfigurationNatGatewaySupport Disable { get; } = new TransitGatewayAttachmentNatConfigurationNatGatewaySupport("disable");
+
+        public static bool operator ==(TransitGatewayAttachmentNatConfigurationNatGatewaySupport left, TransitGatewayAttachmentNatConfigurationNatGatewaySupport right) => left.Equals(right);
+        public static bool operator !=(TransitGatewayAttachmentNatConfigurationNatGatewaySupport left, TransitGatewayAttachmentNatConfigurationNatGatewaySupport right) => !left.Equals(right);
+
+        public static explicit operator string(TransitGatewayAttachmentNatConfigurationNatGatewaySupport value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransitGatewayAttachmentNatConfigurationNatGatewaySupport other && Equals(other);
+        public bool Equals(TransitGatewayAttachmentNatConfigurationNatGatewaySupport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether routes for the NAT CIDRs are installed into the transit gateway route tables associated with the attachment. Whether this is configurable depends on the attachment; where the value is forced, supplying the opposite value is rejected. Omitting this property leaves the setting to the service: on a new configuration the service applies the attachment's default, but on an attachment where the value is configurable it keeps the value already in effect rather than reverting to that default. Removing this property from a template, or deleting this resource, therefore leaves the setting at its last value rather than restoring the default, and a resource later created on the same attachment without this property inherits that value.
+    /// </summary>
+    [EnumType]
+    public readonly struct TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport : IEquatable<TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport>
+    {
+        private readonly string _value;
+
+        private TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport Enable { get; } = new TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("enable");
+        public static TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport Disable { get; } = new TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("disable");
+
+        public static bool operator ==(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport left, TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport right) => left.Equals(right);
+        public static bool operator !=(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport left, TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport right) => !left.Equals(right);
+
+        public static explicit operator string(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport other && Equals(other);
+        public bool Equals(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

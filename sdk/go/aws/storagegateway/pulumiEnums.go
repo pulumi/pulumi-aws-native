@@ -10,6 +10,860 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The server-side encryption the gateway applies to objects it writes.
+type NfsFileShareEncryptionType string
+
+const (
+	NfsFileShareEncryptionTypeSseS3   = NfsFileShareEncryptionType("SseS3")
+	NfsFileShareEncryptionTypeSseKms  = NfsFileShareEncryptionType("SseKms")
+	NfsFileShareEncryptionTypeDsseKms = NfsFileShareEncryptionType("DsseKms")
+)
+
+func (NfsFileShareEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShareEncryptionType)(nil)).Elem()
+}
+
+func (e NfsFileShareEncryptionType) ToNfsFileShareEncryptionTypeOutput() NfsFileShareEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(NfsFileShareEncryptionTypeOutput)
+}
+
+func (e NfsFileShareEncryptionType) ToNfsFileShareEncryptionTypeOutputWithContext(ctx context.Context) NfsFileShareEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NfsFileShareEncryptionTypeOutput)
+}
+
+func (e NfsFileShareEncryptionType) ToNfsFileShareEncryptionTypePtrOutput() NfsFileShareEncryptionTypePtrOutput {
+	return e.ToNfsFileShareEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e NfsFileShareEncryptionType) ToNfsFileShareEncryptionTypePtrOutputWithContext(ctx context.Context) NfsFileShareEncryptionTypePtrOutput {
+	return NfsFileShareEncryptionType(e).ToNfsFileShareEncryptionTypeOutputWithContext(ctx).ToNfsFileShareEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e NfsFileShareEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NfsFileShareEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NfsFileShareEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NfsFileShareEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NfsFileShareEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (NfsFileShareEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShareEncryptionType)(nil)).Elem()
+}
+
+func (o NfsFileShareEncryptionTypeOutput) ToNfsFileShareEncryptionTypeOutput() NfsFileShareEncryptionTypeOutput {
+	return o
+}
+
+func (o NfsFileShareEncryptionTypeOutput) ToNfsFileShareEncryptionTypeOutputWithContext(ctx context.Context) NfsFileShareEncryptionTypeOutput {
+	return o
+}
+
+func (o NfsFileShareEncryptionTypeOutput) ToNfsFileShareEncryptionTypePtrOutput() NfsFileShareEncryptionTypePtrOutput {
+	return o.ToNfsFileShareEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareEncryptionTypeOutput) ToNfsFileShareEncryptionTypePtrOutputWithContext(ctx context.Context) NfsFileShareEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NfsFileShareEncryptionType) *NfsFileShareEncryptionType {
+		return &v
+	}).(NfsFileShareEncryptionTypePtrOutput)
+}
+
+func (o NfsFileShareEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NfsFileShareEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NfsFileShareEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NfsFileShareEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NfsFileShareEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (NfsFileShareEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsFileShareEncryptionType)(nil)).Elem()
+}
+
+func (o NfsFileShareEncryptionTypePtrOutput) ToNfsFileShareEncryptionTypePtrOutput() NfsFileShareEncryptionTypePtrOutput {
+	return o
+}
+
+func (o NfsFileShareEncryptionTypePtrOutput) ToNfsFileShareEncryptionTypePtrOutputWithContext(ctx context.Context) NfsFileShareEncryptionTypePtrOutput {
+	return o
+}
+
+func (o NfsFileShareEncryptionTypePtrOutput) Elem() NfsFileShareEncryptionTypeOutput {
+	return o.ApplyT(func(v *NfsFileShareEncryptionType) NfsFileShareEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret NfsFileShareEncryptionType
+		return ret
+	}).(NfsFileShareEncryptionTypeOutput)
+}
+
+func (o NfsFileShareEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NfsFileShareEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NfsFileShareEncryptionTypeInput is an input type that accepts values of the NfsFileShareEncryptionType enum
+// A concrete instance of `NfsFileShareEncryptionTypeInput` can be one of the following:
+//
+//	NfsFileShareEncryptionTypeSseS3
+//	NfsFileShareEncryptionTypeSseKms
+//	NfsFileShareEncryptionTypeDsseKms
+type NfsFileShareEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToNfsFileShareEncryptionTypeOutput() NfsFileShareEncryptionTypeOutput
+	ToNfsFileShareEncryptionTypeOutputWithContext(context.Context) NfsFileShareEncryptionTypeOutput
+}
+
+var nfsFileShareEncryptionTypePtrType = reflect.TypeOf((**NfsFileShareEncryptionType)(nil)).Elem()
+
+type NfsFileShareEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToNfsFileShareEncryptionTypePtrOutput() NfsFileShareEncryptionTypePtrOutput
+	ToNfsFileShareEncryptionTypePtrOutputWithContext(context.Context) NfsFileShareEncryptionTypePtrOutput
+}
+
+type nfsFileShareEncryptionTypePtr string
+
+func NfsFileShareEncryptionTypePtr(v string) NfsFileShareEncryptionTypePtrInput {
+	return (*nfsFileShareEncryptionTypePtr)(&v)
+}
+
+func (*nfsFileShareEncryptionTypePtr) ElementType() reflect.Type {
+	return nfsFileShareEncryptionTypePtrType
+}
+
+func (in *nfsFileShareEncryptionTypePtr) ToNfsFileShareEncryptionTypePtrOutput() NfsFileShareEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(NfsFileShareEncryptionTypePtrOutput)
+}
+
+func (in *nfsFileShareEncryptionTypePtr) ToNfsFileShareEncryptionTypePtrOutputWithContext(ctx context.Context) NfsFileShareEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NfsFileShareEncryptionTypePtrOutput)
+}
+
+// The canned S3 ACL applied to objects the gateway writes.
+type NfsFileShareObjectAcl string
+
+const (
+	NfsFileShareObjectAclPrivate                = NfsFileShareObjectAcl("private")
+	NfsFileShareObjectAclPublicRead             = NfsFileShareObjectAcl("public-read")
+	NfsFileShareObjectAclPublicReadWrite        = NfsFileShareObjectAcl("public-read-write")
+	NfsFileShareObjectAclAuthenticatedRead      = NfsFileShareObjectAcl("authenticated-read")
+	NfsFileShareObjectAclBucketOwnerRead        = NfsFileShareObjectAcl("bucket-owner-read")
+	NfsFileShareObjectAclBucketOwnerFullControl = NfsFileShareObjectAcl("bucket-owner-full-control")
+	NfsFileShareObjectAclAwsExecRead            = NfsFileShareObjectAcl("aws-exec-read")
+)
+
+func (NfsFileShareObjectAcl) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShareObjectAcl)(nil)).Elem()
+}
+
+func (e NfsFileShareObjectAcl) ToNfsFileShareObjectAclOutput() NfsFileShareObjectAclOutput {
+	return pulumi.ToOutput(e).(NfsFileShareObjectAclOutput)
+}
+
+func (e NfsFileShareObjectAcl) ToNfsFileShareObjectAclOutputWithContext(ctx context.Context) NfsFileShareObjectAclOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NfsFileShareObjectAclOutput)
+}
+
+func (e NfsFileShareObjectAcl) ToNfsFileShareObjectAclPtrOutput() NfsFileShareObjectAclPtrOutput {
+	return e.ToNfsFileShareObjectAclPtrOutputWithContext(context.Background())
+}
+
+func (e NfsFileShareObjectAcl) ToNfsFileShareObjectAclPtrOutputWithContext(ctx context.Context) NfsFileShareObjectAclPtrOutput {
+	return NfsFileShareObjectAcl(e).ToNfsFileShareObjectAclOutputWithContext(ctx).ToNfsFileShareObjectAclPtrOutputWithContext(ctx)
+}
+
+func (e NfsFileShareObjectAcl) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NfsFileShareObjectAcl) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NfsFileShareObjectAcl) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NfsFileShareObjectAcl) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NfsFileShareObjectAclOutput struct{ *pulumi.OutputState }
+
+func (NfsFileShareObjectAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsFileShareObjectAcl)(nil)).Elem()
+}
+
+func (o NfsFileShareObjectAclOutput) ToNfsFileShareObjectAclOutput() NfsFileShareObjectAclOutput {
+	return o
+}
+
+func (o NfsFileShareObjectAclOutput) ToNfsFileShareObjectAclOutputWithContext(ctx context.Context) NfsFileShareObjectAclOutput {
+	return o
+}
+
+func (o NfsFileShareObjectAclOutput) ToNfsFileShareObjectAclPtrOutput() NfsFileShareObjectAclPtrOutput {
+	return o.ToNfsFileShareObjectAclPtrOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareObjectAclOutput) ToNfsFileShareObjectAclPtrOutputWithContext(ctx context.Context) NfsFileShareObjectAclPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NfsFileShareObjectAcl) *NfsFileShareObjectAcl {
+		return &v
+	}).(NfsFileShareObjectAclPtrOutput)
+}
+
+func (o NfsFileShareObjectAclOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareObjectAclOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NfsFileShareObjectAcl) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NfsFileShareObjectAclOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareObjectAclOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NfsFileShareObjectAcl) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NfsFileShareObjectAclPtrOutput struct{ *pulumi.OutputState }
+
+func (NfsFileShareObjectAclPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsFileShareObjectAcl)(nil)).Elem()
+}
+
+func (o NfsFileShareObjectAclPtrOutput) ToNfsFileShareObjectAclPtrOutput() NfsFileShareObjectAclPtrOutput {
+	return o
+}
+
+func (o NfsFileShareObjectAclPtrOutput) ToNfsFileShareObjectAclPtrOutputWithContext(ctx context.Context) NfsFileShareObjectAclPtrOutput {
+	return o
+}
+
+func (o NfsFileShareObjectAclPtrOutput) Elem() NfsFileShareObjectAclOutput {
+	return o.ApplyT(func(v *NfsFileShareObjectAcl) NfsFileShareObjectAcl {
+		if v != nil {
+			return *v
+		}
+		var ret NfsFileShareObjectAcl
+		return ret
+	}).(NfsFileShareObjectAclOutput)
+}
+
+func (o NfsFileShareObjectAclPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NfsFileShareObjectAclPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NfsFileShareObjectAcl) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NfsFileShareObjectAclInput is an input type that accepts values of the NfsFileShareObjectAcl enum
+// A concrete instance of `NfsFileShareObjectAclInput` can be one of the following:
+//
+//	NfsFileShareObjectAclPrivate
+//	NfsFileShareObjectAclPublicRead
+//	NfsFileShareObjectAclPublicReadWrite
+//	NfsFileShareObjectAclAuthenticatedRead
+//	NfsFileShareObjectAclBucketOwnerRead
+//	NfsFileShareObjectAclBucketOwnerFullControl
+//	NfsFileShareObjectAclAwsExecRead
+type NfsFileShareObjectAclInput interface {
+	pulumi.Input
+
+	ToNfsFileShareObjectAclOutput() NfsFileShareObjectAclOutput
+	ToNfsFileShareObjectAclOutputWithContext(context.Context) NfsFileShareObjectAclOutput
+}
+
+var nfsFileShareObjectAclPtrType = reflect.TypeOf((**NfsFileShareObjectAcl)(nil)).Elem()
+
+type NfsFileShareObjectAclPtrInput interface {
+	pulumi.Input
+
+	ToNfsFileShareObjectAclPtrOutput() NfsFileShareObjectAclPtrOutput
+	ToNfsFileShareObjectAclPtrOutputWithContext(context.Context) NfsFileShareObjectAclPtrOutput
+}
+
+type nfsFileShareObjectAclPtr string
+
+func NfsFileShareObjectAclPtr(v string) NfsFileShareObjectAclPtrInput {
+	return (*nfsFileShareObjectAclPtr)(&v)
+}
+
+func (*nfsFileShareObjectAclPtr) ElementType() reflect.Type {
+	return nfsFileShareObjectAclPtrType
+}
+
+func (in *nfsFileShareObjectAclPtr) ToNfsFileShareObjectAclPtrOutput() NfsFileShareObjectAclPtrOutput {
+	return pulumi.ToOutput(in).(NfsFileShareObjectAclPtrOutput)
+}
+
+func (in *nfsFileShareObjectAclPtr) ToNfsFileShareObjectAclPtrOutputWithContext(ctx context.Context) NfsFileShareObjectAclPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NfsFileShareObjectAclPtrOutput)
+}
+
+// Whether the SMB share is case sensitive or defers to the client.
+type SmbFileShareCaseSensitivity string
+
+const (
+	SmbFileShareCaseSensitivityClientSpecified = SmbFileShareCaseSensitivity("ClientSpecified")
+	SmbFileShareCaseSensitivityCaseSensitive   = SmbFileShareCaseSensitivity("CaseSensitive")
+)
+
+func (SmbFileShareCaseSensitivity) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShareCaseSensitivity)(nil)).Elem()
+}
+
+func (e SmbFileShareCaseSensitivity) ToSmbFileShareCaseSensitivityOutput() SmbFileShareCaseSensitivityOutput {
+	return pulumi.ToOutput(e).(SmbFileShareCaseSensitivityOutput)
+}
+
+func (e SmbFileShareCaseSensitivity) ToSmbFileShareCaseSensitivityOutputWithContext(ctx context.Context) SmbFileShareCaseSensitivityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SmbFileShareCaseSensitivityOutput)
+}
+
+func (e SmbFileShareCaseSensitivity) ToSmbFileShareCaseSensitivityPtrOutput() SmbFileShareCaseSensitivityPtrOutput {
+	return e.ToSmbFileShareCaseSensitivityPtrOutputWithContext(context.Background())
+}
+
+func (e SmbFileShareCaseSensitivity) ToSmbFileShareCaseSensitivityPtrOutputWithContext(ctx context.Context) SmbFileShareCaseSensitivityPtrOutput {
+	return SmbFileShareCaseSensitivity(e).ToSmbFileShareCaseSensitivityOutputWithContext(ctx).ToSmbFileShareCaseSensitivityPtrOutputWithContext(ctx)
+}
+
+func (e SmbFileShareCaseSensitivity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SmbFileShareCaseSensitivity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SmbFileShareCaseSensitivity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SmbFileShareCaseSensitivity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SmbFileShareCaseSensitivityOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareCaseSensitivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShareCaseSensitivity)(nil)).Elem()
+}
+
+func (o SmbFileShareCaseSensitivityOutput) ToSmbFileShareCaseSensitivityOutput() SmbFileShareCaseSensitivityOutput {
+	return o
+}
+
+func (o SmbFileShareCaseSensitivityOutput) ToSmbFileShareCaseSensitivityOutputWithContext(ctx context.Context) SmbFileShareCaseSensitivityOutput {
+	return o
+}
+
+func (o SmbFileShareCaseSensitivityOutput) ToSmbFileShareCaseSensitivityPtrOutput() SmbFileShareCaseSensitivityPtrOutput {
+	return o.ToSmbFileShareCaseSensitivityPtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareCaseSensitivityOutput) ToSmbFileShareCaseSensitivityPtrOutputWithContext(ctx context.Context) SmbFileShareCaseSensitivityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmbFileShareCaseSensitivity) *SmbFileShareCaseSensitivity {
+		return &v
+	}).(SmbFileShareCaseSensitivityPtrOutput)
+}
+
+func (o SmbFileShareCaseSensitivityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareCaseSensitivityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SmbFileShareCaseSensitivity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SmbFileShareCaseSensitivityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareCaseSensitivityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SmbFileShareCaseSensitivity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SmbFileShareCaseSensitivityPtrOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareCaseSensitivityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbFileShareCaseSensitivity)(nil)).Elem()
+}
+
+func (o SmbFileShareCaseSensitivityPtrOutput) ToSmbFileShareCaseSensitivityPtrOutput() SmbFileShareCaseSensitivityPtrOutput {
+	return o
+}
+
+func (o SmbFileShareCaseSensitivityPtrOutput) ToSmbFileShareCaseSensitivityPtrOutputWithContext(ctx context.Context) SmbFileShareCaseSensitivityPtrOutput {
+	return o
+}
+
+func (o SmbFileShareCaseSensitivityPtrOutput) Elem() SmbFileShareCaseSensitivityOutput {
+	return o.ApplyT(func(v *SmbFileShareCaseSensitivity) SmbFileShareCaseSensitivity {
+		if v != nil {
+			return *v
+		}
+		var ret SmbFileShareCaseSensitivity
+		return ret
+	}).(SmbFileShareCaseSensitivityOutput)
+}
+
+func (o SmbFileShareCaseSensitivityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareCaseSensitivityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SmbFileShareCaseSensitivity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SmbFileShareCaseSensitivityInput is an input type that accepts values of the SmbFileShareCaseSensitivity enum
+// A concrete instance of `SmbFileShareCaseSensitivityInput` can be one of the following:
+//
+//	SmbFileShareCaseSensitivityClientSpecified
+//	SmbFileShareCaseSensitivityCaseSensitive
+type SmbFileShareCaseSensitivityInput interface {
+	pulumi.Input
+
+	ToSmbFileShareCaseSensitivityOutput() SmbFileShareCaseSensitivityOutput
+	ToSmbFileShareCaseSensitivityOutputWithContext(context.Context) SmbFileShareCaseSensitivityOutput
+}
+
+var smbFileShareCaseSensitivityPtrType = reflect.TypeOf((**SmbFileShareCaseSensitivity)(nil)).Elem()
+
+type SmbFileShareCaseSensitivityPtrInput interface {
+	pulumi.Input
+
+	ToSmbFileShareCaseSensitivityPtrOutput() SmbFileShareCaseSensitivityPtrOutput
+	ToSmbFileShareCaseSensitivityPtrOutputWithContext(context.Context) SmbFileShareCaseSensitivityPtrOutput
+}
+
+type smbFileShareCaseSensitivityPtr string
+
+func SmbFileShareCaseSensitivityPtr(v string) SmbFileShareCaseSensitivityPtrInput {
+	return (*smbFileShareCaseSensitivityPtr)(&v)
+}
+
+func (*smbFileShareCaseSensitivityPtr) ElementType() reflect.Type {
+	return smbFileShareCaseSensitivityPtrType
+}
+
+func (in *smbFileShareCaseSensitivityPtr) ToSmbFileShareCaseSensitivityPtrOutput() SmbFileShareCaseSensitivityPtrOutput {
+	return pulumi.ToOutput(in).(SmbFileShareCaseSensitivityPtrOutput)
+}
+
+func (in *smbFileShareCaseSensitivityPtr) ToSmbFileShareCaseSensitivityPtrOutputWithContext(ctx context.Context) SmbFileShareCaseSensitivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SmbFileShareCaseSensitivityPtrOutput)
+}
+
+// The server-side encryption the gateway applies to objects it writes.
+type SmbFileShareEncryptionType string
+
+const (
+	SmbFileShareEncryptionTypeSseS3   = SmbFileShareEncryptionType("SseS3")
+	SmbFileShareEncryptionTypeSseKms  = SmbFileShareEncryptionType("SseKms")
+	SmbFileShareEncryptionTypeDsseKms = SmbFileShareEncryptionType("DsseKms")
+)
+
+func (SmbFileShareEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShareEncryptionType)(nil)).Elem()
+}
+
+func (e SmbFileShareEncryptionType) ToSmbFileShareEncryptionTypeOutput() SmbFileShareEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(SmbFileShareEncryptionTypeOutput)
+}
+
+func (e SmbFileShareEncryptionType) ToSmbFileShareEncryptionTypeOutputWithContext(ctx context.Context) SmbFileShareEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SmbFileShareEncryptionTypeOutput)
+}
+
+func (e SmbFileShareEncryptionType) ToSmbFileShareEncryptionTypePtrOutput() SmbFileShareEncryptionTypePtrOutput {
+	return e.ToSmbFileShareEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e SmbFileShareEncryptionType) ToSmbFileShareEncryptionTypePtrOutputWithContext(ctx context.Context) SmbFileShareEncryptionTypePtrOutput {
+	return SmbFileShareEncryptionType(e).ToSmbFileShareEncryptionTypeOutputWithContext(ctx).ToSmbFileShareEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e SmbFileShareEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SmbFileShareEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SmbFileShareEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SmbFileShareEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SmbFileShareEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShareEncryptionType)(nil)).Elem()
+}
+
+func (o SmbFileShareEncryptionTypeOutput) ToSmbFileShareEncryptionTypeOutput() SmbFileShareEncryptionTypeOutput {
+	return o
+}
+
+func (o SmbFileShareEncryptionTypeOutput) ToSmbFileShareEncryptionTypeOutputWithContext(ctx context.Context) SmbFileShareEncryptionTypeOutput {
+	return o
+}
+
+func (o SmbFileShareEncryptionTypeOutput) ToSmbFileShareEncryptionTypePtrOutput() SmbFileShareEncryptionTypePtrOutput {
+	return o.ToSmbFileShareEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareEncryptionTypeOutput) ToSmbFileShareEncryptionTypePtrOutputWithContext(ctx context.Context) SmbFileShareEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmbFileShareEncryptionType) *SmbFileShareEncryptionType {
+		return &v
+	}).(SmbFileShareEncryptionTypePtrOutput)
+}
+
+func (o SmbFileShareEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SmbFileShareEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SmbFileShareEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SmbFileShareEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SmbFileShareEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbFileShareEncryptionType)(nil)).Elem()
+}
+
+func (o SmbFileShareEncryptionTypePtrOutput) ToSmbFileShareEncryptionTypePtrOutput() SmbFileShareEncryptionTypePtrOutput {
+	return o
+}
+
+func (o SmbFileShareEncryptionTypePtrOutput) ToSmbFileShareEncryptionTypePtrOutputWithContext(ctx context.Context) SmbFileShareEncryptionTypePtrOutput {
+	return o
+}
+
+func (o SmbFileShareEncryptionTypePtrOutput) Elem() SmbFileShareEncryptionTypeOutput {
+	return o.ApplyT(func(v *SmbFileShareEncryptionType) SmbFileShareEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret SmbFileShareEncryptionType
+		return ret
+	}).(SmbFileShareEncryptionTypeOutput)
+}
+
+func (o SmbFileShareEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SmbFileShareEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SmbFileShareEncryptionTypeInput is an input type that accepts values of the SmbFileShareEncryptionType enum
+// A concrete instance of `SmbFileShareEncryptionTypeInput` can be one of the following:
+//
+//	SmbFileShareEncryptionTypeSseS3
+//	SmbFileShareEncryptionTypeSseKms
+//	SmbFileShareEncryptionTypeDsseKms
+type SmbFileShareEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToSmbFileShareEncryptionTypeOutput() SmbFileShareEncryptionTypeOutput
+	ToSmbFileShareEncryptionTypeOutputWithContext(context.Context) SmbFileShareEncryptionTypeOutput
+}
+
+var smbFileShareEncryptionTypePtrType = reflect.TypeOf((**SmbFileShareEncryptionType)(nil)).Elem()
+
+type SmbFileShareEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToSmbFileShareEncryptionTypePtrOutput() SmbFileShareEncryptionTypePtrOutput
+	ToSmbFileShareEncryptionTypePtrOutputWithContext(context.Context) SmbFileShareEncryptionTypePtrOutput
+}
+
+type smbFileShareEncryptionTypePtr string
+
+func SmbFileShareEncryptionTypePtr(v string) SmbFileShareEncryptionTypePtrInput {
+	return (*smbFileShareEncryptionTypePtr)(&v)
+}
+
+func (*smbFileShareEncryptionTypePtr) ElementType() reflect.Type {
+	return smbFileShareEncryptionTypePtrType
+}
+
+func (in *smbFileShareEncryptionTypePtr) ToSmbFileShareEncryptionTypePtrOutput() SmbFileShareEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(SmbFileShareEncryptionTypePtrOutput)
+}
+
+func (in *smbFileShareEncryptionTypePtr) ToSmbFileShareEncryptionTypePtrOutputWithContext(ctx context.Context) SmbFileShareEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SmbFileShareEncryptionTypePtrOutput)
+}
+
+// The canned S3 ACL applied to objects the gateway writes.
+type SmbFileShareObjectAcl string
+
+const (
+	SmbFileShareObjectAclPrivate                = SmbFileShareObjectAcl("private")
+	SmbFileShareObjectAclPublicRead             = SmbFileShareObjectAcl("public-read")
+	SmbFileShareObjectAclPublicReadWrite        = SmbFileShareObjectAcl("public-read-write")
+	SmbFileShareObjectAclAuthenticatedRead      = SmbFileShareObjectAcl("authenticated-read")
+	SmbFileShareObjectAclBucketOwnerRead        = SmbFileShareObjectAcl("bucket-owner-read")
+	SmbFileShareObjectAclBucketOwnerFullControl = SmbFileShareObjectAcl("bucket-owner-full-control")
+	SmbFileShareObjectAclAwsExecRead            = SmbFileShareObjectAcl("aws-exec-read")
+)
+
+func (SmbFileShareObjectAcl) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShareObjectAcl)(nil)).Elem()
+}
+
+func (e SmbFileShareObjectAcl) ToSmbFileShareObjectAclOutput() SmbFileShareObjectAclOutput {
+	return pulumi.ToOutput(e).(SmbFileShareObjectAclOutput)
+}
+
+func (e SmbFileShareObjectAcl) ToSmbFileShareObjectAclOutputWithContext(ctx context.Context) SmbFileShareObjectAclOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SmbFileShareObjectAclOutput)
+}
+
+func (e SmbFileShareObjectAcl) ToSmbFileShareObjectAclPtrOutput() SmbFileShareObjectAclPtrOutput {
+	return e.ToSmbFileShareObjectAclPtrOutputWithContext(context.Background())
+}
+
+func (e SmbFileShareObjectAcl) ToSmbFileShareObjectAclPtrOutputWithContext(ctx context.Context) SmbFileShareObjectAclPtrOutput {
+	return SmbFileShareObjectAcl(e).ToSmbFileShareObjectAclOutputWithContext(ctx).ToSmbFileShareObjectAclPtrOutputWithContext(ctx)
+}
+
+func (e SmbFileShareObjectAcl) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SmbFileShareObjectAcl) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SmbFileShareObjectAcl) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SmbFileShareObjectAcl) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SmbFileShareObjectAclOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareObjectAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShareObjectAcl)(nil)).Elem()
+}
+
+func (o SmbFileShareObjectAclOutput) ToSmbFileShareObjectAclOutput() SmbFileShareObjectAclOutput {
+	return o
+}
+
+func (o SmbFileShareObjectAclOutput) ToSmbFileShareObjectAclOutputWithContext(ctx context.Context) SmbFileShareObjectAclOutput {
+	return o
+}
+
+func (o SmbFileShareObjectAclOutput) ToSmbFileShareObjectAclPtrOutput() SmbFileShareObjectAclPtrOutput {
+	return o.ToSmbFileShareObjectAclPtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareObjectAclOutput) ToSmbFileShareObjectAclPtrOutputWithContext(ctx context.Context) SmbFileShareObjectAclPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmbFileShareObjectAcl) *SmbFileShareObjectAcl {
+		return &v
+	}).(SmbFileShareObjectAclPtrOutput)
+}
+
+func (o SmbFileShareObjectAclOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareObjectAclOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SmbFileShareObjectAcl) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SmbFileShareObjectAclOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareObjectAclOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SmbFileShareObjectAcl) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SmbFileShareObjectAclPtrOutput struct{ *pulumi.OutputState }
+
+func (SmbFileShareObjectAclPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbFileShareObjectAcl)(nil)).Elem()
+}
+
+func (o SmbFileShareObjectAclPtrOutput) ToSmbFileShareObjectAclPtrOutput() SmbFileShareObjectAclPtrOutput {
+	return o
+}
+
+func (o SmbFileShareObjectAclPtrOutput) ToSmbFileShareObjectAclPtrOutputWithContext(ctx context.Context) SmbFileShareObjectAclPtrOutput {
+	return o
+}
+
+func (o SmbFileShareObjectAclPtrOutput) Elem() SmbFileShareObjectAclOutput {
+	return o.ApplyT(func(v *SmbFileShareObjectAcl) SmbFileShareObjectAcl {
+		if v != nil {
+			return *v
+		}
+		var ret SmbFileShareObjectAcl
+		return ret
+	}).(SmbFileShareObjectAclOutput)
+}
+
+func (o SmbFileShareObjectAclPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SmbFileShareObjectAclPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SmbFileShareObjectAcl) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SmbFileShareObjectAclInput is an input type that accepts values of the SmbFileShareObjectAcl enum
+// A concrete instance of `SmbFileShareObjectAclInput` can be one of the following:
+//
+//	SmbFileShareObjectAclPrivate
+//	SmbFileShareObjectAclPublicRead
+//	SmbFileShareObjectAclPublicReadWrite
+//	SmbFileShareObjectAclAuthenticatedRead
+//	SmbFileShareObjectAclBucketOwnerRead
+//	SmbFileShareObjectAclBucketOwnerFullControl
+//	SmbFileShareObjectAclAwsExecRead
+type SmbFileShareObjectAclInput interface {
+	pulumi.Input
+
+	ToSmbFileShareObjectAclOutput() SmbFileShareObjectAclOutput
+	ToSmbFileShareObjectAclOutputWithContext(context.Context) SmbFileShareObjectAclOutput
+}
+
+var smbFileShareObjectAclPtrType = reflect.TypeOf((**SmbFileShareObjectAcl)(nil)).Elem()
+
+type SmbFileShareObjectAclPtrInput interface {
+	pulumi.Input
+
+	ToSmbFileShareObjectAclPtrOutput() SmbFileShareObjectAclPtrOutput
+	ToSmbFileShareObjectAclPtrOutputWithContext(context.Context) SmbFileShareObjectAclPtrOutput
+}
+
+type smbFileShareObjectAclPtr string
+
+func SmbFileShareObjectAclPtr(v string) SmbFileShareObjectAclPtrInput {
+	return (*smbFileShareObjectAclPtr)(&v)
+}
+
+func (*smbFileShareObjectAclPtr) ElementType() reflect.Type {
+	return smbFileShareObjectAclPtrType
+}
+
+func (in *smbFileShareObjectAclPtr) ToSmbFileShareObjectAclPtrOutput() SmbFileShareObjectAclPtrOutput {
+	return pulumi.ToOutput(in).(SmbFileShareObjectAclPtrOutput)
+}
+
+func (in *smbFileShareObjectAclPtr) ToSmbFileShareObjectAclPtrOutputWithContext(ctx context.Context) SmbFileShareObjectAclPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SmbFileShareObjectAclPtrOutput)
+}
+
 // Tape retention lock type. Governance mode allows authorized removal; compliance mode prevents all removal.
 type TapePoolRetentionLockType string
 
@@ -345,10 +1199,30 @@ func (in *tapePoolStorageClassPtr) ToTapePoolStorageClassPtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareEncryptionTypeInput)(nil)).Elem(), NfsFileShareEncryptionType("SseS3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareEncryptionTypePtrInput)(nil)).Elem(), NfsFileShareEncryptionType("SseS3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareObjectAclInput)(nil)).Elem(), NfsFileShareObjectAcl("private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareObjectAclPtrInput)(nil)).Elem(), NfsFileShareObjectAcl("private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareCaseSensitivityInput)(nil)).Elem(), SmbFileShareCaseSensitivity("ClientSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareCaseSensitivityPtrInput)(nil)).Elem(), SmbFileShareCaseSensitivity("ClientSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareEncryptionTypeInput)(nil)).Elem(), SmbFileShareEncryptionType("SseS3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareEncryptionTypePtrInput)(nil)).Elem(), SmbFileShareEncryptionType("SseS3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareObjectAclInput)(nil)).Elem(), SmbFileShareObjectAcl("private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareObjectAclPtrInput)(nil)).Elem(), SmbFileShareObjectAcl("private"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolRetentionLockTypeInput)(nil)).Elem(), TapePoolRetentionLockType("COMPLIANCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolRetentionLockTypePtrInput)(nil)).Elem(), TapePoolRetentionLockType("COMPLIANCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolStorageClassInput)(nil)).Elem(), TapePoolStorageClass("DEEP_ARCHIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolStorageClassPtrInput)(nil)).Elem(), TapePoolStorageClass("DEEP_ARCHIVE"))
+	pulumi.RegisterOutputType(NfsFileShareEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(NfsFileShareEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(NfsFileShareObjectAclOutput{})
+	pulumi.RegisterOutputType(NfsFileShareObjectAclPtrOutput{})
+	pulumi.RegisterOutputType(SmbFileShareCaseSensitivityOutput{})
+	pulumi.RegisterOutputType(SmbFileShareCaseSensitivityPtrOutput{})
+	pulumi.RegisterOutputType(SmbFileShareEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(SmbFileShareEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(SmbFileShareObjectAclOutput{})
+	pulumi.RegisterOutputType(SmbFileShareObjectAclPtrOutput{})
 	pulumi.RegisterOutputType(TapePoolRetentionLockTypeOutput{})
 	pulumi.RegisterOutputType(TapePoolRetentionLockTypePtrOutput{})
 	pulumi.RegisterOutputType(TapePoolStorageClassOutput{})

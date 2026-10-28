@@ -24,19 +24,21 @@ __all__ = ['PaymentManagerArgs', 'PaymentManager']
 @pulumi.input_type
 class PaymentManagerArgs:
     def __init__(__self__, *,
-                 authorizer_type: pulumi.Input['PaymentManagerPaymentsAuthorizerType'],
+                 authorizer_type: pulumi.Input['PaymentManagerAuthorizerType'],
                  role_arn: pulumi.Input[_builtins.str],
-                 authorizer_configuration: pulumi.Input[Optional['PaymentManagerAuthorizerConfigurationArgs']] = None,
+                 authorizer_configuration: pulumi.Input[Optional['PaymentManagerAuthorizerConfigurationPropertiesArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PaymentManager resource.
 
+        :param pulumi.Input['PaymentManagerAuthorizerType'] authorizer_type: The type of authorizer for the payment manager
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role for the payment manager
+        :param pulumi.Input['PaymentManagerAuthorizerConfigurationPropertiesArgs'] authorizer_configuration: The authorizer configuration for the payment manager
         :param pulumi.Input[_builtins.str] description: A description of the payment manager
         :param pulumi.Input[_builtins.str] name: The name of the payment manager
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the payment manager
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "authorizer_type", authorizer_type)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -51,11 +53,14 @@ class PaymentManagerArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizerType")
-    def authorizer_type(self) -> pulumi.Input['PaymentManagerPaymentsAuthorizerType']:
+    def authorizer_type(self) -> pulumi.Input['PaymentManagerAuthorizerType']:
+        """
+        The type of authorizer for the payment manager
+        """
         return pulumi.get(self, "authorizer_type")
 
     @authorizer_type.setter
-    def authorizer_type(self, value: pulumi.Input['PaymentManagerPaymentsAuthorizerType']):
+    def authorizer_type(self, value: pulumi.Input['PaymentManagerAuthorizerType']):
         pulumi.set(self, "authorizer_type", value)
 
     @_builtins.property
@@ -72,11 +77,14 @@ class PaymentManagerArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
-    def authorizer_configuration(self) -> pulumi.Input[Optional['PaymentManagerAuthorizerConfigurationArgs']]:
+    def authorizer_configuration(self) -> pulumi.Input[Optional['PaymentManagerAuthorizerConfigurationPropertiesArgs']]:
+        """
+        The authorizer configuration for the payment manager
+        """
         return pulumi.get(self, "authorizer_configuration")
 
     @authorizer_configuration.setter
-    def authorizer_configuration(self, value: pulumi.Input[Optional['PaymentManagerAuthorizerConfigurationArgs']]):
+    def authorizer_configuration(self, value: pulumi.Input[Optional['PaymentManagerAuthorizerConfigurationPropertiesArgs']]):
         pulumi.set(self, "authorizer_configuration", value)
 
     @_builtins.property
@@ -107,7 +115,7 @@ class PaymentManagerArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Tags to assign to the payment manager
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -122,8 +130,8 @@ class PaymentManager(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['PaymentManagerAuthorizerConfigurationArgs', 'PaymentManagerAuthorizerConfigurationArgsDict']]] = None,
-                 authorizer_type: pulumi.Input[Optional['PaymentManagerPaymentsAuthorizerType']] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['PaymentManagerAuthorizerConfigurationPropertiesArgs', 'PaymentManagerAuthorizerConfigurationPropertiesArgsDict']]] = None,
+                 authorizer_type: pulumi.Input[Optional['PaymentManagerAuthorizerType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -134,10 +142,12 @@ class PaymentManager(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['PaymentManagerAuthorizerConfigurationPropertiesArgs', 'PaymentManagerAuthorizerConfigurationPropertiesArgsDict']] authorizer_configuration: The authorizer configuration for the payment manager
+        :param pulumi.Input['PaymentManagerAuthorizerType'] authorizer_type: The type of authorizer for the payment manager
         :param pulumi.Input[_builtins.str] description: A description of the payment manager
         :param pulumi.Input[_builtins.str] name: The name of the payment manager
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role for the payment manager
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the payment manager
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -163,8 +173,8 @@ class PaymentManager(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['PaymentManagerAuthorizerConfigurationArgs', 'PaymentManagerAuthorizerConfigurationArgsDict']]] = None,
-                 authorizer_type: pulumi.Input[Optional['PaymentManagerPaymentsAuthorizerType']] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['PaymentManagerAuthorizerConfigurationPropertiesArgs', 'PaymentManagerAuthorizerConfigurationPropertiesArgsDict']]] = None,
+                 authorizer_type: pulumi.Input[Optional['PaymentManagerAuthorizerType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -234,12 +244,18 @@ class PaymentManager(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
-    def authorizer_configuration(self) -> pulumi.Output[Optional['outputs.PaymentManagerAuthorizerConfiguration']]:
+    def authorizer_configuration(self) -> pulumi.Output[Optional['outputs.PaymentManagerAuthorizerConfigurationProperties']]:
+        """
+        The authorizer configuration for the payment manager
+        """
         return pulumi.get(self, "authorizer_configuration")
 
     @_builtins.property
     @pulumi.getter(name="authorizerType")
-    def authorizer_type(self) -> pulumi.Output['PaymentManagerPaymentsAuthorizerType']:
+    def authorizer_type(self) -> pulumi.Output['PaymentManagerAuthorizerType']:
+        """
+        The type of authorizer for the payment manager
+        """
         return pulumi.get(self, "authorizer_type")
 
     @_builtins.property
@@ -278,7 +294,7 @@ class PaymentManager(pulumi.CustomResource):
     @pulumi.getter(name="paymentManagerArn")
     def payment_manager_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the payment manager
+        The Amazon Resource Name (ARN) of the resource.
         """
         return pulumi.get(self, "payment_manager_arn")
 
@@ -301,18 +317,24 @@ class PaymentManager(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output['PaymentManagerStatus']:
+        """
+        The current status of the payment manager
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Tags to assign to the payment manager
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityDetails")
     def workload_identity_details(self) -> pulumi.Output['outputs.PaymentManagerWorkloadIdentityDetails']:
+        """
+        The workload identity details for the payment manager
+        """
         return pulumi.get(self, "workload_identity_details")
 

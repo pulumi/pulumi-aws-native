@@ -37,8 +37,14 @@ export class PaymentManager extends pulumi.CustomResource {
         return obj['__pulumiType'] === PaymentManager.__pulumiType;
     }
 
-    declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrockagentcore.PaymentManagerAuthorizerConfiguration | undefined>;
-    declare public readonly authorizerType: pulumi.Output<enums.bedrockagentcore.PaymentManagerPaymentsAuthorizerType>;
+    /**
+     * The authorizer configuration for the payment manager
+     */
+    declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrockagentcore.PaymentManagerAuthorizerConfigurationProperties | undefined>;
+    /**
+     * The type of authorizer for the payment manager
+     */
+    declare public readonly authorizerType: pulumi.Output<enums.bedrockagentcore.PaymentManagerAuthorizerType>;
     /**
      * The timestamp when the payment manager was created
      */
@@ -56,7 +62,7 @@ export class PaymentManager extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the payment manager
+     * The Amazon Resource Name (ARN) of the resource.
      */
     declare public /*out*/ readonly paymentManagerArn: pulumi.Output<string>;
     /**
@@ -67,11 +73,17 @@ export class PaymentManager extends pulumi.CustomResource {
      * The ARN of the IAM role for the payment manager
      */
     declare public readonly roleArn: pulumi.Output<string>;
+    /**
+     * The current status of the payment manager
+     */
     declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.PaymentManagerStatus>;
     /**
-     * Tags to assign to the payment manager
+     * An array of key-value pairs to apply to this resource.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The workload identity details for the payment manager
+     */
     declare public /*out*/ readonly workloadIdentityDetails: pulumi.Output<outputs.bedrockagentcore.PaymentManagerWorkloadIdentityDetails>;
 
     /**
@@ -128,8 +140,14 @@ export class PaymentManager extends pulumi.CustomResource {
  * The set of arguments for constructing a PaymentManager resource.
  */
 export interface PaymentManagerArgs {
-    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.PaymentManagerAuthorizerConfigurationArgs | undefined>;
-    authorizerType: pulumi.Input<enums.bedrockagentcore.PaymentManagerPaymentsAuthorizerType>;
+    /**
+     * The authorizer configuration for the payment manager
+     */
+    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.PaymentManagerAuthorizerConfigurationPropertiesArgs | undefined>;
+    /**
+     * The type of authorizer for the payment manager
+     */
+    authorizerType: pulumi.Input<enums.bedrockagentcore.PaymentManagerAuthorizerType>;
     /**
      * A description of the payment manager
      */
@@ -143,7 +161,7 @@ export interface PaymentManagerArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * Tags to assign to the payment manager
+     * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

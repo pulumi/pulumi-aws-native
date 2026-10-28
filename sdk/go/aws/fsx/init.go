@@ -29,6 +29,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FileCache{}
 	case "aws-native:fsx:S3AccessPointAttachment":
 		r = &S3AccessPointAttachment{}
+	case "aws-native:fsx:Snapshot":
+		r = &Snapshot{}
+	case "aws-native:fsx:StorageVirtualMachine":
+		r = &StorageVirtualMachine{}
 	case "aws-native:fsx:Volume":
 		r = &Volume{}
 	default:

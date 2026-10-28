@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        /// The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {

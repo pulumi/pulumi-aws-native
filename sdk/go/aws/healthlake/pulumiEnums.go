@@ -266,14 +266,182 @@ func (o DataTransformationProfileTargetFormatPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
+// The analytics status for the Data Store.
+type FhirDatastoreAnalyticsConfigurationStatus string
+
+const (
+	FhirDatastoreAnalyticsConfigurationStatusEnabled = FhirDatastoreAnalyticsConfigurationStatus("ENABLED")
+	FhirDatastoreAnalyticsConfigurationStatusPaused  = FhirDatastoreAnalyticsConfigurationStatus("PAUSED")
+)
+
+func (FhirDatastoreAnalyticsConfigurationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreAnalyticsConfigurationStatus)(nil)).Elem()
+}
+
+func (e FhirDatastoreAnalyticsConfigurationStatus) ToFhirDatastoreAnalyticsConfigurationStatusOutput() FhirDatastoreAnalyticsConfigurationStatusOutput {
+	return pulumi.ToOutput(e).(FhirDatastoreAnalyticsConfigurationStatusOutput)
+}
+
+func (e FhirDatastoreAnalyticsConfigurationStatus) ToFhirDatastoreAnalyticsConfigurationStatusOutputWithContext(ctx context.Context) FhirDatastoreAnalyticsConfigurationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FhirDatastoreAnalyticsConfigurationStatusOutput)
+}
+
+func (e FhirDatastoreAnalyticsConfigurationStatus) ToFhirDatastoreAnalyticsConfigurationStatusPtrOutput() FhirDatastoreAnalyticsConfigurationStatusPtrOutput {
+	return e.ToFhirDatastoreAnalyticsConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FhirDatastoreAnalyticsConfigurationStatus) ToFhirDatastoreAnalyticsConfigurationStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreAnalyticsConfigurationStatusPtrOutput {
+	return FhirDatastoreAnalyticsConfigurationStatus(e).ToFhirDatastoreAnalyticsConfigurationStatusOutputWithContext(ctx).ToFhirDatastoreAnalyticsConfigurationStatusPtrOutputWithContext(ctx)
+}
+
+func (e FhirDatastoreAnalyticsConfigurationStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FhirDatastoreAnalyticsConfigurationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FhirDatastoreAnalyticsConfigurationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FhirDatastoreAnalyticsConfigurationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FhirDatastoreAnalyticsConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (FhirDatastoreAnalyticsConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreAnalyticsConfigurationStatus)(nil)).Elem()
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusOutput) ToFhirDatastoreAnalyticsConfigurationStatusOutput() FhirDatastoreAnalyticsConfigurationStatusOutput {
+	return o
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusOutput) ToFhirDatastoreAnalyticsConfigurationStatusOutputWithContext(ctx context.Context) FhirDatastoreAnalyticsConfigurationStatusOutput {
+	return o
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusOutput) ToFhirDatastoreAnalyticsConfigurationStatusPtrOutput() FhirDatastoreAnalyticsConfigurationStatusPtrOutput {
+	return o.ToFhirDatastoreAnalyticsConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusOutput) ToFhirDatastoreAnalyticsConfigurationStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreAnalyticsConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirDatastoreAnalyticsConfigurationStatus) *FhirDatastoreAnalyticsConfigurationStatus {
+		return &v
+	}).(FhirDatastoreAnalyticsConfigurationStatusPtrOutput)
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FhirDatastoreAnalyticsConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FhirDatastoreAnalyticsConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FhirDatastoreAnalyticsConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FhirDatastoreAnalyticsConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastoreAnalyticsConfigurationStatus)(nil)).Elem()
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusPtrOutput) ToFhirDatastoreAnalyticsConfigurationStatusPtrOutput() FhirDatastoreAnalyticsConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusPtrOutput) ToFhirDatastoreAnalyticsConfigurationStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreAnalyticsConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusPtrOutput) Elem() FhirDatastoreAnalyticsConfigurationStatusOutput {
+	return o.ApplyT(func(v *FhirDatastoreAnalyticsConfigurationStatus) FhirDatastoreAnalyticsConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FhirDatastoreAnalyticsConfigurationStatus
+		return ret
+	}).(FhirDatastoreAnalyticsConfigurationStatusOutput)
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FhirDatastoreAnalyticsConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FhirDatastoreAnalyticsConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FhirDatastoreAnalyticsConfigurationStatusInput is an input type that accepts values of the FhirDatastoreAnalyticsConfigurationStatus enum
+// A concrete instance of `FhirDatastoreAnalyticsConfigurationStatusInput` can be one of the following:
+//
+//	FhirDatastoreAnalyticsConfigurationStatusEnabled
+//	FhirDatastoreAnalyticsConfigurationStatusPaused
+type FhirDatastoreAnalyticsConfigurationStatusInput interface {
+	pulumi.Input
+
+	ToFhirDatastoreAnalyticsConfigurationStatusOutput() FhirDatastoreAnalyticsConfigurationStatusOutput
+	ToFhirDatastoreAnalyticsConfigurationStatusOutputWithContext(context.Context) FhirDatastoreAnalyticsConfigurationStatusOutput
+}
+
+var fhirDatastoreAnalyticsConfigurationStatusPtrType = reflect.TypeOf((**FhirDatastoreAnalyticsConfigurationStatus)(nil)).Elem()
+
+type FhirDatastoreAnalyticsConfigurationStatusPtrInput interface {
+	pulumi.Input
+
+	ToFhirDatastoreAnalyticsConfigurationStatusPtrOutput() FhirDatastoreAnalyticsConfigurationStatusPtrOutput
+	ToFhirDatastoreAnalyticsConfigurationStatusPtrOutputWithContext(context.Context) FhirDatastoreAnalyticsConfigurationStatusPtrOutput
+}
+
+type fhirDatastoreAnalyticsConfigurationStatusPtr string
+
+func FhirDatastoreAnalyticsConfigurationStatusPtr(v string) FhirDatastoreAnalyticsConfigurationStatusPtrInput {
+	return (*fhirDatastoreAnalyticsConfigurationStatusPtr)(&v)
+}
+
+func (*fhirDatastoreAnalyticsConfigurationStatusPtr) ElementType() reflect.Type {
+	return fhirDatastoreAnalyticsConfigurationStatusPtrType
+}
+
+func (in *fhirDatastoreAnalyticsConfigurationStatusPtr) ToFhirDatastoreAnalyticsConfigurationStatusPtrOutput() FhirDatastoreAnalyticsConfigurationStatusPtrOutput {
+	return pulumi.ToOutput(in).(FhirDatastoreAnalyticsConfigurationStatusPtrOutput)
+}
+
+func (in *fhirDatastoreAnalyticsConfigurationStatusPtr) ToFhirDatastoreAnalyticsConfigurationStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreAnalyticsConfigurationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FhirDatastoreAnalyticsConfigurationStatusPtrOutput)
+}
+
+// The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'UPDATING', 'UPDATE_FAILED', 'DELETING', or 'DELETED'.
 type FhirDatastoreDatastoreStatus string
 
 const (
-	FhirDatastoreDatastoreStatusCreating = FhirDatastoreDatastoreStatus("CREATING")
-	FhirDatastoreDatastoreStatusActive   = FhirDatastoreDatastoreStatus("ACTIVE")
-	FhirDatastoreDatastoreStatusDeleting = FhirDatastoreDatastoreStatus("DELETING")
-	FhirDatastoreDatastoreStatusDeleted  = FhirDatastoreDatastoreStatus("DELETED")
+	FhirDatastoreDatastoreStatusCreating     = FhirDatastoreDatastoreStatus("CREATING")
+	FhirDatastoreDatastoreStatusActive       = FhirDatastoreDatastoreStatus("ACTIVE")
+	FhirDatastoreDatastoreStatusUpdating     = FhirDatastoreDatastoreStatus("UPDATING")
+	FhirDatastoreDatastoreStatusUpdateFailed = FhirDatastoreDatastoreStatus("UPDATE_FAILED")
+	FhirDatastoreDatastoreStatusDeleting     = FhirDatastoreDatastoreStatus("DELETING")
+	FhirDatastoreDatastoreStatusDeleted      = FhirDatastoreDatastoreStatus("DELETED")
 )
 
 type FhirDatastoreDatastoreStatusOutput struct{ *pulumi.OutputState }
@@ -857,6 +1025,172 @@ func (in *fhirDatastoreKmsEncryptionConfigCmkTypePtr) ToFhirDatastoreKmsEncrypti
 	return pulumi.ToOutputWithContext(ctx, in).(FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput)
 }
 
+// The NLP status for the Data Store.
+type FhirDatastoreNlpConfigurationStatus string
+
+const (
+	FhirDatastoreNlpConfigurationStatusEnabled  = FhirDatastoreNlpConfigurationStatus("ENABLED")
+	FhirDatastoreNlpConfigurationStatusDisabled = FhirDatastoreNlpConfigurationStatus("DISABLED")
+)
+
+func (FhirDatastoreNlpConfigurationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreNlpConfigurationStatus)(nil)).Elem()
+}
+
+func (e FhirDatastoreNlpConfigurationStatus) ToFhirDatastoreNlpConfigurationStatusOutput() FhirDatastoreNlpConfigurationStatusOutput {
+	return pulumi.ToOutput(e).(FhirDatastoreNlpConfigurationStatusOutput)
+}
+
+func (e FhirDatastoreNlpConfigurationStatus) ToFhirDatastoreNlpConfigurationStatusOutputWithContext(ctx context.Context) FhirDatastoreNlpConfigurationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FhirDatastoreNlpConfigurationStatusOutput)
+}
+
+func (e FhirDatastoreNlpConfigurationStatus) ToFhirDatastoreNlpConfigurationStatusPtrOutput() FhirDatastoreNlpConfigurationStatusPtrOutput {
+	return e.ToFhirDatastoreNlpConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FhirDatastoreNlpConfigurationStatus) ToFhirDatastoreNlpConfigurationStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreNlpConfigurationStatusPtrOutput {
+	return FhirDatastoreNlpConfigurationStatus(e).ToFhirDatastoreNlpConfigurationStatusOutputWithContext(ctx).ToFhirDatastoreNlpConfigurationStatusPtrOutputWithContext(ctx)
+}
+
+func (e FhirDatastoreNlpConfigurationStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FhirDatastoreNlpConfigurationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FhirDatastoreNlpConfigurationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FhirDatastoreNlpConfigurationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FhirDatastoreNlpConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (FhirDatastoreNlpConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirDatastoreNlpConfigurationStatus)(nil)).Elem()
+}
+
+func (o FhirDatastoreNlpConfigurationStatusOutput) ToFhirDatastoreNlpConfigurationStatusOutput() FhirDatastoreNlpConfigurationStatusOutput {
+	return o
+}
+
+func (o FhirDatastoreNlpConfigurationStatusOutput) ToFhirDatastoreNlpConfigurationStatusOutputWithContext(ctx context.Context) FhirDatastoreNlpConfigurationStatusOutput {
+	return o
+}
+
+func (o FhirDatastoreNlpConfigurationStatusOutput) ToFhirDatastoreNlpConfigurationStatusPtrOutput() FhirDatastoreNlpConfigurationStatusPtrOutput {
+	return o.ToFhirDatastoreNlpConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FhirDatastoreNlpConfigurationStatusOutput) ToFhirDatastoreNlpConfigurationStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreNlpConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirDatastoreNlpConfigurationStatus) *FhirDatastoreNlpConfigurationStatus {
+		return &v
+	}).(FhirDatastoreNlpConfigurationStatusPtrOutput)
+}
+
+func (o FhirDatastoreNlpConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FhirDatastoreNlpConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FhirDatastoreNlpConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FhirDatastoreNlpConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FhirDatastoreNlpConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FhirDatastoreNlpConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FhirDatastoreNlpConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FhirDatastoreNlpConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirDatastoreNlpConfigurationStatus)(nil)).Elem()
+}
+
+func (o FhirDatastoreNlpConfigurationStatusPtrOutput) ToFhirDatastoreNlpConfigurationStatusPtrOutput() FhirDatastoreNlpConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o FhirDatastoreNlpConfigurationStatusPtrOutput) ToFhirDatastoreNlpConfigurationStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreNlpConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o FhirDatastoreNlpConfigurationStatusPtrOutput) Elem() FhirDatastoreNlpConfigurationStatusOutput {
+	return o.ApplyT(func(v *FhirDatastoreNlpConfigurationStatus) FhirDatastoreNlpConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FhirDatastoreNlpConfigurationStatus
+		return ret
+	}).(FhirDatastoreNlpConfigurationStatusOutput)
+}
+
+func (o FhirDatastoreNlpConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FhirDatastoreNlpConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FhirDatastoreNlpConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FhirDatastoreNlpConfigurationStatusInput is an input type that accepts values of the FhirDatastoreNlpConfigurationStatus enum
+// A concrete instance of `FhirDatastoreNlpConfigurationStatusInput` can be one of the following:
+//
+//	FhirDatastoreNlpConfigurationStatusEnabled
+//	FhirDatastoreNlpConfigurationStatusDisabled
+type FhirDatastoreNlpConfigurationStatusInput interface {
+	pulumi.Input
+
+	ToFhirDatastoreNlpConfigurationStatusOutput() FhirDatastoreNlpConfigurationStatusOutput
+	ToFhirDatastoreNlpConfigurationStatusOutputWithContext(context.Context) FhirDatastoreNlpConfigurationStatusOutput
+}
+
+var fhirDatastoreNlpConfigurationStatusPtrType = reflect.TypeOf((**FhirDatastoreNlpConfigurationStatus)(nil)).Elem()
+
+type FhirDatastoreNlpConfigurationStatusPtrInput interface {
+	pulumi.Input
+
+	ToFhirDatastoreNlpConfigurationStatusPtrOutput() FhirDatastoreNlpConfigurationStatusPtrOutput
+	ToFhirDatastoreNlpConfigurationStatusPtrOutputWithContext(context.Context) FhirDatastoreNlpConfigurationStatusPtrOutput
+}
+
+type fhirDatastoreNlpConfigurationStatusPtr string
+
+func FhirDatastoreNlpConfigurationStatusPtr(v string) FhirDatastoreNlpConfigurationStatusPtrInput {
+	return (*fhirDatastoreNlpConfigurationStatusPtr)(&v)
+}
+
+func (*fhirDatastoreNlpConfigurationStatusPtr) ElementType() reflect.Type {
+	return fhirDatastoreNlpConfigurationStatusPtrType
+}
+
+func (in *fhirDatastoreNlpConfigurationStatusPtr) ToFhirDatastoreNlpConfigurationStatusPtrOutput() FhirDatastoreNlpConfigurationStatusPtrOutput {
+	return pulumi.ToOutput(in).(FhirDatastoreNlpConfigurationStatusPtrOutput)
+}
+
+func (in *fhirDatastoreNlpConfigurationStatusPtr) ToFhirDatastoreNlpConfigurationStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreNlpConfigurationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FhirDatastoreNlpConfigurationStatusPtrOutput)
+}
+
 // The type of preloaded data. Only Synthea preloaded data is supported.
 type FhirDatastorePreloadDataConfigPreloadDataType string
 
@@ -1024,18 +1358,24 @@ func (in *fhirDatastorePreloadDataConfigPreloadDataTypePtr) ToFhirDatastorePrelo
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileSourceFormatInput)(nil)).Elem(), DataTransformationProfileSourceFormat("CCDA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileSourceFormatPtrInput)(nil)).Elem(), DataTransformationProfileSourceFormat("CCDA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreAnalyticsConfigurationStatusInput)(nil)).Elem(), FhirDatastoreAnalyticsConfigurationStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreAnalyticsConfigurationStatusPtrInput)(nil)).Elem(), FhirDatastoreAnalyticsConfigurationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreDatastoreTypeVersionInput)(nil)).Elem(), FhirDatastoreDatastoreTypeVersion("R4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreDatastoreTypeVersionPtrInput)(nil)).Elem(), FhirDatastoreDatastoreTypeVersion("R4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyInput)(nil)).Elem(), FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrInput)(nil)).Elem(), FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreKmsEncryptionConfigCmkTypeInput)(nil)).Elem(), FhirDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreKmsEncryptionConfigCmkTypePtrInput)(nil)).Elem(), FhirDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreNlpConfigurationStatusInput)(nil)).Elem(), FhirDatastoreNlpConfigurationStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreNlpConfigurationStatusPtrInput)(nil)).Elem(), FhirDatastoreNlpConfigurationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastorePreloadDataConfigPreloadDataTypeInput)(nil)).Elem(), FhirDatastorePreloadDataConfigPreloadDataType("SYNTHEA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastorePreloadDataConfigPreloadDataTypePtrInput)(nil)).Elem(), FhirDatastorePreloadDataConfigPreloadDataType("SYNTHEA"))
 	pulumi.RegisterOutputType(DataTransformationProfileSourceFormatOutput{})
 	pulumi.RegisterOutputType(DataTransformationProfileSourceFormatPtrOutput{})
 	pulumi.RegisterOutputType(DataTransformationProfileTargetFormatOutput{})
 	pulumi.RegisterOutputType(DataTransformationProfileTargetFormatPtrOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreAnalyticsConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreAnalyticsConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreDatastoreStatusOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreDatastoreStatusPtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreDatastoreTypeVersionOutput{})
@@ -1044,6 +1384,8 @@ func init() {
 	pulumi.RegisterOutputType(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreKmsEncryptionConfigCmkTypeOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreNlpConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(FhirDatastoreNlpConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastorePreloadDataConfigPreloadDataTypeOutput{})
 	pulumi.RegisterOutputType(FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput{})
 }

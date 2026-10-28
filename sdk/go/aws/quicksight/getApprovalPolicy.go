@@ -28,20 +28,19 @@ type LookupApprovalPolicyArgs struct {
 
 type LookupApprovalPolicyResult struct {
 	// List of governed actions a policy applies to.
-	Actions      []interface{}               `pulumi:"actions"`
-	ApplicableTo *ApprovalPolicyApplicableTo `pulumi:"applicableTo"`
+	Actions      []ApprovalPolicyGovernedAction `pulumi:"actions"`
+	ApplicableTo *ApprovalPolicyApplicableTo    `pulumi:"applicableTo"`
 	// List of approval group ARNs (e.g. QuickSight group ARNs).
-	// At least one approval group is required; the upper bound is enforced
-	// per-account at the service layer via the configurable approver-group limit.
+	// At least one approval group is required.
 	ApprovalGroups []string `pulumi:"approvalGroups"`
 	// List of asset types a policy applies to.
 	// At least one asset type is required.
-	AssetTypes  []interface{} `pulumi:"assetTypes"`
-	CreatedAt   *string       `pulumi:"createdAt"`
-	Description *string       `pulumi:"description"`
-	Name        *string       `pulumi:"name"`
-	PolicyArn   *string       `pulumi:"policyArn"`
-	UpdatedAt   *string       `pulumi:"updatedAt"`
+	AssetTypes  []ApprovalPolicyAssetType `pulumi:"assetTypes"`
+	CreatedAt   *string                   `pulumi:"createdAt"`
+	Description *string                   `pulumi:"description"`
+	Name        *string                   `pulumi:"name"`
+	PolicyArn   *string                   `pulumi:"policyArn"`
+	UpdatedAt   *string                   `pulumi:"updatedAt"`
 }
 
 func LookupApprovalPolicyOutput(ctx *pulumi.Context, args LookupApprovalPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupApprovalPolicyResultOutput {
@@ -72,8 +71,8 @@ func (o LookupApprovalPolicyResultOutput) ToLookupApprovalPolicyResultOutputWith
 }
 
 // List of governed actions a policy applies to.
-func (o LookupApprovalPolicyResultOutput) Actions() pulumi.ArrayOutput {
-	return o.ApplyT(func(v LookupApprovalPolicyResult) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
+func (o LookupApprovalPolicyResultOutput) Actions() ApprovalPolicyGovernedActionArrayOutput {
+	return o.ApplyT(func(v LookupApprovalPolicyResult) []ApprovalPolicyGovernedAction { return v.Actions }).(ApprovalPolicyGovernedActionArrayOutput)
 }
 
 func (o LookupApprovalPolicyResultOutput) ApplicableTo() ApprovalPolicyApplicableToPtrOutput {
@@ -81,16 +80,15 @@ func (o LookupApprovalPolicyResultOutput) ApplicableTo() ApprovalPolicyApplicabl
 }
 
 // List of approval group ARNs (e.g. QuickSight group ARNs).
-// At least one approval group is required; the upper bound is enforced
-// per-account at the service layer via the configurable approver-group limit.
+// At least one approval group is required.
 func (o LookupApprovalPolicyResultOutput) ApprovalGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupApprovalPolicyResult) []string { return v.ApprovalGroups }).(pulumi.StringArrayOutput)
 }
 
 // List of asset types a policy applies to.
 // At least one asset type is required.
-func (o LookupApprovalPolicyResultOutput) AssetTypes() pulumi.ArrayOutput {
-	return o.ApplyT(func(v LookupApprovalPolicyResult) []interface{} { return v.AssetTypes }).(pulumi.ArrayOutput)
+func (o LookupApprovalPolicyResultOutput) AssetTypes() ApprovalPolicyAssetTypeArrayOutput {
+	return o.ApplyT(func(v LookupApprovalPolicyResult) []ApprovalPolicyAssetType { return v.AssetTypes }).(ApprovalPolicyAssetTypeArrayOutput)
 }
 
 func (o LookupApprovalPolicyResultOutput) CreatedAt() pulumi.StringPtrOutput {

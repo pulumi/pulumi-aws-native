@@ -17,7 +17,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CaptureConfigurationProperties',
     'GroupingConfigurationGroupingAttributeDefinition',
+    'InstrumentationConfigCaptureLimitsConfig',
+    'InstrumentationConfigCodeCaptureConfiguration',
+    'InstrumentationConfigCodeLocation',
+    'LocationProperties',
     'ServiceLevelObjectiveBurnRateConfiguration',
     'ServiceLevelObjectiveCalendarInterval',
     'ServiceLevelObjectiveCompositeSliComponent',
@@ -41,6 +46,41 @@ __all__ = [
     'ServiceLevelObjectiveSliMetric',
     'ServiceLevelObjectiveWindow',
 ]
+
+@pulumi.output_type
+class CaptureConfigurationProperties(dict):
+    """
+    Specifies what to capture when the instrumentation point is hit.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeCapture":
+            suggest = "code_capture"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CaptureConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CaptureConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CaptureConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_capture: 'outputs.InstrumentationConfigCodeCaptureConfiguration'):
+        """
+        Specifies what to capture when the instrumentation point is hit.
+        """
+        pulumi.set(__self__, "code_capture", code_capture)
+
+    @_builtins.property
+    @pulumi.getter(name="codeCapture")
+    def code_capture(self) -> 'outputs.InstrumentationConfigCodeCaptureConfiguration':
+        return pulumi.get(self, "code_capture")
+
 
 @pulumi.output_type
 class GroupingConfigurationGroupingAttributeDefinition(dict):
@@ -88,6 +128,379 @@ class GroupingConfigurationGroupingAttributeDefinition(dict):
     @pulumi.getter(name="defaultGroupingValue")
     def default_grouping_value(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "default_grouping_value")
+
+
+@pulumi.output_type
+class InstrumentationConfigCaptureLimitsConfig(dict):
+    """
+    Safety limits that bound what is captured.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCollectionDepth":
+            suggest = "max_collection_depth"
+        elif key == "maxCollectionWidth":
+            suggest = "max_collection_width"
+        elif key == "maxFieldsPerObject":
+            suggest = "max_fields_per_object"
+        elif key == "maxHits":
+            suggest = "max_hits"
+        elif key == "maxObjectDepth":
+            suggest = "max_object_depth"
+        elif key == "maxStackFrames":
+            suggest = "max_stack_frames"
+        elif key == "maxStackTraceSize":
+            suggest = "max_stack_trace_size"
+        elif key == "maxStringLength":
+            suggest = "max_string_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstrumentationConfigCaptureLimitsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstrumentationConfigCaptureLimitsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstrumentationConfigCaptureLimitsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_collection_depth: Optional[_builtins.int] = None,
+                 max_collection_width: Optional[_builtins.int] = None,
+                 max_fields_per_object: Optional[_builtins.int] = None,
+                 max_hits: Optional[_builtins.int] = None,
+                 max_object_depth: Optional[_builtins.int] = None,
+                 max_stack_frames: Optional[_builtins.int] = None,
+                 max_stack_trace_size: Optional[_builtins.int] = None,
+                 max_string_length: Optional[_builtins.int] = None):
+        """
+        Safety limits that bound what is captured.
+
+        :param _builtins.int max_collection_depth: Maximum nesting depth to traverse inside collections.
+        :param _builtins.int max_collection_width: Maximum number of items to capture from any collection.
+        :param _builtins.int max_fields_per_object: Maximum number of fields to capture for any object.
+        :param _builtins.int max_hits: Maximum number of times the instrumentation point can be hit before disabled.
+        :param _builtins.int max_object_depth: Maximum depth for nested object traversal.
+        :param _builtins.int max_stack_frames: Maximum number of stack frames to capture.
+        :param _builtins.int max_stack_trace_size: Maximum total size in bytes of a captured stack trace.
+        :param _builtins.int max_string_length: Maximum length of captured string values in characters.
+        """
+        if max_collection_depth is not None:
+            pulumi.set(__self__, "max_collection_depth", max_collection_depth)
+        if max_collection_width is not None:
+            pulumi.set(__self__, "max_collection_width", max_collection_width)
+        if max_fields_per_object is not None:
+            pulumi.set(__self__, "max_fields_per_object", max_fields_per_object)
+        if max_hits is not None:
+            pulumi.set(__self__, "max_hits", max_hits)
+        if max_object_depth is not None:
+            pulumi.set(__self__, "max_object_depth", max_object_depth)
+        if max_stack_frames is not None:
+            pulumi.set(__self__, "max_stack_frames", max_stack_frames)
+        if max_stack_trace_size is not None:
+            pulumi.set(__self__, "max_stack_trace_size", max_stack_trace_size)
+        if max_string_length is not None:
+            pulumi.set(__self__, "max_string_length", max_string_length)
+
+    @_builtins.property
+    @pulumi.getter(name="maxCollectionDepth")
+    def max_collection_depth(self) -> Optional[_builtins.int]:
+        """
+        Maximum nesting depth to traverse inside collections.
+        """
+        return pulumi.get(self, "max_collection_depth")
+
+    @_builtins.property
+    @pulumi.getter(name="maxCollectionWidth")
+    def max_collection_width(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of items to capture from any collection.
+        """
+        return pulumi.get(self, "max_collection_width")
+
+    @_builtins.property
+    @pulumi.getter(name="maxFieldsPerObject")
+    def max_fields_per_object(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of fields to capture for any object.
+        """
+        return pulumi.get(self, "max_fields_per_object")
+
+    @_builtins.property
+    @pulumi.getter(name="maxHits")
+    def max_hits(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of times the instrumentation point can be hit before disabled.
+        """
+        return pulumi.get(self, "max_hits")
+
+    @_builtins.property
+    @pulumi.getter(name="maxObjectDepth")
+    def max_object_depth(self) -> Optional[_builtins.int]:
+        """
+        Maximum depth for nested object traversal.
+        """
+        return pulumi.get(self, "max_object_depth")
+
+    @_builtins.property
+    @pulumi.getter(name="maxStackFrames")
+    def max_stack_frames(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of stack frames to capture.
+        """
+        return pulumi.get(self, "max_stack_frames")
+
+    @_builtins.property
+    @pulumi.getter(name="maxStackTraceSize")
+    def max_stack_trace_size(self) -> Optional[_builtins.int]:
+        """
+        Maximum total size in bytes of a captured stack trace.
+        """
+        return pulumi.get(self, "max_stack_trace_size")
+
+    @_builtins.property
+    @pulumi.getter(name="maxStringLength")
+    def max_string_length(self) -> Optional[_builtins.int]:
+        """
+        Maximum length of captured string values in characters.
+        """
+        return pulumi.get(self, "max_string_length")
+
+
+@pulumi.output_type
+class InstrumentationConfigCodeCaptureConfiguration(dict):
+    """
+    Defines what data to capture for code-level instrumentation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captureLimits":
+            suggest = "capture_limits"
+        elif key == "captureArguments":
+            suggest = "capture_arguments"
+        elif key == "captureLocals":
+            suggest = "capture_locals"
+        elif key == "captureReturn":
+            suggest = "capture_return"
+        elif key == "captureStackTrace":
+            suggest = "capture_stack_trace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstrumentationConfigCodeCaptureConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstrumentationConfigCodeCaptureConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstrumentationConfigCodeCaptureConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capture_limits: 'outputs.InstrumentationConfigCaptureLimitsConfig',
+                 capture_arguments: Optional[Sequence[_builtins.str]] = None,
+                 capture_locals: Optional[Sequence[_builtins.str]] = None,
+                 capture_return: Optional[_builtins.bool] = None,
+                 capture_stack_trace: Optional[_builtins.bool] = None):
+        """
+        Defines what data to capture for code-level instrumentation.
+
+        :param Sequence[_builtins.str] capture_arguments: The function arguments to capture.
+        :param Sequence[_builtins.str] capture_locals: The local variables to capture by name.
+        :param _builtins.bool capture_return: Whether to capture the return value. Defaults to false.
+        :param _builtins.bool capture_stack_trace: Whether to capture a stack trace. Defaults to true.
+        """
+        pulumi.set(__self__, "capture_limits", capture_limits)
+        if capture_arguments is not None:
+            pulumi.set(__self__, "capture_arguments", capture_arguments)
+        if capture_locals is not None:
+            pulumi.set(__self__, "capture_locals", capture_locals)
+        if capture_return is not None:
+            pulumi.set(__self__, "capture_return", capture_return)
+        if capture_stack_trace is not None:
+            pulumi.set(__self__, "capture_stack_trace", capture_stack_trace)
+
+    @_builtins.property
+    @pulumi.getter(name="captureLimits")
+    def capture_limits(self) -> 'outputs.InstrumentationConfigCaptureLimitsConfig':
+        return pulumi.get(self, "capture_limits")
+
+    @_builtins.property
+    @pulumi.getter(name="captureArguments")
+    def capture_arguments(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The function arguments to capture.
+        """
+        return pulumi.get(self, "capture_arguments")
+
+    @_builtins.property
+    @pulumi.getter(name="captureLocals")
+    def capture_locals(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The local variables to capture by name.
+        """
+        return pulumi.get(self, "capture_locals")
+
+    @_builtins.property
+    @pulumi.getter(name="captureReturn")
+    def capture_return(self) -> Optional[_builtins.bool]:
+        """
+        Whether to capture the return value. Defaults to false.
+        """
+        return pulumi.get(self, "capture_return")
+
+    @_builtins.property
+    @pulumi.getter(name="captureStackTrace")
+    def capture_stack_trace(self) -> Optional[_builtins.bool]:
+        """
+        Whether to capture a stack trace. Defaults to true.
+        """
+        return pulumi.get(self, "capture_stack_trace")
+
+
+@pulumi.output_type
+class InstrumentationConfigCodeLocation(dict):
+    """
+    Identifies a code location to instrument.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePath":
+            suggest = "file_path"
+        elif key == "className":
+            suggest = "class_name"
+        elif key == "codeUnit":
+            suggest = "code_unit"
+        elif key == "lineNumber":
+            suggest = "line_number"
+        elif key == "methodName":
+            suggest = "method_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstrumentationConfigCodeLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstrumentationConfigCodeLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstrumentationConfigCodeLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_path: _builtins.str,
+                 language: 'InstrumentationConfigCodeLocationLanguage',
+                 class_name: Optional[_builtins.str] = None,
+                 code_unit: Optional[_builtins.str] = None,
+                 line_number: Optional[_builtins.int] = None,
+                 method_name: Optional[_builtins.str] = None):
+        """
+        Identifies a code location to instrument.
+
+        :param _builtins.str file_path: The source file path relative to the project or source root.
+        :param 'InstrumentationConfigCodeLocationLanguage' language: The programming language for this instrumentation point.
+        :param _builtins.str class_name: The class or type name that contains the method.
+        :param _builtins.str code_unit: The package, module, or namespace that contains the target code.
+        :param _builtins.int line_number: The line number to instrument.
+        :param _builtins.str method_name: The method or function name to instrument.
+        """
+        pulumi.set(__self__, "file_path", file_path)
+        pulumi.set(__self__, "language", language)
+        if class_name is not None:
+            pulumi.set(__self__, "class_name", class_name)
+        if code_unit is not None:
+            pulumi.set(__self__, "code_unit", code_unit)
+        if line_number is not None:
+            pulumi.set(__self__, "line_number", line_number)
+        if method_name is not None:
+            pulumi.set(__self__, "method_name", method_name)
+
+    @_builtins.property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> _builtins.str:
+        """
+        The source file path relative to the project or source root.
+        """
+        return pulumi.get(self, "file_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> 'InstrumentationConfigCodeLocationLanguage':
+        """
+        The programming language for this instrumentation point.
+        """
+        return pulumi.get(self, "language")
+
+    @_builtins.property
+    @pulumi.getter(name="className")
+    def class_name(self) -> Optional[_builtins.str]:
+        """
+        The class or type name that contains the method.
+        """
+        return pulumi.get(self, "class_name")
+
+    @_builtins.property
+    @pulumi.getter(name="codeUnit")
+    def code_unit(self) -> Optional[_builtins.str]:
+        """
+        The package, module, or namespace that contains the target code.
+        """
+        return pulumi.get(self, "code_unit")
+
+    @_builtins.property
+    @pulumi.getter(name="lineNumber")
+    def line_number(self) -> Optional[_builtins.int]:
+        """
+        The line number to instrument.
+        """
+        return pulumi.get(self, "line_number")
+
+    @_builtins.property
+    @pulumi.getter(name="methodName")
+    def method_name(self) -> Optional[_builtins.str]:
+        """
+        The method or function name to instrument.
+        """
+        return pulumi.get(self, "method_name")
+
+
+@pulumi.output_type
+class LocationProperties(dict):
+    """
+    The location where instrumentation should be applied.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeLocation":
+            suggest = "code_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_location: 'outputs.InstrumentationConfigCodeLocation'):
+        """
+        The location where instrumentation should be applied.
+        """
+        pulumi.set(__self__, "code_location", code_location)
+
+    @_builtins.property
+    @pulumi.getter(name="codeLocation")
+    def code_location(self) -> 'outputs.InstrumentationConfigCodeLocation':
+        return pulumi.get(self, "code_location")
 
 
 @pulumi.output_type

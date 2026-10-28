@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
         [Input("idc")]
         public Input<Inputs.AgentSpaceIdcAuthConfigurationArgs>? Idc { get; set; }
 
+        [Input("idp")]
+        public Input<Inputs.AgentSpaceIdpAuthConfigurationArgs>? Idp { get; set; }
+
         public AgentSpaceOperatorAppArgs()
         {
         }

@@ -25,6 +25,11 @@ export const getLicenseAssetRuleSet: typeof import("./getLicenseAssetRuleSet").g
 export const getLicenseAssetRuleSetOutput: typeof import("./getLicenseAssetRuleSet").getLicenseAssetRuleSetOutput = null as any;
 utilities.lazyLoad(exports, ["getLicenseAssetRuleSet","getLicenseAssetRuleSetOutput"], () => require("./getLicenseAssetRuleSet"));
 
+export { GetLicenseConfigurationArgs, GetLicenseConfigurationResult, GetLicenseConfigurationOutputArgs } from "./getLicenseConfiguration";
+export const getLicenseConfiguration: typeof import("./getLicenseConfiguration").getLicenseConfiguration = null as any;
+export const getLicenseConfigurationOutput: typeof import("./getLicenseConfiguration").getLicenseConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getLicenseConfiguration","getLicenseConfigurationOutput"], () => require("./getLicenseConfiguration"));
+
 export { GrantArgs } from "./grant";
 export type Grant = import("./grant").Grant;
 export const Grant: typeof import("./grant").Grant = null as any;
@@ -45,6 +50,14 @@ export type LicenseAssetRuleSet = import("./licenseAssetRuleSet").LicenseAssetRu
 export const LicenseAssetRuleSet: typeof import("./licenseAssetRuleSet").LicenseAssetRuleSet = null as any;
 utilities.lazyLoad(exports, ["LicenseAssetRuleSet"], () => require("./licenseAssetRuleSet"));
 
+export { LicenseConfigurationArgs } from "./licenseConfiguration";
+export type LicenseConfiguration = import("./licenseConfiguration").LicenseConfiguration;
+export const LicenseConfiguration: typeof import("./licenseConfiguration").LicenseConfiguration = null as any;
+utilities.lazyLoad(exports, ["LicenseConfiguration"], () => require("./licenseConfiguration"));
+
+
+// Export enums:
+export * from "../types/enums/licensemanager";
 
 const _module = {
     version: utilities.getVersion(),
@@ -58,6 +71,8 @@ const _module = {
                 return new LicenseAssetGroup(name, <any>undefined, { urn })
             case "aws-native:licensemanager:LicenseAssetRuleSet":
                 return new LicenseAssetRuleSet(name, <any>undefined, { urn })
+            case "aws-native:licensemanager:LicenseConfiguration":
+                return new LicenseConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

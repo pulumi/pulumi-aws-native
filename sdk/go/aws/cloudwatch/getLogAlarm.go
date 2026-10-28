@@ -29,6 +29,8 @@ type LookupLogAlarmArgs struct {
 }
 
 type LookupLogAlarmResult struct {
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration *LogAlarmActionConfiguration `pulumi:"actionConfiguration"`
 	// The number of log lines to include in alarm notifications. Valid values are 0 to 50.
 	ActionLogLineCount *int `pulumi:"actionLogLineCount"`
 	// The ARN of the IAM role that grants CloudWatch permissions to fetch log lines for alarm notifications. Required when ActionLogLineCount is greater than 0.
@@ -89,6 +91,11 @@ func (o LookupLogAlarmResultOutput) ToLookupLogAlarmResultOutput() LookupLogAlar
 
 func (o LookupLogAlarmResultOutput) ToLookupLogAlarmResultOutputWithContext(ctx context.Context) LookupLogAlarmResultOutput {
 	return o
+}
+
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+func (o LookupLogAlarmResultOutput) ActionConfiguration() LogAlarmActionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupLogAlarmResult) *LogAlarmActionConfiguration { return v.ActionConfiguration }).(LogAlarmActionConfigurationPtrOutput)
 }
 
 // The number of log lines to include in alarm notifications. Valid values are 0 to 50.

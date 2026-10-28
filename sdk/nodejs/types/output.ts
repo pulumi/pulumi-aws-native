@@ -858,6 +858,20 @@ export namespace agentregistry {
     }
 
     /**
+     * Configuration that defines a typed metadata schema for a registry. A default schema and per-record-type schema overrides are both optional. Schema evolution is additive only: you can add fields and enum values, but you cannot remove fields, change types, or remove enum values.
+     */
+    export interface RegistryCustomMetadataSchemaConfiguration {
+        /**
+         * The default JSON Schema that applies to record types without a specific override. Supported property types are string, string with an enum constraint, string with a uri format, and boolean.
+         */
+        defaultSchema?: string;
+        /**
+         * A list of per-record-type schema overrides. When a record's type matches an override, that override's schema is used instead of the default schema for validation.
+         */
+        recordTypeSchemaOverrides?: outputs.agentregistry.RegistryRecordTypeSchemaOverride[];
+    }
+
+    /**
      * Discovery configuration for the registry. Controls how consumers are authorized to search the registry and invoke its MCP endpoint.
      */
     export interface RegistryDiscoveryConfiguration {
@@ -1087,6 +1101,20 @@ export namespace agentregistry {
          * URL source for descriptor content.
          */
         url: string;
+    }
+
+    /**
+     * A schema override for a specific record type within a custom metadata schema configuration.
+     */
+    export interface RegistryRecordTypeSchemaOverride {
+        /**
+         * The record type that this schema override applies to.
+         */
+        recordType: enums.agentregistry.RegistryRecordTypeSchemaOverrideRecordType;
+        /**
+         * The JSON Schema for the specified record type. Must follow the same structural rules as the default schema.
+         */
+        schema: string;
     }
 
 }
@@ -5804,10 +5832,115 @@ export namespace applicationinsights {
 }
 
 export namespace applicationsignals {
+    /**
+     * Specifies what to capture when the instrumentation point is hit.
+     */
+    export interface CaptureConfigurationProperties {
+        codeCapture: outputs.applicationsignals.InstrumentationConfigCodeCaptureConfiguration;
+    }
+
     export interface GroupingConfigurationGroupingAttributeDefinition {
         defaultGroupingValue?: string;
         groupingName: string;
         groupingSourceKeys: string[];
+    }
+
+    /**
+     * Safety limits that bound what is captured.
+     */
+    export interface InstrumentationConfigCaptureLimitsConfig {
+        /**
+         * Maximum nesting depth to traverse inside collections.
+         */
+        maxCollectionDepth?: number;
+        /**
+         * Maximum number of items to capture from any collection.
+         */
+        maxCollectionWidth?: number;
+        /**
+         * Maximum number of fields to capture for any object.
+         */
+        maxFieldsPerObject?: number;
+        /**
+         * Maximum number of times the instrumentation point can be hit before disabled.
+         */
+        maxHits?: number;
+        /**
+         * Maximum depth for nested object traversal.
+         */
+        maxObjectDepth?: number;
+        /**
+         * Maximum number of stack frames to capture.
+         */
+        maxStackFrames?: number;
+        /**
+         * Maximum total size in bytes of a captured stack trace.
+         */
+        maxStackTraceSize?: number;
+        /**
+         * Maximum length of captured string values in characters.
+         */
+        maxStringLength?: number;
+    }
+
+    /**
+     * Defines what data to capture for code-level instrumentation.
+     */
+    export interface InstrumentationConfigCodeCaptureConfiguration {
+        /**
+         * The function arguments to capture.
+         */
+        captureArguments?: string[];
+        captureLimits: outputs.applicationsignals.InstrumentationConfigCaptureLimitsConfig;
+        /**
+         * The local variables to capture by name.
+         */
+        captureLocals?: string[];
+        /**
+         * Whether to capture the return value. Defaults to false.
+         */
+        captureReturn?: boolean;
+        /**
+         * Whether to capture a stack trace. Defaults to true.
+         */
+        captureStackTrace?: boolean;
+    }
+
+    /**
+     * Identifies a code location to instrument.
+     */
+    export interface InstrumentationConfigCodeLocation {
+        /**
+         * The class or type name that contains the method.
+         */
+        className?: string;
+        /**
+         * The package, module, or namespace that contains the target code.
+         */
+        codeUnit?: string;
+        /**
+         * The source file path relative to the project or source root.
+         */
+        filePath: string;
+        /**
+         * The programming language for this instrumentation point.
+         */
+        language: enums.applicationsignals.InstrumentationConfigCodeLocationLanguage;
+        /**
+         * The line number to instrument.
+         */
+        lineNumber?: number;
+        /**
+         * The method or function name to instrument.
+         */
+        methodName?: string;
+    }
+
+    /**
+     * The location where instrumentation should be applied.
+     */
+    export interface LocationProperties {
+        codeLocation: outputs.applicationsignals.InstrumentationConfigCodeLocation;
     }
 
     /**
@@ -7882,6 +8015,10 @@ export namespace arcregionswitch {
         rdsSwitchoverReadReplicaConfig: outputs.arcregionswitch.PlanRdsSwitchoverReadReplicaConfiguration;
     }
 
+    export interface PlanExecutionBlockConfiguration18Properties {
+        ssmSendCommandConfig: outputs.arcregionswitch.PlanSsmSendCommandConfiguration;
+    }
+
     export interface PlanExecutionBlockConfiguration1Properties {
         ec2AsgCapacityIncreaseConfig: outputs.arcregionswitch.PlanEc2AsgCapacityIncreaseConfiguration;
     }
@@ -7961,6 +8098,7 @@ export namespace arcregionswitch {
         arn?: string;
         crossAccountRole?: string;
         externalId?: string;
+        payload?: string;
     }
 
     export interface PlanNeptuneGlobalDatabaseConfiguration {
@@ -8050,6 +8188,31 @@ export namespace arcregionswitch {
         serviceArn?: string;
     }
 
+    export interface PlanSsmDocumentConfig {
+        crossAccountRole?: string;
+        documentArn: string;
+        documentVersion?: string;
+        externalId?: string;
+        parameters?: {[key: string]: string[]};
+        targets: outputs.arcregionswitch.PlanSsmTarget[];
+    }
+
+    export interface PlanSsmSendCommandConfiguration {
+        regionDocuments: {[key: string]: outputs.arcregionswitch.PlanSsmDocumentConfig};
+        retryIntervalMinutes: number;
+        timeoutMinutes?: number;
+        ungraceful?: outputs.arcregionswitch.PlanSsmSendCommandUngraceful;
+    }
+
+    export interface PlanSsmSendCommandUngraceful {
+        behavior?: enums.arcregionswitch.PlanSsmSendCommandUngracefulBehavior;
+    }
+
+    export interface PlanSsmTarget {
+        key: string;
+        values: string[];
+    }
+
     export interface PlanStep {
         /**
          * The description of a step in a workflow.
@@ -8058,7 +8221,7 @@ export namespace arcregionswitch {
         /**
          * The configuration for an execution block in a workflow.
          */
-        executionBlockConfiguration: outputs.arcregionswitch.PlanExecutionBlockConfiguration0Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration1Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration2Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration3Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration4Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration5Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration6Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration7Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration8Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration9Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration10Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration11Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration12Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration13Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration14Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration15Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration16Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration17Properties;
+        executionBlockConfiguration: outputs.arcregionswitch.PlanExecutionBlockConfiguration0Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration1Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration2Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration3Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration4Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration5Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration6Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration7Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration8Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration9Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration10Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration11Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration12Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration13Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration14Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration15Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration16Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration17Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration18Properties;
         /**
          * The type of an execution block in a workflow.
          */
@@ -9887,6 +10050,200 @@ export namespace autoscaling {
          * Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
          */
         reuseOnScaleIn?: boolean;
+    }
+
+}
+
+export namespace autoscalingplans {
+    export interface ScalingPlanApplicationSource {
+        /**
+         * The Amazon Resource Name (ARN) of a CloudFormation stack. The stack must contain at least one scalable resource.
+         */
+        cloudFormationStackArn?: string;
+        /**
+         * A set of tag filters (keys and values). Each tag filter specified must contain a key with values as optional. Each scaling plan can include up to 50 keys, and each key can include up to 20 values.
+         */
+        tagFilters?: outputs.autoscalingplans.ScalingPlanTagFilter[];
+    }
+
+    export interface ScalingPlanCustomizedLoadMetricSpecification {
+        /**
+         * The dimensions of the metric.
+         */
+        dimensions?: outputs.autoscalingplans.ScalingPlanMetricDimension[];
+        /**
+         * The name of the metric.
+         */
+        metricName: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: string;
+        /**
+         * The statistic of the metric.
+         */
+        statistic: string;
+        /**
+         * The unit of the metric.
+         */
+        unit?: string;
+    }
+
+    export interface ScalingPlanCustomizedScalingMetricSpecification {
+        /**
+         * The dimensions of the metric.
+         */
+        dimensions?: outputs.autoscalingplans.ScalingPlanMetricDimension[];
+        /**
+         * The name of the metric.
+         */
+        metricName: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: string;
+        /**
+         * The statistic of the metric.
+         */
+        statistic: string;
+        /**
+         * The unit of the metric.
+         */
+        unit?: string;
+    }
+
+    export interface ScalingPlanMetricDimension {
+        /**
+         * The name of the dimension.
+         */
+        name: string;
+        /**
+         * The value of the dimension.
+         */
+        value: string;
+    }
+
+    export interface ScalingPlanPredefinedLoadMetricSpecification {
+        /**
+         * The metric type.
+         */
+        predefinedLoadMetricType: string;
+        /**
+         * Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBTargetGroupRequestCount and there is a target group for an Application Load Balancer attached to the Auto Scaling group.
+         */
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPlanPredefinedScalingMetricSpecification {
+        /**
+         * The metric type. The ALBRequestCountPerTarget metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
+         */
+        predefinedScalingMetricType: string;
+        /**
+         * Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
+         */
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPlanScalingInstruction {
+        /**
+         * The customized load metric to use for predictive scaling. This property or a PredefinedLoadMetricSpecification is required when configuring predictive scaling, and cannot be used otherwise.
+         */
+        customizedLoadMetricSpecification?: outputs.autoscalingplans.ScalingPlanCustomizedLoadMetricSpecification;
+        /**
+         * Controls whether dynamic scaling is disabled. When dynamic scaling is enabled, AWS Auto Scaling creates target tracking scaling policies based on the specified target tracking configurations. The default is enabled (false).
+         */
+        disableDynamicScaling?: boolean;
+        /**
+         * The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for PredictiveScalingMaxCapacityBehavior.
+         */
+        maxCapacity: number;
+        /**
+         * The minimum capacity of the resource.
+         */
+        minCapacity: number;
+        /**
+         * The predefined load metric to use for predictive scaling. This property or a CustomizedLoadMetricSpecification is required when configuring predictive scaling, and cannot be used otherwise.
+         */
+        predefinedLoadMetricSpecification?: outputs.autoscalingplans.ScalingPlanPredefinedLoadMetricSpecification;
+        /**
+         * Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource. The default value is SetForecastCapacityToMaxCapacity.
+         */
+        predictiveScalingMaxCapacityBehavior?: string;
+        /**
+         * The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer. The range is 1-100. Required if PredictiveScalingMaxCapacityBehavior is set to SetMaxCapacityAboveForecastCapacity, and cannot be used otherwise.
+         */
+        predictiveScalingMaxCapacityBuffer?: number;
+        /**
+         * The predictive scaling mode. The default value is ForecastAndScale. Otherwise, AWS Auto Scaling forecasts capacity but does not apply any scheduled scaling actions based on the capacity forecast.
+         */
+        predictiveScalingMode?: string;
+        /**
+         * The ID of the resource. This string consists of the resource type and unique identifier.
+         */
+        resourceId: string;
+        /**
+         * The scalable dimension associated with the resource.
+         */
+        scalableDimension: string;
+        /**
+         * Controls whether a resource's externally created scaling policies are deleted and new target tracking scaling policies created. The default value is KeepExternalPolicies. Valid only when configuring dynamic scaling.
+         */
+        scalingPolicyUpdateBehavior?: string;
+        /**
+         * The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out. The value must be less than the forecast interval duration of 3600 seconds (60 minutes). The default is 300 seconds. Valid only when configuring predictive scaling.
+         */
+        scheduledActionBufferTime?: number;
+        /**
+         * The namespace of the AWS service.
+         */
+        serviceNamespace: string;
+        /**
+         * The target tracking configurations (up to 10). Each of these structures must specify a unique scaling metric and a target value for the metric.
+         */
+        targetTrackingConfigurations: outputs.autoscalingplans.ScalingPlanTargetTrackingConfiguration[];
+    }
+
+    export interface ScalingPlanTagFilter {
+        /**
+         * The tag key.
+         */
+        key: string;
+        /**
+         * The tag values (0 to 20).
+         */
+        values?: string[];
+    }
+
+    export interface ScalingPlanTargetTrackingConfiguration {
+        /**
+         * A customized metric. You can specify either a predefined metric or a customized metric.
+         */
+        customizedScalingMetricSpecification?: outputs.autoscalingplans.ScalingPlanCustomizedScalingMetricSpecification;
+        /**
+         * Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy doesn't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable resource. The default value is false.
+         */
+        disableScaleIn?: boolean;
+        /**
+         * The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.
+         */
+        estimatedInstanceWarmup?: number;
+        /**
+         * A predefined metric. You can specify either a predefined metric or a customized metric.
+         */
+        predefinedScalingMetricSpecification?: outputs.autoscalingplans.ScalingPlanPredefinedScalingMetricSpecification;
+        /**
+         * The amount of time, in seconds, after a scale-in activity completes before another scale in activity can start. This value is not used if the scalable resource is an Auto Scaling group.
+         */
+        scaleInCooldown?: number;
+        /**
+         * The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start. This value is not used if the scalable resource is an Auto Scaling group.
+         */
+        scaleOutCooldown?: number;
+        /**
+         * The target value for the metric.
+         */
+        targetValue: number;
     }
 
 }
@@ -17419,6 +17776,28 @@ export namespace bedrock {
         name: string;
     }
 
+    /**
+     * The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+     */
+    export interface RetrievalInstructionInstruction {
+        /**
+         * How the answer is structured, including how sources are cited.
+         */
+        answerFormat?: string;
+        /**
+         * Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+         */
+        answerPolicy?: string;
+        /**
+         * Who the assistant is: identity, tone and language.
+         */
+        persona?: string;
+        /**
+         * How to interpret and decompose the question, and what to prioritise when searching.
+         */
+        retrievalGuidance?: string;
+    }
+
 }
 
 export namespace bedrockagentcore {
@@ -17889,6 +18268,20 @@ export namespace bedrockagentcore {
         parentVersionIds?: string[];
     }
 
+    export interface ConsentPortalIdpConfig {
+        audience?: string;
+        /**
+         * The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+         */
+        credentialProviderArn: string;
+        scopes: string[];
+    }
+
+    export interface ConsentPortalSource {
+        identifier: string;
+        type: enums.bedrockagentcore.ConsentPortalSourceType;
+    }
+
     /**
      * Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
      */
@@ -17958,7 +18351,48 @@ export namespace bedrockagentcore {
      */
     export interface EvaluatorConfig {
         codeBased?: outputs.bedrockagentcore.EvaluatorCodeBasedEvaluatorConfig;
+        derived?: outputs.bedrockagentcore.EvaluatorDerivedEvaluatorConfig;
         llmAsAJudge?: outputs.bedrockagentcore.EvaluatorLlmAsAJudgeEvaluatorConfig;
+    }
+
+    /**
+     * The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+     */
+    export interface EvaluatorDerivedEvaluatorConfig {
+        /**
+         * The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+         */
+        baseEvaluatorId: string;
+        modelConfig: outputs.bedrockagentcore.EvaluatorModelConfig;
+    }
+
+    /**
+     * The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+     */
+    export interface EvaluatorDimensionRatingScale {
+        /**
+         * The categorical rating scale for this dimension.
+         */
+        categorical?: outputs.bedrockagentcore.EvaluatorCategoricalScaleDefinition[];
+        /**
+         * The numerical rating scale for this dimension.
+         */
+        numerical?: outputs.bedrockagentcore.EvaluatorNumericalScaleDefinition[];
+    }
+
+    /**
+     * One dimension of an LLM-as-a-Judge evaluator.
+     */
+    export interface EvaluatorEvaluationDimension {
+        /**
+         * The instruction to the evaluator model describing what to judge for this dimension.
+         */
+        dimensionInstruction: string;
+        /**
+         * The name of the dimension. Must be unique within the evaluator.
+         */
+        dimensionName: string;
+        dimensionRatingScale: outputs.bedrockagentcore.EvaluatorDimensionRatingScale;
     }
 
     /**
@@ -17969,6 +18403,10 @@ export namespace bedrockagentcore {
          * The maximum number of tokens to generate in the model response.
          */
         maxTokens?: number;
+        /**
+         * The sequences that make the model stop generating further tokens.
+         */
+        stopSequences?: string[];
         /**
          * The temperature value that controls randomness in the model's responses.
          */
@@ -18059,6 +18497,10 @@ export namespace bedrockagentcore {
      */
     export interface EvaluatorRatingScale {
         categorical?: outputs.bedrockagentcore.EvaluatorCategoricalScaleDefinition[];
+        /**
+         * The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+         */
+        multiDimensional?: outputs.bedrockagentcore.EvaluatorEvaluationDimension[];
         numerical?: outputs.bedrockagentcore.EvaluatorNumericalScaleDefinition[];
     }
 
@@ -18651,14 +19093,14 @@ export namespace bedrockagentcore {
 
     export interface HarnessAgentCoreMemoryRetrievalConfig {
         /**
-         * Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+         * Minimum relevance score for retrieved memories.
          */
-        relevanceScore?: number | string;
+        relevanceScore?: number;
         strategyId?: string;
         /**
-         * Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+         * Maximum number of memory records to retrieve.
          */
-        topK?: number | string;
+        topK?: number;
     }
 
     export interface HarnessAgentCoreRuntimeEnvironment {
@@ -18741,6 +19183,10 @@ export namespace bedrockagentcore {
     }
 
     export interface HarnessCustomJwtAuthorizerConfiguration {
+        /**
+         * A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+         */
+        advertisedScopeMapping?: {[key: string]: string};
         allowedAudience?: string[];
         allowedClients?: string[];
         allowedScopes?: string[];
@@ -18785,6 +19231,10 @@ export namespace bedrockagentcore {
     }
 
     export interface HarnessGeminiModelConfig {
+        /**
+         * Provider-specific parameters passed through to the Gemini model provider unchanged.
+         */
+        additionalParams?: any;
         apiKeyArn: string;
         maxTokens?: number;
         modelId: string;
@@ -18941,6 +19391,10 @@ export namespace bedrockagentcore {
          * Provider-specific parameters passed through to the model provider unchanged.
          */
         additionalParams?: any;
+        /**
+         * Optional custom endpoint URL for an OpenAI-compatible endpoint.
+         */
+        apiBase?: string;
         apiFormat?: enums.bedrockagentcore.HarnessOpenAiModelConfigApiFormat;
         apiKeyArn: string;
         maxTokens?: number;
@@ -19128,6 +19582,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         /**
          * Status of the memory strategy
          */
@@ -19156,6 +19612,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         reflectionConfiguration?: outputs.bedrockagentcore.MemoryEpisodicReflectionConfigurationInput;
         /**
          * Status of the memory strategy
@@ -19265,6 +19723,13 @@ export namespace bedrockagentcore {
         minValue?: number;
     }
 
+    /**
+     * Specifies the record expiry (LTM TTL) for a strategy. Provide RecordExpiryDurationDays to configure the duration after which records expire. Omit the specification entirely to leave records without an expiry on create, or to clear a previously configured expiry on update (the handler derives the removal from the previous and desired state).
+     */
+    export interface MemoryRecordExpirySpecification {
+        recordExpiryDurationDays?: number;
+    }
+
     export interface MemoryRecordSchema {
         metadataSchema?: outputs.bedrockagentcore.MemoryMetadataSchemaEntry[];
     }
@@ -19285,6 +19750,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         /**
          * Status of the memory strategy
          */
@@ -19353,6 +19820,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         /**
          * Status of the memory strategy
          */
@@ -19404,6 +19873,8 @@ export namespace bedrockagentcore {
         name: string;
         namespaceTemplates?: string[];
         namespaces?: string[];
+        recordExpiryDurationDays?: number;
+        recordExpirySpecification?: outputs.bedrockagentcore.MemoryRecordExpirySpecification;
         /**
          * Status of the memory strategy
          */
@@ -19833,7 +20304,7 @@ export namespace bedrockagentcore {
      */
     export interface OnlineEvaluationConfigEvaluatorReference {
         /**
-         * The unique identifier of the evaluator.
+         * The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
          */
         evaluatorId: string;
     }
@@ -20068,27 +20539,33 @@ export namespace bedrockagentcore {
         authorizationPrivateKeySource?: enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType;
     }
 
-    export interface PaymentManagerAuthorizerConfiguration {
-        customJwtAuthorizer: outputs.bedrockagentcore.PaymentManagerCustomJwtAuthorizerConfiguration;
+    /**
+     * The authorizer configuration for the payment manager
+     */
+    export interface PaymentManagerAuthorizerConfigurationProperties {
+        customJwtAuthorizer: outputs.bedrockagentcore.PaymentManagerCustomJwtAuthorizer;
     }
 
-    export interface PaymentManagerAuthorizingClaimMatchValueType {
-        claimMatchOperator: enums.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator;
-        claimMatchValue: outputs.bedrockagentcore.PaymentManagerClaimMatchValueType;
+    export interface PaymentManagerAuthorizingClaimMatchValue {
+        claimMatchOperator: enums.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator;
+        claimMatchValue: outputs.bedrockagentcore.PaymentManagerClaimMatchValue0Properties | outputs.bedrockagentcore.PaymentManagerClaimMatchValue1Properties;
     }
 
-    export interface PaymentManagerClaimMatchValueType {
-        matchValueString?: string;
-        matchValueStringList?: string[];
+    export interface PaymentManagerClaimMatchValue0Properties {
+        matchValueString: string;
+    }
+
+    export interface PaymentManagerClaimMatchValue1Properties {
+        matchValueStringList: string[];
     }
 
     export interface PaymentManagerCustomClaimValidationType {
-        authorizingClaimMatchValue: outputs.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueType;
+        authorizingClaimMatchValue: outputs.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValue;
         inboundTokenClaimName: string;
         inboundTokenClaimValueType: enums.bedrockagentcore.PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType;
     }
 
-    export interface PaymentManagerCustomJwtAuthorizerConfiguration {
+    export interface PaymentManagerCustomJwtAuthorizer {
         allowedAudience?: string[];
         allowedClients?: string[];
         allowedScopes?: string[];
@@ -20096,8 +20573,11 @@ export namespace bedrockagentcore {
         discoveryUrl: string;
     }
 
+    /**
+     * The workload identity details for the payment manager
+     */
     export interface PaymentManagerWorkloadIdentityDetails {
-        workloadIdentityArn: string;
+        workloadIdentityArn?: string;
     }
 
     /**
@@ -20469,6 +20949,318 @@ export namespace braket {
 }
 
 export namespace budgets {
+    export interface BudgetAutoAdjustData {
+        /**
+         * The string that defines whether your budget auto-adjusts based on historical or forecasted data.
+         */
+        autoAdjustType: string;
+        /**
+         * The parameters that define or describe the historical data that your auto-adjusting budget is based on.
+         */
+        historicalOptions?: outputs.budgets.BudgetHistoricalOptions;
+    }
+
+    export interface BudgetCostCategoryValues {
+        /**
+         * The unique name of the cost category.
+         */
+        key?: string;
+        /**
+         * The match options that you can use to filter your results.
+         */
+        matchOptions?: string[];
+        /**
+         * The specific value of the cost category.
+         */
+        values?: string[];
+    }
+
+    export interface BudgetCostTypes {
+        /**
+         * Specifies whether a budget includes credits.
+         *
+         * The default value is `true` .
+         */
+        includeCredit?: boolean;
+        /**
+         * Specifies whether a budget includes discounts.
+         *
+         * The default value is `true` .
+         */
+        includeDiscount?: boolean;
+        /**
+         * Specifies whether a budget includes non-RI subscription costs.
+         *
+         * The default value is `true` .
+         */
+        includeOtherSubscription?: boolean;
+        /**
+         * Specifies whether a budget includes recurring fees such as monthly RI fees.
+         *
+         * The default value is `true` .
+         */
+        includeRecurring?: boolean;
+        /**
+         * Specifies whether a budget includes refunds.
+         *
+         * The default value is `true` .
+         */
+        includeRefund?: boolean;
+        /**
+         * Specifies whether a budget includes subscriptions.
+         *
+         * The default value is `true` .
+         */
+        includeSubscription?: boolean;
+        /**
+         * Specifies whether a budget includes support subscription fees.
+         *
+         * The default value is `true` .
+         */
+        includeSupport?: boolean;
+        /**
+         * Specifies whether a budget includes taxes.
+         *
+         * The default value is `true` .
+         */
+        includeTax?: boolean;
+        /**
+         * Specifies whether a budget includes upfront RI costs.
+         *
+         * The default value is `true` .
+         */
+        includeUpfront?: boolean;
+        /**
+         * Specifies whether a budget uses the amortized rate.
+         *
+         * The default value is `false` .
+         */
+        useAmortized?: boolean;
+        /**
+         * Specifies whether a budget uses a blended rate.
+         *
+         * The default value is `false` .
+         */
+        useBlended?: boolean;
+    }
+
+    export interface BudgetData {
+        /**
+         * Determine the budget amount for an auto-adjusting budget.
+         */
+        autoAdjustData?: outputs.budgets.BudgetAutoAdjustData;
+        billingViewArn?: string;
+        /**
+         * The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
+         *
+         * `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
+         */
+        budgetLimit?: outputs.budgets.BudgetSpend;
+        /**
+         * The name of a budget. The value must be unique within an account. `BudgetName` can't include `:` and `\` characters. If you don't include value for `BudgetName` in the template, Billing and Cost Management assigns your budget a randomly generated name.
+         */
+        budgetName?: string;
+        /**
+         * Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+         */
+        budgetType: string;
+        /**
+         * The cost filters, such as `Region` , `Service` , `LinkedAccount` , `Tag` , or `CostCategory` , that are applied to a budget.
+         *
+         * AWS Budgets supports the following services as a `Service` filter for RI budgets:
+         *
+         * - Amazon EC2
+         * - Amazon Redshift
+         * - Amazon Relational Database Service
+         * - Amazon ElastiCache
+         * - Amazon OpenSearch Service
+         */
+        costFilters?: any;
+        /**
+         * The types of costs that are included in this `COST` budget.
+         *
+         * `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes` .
+         */
+        costTypes?: outputs.budgets.BudgetCostTypes;
+        filterExpression?: outputs.budgets.BudgetExpression;
+        metrics?: string[];
+        /**
+         * A map containing multiple `BudgetLimit` , including current or future limits.
+         *
+         * `PlannedBudgetLimits` is available for cost or usage budget and supports both monthly and quarterly `TimeUnit` .
+         *
+         * For monthly budgets, provide 12 months of `PlannedBudgetLimits` values. This must start from the current month and include the next 11 months. The `key` is the start of the month, `UTC` in epoch seconds.
+         *
+         * For quarterly budgets, provide four quarters of `PlannedBudgetLimits` value entries in standard calendar quarter increments. This must start from the current quarter and include the next three quarters. The `key` is the start of the quarter, `UTC` in epoch seconds.
+         *
+         * If the planned budget expires before 12 months for monthly or four quarters for quarterly, provide the `PlannedBudgetLimits` values only for the remaining periods.
+         *
+         * If the budget begins at a date in the future, provide `PlannedBudgetLimits` values from the start date of the budget.
+         *
+         * After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit` . At that point, the planned budget provides the same experience as a fixed budget.
+         *
+         * `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets that are created with `PlannedBudgetLimits` . Budgets that are created without `PlannedBudgetLimits` only contain `BudgetLimit` . They don't contain `PlannedBudgetLimits` .
+         */
+        plannedBudgetLimits?: any;
+        /**
+         * The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
+         *
+         * The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+         *
+         * You can change your start date with the `UpdateBudget` operation.
+         *
+         * After the end date, AWS deletes the budget and all associated notifications and subscribers.
+         */
+        timePeriod?: outputs.budgets.BudgetTimePeriod;
+        /**
+         * The length of time until a budget resets the actual and forecasted spend. `DAILY` is available only for `RI_UTILIZATION` and `RI_COVERAGE` budgets.
+         */
+        timeUnit: string;
+    }
+
+    export interface BudgetExpression {
+        /**
+         * Return results that match both Dimension objects.
+         */
+        and?: outputs.budgets.BudgetExpression[];
+        /**
+         * The filter that's based on CostCategoryValues.
+         */
+        costCategories?: outputs.budgets.BudgetCostCategoryValues;
+        /**
+         * The specific Dimension to use for Expression.
+         */
+        dimensions?: outputs.budgets.BudgetExpressionDimensionValues;
+        /**
+         * Return results that don't match a Dimension object.
+         */
+        not?: outputs.budgets.BudgetExpression;
+        /**
+         * Return results that match either Dimension object.
+         */
+        or?: outputs.budgets.BudgetExpression[];
+        /**
+         * The specific Tag to use for Expression.
+         */
+        tags?: outputs.budgets.BudgetTagValues;
+    }
+
+    export interface BudgetExpressionDimensionValues {
+        /**
+         * The name of the dimension that you want to filter on.
+         */
+        key?: string;
+        /**
+         * The match options that you can use to filter your results. You can specify only one of these values in the array.
+         */
+        matchOptions?: string[];
+        /**
+         * The metadata values you can specify to filter upon, so that the results all match at least one of the specified values.
+         */
+        values?: string[];
+    }
+
+    export interface BudgetHistoricalOptions {
+        /**
+         * The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the `TimeUnit` granularity of the budget:
+         *
+         * - For the `DAILY` granularity, the maximum value is `60` .
+         * - For the `MONTHLY` granularity, the maximum value is `12` .
+         * - For the `QUARTERLY` granularity, the maximum value is `4` .
+         * - For the `ANNUALLY` granularity, the maximum value is `1` .
+         */
+        budgetAdjustmentPeriod: number;
+    }
+
+    export interface BudgetNotification {
+        /**
+         * The comparison that's used for this notification.
+         */
+        comparisonOperator: string;
+        /**
+         * Specifies whether the notification is for how much you have spent ( `ACTUAL` ) or for how much that you're forecasted to spend ( `FORECASTED` ).
+         */
+        notificationType: string;
+        /**
+         * The threshold that's associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
+         */
+        threshold: number;
+        /**
+         * The type of threshold for a notification. For `ABSOLUTE_VALUE` thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For `PERCENTAGE` thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a `PERCENTAGE` threshold of 80%, AWS notifies you when you go over 160 dollars.
+         */
+        thresholdType?: string;
+    }
+
+    export interface BudgetNotificationWithSubscribers {
+        /**
+         * The notification that's associated with a budget.
+         */
+        notification: outputs.budgets.BudgetNotification;
+        /**
+         * A list of subscribers who are subscribed to this notification.
+         */
+        subscribers: outputs.budgets.BudgetSubscriber[];
+    }
+
+    export interface BudgetSpend {
+        /**
+         * The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.
+         */
+        amount: number;
+        /**
+         * The unit of measurement that's used for the budget forecast, actual spend, or budget threshold.
+         */
+        unit: string;
+    }
+
+    export interface BudgetSubscriber {
+        /**
+         * The address that AWS sends budget notifications to, either an SNS topic or an email.
+         *
+         * When you create a subscriber, the value of `Address` can't contain line breaks.
+         */
+        address: string;
+        /**
+         * The type of notification that AWS sends to a subscriber.
+         */
+        subscriptionType: string;
+    }
+
+    export interface BudgetTagValues {
+        /**
+         * The key for the tag.
+         */
+        key?: string;
+        /**
+         * The match options that you can use to filter your results.
+         */
+        matchOptions?: string[];
+        /**
+         * The specific value of the tag.
+         */
+        values?: string[];
+    }
+
+    export interface BudgetTimePeriod {
+        /**
+         * The end date for a budget. If you didn't specify an end date, AWS set your end date to `06/15/87 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+         *
+         * After the end date, AWS deletes the budget and all the associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
+         */
+        end?: string;
+        /**
+         * The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+         *
+         * You can change your start date with the `UpdateBudget` operation.
+         *
+         * Valid values depend on the value of `BudgetType` :
+         *
+         * - If `BudgetType` is `COST` or `USAGE` : Valid values are `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+         * - If `BudgetType` is `RI_UTILIZATION` or `RI_COVERAGE` : Valid values are `DAILY` , `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+         */
+        start?: string;
+    }
+
     export interface BudgetsActionActionThreshold {
         /**
          * The type of threshold for a notification.
@@ -22579,7 +23371,7 @@ export namespace cloudformation {
          */
         accounts?: string[];
         /**
-         * Returns the value of the AccountsUrl property.
+         * Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
          */
         accountsUrl?: string;
         /**
@@ -25128,6 +25920,13 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
+    export interface AlarmActionConfiguration {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        alarmTagsPropagation?: outputs.cloudwatch.AlarmTagsPropagation;
+    }
+
     /**
      * Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
      */
@@ -25270,6 +26069,21 @@ export namespace cloudwatch {
         recoveryPeriod?: number;
     }
 
+    export interface AlarmTagsPropagation {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        enabled: boolean;
+        /**
+         * The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+         */
+        excludedTagKeys?: string[];
+        /**
+         * The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+         */
+        includedTagKeys?: string[];
+    }
+
     /**
      * An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
      *  When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
@@ -25297,6 +26111,96 @@ export namespace cloudwatch {
          *  You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
          */
         warmUpPeriodDurationInMinutes?: number;
+    }
+
+    /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    export interface CompositeAlarmActionConfiguration {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        alarmTagsPropagation?: outputs.cloudwatch.CompositeAlarmAlarmTagsPropagation;
+    }
+
+    /**
+     * Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+     */
+    export interface CompositeAlarmAlarmTagsPropagation {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        enabled: boolean;
+        /**
+         * The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+         */
+        excludedTagKeys?: string[];
+        /**
+         * The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+         */
+        includedTagKeys?: string[];
+    }
+
+    /**
+     * Identity Center configuration. Required when identityProviders includes IDC.
+     */
+    export interface DomainForOrganizationIdentityCenterConfiguration {
+        /**
+         * Identity Center instance ARN
+         */
+        identityCenterInstanceArn?: string;
+    }
+
+    /**
+     * Identity provider configuration for the domain.
+     */
+    export interface DomainForOrganizationIdentityProviderConfiguration {
+        identityCenterConfiguration?: outputs.cloudwatch.DomainForOrganizationIdentityCenterConfiguration;
+    }
+
+    /**
+     * Write-only API-key credential material for the integration. Stored encrypted and never returned on read.
+     */
+    export interface IntegrationCredential {
+        /**
+         * API-key credential material that can be rotated in place on update.
+         */
+        apiKeyCredential: outputs.cloudwatch.IntegrationCredentialApiKeyCredentialProperties;
+    }
+
+    /**
+     * API-key credential material that can be rotated in place on update.
+     */
+    export interface IntegrationCredentialApiKeyCredentialProperties {
+        apiKeyValue: string;
+    }
+
+    /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    export interface LogAlarmActionConfiguration {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        alarmTagsPropagation?: outputs.cloudwatch.LogAlarmAlarmTagsPropagation;
+    }
+
+    /**
+     * Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+     */
+    export interface LogAlarmAlarmTagsPropagation {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        enabled: boolean;
+        /**
+         * The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+         */
+        excludedTagKeys?: string[];
+        /**
+         * The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+         */
+        includedTagKeys?: string[];
     }
 
     /**
@@ -25600,6 +26504,573 @@ export namespace codebuild {
          * The ID of the Amazon VPC.
          */
         vpcId?: string;
+    }
+
+    export interface ProjectArtifacts {
+        /**
+         * An identifier for this artifact definition.
+         */
+        artifactIdentifier?: string;
+        /**
+         * Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an `invalidInputException` is thrown.
+         */
+        encryptionDisabled?: boolean;
+        /**
+         * Information about the build output artifact location:
+         * * If `type` is set to `CODEPIPELINE`, AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output locations instead of CodeBuild.
+         * * If `type` is set to `NO_ARTIFACTS`, this value is ignored if specified, because no build output is produced.
+         * * If `type` is set to `S3`, this is the name of the output bucket.
+         *   If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+         */
+        location?: string;
+        /**
+         * Along with `path` and `namespaceType` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+         *
+         * - If `type` is set to `CODEPIPELINE` , AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket.
+         *
+         * For example:
+         *
+         * - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , then the output artifact is stored in `MyArtifacts/ *build-ID* /MyArtifact.zip` .
+         * - If `path` is empty, `namespaceType` is set to `NONE` , and `name` is set to " `/` ", the output artifact is stored in the root of the output bucket.
+         * - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to " `/` ", the output artifact is stored in `MyArtifacts/ *build-ID*` .
+         *
+         * If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+         */
+        name?: string;
+        /**
+         * Along with `path` and `name` , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:
+         *
+         * - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , valid values include:
+         *
+         * - `BUILD_ID` : Include the build ID in the location of the build output artifact.
+         * - `NONE` : Do not include the build ID. This is the default if `namespaceType` is not specified.
+         *
+         * For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in `MyArtifacts/<build-ID>/MyArtifact.zip` .
+         */
+        namespaceType?: string;
+        /**
+         * If set to true a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique.
+         */
+        overrideArtifactName?: boolean;
+        /**
+         * The type of build output artifact to create:
+         *
+         * - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output artifacts instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , valid values include:
+         *
+         * - `NONE` : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if `packaging` is not specified.
+         * - `ZIP` : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+         */
+        packaging?: string;
+        /**
+         * Along with `namespaceType` and `name` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+         *
+         * - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , this is the path to the output artifact. If `path` is not specified, `path` is not used.
+         *
+         * For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `NONE` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in the output bucket at `MyArtifacts/MyArtifact.zip` .
+         */
+        path?: string;
+        /**
+         * The type of build output artifact. Valid values include:
+         * * `CODEPIPELINE`: The build project has build output generated through CodePipeline.
+         *   The `CODEPIPELINE` type is not supported for `secondaryArtifacts`.
+         * * `NO_ARTIFACTS`: The build project does not produce any build output.
+         * * `S3`: The build project stores build output in Amazon S3.
+         */
+        type: string;
+    }
+
+    export interface ProjectBatchRestrictions {
+        /**
+         * An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide* for these values.
+         */
+        computeTypesAllowed?: string[];
+        fleetsAllowed?: string[];
+        /**
+         * Specifies the maximum number of builds allowed.
+         */
+        maximumBuildsAllowed?: number;
+    }
+
+    export interface ProjectBuildBatchConfig {
+        /**
+         * Specifies how build status reports are sent to the source provider for the batch build. This property is only used when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider.
+         *
+         * - **REPORT_AGGREGATED_BATCH** - (Default) Aggregate all of the build statuses into a single status report.
+         * - **REPORT_INDIVIDUAL_BUILDS** - Send a separate status report for each individual build.
+         */
+        batchReportMode?: string;
+        /**
+         * Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+         */
+        combineArtifacts?: boolean;
+        /**
+         * A `BatchRestrictions` object that specifies the restrictions for the batch build.
+         */
+        restrictions?: outputs.codebuild.ProjectBatchRestrictions;
+        /**
+         * Specifies the service role ARN for the batch build project.
+         */
+        serviceRole?: string;
+        /**
+         * Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+         */
+        timeoutInMins?: number;
+    }
+
+    export interface ProjectBuildStatusConfig {
+        /**
+         * Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         *
+         * - **Bitbucket** - This parameter is used for the `name` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+         * - **GitHub/GitHub Enterprise Server** - This parameter is used for the `context` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+         */
+        context?: string;
+        /**
+         * Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         *
+         * - **Bitbucket** - This parameter is used for the `url` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+         * - **GitHub/GitHub Enterprise Server** - This parameter is used for the `target_url` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+         */
+        targetUrl?: string;
+    }
+
+    export interface ProjectCache {
+        /**
+         * Defines the scope of the cache. You can use this namespace to share a cache across multiple projects.
+         */
+        cacheNamespace?: string;
+        /**
+         * Information about the cache location:
+         *
+         * - `NO_CACHE` or `LOCAL` : This value is ignored.
+         * - `S3` : This is the S3 bucket name/prefix.
+         */
+        location?: string;
+        /**
+         * An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for `LOCAL` cache types.
+         *
+         * Possible values are:
+         *
+         * - **LOCAL_SOURCE_CACHE** - Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+         * - **LOCAL_DOCKER_LAYER_CACHE** - Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
+         *
+         * > - You can use a Docker layer cache in the Linux environment only.
+         * > - The `privileged` flag must be set so that your project has the required Docker permissions.
+         * > - You should consider the security implications before you use a Docker layer cache.
+         * - **LOCAL_CUSTOM_CACHE** - Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
+         *
+         * - Only directories can be specified for caching. You cannot specify individual files.
+         * - Symlinks are used to reference cached directories.
+         * - Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+         */
+        modes?: string[];
+        /**
+         * The type of cache used by the build project. Allowed values: NO_CACHE | S3 | LOCAL.
+         */
+        type: string;
+    }
+
+    export interface ProjectCloudWatchLogsConfig {
+        /**
+         * The group name of the logs in CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+         */
+        groupName?: string;
+        /**
+         * The current status of the logs in CloudWatch Logs for a build project. Valid values are:
+         *
+         * - `ENABLED` : CloudWatch Logs are enabled for this build project.
+         * - `DISABLED` : CloudWatch Logs are not enabled for this build project.
+         */
+        status: string;
+        /**
+         * The prefix of the stream name of the CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+         */
+        streamName?: string;
+    }
+
+    export interface ProjectDockerServer {
+        /**
+         * Information about the compute resources the docker server uses. Valid Values: BUILD_GENERAL1_SMALL | BUILD_GENERAL1_MEDIUM | BUILD_GENERAL1_LARGE | BUILD_GENERAL1_XLARGE | BUILD_GENERAL1_2XLARGE | BUILD_LAMBDA_1GB | BUILD_LAMBDA_2GB | BUILD_LAMBDA_4GB | BUILD_LAMBDA_8GB | BUILD_LAMBDA_10GB | ATTRIBUTE_BASED_COMPUTE | CUSTOM_INSTANCE_TYPE
+         */
+        computeType: string;
+        /**
+         * A list of one or more security groups IDs.
+         */
+        securityGroupIds?: string[];
+    }
+
+    export interface ProjectEnvironment {
+        /**
+         * The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project. For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
+         */
+        certificate?: string;
+        /**
+         * The type of compute environment. This determines the number of CPU cores and memory the build environment uses. Available values include:
+         *
+         * - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
+         *
+         * > If you use `ATTRIBUTE_BASED_COMPUTE` , you must define your attributes by using `computeConfiguration` . AWS CodeBuild will select the cheapest instance that satisfies your specified attributes. For more information, see [Reserved capacity environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types) in the *AWS CodeBuild User Guide* .
+         * - `BUILD_GENERAL1_SMALL` : Use up to 4 GiB memory and 2 vCPUs for builds.
+         * - `BUILD_GENERAL1_MEDIUM` : Use up to 8 GiB memory and 4 vCPUs for builds.
+         * - `BUILD_GENERAL1_LARGE` : Use up to 16 GiB memory and 8 vCPUs for builds, depending on your environment type.
+         * - `BUILD_GENERAL1_XLARGE` : Use up to 72 GiB memory and 36 vCPUs for builds, depending on your environment type.
+         * - `BUILD_GENERAL1_2XLARGE` : Use up to 144 GiB memory, 72 vCPUs, and 824 GB of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.
+         * - `BUILD_LAMBDA_1GB` : Use up to 1 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_2GB` : Use up to 2 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_4GB` : Use up to 4 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_8GB` : Use up to 8 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_10GB` : Use up to 10 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         *
+         * If you use `BUILD_GENERAL1_SMALL` :
+         *
+         * - For environment type `LINUX_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs for builds.
+         * - For environment type `LINUX_GPU_CONTAINER` , you can use up to 16 GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.
+         * - For environment type `ARM_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs on ARM-based processors for builds.
+         *
+         * If you use `BUILD_GENERAL1_LARGE` :
+         *
+         * - For environment type `LINUX_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs for builds.
+         * - For environment type `LINUX_GPU_CONTAINER` , you can use up to 255 GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.
+         * - For environment type `ARM_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs on ARM-based processors for builds.
+         *
+         * For more information, see [On-demand environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) in the *AWS CodeBuild User Guide.*
+         */
+        computeType: string;
+        /**
+         * Contains docker server information.
+         */
+        dockerServer?: outputs.codebuild.ProjectDockerServer;
+        /**
+         * A set of environment variables to make available to builds for this build project.
+         */
+        environmentVariables?: outputs.codebuild.ProjectEnvironmentVariable[];
+        fleet?: outputs.codebuild.ProjectFleet;
+        /**
+         * The kernel version of the host operating system for the build environment. Allowed values: LINUX_KERNEL_4 | LINUX_KERNEL_6 | LINUX_KERNEL_LATEST
+         */
+        hostKernel?: string;
+        /**
+         * The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:
+         *
+         * - For an image tag: `<registry>/<repository>:<tag>` . For example, in the Docker repository that CodeBuild uses to manage its Docker images, this would be `aws/codebuild/standard:4.0` .
+         * - For an image digest: `<registry>/<repository>@<digest>` . For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use `<registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf` .
+         *
+         * For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-available.html) in the *AWS CodeBuild user guide* .
+         */
+        image: string;
+        /**
+         * The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
+         *
+         * - `CODEBUILD` specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.
+         * - `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role.
+         *
+         * When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+         */
+        imagePullCredentialsType?: string;
+        /**
+         * Enables running the Docker daemon inside a Docker container. Set to true only if the build project is used to build Docker images. Otherwise, a build that attempts to interact with the Docker daemon fails. The default setting is `false` .
+         *
+         * You can initialize the Docker daemon during the install phase of your build by adding one of the following sets of commands to the install phase of your buildspec file:
+         *
+         * If the operating system's base image is Ubuntu Linux:
+         *
+         * `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+         *
+         * `- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"`
+         *
+         * If the operating system's base image is Alpine Linux and the previous command does not work, add the `-t` argument to `timeout` :
+         *
+         * `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+         *
+         * `- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"`
+         */
+        privilegedMode?: boolean;
+        /**
+         * `RegistryCredential` is a property of the [AWS::CodeBuild::Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment) property that specifies information about credentials that provide access to a private Docker registry. When this is set:
+         *
+         * - `imagePullCredentialsType` must be set to `SERVICE_ROLE` .
+         * - images cannot be curated or an Amazon ECR image.
+         */
+        registryCredential?: outputs.codebuild.ProjectRegistryCredential;
+        /**
+         * The type of build environment to use for related builds.
+         *
+         * > If you're using compute fleets during project creation, `type` will be ignored.
+         *
+         * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+         */
+        type: string;
+    }
+
+    export interface ProjectEnvironmentVariable {
+        /**
+         * The name or key of the environment variable.
+         */
+        name: string;
+        /**
+         * The type of environment variable. Valid values include:
+         *
+         * - `PARAMETER_STORE` : An environment variable stored in Systems Manager Parameter Store. For environment variables of this type, specify the name of the parameter as the `value` of the EnvironmentVariable. The parameter value will be substituted for the name at runtime. You can also define Parameter Store environment variables in the buildspec. To learn how to do so, see [env/parameter-store](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) in the *AWS CodeBuild User Guide* .
+         * - `PLAINTEXT` : An environment variable in plain text format. This is the default value.
+         * - `SECRETS_MANAGER` : An environment variable stored in AWS Secrets Manager . For environment variables of this type, specify the name of the secret as the `value` of the EnvironmentVariable. The secret value will be substituted for the name at runtime. You can also define AWS Secrets Manager environment variables in the buildspec. To learn how to do so, see [env/secrets-manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager) in the *AWS CodeBuild User Guide* .
+         */
+        type?: string;
+        /**
+         * The value of the environment variable.
+         *
+         * > We strongly discourage the use of `PLAINTEXT` environment variables to store sensitive values, especially AWS secret key IDs. `PLAINTEXT` environment variables can be displayed in plain text using the AWS CodeBuild console and the AWS CLI . For sensitive values, we recommend you use an environment variable of type `PARAMETER_STORE` or `SECRETS_MANAGER` .
+         */
+        value: string;
+    }
+
+    export interface ProjectFileSystemLocation {
+        /**
+         * The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the `identifier` in all capital letters to `CODEBUILD_` . For example, if you specify `my_efs` for `identifier` , a new environment variable is create named `CODEBUILD_MY_EFS` .
+         *
+         * The `identifier` is used to mount your file system.
+         */
+        identifier: string;
+        /**
+         * A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path` . You can find the DNS name of file system when you view it in the Amazon EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is `fs-abcd1234.efs.us-west-2.amazonaws.com` , and its mount directory is `my-efs-mount-directory` , then the `location` is `fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory` .
+         *
+         * The directory path in the format `efs-dns-name:/directory-path` is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+         */
+        location: string;
+        /**
+         * The mount options for a file system created by Amazon EFS. The default mount options used by CodeBuild are `nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2` . For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) .
+         */
+        mountOptions?: string;
+        /**
+         * The location in the container where you mount the file system.
+         */
+        mountPoint: string;
+        /**
+         * The type of the file system. The one supported type is `EFS` .
+         */
+        type: string;
+    }
+
+    export interface ProjectFleet {
+        /**
+         * Specifies the compute fleet ARN for the build project.
+         */
+        fleetArn?: string;
+    }
+
+    export interface ProjectGitSubmodulesConfig {
+        /**
+         * Set to true to fetch Git submodules for your AWS CodeBuild build project.
+         */
+        fetchSubmodules: boolean;
+    }
+
+    export interface ProjectLogsConfig {
+        /**
+         * Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default.
+         */
+        cloudWatchLogs?: outputs.codebuild.ProjectCloudWatchLogsConfig;
+        /**
+         * Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+         */
+        s3Logs?: outputs.codebuild.ProjectS3LogsConfig;
+    }
+
+    export interface ProjectPullRequestBuildPolicy {
+        approverRoles?: string[];
+        requiresCommentApproval: string;
+    }
+
+    export interface ProjectRegistryCredential {
+        /**
+         * The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager .
+         *
+         * > The `credential` can use the name of the credentials only if they exist in your current AWS Region .
+         */
+        credential: string;
+        /**
+         * The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager .
+         */
+        credentialProvider: string;
+    }
+
+    export interface ProjectS3LogsConfig {
+        /**
+         * Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+         */
+        encryptionDisabled?: boolean;
+        /**
+         * The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is `my-bucket` , and your path prefix is `build-log` , then acceptable formats are `my-bucket/build-log` or `arn:aws:s3:::my-bucket/build-log` .
+         */
+        location?: string;
+        /**
+         * The current status of the S3 build logs. Valid values are:
+         *
+         * - `ENABLED` : S3 build logs are enabled for this build project.
+         * - `DISABLED` : S3 build logs are not enabled for this build project.
+         */
+        status: string;
+    }
+
+    export interface ProjectScopeConfiguration {
+        /**
+         * The domain of the GitHub Enterprise organization or the GitLab Self Managed group. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE or GITLAB_SELF_MANAGED.
+         */
+        domain?: string;
+        /**
+         * The name of either the enterprise or organization that will send webhook events to CodeBuild, depending on if the webhook is a global or organization webhook respectively.
+         */
+        name: string;
+        /**
+         * The type of scope for a GitHub or GitLab webhook. The scope default is GITHUB_ORGANIZATION. Allowed values: GITHUB_ORGANIZATION | GITHUB_GLOBAL | GITLAB_GROUP
+         */
+        scope?: string;
+    }
+
+    export interface ProjectSource {
+        /**
+         * Information about the authorization settings for AWS CodeBuild to access the source code to be built.
+         */
+        auth?: outputs.codebuild.ProjectSourceAuth;
+        /**
+         * The build specification for the project. If this value is not provided, then the source code must contain a buildspec file named `buildspec.yml` at the root level. If this value is provided, it can be either a single string containing the entire build specification, or the path to an alternate buildspec file relative to the value of the built-in environment variable `CODEBUILD_SRC_DIR` . The alternate buildspec file can have a name other than `buildspec.yml` , for example `myspec.yml` or `build_spec_qa.yml` or similar. For more information, see the [Build Spec Reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example) in the *AWS CodeBuild User Guide* .
+         */
+        buildSpec?: string;
+        /**
+         * Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB` , `GITHUB_ENTERPRISE` , or `BITBUCKET` .
+         */
+        buildStatusConfig?: outputs.codebuild.ProjectBuildStatusConfig;
+        /**
+         * The depth of history to download. Minimum value is 0. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project. If your source type is Amazon S3, this value is not supported.
+         */
+        gitCloneDepth?: number;
+        /**
+         * Information about the Git submodules configuration for the build project.
+         */
+        gitSubmodulesConfig?: outputs.codebuild.ProjectGitSubmodulesConfig;
+        /**
+         * This is used with GitHub Enterprise only. Set to true to ignore SSL warnings while connecting to your GitHub Enterprise project repository. The default value is `false` . `InsecureSsl` should be used for testing purposes only. It should not be used in a production environment.
+         */
+        insecureSsl?: boolean;
+        /**
+         * Information about the location of the source code to be built. Valid values include:
+         *
+         * - For source code settings that are specified in the source action of a pipeline in CodePipeline, `location` should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source action instead of this value.
+         * - For source code in an CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the buildspec file (for example, `https://git-codecommit.<region-ID>.amazonaws.com/v1/repos/<repo-name>` ).
+         * - For source code in an Amazon S3 input bucket, one of the following.
+         *
+         * - The path to the ZIP file that contains the source code (for example, `<bucket-name>/<path>/<object-name>.zip` ).
+         * - The path to the folder that contains the source code (for example, `<bucket-name>/<path-to-source-code>/<folder>/` ).
+         * - For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub *Authorize application* page, for *Organization access* , choose *Request access* next to each repository you want to allow AWS CodeBuild to have access to, and then choose *Authorize application* . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+         * - For source code in an GitLab or self-managed GitLab repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitLab account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitLab, on the Connections *Authorize application* page, choose *Authorize* . Then on the AWS CodeConnections *Create GitLab connection* page, choose *Connect to GitLab* . (After you have connected to your GitLab account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to override the default connection and use this connection instead, set the `auth` object's `type` value to `CODECONNECTIONS` in the `source` object.
+         * - For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket *Confirm access to your account* page, choose *Grant access* . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+         *
+         * If you specify `CODEPIPELINE` for the `Type` property, don't specify this property. For all of the other types, you must specify `Location` .
+         */
+        location?: string;
+        /**
+         * Set to true to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an `invalidInputException` is thrown.
+         */
+        reportBuildStatus?: boolean;
+        /**
+         * An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+         */
+        sourceIdentifier?: string;
+        /**
+         * The type of repository that contains the source code to be built. Valid values include:
+         *
+         * - `BITBUCKET` : The source code is in a Bitbucket repository.
+         * - `CODECOMMIT` : The source code is in an CodeCommit repository.
+         * - `CODEPIPELINE` : The source code settings are specified in the source action of a pipeline in CodePipeline.
+         * - `GITHUB` : The source code is in a GitHub repository.
+         * - `GITHUB_ENTERPRISE` : The source code is in a GitHub Enterprise Server repository.
+         * - `GITLAB` : The source code is in a GitLab repository.
+         * - `GITLAB_SELF_MANAGED` : The source code is in a self-managed GitLab repository.
+         * - `NO_SOURCE` : The project does not have input source code.
+         * - `S3` : The source code is in an Amazon S3 bucket.
+         */
+        type: string;
+    }
+
+    export interface ProjectSourceAuth {
+        /**
+         * The resource value that applies to the specified authorization type.
+         */
+        resource?: string;
+        /**
+         * The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.
+         */
+        type: string;
+    }
+
+    export interface ProjectSourceVersion {
+        /**
+         * An identifier for a source in the build project. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+         */
+        sourceIdentifier: string;
+        /**
+         * The source version for the corresponding source identifier. If specified, must be one of:
+         *
+         * - For CodeCommit: the commit ID, branch, or Git tag to use.
+         * - For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format `pr/pull-request-ID` (for example, `pr/25` ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+         * - For GitLab: the commit ID, branch, or Git tag to use.
+         * - For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+         * - For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
+         *
+         * For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
+         */
+        sourceVersion?: string;
+    }
+
+    export interface ProjectTriggers {
+        /**
+         * Specifies the type of build this webhook will trigger. Allowed values are:
+         *
+         * - **BUILD** - A single build
+         * - **BUILD_BATCH** - A batch build
+         */
+        buildType?: string;
+        /**
+         * A list of lists of `WebhookFilter` objects used to determine which webhook events are triggered. At least one `WebhookFilter` in the array must specify `EVENT` as its type.
+         */
+        filterGroups?: outputs.codebuild.ProjectWebhookFilter[][];
+        pullRequestBuildPolicy?: outputs.codebuild.ProjectPullRequestBuildPolicy;
+        /**
+         * Contains configuration information about the scope for a webhook.
+         */
+        scopeConfiguration?: outputs.codebuild.ProjectScopeConfiguration;
+        /**
+         * Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+         */
+        webhook?: boolean;
+    }
+
+    export interface ProjectVpcConfig {
+        /**
+         * A list of one or more security groups IDs in your Amazon VPC. The maximum count is 5.
+         */
+        securityGroupIds?: string[];
+        /**
+         * A list of one or more subnet IDs in your Amazon VPC. The maximum count is 16.
+         */
+        subnets?: string[];
+        /**
+         * The ID of the Amazon VPC.
+         */
+        vpcId?: string;
+    }
+
+    export interface ProjectWebhookFilter {
+        excludeMatchedPattern?: boolean;
+        pattern: string;
+        type: string;
     }
 
     export interface ReportGroupReportExportConfig {
@@ -25944,6 +27415,16 @@ export namespace codedeploy {
          * Indicates whether to run an in-place or blue/green deployment.
          */
         deploymentType?: string;
+    }
+
+    /**
+     * Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+     */
+    export interface DeploymentGroupEc2DeploymentOptions {
+        /**
+         * The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+         */
+        autoScalingGroupProcessesToSuspend?: string[];
     }
 
     /**
@@ -29494,6 +30975,7 @@ export namespace connect {
     }
 
     export interface InstanceAttributes {
+        autoMuteAgentOnHold?: boolean;
         autoResolveBestVoices?: boolean;
         contactLens?: boolean;
         contactflowLogs?: boolean;
@@ -29853,6 +31335,7 @@ export namespace connect {
          * Information about the EV action.
          */
         eventBridgeActions?: outputs.connect.RuleEventBridgeAction[];
+        sendInAppNotificationActions?: outputs.connect.RuleSendInAppNotificationAction[];
         /**
          * Information about the send notification action.
          */
@@ -29935,6 +31418,31 @@ export namespace connect {
         stringValue?: string;
     }
 
+    export interface RuleInAppNotificationRecipientType {
+        /**
+         * The list of recipients by user arns.
+         */
+        userArns?: string[];
+        /**
+         * The collection of recipients who are identified by user tags
+         */
+        userTags?: {[key: string]: string};
+    }
+
+    export interface RuleNotificationContent {
+        deDe?: string;
+        enUs?: string;
+        esEs?: string;
+        frFr?: string;
+        idId?: string;
+        itIt?: string;
+        jaJp?: string;
+        koKr?: string;
+        ptBr?: string;
+        zhCn?: string;
+        zhTw?: string;
+    }
+
     /**
      * The type of notification recipient.
      */
@@ -29962,6 +31470,16 @@ export namespace connect {
          * A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
          */
         value: string;
+    }
+
+    export interface RuleSendInAppNotificationAction {
+        content: outputs.connect.RuleNotificationContent;
+        exclusion?: outputs.connect.RuleInAppNotificationRecipientType;
+        /**
+         * The priority of the notification.
+         */
+        priority?: enums.connect.RuleSendInAppNotificationActionPriority;
+        recipient: outputs.connect.RuleInAppNotificationRecipientType;
     }
 
     /**
@@ -35233,11 +36751,16 @@ export namespace deadline {
         memoryMiB: outputs.deadline.FleetMemoryMiBRange;
         osFamily: enums.deadline.FleetServiceManagedFleetOperatingSystemFamily;
         rootEbsVolume?: outputs.deadline.FleetEc2EbsVolume;
+        softwareAddOns?: outputs.deadline.FleetSoftwareAddOn[];
         vCpuCount: outputs.deadline.FleetVCpuCountRange;
     }
 
     export interface FleetServiceManagedEc2InstanceMarketOptions {
         type: enums.deadline.FleetEc2MarketType;
+    }
+
+    export interface FleetSoftwareAddOn {
+        name: enums.deadline.FleetSoftwareAddOnName;
     }
 
     export interface FleetVCpuCountRange {
@@ -35458,9 +36981,42 @@ export namespace devopsagent {
         updatedAt?: string;
     }
 
+    /**
+     * External identity provider configuration for the Operator App.
+     */
+    export interface AgentSpaceIdpAuthConfiguration {
+        /**
+         * The OIDC client identifier for the external identity provider application.
+         */
+        clientId: string;
+        /**
+         * The OIDC client secret for the external identity provider application. Use a Secrets Manager dynamic reference to avoid storing the secret in the template.
+         */
+        clientSecret: string;
+        createdAt?: string;
+        /**
+         * The OIDC issuer URL for the external identity provider.
+         */
+        issuerUrl: string;
+        /**
+         * The IAM role that Operator App users assume to access DevOps Agent APIs.
+         */
+        operatorAppRoleArn: string;
+        /**
+         * The external identity provider type.
+         */
+        provider: enums.devopsagent.AgentSpaceIdpAuthConfigurationProvider;
+        updatedAt?: string;
+        /**
+         * The identity claim used to identify users. This value is selected by the service for the configured provider.
+         */
+        userIdClaim?: string;
+    }
+
     export interface AgentSpaceOperatorApp {
         iam?: outputs.devopsagent.AgentSpaceIamAuthConfiguration;
         idc?: outputs.devopsagent.AgentSpaceIdcAuthConfiguration;
+        idp?: outputs.devopsagent.AgentSpaceIdpAuthConfiguration;
     }
 
     /**
@@ -35507,6 +37063,10 @@ export namespace devopsagent {
          * Account Type 'monitor' for DevOpsAgent monitoring
          */
         accountType: enums.devopsagent.AssociationAwsConfigurationAccountType;
+        /**
+         * The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+         */
+        agentElevatedRoleArn?: string;
         /**
          * Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
          */
@@ -35662,6 +37222,10 @@ export namespace devopsagent {
          */
         enableWebhookUpdates?: boolean;
         /**
+         * The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
+         */
+        enabledElevatedTools?: string[];
+        /**
          * MCP server endpoint URL
          */
         endpoint?: string;
@@ -35679,6 +37243,10 @@ export namespace devopsagent {
          * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
          */
         enableWebhookUpdates?: boolean;
+        /**
+         * The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
+         */
+        enabledElevatedTools?: string[];
         /**
          * MCP server endpoint URL
          */
@@ -35790,6 +37358,20 @@ export namespace devopsagent {
     }
 
     /**
+     * Optional bidirectional communication configuration. Supply this configuration and set Enabled to true so you can interact with the agent directly from Slack
+     */
+    export interface AssociationSlackBidirectionalConfiguration {
+        /**
+         * Whether bidirectional communication is enabled for this association. When set to true, you can mention the agent in a configured Slack channel and it responds in that channel. When omitted or set to false, the agent ignores mentions and only sends notifications
+         */
+        enabled?: boolean;
+        /**
+         * IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace on behalf of this association
+         */
+        roleArn: string;
+    }
+
+    /**
      * Slack channel configuration
      */
     export interface AssociationSlackChannel {
@@ -35807,6 +37389,7 @@ export namespace devopsagent {
      * Slack workspace integration configuration
      */
     export interface AssociationSlackConfiguration {
+        bidirectional?: outputs.devopsagent.AssociationSlackBidirectionalConfiguration;
         transmissionTarget: outputs.devopsagent.AssociationSlackTransmissionTarget;
         /**
          * Associated Slack workspace ID
@@ -35840,6 +37423,10 @@ export namespace devopsagent {
          * Account Type 'source' for DevOpsAgent monitoring
          */
         accountType: enums.devopsagent.AssociationSourceAwsConfigurationAccountType;
+        /**
+         * The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+         */
+        agentElevatedRoleArn?: string;
         /**
          * Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
          */
@@ -35910,6 +37497,7 @@ export namespace devopsagent {
     export interface ServiceAdditionalServiceDetails {
         azureIdentity?: outputs.devopsagent.ServiceRegisteredAzureIdentityDetails;
         dynatrace?: outputs.devopsagent.ServiceRegisteredDynatraceDetails;
+        gitHub?: outputs.devopsagent.ServiceRegisteredGitHubServiceDetails;
         gitLab?: outputs.devopsagent.ServiceRegisteredGitLabServiceDetails;
         mcpServer?: outputs.devopsagent.ServiceRegisteredMcpServerDetails;
         mcpServerGrafana?: outputs.devopsagent.ServiceRegisteredMcpServerGrafanaDetails;
@@ -35979,11 +37567,12 @@ export namespace devopsagent {
     }
 
     /**
-     * Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
+     * Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields, including GitHub, require replacement when modified
      */
     export interface ServiceDetails {
         azureIdentity?: outputs.devopsagent.ServiceAzureIdentityServiceDetails;
         dynatrace?: outputs.devopsagent.ServiceDynatraceServiceDetails;
+        gitHub?: outputs.devopsagent.ServiceGitHubDetails;
         gitLab?: outputs.devopsagent.ServiceGitLabDetails;
         mcpServer?: outputs.devopsagent.ServiceMcpServerDetails;
         mcpServerGrafana?: outputs.devopsagent.ServiceMcpServerGrafanaDetails;
@@ -36010,6 +37599,54 @@ export namespace devopsagent {
          */
         accountUrn: string;
         authorizationConfig?: outputs.devopsagent.ServiceDynatraceAuthorizationConfig;
+    }
+
+    /**
+     * The token verifies an existing DevOps Agent GitHub App installation on github.com and is then discarded. Not supported for GitHub Enterprise Server
+     */
+    export interface ServiceGitHubAppVerificationDetails {
+        /**
+         * Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+         */
+        appVariant: enums.devopsagent.ServiceGitHubAppVerificationDetailsAppVariant;
+        /**
+         * GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+         */
+        organizationName?: string;
+        /**
+         * GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+         */
+        targetUrl?: string;
+        /**
+         * GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+         */
+        tokenValue: string;
+    }
+
+    /**
+     * GitHub personal access token (PAT) service configuration. Exactly one of AppVerification or DirectAccess selects how the token is used
+     */
+    export interface ServiceGitHubDetails {
+        appVerification?: outputs.devopsagent.ServiceGitHubAppVerificationDetails;
+        directAccess?: outputs.devopsagent.ServiceGitHubPatDetails;
+    }
+
+    /**
+     * The token is stored and used as the long-lived credential for GitHub API access
+     */
+    export interface ServiceGitHubPatDetails {
+        /**
+         * GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+         */
+        organizationName?: string;
+        /**
+         * GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+         */
+        targetUrl?: string;
+        /**
+         * GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+         */
+        tokenValue: string;
     }
 
     /**
@@ -36321,6 +37958,36 @@ export namespace devopsagent {
          * Dynatrace resource account URN
          */
         accountUrn: string;
+    }
+
+    /**
+     * GitHub service details returned after registration
+     */
+    export interface ServiceRegisteredGitHubServiceDetails {
+        /**
+         * The GitHub App variant the service was registered with
+         */
+        appVariant?: enums.devopsagent.ServiceRegisteredGitHubServiceDetailsAppVariant;
+        /**
+         * How the service authenticates against the GitHub API: app after AppVerification, pat after DirectAccess
+         */
+        authMode?: enums.devopsagent.ServiceRegisteredGitHubServiceDetailsAuthMode;
+        /**
+         * The GitHub hosting type the service was registered with
+         */
+        hostingType?: enums.devopsagent.ServiceRegisteredGitHubServiceDetailsHostingType;
+        /**
+         * The GitHub repository owner name derived from the token
+         */
+        owner: string;
+        /**
+         * Type of repository owner
+         */
+        ownerType: enums.devopsagent.ServiceRegisteredGitHubServiceDetailsOwnerType;
+        /**
+         * GitHub instance URL (absent for github.com)
+         */
+        targetUrl?: string;
     }
 
     /**
@@ -38858,6 +40525,7 @@ export namespace dynamodb {
          * Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
          */
         deletionProtectionEnabled?: boolean;
+        disassociationProtectionEnabled?: boolean;
         /**
          * Defines additional settings for the global secondary indexes of this replica.
          */
@@ -38935,6 +40603,11 @@ export namespace dynamodb {
         policyDocument: any;
     }
 
+    export interface GlobalTableSearchSchemaElement {
+        attributeName: string;
+        searchSchemaElementType: enums.dynamodb.GlobalTableSearchSchemaElementSearchSchemaElementType;
+    }
+
     export interface GlobalTableSseSpecification {
         /**
          * Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
@@ -39001,6 +40674,19 @@ export namespace dynamodb {
          * Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
          */
         enabled: boolean;
+    }
+
+    export interface GlobalTableVectorAttribute {
+        attributeName: string;
+    }
+
+    export interface GlobalTableVectorIndex {
+        dimensions: number;
+        distanceFunction: enums.dynamodb.GlobalTableVectorIndexDistanceFunction;
+        indexName: string;
+        projection: outputs.dynamodb.GlobalTableProjection;
+        searchSchema?: outputs.dynamodb.GlobalTableSearchSchemaElement[];
+        vectorAttribute: outputs.dynamodb.GlobalTableVectorAttribute;
     }
 
     export interface GlobalTableWarmThroughput {
@@ -39257,6 +40943,7 @@ export namespace dynamodb {
          *   +  ``ALL`` - All of the table attributes are projected into the index.
          *
          *  When using the DynamoDB console, ``ALL`` is selected by default.
+         *  You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
          */
         projectionType?: string;
     }
@@ -39314,6 +41001,11 @@ export namespace dynamodb {
         s3KeyPrefix?: string;
     }
 
+    export interface TableSearchSchemaElement {
+        attributeName: string;
+        searchSchemaElementType: enums.dynamodb.TableSearchSchemaElementSearchSchemaElementType;
+    }
+
     /**
      * Represents the settings used to enable server-side encryption.
      */
@@ -39351,6 +41043,10 @@ export namespace dynamodb {
          *   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
          */
         streamViewType: string;
+        /**
+         * Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+         *  For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+         */
         tags?: outputs.dynamodb.TableTag[];
     }
 
@@ -39384,6 +41080,19 @@ export namespace dynamodb {
          * Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
          */
         enabled: boolean;
+    }
+
+    export interface TableVectorAttribute {
+        attributeName: string;
+    }
+
+    export interface TableVectorIndex {
+        dimensions: number;
+        distanceFunction: enums.dynamodb.TableVectorIndexDistanceFunction;
+        indexName: string;
+        projection: outputs.dynamodb.TableProjection;
+        searchSchema?: outputs.dynamodb.TableSearchSchemaElement[];
+        vectorAttribute: outputs.dynamodb.TableVectorAttribute;
     }
 
     /**
@@ -42448,6 +44157,16 @@ export namespace ec2 {
         securityGroupId?: string;
     }
 
+    export interface NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry {
+        destinationCidr?: string;
+        destinationPortRange?: outputs.ec2.NetworkInsightsAnalysisPortRange;
+        protocol?: string;
+        ruleNumber?: number;
+        sourceCidr?: string;
+        sourcePortRange?: outputs.ec2.NetworkInsightsAnalysisPortRange;
+        targetRouteTableId?: string;
+    }
+
     export interface NetworkInsightsAnalysisExplanation {
         /**
          * The network ACL.
@@ -42628,6 +44347,8 @@ export namespace ec2 {
          * The transit gateway attachment.
          */
         transitGatewayAttachment?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        transitGatewayPolicyTable?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        transitGatewayPolicyTableEntry?: outputs.ec2.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry;
         /**
          * The transit gateway route table.
          */
@@ -42719,6 +44440,7 @@ export namespace ec2 {
          * The transit gateway.
          */
         transitGateway?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        transitGatewayPolicyTableEntry?: outputs.ec2.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry;
         /**
          * The route in a transit gateway route table.
          */
@@ -44090,6 +45812,24 @@ export namespace ec2 {
          * The last port in the Traffic Mirror port range.
          */
         toPort: number;
+    }
+
+    /**
+     * A static 1:1 NAT rule. Traffic whose source address falls within MatchSourceCidr is translated to the corresponding address in NatCidr.
+     */
+    export interface TransitGatewayAttachmentNatConfigurationNatRule {
+        /**
+         * The source CIDR that the rule matches on.
+         */
+        matchSourceCidr: string;
+        /**
+         * The CIDR that the matched source addresses are translated to.
+         */
+        natCidr: string;
+        /**
+         * The rule number.
+         */
+        ruleNumber: number;
     }
 
     export interface TransitGatewayConnectOptions {
@@ -46405,6 +48145,105 @@ export namespace ecs {
     }
 
     /**
+     * The test traffic rules for the gateway ALB.
+     */
+    export interface GatewayAlbTestTrafficRules {
+        header?: outputs.ecs.GatewayTestTrafficHeader;
+    }
+
+    /**
+     * The configuration for the gateway. Currently only supports hostSharedAlb.
+     */
+    export interface GatewayConfiguration {
+        hostSharedAlb: outputs.ecs.GatewayHostSharedAlbConfiguration;
+    }
+
+    /**
+     * The access log configuration for the gateway ALB. Access logging is enabled by the presence of a destination.
+     */
+    export interface GatewayElbAccessLogConfiguration {
+        destination?: outputs.ecs.GatewayElbAccessLogDestination;
+    }
+
+    /**
+     * The destination for gateway ALB access logs. Exactly one destination type must be specified.
+     */
+    export interface GatewayElbAccessLogDestination {
+        s3?: outputs.ecs.GatewayElbAccessLogS3Destination;
+    }
+
+    /**
+     * The S3 destination for gateway ALB access logs.
+     */
+    export interface GatewayElbAccessLogS3Destination {
+        /**
+         * The S3 bucket for access logs.
+         */
+        bucket: string;
+        /**
+         * The S3 prefix for access logs.
+         */
+        prefix?: string;
+    }
+
+    /**
+     * The network configuration for the gateway ALB.
+     */
+    export interface GatewayElbNetworkConfiguration {
+        /**
+         * The inbound security group for the ALB.
+         */
+        inboundSecurityGroup?: string;
+        ipAddressType?: enums.ecs.GatewayElbIpAddressType;
+        /**
+         * The subnets for the ALB.
+         */
+        subnets?: string[];
+    }
+
+    /**
+     * The host shared ALB configuration for the gateway.
+     */
+    export interface GatewayHostSharedAlbConfiguration {
+        accessLogs?: outputs.ecs.GatewayElbAccessLogConfiguration;
+        /**
+         * The current number of ALBs provisioned for the gateway.
+         */
+        currentAlbCount?: number;
+        httpDesync?: enums.ecs.GatewayAlbDesyncMitigationMode;
+        /**
+         * The maximum number of ALBs to provision for the gateway.
+         */
+        maxAlbCount?: number;
+        networkConfiguration?: outputs.ecs.GatewayElbNetworkConfiguration;
+        /**
+         * The port on which the ALB listens.
+         */
+        port?: number;
+        protocol?: enums.ecs.GatewayAlbProtocol;
+        scheme?: enums.ecs.GatewayElbScheme;
+        testTrafficRules?: outputs.ecs.GatewayAlbTestTrafficRules;
+        /**
+         * The ARN of the WAFv2 web ACL to associate with the ALB.
+         */
+        webAclArn?: string;
+    }
+
+    /**
+     * The header configuration for test traffic routing.
+     */
+    export interface GatewayTestTrafficHeader {
+        /**
+         * The name of the header.
+         */
+        name: string;
+        /**
+         * The values for the header.
+         */
+        values: string[];
+    }
+
+    /**
      * The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
     export interface ServiceAdvancedConfiguration {
@@ -46556,6 +48395,7 @@ export namespace ecs {
          *   To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
          */
         accessLogConfiguration?: outputs.ecs.ServiceConnectAccessLogConfiguration;
+        containerConfigurations?: outputs.ecs.ServiceConnectContainerConfiguration[];
         /**
          * Specifies whether to use Service Connect with this service.
          */
@@ -46582,6 +48422,10 @@ export namespace ecs {
          *  An object selects a port from the task definition, assigns a name for the CMAPlong service, and a list of aliases (endpoints) and ports for client applications to refer to this service.
          */
         services?: outputs.ecs.ServiceConnectService[];
+    }
+
+    export interface ServiceConnectContainerConfiguration {
+        logLevel?: enums.ecs.ServiceConnectContainerConfigurationLogLevel;
     }
 
     /**
@@ -46740,6 +48584,9 @@ export namespace ecs {
          *   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
          */
         deploymentCircuitBreaker?: outputs.ecs.ServiceDeploymentCircuitBreaker;
+        /**
+         * The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
+         */
         earlySuccessCriteria?: outputs.ecs.ServiceDeploymentEarlySuccessCriteria;
         /**
          * An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
@@ -46828,9 +48675,26 @@ export namespace ecs {
         type?: enums.ecs.ServiceDeploymentControllerType;
     }
 
+    /**
+     * You can use early success criteria only with rolling deployment strategy.
+     *   The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
+     */
     export interface ServiceDeploymentEarlySuccessCriteria {
+        /**
+         * Specifies whether to use the early success criteria for the service deployment. When set to ``false``, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is ``false``.
+         *  When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
+         */
         enable?: boolean;
+        /**
+         * The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's ``desiredCount`` and must be an integer between ``0`` and ``100``. This value must be greater than or equal to the ``minimumHealthyPercent`` value.
+         *  After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
+         */
         healthyPercent?: number;
+        /**
+         * The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+         *   +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+         *   +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
+         */
         sourceServiceRevisionCleanup?: enums.ecs.ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup;
     }
 
@@ -46929,6 +48793,32 @@ export namespace ecs {
          * When you change the``ForceNewDeploymentNonce`` value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
          */
         forceNewDeploymentNonce?: string;
+    }
+
+    export interface ServiceGatewayConnector {
+        filters?: outputs.ecs.ServiceGatewayConnectorFilters;
+        healthCheck?: outputs.ecs.ServiceGatewayConnectorHealthCheck;
+        portName: string;
+    }
+
+    export interface ServiceGatewayConnectorFilters {
+        accessTypes?: enums.ecs.ServiceGatewayConnectorFiltersAccessTypesItem[];
+    }
+
+    export interface ServiceGatewayConnectorHealthCheck {
+        healthCheckIntervalSeconds?: number;
+        healthCheckPath?: string;
+        healthCheckPort?: number;
+        healthCheckProtocol?: enums.ecs.ServiceGatewayConnectorHealthCheckHealthCheckProtocol;
+        healthCheckTimeoutSeconds?: number;
+        healthyThresholdCount?: number;
+        matcher?: outputs.ecs.ServiceGatewayConnectorHealthCheckMatcher;
+        unhealthyThresholdCount?: number;
+    }
+
+    export interface ServiceGatewayConnectorHealthCheckMatcher {
+        grpcCode?: string;
+        httpCode?: string;
     }
 
     export interface ServiceHookTimeoutConfig {
@@ -47291,9 +49181,21 @@ export namespace ecs {
         name: string;
     }
 
+    /**
+     * The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface ServiceVpcLatticeAdvancedConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
+         */
         alternateTargetGroupArn?: string;
+        /**
+         * The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
+         */
         productionListenerRule?: string;
+        /**
+         * The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
+         */
         testListenerRule?: string;
     }
 
@@ -47971,6 +49873,17 @@ export namespace ecs {
         sourceVolume?: string;
     }
 
+    export interface TaskDefinitionNvidiaMpsAllocation {
+        /**
+         * The maximum percentage of the GPU's compute capacity that the container can use.
+         */
+        maxComputePercent?: number;
+        /**
+         * The amount of GPU memory, in MiB, allocated to the container.
+         */
+        memory: number;
+    }
+
     /**
      * The constraint on task placement in the task definition. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
      *   Task placement constraints aren't supported for tasks run on FARGATElong.
@@ -48091,6 +50004,7 @@ export namespace ecs {
      * The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
      */
     export interface TaskDefinitionResourceRequirement {
+        sharingStrategy?: outputs.ecs.TaskDefinitionSharingStrategy;
         /**
          * The type of resource to assign to a container.
          */
@@ -48101,7 +50015,7 @@ export namespace ecs {
          *  When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
          *  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
          */
-        value: string;
+        value?: string;
     }
 
     /**
@@ -48180,6 +50094,10 @@ export namespace ecs {
          *   If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
          */
         valueFrom: string;
+    }
+
+    export interface TaskDefinitionSharingStrategy {
+        nvidiaMps: outputs.ecs.TaskDefinitionNvidiaMpsAllocation;
     }
 
     /**
@@ -48639,6 +50557,10 @@ export namespace eks {
      */
     export interface CapabilityArgoCd {
         awsIdc: outputs.eks.CapabilityAwsIdc;
+        /**
+         * An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+         */
+        endpointPrefix?: string;
         /**
          * The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
          */
@@ -51132,6 +53054,214 @@ export namespace elementalinference {
 }
 
 export namespace emr {
+    /**
+     * Configuration specifies optional configurations for customizing open-source big data applications and environment parameters.
+     */
+    export interface InstanceFleetConfigApplicationConfiguration {
+        /**
+         * The classification within a configuration.
+         */
+        classification?: string;
+        /**
+         * Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
+         */
+        configurationProperties?: {[key: string]: string};
+        /**
+         * A list of additional configurations to apply within a configuration object.
+         */
+        configurations?: outputs.emr.InstanceFleetConfigApplicationConfiguration[];
+    }
+
+    /**
+     * EbsBlockDeviceConfig defines the number and type of EBS volumes to associate with all EC2 instances in an EMR cluster.
+     */
+    export interface InstanceFleetConfigEbsBlockDeviceConfig {
+        /**
+         * EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+         */
+        volumeSpecification: outputs.emr.InstanceFleetConfigVolumeSpecification;
+        /**
+         * Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+         */
+        volumesPerInstance?: number;
+    }
+
+    /**
+     * EbsConfiguration determines the EBS volumes to attach to EMR cluster instances.
+     */
+    export interface InstanceFleetConfigEbsConfiguration {
+        /**
+         * An array of Amazon EBS volume specifications attached to a cluster instance.
+         */
+        ebsBlockDeviceConfigs?: outputs.emr.InstanceFleetConfigEbsBlockDeviceConfig[];
+        /**
+         * Indicates whether an Amazon EBS volume is EBS-optimized.
+         */
+        ebsOptimized?: boolean;
+    }
+
+    /**
+     * InstanceTypeConfig determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+     */
+    export interface InstanceFleetConfigInstanceFleetProvisioningSpecifications {
+        /**
+         * The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+         */
+        onDemandSpecification?: outputs.emr.InstanceFleetConfigOnDemandProvisioningSpecification;
+        /**
+         * The launch specification for Spot instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+         */
+        spotSpecification?: outputs.emr.InstanceFleetConfigSpotProvisioningSpecification;
+    }
+
+    export interface InstanceFleetConfigInstanceFleetResizingSpecifications {
+        /**
+         * The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+         */
+        onDemandResizeSpecification?: outputs.emr.InstanceFleetConfigOnDemandResizingSpecification;
+        /**
+         * The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+         */
+        spotResizeSpecification?: outputs.emr.InstanceFleetConfigSpotResizingSpecification;
+    }
+
+    /**
+     * The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+     */
+    export interface InstanceFleetConfigInstanceTypeConfig {
+        /**
+         * The bid price for each Amazon EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+         */
+        bidPrice?: string;
+        /**
+         * The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+         */
+        bidPriceAsPercentageOfOnDemandPrice?: number;
+        /**
+         * An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+         */
+        configurations?: outputs.emr.InstanceFleetConfigApplicationConfiguration[];
+        /**
+         * The custom AMI ID to use for the instance type.
+         */
+        customAmiId?: string;
+        /**
+         * The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+         */
+        ebsConfiguration?: outputs.emr.InstanceFleetConfigEbsConfiguration;
+        /**
+         * An Amazon EC2 instance type, such as m3.xlarge.
+         */
+        instanceType: string;
+        /**
+         * The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+         */
+        priority?: number;
+        /**
+         * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+         */
+        weightedCapacity?: number;
+    }
+
+    export interface InstanceFleetConfigOnDemandCapacityReservationOptions {
+        /**
+         * Indicates the instance's Capacity Reservation preferences.
+         */
+        capacityReservationPreference?: string;
+        /**
+         * The ARN of the Capacity Reservation resource group in which to run the instance.
+         */
+        capacityReservationResourceGroupArn?: string;
+        /**
+         * Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+         */
+        usageStrategy?: string;
+    }
+
+    /**
+     * The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+     */
+    export interface InstanceFleetConfigOnDemandProvisioningSpecification {
+        /**
+         * Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+         */
+        allocationStrategy: string;
+        /**
+         * The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+         */
+        capacityReservationOptions?: outputs.emr.InstanceFleetConfigOnDemandCapacityReservationOptions;
+    }
+
+    export interface InstanceFleetConfigOnDemandResizingSpecification {
+        /**
+         * Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is lowest-price.
+         */
+        allocationStrategy?: string;
+        /**
+         * Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+         */
+        capacityReservationOptions?: outputs.emr.InstanceFleetConfigOnDemandCapacityReservationOptions;
+        /**
+         * On-Demand resize timeout in minutes.
+         */
+        timeoutDurationMinutes?: number;
+    }
+
+    /**
+     * SpotProvisioningSpecification determines the launch specification for Spot instances in the instance fleet, which includes the defined duration and provisioning timeout behavior.
+     */
+    export interface InstanceFleetConfigSpotProvisioningSpecification {
+        /**
+         * Specifies one of the following strategies to launch Spot Instance fleets: price-capacity-optimized, capacity-optimized, lowest-price, or diversified
+         */
+        allocationStrategy?: string;
+        /**
+         * The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360.
+         */
+        blockDurationMinutes?: number;
+        /**
+         * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+         */
+        timeoutAction: string;
+        /**
+         * The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+         */
+        timeoutDurationMinutes: number;
+    }
+
+    export interface InstanceFleetConfigSpotResizingSpecification {
+        /**
+         * Specifies the allocation strategy to use to launch Spot instances during a resize.
+         */
+        allocationStrategy?: string;
+        /**
+         * Spot resize timeout in minutes.
+         */
+        timeoutDurationMinutes?: number;
+    }
+
+    /**
+     * VolumeSpecification is a subproperty of the EbsBlockDeviceConfig property type. VolumeSecification determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
+     */
+    export interface InstanceFleetConfigVolumeSpecification {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports.
+         */
+        iops?: number;
+        /**
+         * The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+         */
+        sizeInGb: number;
+        /**
+         * The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+         */
+        throughput?: number;
+        /**
+         * The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+         */
+        volumeType: string;
+    }
+
     export interface InstanceGroupConfigAppConfiguration {
         classification?: string;
         configurationProperties?: {[key: string]: string};
@@ -53145,23 +55275,23 @@ export namespace eventsv2 {
     /**
      * Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
      */
-    export interface SubscriberInvokeConfigurationProperties {
+    export interface SubscriberInvokeConfiguration {
         /**
          * Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
          */
-        eventBusV2Parameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties;
+        eventBusV2Parameters?: outputs.eventsv2.SubscriberInvokeConfigurationEventBusV2ParametersProperties;
         /**
          * Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
          */
-        httpParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesHttpParametersProperties;
+        httpParameters?: outputs.eventsv2.SubscriberInvokeConfigurationHttpParametersProperties;
         /**
          * Parameters for writing events to an Amazon Kinesis Data Streams target.
          */
-        kinesisParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesKinesisParametersProperties;
+        kinesisParameters?: outputs.eventsv2.SubscriberInvokeConfigurationKinesisParametersProperties;
         /**
          * Parameters for invoking an AWS Lambda function target.
          */
-        lambdaParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesLambdaParametersProperties;
+        lambdaParameters?: outputs.eventsv2.SubscriberInvokeConfigurationLambdaParametersProperties;
         /**
          * The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
          */
@@ -53169,15 +55299,15 @@ export namespace eventsv2 {
         /**
          * Parameters for publishing events to an Amazon SNS topic target.
          */
-        snsParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesSnsParametersProperties;
+        snsParameters?: outputs.eventsv2.SubscriberInvokeConfigurationSnsParametersProperties;
         /**
          * Parameters for sending events to an Amazon SQS queue target.
          */
-        sqsParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesSqsParametersProperties;
+        sqsParameters?: outputs.eventsv2.SubscriberInvokeConfigurationSqsParametersProperties;
         /**
          * Parameters for starting an AWS Step Functions state machine execution target.
          */
-        stepFunctionsParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties;
+        stepFunctionsParameters?: outputs.eventsv2.SubscriberInvokeConfigurationStepFunctionsParametersProperties;
         /**
          * The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
          */
@@ -53185,13 +55315,13 @@ export namespace eventsv2 {
         /**
          * Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
          */
-        universalTargetParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties;
+        universalTargetParameters?: outputs.eventsv2.SubscriberInvokeConfigurationUniversalTargetParametersProperties;
     }
 
     /**
      * Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
      */
-    export interface SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties {
+    export interface SubscriberInvokeConfigurationEventBusV2ParametersProperties {
         /**
          * Deduplication settings applied to the forwarded events on the downstream event bus.
          */
@@ -53209,7 +55339,7 @@ export namespace eventsv2 {
     /**
      * Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
      */
-    export interface SubscriberInvokeConfigurationPropertiesHttpParametersProperties {
+    export interface SubscriberInvokeConfigurationHttpParametersProperties {
         /**
          * HTTP headers to add to the request.
          */
@@ -53231,7 +55361,7 @@ export namespace eventsv2 {
     /**
      * Parameters for writing events to an Amazon Kinesis Data Streams target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesKinesisParametersProperties {
+    export interface SubscriberInvokeConfigurationKinesisParametersProperties {
         /**
          * An explicit hash key that overrides the partition key's shard assignment. Accepts a literal value or a JSONata expression.
          */
@@ -53245,7 +55375,7 @@ export namespace eventsv2 {
     /**
      * Parameters for invoking an AWS Lambda function target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesLambdaParametersProperties {
+    export interface SubscriberInvokeConfigurationLambdaParametersProperties {
         /**
          * A unique name for a durable function execution. Accepts a literal value or a JSONata expression.
          */
@@ -53271,7 +55401,7 @@ export namespace eventsv2 {
     /**
      * Parameters for publishing events to an Amazon SNS topic target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesSnsParametersProperties {
+    export interface SubscriberInvokeConfigurationSnsParametersProperties {
         /**
          * Custom message attributes to attach to each message; Amazon SNS subscription filter policies can match on them.
          */
@@ -53297,7 +55427,7 @@ export namespace eventsv2 {
     /**
      * Parameters for sending events to an Amazon SQS queue target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesSqsParametersProperties {
+    export interface SubscriberInvokeConfigurationSqsParametersProperties {
         /**
          * The delay in seconds for the message, written as a string. Accepts a literal value or a JSONata expression.
          */
@@ -53323,7 +55453,7 @@ export namespace eventsv2 {
     /**
      * Parameters for starting an AWS Step Functions state machine execution target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties {
+    export interface SubscriberInvokeConfigurationStepFunctionsParametersProperties {
         /**
          * The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
          */
@@ -53345,7 +55475,7 @@ export namespace eventsv2 {
     /**
      * Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
      */
-    export interface SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties {
+    export interface SubscriberInvokeConfigurationUniversalTargetParametersProperties {
         /**
          * JSON string or JSONata expression that produces the API request. Supports {% ... %} JSONata expressions for dynamic values from the event.
          */
@@ -55062,6 +57192,51 @@ export namespace fsx {
         vpcId: string;
     }
 
+    /**
+     * Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
+     */
+    export interface StorageVirtualMachineActiveDirectoryConfiguration {
+        /**
+         * The NetBIOS name of the Active Directory computer object that will be created for your SVM. Minimum values: 1. Maximum values: 15. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+         */
+        netBiosName?: string;
+        /**
+         * The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory directory.
+         */
+        selfManagedActiveDirectoryConfiguration?: outputs.fsx.StorageVirtualMachineSelfManagedActiveDirectoryConfiguration;
+    }
+
+    export interface StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+        /**
+         * A list of IP addresses of DNS servers or domain controllers in the self-managed AD directory. Minimum: 1. Maximum: 3.
+         */
+        dnsIps?: string[];
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the self-managed Active Directory domain join service account credentials. Minimum: 64. Maximum: 1024.
+         */
+        domainJoinServiceAccountSecret?: string;
+        /**
+         * The fully qualified domain name of the self-managed AD directory, such as corp.example.com. Minimum: 1. Maximum: 255. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+         */
+        domainName?: string;
+        /**
+         * The name of the domain group whose members are granted administrative privileges for the file system. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+         */
+        fileSystemAdministratorsGroup?: string;
+        /**
+         * The fully qualified distinguished name of the organizational unit within your self-managed AD directory. Minimum: 1. Maximum: 2000. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,2000}$`
+         */
+        organizationalUnitDistinguishedName?: string;
+        /**
+         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^.{1,256}$`
+         */
+        password?: string;
+        /**
+         * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+         */
+        userName?: string;
+    }
+
     export interface VolumeAggregateConfiguration {
         /**
          * The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
@@ -55670,6 +57845,10 @@ export namespace gamelift {
          * The version of the server SDK used in this container group
          */
         serverSdkVersion: string;
+        /**
+         * The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
+         */
+        vcpu?: number;
     }
 
     /**
@@ -57894,6 +60073,274 @@ export namespace glue {
         roleArn: string;
     }
 
+    /**
+     * A column in a Table.
+     */
+    export interface TableColumn {
+        /**
+         * A free-form text comment.
+         */
+        comment?: string;
+        /**
+         * The name of the Column.
+         */
+        name: string;
+        /**
+         * The data type of the Column.
+         */
+        type?: string;
+    }
+
+    /**
+     * Specifies an input structure that defines an Apache Iceberg metadata table.
+     */
+    export interface TableIcebergInput {
+        /**
+         * Specifies the Iceberg table configuration.
+         */
+        icebergTableInput?: outputs.glue.TableIcebergTableInput;
+        /**
+         * A required metadata operation. Can only be set to CREATE.
+         */
+        metadataOperation?: string;
+        /**
+         * The table version of the Iceberg table. Defaults to 2.
+         */
+        version?: string;
+    }
+
+    /**
+     * A partition field in an Iceberg partition spec.
+     */
+    export interface TableIcebergPartitionField {
+        /**
+         * The partition field ID.
+         */
+        fieldId?: number;
+        /**
+         * The partition field name.
+         */
+        name: string;
+        /**
+         * The source field ID.
+         */
+        sourceId: number;
+        /**
+         * The transform to apply.
+         */
+        transform: string;
+    }
+
+    /**
+     * The partition spec for an Iceberg table.
+     */
+    export interface TableIcebergPartitionSpec {
+        /**
+         * The partition fields.
+         */
+        fields: outputs.glue.TableIcebergPartitionField[];
+        /**
+         * The spec ID.
+         */
+        specId?: number;
+    }
+
+    /**
+     * The schema for an Iceberg table.
+     */
+    export interface TableIcebergSchema {
+        /**
+         * The fields in the schema.
+         */
+        fields: outputs.glue.TableIcebergStructField[];
+        /**
+         * The identifier field IDs.
+         */
+        identifierFieldIds?: number[];
+        /**
+         * The schema ID.
+         */
+        schemaId?: number;
+        /**
+         * The type of the schema.
+         */
+        type?: string;
+    }
+
+    /**
+     * A sort field in an Iceberg sort order.
+     */
+    export interface TableIcebergSortField {
+        /**
+         * The sort direction.
+         */
+        direction: string;
+        /**
+         * The null ordering.
+         */
+        nullOrder: string;
+        /**
+         * The source field ID.
+         */
+        sourceId: number;
+        /**
+         * The transform to apply.
+         */
+        transform: string;
+    }
+
+    /**
+     * The sort order for an Iceberg table.
+     */
+    export interface TableIcebergSortOrder {
+        /**
+         * The sort fields.
+         */
+        fields: outputs.glue.TableIcebergSortField[];
+        /**
+         * The order ID.
+         */
+        orderId: number;
+    }
+
+    /**
+     * A field in an Iceberg schema.
+     */
+    export interface TableIcebergStructField {
+        /**
+         * Documentation for the field.
+         */
+        doc?: string;
+        /**
+         * The field ID.
+         */
+        id: number;
+        /**
+         * The field name.
+         */
+        name: string;
+        /**
+         * Whether the field is required.
+         */
+        required: boolean;
+        /**
+         * The field type.
+         */
+        type: string;
+    }
+
+    /**
+     * Specifies the Iceberg table configuration.
+     */
+    export interface TableIcebergTableInput {
+        /**
+         * The location of the Iceberg table.
+         */
+        location: string;
+        /**
+         * The partition spec for the Iceberg table.
+         */
+        partitionSpec?: outputs.glue.TableIcebergPartitionSpec;
+        /**
+         * The properties for the Iceberg table.
+         */
+        properties?: {[key: string]: string};
+        /**
+         * The schema for the Iceberg table.
+         */
+        schema: outputs.glue.TableIcebergSchema;
+        /**
+         * The write order for the Iceberg table.
+         */
+        writeOrder?: outputs.glue.TableIcebergSortOrder;
+    }
+
+    /**
+     * A structure that describes a target table for resource linking.
+     */
+    export interface TableIdentifier {
+        /**
+         * The ID of the Data Catalog in which the table resides.
+         */
+        catalogId?: string;
+        /**
+         * The name of the catalog database that contains the target table.
+         */
+        databaseName?: string;
+        /**
+         * The name of the target table.
+         */
+        name?: string;
+        /**
+         * The Region of the table.
+         */
+        region?: string;
+    }
+
+    /**
+     * A structure used to define a table.
+     */
+    export interface TableInput {
+        /**
+         * A description of the table.
+         */
+        description?: string;
+        /**
+         * The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+         */
+        name?: string;
+        /**
+         * The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+         */
+        owner?: string;
+        /**
+         * These key-value pairs define properties associated with the table.
+         */
+        parameters?: any;
+        /**
+         * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+         */
+        partitionKeys?: outputs.glue.TableColumn[];
+        /**
+         * The retention time for this table.
+         */
+        retention?: number;
+        /**
+         * A storage descriptor containing information about the physical storage of this table.
+         */
+        storageDescriptor?: outputs.glue.TableStorageDescriptor;
+        /**
+         * The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+         */
+        tableType?: string;
+        /**
+         * A TableIdentifier structure that describes a target table for resource linking.
+         */
+        targetTable?: outputs.glue.TableIdentifier;
+        /**
+         * The view definition for the table.
+         */
+        viewDefinition?: outputs.glue.TableViewDefinition;
+        /**
+         * Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+         */
+        viewExpandedText?: string;
+        /**
+         * Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+         */
+        viewOriginalText?: string;
+    }
+
+    /**
+     * Specifies an OpenTableFormatInput structure when creating an open format table.
+     */
+    export interface TableOpenTableFormatInput {
+        /**
+         * Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+         */
+        icebergInput?: outputs.glue.TableIcebergInput;
+    }
+
     export interface TableOptimizerCompactionConfiguration {
         /**
          * The configuration for an Iceberg compaction optimizer.
@@ -57979,6 +60426,198 @@ export namespace glue {
          * The name of the AWS Glue connection used for the VPC for the table optimizer.
          */
         glueConnectionName?: string;
+    }
+
+    /**
+     * Specifies the sort order of a sorted column.
+     */
+    export interface TableOrder {
+        /**
+         * The name of the column.
+         */
+        column: string;
+        /**
+         * Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+         */
+        sortOrder: number;
+    }
+
+    /**
+     * A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+     */
+    export interface TableSchemaId {
+        /**
+         * The name of the schema registry that contains the schema.
+         */
+        registryName?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+         */
+        schemaArn?: string;
+        /**
+         * The name of the schema. One of SchemaArn or SchemaName has to be provided.
+         */
+        schemaName?: string;
+    }
+
+    /**
+     * An object that references a schema stored in the AWS Glue Schema Registry.
+     */
+    export interface TableSchemaReference {
+        /**
+         * A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+         */
+        schemaId?: outputs.glue.TableSchemaId;
+        /**
+         * The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+         */
+        schemaVersionId?: string;
+        /**
+         * The version number of the schema.
+         */
+        schemaVersionNumber?: number;
+    }
+
+    /**
+     * Information about a serialization/deserialization program (SerDe) that serves as an extractor an loader.
+     */
+    export interface TableSerdeInfo {
+        /**
+         * Name of the SerDe.
+         */
+        name?: string;
+        /**
+         * These key-value pairs define initialization parameters for the SerDe.
+         */
+        parameters?: any;
+        /**
+         * Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+         */
+        serializationLibrary?: string;
+    }
+
+    /**
+     * Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+     */
+    export interface TableSkewedInfo {
+        /**
+         * A list of names of columns that contain skewed values.
+         */
+        skewedColumnNames?: string[];
+        /**
+         * A mapping of skewed values to the columns that contain them.
+         */
+        skewedColumnValueLocationMaps?: any;
+        /**
+         * A list of names of columns that contain skewed values.
+         */
+        skewedColumnValues?: string[];
+    }
+
+    /**
+     * Describes the physical storage of table data.
+     */
+    export interface TableStorageDescriptor {
+        /**
+         * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         */
+        bucketColumns?: string[];
+        /**
+         * A list of the Columns in the table.
+         */
+        columns?: outputs.glue.TableColumn[];
+        /**
+         * True if the data in the table is compressed, or False if not.
+         */
+        compressed?: boolean;
+        /**
+         * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+         */
+        inputFormat?: string;
+        /**
+         * The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+         */
+        location?: string;
+        /**
+         * Must be specified if the table contains any dimension columns.
+         */
+        numberOfBuckets?: number;
+        /**
+         * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+         */
+        outputFormat?: string;
+        /**
+         * The user-supplied properties in key-value form.
+         */
+        parameters?: any;
+        /**
+         * An object that references a schema stored in the AWS Glue Schema Registry.
+         */
+        schemaReference?: outputs.glue.TableSchemaReference;
+        /**
+         * The serialization/deserialization (SerDe) information.
+         */
+        serdeInfo?: outputs.glue.TableSerdeInfo;
+        /**
+         * The information about values that appear frequently in a column (skewed values).
+         */
+        skewedInfo?: outputs.glue.TableSkewedInfo;
+        /**
+         * A list specifying the sort order of each bucket in the table.
+         */
+        sortColumns?: outputs.glue.TableOrder[];
+        /**
+         * True if the table data is stored in subdirectories, or False if not.
+         */
+        storedAsSubDirectories?: boolean;
+    }
+
+    /**
+     * A structure that defines the view.
+     */
+    export interface TableViewDefinition {
+        /**
+         * The definer of the view.
+         */
+        definer?: string;
+        /**
+         * Indicates whether the view is protected.
+         */
+        isProtected?: boolean;
+        /**
+         * The representations of the view.
+         */
+        representations?: outputs.glue.TableViewRepresentation[];
+        /**
+         * The sub-objects of the view.
+         */
+        subObjects?: string[];
+    }
+
+    /**
+     * A structure that defines a view representation.
+     */
+    export interface TableViewRepresentation {
+        /**
+         * The dialect of the view representation.
+         */
+        dialect?: string;
+        /**
+         * The version of the dialect.
+         */
+        dialectVersion?: string;
+        /**
+         * The connection used for validation.
+         */
+        validationConnection?: string;
+        /**
+         * The expanded text of the view.
+         */
+        viewExpandedText?: string;
+        /**
+         * The original text of the view.
+         */
+        viewOriginalText?: string;
     }
 
     /**
@@ -59506,6 +62145,16 @@ export namespace healthlake {
     }
 
     /**
+     * The analytics configuration for the Data Store. Omitted when the Data Store can't carry analytics.
+     */
+    export interface FhirDatastoreAnalyticsConfiguration {
+        /**
+         * The analytics status for the Data Store.
+         */
+        status: enums.healthlake.FhirDatastoreAnalyticsConfigurationStatus;
+    }
+
+    /**
      * The time that a Data Store was created.
      */
     export interface FhirDatastoreCreatedAt {
@@ -59556,6 +62205,16 @@ export namespace healthlake {
     }
 
     /**
+     * The natural language processing (NLP) configuration for the Data Store.
+     */
+    export interface FhirDatastoreNlpConfiguration {
+        /**
+         * The NLP status for the Data Store.
+         */
+        status: enums.healthlake.FhirDatastoreNlpConfigurationStatus;
+    }
+
+    /**
      * The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
      */
     export interface FhirDatastorePreloadDataConfig {
@@ -59563,6 +62222,16 @@ export namespace healthlake {
          * The type of preloaded data. Only Synthea preloaded data is supported.
          */
         preloadDataType: enums.healthlake.FhirDatastorePreloadDataConfigPreloadDataType;
+    }
+
+    /**
+     * The profile configuration for the Data Store.
+     */
+    export interface FhirDatastoreProfileConfiguration {
+        /**
+         * The FHIR profiles the Data Store validates resources against by default, for example us-core-3.1.1.
+         */
+        defaultProfiles: string[];
     }
 
     /**
@@ -60141,7 +62810,7 @@ export namespace imagebuilder {
          */
         ecrConfiguration?: outputs.imagebuilder.ImagePipelineEcrConfiguration;
         /**
-         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
          */
         imageScanningEnabled?: boolean;
     }
@@ -60375,7 +63044,7 @@ export namespace imagebuilder {
          */
         ecrConfiguration?: outputs.imagebuilder.ImageEcrConfiguration;
         /**
-         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
          */
         imageScanningEnabled?: boolean;
     }
@@ -60431,6 +63100,20 @@ export namespace imagebuilder {
     }
 
     /**
+     * Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+     */
+    export interface InfrastructureConfigurationAutoScalingGroup {
+        /**
+         * The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+         */
+        capacityWaitTimeoutSeconds?: number;
+        /**
+         * The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+         */
+        name: string;
+    }
+
+    /**
      * The instance metadata option settings for the infrastructure configuration.
      */
     export interface InfrastructureConfigurationInstanceMetadataOptions {
@@ -60452,6 +63135,16 @@ export namespace imagebuilder {
          * The Amazon S3 logging configuration.
          */
         s3Logs?: outputs.imagebuilder.InfrastructureConfigurationS3Logs;
+    }
+
+    /**
+     * Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+     */
+    export interface InfrastructureConfigurationParentInstance {
+        /**
+         * The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+         */
+        autoScalingGroup: outputs.imagebuilder.InfrastructureConfigurationAutoScalingGroup;
     }
 
     /**
@@ -60907,6 +63600,7 @@ export namespace inspectorv2 {
          * Details of the Amazon ECR image hashes used to filter findings.
          */
         ecrImageHash?: outputs.inspectorv2.FilterStringFilter[];
+        ecrImageInUseCount?: outputs.inspectorv2.FilterNumberFilter[];
         /**
          * Details on the Amazon ECR image push date and time used to filter findings.
          */
@@ -61972,6 +64666,208 @@ export namespace iot {
          * The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
          */
         action: enums.iot.MitigationActionUpdateDeviceCertificateParamsAction;
+    }
+
+    export interface OtaUpdateAwsJobAbortConfig {
+        /**
+         * The list of criteria that determine when and how to abort the job.
+         */
+        abortCriteriaList: outputs.iot.OtaUpdateAwsJobAbortCriteria[];
+    }
+
+    export interface OtaUpdateAwsJobAbortCriteria {
+        /**
+         * The type of job action to take to initiate the job abort.
+         */
+        action: enums.iot.OtaUpdateAwsJobAbortCriteriaAction;
+        /**
+         * The type of job execution failures that can initiate a job abort.
+         */
+        failureType: enums.iot.OtaUpdateAwsJobAbortCriteriaFailureType;
+        /**
+         * The minimum number of things which must receive job execution notifications before the job can be aborted.
+         */
+        minNumberOfExecutedThings: number;
+        /**
+         * The minimum percentage of job execution failures that must occur to initiate the job abort.
+         */
+        thresholdPercentage: number;
+    }
+
+    export interface OtaUpdateAwsJobExecutionsRolloutConfig {
+        exponentialRate?: outputs.iot.OtaUpdateAwsJobExponentialRolloutRate;
+        /**
+         * The maximum number of OTA update job executions started per minute.
+         */
+        maximumPerMinute?: number;
+    }
+
+    export interface OtaUpdateAwsJobExponentialRolloutRate {
+        /**
+         * The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+         */
+        baseRatePerMinute: number;
+        /**
+         * The rate of increase for a job rollout.
+         */
+        incrementFactor: number;
+        rateIncreaseCriteria: outputs.iot.OtaUpdateAwsJobRateIncreaseCriteria;
+    }
+
+    export interface OtaUpdateAwsJobPresignedUrlConfig {
+        /**
+         * How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+         */
+        expiresInSec?: number;
+    }
+
+    export interface OtaUpdateAwsJobRateIncreaseCriteria {
+        /**
+         * When this number of things have been notified, it will initiate an increase in the rollout rate.
+         */
+        numberOfNotifiedThings?: number;
+        /**
+         * When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+         */
+        numberOfSucceededThings?: number;
+    }
+
+    export interface OtaUpdateAwsJobTimeoutConfig {
+        /**
+         * Specifies the amount of time, in minutes, this device has to finish execution of this job.
+         */
+        inProgressTimeoutInMinutes?: number;
+    }
+
+    export interface OtaUpdateCodeSigning {
+        /**
+         * The ID of the AWSSignerJob which was created to sign the file.
+         */
+        awsSignerJobId?: string;
+        customCodeSigning?: outputs.iot.OtaUpdateCustomCodeSigning;
+        startSigningJobParameter?: outputs.iot.OtaUpdateStartSigningJobParameter;
+    }
+
+    export interface OtaUpdateCodeSigningCertificateChain {
+        /**
+         * The name of the certificate.
+         */
+        certificateName?: string;
+        /**
+         * A base64 encoded binary representation of the code signing certificate chain.
+         */
+        inlineDocument?: string;
+    }
+
+    export interface OtaUpdateCodeSigningSignature {
+        /**
+         * A base64 encoded binary representation of the code signing signature.
+         */
+        inlineDocument?: string;
+    }
+
+    export interface OtaUpdateCustomCodeSigning {
+        certificateChain?: outputs.iot.OtaUpdateCodeSigningCertificateChain;
+        /**
+         * The hash algorithm used to code sign the file.
+         */
+        hashAlgorithm?: string;
+        signature?: outputs.iot.OtaUpdateCodeSigningSignature;
+        /**
+         * The signature algorithm used to code sign the file.
+         */
+        signatureAlgorithm?: string;
+    }
+
+    export interface OtaUpdateDestination {
+        s3Destination?: outputs.iot.OtaUpdateS3Destination;
+    }
+
+    export interface OtaUpdateFileLocation {
+        s3Location?: outputs.iot.OtaUpdateS3Location;
+        stream?: outputs.iot.OtaUpdateStream;
+    }
+
+    export interface OtaUpdateOtaUpdateFile {
+        /**
+         * A list of name-attribute pairs.
+         */
+        attributes?: {[key: string]: string};
+        codeSigning?: outputs.iot.OtaUpdateCodeSigning;
+        fileLocation?: outputs.iot.OtaUpdateFileLocation;
+        /**
+         * The name of the file.
+         */
+        fileName?: string;
+        /**
+         * An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+         */
+        fileType?: number;
+        /**
+         * The file version.
+         */
+        fileVersion?: string;
+    }
+
+    export interface OtaUpdateS3Destination {
+        /**
+         * The S3 bucket that contains the updated firmware.
+         */
+        bucket?: string;
+        /**
+         * The S3 prefix.
+         */
+        prefix?: string;
+    }
+
+    export interface OtaUpdateS3Location {
+        /**
+         * The S3 bucket.
+         */
+        bucket?: string;
+        /**
+         * The S3 key.
+         */
+        key?: string;
+        /**
+         * The S3 bucket version.
+         */
+        version?: string;
+    }
+
+    export interface OtaUpdateSigningProfileParameter {
+        /**
+         * Certificate ARN.
+         */
+        certificateArn?: string;
+        /**
+         * The location of the code-signing certificate on your device.
+         */
+        certificatePathOnDevice?: string;
+        /**
+         * The hardware platform of your device.
+         */
+        platform?: string;
+    }
+
+    export interface OtaUpdateStartSigningJobParameter {
+        destination?: outputs.iot.OtaUpdateDestination;
+        /**
+         * The code-signing profile name.
+         */
+        signingProfileName?: string;
+        signingProfileParameter?: outputs.iot.OtaUpdateSigningProfileParameter;
+    }
+
+    export interface OtaUpdateStream {
+        /**
+         * The ID of a file associated with a stream.
+         */
+        fileId?: number;
+        /**
+         * The stream ID.
+         */
+        streamId?: string;
     }
 
     /**
@@ -63839,52 +66735,58 @@ export namespace iotcoredeviceadvisor {
 }
 
 export namespace iotevents {
-    /**
-     * Specifies whether to get notified for alarm state changes.
-     */
     export interface AlarmModelAcknowledgeFlow {
         /**
-         * The value must be ``TRUE`` or ``FALSE``. If ``TRUE``, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to ``NORMAL``. If ``FALSE``, you won't receive notifications. The alarm automatically changes to the ``NORMAL`` state when the input property value returns to the specified range.
+         * The value must be `TRUE` or `FALSE` . If `TRUE` , you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to `NORMAL` . If `FALSE` , you won't receive notifications. The alarm automatically changes to the `NORMAL` state when the input property value returns to the specified range.
          */
         enabled?: boolean;
     }
 
-    /**
-     * Specifies one of the following actions to receive notifications when the alarm state changes.
-     */
     export interface AlarmModelAlarmAction {
         /**
-         * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-         *  You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
-         *   **Examples**
-         *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
-         *   +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
-         *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
-         *        ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
-         *   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-         *        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+         * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
          *
-         *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-         *  The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
+         * You must use expressions for all parameters in `DynamoDBv2Action` . The expressions accept literals, operators, functions, references, and substitution templates.
+         *
+         * **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `tableName` parameter can be `'GreenhouseTemperatureTable'` .
+         * - For references, you must specify either variables or input values. For example, the value for the `tableName` parameter can be `$variable.ddbtableName` .
+         * - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `contentExpression` parameter in `Payload` uses a substitution template.
+         *
+         * `'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'`
+         * - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `tableName` parameter uses a string concatenation.
+         *
+         * `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+         *
+         * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+         *
+         * The value for the `type` parameter in `Payload` must be `JSON` .
          */
         dynamoDBv2?: outputs.iotevents.AlarmModelDynamoDBv2;
         /**
-         * Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-         *  You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
-         *   **Examples**
-         *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
-         *   +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
-         *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
-         *        ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
-         *   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-         *        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+         * Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
          *
-         *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-         *  If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+         * You must use expressions for all parameters in `DynamoDBAction` . The expressions accept literals, operators, functions, references, and substitution templates.
+         *
+         * **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `hashKeyType` parameter can be `'STRING'` .
+         * - For references, you must specify either variables or input values. For example, the value for the `hashKeyField` parameter can be `$input.GreenhouseInput.name` .
+         * - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `hashKeyValue` parameter uses a substitution template.
+         *
+         * `'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`
+         * - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `tableName` parameter uses a string concatenation.
+         *
+         * `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+         *
+         * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+         *
+         * If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
          */
         dynamoDb?: outputs.iotevents.AlarmModelDynamoDb;
         /**
@@ -63892,25 +66794,29 @@ export namespace iotevents {
          */
         firehose?: outputs.iotevents.AlarmModelFirehose;
         /**
-         * Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
+         * Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
          */
         iotEvents?: outputs.iotevents.AlarmModelIotEvents;
         /**
-         * Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
-         *  You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
-         *   **Examples**
-         *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
-         *   +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
-         *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
-         *        ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+         * Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
          *
-         *  You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
-         *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         * You must use expressions for all parameters in `IotSiteWiseAction` . The expressions accept literals, operators, functions, references, and substitutions templates.
+         *
+         * **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `propertyAlias` parameter can be `'/company/windfarm/3/turbine/7/temperature'` .
+         * - For references, you must specify either variables or input values. For example, the value for the `assetId` parameter can be `$input.TurbineInput.assetId1` .
+         * - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `propertyAlias` parameter uses a substitution template.
+         *
+         * `'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`
+         *
+         * You must specify either `propertyAlias` or both `assetId` and `propertyId` to identify the target asset property in AWS IoT SiteWise .
+         *
+         * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
          */
         iotSiteWise?: outputs.iotevents.AlarmModelIotSiteWise;
         /**
-         * Information required to publish the MQTT message through the IoT message broker.
+         * Information required to publish the MQTT message through the AWS IoT message broker.
          */
         iotTopicPublish?: outputs.iotevents.AlarmModelIotTopicPublish;
         /**
@@ -63927,9 +66833,6 @@ export namespace iotevents {
         sqs?: outputs.iotevents.AlarmModelSqs;
     }
 
-    /**
-     * Contains the configuration information of alarm state changes.
-     */
     export interface AlarmModelAlarmCapabilities {
         /**
          * Specifies whether to get notified for alarm state changes.
@@ -63941,9 +66844,6 @@ export namespace iotevents {
         initializationConfiguration?: outputs.iotevents.AlarmModelInitializationConfiguration;
     }
 
-    /**
-     * Contains information about one or more alarm actions.
-     */
     export interface AlarmModelAlarmEventActions {
         /**
          * Specifies one or more supported actions to receive notifications when the alarm state changes.
@@ -63951,9 +66851,6 @@ export namespace iotevents {
         alarmActions?: outputs.iotevents.AlarmModelAlarmAction[];
     }
 
-    /**
-     * Defines when your alarm is invoked.
-     */
     export interface AlarmModelAlarmRule {
         /**
          * A rule that compares an input property value to a threshold value with a comparison operator.
@@ -63961,21 +66858,9 @@ export namespace iotevents {
         simpleRule?: outputs.iotevents.AlarmModelSimpleRule;
     }
 
-    /**
-     * A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
-     *  You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
-     *        ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     */
     export interface AlarmModelAssetPropertyTimestamp {
         /**
-         * The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
+         * The nanosecond offset converted from `timeInSeconds` . The valid range is between 0-999999999.
          */
         offsetInNanos?: string;
         /**
@@ -63984,18 +66869,9 @@ export namespace iotevents {
         timeInSeconds: string;
     }
 
-    /**
-     * A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
-     *  You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     */
     export interface AlarmModelAssetPropertyValue {
         /**
-         * The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
+         * The quality of the asset property value. The value must be `'GOOD'` , `'BAD'` , or `'UNCERTAIN'` .
          */
         quality?: string;
         /**
@@ -64008,22 +66884,9 @@ export namespace iotevents {
         value: outputs.iotevents.AlarmModelAssetPropertyVariant;
     }
 
-    /**
-     * A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
-     *  You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
-     *   +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
-     *        ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     *  You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
-     */
     export interface AlarmModelAssetPropertyVariant {
         /**
-         * The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
+         * The asset property value is a Boolean value that must be `'TRUE'` or `'FALSE'` . You must use an expression, and the evaluated result should be a Boolean value.
          */
         booleanValue?: string;
         /**
@@ -64040,26 +66903,11 @@ export namespace iotevents {
         stringValue?: string;
     }
 
-    /**
-     * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-     *  You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
-     *        ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
-     *   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-     *        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     *  The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
-     */
     export interface AlarmModelDynamoDBv2 {
         /**
          * Information needed to configure the payload.
-         *  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+         *
+         * By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
          */
         payload?: outputs.iotevents.AlarmModelPayload;
         /**
@@ -64068,33 +66916,18 @@ export namespace iotevents {
         tableName: string;
     }
 
-    /**
-     * Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-     *  You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
-     *        ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
-     *   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-     *        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     *  If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
-     */
     export interface AlarmModelDynamoDb {
         /**
-         * The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
+         * The name of the hash key (also called the partition key). The `hashKeyField` value must match the partition key of the target DynamoDB table.
          */
         hashKeyField: string;
         /**
          * The data type for the hash key (also called the partition key). You can specify the following values:
-         *   +  ``'STRING'`` - The hash key is a string.
-         *   +  ``'NUMBER'`` - The hash key is a number.
          *
-         *  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
+         * - `'STRING'` - The hash key is a string.
+         * - `'NUMBER'` - The hash key is a number.
+         *
+         * If you don't specify `hashKeyType` , the default value is `'STRING'` .
          */
         hashKeyType?: string;
         /**
@@ -64103,33 +66936,37 @@ export namespace iotevents {
         hashKeyValue: string;
         /**
          * The type of operation to perform. You can specify the following values:
-         *   +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-         *   +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-         *   +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
          *
-         *  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
+         * - `'INSERT'` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+         * - `'UPDATE'` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+         * - `'DELETE'` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+         *
+         * If you don't specify this parameter, AWS IoT Events triggers the `'INSERT'` operation.
          */
         operation?: string;
         /**
          * Information needed to configure the payload.
-         *  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+         *
+         * By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
          */
         payload?: outputs.iotevents.AlarmModelPayload;
         /**
          * The name of the DynamoDB column that receives the action payload.
-         *  If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
+         *
+         * If you don't specify this parameter, the name of the DynamoDB column is `payload` .
          */
         payloadField?: string;
         /**
-         * The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
+         * The name of the range key (also called the sort key). The `rangeKeyField` value must match the sort key of the target DynamoDB table.
          */
         rangeKeyField?: string;
         /**
          * The data type for the range key (also called the sort key), You can specify the following values:
-         *   +  ``'STRING'`` - The range key is a string.
-         *   +  ``'NUMBER'`` - The range key is number.
          *
-         *  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
+         * - `'STRING'` - The range key is a string.
+         * - `'NUMBER'` - The range key is number.
+         *
+         * If you don't specify `rangeKeyField` , the default value is `'STRING'` .
          */
         rangeKeyType?: string;
         /**
@@ -64137,14 +66974,11 @@ export namespace iotevents {
          */
         rangeKeyValue?: string;
         /**
-         * The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
+         * The name of the DynamoDB table. The `tableName` value must match the table name of the target DynamoDB table.
          */
         tableName: string;
     }
 
-    /**
-     * Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-     */
     export interface AlarmModelFirehose {
         /**
          * The name of the Kinesis Data Firehose delivery stream where the data is written.
@@ -64160,43 +66994,24 @@ export namespace iotevents {
         separator?: string;
     }
 
-    /**
-     * Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
-     */
     export interface AlarmModelInitializationConfiguration {
         /**
-         * The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
+         * The value must be `TRUE` or `FALSE` . If `FALSE` , all alarm instances created based on the alarm model are activated. The default value is `TRUE` .
          */
         disabledOnInitialization: boolean;
     }
 
-    /**
-     * Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
-     */
     export interface AlarmModelIotEvents {
         /**
-         * The name of the ITE input where the data is sent.
+         * The name of the AWS IoT Events input where the data is sent.
          */
         inputName: string;
         /**
-         * You can configure the action payload when you send a message to an ITE input.
+         * You can configure the action payload when you send a message to an AWS IoT Events input.
          */
         payload?: outputs.iotevents.AlarmModelPayload;
     }
 
-    /**
-     * Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
-     *  You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
-     *        ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
-     *
-     *  You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     */
     export interface AlarmModelIotSiteWise {
         /**
          * The ID of the asset that has the specified property.
@@ -64220,23 +67035,17 @@ export namespace iotevents {
         propertyValue?: outputs.iotevents.AlarmModelAssetPropertyValue;
     }
 
-    /**
-     * Information required to publish the MQTT message through the IoT message broker.
-     */
     export interface AlarmModelIotTopicPublish {
         /**
-         * The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
+         * The MQTT topic of the message. You can use a string expression that includes variables ( `$variable.<variable-name>` ) and input values ( `$input.<input-name>.<path-to-datum>` ) as the topic string.
          */
         mqttTopic: string;
         /**
-         * You can configure the action payload when you publish a message to an IoTCore topic.
+         * You can configure the action payload when you publish a message to an AWS IoT Core topic.
          */
         payload?: outputs.iotevents.AlarmModelPayload;
     }
 
-    /**
-     * Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
-     */
     export interface AlarmModelLambda {
         /**
          * The ARN of the Lambda function that is executed.
@@ -64248,42 +67057,32 @@ export namespace iotevents {
         payload?: outputs.iotevents.AlarmModelPayload;
     }
 
-    /**
-     * Information needed to configure the payload.
-     *  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
-     */
     export interface AlarmModelPayload {
         /**
-         * The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
+         * The content of the payload. You can use a string expression that includes quoted strings ( `'<string>'` ), variables ( `$variable.<variable-name>` ), input values ( `$input.<input-name>.<path-to-datum>` ), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
          */
         contentExpression: string;
         /**
-         * The value of the payload type can be either ``STRING`` or ``JSON``.
+         * The value of the payload type can be either `STRING` or `JSON` .
          */
         type: string;
     }
 
-    /**
-     * A rule that compares an input property value to a threshold value with a comparison operator.
-     */
     export interface AlarmModelSimpleRule {
         /**
          * The comparison operator.
          */
-        comparisonOperator: enums.iotevents.AlarmModelSimpleRuleComparisonOperator;
+        comparisonOperator: string;
         /**
-         * The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
+         * The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
          */
         inputProperty: string;
         /**
-         * The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
+         * The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
          */
         threshold: string;
     }
 
-    /**
-     * Information required to publish the Amazon SNS message.
-     */
     export interface AlarmModelSns {
         /**
          * You can configure the action payload when you send a message as an Amazon SNS push notification.
@@ -64295,9 +67094,6 @@ export namespace iotevents {
         targetArn: string;
     }
 
-    /**
-     * Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
-     */
     export interface AlarmModelSqs {
         /**
          * You can configure the action payload when you send a message to an Amazon SQS queue.
@@ -66365,6 +69161,30 @@ export namespace iotwireless {
 }
 
 export namespace ivs {
+    /**
+     * Object specifying a configuration for integration with an AWS Elemental MediaTailor (EMT).
+     */
+    export interface AdConfigurationMediaTailorPlaybackConfiguration {
+        /**
+         * ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+         */
+        playbackConfigurationArn?: string;
+    }
+
+    /**
+     * Configuration for the post-roll ad break to use for this ad configuration.
+     */
+    export interface AdConfigurationPostRollConfiguration {
+        /**
+         * Duration of the post-roll ad break, in seconds.
+         */
+        durationSeconds: number;
+        /**
+         * Whether the post-roll ad configuration is enabled.
+         */
+        enabled: boolean;
+    }
+
     export interface ChannelMultitrackInputConfiguration {
         /**
          * Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
@@ -71324,7 +74144,7 @@ export namespace lambda {
          */
         networkProtocol: enums.lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol;
         /**
-         * The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+         * The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
          */
         securityGroupIds: string[];
         /**
@@ -71337,6 +74157,10 @@ export namespace lambda {
      * The service configuration for the revision.
      */
     export interface ServiceConfigProperties {
+        /**
+         * The versioned ARN of the network connector used for outbound network access from the revision.
+         */
+        egressNetworkConnectorArn?: string;
         /**
          * Environment variables for the function.
          */
@@ -73109,6 +75933,38 @@ export namespace licensemanager {
         maxTimeToLiveInMinutes: number;
     }
 
+    /**
+     * Describes product information for a license configuration.
+     */
+    export interface LicenseConfigurationProductInformation {
+        /**
+         * A product information filter list.
+         */
+        productInformationFilterList: outputs.licensemanager.LicenseConfigurationProductInformationFilter[];
+        /**
+         * Resource type. The possible values are SSM_MANAGED | RDS.
+         */
+        resourceType: string;
+    }
+
+    /**
+     * Describes a product information filter.
+     */
+    export interface LicenseConfigurationProductInformationFilter {
+        /**
+         * Logical operator.
+         */
+        productInformationFilterComparator: string;
+        /**
+         * Filter name.
+         */
+        productInformationFilterName: string;
+        /**
+         * Filter value.
+         */
+        productInformationFilterValue?: string[];
+    }
+
     export interface LicenseConsumptionConfiguration {
         /**
          * Details about a borrow configuration.
@@ -73189,6 +76045,86 @@ export namespace licensemanager {
          * Validity begin date for the license.
          */
         end: string;
+    }
+
+}
+
+export namespace licensemanagerlinuxsubscriptions {
+}
+
+export namespace licensemanagerusersubscriptions {
+    /**
+     * The source of the credentials that License Manager uses to reach the license server.
+     */
+    export interface LicenseServerEndpointCredentialsProvider {
+        secretsManagerCredentialsProvider: outputs.licensemanagerusersubscriptions.LicenseServerEndpointSecretsManagerCredentialsProvider;
+    }
+
+    /**
+     * A Remote Desktop Services license server that is accessed through the endpoint.
+     */
+    export interface LicenseServerEndpointLicenseServer {
+        /**
+         * The health status of the license server.
+         */
+        healthStatus?: enums.licensemanagerusersubscriptions.LicenseServerEndpointLicenseServerHealthStatus;
+        /**
+         * The domain IPv4 address of the license server.
+         */
+        ipv4Address?: string;
+        /**
+         * The domain IPv6 address of the license server.
+         */
+        ipv6Address?: string;
+        /**
+         * The current state of the provisioning process for the license server.
+         */
+        provisioningStatus?: enums.licensemanagerusersubscriptions.LicenseServerEndpointLicenseServerProvisioningStatus;
+    }
+
+    /**
+     * The settings of the RDS license server to create the endpoint for.
+     */
+    export interface LicenseServerEndpointLicenseServerSettings {
+        serverSettings: outputs.licensemanagerusersubscriptions.LicenseServerEndpointServerSettings;
+        /**
+         * The type of license server.
+         */
+        serverType: enums.licensemanagerusersubscriptions.LicenseServerEndpointLicenseServerSettingsServerType;
+    }
+
+    /**
+     * The settings of a Remote Desktop Services Subscriber Access License server.
+     */
+    export interface LicenseServerEndpointRdsSalSettings {
+        rdsSalCredentialsProvider: outputs.licensemanagerusersubscriptions.LicenseServerEndpointCredentialsProvider;
+    }
+
+    /**
+     * Credentials held in AWS Secrets Manager.
+     */
+    export interface LicenseServerEndpointSecretsManagerCredentialsProvider {
+        /**
+         * The identifier of the Secrets Manager secret that holds the license server administrator credentials. The name of the secret must begin with the prefix license-manager-user-.
+         */
+        secretId: string;
+    }
+
+    /**
+     * The network address of a license server endpoint.
+     */
+    export interface LicenseServerEndpointServerEndpoint {
+        /**
+         * The network address of the endpoint.
+         */
+        endpoint?: string;
+    }
+
+    /**
+     * The settings of a license server, by server type.
+     */
+    export interface LicenseServerEndpointServerSettings {
+        rdsSalSettings: outputs.licensemanagerusersubscriptions.LicenseServerEndpointRdsSalSettings;
     }
 
 }
@@ -75078,6 +78014,10 @@ export namespace mediaconnect {
     }
 
     export interface FlowNdiSourceSettings {
+        /**
+         * The audio reference level of the NDI sender, in dBFS.
+         */
+        audioReferenceLevel?: number;
         sourceName?: string;
     }
 
@@ -76395,6 +79335,338 @@ export namespace medialive {
     }
 
     /**
+     * The settings for a PUSH type input.
+     */
+    export interface InputDestination {
+        /**
+         * The system-generated static IP address of endpoint.
+         * It remains fixed for the lifetime of the input.
+         */
+        ip?: string;
+        /**
+         * The ID of the attached network.
+         */
+        network?: string;
+        /**
+         * If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+         * is going to be on the customer local network.
+         */
+        networkRoutes?: outputs.medialive.InputDestinationRoute[];
+        /**
+         * The port number for the input.
+         */
+        port?: string;
+        /**
+         * The static IP address for the input destination.
+         */
+        staticIpAddress?: string;
+        /**
+         * The stream name for the input destination.
+         */
+        streamName?: string;
+        /**
+         * This represents the endpoint that the customer stream will be
+         * pushed to.
+         */
+        url?: string;
+        /**
+         * The properties for a VPC type input destination.
+         */
+        vpc?: outputs.medialive.InputDestinationVpc;
+    }
+
+    /**
+     * A network route configuration.
+     */
+    export interface InputDestinationRoute {
+        /**
+         * The CIDR of the route.
+         */
+        cidr?: string;
+        /**
+         * An optional gateway for the route.
+         */
+        gateway?: string;
+    }
+
+    /**
+     * The properties for a VPC type input destination.
+     */
+    export interface InputDestinationVpc {
+        /**
+         * The availability zone of the Input destination.
+         */
+        availabilityZone?: string;
+        /**
+         * The network interface ID of the Input destination in the VPC.
+         */
+        networkInterfaceId?: string;
+    }
+
+    /**
+     * Settings for an input device.
+     */
+    export interface InputDeviceSettings {
+        /**
+         * The unique ID for the device.
+         */
+        id?: string;
+    }
+
+    /**
+     * The settings for a MediaConnect Flow.
+     */
+    export interface InputMediaConnectFlow {
+        /**
+         * The unique ARN of the MediaConnect Flow being used as a source.
+         */
+        flowArn?: string;
+    }
+
+    /**
+     * Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+     */
+    export interface InputMulticastSettings {
+        /**
+         * Placeholder documentation for __listOfMulticastSource
+         */
+        sources?: outputs.medialive.InputMulticastSource[];
+    }
+
+    /**
+     * Pair of multicast url and source ip address (optional) that make up a multicast source.
+     */
+    export interface InputMulticastSource {
+        /**
+         * This represents the ip address of the device sending the multicast stream.
+         */
+        sourceIp?: string;
+        /**
+         * This represents the customer's source URL where multicast stream is pulled from.
+         */
+        url: string;
+    }
+
+    /**
+     * A MediaConnect Router destination associated with a MediaLive Input. RouterOutputArn is server-assigned.
+     */
+    export interface InputRouterDestinationSettings {
+        /**
+         * The Availability Zone (AZ) name this destination is created in.
+         */
+        availabilityZoneName: string;
+        /**
+         * The ARN of the MediaConnect Router output currently connected to this input.
+         */
+        routerOutputArn?: string;
+    }
+
+    /**
+     * Information about the MediaConnect Router association for this input.
+     */
+    export interface InputRouterSettings {
+        /**
+         * MediaConnect Router destinations associated with this input.
+         */
+        destinations?: outputs.medialive.InputRouterDestinationSettings[];
+        /**
+         * Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+         */
+        encryptionType?: enums.medialive.InputRouterSettingsEncryptionType;
+        /**
+         * The ARN of the Secrets Manager secret used to encrypt this input. Required when EncryptionType is SECRETS_MANAGER.
+         */
+        secretArn?: string;
+    }
+
+    /**
+     * The location of the SDP file for one of the SMPTE 2110 streams in a receiver group.
+     */
+    export interface InputSdpLocation {
+        /**
+         * The index of the media stream in the SDP file for one SMPTE 2110 stream.
+         */
+        mediaIndex?: number;
+        /**
+         * The URL of the SDP file for one SMPTE 2110 stream.
+         */
+        sdpUrl?: string;
+    }
+
+    /**
+     * Whitelist rule
+     */
+    export interface InputSecurityGroupInputWhitelistRule {
+        /**
+         * The IPv4 CIDR that's whitelisted.
+         */
+        cidr?: string;
+    }
+
+    /**
+     * A receiver group is a collection of video, audio, and ancillary streams that you want to group together and attach to one input.
+     */
+    export interface InputSmpte2110ReceiverGroup {
+        /**
+         * The single Smpte2110ReceiverGroupSdpSettings that identify the video, audio, and ancillary streams for this receiver group.
+         */
+        sdpSettings?: outputs.medialive.InputSmpte2110ReceiverGroupSdpSettings;
+    }
+
+    /**
+     * Information about the SDP files that describe the SMPTE 2110 streams that go into one SMPTE 2110 receiver group.
+     */
+    export interface InputSmpte2110ReceiverGroupSdpSettings {
+        /**
+         * A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+         * Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+         */
+        ancillarySdps?: outputs.medialive.InputSdpLocation[];
+        /**
+         * A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+         */
+        audioSdps?: outputs.medialive.InputSdpLocation[];
+        /**
+         * The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+         */
+        videoSdp?: outputs.medialive.InputSdpLocation;
+    }
+
+    /**
+     * Configures the sources for the SMPTE 2110 Receiver Group input.
+     */
+    export interface InputSmpte2110ReceiverGroupSettings {
+        /**
+         * Placeholder documentation for __listOfSmpte2110ReceiverGroup
+         */
+        smpte2110ReceiverGroups?: outputs.medialive.InputSmpte2110ReceiverGroup[];
+    }
+
+    /**
+     * The settings for a PULL type input.
+     */
+    export interface InputSource {
+        /**
+         * The key used to extract the password from EC2 Parameter store.
+         */
+        passwordParam?: string;
+        /**
+         * This represents the customer's source URL where stream is
+         * pulled from.
+         */
+        url?: string;
+        /**
+         * The username for the input source.
+         */
+        username?: string;
+    }
+
+    /**
+     * The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+     */
+    export interface InputSrtCallerDecryption {
+        /**
+         * The algorithm used to encrypt content.
+         */
+        algorithm?: enums.medialive.InputAlgorithm;
+        /**
+         * The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+         */
+        passphraseSecretArn?: string;
+    }
+
+    /**
+     * The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+     */
+    export interface InputSrtCallerSource {
+        /**
+         * The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+         */
+        decryption?: outputs.medialive.InputSrtCallerDecryption;
+        /**
+         * The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+         */
+        minimumLatency?: number;
+        /**
+         * The IP address at the upstream system (the listener) that MediaLive (the caller) connects to.
+         */
+        srtListenerAddress?: string;
+        /**
+         * The port at the upstream system (the listener) that MediaLive (the caller) connects to.
+         */
+        srtListenerPort?: string;
+        /**
+         * The stream ID, if the upstream system uses this identifier.
+         */
+        streamId?: string;
+    }
+
+    /**
+     * The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+     */
+    export interface InputSrtListenerDecryption {
+        /**
+         * The algorithm used to encrypt content.
+         */
+        algorithm?: enums.medialive.InputAlgorithm;
+        /**
+         * The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+         */
+        passphraseSecretArn?: string;
+    }
+
+    /**
+     * The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is the listener and the upstream system is the caller.
+     */
+    export interface InputSrtListenerSettings {
+        /**
+         * The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+         */
+        decryption?: outputs.medialive.InputSrtListenerDecryption;
+        /**
+         * The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+         */
+        minimumLatency?: number;
+        /**
+         * The stream ID, if the upstream system uses this identifier.
+         */
+        streamId?: string;
+    }
+
+    /**
+     * The configured sources for this SRT input.
+     */
+    export interface InputSrtSettings {
+        /**
+         * Placeholder documentation for __listOfSrtCallerSource
+         */
+        srtCallerSources?: outputs.medialive.InputSrtCallerSource[];
+        /**
+         * Settings for an SRT listener input. Configured only when the input uses the SRT_LISTENER input type.
+         */
+        srtListenerSettings?: outputs.medialive.InputSrtListenerSettings;
+    }
+
+    /**
+     * Settings for a private VPC Input.
+     * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+     * This property requires setting the roleArn property on Input creation.
+     * Not compatible with the inputSecurityGroups property.
+     */
+    export interface InputVpcRequest {
+        /**
+         * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+         * Requires subnetIds. If none are specified then the VPC default security group will be used.
+         */
+        securityGroupIds?: string[];
+        /**
+         * A list of 2 VPC subnet IDs from the same VPC.
+         * Subnet IDs must be mapped to two unique availability zones (AZ).
+         */
+        subnetIds?: string[];
+    }
+
+    /**
      * Multiplex MediaConnect output destination settings.
      */
     export interface MultiplexOutputDestination {
@@ -77432,6 +80704,13 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>
+     */
+    export interface OriginEndpointContentKeyPeriodConfiguration {
+        contentKeyPeriodTiming?: enums.mediapackagev2.OriginEndpointContentKeyPeriodTiming;
+    }
+
+    /**
      * <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
      */
     export interface OriginEndpointDashAvailabilityStartTimeConfigurationProperties {
@@ -77753,6 +81032,7 @@ export namespace mediapackagev2 {
          * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
          */
         manifestFilter?: string;
+        multiview?: outputs.mediapackagev2.OriginEndpointMultiviewFilterConfiguration;
         /**
          * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
          */
@@ -77817,6 +81097,36 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+     */
+    export interface OriginEndpointLowLatencyHlsFilterConfiguration {
+        /**
+         * <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+         */
+        clipStartTime?: string;
+        /**
+         * <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+         */
+        drmSettings?: string;
+        /**
+         * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+         */
+        end?: string;
+        /**
+         * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+         */
+        manifestFilter?: string;
+        /**
+         * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+         */
+        start?: string;
+        /**
+         * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+         */
+        timeDelaySeconds?: number;
+    }
+
+    /**
      * <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
      */
     export interface OriginEndpointLowLatencyHlsManifestConfiguration {
@@ -77827,7 +81137,7 @@ export namespace mediapackagev2 {
         /**
          * Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
          */
-        filterConfiguration?: outputs.mediapackagev2.OriginEndpointFilterConfiguration;
+        filterConfiguration?: outputs.mediapackagev2.OriginEndpointLowLatencyHlsFilterConfiguration;
         /**
          * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
@@ -77860,10 +81170,40 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+     */
+    export interface OriginEndpointMssFilterConfiguration {
+        /**
+         * <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+         */
+        clipStartTime?: string;
+        /**
+         * <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+         */
+        drmSettings?: string;
+        /**
+         * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+         */
+        end?: string;
+        /**
+         * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+         */
+        manifestFilter?: string;
+        /**
+         * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+         */
+        start?: string;
+        /**
+         * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+         */
+        timeDelaySeconds?: number;
+    }
+
+    /**
      * <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
      */
     export interface OriginEndpointMssManifestConfiguration {
-        filterConfiguration?: outputs.mediapackagev2.OriginEndpointFilterConfiguration;
+        filterConfiguration?: outputs.mediapackagev2.OriginEndpointMssFilterConfiguration;
         manifestLayout?: enums.mediapackagev2.OriginEndpointMssManifestLayout;
         /**
          * <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
@@ -77873,6 +81213,17 @@ export namespace mediapackagev2 {
          * <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
          */
         manifestWindowSeconds?: number;
+    }
+
+    /**
+     * <p>The multiview combination for a pinned manifest. MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+     */
+    export interface OriginEndpointMultiviewFilterConfiguration {
+        layout: enums.mediapackagev2.OriginEndpointMultiviewLayoutType;
+        /**
+         * <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+         */
+        sources: string[];
     }
 
     /**
@@ -77982,6 +81333,7 @@ export namespace mediapackagev2 {
          * <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
          */
         certificateArn?: string;
+        contentKeyPeriodConfiguration?: outputs.mediapackagev2.OriginEndpointContentKeyPeriodConfiguration;
         /**
          * <p>The DRM solution provider you're using to protect your content during distribution.</p>
          */
@@ -77998,6 +81350,7 @@ export namespace mediapackagev2 {
          * <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
          */
         roleArn: string;
+        spekeVersion?: enums.mediapackagev2.OriginEndpointSpekeVersion;
         /**
          * <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
          */
@@ -78122,6 +81475,10 @@ export namespace mediatailor {
          */
         body?: string;
         /**
+         * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+         */
+        cache?: outputs.mediatailor.FunctionHttpRequestCacheConfiguration;
+        /**
          * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
          */
         headers?: {[key: string]: string};
@@ -78187,6 +81544,24 @@ export namespace mediatailor {
     }
 
     /**
+     * The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST). When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+     */
+    export interface FunctionHttpRequestCacheConfiguration {
+        /**
+         * A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, request body, and HTTP method; request headers are not included. The evaluated key must be smaller than 1 KB.
+         */
+        key?: string;
+        /**
+         * The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to TtlMinimumSeconds.
+         */
+        ttlMaximumSeconds: number;
+        /**
+         * The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no Cache-Control max-age directive.
+         */
+        ttlMinimumSeconds: number;
+    }
+
+    /**
      * Configuration for HTTP request functions.
      */
     export interface FunctionHttpRequestConfiguration {
@@ -78194,6 +81569,10 @@ export namespace mediatailor {
          * The body of the HTTP request.
          */
         body?: string;
+        /**
+         * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+         */
+        cache?: outputs.mediatailor.FunctionHttpRequestCacheConfiguration;
         /**
          * A map of HTTP headers to include in the request.
          */
@@ -78265,6 +81644,10 @@ export namespace mediatailor {
          * An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
          */
         body?: string;
+        /**
+         * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+         */
+        cache?: outputs.mediatailor.FunctionHttpRequestCacheConfiguration;
         /**
          * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
          */
@@ -78401,6 +81784,16 @@ export namespace mediatailor {
     }
 
     /**
+     * The beaconing configuration for a playback configuration. Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+     */
+    export interface PlaybackConfigurationBeaconingConfiguration {
+        /**
+         * The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+         */
+        clientSide?: outputs.mediatailor.PlaybackConfigurationClientSideBeaconingConfiguration;
+    }
+
+    /**
      * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
      */
     export interface PlaybackConfigurationBumper {
@@ -78426,6 +81819,20 @@ export namespace mediatailor {
          * A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
          */
         contentSegmentUrlPrefix?: string;
+    }
+
+    /**
+     * The beaconing settings that apply to client-side reporting sessions: whether AWS Elemental MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+     */
+    export interface PlaybackConfigurationClientSideBeaconingConfiguration {
+        /**
+         * The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+         */
+        additionalEventTypes?: enums.mediatailor.PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem[];
+        /**
+         * Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+         */
+        reportingMode: enums.mediatailor.PlaybackConfigurationClientSideBeaconingConfigurationReportingMode;
     }
 
     /**
@@ -83819,6 +87226,10 @@ export namespace opensearchservice {
          */
         enabled?: boolean;
         /**
+         * The type of encryption at rest applied to the domain's data. Valid values are DISK and NATIVE. DISK is the default and uses volume-level encryption. NATIVE uses engine-native, index-level encryption and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After the mode is set to NATIVE, it can't be changed back to DISK.
+         */
+        encryptionMode?: enums.opensearchservice.DomainEncryptionAtRestOptionsEncryptionMode;
+        /**
          * The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
          *
          * You can also use `keyAlias` as a value.
@@ -84417,6 +87828,14 @@ export namespace paymentcryptography {
 
     export interface KeyReplicationStatusType {
         /**
+         * The ARN of the AWS KMS key that protects the replica in this region.
+         */
+        kmsKeyArn?: string;
+        /**
+         * The AWS KMS key requested for this region, when replication failed before its ARN was known.
+         */
+        kmsKeyId?: string;
+        /**
          * The current status of key replication in this AWS Region .
          *
          * This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
@@ -84860,7 +88279,7 @@ export namespace pcs {
         /**
          * The version of the EC2 launch template to use to provision instances.
          */
-        version: string;
+        version?: string;
     }
 
     /**
@@ -96637,14 +100056,13 @@ export namespace quicksight {
 
     /**
      * Scoping: who the policy applies to.
-     * GROUP: `groupArns` required (one or more group ARNs).
      */
     export interface ApprovalPolicyApplicableTo {
         /**
          * Required when type = GROUP. One or more group ARNs.
          */
         groupArns?: string[];
-        type: any;
+        type: enums.quicksight.ApprovalPolicyApplicableToType;
     }
 
     export interface CustomPermissionsCapabilities {
@@ -108413,6 +111831,7 @@ export namespace quicksight {
          * The credentials for connecting using key-pair.
          */
         keyPairCredentials?: outputs.quicksight.DataSourceKeyPairCredentials;
+        oAuthClientCredentials?: outputs.quicksight.DataSourceOAuthClientCredentials;
         /**
          * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
          */
@@ -108423,10 +111842,12 @@ export namespace quicksight {
      * <p>The parameters that are required to connect to a Databricks data source.</p>
      */
     export interface DataSourceDatabricksParameters {
+        authenticationType?: enums.quicksight.DataSourceAuthenticationType;
         /**
          * <p>The host name of the Databricks data source.</p>
          */
         host: string;
+        oAuthParameters?: outputs.quicksight.DataSourceOAuthParameters;
         /**
          * <p>The port for the Databricks data source.</p>
          */
@@ -108524,6 +111945,12 @@ export namespace quicksight {
          * <p>Port.</p>
          */
         port: number;
+    }
+
+    export interface DataSourceOAuthClientCredentials {
+        clientId?: string;
+        clientSecret?: string;
+        username?: string;
     }
 
     export interface DataSourceOAuthParameters {
@@ -119756,6 +123183,32 @@ export namespace rds {
         sessionPinningFilters?: string[];
     }
 
+    export interface DeploymentSwitchoverDetail {
+        /**
+         * The source database member in the Blue/Green Deployment.
+         */
+        sourceMember?: string;
+        /**
+         * The status of this source and target member pair.
+         */
+        switchoverDetailStatus?: string;
+        /**
+         * The target database member in the Blue/Green Deployment.
+         */
+        targetMember?: string;
+    }
+
+    export interface DeploymentTask {
+        /**
+         * The name of a Blue/Green Deployment provisioning task.
+         */
+        taskName?: string;
+        /**
+         * The status of a Blue/Green Deployment provisioning task.
+         */
+        taskStatus?: string;
+    }
+
     export interface GlobalClusterGlobalEndpoint {
         /**
          * The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
@@ -120610,6 +124063,16 @@ export namespace resiliencehubv2 {
         externalId?: string;
     }
 
+    /**
+     * Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+     */
+    export interface ServiceDevOpsAgentConfiguration {
+        /**
+         * The ARN of the DevOps Agent Agent Space to link to this service.
+         */
+        agentSpaceArn: string;
+    }
+
     export interface ServiceDisasterRecoverySource {
         policyName?: string;
         value?: string;
@@ -120628,11 +124091,44 @@ export namespace resiliencehubv2 {
         multiRegionRto?: outputs.resiliencehubv2.ServiceTargetSource;
     }
 
+    /**
+     * Kubernetes label selector that scopes discovery to matching objects in the specified namespaces. An object must satisfy both MatchLabels and MatchExpressions. Specify at least one of them; a selector carrying neither is treated as though no selector were supplied, and all supported objects in the specified namespaces are discovered.
+     */
+    export interface ServiceEksLabelSelector {
+        /**
+         * Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+         */
+        matchExpressions?: outputs.resiliencehubv2.ServiceEksLabelSelectorRequirement[];
+        /**
+         * Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+         */
+        matchLabels?: {[key: string]: string};
+    }
+
+    /**
+     * A single label selector requirement. Specify Values when Operator is IN or NOT_IN, and omit Values when Operator is EXISTS or DOES_NOT_EXIST.
+     */
+    export interface ServiceEksLabelSelectorRequirement {
+        /**
+         * Label key the requirement applies to.
+         */
+        key: string;
+        /**
+         * Operator applied to the label key.
+         */
+        operator: enums.resiliencehubv2.ServiceEksLabelSelectorRequirementOperator;
+        /**
+         * Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+         */
+        values?: string[];
+    }
+
     export interface ServiceEksSource {
         /**
          * ARN of the EKS cluster.
          */
         clusterArn: string;
+        labelSelector?: outputs.resiliencehubv2.ServiceEksLabelSelector;
         /**
          * EKS namespaces.
          */
@@ -122256,8 +125752,18 @@ export namespace s3 {
         outputSchemaVersion: string;
     }
 
+    /**
+     * The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket, unless an object's upload request specifies its own Object Lock settings. New object versions are placed under an event hold and remain protected while the hold is active. When the event hold is released, Amazon S3 retains the object version for this duration, measured from the time the hold is released.
+     *   The ``DefaultEventHold`` duration can be specified in either ``Days`` or ``Years``, but you must select one. You can't specify ``Days`` and ``Years`` at the same time.
+     */
     export interface BucketDefaultEventHold {
+        /**
+         * The number of days that you want to specify for the default event hold duration. Valid values are ``1`` to ``36500`` days. You must specify either ``Days`` or ``Years``, but not both.
+         */
         days?: number;
+        /**
+         * The number of years that you want to specify for the default event hold duration. Valid values are ``1`` to ``100`` years. You must specify either ``Days`` or ``Years``, but not both.
+         */
         years?: number;
     }
 
@@ -122271,6 +125777,10 @@ export namespace s3 {
          * The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
          */
         days?: number;
+        /**
+         * The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+         *   If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
+         */
         defaultEventHold?: outputs.s3.BucketDefaultEventHold;
         /**
          * The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
@@ -125214,6 +128724,10 @@ export namespace sagemaker {
         executionRole: string;
         imageId?: string;
         /**
+         * The version of the HyperPod-managed AMI for the instance group, in semantic version format MAJOR.MINOR.PATCH (for example, 1.2.3). Supported only for EKS-orchestrated clusters. If omitted at creation, the latest available version is used (or the version of an existing same-architecture instance group when adding a group). Changing this value on an existing instance group triggers a software update via UpdateClusterSoftware. Automatic patching (AutoPatchConfig) and out-of-band software updates can advance the running version past this value; CloudFormation does not revert such changes and may report the property as drifted. Only an explicit change to this value in the template triggers an update.
+         */
+        imageReleaseVersion?: string;
+        /**
          * The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
          */
         instanceCount: number;
@@ -125505,6 +129019,100 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
          */
         secretArn?: string;
+    }
+
+    /**
+     * Multi-instance GPU (MIG) partition profile and count for fractional accelerator allocation.
+     */
+    export interface ComputeQuotaAcceleratorPartitionConfig {
+        /**
+         * The number of MIG partitions of the specified Type allocated to the team.
+         */
+        count: number;
+        /**
+         * MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+         */
+        type: enums.sagemaker.ComputeQuotaAcceleratorPartitionConfigType;
+    }
+
+    /**
+     * Compute allocation rules: per-resource quotas, idle-borrowing strategy, and team-task preemption policy.
+     */
+    export interface ComputeQuotaConfig {
+        /**
+         * Per-instance-type compute quotas for the team. When VCpu / MemoryInGiB / Accelerators are partially specified, SageMaker auto-fills the remaining fields ratio-proportionally to the underlying instance — Read may return values the customer did not supply (drift may flag this).
+         */
+        computeQuotaResources?: outputs.sagemaker.ComputeQuotaResourceConfig[];
+        /**
+         * Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+         */
+        preemptTeamTasks?: enums.sagemaker.ComputeQuotaConfigPreemptTeamTasks;
+        /**
+         * Idle-resource-sharing strategy for this team's quota. When omitted, the service applies defaults (Strategy=LendAndBorrow, BorrowLimit=50).
+         */
+        resourceSharingConfig?: outputs.sagemaker.ComputeQuotaResourceSharingConfig;
+    }
+
+    /**
+     * Per-instance-type compute quota element. Reused under ComputeQuotaConfig.ComputeQuotaResources and ResourceSharingConfig.AbsoluteBorrowLimits.
+     */
+    export interface ComputeQuotaResourceConfig {
+        /**
+         * Multi-instance GPU (MIG) partition profile and count, for fractional accelerator allocation. Service rejects MIG profiles that the chosen InstanceType does not support.
+         */
+        acceleratorPartition?: outputs.sagemaker.ComputeQuotaAcceleratorPartitionConfig;
+        /**
+         * The number of accelerators (e.g., GPUs) of this type allocated to the team. SageMaker auto-fills VCpu / MemoryInGiB ratio-proportionally if only this is set.
+         */
+        accelerators?: number;
+        /**
+         * The number of instances of this type allocated to the team.
+         */
+        count?: number;
+        /**
+         * The cluster instance type the quota applies to (e.g., 'ml.m5.xlarge', 'ml.p5.48xlarge'). Validated by the service against the supported HyperPod instance types.
+         */
+        instanceType: string;
+        /**
+         * The memory in GiB allocated to the team. Floating-point. SageMaker auto-fills Accelerators / VCpu ratio-proportionally if only this is set.
+         */
+        memoryInGiB?: number;
+        /**
+         * The number of vCPUs allocated to the team. Floating-point. SageMaker auto-fills Accelerators / MemoryInGiB ratio-proportionally if only this is set.
+         */
+        vCpu?: number;
+    }
+
+    /**
+     * Idle-resource-sharing strategy for this team's quota.
+     */
+    export interface ComputeQuotaResourceSharingConfig {
+        /**
+         * Per-instance-type absolute caps on resources this team can borrow.
+         */
+        absoluteBorrowLimits?: outputs.sagemaker.ComputeQuotaResourceConfig[];
+        /**
+         * Maximum percentage of the team's idle quota that can be borrowed by other teams. Smithy admits 0..10000; in practice the service-documented operational range is 1..500. Defaults service-side to 50 when omitted on Create.
+         */
+        borrowLimit?: number;
+        /**
+         * How this team participates in idle-resource sharing.
+         */
+        strategy: enums.sagemaker.ComputeQuotaResourceSharingConfigStrategy;
+    }
+
+    /**
+     * The team this compute allocation rule applies to.
+     */
+    export interface ComputeQuotaTarget {
+        /**
+         * Relative fair-share weight when fair-share scheduling is enabled on the parent ClusterSchedulerConfig. Defaults service-side to 0 when omitted.
+         */
+        fairShareWeight?: number;
+        /**
+         * The name of the team. Materialized as Kubernetes namespace 'hyperpod-ns-<TeamName>' on the EKS cluster, so the value must satisfy RFC 1123 namespace constraints. Reassignment is not supported (createOnly).
+         */
+        teamName: string;
     }
 
     /**
@@ -127825,7 +131433,7 @@ export namespace sagemaker {
         name: string;
         notes?: string;
         type: enums.sagemaker.ModelCardBarChartMetricType;
-        value: number[];
+        value: (number | string)[];
         xAxisName?: string[];
         yAxisName?: string;
     }
@@ -127954,7 +131562,7 @@ export namespace sagemaker {
         name: string;
         notes?: string;
         type: enums.sagemaker.ModelCardLinearGraphMetricType;
-        value: number[][];
+        value: (number | string)[][];
         xAxisName?: string;
         yAxisName?: string;
     }
@@ -127963,7 +131571,7 @@ export namespace sagemaker {
         name: string;
         notes?: string;
         type: enums.sagemaker.ModelCardMatrixMetricType;
-        value: number[][];
+        value: (number | string)[][];
         xAxisName?: string[];
         yAxisName?: string[];
     }
@@ -132092,6 +135700,108 @@ export namespace securityagent {
     }
 
     /**
+     * The input required to create a Bitbucket integration.
+     */
+    export interface IntegrationBitbucketInput {
+        /**
+         * The OAuth 2.0 authorization code returned from the consent redirect.
+         */
+        code: string;
+        /**
+         * The Atlassian installation identifier, available from the Atlassian administration console.
+         */
+        installationId: string;
+        /**
+         * The CSRF state token echoed back from the OAuth redirect.
+         */
+        state: string;
+        /**
+         * The Bitbucket workspace slug that identifies the workspace to integrate.
+         */
+        workspace: string;
+    }
+
+    /**
+     * The input required to create a Confluence integration.
+     */
+    export interface IntegrationConfluenceInput {
+        /**
+         * The OAuth 2.0 authorization code returned from the consent redirect.
+         */
+        code: string;
+        /**
+         * The Atlassian installation identifier, available from the Atlassian administration console.
+         */
+        installationId: string;
+        /**
+         * The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+         */
+        siteUrl: string;
+        /**
+         * The CSRF state token echoed back from the OAuth redirect.
+         */
+        state: string;
+    }
+
+    /**
+     * The input required to create a GitHub integration.
+     */
+    export interface IntegrationGitHubInput {
+        /**
+         * The OAuth authorization code received from GitHub.
+         */
+        code: string;
+        /**
+         * The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+         */
+        installationId?: string;
+        /**
+         * The name of the GitHub organization to integrate with.
+         */
+        organizationName?: string;
+        /**
+         * The CSRF state token for validating the OAuth flow.
+         */
+        state: string;
+        /**
+         * The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+         */
+        targetUrl?: string;
+    }
+
+    /**
+     * The input required to create a GitLab integration.
+     */
+    export interface IntegrationGitLabInput {
+        /**
+         * The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+         */
+        accessToken: string;
+        /**
+         * The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+         */
+        groupId?: string;
+        /**
+         * The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+         */
+        targetUrl?: string;
+        /**
+         * The type of GitLab access token.
+         */
+        tokenType: enums.securityagent.IntegrationGitLabInputTokenType;
+    }
+
+    /**
+     * The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+     */
+    export interface IntegrationProviderInput {
+        bitbucket?: outputs.securityagent.IntegrationBitbucketInput;
+        confluence?: outputs.securityagent.IntegrationConfluenceInput;
+        github?: outputs.securityagent.IntegrationGitHubInput;
+        gitlab?: outputs.securityagent.IntegrationGitLabInput;
+    }
+
+    /**
      * An authenticated actor to be used during pentest execution
      */
     export interface PentestActor {
@@ -132286,6 +135996,66 @@ export namespace securityagent {
     }
 
     /**
+     * Destination for publishing a scan report to Confluence
+     */
+    export interface PentestReportDestination {
+        /**
+         * Identifier of the container, such as a space, within the integration to publish the report to
+         */
+        containerId: string;
+        /**
+         * Identifier of an existing document to update with the report
+         */
+        documentId?: string;
+        /**
+         * Unique identifier of the provider integration to publish the report to
+         */
+        integrationId: string;
+        /**
+         * Identifier of the parent under which the report document is created
+         */
+        parentId?: string;
+    }
+
+    /**
+     * Filters applied when a scan report is published to Confluence
+     */
+    export interface PentestReportFilters {
+        /**
+         * Whether to include reviewer annotation notes under each finding
+         */
+        annotationNotes?: boolean;
+        /**
+         * Whether to include the compliance-ready report additions
+         */
+        complianceReport?: boolean;
+        /**
+         * Confidence levels to include in the report
+         */
+        confidenceLevels?: enums.securityagent.PentestReportFiltersConfidenceLevelsItem[];
+        /**
+         * Finding types to include in the report
+         */
+        findingTypes?: string[];
+        /**
+         * Severity levels to include in the report
+         */
+        riskLevels?: enums.securityagent.PentestReportFiltersRiskLevelsItem[];
+        /**
+         * Risk types to include in the report
+         */
+        riskTypes?: enums.securityagent.PentestRiskType[];
+        /**
+         * Finding statuses to include in the report
+         */
+        statuses?: enums.securityagent.PentestReportFiltersStatusesItem[];
+        /**
+         * Task execution statuses to include in the report's task table
+         */
+        taskStatuses?: enums.securityagent.PentestReportFiltersTaskStatusesItem[];
+    }
+
+    /**
      * A source code archive stored in S3 for analysis during the pentest
      */
     export interface PentestSourceCodeRepository {
@@ -132293,6 +136063,16 @@ export namespace securityagent {
          * S3 source code location
          */
         s3Location?: string;
+    }
+
+    /**
+     * Scope of the target under test, determining which classes of risk are assessed
+     */
+    export interface PentestTestScope {
+        /**
+         * The kind of application the target is tested as
+         */
+        type: enums.securityagent.PentestTestScopeType;
     }
 
     /**
@@ -132318,6 +136098,62 @@ export namespace securityagent {
          */
         subnetArns?: string[];
         vpcArn?: string;
+    }
+
+    /**
+     * The configuration for the private connection. Specify either a service-managed or a self-managed mode.
+     */
+    export interface PrivateConnectionMode {
+        selfManaged?: outputs.securityagent.PrivateConnectionSelfManaged;
+        serviceManaged?: outputs.securityagent.PrivateConnectionServiceManaged;
+    }
+
+    /**
+     * The configuration for a self-managed private connection, where you manage your own resource configuration.
+     */
+    export interface PrivateConnectionSelfManaged {
+        /**
+         * The identifier or ARN of the resource configuration.
+         */
+        resourceConfigurationId: string;
+    }
+
+    /**
+     * The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.
+     */
+    export interface PrivateConnectionServiceManaged {
+        /**
+         * The DNS resolution mode for the resource gateway.
+         */
+        dnsResolution?: enums.securityagent.PrivateConnectionServiceManagedDnsResolution;
+        /**
+         * The IP address or DNS name of the target resource.
+         */
+        hostAddress: string;
+        /**
+         * The IP address type of the service-managed resource gateway.
+         */
+        ipAddressType?: enums.securityagent.PrivateConnectionServiceManagedIpAddressType;
+        /**
+         * The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+         */
+        ipv4AddressesPerEni?: number;
+        /**
+         * The TCP port ranges that a consumer can use to access the resource.
+         */
+        portRanges?: string[];
+        /**
+         * The security groups to attach to the service-managed resource gateway.
+         */
+        securityGroupIds?: string[];
+        /**
+         * The subnets that the service-managed resource gateway spans.
+         */
+        subnetIds: string[];
+        /**
+         * The VPC to create the service-managed resource gateway in.
+         */
+        vpcId: string;
     }
 
     export interface SecurityRequirementPackSecurityRequirement {
@@ -134510,7 +138346,7 @@ export namespace ses {
          */
         matchingEventTypes: string[];
         /**
-         * The name of the event destination set.
+         * The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
          */
         name?: string;
         /**
@@ -135410,6 +139246,23 @@ export namespace ses {
     }
 
     /**
+     * The reputation configuration for the tenant.
+     */
+    export interface TenantReputationEntity {
+        policy: outputs.ses.TenantReputationPolicy;
+    }
+
+    /**
+     * The reputation policy for the tenant.
+     */
+    export interface TenantReputationPolicy {
+        /**
+         * The ARN of an SES-managed reputation policy.
+         */
+        reputationEntityPolicy: string;
+    }
+
+    /**
      * The resource to associate with the tenant
      */
     export interface TenantResourceAssociation {
@@ -135417,6 +139270,20 @@ export namespace ses {
          * The ARN of the resource to associate with the tenant
          */
         resourceArn: string;
+    }
+
+    /**
+     * The suppression attributes for the tenant.
+     */
+    export interface TenantSuppressionAttributes {
+        /**
+         * The reasons that cause messages to be added to the suppression list.
+         */
+        suppressedReasons: enums.ses.TenantSuppressionAttributesSuppressedReasonsItem[];
+        /**
+         * The scope of the suppression list for the tenant.
+         */
+        suppressionScope: enums.ses.TenantSuppressionAttributesSuppressionScope;
     }
 
     /**
@@ -135670,6 +139537,24 @@ export namespace smsvoice {
          * The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
          */
         voice?: outputs.smsvoice.ProtectConfigurationCountryRule[];
+    }
+
+    /**
+     * Information about the testing agent (RCS for Business ID) associated with the RCS agent. A testing agent is created by submitting a testing registration, and allows sending to registered test devices without carrier approval.
+     */
+    export interface RcsAgentTestingAgentInformation {
+        /**
+         * The unique identifier of the testing registration that created the testing agent.
+         */
+        registrationId: string;
+        /**
+         * The identifier of the testing agent assigned by the RCS infrastructure provider.
+         */
+        testingAgentId?: string;
+        /**
+         * The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+         */
+        testingAgentStatus: enums.smsvoice.RcsAgentTestingAgentInformationTestingAgentStatus;
     }
 
     /**
@@ -137203,6 +141088,48 @@ export namespace stepfunctions {
 }
 
 export namespace storagegateway {
+    /**
+     * Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+     */
+    export interface NfsFileShareCacheAttributes {
+        /**
+         * How long the directory contents cached by the gateway are considered valid.
+         */
+        cacheStaleTimeoutInSeconds?: number;
+    }
+
+    /**
+     * Default values for the file and directory permissions of an NFS share. Removing this property from a template leaves the live values unchanged rather than clearing them, because the service has no reset for it: a create that omits the object leaves it absent, but the update path merges member by member keyed on the same internal sentinel that reports absence, so no request can restore that state. Set the members you want rather than relying on removal.
+     */
+    export interface NfsFileShareNfsFileShareDefaults {
+        /**
+         * The Unix directory mode in the form nnnn.
+         */
+        directoryMode?: string;
+        /**
+         * The Unix file mode in the form nnnn.
+         */
+        fileMode?: string;
+        /**
+         * The default group ID for files in the file share.
+         */
+        groupId?: number;
+        /**
+         * The default owner ID for files in the file share.
+         */
+        ownerId?: number;
+    }
+
+    /**
+     * Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+     */
+    export interface SmbFileShareCacheAttributes {
+        /**
+         * How long the directory contents cached by the gateway are considered valid.
+         */
+        cacheStaleTimeoutInSeconds?: number;
+    }
+
 }
 
 export namespace supportauthz {
@@ -142503,6 +146430,14 @@ export namespace wellarchitected {
 }
 
 export namespace wisdom {
+    export interface AiAgentAgentTarget0Properties {
+        aiAgentId: string;
+    }
+
+    export interface AiAgentAgentTarget1Properties {
+        applicationId: string;
+    }
+
     export interface AiAgentAiAgentConfiguration0Properties {
         manualSearchAiAgentConfiguration: outputs.wisdom.AiAgentManualSearchAiAgentConfiguration;
     }
@@ -142567,6 +146502,11 @@ export namespace wisdom {
         locale?: string;
     }
 
+    export interface AiAgentDelegateAgentConfiguration {
+        agentTarget: outputs.wisdom.AiAgentAgentTarget0Properties | outputs.wisdom.AiAgentAgentTarget1Properties;
+        instruction?: outputs.wisdom.AiAgentMultiAgentInstruction;
+    }
+
     export interface AiAgentEmailGenerativeAnswerAiAgentConfiguration {
         associationConfigurations?: outputs.wisdom.AiAgentAssociationConfiguration[];
         emailGenerativeAnswerAiPromptId?: string;
@@ -142586,6 +146526,13 @@ export namespace wisdom {
         locale?: string;
     }
 
+    export interface AiAgentHandoffAgentConfiguration {
+        agentTarget: outputs.wisdom.AiAgentAgentTarget0Properties | outputs.wisdom.AiAgentAgentTarget1Properties;
+        audioStreamingEnabled?: boolean;
+        immediateHandoff?: boolean;
+        instruction?: outputs.wisdom.AiAgentMultiAgentInstruction;
+    }
+
     export interface AiAgentKnowledgeBaseAssociationConfigurationData {
         contentTagFilter?: outputs.wisdom.AiAgentTagFilter0Properties | outputs.wisdom.AiAgentTagFilter1Properties | outputs.wisdom.AiAgentTagFilter2Properties;
         maxResults?: number;
@@ -142597,6 +146544,19 @@ export namespace wisdom {
         answerGenerationAiPromptId?: string;
         associationConfigurations?: outputs.wisdom.AiAgentAssociationConfiguration[];
         locale?: string;
+    }
+
+    export interface AiAgentMultiAgentConfiguration0Properties {
+        delegateAgentConfiguration: outputs.wisdom.AiAgentDelegateAgentConfiguration;
+    }
+
+    export interface AiAgentMultiAgentConfiguration1Properties {
+        handoffAgentConfiguration: outputs.wisdom.AiAgentHandoffAgentConfiguration;
+    }
+
+    export interface AiAgentMultiAgentInstruction {
+        examples?: string[];
+        instruction?: string;
     }
 
     export interface AiAgentNoteTakingAiAgentConfiguration {
@@ -142615,9 +146575,12 @@ export namespace wisdom {
 
     export interface AiAgentOrchestrationAiAgentConfiguration {
         connectInstanceArn?: string;
+        inputSchemas?: any[];
         locale?: string;
+        multiAgentConfigurations?: (outputs.wisdom.AiAgentMultiAgentConfiguration0Properties | outputs.wisdom.AiAgentMultiAgentConfiguration1Properties)[];
         orchestrationAiGuardrailId?: string;
-        orchestrationAiPromptId: string;
+        orchestrationAiPromptId?: string;
+        outputSchemas?: any[];
         toolConfigurations?: outputs.wisdom.AiAgentToolConfiguration[];
     }
 
@@ -143648,6 +147611,272 @@ export namespace workspaces {
     }
 
     /**
+     * Describes the access type and endpoint for a WorkSpace.
+     */
+    export interface DirectoryAccessEndpoint {
+        /**
+         * Indicates the type of access endpoint.
+         */
+        accessEndpointType?: enums.workspaces.DirectoryAccessEndpointAccessEndpointType;
+        /**
+         * Indicates the VPC endpoint to use for access.
+         */
+        vpcEndpointId?: string;
+    }
+
+    /**
+     * Describes the access endpoint configuration for a WorkSpace.
+     */
+    export interface DirectoryAccessEndpointConfig {
+        /**
+         * Indicates a list of access endpoints associated with this directory.
+         */
+        accessEndpoints: outputs.workspaces.DirectoryAccessEndpoint[];
+        /**
+         * Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+         */
+        internetFallbackProtocols?: enums.workspaces.DirectoryAccessEndpointConfigInternetFallbackProtocolsItem[];
+    }
+
+    /**
+     * Information about the Active Directory config.
+     */
+    export interface DirectoryActiveDirectoryConfig {
+        /**
+         * The name of the domain.
+         */
+        domainName: string;
+        /**
+         * Indicates the secret ARN on the service account.
+         */
+        serviceAccountSecretArn: string;
+    }
+
+    /**
+     * Describes the properties of the certificate-based authentication you want to use with your WorkSpaces.
+     */
+    export interface DirectoryCertificateBasedAuthProperties {
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+         */
+        certificateAuthorityArn?: string;
+        /**
+         * The status of the certificate-based authentication properties.
+         */
+        status?: enums.workspaces.DirectoryCertificateBasedAuthPropertiesStatus;
+    }
+
+    /**
+     * The default values that are used to create WorkSpaces.
+     */
+    export interface DirectoryDefaultWorkspaceCreationProperties {
+        /**
+         * The identifier of the default security group to apply to WorkSpaces when they are created.
+         */
+        customSecurityGroupId?: string;
+        /**
+         * The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+         */
+        defaultOu?: string;
+        /**
+         * Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+         */
+        enableInternetAccess?: boolean;
+        /**
+         * Specifies whether maintenance mode is enabled for WorkSpaces.
+         */
+        enableMaintenanceMode?: boolean;
+        /**
+         * Indicates the IAM role ARN of the instance.
+         */
+        instanceIamRoleArn?: string;
+        /**
+         * Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+         */
+        userEnabledAsLocalAdministrator?: boolean;
+    }
+
+    /**
+     * Describes the Global Accelerator for directory.
+     */
+    export interface DirectoryGlobalAcceleratorForDirectory {
+        /**
+         * Indicates if Global Accelerator for directory is enabled or disabled.
+         */
+        mode: enums.workspaces.DirectoryGlobalAcceleratorForDirectoryMode;
+        /**
+         * Indicates the preferred protocol for Global Accelerator.
+         */
+        preferredProtocol?: enums.workspaces.DirectoryGlobalAcceleratorForDirectoryPreferredProtocol;
+    }
+
+    /**
+     * Specifies the configurations of the identity center.
+     */
+    export interface DirectoryIdcConfig {
+        /**
+         * The Amazon Resource Name (ARN) of the application.
+         */
+        applicationArn?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the identity center instance.
+         */
+        instanceArn?: string;
+    }
+
+    /**
+     * Specifies the configurations of the Microsoft Entra.
+     */
+    export interface DirectoryMicrosoftEntraConfig {
+        /**
+         * The Amazon Resource Name (ARN) of the application config.
+         */
+        applicationConfigSecretArn?: string;
+        /**
+         * The identifier of the tenant.
+         */
+        tenantId?: string;
+    }
+
+    /**
+     * Describes the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.
+     */
+    export interface DirectorySamlProperties {
+        /**
+         * The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+         */
+        relayStateParameterName?: string;
+        /**
+         * Indicates the status of SAML 2.0 authentication.
+         */
+        status?: enums.workspaces.DirectorySamlPropertiesStatus;
+        /**
+         * The SAML 2.0 identity provider (IdP) user access URL.
+         */
+        userAccessUrl?: string;
+    }
+
+    /**
+     * Describes the self-service permissions for a directory.
+     */
+    export interface DirectorySelfservicePermissions {
+        /**
+         * Specifies whether users can change the compute type (bundle) for their WorkSpace.
+         */
+        changeComputeType?: enums.workspaces.DirectorySelfservicePermissionsChangeComputeType;
+        /**
+         * Specifies whether users can increase the volume size of the drives on their WorkSpace.
+         */
+        increaseVolumeSize?: enums.workspaces.DirectorySelfservicePermissionsIncreaseVolumeSize;
+        /**
+         * Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+         */
+        rebuildWorkspace?: enums.workspaces.DirectorySelfservicePermissionsRebuildWorkspace;
+        /**
+         * Specifies whether users can restart their WorkSpace.
+         */
+        restartWorkspace?: enums.workspaces.DirectorySelfservicePermissionsRestartWorkspace;
+        /**
+         * Specifies whether users can switch the running mode of their WorkSpace.
+         */
+        switchRunningMode?: enums.workspaces.DirectorySelfservicePermissionsSwitchRunningMode;
+    }
+
+    /**
+     * Describes the storage connector.
+     */
+    export interface DirectoryStorageConnector {
+        /**
+         * The type of connector used to save user files.
+         */
+        connectorType: enums.workspaces.DirectoryStorageConnectorConnectorType;
+        /**
+         * Indicates if the storage connector is enabled or disabled.
+         */
+        status: enums.workspaces.DirectoryStorageConnectorStatus;
+    }
+
+    /**
+     * Describes the streaming properties.
+     */
+    export interface DirectoryStreamingProperties {
+        globalAccelerator?: outputs.workspaces.DirectoryGlobalAcceleratorForDirectory;
+        /**
+         * Indicates the storage connector used.
+         */
+        storageConnectors?: outputs.workspaces.DirectoryStorageConnector[];
+        /**
+         * Indicates the type of preferred protocol for the streaming experience.
+         */
+        streamingExperiencePreferredProtocol?: enums.workspaces.DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol;
+        /**
+         * Indicates the permission settings associated with the user.
+         */
+        userSettings?: outputs.workspaces.DirectoryUserSetting[];
+    }
+
+    /**
+     * Information about the user's permission settings.
+     */
+    export interface DirectoryUserSetting {
+        /**
+         * Indicates the type of action.
+         */
+        action: enums.workspaces.DirectoryUserSettingAction;
+        /**
+         * Indicates the maximum character length for the specified user setting.
+         */
+        maximumLength?: number;
+        /**
+         * Indicates if the setting is enabled or disabled.
+         */
+        permission: enums.workspaces.DirectoryUserSettingPermission;
+    }
+
+    /**
+     * The device types and operating systems that can be used to access a WorkSpace.
+     */
+    export interface DirectoryWorkspaceAccessProperties {
+        accessEndpointConfig?: outputs.workspaces.DirectoryAccessEndpointConfig;
+        /**
+         * Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+         */
+        deviceTypeAndroid?: enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid;
+        /**
+         * Indicates whether users can use Chromebooks to access their WorkSpaces.
+         */
+        deviceTypeChromeOs?: enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs;
+        /**
+         * Indicates whether users can use iOS devices to access their WorkSpaces.
+         */
+        deviceTypeIos?: enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeIos;
+        /**
+         * Indicates whether users can use Linux clients to access their WorkSpaces.
+         */
+        deviceTypeLinux?: enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeLinux;
+        /**
+         * Indicates whether users can use macOS clients to access their WorkSpaces.
+         */
+        deviceTypeOsx?: enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeOsx;
+        /**
+         * Indicates whether users can access their WorkSpaces through a web browser.
+         */
+        deviceTypeWeb?: enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeWeb;
+        /**
+         * Indicates whether users can use Windows clients to access their WorkSpaces.
+         */
+        deviceTypeWindows?: enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeWindows;
+        /**
+         * Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+         */
+        deviceTypeWorkSpacesThinClient?: enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient;
+        /**
+         * Indicates whether users can use zero client devices to access their WorkSpaces.
+         */
+        deviceTypeZeroClient?: enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient;
+    }
+
+    /**
      * Describes a rule for an IP access control group.
      */
     export interface WorkspaceIpGroupIpRuleItem {
@@ -144341,6 +148570,16 @@ export namespace xray {
          * Matches the path from a request URL.
          */
         urlPath?: string;
+    }
+
+    /**
+     * Configuration for the CloudWatch Logs log group that X-Ray creates when this resource enables Transaction Search. It is used only at that time and is never returned
+     */
+    export interface TransactionSearchConfigCloudWatchLogsConfiguration {
+        /**
+         * The ARN of a symmetric customer managed AWS KMS key in the same account and Region, used to encrypt the aws/spans log group. Key IDs and alias ARNs are not supported, so for an AWS::KMS::Key use Fn::GetAtt Arn, not Ref. X-Ray applies the key only when it creates aws/spans while enabling Transaction Search. If aws/spans already exists, for example from an earlier enablement or an earlier create that failed partway, the create fails and X-Ray does not enable Transaction Search or change the log group. Remove this property to use the existing log group with its current encryption, and use the CloudWatch Logs AssociateKmsKey API to change its key. The caller needs kms:DescribeKey on the key, and the key policy must allow CloudWatch Logs to use it. Adding, changing or removing this property replaces the resource, which fails while Transaction Search is enabled
+         */
+        spansLogGroupKmsKeyId?: string;
     }
 
 }

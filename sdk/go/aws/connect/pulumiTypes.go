@@ -8449,6 +8449,7 @@ func (o HoursOfOperationsIdentifierArrayOutput) Index(i pulumi.IntInput) HoursOf
 }
 
 type InstanceAttributes struct {
+	AutoMuteAgentOnHold       *bool `pulumi:"autoMuteAgentOnHold"`
 	AutoResolveBestVoices     *bool `pulumi:"autoResolveBestVoices"`
 	ContactLens               *bool `pulumi:"contactLens"`
 	ContactflowLogs           *bool `pulumi:"contactflowLogs"`
@@ -8476,6 +8477,7 @@ type InstanceAttributesInput interface {
 }
 
 type InstanceAttributesArgs struct {
+	AutoMuteAgentOnHold       pulumi.BoolPtrInput `pulumi:"autoMuteAgentOnHold"`
 	AutoResolveBestVoices     pulumi.BoolPtrInput `pulumi:"autoResolveBestVoices"`
 	ContactLens               pulumi.BoolPtrInput `pulumi:"contactLens"`
 	ContactflowLogs           pulumi.BoolPtrInput `pulumi:"contactflowLogs"`
@@ -8515,6 +8517,10 @@ func (o InstanceAttributesOutput) ToInstanceAttributesOutput() InstanceAttribute
 
 func (o InstanceAttributesOutput) ToInstanceAttributesOutputWithContext(ctx context.Context) InstanceAttributesOutput {
 	return o
+}
+
+func (o InstanceAttributesOutput) AutoMuteAgentOnHold() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.AutoMuteAgentOnHold }).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceAttributesOutput) AutoResolveBestVoices() pulumi.BoolPtrOutput {
@@ -8591,6 +8597,15 @@ func (o InstanceAttributesPtrOutput) Elem() InstanceAttributesOutput {
 		var ret InstanceAttributes
 		return ret
 	}).(InstanceAttributesOutput)
+}
+
+func (o InstanceAttributesPtrOutput) AutoMuteAgentOnHold() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoMuteAgentOnHold
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceAttributesPtrOutput) AutoResolveBestVoices() pulumi.BoolPtrOutput {
@@ -12539,7 +12554,8 @@ type RuleActions struct {
 	CreateCaseActions            []RuleCreateCaseAction            `pulumi:"createCaseActions"`
 	EndAssociatedTasksActions    []RuleEndAssociatedTasksAction    `pulumi:"endAssociatedTasksActions"`
 	// Information about the EV action.
-	EventBridgeActions []RuleEventBridgeAction `pulumi:"eventBridgeActions"`
+	EventBridgeActions           []RuleEventBridgeAction           `pulumi:"eventBridgeActions"`
+	SendInAppNotificationActions []RuleSendInAppNotificationAction `pulumi:"sendInAppNotificationActions"`
 	// Information about the send notification action.
 	SendNotificationActions     []RuleSendNotificationAction     `pulumi:"sendNotificationActions"`
 	SubmitAutoEvaluationActions []RuleSubmitAutoEvaluationAction `pulumi:"submitAutoEvaluationActions"`
@@ -12567,7 +12583,8 @@ type RuleActionsArgs struct {
 	CreateCaseActions            RuleCreateCaseActionArrayInput            `pulumi:"createCaseActions"`
 	EndAssociatedTasksActions    RuleEndAssociatedTasksActionArrayInput    `pulumi:"endAssociatedTasksActions"`
 	// Information about the EV action.
-	EventBridgeActions RuleEventBridgeActionArrayInput `pulumi:"eventBridgeActions"`
+	EventBridgeActions           RuleEventBridgeActionArrayInput           `pulumi:"eventBridgeActions"`
+	SendInAppNotificationActions RuleSendInAppNotificationActionArrayInput `pulumi:"sendInAppNotificationActions"`
 	// Information about the send notification action.
 	SendNotificationActions     RuleSendNotificationActionArrayInput     `pulumi:"sendNotificationActions"`
 	SubmitAutoEvaluationActions RuleSubmitAutoEvaluationActionArrayInput `pulumi:"submitAutoEvaluationActions"`
@@ -12623,6 +12640,10 @@ func (o RuleActionsOutput) EndAssociatedTasksActions() RuleEndAssociatedTasksAct
 // Information about the EV action.
 func (o RuleActionsOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleEventBridgeAction { return v.EventBridgeActions }).(RuleEventBridgeActionArrayOutput)
+}
+
+func (o RuleActionsOutput) SendInAppNotificationActions() RuleSendInAppNotificationActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleSendInAppNotificationAction { return v.SendInAppNotificationActions }).(RuleSendInAppNotificationActionArrayOutput)
 }
 
 // Information about the send notification action.
@@ -12712,6 +12733,15 @@ func (o RuleActionsPtrOutput) EventBridgeActions() RuleEventBridgeActionArrayOut
 		}
 		return v.EventBridgeActions
 	}).(RuleEventBridgeActionArrayOutput)
+}
+
+func (o RuleActionsPtrOutput) SendInAppNotificationActions() RuleSendInAppNotificationActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleSendInAppNotificationAction {
+		if v == nil {
+			return nil
+		}
+		return v.SendInAppNotificationActions
+	}).(RuleSendInAppNotificationActionArrayOutput)
 }
 
 // Information about the send notification action.
@@ -13498,6 +13528,271 @@ func (o RuleFieldValueOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleFieldValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
+type RuleInAppNotificationRecipientType struct {
+	// The list of recipients by user arns.
+	UserArns []string `pulumi:"userArns"`
+	// The collection of recipients who are identified by user tags
+	UserTags map[string]string `pulumi:"userTags"`
+}
+
+// RuleInAppNotificationRecipientTypeInput is an input type that accepts RuleInAppNotificationRecipientTypeArgs and RuleInAppNotificationRecipientTypeOutput values.
+// You can construct a concrete instance of `RuleInAppNotificationRecipientTypeInput` via:
+//
+//	RuleInAppNotificationRecipientTypeArgs{...}
+type RuleInAppNotificationRecipientTypeInput interface {
+	pulumi.Input
+
+	ToRuleInAppNotificationRecipientTypeOutput() RuleInAppNotificationRecipientTypeOutput
+	ToRuleInAppNotificationRecipientTypeOutputWithContext(context.Context) RuleInAppNotificationRecipientTypeOutput
+}
+
+type RuleInAppNotificationRecipientTypeArgs struct {
+	// The list of recipients by user arns.
+	UserArns pulumi.StringArrayInput `pulumi:"userArns"`
+	// The collection of recipients who are identified by user tags
+	UserTags pulumi.StringMapInput `pulumi:"userTags"`
+}
+
+func (RuleInAppNotificationRecipientTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleInAppNotificationRecipientType)(nil)).Elem()
+}
+
+func (i RuleInAppNotificationRecipientTypeArgs) ToRuleInAppNotificationRecipientTypeOutput() RuleInAppNotificationRecipientTypeOutput {
+	return i.ToRuleInAppNotificationRecipientTypeOutputWithContext(context.Background())
+}
+
+func (i RuleInAppNotificationRecipientTypeArgs) ToRuleInAppNotificationRecipientTypeOutputWithContext(ctx context.Context) RuleInAppNotificationRecipientTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleInAppNotificationRecipientTypeOutput)
+}
+
+func (i RuleInAppNotificationRecipientTypeArgs) ToRuleInAppNotificationRecipientTypePtrOutput() RuleInAppNotificationRecipientTypePtrOutput {
+	return i.ToRuleInAppNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (i RuleInAppNotificationRecipientTypeArgs) ToRuleInAppNotificationRecipientTypePtrOutputWithContext(ctx context.Context) RuleInAppNotificationRecipientTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleInAppNotificationRecipientTypeOutput).ToRuleInAppNotificationRecipientTypePtrOutputWithContext(ctx)
+}
+
+// RuleInAppNotificationRecipientTypePtrInput is an input type that accepts RuleInAppNotificationRecipientTypeArgs, RuleInAppNotificationRecipientTypePtr and RuleInAppNotificationRecipientTypePtrOutput values.
+// You can construct a concrete instance of `RuleInAppNotificationRecipientTypePtrInput` via:
+//
+//	        RuleInAppNotificationRecipientTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleInAppNotificationRecipientTypePtrInput interface {
+	pulumi.Input
+
+	ToRuleInAppNotificationRecipientTypePtrOutput() RuleInAppNotificationRecipientTypePtrOutput
+	ToRuleInAppNotificationRecipientTypePtrOutputWithContext(context.Context) RuleInAppNotificationRecipientTypePtrOutput
+}
+
+type ruleInAppNotificationRecipientTypePtrType RuleInAppNotificationRecipientTypeArgs
+
+func RuleInAppNotificationRecipientTypePtr(v *RuleInAppNotificationRecipientTypeArgs) RuleInAppNotificationRecipientTypePtrInput {
+	return (*ruleInAppNotificationRecipientTypePtrType)(v)
+}
+
+func (*ruleInAppNotificationRecipientTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleInAppNotificationRecipientType)(nil)).Elem()
+}
+
+func (i *ruleInAppNotificationRecipientTypePtrType) ToRuleInAppNotificationRecipientTypePtrOutput() RuleInAppNotificationRecipientTypePtrOutput {
+	return i.ToRuleInAppNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleInAppNotificationRecipientTypePtrType) ToRuleInAppNotificationRecipientTypePtrOutputWithContext(ctx context.Context) RuleInAppNotificationRecipientTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleInAppNotificationRecipientTypePtrOutput)
+}
+
+type RuleInAppNotificationRecipientTypeOutput struct{ *pulumi.OutputState }
+
+func (RuleInAppNotificationRecipientTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleInAppNotificationRecipientType)(nil)).Elem()
+}
+
+func (o RuleInAppNotificationRecipientTypeOutput) ToRuleInAppNotificationRecipientTypeOutput() RuleInAppNotificationRecipientTypeOutput {
+	return o
+}
+
+func (o RuleInAppNotificationRecipientTypeOutput) ToRuleInAppNotificationRecipientTypeOutputWithContext(ctx context.Context) RuleInAppNotificationRecipientTypeOutput {
+	return o
+}
+
+func (o RuleInAppNotificationRecipientTypeOutput) ToRuleInAppNotificationRecipientTypePtrOutput() RuleInAppNotificationRecipientTypePtrOutput {
+	return o.ToRuleInAppNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuleInAppNotificationRecipientTypeOutput) ToRuleInAppNotificationRecipientTypePtrOutputWithContext(ctx context.Context) RuleInAppNotificationRecipientTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleInAppNotificationRecipientType) *RuleInAppNotificationRecipientType {
+		return &v
+	}).(RuleInAppNotificationRecipientTypePtrOutput)
+}
+
+// The list of recipients by user arns.
+func (o RuleInAppNotificationRecipientTypeOutput) UserArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleInAppNotificationRecipientType) []string { return v.UserArns }).(pulumi.StringArrayOutput)
+}
+
+// The collection of recipients who are identified by user tags
+func (o RuleInAppNotificationRecipientTypeOutput) UserTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RuleInAppNotificationRecipientType) map[string]string { return v.UserTags }).(pulumi.StringMapOutput)
+}
+
+type RuleInAppNotificationRecipientTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleInAppNotificationRecipientTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleInAppNotificationRecipientType)(nil)).Elem()
+}
+
+func (o RuleInAppNotificationRecipientTypePtrOutput) ToRuleInAppNotificationRecipientTypePtrOutput() RuleInAppNotificationRecipientTypePtrOutput {
+	return o
+}
+
+func (o RuleInAppNotificationRecipientTypePtrOutput) ToRuleInAppNotificationRecipientTypePtrOutputWithContext(ctx context.Context) RuleInAppNotificationRecipientTypePtrOutput {
+	return o
+}
+
+func (o RuleInAppNotificationRecipientTypePtrOutput) Elem() RuleInAppNotificationRecipientTypeOutput {
+	return o.ApplyT(func(v *RuleInAppNotificationRecipientType) RuleInAppNotificationRecipientType {
+		if v != nil {
+			return *v
+		}
+		var ret RuleInAppNotificationRecipientType
+		return ret
+	}).(RuleInAppNotificationRecipientTypeOutput)
+}
+
+// The list of recipients by user arns.
+func (o RuleInAppNotificationRecipientTypePtrOutput) UserArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleInAppNotificationRecipientType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The collection of recipients who are identified by user tags
+func (o RuleInAppNotificationRecipientTypePtrOutput) UserTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RuleInAppNotificationRecipientType) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.UserTags
+	}).(pulumi.StringMapOutput)
+}
+
+type RuleNotificationContent struct {
+	DeDe *string `pulumi:"deDe"`
+	EnUs *string `pulumi:"enUs"`
+	EsEs *string `pulumi:"esEs"`
+	FrFr *string `pulumi:"frFr"`
+	IdId *string `pulumi:"idId"`
+	ItIt *string `pulumi:"itIt"`
+	JaJp *string `pulumi:"jaJp"`
+	KoKr *string `pulumi:"koKr"`
+	PtBr *string `pulumi:"ptBr"`
+	ZhCn *string `pulumi:"zhCn"`
+	ZhTw *string `pulumi:"zhTw"`
+}
+
+// RuleNotificationContentInput is an input type that accepts RuleNotificationContentArgs and RuleNotificationContentOutput values.
+// You can construct a concrete instance of `RuleNotificationContentInput` via:
+//
+//	RuleNotificationContentArgs{...}
+type RuleNotificationContentInput interface {
+	pulumi.Input
+
+	ToRuleNotificationContentOutput() RuleNotificationContentOutput
+	ToRuleNotificationContentOutputWithContext(context.Context) RuleNotificationContentOutput
+}
+
+type RuleNotificationContentArgs struct {
+	DeDe pulumi.StringPtrInput `pulumi:"deDe"`
+	EnUs pulumi.StringPtrInput `pulumi:"enUs"`
+	EsEs pulumi.StringPtrInput `pulumi:"esEs"`
+	FrFr pulumi.StringPtrInput `pulumi:"frFr"`
+	IdId pulumi.StringPtrInput `pulumi:"idId"`
+	ItIt pulumi.StringPtrInput `pulumi:"itIt"`
+	JaJp pulumi.StringPtrInput `pulumi:"jaJp"`
+	KoKr pulumi.StringPtrInput `pulumi:"koKr"`
+	PtBr pulumi.StringPtrInput `pulumi:"ptBr"`
+	ZhCn pulumi.StringPtrInput `pulumi:"zhCn"`
+	ZhTw pulumi.StringPtrInput `pulumi:"zhTw"`
+}
+
+func (RuleNotificationContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleNotificationContent)(nil)).Elem()
+}
+
+func (i RuleNotificationContentArgs) ToRuleNotificationContentOutput() RuleNotificationContentOutput {
+	return i.ToRuleNotificationContentOutputWithContext(context.Background())
+}
+
+func (i RuleNotificationContentArgs) ToRuleNotificationContentOutputWithContext(ctx context.Context) RuleNotificationContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleNotificationContentOutput)
+}
+
+type RuleNotificationContentOutput struct{ *pulumi.OutputState }
+
+func (RuleNotificationContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleNotificationContent)(nil)).Elem()
+}
+
+func (o RuleNotificationContentOutput) ToRuleNotificationContentOutput() RuleNotificationContentOutput {
+	return o
+}
+
+func (o RuleNotificationContentOutput) ToRuleNotificationContentOutputWithContext(ctx context.Context) RuleNotificationContentOutput {
+	return o
+}
+
+func (o RuleNotificationContentOutput) DeDe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.DeDe }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) EnUs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.EnUs }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) EsEs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.EsEs }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) FrFr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.FrFr }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) IdId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.IdId }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) ItIt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.ItIt }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) JaJp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.JaJp }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) KoKr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.KoKr }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) PtBr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.PtBr }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) ZhCn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.ZhCn }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleNotificationContentOutput) ZhTw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleNotificationContent) *string { return v.ZhTw }).(pulumi.StringPtrOutput)
+}
+
 // The type of notification recipient.
 type RuleNotificationRecipientType struct {
 	// The Amazon Resource Name (ARN) of the user account.
@@ -13768,6 +14063,121 @@ func (o RuleReferenceMapOutput) MapIndex(k pulumi.StringInput) RuleReferenceOutp
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleReference {
 		return vs[0].(map[string]RuleReference)[vs[1].(string)]
 	}).(RuleReferenceOutput)
+}
+
+type RuleSendInAppNotificationAction struct {
+	Content   RuleNotificationContent             `pulumi:"content"`
+	Exclusion *RuleInAppNotificationRecipientType `pulumi:"exclusion"`
+	// The priority of the notification.
+	Priority  *RuleSendInAppNotificationActionPriority `pulumi:"priority"`
+	Recipient RuleInAppNotificationRecipientType       `pulumi:"recipient"`
+}
+
+// RuleSendInAppNotificationActionInput is an input type that accepts RuleSendInAppNotificationActionArgs and RuleSendInAppNotificationActionOutput values.
+// You can construct a concrete instance of `RuleSendInAppNotificationActionInput` via:
+//
+//	RuleSendInAppNotificationActionArgs{...}
+type RuleSendInAppNotificationActionInput interface {
+	pulumi.Input
+
+	ToRuleSendInAppNotificationActionOutput() RuleSendInAppNotificationActionOutput
+	ToRuleSendInAppNotificationActionOutputWithContext(context.Context) RuleSendInAppNotificationActionOutput
+}
+
+type RuleSendInAppNotificationActionArgs struct {
+	Content   RuleNotificationContentInput               `pulumi:"content"`
+	Exclusion RuleInAppNotificationRecipientTypePtrInput `pulumi:"exclusion"`
+	// The priority of the notification.
+	Priority  RuleSendInAppNotificationActionPriorityPtrInput `pulumi:"priority"`
+	Recipient RuleInAppNotificationRecipientTypeInput         `pulumi:"recipient"`
+}
+
+func (RuleSendInAppNotificationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendInAppNotificationAction)(nil)).Elem()
+}
+
+func (i RuleSendInAppNotificationActionArgs) ToRuleSendInAppNotificationActionOutput() RuleSendInAppNotificationActionOutput {
+	return i.ToRuleSendInAppNotificationActionOutputWithContext(context.Background())
+}
+
+func (i RuleSendInAppNotificationActionArgs) ToRuleSendInAppNotificationActionOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSendInAppNotificationActionOutput)
+}
+
+// RuleSendInAppNotificationActionArrayInput is an input type that accepts RuleSendInAppNotificationActionArray and RuleSendInAppNotificationActionArrayOutput values.
+// You can construct a concrete instance of `RuleSendInAppNotificationActionArrayInput` via:
+//
+//	RuleSendInAppNotificationActionArray{ RuleSendInAppNotificationActionArgs{...} }
+type RuleSendInAppNotificationActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleSendInAppNotificationActionArrayOutput() RuleSendInAppNotificationActionArrayOutput
+	ToRuleSendInAppNotificationActionArrayOutputWithContext(context.Context) RuleSendInAppNotificationActionArrayOutput
+}
+
+type RuleSendInAppNotificationActionArray []RuleSendInAppNotificationActionInput
+
+func (RuleSendInAppNotificationActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSendInAppNotificationAction)(nil)).Elem()
+}
+
+func (i RuleSendInAppNotificationActionArray) ToRuleSendInAppNotificationActionArrayOutput() RuleSendInAppNotificationActionArrayOutput {
+	return i.ToRuleSendInAppNotificationActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSendInAppNotificationActionArray) ToRuleSendInAppNotificationActionArrayOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSendInAppNotificationActionArrayOutput)
+}
+
+type RuleSendInAppNotificationActionOutput struct{ *pulumi.OutputState }
+
+func (RuleSendInAppNotificationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendInAppNotificationAction)(nil)).Elem()
+}
+
+func (o RuleSendInAppNotificationActionOutput) ToRuleSendInAppNotificationActionOutput() RuleSendInAppNotificationActionOutput {
+	return o
+}
+
+func (o RuleSendInAppNotificationActionOutput) ToRuleSendInAppNotificationActionOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionOutput {
+	return o
+}
+
+func (o RuleSendInAppNotificationActionOutput) Content() RuleNotificationContentOutput {
+	return o.ApplyT(func(v RuleSendInAppNotificationAction) RuleNotificationContent { return v.Content }).(RuleNotificationContentOutput)
+}
+
+func (o RuleSendInAppNotificationActionOutput) Exclusion() RuleInAppNotificationRecipientTypePtrOutput {
+	return o.ApplyT(func(v RuleSendInAppNotificationAction) *RuleInAppNotificationRecipientType { return v.Exclusion }).(RuleInAppNotificationRecipientTypePtrOutput)
+}
+
+// The priority of the notification.
+func (o RuleSendInAppNotificationActionOutput) Priority() RuleSendInAppNotificationActionPriorityPtrOutput {
+	return o.ApplyT(func(v RuleSendInAppNotificationAction) *RuleSendInAppNotificationActionPriority { return v.Priority }).(RuleSendInAppNotificationActionPriorityPtrOutput)
+}
+
+func (o RuleSendInAppNotificationActionOutput) Recipient() RuleInAppNotificationRecipientTypeOutput {
+	return o.ApplyT(func(v RuleSendInAppNotificationAction) RuleInAppNotificationRecipientType { return v.Recipient }).(RuleInAppNotificationRecipientTypeOutput)
+}
+
+type RuleSendInAppNotificationActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSendInAppNotificationActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSendInAppNotificationAction)(nil)).Elem()
+}
+
+func (o RuleSendInAppNotificationActionArrayOutput) ToRuleSendInAppNotificationActionArrayOutput() RuleSendInAppNotificationActionArrayOutput {
+	return o
+}
+
+func (o RuleSendInAppNotificationActionArrayOutput) ToRuleSendInAppNotificationActionArrayOutputWithContext(ctx context.Context) RuleSendInAppNotificationActionArrayOutput {
+	return o
+}
+
+func (o RuleSendInAppNotificationActionArrayOutput) Index(i pulumi.IntInput) RuleSendInAppNotificationActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSendInAppNotificationAction {
+		return vs[0].([]RuleSendInAppNotificationAction)[vs[1].(int)]
+	}).(RuleSendInAppNotificationActionOutput)
 }
 
 // Information about the send notification action.
@@ -21091,10 +21501,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldInput)(nil)).Elem(), RuleFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldArrayInput)(nil)).Elem(), RuleFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldValueInput)(nil)).Elem(), RuleFieldValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleInAppNotificationRecipientTypeInput)(nil)).Elem(), RuleInAppNotificationRecipientTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleInAppNotificationRecipientTypePtrInput)(nil)).Elem(), RuleInAppNotificationRecipientTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationContentInput)(nil)).Elem(), RuleNotificationContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationRecipientTypeInput)(nil)).Elem(), RuleNotificationRecipientTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationRecipientTypePtrInput)(nil)).Elem(), RuleNotificationRecipientTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceInput)(nil)).Elem(), RuleReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceMapInput)(nil)).Elem(), RuleReferenceMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendInAppNotificationActionInput)(nil)).Elem(), RuleSendInAppNotificationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendInAppNotificationActionArrayInput)(nil)).Elem(), RuleSendInAppNotificationActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionInput)(nil)).Elem(), RuleSendNotificationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionArrayInput)(nil)).Elem(), RuleSendNotificationActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSlaTargetFieldValueInput)(nil)).Elem(), RuleSlaTargetFieldValueArgs{})
@@ -21373,10 +21788,15 @@ func init() {
 	pulumi.RegisterOutputType(RuleFieldOutput{})
 	pulumi.RegisterOutputType(RuleFieldArrayOutput{})
 	pulumi.RegisterOutputType(RuleFieldValueOutput{})
+	pulumi.RegisterOutputType(RuleInAppNotificationRecipientTypeOutput{})
+	pulumi.RegisterOutputType(RuleInAppNotificationRecipientTypePtrOutput{})
+	pulumi.RegisterOutputType(RuleNotificationContentOutput{})
 	pulumi.RegisterOutputType(RuleNotificationRecipientTypeOutput{})
 	pulumi.RegisterOutputType(RuleNotificationRecipientTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleReferenceOutput{})
 	pulumi.RegisterOutputType(RuleReferenceMapOutput{})
+	pulumi.RegisterOutputType(RuleSendInAppNotificationActionOutput{})
+	pulumi.RegisterOutputType(RuleSendInAppNotificationActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleSlaTargetFieldValueOutput{})

@@ -13,6 +13,7 @@ from .browser_profile import *
 from .capacity_provider import *
 from .code_interpreter_custom import *
 from .configuration_bundle import *
+from .consent_portal import *
 from .dataset import *
 from .evaluator import *
 from .gateway import *
@@ -25,6 +26,7 @@ from .get_browser_profile import *
 from .get_capacity_provider import *
 from .get_code_interpreter_custom import *
 from .get_configuration_bundle import *
+from .get_consent_portal import *
 from .get_dataset import *
 from .get_evaluator import *
 from .get_gateway import *

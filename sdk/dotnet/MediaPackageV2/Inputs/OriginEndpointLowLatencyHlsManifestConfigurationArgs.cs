@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         /// Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         /// </summary>
         [Input("filterConfiguration")]
-        public Input<Inputs.OriginEndpointFilterConfigurationArgs>? FilterConfiguration { get; set; }
+        public Input<Inputs.OriginEndpointLowLatencyHlsFilterConfigurationArgs>? FilterConfiguration { get; set; }
 
         /// <summary>
         /// &lt;p&gt;A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.&lt;/p&gt;

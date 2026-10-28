@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
+// Resource Type definition for AWS::IoTEvents::AlarmModel
 func LookupAlarmModel(ctx *pulumi.Context, args *LookupAlarmModelArgs, opts ...pulumi.InvokeOption) (*LookupAlarmModelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAlarmModelResult
@@ -24,8 +24,7 @@ func LookupAlarmModel(ctx *pulumi.Context, args *LookupAlarmModelArgs, opts ...p
 }
 
 type LookupAlarmModelArgs struct {
-	// The name of the alarm model.
-	AlarmModelName string `pulumi:"alarmModelName"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAlarmModelResult struct {
@@ -37,12 +36,14 @@ type LookupAlarmModelResult struct {
 	AlarmModelDescription *string `pulumi:"alarmModelDescription"`
 	// Defines when your alarm is invoked.
 	AlarmRule *AlarmModelAlarmRule `pulumi:"alarmRule"`
-	// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
+	Id        *string              `pulumi:"id"`
+	// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	RoleArn *string `pulumi:"roleArn"`
 	// A non-negative integer that reflects the severity level of the alarm.
 	Severity *int `pulumi:"severity"`
-	// A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
-	//  You can create up to 50 tags for one alarm model.
+	// A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your AWS IoT Events resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *AWS IoT Events Developer Guide* .
+	//
+	// You can create up to 50 tags for one alarm model.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -52,8 +53,7 @@ func LookupAlarmModelOutput(ctx *pulumi.Context, args LookupAlarmModelOutputArgs
 }
 
 type LookupAlarmModelOutputArgs struct {
-	// The name of the alarm model.
-	AlarmModelName pulumi.StringInput `pulumi:"alarmModelName"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAlarmModelOutputArgs) ElementType() reflect.Type {
@@ -94,7 +94,11 @@ func (o LookupAlarmModelResultOutput) AlarmRule() AlarmModelAlarmRulePtrOutput {
 	return o.ApplyT(func(v LookupAlarmModelResult) *AlarmModelAlarmRule { return v.AlarmRule }).(AlarmModelAlarmRulePtrOutput)
 }
 
-// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
+func (o LookupAlarmModelResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAlarmModelResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 func (o LookupAlarmModelResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlarmModelResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -104,9 +108,9 @@ func (o LookupAlarmModelResultOutput) Severity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupAlarmModelResult) *int { return v.Severity }).(pulumi.IntPtrOutput)
 }
 
-// A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
+// A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your AWS IoT Events resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *AWS IoT Events Developer Guide* .
 //
-//	You can create up to 50 tags for one alarm model.
+// You can create up to 50 tags for one alarm model.
 func (o LookupAlarmModelResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAlarmModelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

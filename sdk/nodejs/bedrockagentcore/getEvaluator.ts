@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+ * Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations. Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
  */
 export function getEvaluator(args: GetEvaluatorArgs, opts?: pulumi.InvokeOptions): Promise<GetEvaluatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,7 +38,7 @@ export interface GetEvaluatorResult {
      */
     readonly evaluatorArn?: string;
     /**
-     * The configuration for the evaluator.
+     * The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
      */
     readonly evaluatorConfig?: outputs.bedrockagentcore.EvaluatorConfig;
     /**
@@ -46,13 +46,21 @@ export interface GetEvaluatorResult {
      */
     readonly evaluatorId?: string;
     /**
+     * The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+     */
+    readonly evaluatorType?: enums.bedrockagentcore.EvaluatorType;
+    /**
      * The ARN of the KMS key used to encrypt evaluator data.
      */
     readonly kmsKeyArn?: string;
     /**
-     * The evaluation level that determines the scope of evaluation.
+     * The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
      */
     readonly level?: enums.bedrockagentcore.EvaluatorLevel;
+    /**
+     * Where the evaluator's logic comes from: AWS, a third-party library (DeepEval or AutoEval), or you. Derived evaluators inherit the provider of their base evaluator.
+     */
+    readonly provider?: enums.bedrockagentcore.EvaluatorProvider;
     /**
      * The current status of the evaluator.
      */
@@ -67,7 +75,7 @@ export interface GetEvaluatorResult {
     readonly updatedAt?: string;
 }
 /**
- * Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+ * Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations. Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
  */
 export function getEvaluatorOutput(args: GetEvaluatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEvaluatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

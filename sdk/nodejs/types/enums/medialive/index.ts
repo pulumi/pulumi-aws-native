@@ -116,6 +116,97 @@ export const EventBridgeRuleTemplateEventType = {
  */
 export type EventBridgeRuleTemplateEventType = (typeof EventBridgeRuleTemplateEventType)[keyof typeof EventBridgeRuleTemplateEventType];
 
+export const InputAlgorithm = {
+    Aes128: "AES128",
+    Aes192: "AES192",
+    Aes256: "AES256",
+} as const;
+
+/**
+ * Placeholder documentation for Algorithm
+ */
+export type InputAlgorithm = (typeof InputAlgorithm)[keyof typeof InputAlgorithm];
+
+export const InputClass = {
+    Standard: "STANDARD",
+    SinglePipeline: "SINGLE_PIPELINE",
+} as const;
+
+/**
+ * A standard input has two sources and a single pipeline input only has one.
+ */
+export type InputClass = (typeof InputClass)[keyof typeof InputClass];
+
+export const InputNetworkLocation = {
+    Aws: "AWS",
+    OnPremises: "ON_PREMISES",
+} as const;
+
+/**
+ * With the introduction of MediaLive Anywhere, a MediaLive input can now exist in two different places: AWS or
+ * inside an on-premises datacenter. By default all inputs will continue to be AWS inputs.
+ */
+export type InputNetworkLocation = (typeof InputNetworkLocation)[keyof typeof InputNetworkLocation];
+
+export const InputRouterSettingsEncryptionType = {
+    Automatic: "AUTOMATIC",
+    SecretsManager: "SECRETS_MANAGER",
+} as const;
+
+/**
+ * Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+ */
+export type InputRouterSettingsEncryptionType = (typeof InputRouterSettingsEncryptionType)[keyof typeof InputRouterSettingsEncryptionType];
+
+export const InputSourceType = {
+    Static: "STATIC",
+    Dynamic: "DYNAMIC",
+} as const;
+
+/**
+ * There are two types of input sources, static and dynamic. If an input source is dynamic you can
+ * change the source url of the input dynamically using an input switch action. Currently, two input types
+ * support a dynamic url at this time, MP4_FILE and TS_FILE. By default all input sources are static.
+ */
+export type InputSourceType = (typeof InputSourceType)[keyof typeof InputSourceType];
+
+export const InputState = {
+    Creating: "CREATING",
+    Detached: "DETACHED",
+    Attached: "ATTACHED",
+    Deleting: "DELETING",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * Placeholder documentation for InputState
+ */
+export type InputState = (typeof InputState)[keyof typeof InputState];
+
+export const InputType = {
+    UdpPush: "UDP_PUSH",
+    RtpPush: "RTP_PUSH",
+    RtmpPush: "RTMP_PUSH",
+    RtmpPull: "RTMP_PULL",
+    UrlPull: "URL_PULL",
+    Mp4File: "MP4_FILE",
+    Mediaconnect: "MEDIACONNECT",
+    InputDevice: "INPUT_DEVICE",
+    AwsCdi: "AWS_CDI",
+    TsFile: "TS_FILE",
+    SrtCaller: "SRT_CALLER",
+    Multicast: "MULTICAST",
+    Smpte2110ReceiverGroup: "SMPTE_2110_RECEIVER_GROUP",
+    Sdi: "SDI",
+    MediaconnectRouter: "MEDIACONNECT_ROUTER",
+    SrtListener: "SRT_LISTENER",
+} as const;
+
+/**
+ * The different types of inputs that AWS Elemental MediaLive supports.
+ */
+export type InputType = (typeof InputType)[keyof typeof InputType];
+
 export const MultiplexState = {
     Creating: "CREATING",
     CreateFailed: "CREATE_FAILED",

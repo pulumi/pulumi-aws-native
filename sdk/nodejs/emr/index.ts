@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetInstanceFleetConfigArgs, GetInstanceFleetConfigResult, GetInstanceFleetConfigOutputArgs } from "./getInstanceFleetConfig";
+export const getInstanceFleetConfig: typeof import("./getInstanceFleetConfig").getInstanceFleetConfig = null as any;
+export const getInstanceFleetConfigOutput: typeof import("./getInstanceFleetConfig").getInstanceFleetConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceFleetConfig","getInstanceFleetConfigOutput"], () => require("./getInstanceFleetConfig"));
+
 export { GetInstanceGroupConfigArgs, GetInstanceGroupConfigResult, GetInstanceGroupConfigOutputArgs } from "./getInstanceGroupConfig";
 export const getInstanceGroupConfig: typeof import("./getInstanceGroupConfig").getInstanceGroupConfig = null as any;
 export const getInstanceGroupConfigOutput: typeof import("./getInstanceGroupConfig").getInstanceGroupConfigOutput = null as any;
@@ -29,6 +34,11 @@ export { GetWalWorkspaceArgs, GetWalWorkspaceResult, GetWalWorkspaceOutputArgs }
 export const getWalWorkspace: typeof import("./getWalWorkspace").getWalWorkspace = null as any;
 export const getWalWorkspaceOutput: typeof import("./getWalWorkspace").getWalWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWalWorkspace","getWalWorkspaceOutput"], () => require("./getWalWorkspace"));
+
+export { InstanceFleetConfigArgs } from "./instanceFleetConfig";
+export type InstanceFleetConfig = import("./instanceFleetConfig").InstanceFleetConfig;
+export const InstanceFleetConfig: typeof import("./instanceFleetConfig").InstanceFleetConfig = null as any;
+utilities.lazyLoad(exports, ["InstanceFleetConfig"], () => require("./instanceFleetConfig"));
 
 export { InstanceGroupConfigArgs } from "./instanceGroupConfig";
 export type InstanceGroupConfig = import("./instanceGroupConfig").InstanceGroupConfig;
@@ -68,6 +78,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:emr:InstanceFleetConfig":
+                return new InstanceFleetConfig(name, <any>undefined, { urn })
             case "aws-native:emr:InstanceGroupConfig":
                 return new InstanceGroupConfig(name, <any>undefined, { urn })
             case "aws-native:emr:SecurityConfiguration":

@@ -134,6 +134,9 @@ import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
 import * as launchwizard from "./launchwizard";
 import * as lex from "./lex";
+import * as licensemanager from "./licensemanager";
+import * as licensemanagerlinuxsubscriptions from "./licensemanagerlinuxsubscriptions";
+import * as licensemanagerusersubscriptions from "./licensemanagerusersubscriptions";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
 import * as logs from "./logs";
@@ -376,6 +379,9 @@ export {
     lambda,
     launchwizard,
     lex,
+    licensemanager,
+    licensemanagerlinuxsubscriptions,
+    licensemanagerusersubscriptions,
     lightsail,
     location,
     logs,

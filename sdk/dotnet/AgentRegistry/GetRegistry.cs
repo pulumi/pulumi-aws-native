@@ -74,6 +74,7 @@ namespace Pulumi.AwsNative.AgentRegistry
         /// The timestamp when the registry was created.
         /// </summary>
         public readonly string? CreatedAt;
+        public readonly Outputs.RegistryCustomMetadataSchemaConfiguration? CustomMetadataSchemaConfiguration;
         /// <summary>
         /// The description of the registry.
         /// </summary>
@@ -113,6 +114,8 @@ namespace Pulumi.AwsNative.AgentRegistry
 
             string? createdAt,
 
+            Outputs.RegistryCustomMetadataSchemaConfiguration? customMetadataSchemaConfiguration,
+
             string? description,
 
             Outputs.RegistryDiscoveryConfiguration? discoveryConfiguration,
@@ -134,6 +137,7 @@ namespace Pulumi.AwsNative.AgentRegistry
             AutoDetectionScope = autoDetectionScope;
             AutoDetectionStatus = autoDetectionStatus;
             CreatedAt = createdAt;
+            CustomMetadataSchemaConfiguration = customMetadataSchemaConfiguration;
             Description = description;
             DiscoveryConfiguration = discoveryConfiguration;
             Name = name;

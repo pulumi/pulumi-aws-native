@@ -25,7 +25,7 @@ type ComputeNodeGroup struct {
 	// The ID of the cluster of the compute node group.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
-	CustomLaunchTemplate CustomLaunchTemplatePropertiesOutput `pulumi:"customLaunchTemplate"`
+	CustomLaunchTemplate CustomLaunchTemplatePropertiesPtrOutput `pulumi:"customLaunchTemplate"`
 	// The list of errors that occurred during compute node group provisioning.
 	ErrorInfo ComputeNodeGroupErrorInfoArrayOutput `pulumi:"errorInfo"`
 	// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
@@ -60,9 +60,6 @@ func NewComputeNodeGroup(ctx *pulumi.Context,
 
 	if args.ClusterId == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterId'")
-	}
-	if args.CustomLaunchTemplate == nil {
-		return nil, errors.New("invalid value for required argument 'CustomLaunchTemplate'")
 	}
 	if args.IamInstanceProfileArn == nil {
 		return nil, errors.New("invalid value for required argument 'IamInstanceProfileArn'")
@@ -120,7 +117,7 @@ type computeNodeGroupArgs struct {
 	// The ID of the cluster of the compute node group.
 	ClusterId string `pulumi:"clusterId"`
 	// An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
-	CustomLaunchTemplate CustomLaunchTemplateProperties `pulumi:"customLaunchTemplate"`
+	CustomLaunchTemplate *CustomLaunchTemplateProperties `pulumi:"customLaunchTemplate"`
 	// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
 	IamInstanceProfileArn string `pulumi:"iamInstanceProfileArn"`
 	// A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
@@ -149,7 +146,7 @@ type ComputeNodeGroupArgs struct {
 	// The ID of the cluster of the compute node group.
 	ClusterId pulumi.StringInput
 	// An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
-	CustomLaunchTemplate CustomLaunchTemplatePropertiesInput
+	CustomLaunchTemplate CustomLaunchTemplatePropertiesPtrInput
 	// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
 	IamInstanceProfileArn pulumi.StringInput
 	// A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
@@ -229,8 +226,8 @@ func (o ComputeNodeGroupOutput) ClusterId() pulumi.StringOutput {
 }
 
 // An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
-func (o ComputeNodeGroupOutput) CustomLaunchTemplate() CustomLaunchTemplatePropertiesOutput {
-	return o.ApplyT(func(v *ComputeNodeGroup) CustomLaunchTemplatePropertiesOutput { return v.CustomLaunchTemplate }).(CustomLaunchTemplatePropertiesOutput)
+func (o ComputeNodeGroupOutput) CustomLaunchTemplate() CustomLaunchTemplatePropertiesPtrOutput {
+	return o.ApplyT(func(v *ComputeNodeGroup) CustomLaunchTemplatePropertiesPtrOutput { return v.CustomLaunchTemplate }).(CustomLaunchTemplatePropertiesPtrOutput)
 }
 
 // The list of errors that occurred during compute node group provisioning.

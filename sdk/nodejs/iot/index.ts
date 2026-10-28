@@ -145,6 +145,11 @@ export const getMitigationAction: typeof import("./getMitigationAction").getMiti
 export const getMitigationActionOutput: typeof import("./getMitigationAction").getMitigationActionOutput = null as any;
 utilities.lazyLoad(exports, ["getMitigationAction","getMitigationActionOutput"], () => require("./getMitigationAction"));
 
+export { GetOtaUpdateArgs, GetOtaUpdateResult, GetOtaUpdateOutputArgs } from "./getOtaUpdate";
+export const getOtaUpdate: typeof import("./getOtaUpdate").getOtaUpdate = null as any;
+export const getOtaUpdateOutput: typeof import("./getOtaUpdate").getOtaUpdateOutput = null as any;
+utilities.lazyLoad(exports, ["getOtaUpdate","getOtaUpdateOutput"], () => require("./getOtaUpdate"));
+
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
@@ -234,6 +239,11 @@ export { MitigationActionArgs } from "./mitigationAction";
 export type MitigationAction = import("./mitigationAction").MitigationAction;
 export const MitigationAction: typeof import("./mitigationAction").MitigationAction = null as any;
 utilities.lazyLoad(exports, ["MitigationAction"], () => require("./mitigationAction"));
+
+export { OtaUpdateArgs } from "./otaUpdate";
+export type OtaUpdate = import("./otaUpdate").OtaUpdate;
+export const OtaUpdate: typeof import("./otaUpdate").OtaUpdate = null as any;
+utilities.lazyLoad(exports, ["OtaUpdate"], () => require("./otaUpdate"));
 
 export { PolicyArgs } from "./policy";
 export type Policy = import("./policy").Policy;
@@ -355,6 +365,8 @@ const _module = {
                 return new Logging(name, <any>undefined, { urn })
             case "aws-native:iot:MitigationAction":
                 return new MitigationAction(name, <any>undefined, { urn })
+            case "aws-native:iot:OtaUpdate":
+                return new OtaUpdate(name, <any>undefined, { urn })
             case "aws-native:iot:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "aws-native:iot:PolicyPrincipalAttachment":

@@ -15,14 +15,38 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         [Input("connectInstanceArn")]
         public Input<string>? ConnectInstanceArn { get; set; }
 
+        [Input("inputSchemas")]
+        private InputList<object>? _inputSchemas;
+        public InputList<object> InputSchemas
+        {
+            get => _inputSchemas ?? (_inputSchemas = new InputList<object>());
+            set => _inputSchemas = value;
+        }
+
         [Input("locale")]
         public Input<string>? Locale { get; set; }
+
+        [Input("multiAgentConfigurations")]
+        private InputList<Union<Inputs.AiAgentMultiAgentConfiguration0PropertiesArgs, Inputs.AiAgentMultiAgentConfiguration1PropertiesArgs>>? _multiAgentConfigurations;
+        public InputList<Union<Inputs.AiAgentMultiAgentConfiguration0PropertiesArgs, Inputs.AiAgentMultiAgentConfiguration1PropertiesArgs>> MultiAgentConfigurations
+        {
+            get => _multiAgentConfigurations ?? (_multiAgentConfigurations = new InputList<Union<Inputs.AiAgentMultiAgentConfiguration0PropertiesArgs, Inputs.AiAgentMultiAgentConfiguration1PropertiesArgs>>());
+            set => _multiAgentConfigurations = value;
+        }
 
         [Input("orchestrationAiGuardrailId")]
         public Input<string>? OrchestrationAiGuardrailId { get; set; }
 
-        [Input("orchestrationAiPromptId", required: true)]
-        public Input<string> OrchestrationAiPromptId { get; set; } = null!;
+        [Input("orchestrationAiPromptId")]
+        public Input<string>? OrchestrationAiPromptId { get; set; }
+
+        [Input("outputSchemas")]
+        private InputList<object>? _outputSchemas;
+        public InputList<object> OutputSchemas
+        {
+            get => _outputSchemas ?? (_outputSchemas = new InputList<object>());
+            set => _outputSchemas = value;
+        }
 
         [Input("toolConfigurations")]
         private InputList<Inputs.AiAgentToolConfigurationArgs>? _toolConfigurations;

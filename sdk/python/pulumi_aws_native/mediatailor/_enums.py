@@ -17,6 +17,8 @@ __all__ = [
     'LiveSourceType',
     'PlaybackConfigurationAvailSuppressionFillPolicy',
     'PlaybackConfigurationAvailSuppressionMode',
+    'PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem',
+    'PlaybackConfigurationClientSideBeaconingConfigurationReportingMode',
     'PlaybackConfigurationDashConfigurationOriginManifestType',
     'PlaybackConfigurationHttpRequestCompressRequest',
     'PlaybackConfigurationHttpRequestHttpMethod',
@@ -105,6 +107,23 @@ class PlaybackConfigurationAvailSuppressionMode(_builtins.str, Enum):
     OFF = "OFF"
     BEHIND_LIVE_EDGE = "BEHIND_LIVE_EDGE"
     AFTER_LIVE_EDGE = "AFTER_LIVE_EDGE"
+
+
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem")
+class PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem(_builtins.str, Enum):
+    MUTE = "MUTE"
+    UNMUTE = "UNMUTE"
+    PAUSE = "PAUSE"
+    SKIP = "SKIP"
+
+
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationClientSideBeaconingConfigurationReportingMode")
+class PlaybackConfigurationClientSideBeaconingConfigurationReportingMode(_builtins.str, Enum):
+    """
+    Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+    """
+    DISABLED = "DISABLED"
+    INSIGHTS = "INSIGHTS"
 
 
 @pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationDashConfigurationOriginManifestType")

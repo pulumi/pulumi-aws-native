@@ -26,6 +26,10 @@ export interface GetLogAlarmArgs {
 
 export interface GetLogAlarmResult {
     /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    readonly actionConfiguration?: outputs.cloudwatch.LogAlarmActionConfiguration;
+    /**
      * The number of log lines to include in alarm notifications. Valid values are 0 to 50.
      */
     readonly actionLogLineCount?: number;

@@ -27,6 +27,7 @@ __all__ = [
     'PoolOptionalKeyword',
     'ProtectConfigurationCountryRule',
     'ProtectConfigurationCountryRuleSet',
+    'RcsAgentTestingAgentInformation',
     'TwoWayProperties',
 ]
 
@@ -503,6 +504,73 @@ class ProtectConfigurationCountryRuleSet(dict):
         The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
         """
         return pulumi.get(self, "voice")
+
+
+@pulumi.output_type
+class RcsAgentTestingAgentInformation(dict):
+    """
+    Information about the testing agent (RCS for Business ID) associated with the RCS agent. A testing agent is created by submitting a testing registration, and allows sending to registered test devices without carrier approval.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registrationId":
+            suggest = "registration_id"
+        elif key == "testingAgentStatus":
+            suggest = "testing_agent_status"
+        elif key == "testingAgentId":
+            suggest = "testing_agent_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RcsAgentTestingAgentInformation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RcsAgentTestingAgentInformation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RcsAgentTestingAgentInformation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registration_id: _builtins.str,
+                 testing_agent_status: 'RcsAgentTestingAgentInformationTestingAgentStatus',
+                 testing_agent_id: Optional[_builtins.str] = None):
+        """
+        Information about the testing agent (RCS for Business ID) associated with the RCS agent. A testing agent is created by submitting a testing registration, and allows sending to registered test devices without carrier approval.
+
+        :param _builtins.str registration_id: The unique identifier of the testing registration that created the testing agent.
+        :param 'RcsAgentTestingAgentInformationTestingAgentStatus' testing_agent_status: The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+        :param _builtins.str testing_agent_id: The identifier of the testing agent assigned by the RCS infrastructure provider.
+        """
+        pulumi.set(__self__, "registration_id", registration_id)
+        pulumi.set(__self__, "testing_agent_status", testing_agent_status)
+        if testing_agent_id is not None:
+            pulumi.set(__self__, "testing_agent_id", testing_agent_id)
+
+    @_builtins.property
+    @pulumi.getter(name="registrationId")
+    def registration_id(self) -> _builtins.str:
+        """
+        The unique identifier of the testing registration that created the testing agent.
+        """
+        return pulumi.get(self, "registration_id")
+
+    @_builtins.property
+    @pulumi.getter(name="testingAgentStatus")
+    def testing_agent_status(self) -> 'RcsAgentTestingAgentInformationTestingAgentStatus':
+        """
+        The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+        """
+        return pulumi.get(self, "testing_agent_status")
+
+    @_builtins.property
+    @pulumi.getter(name="testingAgentId")
+    def testing_agent_id(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the testing agent assigned by the RCS infrastructure provider.
+        """
+        return pulumi.get(self, "testing_agent_id")
 
 
 @pulumi.output_type

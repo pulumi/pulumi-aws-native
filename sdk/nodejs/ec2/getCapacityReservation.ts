@@ -116,6 +116,10 @@ export interface GetCapacityReservationResult {
      */
     readonly state?: string;
     /**
+     * The tags to apply to the Capacity Reservation during launch.
+     */
+    readonly tagSpecifications?: outputs.ec2.CapacityReservationTagSpecification[];
+    /**
      * Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
      */
     readonly totalInstanceCount?: number;

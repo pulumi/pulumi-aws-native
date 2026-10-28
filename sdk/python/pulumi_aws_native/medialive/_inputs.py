@@ -22,6 +22,48 @@ __all__ = [
     'ClusterNetworkSettingsArgsDict',
     'EventBridgeRuleTemplateTargetArgs',
     'EventBridgeRuleTemplateTargetArgsDict',
+    'InputDestinationArgs',
+    'InputDestinationArgsDict',
+    'InputDestinationRouteArgs',
+    'InputDestinationRouteArgsDict',
+    'InputDestinationVpcArgs',
+    'InputDestinationVpcArgsDict',
+    'InputDeviceSettingsArgs',
+    'InputDeviceSettingsArgsDict',
+    'InputMediaConnectFlowArgs',
+    'InputMediaConnectFlowArgsDict',
+    'InputMulticastSettingsArgs',
+    'InputMulticastSettingsArgsDict',
+    'InputMulticastSourceArgs',
+    'InputMulticastSourceArgsDict',
+    'InputRouterDestinationSettingsArgs',
+    'InputRouterDestinationSettingsArgsDict',
+    'InputRouterSettingsArgs',
+    'InputRouterSettingsArgsDict',
+    'InputSdpLocationArgs',
+    'InputSdpLocationArgsDict',
+    'InputSecurityGroupInputWhitelistRuleArgs',
+    'InputSecurityGroupInputWhitelistRuleArgsDict',
+    'InputSmpte2110ReceiverGroupArgs',
+    'InputSmpte2110ReceiverGroupArgsDict',
+    'InputSmpte2110ReceiverGroupSdpSettingsArgs',
+    'InputSmpte2110ReceiverGroupSdpSettingsArgsDict',
+    'InputSmpte2110ReceiverGroupSettingsArgs',
+    'InputSmpte2110ReceiverGroupSettingsArgsDict',
+    'InputSourceArgs',
+    'InputSourceArgsDict',
+    'InputSrtCallerDecryptionArgs',
+    'InputSrtCallerDecryptionArgsDict',
+    'InputSrtCallerSourceArgs',
+    'InputSrtCallerSourceArgsDict',
+    'InputSrtListenerDecryptionArgs',
+    'InputSrtListenerDecryptionArgsDict',
+    'InputSrtListenerSettingsArgs',
+    'InputSrtListenerSettingsArgsDict',
+    'InputSrtSettingsArgs',
+    'InputSrtSettingsArgsDict',
+    'InputVpcRequestArgs',
+    'InputVpcRequestArgsDict',
     'MultiplexOutputDestinationArgs',
     'MultiplexOutputDestinationArgsDict',
     'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs',
@@ -189,6 +231,1305 @@ class EventBridgeRuleTemplateTargetArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "arn", value)
+
+
+class InputDestinationArgsDict(TypedDict):
+    """
+    The settings for a PUSH type input.
+    """
+    ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The system-generated static IP address of endpoint.
+    It remains fixed for the lifetime of the input.
+    """
+    network: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the attached network.
+    """
+    network_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationRouteArgsDict']]]]]
+    """
+    If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+    is going to be on the customer local network.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The port number for the input.
+    """
+    static_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The static IP address for the input destination.
+    """
+    stream_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The stream name for the input destination.
+    """
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    This represents the endpoint that the customer stream will be
+    pushed to.
+    """
+    vpc: NotRequired[pulumi.Input[Optional['InputDestinationVpcArgsDict']]]
+    """
+    The properties for a VPC type input destination.
+    """
+
+@pulumi.input_type
+class InputDestinationArgs:
+    def __init__(__self__, *,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_routes: pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationRouteArgs']]]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc: pulumi.Input[Optional['InputDestinationVpcArgs']] = None):
+        """
+        The settings for a PUSH type input.
+
+        :param pulumi.Input[_builtins.str] ip: The system-generated static IP address of endpoint.
+               It remains fixed for the lifetime of the input.
+        :param pulumi.Input[_builtins.str] network: The ID of the attached network.
+        :param pulumi.Input[Sequence[pulumi.Input['InputDestinationRouteArgs']]] network_routes: If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+               is going to be on the customer local network.
+        :param pulumi.Input[_builtins.str] port: The port number for the input.
+        :param pulumi.Input[_builtins.str] static_ip_address: The static IP address for the input destination.
+        :param pulumi.Input[_builtins.str] stream_name: The stream name for the input destination.
+        :param pulumi.Input[_builtins.str] url: This represents the endpoint that the customer stream will be
+               pushed to.
+        :param pulumi.Input['InputDestinationVpcArgs'] vpc: The properties for a VPC type input destination.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+        if network_routes is not None:
+            pulumi.set(__self__, "network_routes", network_routes)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if static_ip_address is not None:
+            pulumi.set(__self__, "static_ip_address", static_ip_address)
+        if stream_name is not None:
+            pulumi.set(__self__, "stream_name", stream_name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if vpc is not None:
+            pulumi.set(__self__, "vpc", vpc)
+
+    @_builtins.property
+    @pulumi.getter
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The system-generated static IP address of endpoint.
+        It remains fixed for the lifetime of the input.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ip", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def network(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the attached network.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkRoutes")
+    def network_routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationRouteArgs']]]]:
+        """
+        If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+        is going to be on the customer local network.
+        """
+        return pulumi.get(self, "network_routes")
+
+    @network_routes.setter
+    def network_routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationRouteArgs']]]]):
+        pulumi.set(self, "network_routes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The port number for the input.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="staticIpAddress")
+    def static_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The static IP address for the input destination.
+        """
+        return pulumi.get(self, "static_ip_address")
+
+    @static_ip_address.setter
+    def static_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "static_ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The stream name for the input destination.
+        """
+        return pulumi.get(self, "stream_name")
+
+    @stream_name.setter
+    def stream_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stream_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        This represents the endpoint that the customer stream will be
+        pushed to.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> pulumi.Input[Optional['InputDestinationVpcArgs']]:
+        """
+        The properties for a VPC type input destination.
+        """
+        return pulumi.get(self, "vpc")
+
+    @vpc.setter
+    def vpc(self, value: pulumi.Input[Optional['InputDestinationVpcArgs']]):
+        pulumi.set(self, "vpc", value)
+
+
+class InputDestinationRouteArgsDict(TypedDict):
+    """
+    A network route configuration.
+    """
+    cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The CIDR of the route.
+    """
+    gateway: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional gateway for the route.
+    """
+
+@pulumi.input_type
+class InputDestinationRouteArgs:
+    def __init__(__self__, *,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A network route configuration.
+
+        :param pulumi.Input[_builtins.str] cidr: The CIDR of the route.
+        :param pulumi.Input[_builtins.str] gateway: An optional gateway for the route.
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+
+    @_builtins.property
+    @pulumi.getter
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The CIDR of the route.
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cidr", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def gateway(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional gateway for the route.
+        """
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gateway", value)
+
+
+class InputDestinationVpcArgsDict(TypedDict):
+    """
+    The properties for a VPC type input destination.
+    """
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The availability zone of the Input destination.
+    """
+    network_interface_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The network interface ID of the Input destination in the VPC.
+    """
+
+@pulumi.input_type
+class InputDestinationVpcArgs:
+    def __init__(__self__, *,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The properties for a VPC type input destination.
+
+        :param pulumi.Input[_builtins.str] availability_zone: The availability zone of the Input destination.
+        :param pulumi.Input[_builtins.str] network_interface_id: The network interface ID of the Input destination in the VPC.
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The availability zone of the Input destination.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The network interface ID of the Input destination in the VPC.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+
+class InputDeviceSettingsArgsDict(TypedDict):
+    """
+    Settings for an input device.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The unique ID for the device.
+    """
+
+@pulumi.input_type
+class InputDeviceSettingsArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Settings for an input device.
+
+        :param pulumi.Input[_builtins.str] id: The unique ID for the device.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique ID for the device.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+class InputMediaConnectFlowArgsDict(TypedDict):
+    """
+    The settings for a MediaConnect Flow.
+    """
+    flow_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The unique ARN of the MediaConnect Flow being used as a source.
+    """
+
+@pulumi.input_type
+class InputMediaConnectFlowArgs:
+    def __init__(__self__, *,
+                 flow_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The settings for a MediaConnect Flow.
+
+        :param pulumi.Input[_builtins.str] flow_arn: The unique ARN of the MediaConnect Flow being used as a source.
+        """
+        if flow_arn is not None:
+            pulumi.set(__self__, "flow_arn", flow_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique ARN of the MediaConnect Flow being used as a source.
+        """
+        return pulumi.get(self, "flow_arn")
+
+    @flow_arn.setter
+    def flow_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "flow_arn", value)
+
+
+class InputMulticastSettingsArgsDict(TypedDict):
+    """
+    Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+    """
+    sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InputMulticastSourceArgsDict']]]]]
+    """
+    Placeholder documentation for __listOfMulticastSource
+    """
+
+@pulumi.input_type
+class InputMulticastSettingsArgs:
+    def __init__(__self__, *,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['InputMulticastSourceArgs']]]] = None):
+        """
+        Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+
+        :param pulumi.Input[Sequence[pulumi.Input['InputMulticastSourceArgs']]] sources: Placeholder documentation for __listOfMulticastSource
+        """
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @_builtins.property
+    @pulumi.getter
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputMulticastSourceArgs']]]]:
+        """
+        Placeholder documentation for __listOfMulticastSource
+        """
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputMulticastSourceArgs']]]]):
+        pulumi.set(self, "sources", value)
+
+
+class InputMulticastSourceArgsDict(TypedDict):
+    """
+    Pair of multicast url and source ip address (optional) that make up a multicast source.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    This represents the customer's source URL where multicast stream is pulled from.
+    """
+    source_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    This represents the ip address of the device sending the multicast stream.
+    """
+
+@pulumi.input_type
+class InputMulticastSourceArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[_builtins.str],
+                 source_ip: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Pair of multicast url and source ip address (optional) that make up a multicast source.
+
+        :param pulumi.Input[_builtins.str] url: This represents the customer's source URL where multicast stream is pulled from.
+        :param pulumi.Input[_builtins.str] source_ip: This represents the ip address of the device sending the multicast stream.
+        """
+        pulumi.set(__self__, "url", url)
+        if source_ip is not None:
+            pulumi.set(__self__, "source_ip", source_ip)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        This represents the customer's source URL where multicast stream is pulled from.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIp")
+    def source_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        This represents the ip address of the device sending the multicast stream.
+        """
+        return pulumi.get(self, "source_ip")
+
+    @source_ip.setter
+    def source_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_ip", value)
+
+
+class InputRouterDestinationSettingsArgsDict(TypedDict):
+    """
+    A MediaConnect Router destination associated with a MediaLive Input. RouterOutputArn is server-assigned.
+    """
+    availability_zone_name: pulumi.Input[_builtins.str]
+    """
+    The Availability Zone (AZ) name this destination is created in.
+    """
+    router_output_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the MediaConnect Router output currently connected to this input.
+    """
+
+@pulumi.input_type
+class InputRouterDestinationSettingsArgs:
+    def __init__(__self__, *,
+                 availability_zone_name: pulumi.Input[_builtins.str],
+                 router_output_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A MediaConnect Router destination associated with a MediaLive Input. RouterOutputArn is server-assigned.
+
+        :param pulumi.Input[_builtins.str] availability_zone_name: The Availability Zone (AZ) name this destination is created in.
+        :param pulumi.Input[_builtins.str] router_output_arn: The ARN of the MediaConnect Router output currently connected to this input.
+        """
+        pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+        if router_output_arn is not None:
+            pulumi.set(__self__, "router_output_arn", router_output_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Availability Zone (AZ) name this destination is created in.
+        """
+        return pulumi.get(self, "availability_zone_name")
+
+    @availability_zone_name.setter
+    def availability_zone_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "availability_zone_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routerOutputArn")
+    def router_output_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the MediaConnect Router output currently connected to this input.
+        """
+        return pulumi.get(self, "router_output_arn")
+
+    @router_output_arn.setter
+    def router_output_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "router_output_arn", value)
+
+
+class InputRouterSettingsArgsDict(TypedDict):
+    """
+    Information about the MediaConnect Router association for this input.
+    """
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InputRouterDestinationSettingsArgsDict']]]]]
+    """
+    MediaConnect Router destinations associated with this input.
+    """
+    encryption_type: NotRequired[pulumi.Input[Optional['InputRouterSettingsEncryptionType']]]
+    """
+    Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+    """
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the Secrets Manager secret used to encrypt this input. Required when EncryptionType is SECRETS_MANAGER.
+    """
+
+@pulumi.input_type
+class InputRouterSettingsArgs:
+    def __init__(__self__, *,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input['InputRouterDestinationSettingsArgs']]]] = None,
+                 encryption_type: pulumi.Input[Optional['InputRouterSettingsEncryptionType']] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Information about the MediaConnect Router association for this input.
+
+        :param pulumi.Input[Sequence[pulumi.Input['InputRouterDestinationSettingsArgs']]] destinations: MediaConnect Router destinations associated with this input.
+        :param pulumi.Input['InputRouterSettingsEncryptionType'] encryption_type: Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the Secrets Manager secret used to encrypt this input. Required when EncryptionType is SECRETS_MANAGER.
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputRouterDestinationSettingsArgs']]]]:
+        """
+        MediaConnect Router destinations associated with this input.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputRouterDestinationSettingsArgs']]]]):
+        pulumi.set(self, "destinations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Input[Optional['InputRouterSettingsEncryptionType']]:
+        """
+        Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: pulumi.Input[Optional['InputRouterSettingsEncryptionType']]):
+        pulumi.set(self, "encryption_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the Secrets Manager secret used to encrypt this input. Required when EncryptionType is SECRETS_MANAGER.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class InputSdpLocationArgsDict(TypedDict):
+    """
+    The location of the SDP file for one of the SMPTE 2110 streams in a receiver group.
+    """
+    media_index: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The index of the media stream in the SDP file for one SMPTE 2110 stream.
+    """
+    sdp_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL of the SDP file for one SMPTE 2110 stream.
+    """
+
+@pulumi.input_type
+class InputSdpLocationArgs:
+    def __init__(__self__, *,
+                 media_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 sdp_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The location of the SDP file for one of the SMPTE 2110 streams in a receiver group.
+
+        :param pulumi.Input[_builtins.int] media_index: The index of the media stream in the SDP file for one SMPTE 2110 stream.
+        :param pulumi.Input[_builtins.str] sdp_url: The URL of the SDP file for one SMPTE 2110 stream.
+        """
+        if media_index is not None:
+            pulumi.set(__self__, "media_index", media_index)
+        if sdp_url is not None:
+            pulumi.set(__self__, "sdp_url", sdp_url)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaIndex")
+    def media_index(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The index of the media stream in the SDP file for one SMPTE 2110 stream.
+        """
+        return pulumi.get(self, "media_index")
+
+    @media_index.setter
+    def media_index(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "media_index", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sdpUrl")
+    def sdp_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL of the SDP file for one SMPTE 2110 stream.
+        """
+        return pulumi.get(self, "sdp_url")
+
+    @sdp_url.setter
+    def sdp_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sdp_url", value)
+
+
+class InputSecurityGroupInputWhitelistRuleArgsDict(TypedDict):
+    """
+    Whitelist rule
+    """
+    cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The IPv4 CIDR that's whitelisted.
+    """
+
+@pulumi.input_type
+class InputSecurityGroupInputWhitelistRuleArgs:
+    def __init__(__self__, *,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Whitelist rule
+
+        :param pulumi.Input[_builtins.str] cidr: The IPv4 CIDR that's whitelisted.
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+
+    @_builtins.property
+    @pulumi.getter
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The IPv4 CIDR that's whitelisted.
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cidr", value)
+
+
+class InputSmpte2110ReceiverGroupArgsDict(TypedDict):
+    """
+    A receiver group is a collection of video, audio, and ancillary streams that you want to group together and attach to one input.
+    """
+    sdp_settings: NotRequired[pulumi.Input[Optional['InputSmpte2110ReceiverGroupSdpSettingsArgsDict']]]
+    """
+    The single Smpte2110ReceiverGroupSdpSettings that identify the video, audio, and ancillary streams for this receiver group.
+    """
+
+@pulumi.input_type
+class InputSmpte2110ReceiverGroupArgs:
+    def __init__(__self__, *,
+                 sdp_settings: pulumi.Input[Optional['InputSmpte2110ReceiverGroupSdpSettingsArgs']] = None):
+        """
+        A receiver group is a collection of video, audio, and ancillary streams that you want to group together and attach to one input.
+
+        :param pulumi.Input['InputSmpte2110ReceiverGroupSdpSettingsArgs'] sdp_settings: The single Smpte2110ReceiverGroupSdpSettings that identify the video, audio, and ancillary streams for this receiver group.
+        """
+        if sdp_settings is not None:
+            pulumi.set(__self__, "sdp_settings", sdp_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="sdpSettings")
+    def sdp_settings(self) -> pulumi.Input[Optional['InputSmpte2110ReceiverGroupSdpSettingsArgs']]:
+        """
+        The single Smpte2110ReceiverGroupSdpSettings that identify the video, audio, and ancillary streams for this receiver group.
+        """
+        return pulumi.get(self, "sdp_settings")
+
+    @sdp_settings.setter
+    def sdp_settings(self, value: pulumi.Input[Optional['InputSmpte2110ReceiverGroupSdpSettingsArgs']]):
+        pulumi.set(self, "sdp_settings", value)
+
+
+class InputSmpte2110ReceiverGroupSdpSettingsArgsDict(TypedDict):
+    """
+    Information about the SDP files that describe the SMPTE 2110 streams that go into one SMPTE 2110 receiver group.
+    """
+    ancillary_sdps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InputSdpLocationArgsDict']]]]]
+    """
+    A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+    Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+    """
+    audio_sdps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InputSdpLocationArgsDict']]]]]
+    """
+    A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+    """
+    video_sdp: NotRequired[pulumi.Input[Optional['InputSdpLocationArgsDict']]]
+    """
+    The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+    """
+
+@pulumi.input_type
+class InputSmpte2110ReceiverGroupSdpSettingsArgs:
+    def __init__(__self__, *,
+                 ancillary_sdps: pulumi.Input[Optional[Sequence[pulumi.Input['InputSdpLocationArgs']]]] = None,
+                 audio_sdps: pulumi.Input[Optional[Sequence[pulumi.Input['InputSdpLocationArgs']]]] = None,
+                 video_sdp: pulumi.Input[Optional['InputSdpLocationArgs']] = None):
+        """
+        Information about the SDP files that describe the SMPTE 2110 streams that go into one SMPTE 2110 receiver group.
+
+        :param pulumi.Input[Sequence[pulumi.Input['InputSdpLocationArgs']]] ancillary_sdps: A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+               Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+        :param pulumi.Input[Sequence[pulumi.Input['InputSdpLocationArgs']]] audio_sdps: A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+        :param pulumi.Input['InputSdpLocationArgs'] video_sdp: The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+        """
+        if ancillary_sdps is not None:
+            pulumi.set(__self__, "ancillary_sdps", ancillary_sdps)
+        if audio_sdps is not None:
+            pulumi.set(__self__, "audio_sdps", audio_sdps)
+        if video_sdp is not None:
+            pulumi.set(__self__, "video_sdp", video_sdp)
+
+    @_builtins.property
+    @pulumi.getter(name="ancillarySdps")
+    def ancillary_sdps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputSdpLocationArgs']]]]:
+        """
+        A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+        Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+        """
+        return pulumi.get(self, "ancillary_sdps")
+
+    @ancillary_sdps.setter
+    def ancillary_sdps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputSdpLocationArgs']]]]):
+        pulumi.set(self, "ancillary_sdps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="audioSdps")
+    def audio_sdps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputSdpLocationArgs']]]]:
+        """
+        A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+        """
+        return pulumi.get(self, "audio_sdps")
+
+    @audio_sdps.setter
+    def audio_sdps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputSdpLocationArgs']]]]):
+        pulumi.set(self, "audio_sdps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="videoSdp")
+    def video_sdp(self) -> pulumi.Input[Optional['InputSdpLocationArgs']]:
+        """
+        The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+        """
+        return pulumi.get(self, "video_sdp")
+
+    @video_sdp.setter
+    def video_sdp(self, value: pulumi.Input[Optional['InputSdpLocationArgs']]):
+        pulumi.set(self, "video_sdp", value)
+
+
+class InputSmpte2110ReceiverGroupSettingsArgsDict(TypedDict):
+    """
+    Configures the sources for the SMPTE 2110 Receiver Group input.
+    """
+    smpte2110_receiver_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InputSmpte2110ReceiverGroupArgsDict']]]]]
+    """
+    Placeholder documentation for __listOfSmpte2110ReceiverGroup
+    """
+
+@pulumi.input_type
+class InputSmpte2110ReceiverGroupSettingsArgs:
+    def __init__(__self__, *,
+                 smpte2110_receiver_groups: pulumi.Input[Optional[Sequence[pulumi.Input['InputSmpte2110ReceiverGroupArgs']]]] = None):
+        """
+        Configures the sources for the SMPTE 2110 Receiver Group input.
+
+        :param pulumi.Input[Sequence[pulumi.Input['InputSmpte2110ReceiverGroupArgs']]] smpte2110_receiver_groups: Placeholder documentation for __listOfSmpte2110ReceiverGroup
+        """
+        if smpte2110_receiver_groups is not None:
+            pulumi.set(__self__, "smpte2110_receiver_groups", smpte2110_receiver_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="smpte2110ReceiverGroups")
+    def smpte2110_receiver_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputSmpte2110ReceiverGroupArgs']]]]:
+        """
+        Placeholder documentation for __listOfSmpte2110ReceiverGroup
+        """
+        return pulumi.get(self, "smpte2110_receiver_groups")
+
+    @smpte2110_receiver_groups.setter
+    def smpte2110_receiver_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputSmpte2110ReceiverGroupArgs']]]]):
+        pulumi.set(self, "smpte2110_receiver_groups", value)
+
+
+class InputSourceArgsDict(TypedDict):
+    """
+    The settings for a PULL type input.
+    """
+    password_param: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The key used to extract the password from EC2 Parameter store.
+    """
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    This represents the customer's source URL where stream is
+    pulled from.
+    """
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The username for the input source.
+    """
+
+@pulumi.input_type
+class InputSourceArgs:
+    def __init__(__self__, *,
+                 password_param: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The settings for a PULL type input.
+
+        :param pulumi.Input[_builtins.str] password_param: The key used to extract the password from EC2 Parameter store.
+        :param pulumi.Input[_builtins.str] url: This represents the customer's source URL where stream is
+               pulled from.
+        :param pulumi.Input[_builtins.str] username: The username for the input source.
+        """
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @password_param.setter
+    def password_param(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password_param", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        This represents the customer's source URL where stream is
+        pulled from.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The username for the input source.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+class InputSrtCallerDecryptionArgsDict(TypedDict):
+    """
+    The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+    """
+    algorithm: NotRequired[pulumi.Input[Optional['InputAlgorithm']]]
+    """
+    The algorithm used to encrypt content.
+    """
+    passphrase_secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+    """
+
+@pulumi.input_type
+class InputSrtCallerDecryptionArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input[Optional['InputAlgorithm']] = None,
+                 passphrase_secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+
+        :param pulumi.Input['InputAlgorithm'] algorithm: The algorithm used to encrypt content.
+        :param pulumi.Input[_builtins.str] passphrase_secret_arn: The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+        """
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if passphrase_secret_arn is not None:
+            pulumi.set(__self__, "passphrase_secret_arn", passphrase_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input[Optional['InputAlgorithm']]:
+        """
+        The algorithm used to encrypt content.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input[Optional['InputAlgorithm']]):
+        pulumi.set(self, "algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter(name="passphraseSecretArn")
+    def passphrase_secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+        """
+        return pulumi.get(self, "passphrase_secret_arn")
+
+    @passphrase_secret_arn.setter
+    def passphrase_secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "passphrase_secret_arn", value)
+
+
+class InputSrtCallerSourceArgsDict(TypedDict):
+    """
+    The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+    """
+    decryption: NotRequired[pulumi.Input[Optional['InputSrtCallerDecryptionArgsDict']]]
+    """
+    The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+    """
+    minimum_latency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+    """
+    srt_listener_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The IP address at the upstream system (the listener) that MediaLive (the caller) connects to.
+    """
+    srt_listener_port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The port at the upstream system (the listener) that MediaLive (the caller) connects to.
+    """
+    stream_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The stream ID, if the upstream system uses this identifier.
+    """
+
+@pulumi.input_type
+class InputSrtCallerSourceArgs:
+    def __init__(__self__, *,
+                 decryption: pulumi.Input[Optional['InputSrtCallerDecryptionArgs']] = None,
+                 minimum_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 srt_listener_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 srt_listener_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+
+        :param pulumi.Input['InputSrtCallerDecryptionArgs'] decryption: The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+        :param pulumi.Input[_builtins.int] minimum_latency: The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+        :param pulumi.Input[_builtins.str] srt_listener_address: The IP address at the upstream system (the listener) that MediaLive (the caller) connects to.
+        :param pulumi.Input[_builtins.str] srt_listener_port: The port at the upstream system (the listener) that MediaLive (the caller) connects to.
+        :param pulumi.Input[_builtins.str] stream_id: The stream ID, if the upstream system uses this identifier.
+        """
+        if decryption is not None:
+            pulumi.set(__self__, "decryption", decryption)
+        if minimum_latency is not None:
+            pulumi.set(__self__, "minimum_latency", minimum_latency)
+        if srt_listener_address is not None:
+            pulumi.set(__self__, "srt_listener_address", srt_listener_address)
+        if srt_listener_port is not None:
+            pulumi.set(__self__, "srt_listener_port", srt_listener_port)
+        if stream_id is not None:
+            pulumi.set(__self__, "stream_id", stream_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def decryption(self) -> pulumi.Input[Optional['InputSrtCallerDecryptionArgs']]:
+        """
+        The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+        """
+        return pulumi.get(self, "decryption")
+
+    @decryption.setter
+    def decryption(self, value: pulumi.Input[Optional['InputSrtCallerDecryptionArgs']]):
+        pulumi.set(self, "decryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatency")
+    def minimum_latency(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+        """
+        return pulumi.get(self, "minimum_latency")
+
+    @minimum_latency.setter
+    def minimum_latency(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "minimum_latency", value)
+
+    @_builtins.property
+    @pulumi.getter(name="srtListenerAddress")
+    def srt_listener_address(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The IP address at the upstream system (the listener) that MediaLive (the caller) connects to.
+        """
+        return pulumi.get(self, "srt_listener_address")
+
+    @srt_listener_address.setter
+    def srt_listener_address(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "srt_listener_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="srtListenerPort")
+    def srt_listener_port(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The port at the upstream system (the listener) that MediaLive (the caller) connects to.
+        """
+        return pulumi.get(self, "srt_listener_port")
+
+    @srt_listener_port.setter
+    def srt_listener_port(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "srt_listener_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamId")
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The stream ID, if the upstream system uses this identifier.
+        """
+        return pulumi.get(self, "stream_id")
+
+    @stream_id.setter
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stream_id", value)
+
+
+class InputSrtListenerDecryptionArgsDict(TypedDict):
+    """
+    The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+    """
+    algorithm: NotRequired[pulumi.Input[Optional['InputAlgorithm']]]
+    """
+    The algorithm used to encrypt content.
+    """
+    passphrase_secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+    """
+
+@pulumi.input_type
+class InputSrtListenerDecryptionArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input[Optional['InputAlgorithm']] = None,
+                 passphrase_secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+
+        :param pulumi.Input['InputAlgorithm'] algorithm: The algorithm used to encrypt content.
+        :param pulumi.Input[_builtins.str] passphrase_secret_arn: The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+        """
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if passphrase_secret_arn is not None:
+            pulumi.set(__self__, "passphrase_secret_arn", passphrase_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input[Optional['InputAlgorithm']]:
+        """
+        The algorithm used to encrypt content.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input[Optional['InputAlgorithm']]):
+        pulumi.set(self, "algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter(name="passphraseSecretArn")
+    def passphrase_secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+        """
+        return pulumi.get(self, "passphrase_secret_arn")
+
+    @passphrase_secret_arn.setter
+    def passphrase_secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "passphrase_secret_arn", value)
+
+
+class InputSrtListenerSettingsArgsDict(TypedDict):
+    """
+    The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is the listener and the upstream system is the caller.
+    """
+    decryption: NotRequired[pulumi.Input[Optional['InputSrtListenerDecryptionArgsDict']]]
+    """
+    The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+    """
+    minimum_latency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+    """
+    stream_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The stream ID, if the upstream system uses this identifier.
+    """
+
+@pulumi.input_type
+class InputSrtListenerSettingsArgs:
+    def __init__(__self__, *,
+                 decryption: pulumi.Input[Optional['InputSrtListenerDecryptionArgs']] = None,
+                 minimum_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is the listener and the upstream system is the caller.
+
+        :param pulumi.Input['InputSrtListenerDecryptionArgs'] decryption: The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+        :param pulumi.Input[_builtins.int] minimum_latency: The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+        :param pulumi.Input[_builtins.str] stream_id: The stream ID, if the upstream system uses this identifier.
+        """
+        if decryption is not None:
+            pulumi.set(__self__, "decryption", decryption)
+        if minimum_latency is not None:
+            pulumi.set(__self__, "minimum_latency", minimum_latency)
+        if stream_id is not None:
+            pulumi.set(__self__, "stream_id", stream_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def decryption(self) -> pulumi.Input[Optional['InputSrtListenerDecryptionArgs']]:
+        """
+        The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+        """
+        return pulumi.get(self, "decryption")
+
+    @decryption.setter
+    def decryption(self, value: pulumi.Input[Optional['InputSrtListenerDecryptionArgs']]):
+        pulumi.set(self, "decryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatency")
+    def minimum_latency(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+        """
+        return pulumi.get(self, "minimum_latency")
+
+    @minimum_latency.setter
+    def minimum_latency(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "minimum_latency", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamId")
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The stream ID, if the upstream system uses this identifier.
+        """
+        return pulumi.get(self, "stream_id")
+
+    @stream_id.setter
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stream_id", value)
+
+
+class InputSrtSettingsArgsDict(TypedDict):
+    """
+    The configured sources for this SRT input.
+    """
+    srt_caller_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InputSrtCallerSourceArgsDict']]]]]
+    """
+    Placeholder documentation for __listOfSrtCallerSource
+    """
+    srt_listener_settings: NotRequired[pulumi.Input[Optional['InputSrtListenerSettingsArgsDict']]]
+    """
+    Settings for an SRT listener input. Configured only when the input uses the SRT_LISTENER input type.
+    """
+
+@pulumi.input_type
+class InputSrtSettingsArgs:
+    def __init__(__self__, *,
+                 srt_caller_sources: pulumi.Input[Optional[Sequence[pulumi.Input['InputSrtCallerSourceArgs']]]] = None,
+                 srt_listener_settings: pulumi.Input[Optional['InputSrtListenerSettingsArgs']] = None):
+        """
+        The configured sources for this SRT input.
+
+        :param pulumi.Input[Sequence[pulumi.Input['InputSrtCallerSourceArgs']]] srt_caller_sources: Placeholder documentation for __listOfSrtCallerSource
+        :param pulumi.Input['InputSrtListenerSettingsArgs'] srt_listener_settings: Settings for an SRT listener input. Configured only when the input uses the SRT_LISTENER input type.
+        """
+        if srt_caller_sources is not None:
+            pulumi.set(__self__, "srt_caller_sources", srt_caller_sources)
+        if srt_listener_settings is not None:
+            pulumi.set(__self__, "srt_listener_settings", srt_listener_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="srtCallerSources")
+    def srt_caller_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputSrtCallerSourceArgs']]]]:
+        """
+        Placeholder documentation for __listOfSrtCallerSource
+        """
+        return pulumi.get(self, "srt_caller_sources")
+
+    @srt_caller_sources.setter
+    def srt_caller_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputSrtCallerSourceArgs']]]]):
+        pulumi.set(self, "srt_caller_sources", value)
+
+    @_builtins.property
+    @pulumi.getter(name="srtListenerSettings")
+    def srt_listener_settings(self) -> pulumi.Input[Optional['InputSrtListenerSettingsArgs']]:
+        """
+        Settings for an SRT listener input. Configured only when the input uses the SRT_LISTENER input type.
+        """
+        return pulumi.get(self, "srt_listener_settings")
+
+    @srt_listener_settings.setter
+    def srt_listener_settings(self, value: pulumi.Input[Optional['InputSrtListenerSettingsArgs']]):
+        pulumi.set(self, "srt_listener_settings", value)
+
+
+class InputVpcRequestArgsDict(TypedDict):
+    """
+    Settings for a private VPC Input.
+    When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+    This property requires setting the roleArn property on Input creation.
+    Not compatible with the inputSecurityGroups property.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+    Requires subnetIds. If none are specified then the VPC default security group will be used.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of 2 VPC subnet IDs from the same VPC.
+    Subnet IDs must be mapped to two unique availability zones (AZ).
+    """
+
+@pulumi.input_type
+class InputVpcRequestArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Settings for a private VPC Input.
+        When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+        This property requires setting the roleArn property on Input creation.
+        Not compatible with the inputSecurityGroups property.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+               Requires subnetIds. If none are specified then the VPC default security group will be used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of 2 VPC subnet IDs from the same VPC.
+               Subnet IDs must be mapped to two unique availability zones (AZ).
+        """
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+        Requires subnetIds. If none are specified then the VPC default security group will be used.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of 2 VPC subnet IDs from the same VPC.
+        Subnet IDs must be mapped to two unique availability zones (AZ).
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 class MultiplexOutputDestinationArgsDict(TypedDict):

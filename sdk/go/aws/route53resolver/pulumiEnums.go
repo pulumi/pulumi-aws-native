@@ -10,6 +10,174 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Determines how DNS Firewall operates during failures. By default, fail open is disabled, which means the failure mode is closed. If you enable this option, the failure mode is open. This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association.
+type FirewallConfigFirewallFailOpen string
+
+const (
+	FirewallConfigFirewallFailOpenEnabled                 = FirewallConfigFirewallFailOpen("ENABLED")
+	FirewallConfigFirewallFailOpenDisabled                = FirewallConfigFirewallFailOpen("DISABLED")
+	FirewallConfigFirewallFailOpenUseLocalResourceSetting = FirewallConfigFirewallFailOpen("USE_LOCAL_RESOURCE_SETTING")
+)
+
+func (FirewallConfigFirewallFailOpen) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallConfigFirewallFailOpen)(nil)).Elem()
+}
+
+func (e FirewallConfigFirewallFailOpen) ToFirewallConfigFirewallFailOpenOutput() FirewallConfigFirewallFailOpenOutput {
+	return pulumi.ToOutput(e).(FirewallConfigFirewallFailOpenOutput)
+}
+
+func (e FirewallConfigFirewallFailOpen) ToFirewallConfigFirewallFailOpenOutputWithContext(ctx context.Context) FirewallConfigFirewallFailOpenOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallConfigFirewallFailOpenOutput)
+}
+
+func (e FirewallConfigFirewallFailOpen) ToFirewallConfigFirewallFailOpenPtrOutput() FirewallConfigFirewallFailOpenPtrOutput {
+	return e.ToFirewallConfigFirewallFailOpenPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallConfigFirewallFailOpen) ToFirewallConfigFirewallFailOpenPtrOutputWithContext(ctx context.Context) FirewallConfigFirewallFailOpenPtrOutput {
+	return FirewallConfigFirewallFailOpen(e).ToFirewallConfigFirewallFailOpenOutputWithContext(ctx).ToFirewallConfigFirewallFailOpenPtrOutputWithContext(ctx)
+}
+
+func (e FirewallConfigFirewallFailOpen) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallConfigFirewallFailOpen) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallConfigFirewallFailOpen) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallConfigFirewallFailOpen) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallConfigFirewallFailOpenOutput struct{ *pulumi.OutputState }
+
+func (FirewallConfigFirewallFailOpenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallConfigFirewallFailOpen)(nil)).Elem()
+}
+
+func (o FirewallConfigFirewallFailOpenOutput) ToFirewallConfigFirewallFailOpenOutput() FirewallConfigFirewallFailOpenOutput {
+	return o
+}
+
+func (o FirewallConfigFirewallFailOpenOutput) ToFirewallConfigFirewallFailOpenOutputWithContext(ctx context.Context) FirewallConfigFirewallFailOpenOutput {
+	return o
+}
+
+func (o FirewallConfigFirewallFailOpenOutput) ToFirewallConfigFirewallFailOpenPtrOutput() FirewallConfigFirewallFailOpenPtrOutput {
+	return o.ToFirewallConfigFirewallFailOpenPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallConfigFirewallFailOpenOutput) ToFirewallConfigFirewallFailOpenPtrOutputWithContext(ctx context.Context) FirewallConfigFirewallFailOpenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallConfigFirewallFailOpen) *FirewallConfigFirewallFailOpen {
+		return &v
+	}).(FirewallConfigFirewallFailOpenPtrOutput)
+}
+
+func (o FirewallConfigFirewallFailOpenOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallConfigFirewallFailOpenOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallConfigFirewallFailOpen) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallConfigFirewallFailOpenOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallConfigFirewallFailOpenOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallConfigFirewallFailOpen) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallConfigFirewallFailOpenPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallConfigFirewallFailOpenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallConfigFirewallFailOpen)(nil)).Elem()
+}
+
+func (o FirewallConfigFirewallFailOpenPtrOutput) ToFirewallConfigFirewallFailOpenPtrOutput() FirewallConfigFirewallFailOpenPtrOutput {
+	return o
+}
+
+func (o FirewallConfigFirewallFailOpenPtrOutput) ToFirewallConfigFirewallFailOpenPtrOutputWithContext(ctx context.Context) FirewallConfigFirewallFailOpenPtrOutput {
+	return o
+}
+
+func (o FirewallConfigFirewallFailOpenPtrOutput) Elem() FirewallConfigFirewallFailOpenOutput {
+	return o.ApplyT(func(v *FirewallConfigFirewallFailOpen) FirewallConfigFirewallFailOpen {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallConfigFirewallFailOpen
+		return ret
+	}).(FirewallConfigFirewallFailOpenOutput)
+}
+
+func (o FirewallConfigFirewallFailOpenPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallConfigFirewallFailOpenPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallConfigFirewallFailOpen) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallConfigFirewallFailOpenInput is an input type that accepts values of the FirewallConfigFirewallFailOpen enum
+// A concrete instance of `FirewallConfigFirewallFailOpenInput` can be one of the following:
+//
+//	FirewallConfigFirewallFailOpenEnabled
+//	FirewallConfigFirewallFailOpenDisabled
+//	FirewallConfigFirewallFailOpenUseLocalResourceSetting
+type FirewallConfigFirewallFailOpenInput interface {
+	pulumi.Input
+
+	ToFirewallConfigFirewallFailOpenOutput() FirewallConfigFirewallFailOpenOutput
+	ToFirewallConfigFirewallFailOpenOutputWithContext(context.Context) FirewallConfigFirewallFailOpenOutput
+}
+
+var firewallConfigFirewallFailOpenPtrType = reflect.TypeOf((**FirewallConfigFirewallFailOpen)(nil)).Elem()
+
+type FirewallConfigFirewallFailOpenPtrInput interface {
+	pulumi.Input
+
+	ToFirewallConfigFirewallFailOpenPtrOutput() FirewallConfigFirewallFailOpenPtrOutput
+	ToFirewallConfigFirewallFailOpenPtrOutputWithContext(context.Context) FirewallConfigFirewallFailOpenPtrOutput
+}
+
+type firewallConfigFirewallFailOpenPtr string
+
+func FirewallConfigFirewallFailOpenPtr(v string) FirewallConfigFirewallFailOpenPtrInput {
+	return (*firewallConfigFirewallFailOpenPtr)(&v)
+}
+
+func (*firewallConfigFirewallFailOpenPtr) ElementType() reflect.Type {
+	return firewallConfigFirewallFailOpenPtrType
+}
+
+func (in *firewallConfigFirewallFailOpenPtr) ToFirewallConfigFirewallFailOpenPtrOutput() FirewallConfigFirewallFailOpenPtrOutput {
+	return pulumi.ToOutput(in).(FirewallConfigFirewallFailOpenPtrOutput)
+}
+
+func (in *firewallConfigFirewallFailOpenPtr) ToFirewallConfigFirewallFailOpenPtrOutputWithContext(ctx context.Context) FirewallConfigFirewallFailOpenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallConfigFirewallFailOpenPtrOutput)
+}
+
 // ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
 type FirewallDomainListStatus string
 
@@ -3042,6 +3210,8 @@ func (in *resolverRuleTargetAddressProtocolPtr) ToResolverRuleTargetAddressProto
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallConfigFirewallFailOpenInput)(nil)).Elem(), FirewallConfigFirewallFailOpen("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallConfigFirewallFailOpenPtrInput)(nil)).Elem(), FirewallConfigFirewallFailOpen("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationMutationProtectionInput)(nil)).Elem(), FirewallRuleGroupAssociationMutationProtection("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationMutationProtectionPtrInput)(nil)).Elem(), FirewallRuleGroupAssociationMutationProtection("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleActionInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleAction("ALLOW"))
@@ -3066,6 +3236,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypePtrInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressProtocolInput)(nil)).Elem(), ResolverRuleTargetAddressProtocol("Do53"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressProtocolPtrInput)(nil)).Elem(), ResolverRuleTargetAddressProtocol("Do53"))
+	pulumi.RegisterOutputType(FirewallConfigFirewallFailOpenOutput{})
+	pulumi.RegisterOutputType(FirewallConfigFirewallFailOpenPtrOutput{})
 	pulumi.RegisterOutputType(FirewallDomainListStatusOutput{})
 	pulumi.RegisterOutputType(FirewallDomainListStatusPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupAssociationMutationProtectionOutput{})

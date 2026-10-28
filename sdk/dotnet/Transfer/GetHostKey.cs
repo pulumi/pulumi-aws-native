@@ -84,6 +84,14 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public readonly string? HostKeyId;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+        /// </summary>
+        public readonly string? SecretId;
+        /// <summary>
+        /// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Transfer.HostKeyStorageType? StorageType;
+        /// <summary>
         /// Key-value pairs that can be used to group and search for host keys.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -104,6 +112,10 @@ namespace Pulumi.AwsNative.Transfer
 
             string? hostKeyId,
 
+            string? secretId,
+
+            Pulumi.AwsNative.Transfer.HostKeyStorageType? storageType,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? type)
@@ -113,6 +125,8 @@ namespace Pulumi.AwsNative.Transfer
             Description = description;
             HostKeyFingerprint = hostKeyFingerprint;
             HostKeyId = hostKeyId;
+            SecretId = secretId;
+            StorageType = storageType;
             Tags = tags;
             Type = type;
         }

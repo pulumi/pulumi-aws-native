@@ -10,6 +10,188 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Whether the calling principal is authorized to assume the access profile.
+type AccessProfileAssumeStatus string
+
+const (
+	AccessProfileAssumeStatusAllowed = AccessProfileAssumeStatus("ALLOWED")
+	AccessProfileAssumeStatusDenied  = AccessProfileAssumeStatus("DENIED")
+)
+
+type AccessProfileAssumeStatusOutput struct{ *pulumi.OutputState }
+
+func (AccessProfileAssumeStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessProfileAssumeStatus)(nil)).Elem()
+}
+
+func (o AccessProfileAssumeStatusOutput) ToAccessProfileAssumeStatusOutput() AccessProfileAssumeStatusOutput {
+	return o
+}
+
+func (o AccessProfileAssumeStatusOutput) ToAccessProfileAssumeStatusOutputWithContext(ctx context.Context) AccessProfileAssumeStatusOutput {
+	return o
+}
+
+func (o AccessProfileAssumeStatusOutput) ToAccessProfileAssumeStatusPtrOutput() AccessProfileAssumeStatusPtrOutput {
+	return o.ToAccessProfileAssumeStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AccessProfileAssumeStatusOutput) ToAccessProfileAssumeStatusPtrOutputWithContext(ctx context.Context) AccessProfileAssumeStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessProfileAssumeStatus) *AccessProfileAssumeStatus {
+		return &v
+	}).(AccessProfileAssumeStatusPtrOutput)
+}
+
+func (o AccessProfileAssumeStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessProfileAssumeStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessProfileAssumeStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessProfileAssumeStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessProfileAssumeStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessProfileAssumeStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessProfileAssumeStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessProfileAssumeStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessProfileAssumeStatus)(nil)).Elem()
+}
+
+func (o AccessProfileAssumeStatusPtrOutput) ToAccessProfileAssumeStatusPtrOutput() AccessProfileAssumeStatusPtrOutput {
+	return o
+}
+
+func (o AccessProfileAssumeStatusPtrOutput) ToAccessProfileAssumeStatusPtrOutputWithContext(ctx context.Context) AccessProfileAssumeStatusPtrOutput {
+	return o
+}
+
+func (o AccessProfileAssumeStatusPtrOutput) Elem() AccessProfileAssumeStatusOutput {
+	return o.ApplyT(func(v *AccessProfileAssumeStatus) AccessProfileAssumeStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AccessProfileAssumeStatus
+		return ret
+	}).(AccessProfileAssumeStatusOutput)
+}
+
+func (o AccessProfileAssumeStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessProfileAssumeStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessProfileAssumeStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the access profile is managed by the service or by the customer.
+type AccessProfileProfileType string
+
+const (
+	AccessProfileProfileTypeServiceManaged  = AccessProfileProfileType("SERVICE_MANAGED")
+	AccessProfileProfileTypeCustomerManaged = AccessProfileProfileType("CUSTOMER_MANAGED")
+)
+
+type AccessProfileProfileTypeOutput struct{ *pulumi.OutputState }
+
+func (AccessProfileProfileTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessProfileProfileType)(nil)).Elem()
+}
+
+func (o AccessProfileProfileTypeOutput) ToAccessProfileProfileTypeOutput() AccessProfileProfileTypeOutput {
+	return o
+}
+
+func (o AccessProfileProfileTypeOutput) ToAccessProfileProfileTypeOutputWithContext(ctx context.Context) AccessProfileProfileTypeOutput {
+	return o
+}
+
+func (o AccessProfileProfileTypeOutput) ToAccessProfileProfileTypePtrOutput() AccessProfileProfileTypePtrOutput {
+	return o.ToAccessProfileProfileTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccessProfileProfileTypeOutput) ToAccessProfileProfileTypePtrOutputWithContext(ctx context.Context) AccessProfileProfileTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessProfileProfileType) *AccessProfileProfileType {
+		return &v
+	}).(AccessProfileProfileTypePtrOutput)
+}
+
+func (o AccessProfileProfileTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessProfileProfileTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessProfileProfileType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessProfileProfileTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessProfileProfileTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessProfileProfileType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessProfileProfileTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessProfileProfileTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessProfileProfileType)(nil)).Elem()
+}
+
+func (o AccessProfileProfileTypePtrOutput) ToAccessProfileProfileTypePtrOutput() AccessProfileProfileTypePtrOutput {
+	return o
+}
+
+func (o AccessProfileProfileTypePtrOutput) ToAccessProfileProfileTypePtrOutputWithContext(ctx context.Context) AccessProfileProfileTypePtrOutput {
+	return o
+}
+
+func (o AccessProfileProfileTypePtrOutput) Elem() AccessProfileProfileTypeOutput {
+	return o.ApplyT(func(v *AccessProfileProfileType) AccessProfileProfileType {
+		if v != nil {
+			return *v
+		}
+		var ret AccessProfileProfileType
+		return ret
+	}).(AccessProfileProfileTypeOutput)
+}
+
+func (o AccessProfileProfileTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessProfileProfileTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessProfileProfileType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The current status of the AlarmMuteRule
 type AlarmMuteRuleStatus string
 
@@ -94,6 +276,306 @@ func (o AlarmMuteRuleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput
 
 func (o AlarmMuteRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlarmMuteRuleStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainForOrganizationIdentityProvidersItem string
+
+const (
+	DomainForOrganizationIdentityProvidersItemIam = DomainForOrganizationIdentityProvidersItem("IAM")
+	DomainForOrganizationIdentityProvidersItemIdc = DomainForOrganizationIdentityProvidersItem("IDC")
+)
+
+func (DomainForOrganizationIdentityProvidersItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainForOrganizationIdentityProvidersItem)(nil)).Elem()
+}
+
+func (e DomainForOrganizationIdentityProvidersItem) ToDomainForOrganizationIdentityProvidersItemOutput() DomainForOrganizationIdentityProvidersItemOutput {
+	return pulumi.ToOutput(e).(DomainForOrganizationIdentityProvidersItemOutput)
+}
+
+func (e DomainForOrganizationIdentityProvidersItem) ToDomainForOrganizationIdentityProvidersItemOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProvidersItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainForOrganizationIdentityProvidersItemOutput)
+}
+
+func (e DomainForOrganizationIdentityProvidersItem) ToDomainForOrganizationIdentityProvidersItemPtrOutput() DomainForOrganizationIdentityProvidersItemPtrOutput {
+	return e.ToDomainForOrganizationIdentityProvidersItemPtrOutputWithContext(context.Background())
+}
+
+func (e DomainForOrganizationIdentityProvidersItem) ToDomainForOrganizationIdentityProvidersItemPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProvidersItemPtrOutput {
+	return DomainForOrganizationIdentityProvidersItem(e).ToDomainForOrganizationIdentityProvidersItemOutputWithContext(ctx).ToDomainForOrganizationIdentityProvidersItemPtrOutputWithContext(ctx)
+}
+
+func (e DomainForOrganizationIdentityProvidersItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainForOrganizationIdentityProvidersItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainForOrganizationIdentityProvidersItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainForOrganizationIdentityProvidersItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainForOrganizationIdentityProvidersItemOutput struct{ *pulumi.OutputState }
+
+func (DomainForOrganizationIdentityProvidersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainForOrganizationIdentityProvidersItem)(nil)).Elem()
+}
+
+func (o DomainForOrganizationIdentityProvidersItemOutput) ToDomainForOrganizationIdentityProvidersItemOutput() DomainForOrganizationIdentityProvidersItemOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProvidersItemOutput) ToDomainForOrganizationIdentityProvidersItemOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProvidersItemOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProvidersItemOutput) ToDomainForOrganizationIdentityProvidersItemPtrOutput() DomainForOrganizationIdentityProvidersItemPtrOutput {
+	return o.ToDomainForOrganizationIdentityProvidersItemPtrOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationIdentityProvidersItemOutput) ToDomainForOrganizationIdentityProvidersItemPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProvidersItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainForOrganizationIdentityProvidersItem) *DomainForOrganizationIdentityProvidersItem {
+		return &v
+	}).(DomainForOrganizationIdentityProvidersItemPtrOutput)
+}
+
+func (o DomainForOrganizationIdentityProvidersItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationIdentityProvidersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainForOrganizationIdentityProvidersItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainForOrganizationIdentityProvidersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationIdentityProvidersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainForOrganizationIdentityProvidersItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainForOrganizationIdentityProvidersItemPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainForOrganizationIdentityProvidersItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainForOrganizationIdentityProvidersItem)(nil)).Elem()
+}
+
+func (o DomainForOrganizationIdentityProvidersItemPtrOutput) ToDomainForOrganizationIdentityProvidersItemPtrOutput() DomainForOrganizationIdentityProvidersItemPtrOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProvidersItemPtrOutput) ToDomainForOrganizationIdentityProvidersItemPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProvidersItemPtrOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProvidersItemPtrOutput) Elem() DomainForOrganizationIdentityProvidersItemOutput {
+	return o.ApplyT(func(v *DomainForOrganizationIdentityProvidersItem) DomainForOrganizationIdentityProvidersItem {
+		if v != nil {
+			return *v
+		}
+		var ret DomainForOrganizationIdentityProvidersItem
+		return ret
+	}).(DomainForOrganizationIdentityProvidersItemOutput)
+}
+
+func (o DomainForOrganizationIdentityProvidersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationIdentityProvidersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainForOrganizationIdentityProvidersItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainForOrganizationIdentityProvidersItemInput is an input type that accepts values of the DomainForOrganizationIdentityProvidersItem enum
+// A concrete instance of `DomainForOrganizationIdentityProvidersItemInput` can be one of the following:
+//
+//	DomainForOrganizationIdentityProvidersItemIam
+//	DomainForOrganizationIdentityProvidersItemIdc
+type DomainForOrganizationIdentityProvidersItemInput interface {
+	pulumi.Input
+
+	ToDomainForOrganizationIdentityProvidersItemOutput() DomainForOrganizationIdentityProvidersItemOutput
+	ToDomainForOrganizationIdentityProvidersItemOutputWithContext(context.Context) DomainForOrganizationIdentityProvidersItemOutput
+}
+
+var domainForOrganizationIdentityProvidersItemPtrType = reflect.TypeOf((**DomainForOrganizationIdentityProvidersItem)(nil)).Elem()
+
+type DomainForOrganizationIdentityProvidersItemPtrInput interface {
+	pulumi.Input
+
+	ToDomainForOrganizationIdentityProvidersItemPtrOutput() DomainForOrganizationIdentityProvidersItemPtrOutput
+	ToDomainForOrganizationIdentityProvidersItemPtrOutputWithContext(context.Context) DomainForOrganizationIdentityProvidersItemPtrOutput
+}
+
+type domainForOrganizationIdentityProvidersItemPtr string
+
+func DomainForOrganizationIdentityProvidersItemPtr(v string) DomainForOrganizationIdentityProvidersItemPtrInput {
+	return (*domainForOrganizationIdentityProvidersItemPtr)(&v)
+}
+
+func (*domainForOrganizationIdentityProvidersItemPtr) ElementType() reflect.Type {
+	return domainForOrganizationIdentityProvidersItemPtrType
+}
+
+func (in *domainForOrganizationIdentityProvidersItemPtr) ToDomainForOrganizationIdentityProvidersItemPtrOutput() DomainForOrganizationIdentityProvidersItemPtrOutput {
+	return pulumi.ToOutput(in).(DomainForOrganizationIdentityProvidersItemPtrOutput)
+}
+
+func (in *domainForOrganizationIdentityProvidersItemPtr) ToDomainForOrganizationIdentityProvidersItemPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProvidersItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainForOrganizationIdentityProvidersItemPtrOutput)
+}
+
+// DomainForOrganizationIdentityProvidersItemArrayInput is an input type that accepts DomainForOrganizationIdentityProvidersItemArray and DomainForOrganizationIdentityProvidersItemArrayOutput values.
+// You can construct a concrete instance of `DomainForOrganizationIdentityProvidersItemArrayInput` via:
+//
+//	DomainForOrganizationIdentityProvidersItemArray{ DomainForOrganizationIdentityProvidersItemArgs{...} }
+type DomainForOrganizationIdentityProvidersItemArrayInput interface {
+	pulumi.Input
+
+	ToDomainForOrganizationIdentityProvidersItemArrayOutput() DomainForOrganizationIdentityProvidersItemArrayOutput
+	ToDomainForOrganizationIdentityProvidersItemArrayOutputWithContext(context.Context) DomainForOrganizationIdentityProvidersItemArrayOutput
+}
+
+type DomainForOrganizationIdentityProvidersItemArray []DomainForOrganizationIdentityProvidersItem
+
+func (DomainForOrganizationIdentityProvidersItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainForOrganizationIdentityProvidersItem)(nil)).Elem()
+}
+
+func (i DomainForOrganizationIdentityProvidersItemArray) ToDomainForOrganizationIdentityProvidersItemArrayOutput() DomainForOrganizationIdentityProvidersItemArrayOutput {
+	return i.ToDomainForOrganizationIdentityProvidersItemArrayOutputWithContext(context.Background())
+}
+
+func (i DomainForOrganizationIdentityProvidersItemArray) ToDomainForOrganizationIdentityProvidersItemArrayOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProvidersItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainForOrganizationIdentityProvidersItemArrayOutput)
+}
+
+type DomainForOrganizationIdentityProvidersItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainForOrganizationIdentityProvidersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainForOrganizationIdentityProvidersItem)(nil)).Elem()
+}
+
+func (o DomainForOrganizationIdentityProvidersItemArrayOutput) ToDomainForOrganizationIdentityProvidersItemArrayOutput() DomainForOrganizationIdentityProvidersItemArrayOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProvidersItemArrayOutput) ToDomainForOrganizationIdentityProvidersItemArrayOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProvidersItemArrayOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProvidersItemArrayOutput) Index(i pulumi.IntInput) DomainForOrganizationIdentityProvidersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainForOrganizationIdentityProvidersItem {
+		return vs[0].([]DomainForOrganizationIdentityProvidersItem)[vs[1].(int)]
+	}).(DomainForOrganizationIdentityProvidersItemOutput)
+}
+
+// Current status of the domain.
+type DomainForOrganizationStatus string
+
+const (
+	DomainForOrganizationStatusActive = DomainForOrganizationStatus("ACTIVE")
+)
+
+type DomainForOrganizationStatusOutput struct{ *pulumi.OutputState }
+
+func (DomainForOrganizationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainForOrganizationStatus)(nil)).Elem()
+}
+
+func (o DomainForOrganizationStatusOutput) ToDomainForOrganizationStatusOutput() DomainForOrganizationStatusOutput {
+	return o
+}
+
+func (o DomainForOrganizationStatusOutput) ToDomainForOrganizationStatusOutputWithContext(ctx context.Context) DomainForOrganizationStatusOutput {
+	return o
+}
+
+func (o DomainForOrganizationStatusOutput) ToDomainForOrganizationStatusPtrOutput() DomainForOrganizationStatusPtrOutput {
+	return o.ToDomainForOrganizationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationStatusOutput) ToDomainForOrganizationStatusPtrOutputWithContext(ctx context.Context) DomainForOrganizationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainForOrganizationStatus) *DomainForOrganizationStatus {
+		return &v
+	}).(DomainForOrganizationStatusPtrOutput)
+}
+
+func (o DomainForOrganizationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainForOrganizationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainForOrganizationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainForOrganizationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainForOrganizationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainForOrganizationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainForOrganizationStatus)(nil)).Elem()
+}
+
+func (o DomainForOrganizationStatusPtrOutput) ToDomainForOrganizationStatusPtrOutput() DomainForOrganizationStatusPtrOutput {
+	return o
+}
+
+func (o DomainForOrganizationStatusPtrOutput) ToDomainForOrganizationStatusPtrOutputWithContext(ctx context.Context) DomainForOrganizationStatusPtrOutput {
+	return o
+}
+
+func (o DomainForOrganizationStatusPtrOutput) Elem() DomainForOrganizationStatusOutput {
+	return o.ApplyT(func(v *DomainForOrganizationStatus) DomainForOrganizationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DomainForOrganizationStatus
+		return ret
+	}).(DomainForOrganizationStatusOutput)
+}
+
+func (o DomainForOrganizationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainForOrganizationStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -266,6 +748,269 @@ func (in *insightRuleRuleStatePtr) ToInsightRuleRuleStatePtrOutput() InsightRule
 
 func (in *insightRuleRuleStatePtr) ToInsightRuleRuleStatePtrOutputWithContext(ctx context.Context) InsightRuleRuleStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InsightRuleRuleStatePtrOutput)
+}
+
+// Lifecycle status of the integration.
+type IntegrationStatus string
+
+const (
+	IntegrationStatusPending      = IntegrationStatus("PENDING")
+	IntegrationStatusPendingOauth = IntegrationStatus("PENDING_OAUTH")
+	IntegrationStatusActive       = IntegrationStatus("ACTIVE")
+	IntegrationStatusError        = IntegrationStatus("ERROR")
+	IntegrationStatusFailed       = IntegrationStatus("FAILED")
+	IntegrationStatusDeleted      = IntegrationStatus("DELETED")
+)
+
+type IntegrationStatusOutput struct{ *pulumi.OutputState }
+
+func (IntegrationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationStatus)(nil)).Elem()
+}
+
+func (o IntegrationStatusOutput) ToIntegrationStatusOutput() IntegrationStatusOutput {
+	return o
+}
+
+func (o IntegrationStatusOutput) ToIntegrationStatusOutputWithContext(ctx context.Context) IntegrationStatusOutput {
+	return o
+}
+
+func (o IntegrationStatusOutput) ToIntegrationStatusPtrOutput() IntegrationStatusPtrOutput {
+	return o.ToIntegrationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationStatusOutput) ToIntegrationStatusPtrOutputWithContext(ctx context.Context) IntegrationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationStatus) *IntegrationStatus {
+		return &v
+	}).(IntegrationStatusPtrOutput)
+}
+
+func (o IntegrationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationStatus)(nil)).Elem()
+}
+
+func (o IntegrationStatusPtrOutput) ToIntegrationStatusPtrOutput() IntegrationStatusPtrOutput {
+	return o
+}
+
+func (o IntegrationStatusPtrOutput) ToIntegrationStatusPtrOutputWithContext(ctx context.Context) IntegrationStatusPtrOutput {
+	return o
+}
+
+func (o IntegrationStatusPtrOutput) Elem() IntegrationStatusOutput {
+	return o.ApplyT(func(v *IntegrationStatus) IntegrationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationStatus
+		return ret
+	}).(IntegrationStatusOutput)
+}
+
+func (o IntegrationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of integration. Immutable after creation.
+type IntegrationType string
+
+const (
+	IntegrationTypeAwsConfigSlrec = IntegrationType("AWS_CONFIG_SLREC")
+	IntegrationTypeAwsIntegration = IntegrationType("AWS_INTEGRATION")
+	IntegrationTypeExternalAgent  = IntegrationType("EXTERNAL_AGENT")
+)
+
+func (IntegrationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationType)(nil)).Elem()
+}
+
+func (e IntegrationType) ToIntegrationTypeOutput() IntegrationTypeOutput {
+	return pulumi.ToOutput(e).(IntegrationTypeOutput)
+}
+
+func (e IntegrationType) ToIntegrationTypeOutputWithContext(ctx context.Context) IntegrationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationTypeOutput)
+}
+
+func (e IntegrationType) ToIntegrationTypePtrOutput() IntegrationTypePtrOutput {
+	return e.ToIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationType) ToIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationTypePtrOutput {
+	return IntegrationType(e).ToIntegrationTypeOutputWithContext(ctx).ToIntegrationTypePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationType)(nil)).Elem()
+}
+
+func (o IntegrationTypeOutput) ToIntegrationTypeOutput() IntegrationTypeOutput {
+	return o
+}
+
+func (o IntegrationTypeOutput) ToIntegrationTypeOutputWithContext(ctx context.Context) IntegrationTypeOutput {
+	return o
+}
+
+func (o IntegrationTypeOutput) ToIntegrationTypePtrOutput() IntegrationTypePtrOutput {
+	return o.ToIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTypeOutput) ToIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationType) *IntegrationType {
+		return &v
+	}).(IntegrationTypePtrOutput)
+}
+
+func (o IntegrationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationType)(nil)).Elem()
+}
+
+func (o IntegrationTypePtrOutput) ToIntegrationTypePtrOutput() IntegrationTypePtrOutput {
+	return o
+}
+
+func (o IntegrationTypePtrOutput) ToIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationTypePtrOutput {
+	return o
+}
+
+func (o IntegrationTypePtrOutput) Elem() IntegrationTypeOutput {
+	return o.ApplyT(func(v *IntegrationType) IntegrationType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationType
+		return ret
+	}).(IntegrationTypeOutput)
+}
+
+func (o IntegrationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntegrationTypeInput is an input type that accepts values of the IntegrationType enum
+// A concrete instance of `IntegrationTypeInput` can be one of the following:
+//
+//	IntegrationTypeAwsConfigSlrec
+//	IntegrationTypeAwsIntegration
+//	IntegrationTypeExternalAgent
+type IntegrationTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationTypeOutput() IntegrationTypeOutput
+	ToIntegrationTypeOutputWithContext(context.Context) IntegrationTypeOutput
+}
+
+var integrationTypePtrType = reflect.TypeOf((**IntegrationType)(nil)).Elem()
+
+type IntegrationTypePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationTypePtrOutput() IntegrationTypePtrOutput
+	ToIntegrationTypePtrOutputWithContext(context.Context) IntegrationTypePtrOutput
+}
+
+type integrationTypePtr string
+
+func IntegrationTypePtr(v string) IntegrationTypePtrInput {
+	return (*integrationTypePtr)(&v)
+}
+
+func (*integrationTypePtr) ElementType() reflect.Type {
+	return integrationTypePtrType
+}
+
+func (in *integrationTypePtr) ToIntegrationTypePtrOutput() IntegrationTypePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationTypePtrOutput)
+}
+
+func (in *integrationTypePtr) ToIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationTypePtrOutput)
 }
 
 // Current status of OTel enrichment (RUNNING or STOPPED).
@@ -451,12 +1196,30 @@ func (o ViewTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProvidersItemInput)(nil)).Elem(), DomainForOrganizationIdentityProvidersItem("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProvidersItemPtrInput)(nil)).Elem(), DomainForOrganizationIdentityProvidersItem("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProvidersItemArrayInput)(nil)).Elem(), DomainForOrganizationIdentityProvidersItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStateInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStatePtrInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTypeInput)(nil)).Elem(), IntegrationType("AWS_CONFIG_SLREC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTypePtrInput)(nil)).Elem(), IntegrationType("AWS_CONFIG_SLREC"))
+	pulumi.RegisterOutputType(AccessProfileAssumeStatusOutput{})
+	pulumi.RegisterOutputType(AccessProfileAssumeStatusPtrOutput{})
+	pulumi.RegisterOutputType(AccessProfileProfileTypeOutput{})
+	pulumi.RegisterOutputType(AccessProfileProfileTypePtrOutput{})
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusOutput{})
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusPtrOutput{})
+	pulumi.RegisterOutputType(DomainForOrganizationIdentityProvidersItemOutput{})
+	pulumi.RegisterOutputType(DomainForOrganizationIdentityProvidersItemPtrOutput{})
+	pulumi.RegisterOutputType(DomainForOrganizationIdentityProvidersItemArrayOutput{})
+	pulumi.RegisterOutputType(DomainForOrganizationStatusOutput{})
+	pulumi.RegisterOutputType(DomainForOrganizationStatusPtrOutput{})
 	pulumi.RegisterOutputType(InsightRuleRuleStateOutput{})
 	pulumi.RegisterOutputType(InsightRuleRuleStatePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationStatusOutput{})
+	pulumi.RegisterOutputType(IntegrationStatusPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationTypePtrOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(ViewTypeOutput{})

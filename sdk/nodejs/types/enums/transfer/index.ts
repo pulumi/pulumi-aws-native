@@ -160,6 +160,16 @@ export const ConnectorStatus = {
 
 export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
 
+export const HostKeyStorageType = {
+    ServiceManaged: "SERVICE_MANAGED",
+    SecretsManager: "SECRETS_MANAGER",
+} as const;
+
+/**
+ * The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+ */
+export type HostKeyStorageType = (typeof HostKeyStorageType)[keyof typeof HostKeyStorageType];
+
 export const ProfileType = {
     Local: "LOCAL",
     Partner: "PARTNER",

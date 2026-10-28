@@ -124,6 +124,8 @@ __all__ = [
     'PromptVersionCachePointType',
     'PromptVersionConversationRole',
     'PromptVersionPromptTemplateType',
+    'RetrievalInstructionLastTransitionStatus',
+    'RetrievalInstructionStatus',
     'SessionStatus',
 ]
 
@@ -1271,6 +1273,28 @@ class PromptVersionPromptTemplateType(_builtins.str, Enum):
     """
     TEXT = "TEXT"
     CHAT = "CHAT"
+
+
+@pulumi.type_token("aws-native:bedrock:RetrievalInstructionLastTransitionStatus")
+class RetrievalInstructionLastTransitionStatus(_builtins.str, Enum):
+    """
+    The outcome or in-progress state of the most recent create or update. CREATING or UPDATING means the operation is still running. Independent of status. Always has a value from the create 202 onward. On a numbered version this is always CREATE_SUCCESSFUL: a version is created once, from reviewed content, and is immutable.
+    """
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+    UPDATE_FAILED = "UPDATE_FAILED"
+
+
+@pulumi.type_token("aws-native:bedrock:RetrievalInstructionStatus")
+class RetrievalInstructionStatus(_builtins.str, Enum):
+    """
+    Whether the instruction can be used. Only ACTIVE is resolvable at retrieval time. Monotone: INACTIVE to ACTIVE once, never back. Numbered versions are always ACTIVE.
+    """
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
 
 
 @pulumi.type_token("aws-native:bedrock:SessionStatus")

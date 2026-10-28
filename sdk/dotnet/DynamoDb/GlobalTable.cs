@@ -132,11 +132,17 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("tableName")]
         public Output<string?> TableName { get; private set; } = null!;
 
+        [Output("tableType")]
+        public Output<Pulumi.AwsNative.DynamoDb.GlobalTableTableType?> TableType { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         /// </summary>
         [Output("timeToLiveSpecification")]
         public Output<Outputs.GlobalTableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
+
+        [Output("vectorIndexes")]
+        public Output<ImmutableArray<Outputs.GlobalTableVectorIndex>> VectorIndexes { get; private set; } = null!;
 
         /// <summary>
         /// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
@@ -338,11 +344,22 @@ namespace Pulumi.AwsNative.DynamoDb
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 
+        [Input("tableType")]
+        public Input<Pulumi.AwsNative.DynamoDb.GlobalTableTableType>? TableType { get; set; }
+
         /// <summary>
         /// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         /// </summary>
         [Input("timeToLiveSpecification")]
         public Input<Inputs.GlobalTableTimeToLiveSpecificationArgs>? TimeToLiveSpecification { get; set; }
+
+        [Input("vectorIndexes")]
+        private InputList<Inputs.GlobalTableVectorIndexArgs>? _vectorIndexes;
+        public InputList<Inputs.GlobalTableVectorIndexArgs> VectorIndexes
+        {
+            get => _vectorIndexes ?? (_vectorIndexes = new InputList<Inputs.GlobalTableVectorIndexArgs>());
+            set => _vectorIndexes = value;
+        }
 
         /// <summary>
         /// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.

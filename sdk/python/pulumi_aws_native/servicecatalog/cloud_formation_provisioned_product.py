@@ -280,7 +280,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+        Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,7 +323,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
                  args: Optional[CloudFormationProvisionedProductArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+        Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 
         :param str resource_name: The name of the resource.
         :param CloudFormationProvisionedProductArgs args: The arguments to use to populate this resource's properties.

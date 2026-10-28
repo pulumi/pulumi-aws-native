@@ -19,7 +19,7 @@
       "permissions" : [ "ec2:Describe*" ]
     },
     "create" : {
-      "permissions" : [ "ec2:CreateTags", "ec2:StartNetworkInsightsAnalysis", "ec2:GetTransitGatewayRouteTablePropagations", "ec2:SearchTransitGatewayRoutes", "ec2:Describe*", "ec2:GetManagedPrefixListEntries", "elasticloadbalancing:Describe*", "directconnect:Describe*", "tiros:CreateQuery", "tiros:GetQueryAnswer", "tiros:GetQueryExplanation" ]
+      "permissions" : [ "ec2:CreateTags", "ec2:StartNetworkInsightsAnalysis", "ec2:GetTransitGatewayRouteTablePropagations", "ec2:GetTransitGatewayPolicyTableAssociations", "ec2:GetTransitGatewayPolicyTableEntries", "ec2:SearchTransitGatewayRoutes", "ec2:Describe*", "ec2:GetManagedPrefixListEntries", "elasticloadbalancing:Describe*", "directconnect:Describe*", "tiros:CreateQuery", "tiros:GetQueryAnswer", "tiros:GetQueryExplanation" ]
     },
     "update" : {
       "permissions" : [ "ec2:CreateTags", "ec2:Describe*", "ec2:DeleteTags" ]
@@ -57,6 +57,9 @@
         },
         "SecurityGroupRule" : {
           "$ref" : "#/definitions/AnalysisSecurityGroupRule"
+        },
+        "TransitGatewayPolicyTableEntry" : {
+          "$ref" : "#/definitions/AnalysisTransitGatewayPolicyTableEntry"
         },
         "TransitGateway" : {
           "$ref" : "#/definitions/AnalysisComponent"
@@ -167,6 +170,9 @@
         "Port" : {
           "$ref" : "#/definitions/Port"
         },
+        "TransitGatewayPolicyTableEntry" : {
+          "$ref" : "#/definitions/AnalysisTransitGatewayPolicyTableEntry"
+        },
         "Addresses" : {
           "uniqueItems" : false,
           "insertionOrder" : true,
@@ -275,6 +281,9 @@
         "LoadBalancerTarget" : {
           "$ref" : "#/definitions/AnalysisLoadBalancerTarget"
         },
+        "TransitGatewayPolicyTable" : {
+          "$ref" : "#/definitions/AnalysisComponent"
+        },
         "LoadBalancerTargetGroups" : {
           "uniqueItems" : false,
           "insertionOrder" : true,
@@ -366,6 +375,33 @@
           "items" : {
             "$ref" : "#/definitions/IpAddress"
           }
+        }
+      }
+    },
+    "AnalysisTransitGatewayPolicyTableEntry" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DestinationPortRange" : {
+          "$ref" : "#/definitions/PortRange"
+        },
+        "SourcePortRange" : {
+          "$ref" : "#/definitions/PortRange"
+        },
+        "SourceCidr" : {
+          "type" : "string"
+        },
+        "RuleNumber" : {
+          "type" : "integer"
+        },
+        "TargetRouteTableId" : {
+          "type" : "string"
+        },
+        "Protocol" : {
+          "type" : "string"
+        },
+        "DestinationCidr" : {
+          "type" : "string"
         }
       }
     },

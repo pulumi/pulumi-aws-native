@@ -116,7 +116,8 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloud9:CreateEnvironmentEC2", "cloud9:DescribeEnvironments", "cloud9:TagResource", "cloud9:ListTagsForResource", "iam:CreateServiceLinkedRole", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ssm:StartSession" ]
+      "permissions" : [ "cloud9:CreateEnvironmentEC2", "cloud9:DescribeEnvironments", "cloud9:TagResource", "cloud9:ListTagsForResource", "iam:CreateServiceLinkedRole", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ssm:StartSession" ],
+      "timeoutInMinutes" : 15
     },
     "read" : {
       "permissions" : [ "cloud9:DescribeEnvironments", "cloud9:ListTagsForResource" ]

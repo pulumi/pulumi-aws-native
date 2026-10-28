@@ -52,10 +52,28 @@ namespace Pulumi.AwsNative.Transfer
         public Output<string> HostKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+        /// </summary>
+        [Output("kmsKey")]
+        public Output<string?> KmsKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+        /// </summary>
+        [Output("secretId")]
+        public Output<string> SecretId { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the server that contains the host key.
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+        /// </summary>
+        [Output("storageType")]
+        public Output<Pulumi.AwsNative.Transfer.HostKeyStorageType?> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs that can be used to group and search for host keys.
@@ -132,10 +150,22 @@ namespace Pulumi.AwsNative.Transfer
         public Input<string>? HostKeyBody { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+        /// </summary>
+        [Input("kmsKey")]
+        public Input<string>? KmsKey { get; set; }
+
+        /// <summary>
         /// The identifier of the server that contains the host key.
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
+
+        /// <summary>
+        /// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+        /// </summary>
+        [Input("storageType")]
+        public Input<Pulumi.AwsNative.Transfer.HostKeyStorageType>? StorageType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

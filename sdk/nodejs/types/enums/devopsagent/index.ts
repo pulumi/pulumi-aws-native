@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AgentSpaceIdpAuthConfigurationProvider = {
+    Okta: "okta",
+    Entra: "entra",
+} as const;
+
+/**
+ * The external identity provider type.
+ */
+export type AgentSpaceIdpAuthConfigurationProvider = (typeof AgentSpaceIdpAuthConfigurationProvider)[keyof typeof AgentSpaceIdpAuthConfigurationProvider];
+
 export const AssociationAwsConfigurationAccountType = {
     Monitor: "monitor",
 } as const;
@@ -100,6 +110,17 @@ export const PrivateConnectionStatus = {
  */
 export type PrivateConnectionStatus = (typeof PrivateConnectionStatus)[keyof typeof PrivateConnectionStatus];
 
+export const ServiceGitHubAppVerificationDetailsAppVariant = {
+    ReadOnly: "READ_ONLY",
+    ReadWrite: "READ_WRITE",
+    CustomApp: "CUSTOM_APP",
+} as const;
+
+/**
+ * Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+ */
+export type ServiceGitHubAppVerificationDetailsAppVariant = (typeof ServiceGitHubAppVerificationDetailsAppVariant)[keyof typeof ServiceGitHubAppVerificationDetailsAppVariant];
+
 export const ServiceGitLabDetailsTokenType = {
     Personal: "personal",
     Group: "group",
@@ -119,6 +140,48 @@ export const ServiceNewRelicApiKeyConfigRegion = {
  * New Relic region
  */
 export type ServiceNewRelicApiKeyConfigRegion = (typeof ServiceNewRelicApiKeyConfigRegion)[keyof typeof ServiceNewRelicApiKeyConfigRegion];
+
+export const ServiceRegisteredGitHubServiceDetailsAppVariant = {
+    ReadOnly: "READ_ONLY",
+    ReadWrite: "READ_WRITE",
+    CustomApp: "CUSTOM_APP",
+} as const;
+
+/**
+ * The GitHub App variant the service was registered with
+ */
+export type ServiceRegisteredGitHubServiceDetailsAppVariant = (typeof ServiceRegisteredGitHubServiceDetailsAppVariant)[keyof typeof ServiceRegisteredGitHubServiceDetailsAppVariant];
+
+export const ServiceRegisteredGitHubServiceDetailsAuthMode = {
+    App: "app",
+    Pat: "pat",
+} as const;
+
+/**
+ * How the service authenticates against the GitHub API: app after AppVerification, pat after DirectAccess
+ */
+export type ServiceRegisteredGitHubServiceDetailsAuthMode = (typeof ServiceRegisteredGitHubServiceDetailsAuthMode)[keyof typeof ServiceRegisteredGitHubServiceDetailsAuthMode];
+
+export const ServiceRegisteredGitHubServiceDetailsHostingType = {
+    Saas: "SAAS",
+    SelfManaged: "SELF_MANAGED",
+    Dedicated: "DEDICATED",
+} as const;
+
+/**
+ * The GitHub hosting type the service was registered with
+ */
+export type ServiceRegisteredGitHubServiceDetailsHostingType = (typeof ServiceRegisteredGitHubServiceDetailsHostingType)[keyof typeof ServiceRegisteredGitHubServiceDetailsHostingType];
+
+export const ServiceRegisteredGitHubServiceDetailsOwnerType = {
+    Organization: "organization",
+    User: "user",
+} as const;
+
+/**
+ * Type of repository owner
+ */
+export type ServiceRegisteredGitHubServiceDetailsOwnerType = (typeof ServiceRegisteredGitHubServiceDetailsOwnerType)[keyof typeof ServiceRegisteredGitHubServiceDetailsOwnerType];
 
 export const ServiceRegisteredGitLabServiceDetailsTokenType = {
     Personal: "personal",
@@ -166,6 +229,7 @@ export const ServiceType = {
     Mcpserversplunk: "mcpserversplunk",
     Mcpservernewrelic: "mcpservernewrelic",
     Gitlab: "gitlab",
+    Github: "github",
     Servicenow: "servicenow",
     Pagerduty: "pagerduty",
     Azureidentity: "azureidentity",

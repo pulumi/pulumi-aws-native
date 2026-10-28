@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class TaskDefinitionResourceRequirement
     {
+        public readonly Outputs.TaskDefinitionSharingStrategy? SharingStrategy;
         /// <summary>
         /// The type of resource to assign to a container.
         /// </summary>
@@ -26,14 +27,17 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///  When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
         ///  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private TaskDefinitionResourceRequirement(
+            Outputs.TaskDefinitionSharingStrategy? sharingStrategy,
+
             string type,
 
-            string value)
+            string? value)
         {
+            SharingStrategy = sharingStrategy;
             Type = type;
             Value = value;
         }

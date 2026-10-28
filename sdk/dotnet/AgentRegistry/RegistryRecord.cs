@@ -28,6 +28,14 @@ namespace Pulumi.AwsNative.AgentRegistry
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
+        /// The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+        /// </summary>
+        [Output("customMetadata")]
+        public Output<object?> CustomMetadata { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the registry record.
         /// </summary>
         [Output("description")]
@@ -146,6 +154,14 @@ namespace Pulumi.AwsNative.AgentRegistry
 
     public sealed class RegistryRecordArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+        /// </summary>
+        [Input("customMetadata")]
+        public Input<object>? CustomMetadata { get; set; }
+
         /// <summary>
         /// The description of the registry record.
         /// </summary>

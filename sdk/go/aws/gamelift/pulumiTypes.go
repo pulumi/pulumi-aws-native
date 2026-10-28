@@ -2739,6 +2739,8 @@ type ContainerGroupDefinitionGameServerContainerDefinition struct {
 	ResolvedImageDigest *string `pulumi:"resolvedImageDigest"`
 	// The version of the server SDK used in this container group
 	ServerSdkVersion string `pulumi:"serverSdkVersion"`
+	// The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
+	Vcpu *float64 `pulumi:"vcpu"`
 }
 
 // ContainerGroupDefinitionGameServerContainerDefinitionInput is an input type that accepts ContainerGroupDefinitionGameServerContainerDefinitionArgs and ContainerGroupDefinitionGameServerContainerDefinitionOutput values.
@@ -2772,6 +2774,8 @@ type ContainerGroupDefinitionGameServerContainerDefinitionArgs struct {
 	ResolvedImageDigest pulumi.StringPtrInput `pulumi:"resolvedImageDigest"`
 	// The version of the server SDK used in this container group
 	ServerSdkVersion pulumi.StringInput `pulumi:"serverSdkVersion"`
+	// The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
+	Vcpu pulumi.Float64PtrInput `pulumi:"vcpu"`
 }
 
 func (ContainerGroupDefinitionGameServerContainerDefinitionArgs) ElementType() reflect.Type {
@@ -2907,6 +2911,11 @@ func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ServerSdkVe
 	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) string { return v.ServerSdkVersion }).(pulumi.StringOutput)
 }
 
+// The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) Vcpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) *float64 { return v.Vcpu }).(pulumi.Float64PtrOutput)
+}
+
 type ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ElementType() reflect.Type {
@@ -3019,6 +3028,16 @@ func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ServerSd
 		}
 		return &v.ServerSdkVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) Vcpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Vcpu
+	}).(pulumi.Float64PtrOutput)
 }
 
 // A set of Linux capabilities that are added to a container's default Docker configuration. For more detailed information, see the capabilities(7) Linux manual page.

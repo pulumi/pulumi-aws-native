@@ -34,6 +34,9 @@ export const KeySpec = {
     MlDsa65: "ML_DSA_65",
     MlDsa87: "ML_DSA_87",
     EccNistEdwards25519: "ECC_NIST_EDWARDS25519",
+    MlKem512: "ML_KEM_512",
+    MlKem768: "ML_KEM_768",
+    MlKem1024: "ML_KEM_1024",
 } as const;
 
 /**
@@ -81,6 +84,7 @@ export const KeyUsage = {
     SignVerify: "SIGN_VERIFY",
     GenerateVerifyMac: "GENERATE_VERIFY_MAC",
     KeyAgreement: "KEY_AGREEMENT",
+    EncapsulateDecapsulate: "ENCAPSULATE_DECAPSULATE",
 } as const;
 
 /**

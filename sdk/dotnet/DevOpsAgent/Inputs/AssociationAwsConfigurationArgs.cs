@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
         public Input<Pulumi.AwsNative.DevOpsAgent.AssociationAwsConfigurationAccountType> AccountType { get; set; } = null!;
 
         /// <summary>
+        /// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+        /// </summary>
+        [Input("agentElevatedRoleArn")]
+        public Input<string>? AgentElevatedRoleArn { get; set; }
+
+        /// <summary>
         /// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
         /// </summary>
         [Input("assumableRoleArn", required: true)]

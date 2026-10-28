@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     /// </summary>
     public sealed class TaskDefinitionResourceRequirementArgs : global::Pulumi.ResourceArgs
     {
+        [Input("sharingStrategy")]
+        public Input<Inputs.TaskDefinitionSharingStrategyArgs>? SharingStrategy { get; set; }
+
         /// <summary>
         /// The type of resource to assign to a container.
         /// </summary>
@@ -27,8 +30,8 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         ///  When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
         ///  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public TaskDefinitionResourceRequirementArgs()
         {

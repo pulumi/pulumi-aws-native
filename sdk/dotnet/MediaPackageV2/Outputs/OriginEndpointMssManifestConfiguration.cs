@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointMssManifestConfiguration
     {
-        public readonly Outputs.OriginEndpointFilterConfiguration? FilterConfiguration;
+        public readonly Outputs.OriginEndpointMssFilterConfiguration? FilterConfiguration;
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointMssManifestLayout? ManifestLayout;
         /// <summary>
         /// &lt;p&gt;The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.&lt;/p&gt;
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
         [OutputConstructor]
         private OriginEndpointMssManifestConfiguration(
-            Outputs.OriginEndpointFilterConfiguration? filterConfiguration,
+            Outputs.OriginEndpointMssFilterConfiguration? filterConfiguration,
 
             Pulumi.AwsNative.MediaPackageV2.OriginEndpointMssManifestLayout? manifestLayout,
 

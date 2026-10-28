@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessProfileAssumeStatus = {
+    Allowed: "ALLOWED",
+    Denied: "DENIED",
+} as const;
+
+/**
+ * Whether the calling principal is authorized to assume the access profile.
+ */
+export type AccessProfileAssumeStatus = (typeof AccessProfileAssumeStatus)[keyof typeof AccessProfileAssumeStatus];
+
+export const AccessProfileProfileType = {
+    ServiceManaged: "SERVICE_MANAGED",
+    CustomerManaged: "CUSTOMER_MANAGED",
+} as const;
+
+/**
+ * Whether the access profile is managed by the service or by the customer.
+ */
+export type AccessProfileProfileType = (typeof AccessProfileProfileType)[keyof typeof AccessProfileProfileType];
+
 export const AlarmMuteRuleStatus = {
     Scheduled: "SCHEDULED",
     Active: "ACTIVE",
@@ -13,6 +33,22 @@ export const AlarmMuteRuleStatus = {
  */
 export type AlarmMuteRuleStatus = (typeof AlarmMuteRuleStatus)[keyof typeof AlarmMuteRuleStatus];
 
+export const DomainForOrganizationIdentityProvidersItem = {
+    Iam: "IAM",
+    Idc: "IDC",
+} as const;
+
+export type DomainForOrganizationIdentityProvidersItem = (typeof DomainForOrganizationIdentityProvidersItem)[keyof typeof DomainForOrganizationIdentityProvidersItem];
+
+export const DomainForOrganizationStatus = {
+    Active: "ACTIVE",
+} as const;
+
+/**
+ * Current status of the domain.
+ */
+export type DomainForOrganizationStatus = (typeof DomainForOrganizationStatus)[keyof typeof DomainForOrganizationStatus];
+
 export const InsightRuleRuleState = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -22,6 +58,31 @@ export const InsightRuleRuleState = {
  * The current state of the rule. Valid values are `ENABLED` and `DISABLED` .
  */
 export type InsightRuleRuleState = (typeof InsightRuleRuleState)[keyof typeof InsightRuleRuleState];
+
+export const IntegrationStatus = {
+    Pending: "PENDING",
+    PendingOauth: "PENDING_OAUTH",
+    Active: "ACTIVE",
+    Error: "ERROR",
+    Failed: "FAILED",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * Lifecycle status of the integration.
+ */
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
+
+export const IntegrationType = {
+    AwsConfigSlrec: "AWS_CONFIG_SLREC",
+    AwsIntegration: "AWS_INTEGRATION",
+    ExternalAgent: "EXTERNAL_AGENT",
+} as const;
+
+/**
+ * The type of integration. Immutable after creation.
+ */
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
 
 export const OTelEnrichmentStatus = {
     Running: "RUNNING",

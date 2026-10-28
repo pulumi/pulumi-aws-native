@@ -44,6 +44,8 @@ __all__ = [
     'MailManagerTrafficPolicyIngressTlsAttribute',
     'MailManagerTrafficPolicyIngressTlsProtocolAttribute',
     'MailManagerTrafficPolicyIngressTlsProtocolOperator',
+    'TenantSuppressionAttributesSuppressedReasonsItem',
+    'TenantSuppressionAttributesSuppressionScope',
 ]
 
 
@@ -310,3 +312,18 @@ class MailManagerTrafficPolicyIngressTlsProtocolAttribute(_builtins.str, Enum):
 class MailManagerTrafficPolicyIngressTlsProtocolOperator(_builtins.str, Enum):
     MINIMUM_TLS_VERSION = "MINIMUM_TLS_VERSION"
     IS_ = "IS"
+
+
+@pulumi.type_token("aws-native:ses:TenantSuppressionAttributesSuppressedReasonsItem")
+class TenantSuppressionAttributesSuppressedReasonsItem(_builtins.str, Enum):
+    BOUNCE = "BOUNCE"
+    COMPLAINT = "COMPLAINT"
+
+
+@pulumi.type_token("aws-native:ses:TenantSuppressionAttributesSuppressionScope")
+class TenantSuppressionAttributesSuppressionScope(_builtins.str, Enum):
+    """
+    The scope of the suppression list for the tenant.
+    """
+    ACCOUNT = "ACCOUNT"
+    TENANT = "TENANT"

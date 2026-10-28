@@ -1323,6 +1323,7 @@ __all__ = [
     'DataSourceManifestFileLocation',
     'DataSourceMariaDbParameters',
     'DataSourceMySqlParameters',
+    'DataSourceOAuthClientCredentials',
     'DataSourceOAuthParameters',
     'DataSourceOracleParameters',
     'DataSourceParameters',
@@ -39758,7 +39759,6 @@ class AnalysisYAxisOptions(dict):
 class ApprovalPolicyApplicableTo(dict):
     """
     Scoping: who the policy applies to.
-    GROUP: `groupArns` required (one or more group ARNs).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -39778,11 +39778,10 @@ class ApprovalPolicyApplicableTo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 type: Any,
+                 type: 'ApprovalPolicyApplicableToType',
                  group_arns: Optional[Sequence[_builtins.str]] = None):
         """
         Scoping: who the policy applies to.
-        GROUP: `groupArns` required (one or more group ARNs).
 
         :param Sequence[_builtins.str] group_arns: Required when type = GROUP. One or more group ARNs.
         """
@@ -39792,7 +39791,7 @@ class ApprovalPolicyApplicableTo(dict):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> 'ApprovalPolicyApplicableToType':
         return pulumi.get(self, "type")
 
     @_builtins.property
@@ -86438,6 +86437,8 @@ class DataSourceCredentials(dict):
             suggest = "credential_pair"
         elif key == "keyPairCredentials":
             suggest = "key_pair_credentials"
+        elif key == "oAuthClientCredentials":
+            suggest = "o_auth_client_credentials"
         elif key == "secretArn":
             suggest = "secret_arn"
 
@@ -86456,6 +86457,7 @@ class DataSourceCredentials(dict):
                  copy_source_arn: Optional[_builtins.str] = None,
                  credential_pair: Optional['outputs.DataSourceCredentialPair'] = None,
                  key_pair_credentials: Optional['outputs.DataSourceKeyPairCredentials'] = None,
+                 o_auth_client_credentials: Optional['outputs.DataSourceOAuthClientCredentials'] = None,
                  secret_arn: Optional[_builtins.str] = None):
         """
         <p>Data source credentials. This is a variant type structure. For this structure to be
@@ -86475,6 +86477,8 @@ class DataSourceCredentials(dict):
             pulumi.set(__self__, "credential_pair", credential_pair)
         if key_pair_credentials is not None:
             pulumi.set(__self__, "key_pair_credentials", key_pair_credentials)
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
 
@@ -86506,6 +86510,11 @@ class DataSourceCredentials(dict):
         return pulumi.get(self, "key_pair_credentials")
 
     @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> Optional['outputs.DataSourceOAuthClientCredentials']:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+    @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[_builtins.str]:
         """
@@ -86524,6 +86533,10 @@ class DataSourceDatabricksParameters(dict):
         suggest = None
         if key == "sqlEndpointPath":
             suggest = "sql_endpoint_path"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "oAuthParameters":
+            suggest = "o_auth_parameters"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceDatabricksParameters. Access the value via the '{suggest}' property getter instead.")
@@ -86539,7 +86552,9 @@ class DataSourceDatabricksParameters(dict):
     def __init__(__self__, *,
                  host: _builtins.str,
                  port: _builtins.float,
-                 sql_endpoint_path: _builtins.str):
+                 sql_endpoint_path: _builtins.str,
+                 authentication_type: Optional['DataSourceAuthenticationType'] = None,
+                 o_auth_parameters: Optional['outputs.DataSourceOAuthParameters'] = None):
         """
         <p>The parameters that are required to connect to a Databricks data source.</p>
 
@@ -86550,6 +86565,10 @@ class DataSourceDatabricksParameters(dict):
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "sql_endpoint_path", sql_endpoint_path)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if o_auth_parameters is not None:
+            pulumi.set(__self__, "o_auth_parameters", o_auth_parameters)
 
     @_builtins.property
     @pulumi.getter
@@ -86574,6 +86593,16 @@ class DataSourceDatabricksParameters(dict):
         <p>The HTTP path of the Databricks data source.</p>
         """
         return pulumi.get(self, "sql_endpoint_path")
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional['DataSourceAuthenticationType']:
+        return pulumi.get(self, "authentication_type")
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthParameters")
+    def o_auth_parameters(self) -> Optional['outputs.DataSourceOAuthParameters']:
+        return pulumi.get(self, "o_auth_parameters")
 
 
 @pulumi.output_type
@@ -86837,6 +86866,54 @@ class DataSourceMySqlParameters(dict):
         <p>Port.</p>
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class DataSourceOAuthClientCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceOAuthClientCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceOAuthClientCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceOAuthClientCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 username: Optional[_builtins.str] = None):
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

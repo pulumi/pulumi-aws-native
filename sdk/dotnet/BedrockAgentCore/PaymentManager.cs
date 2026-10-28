@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     [AwsNativeResourceType("aws-native:bedrockagentcore:PaymentManager")]
     public partial class PaymentManager : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The authorizer configuration for the payment manager
+        /// </summary>
         [Output("authorizerConfiguration")]
-        public Output<Outputs.PaymentManagerAuthorizerConfiguration?> AuthorizerConfiguration { get; private set; } = null!;
+        public Output<Outputs.PaymentManagerAuthorizerConfigurationProperties?> AuthorizerConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of authorizer for the payment manager
+        /// </summary>
         [Output("authorizerType")]
-        public Output<Pulumi.AwsNative.BedrockAgentCore.PaymentManagerPaymentsAuthorizerType> AuthorizerType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.BedrockAgentCore.PaymentManagerAuthorizerType> AuthorizerType { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp when the payment manager was created
@@ -46,7 +52,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the payment manager
+        /// The Amazon Resource Name (ARN) of the resource.
         /// </summary>
         [Output("paymentManagerArn")]
         public Output<string> PaymentManagerArn { get; private set; } = null!;
@@ -63,15 +69,21 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The current status of the payment manager
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.PaymentManagerStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to assign to the payment manager
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The workload identity details for the payment manager
+        /// </summary>
         [Output("workloadIdentityDetails")]
         public Output<Outputs.PaymentManagerWorkloadIdentityDetails> WorkloadIdentityDetails { get; private set; } = null!;
 
@@ -126,11 +138,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
     public sealed class PaymentManagerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authorizer configuration for the payment manager
+        /// </summary>
         [Input("authorizerConfiguration")]
-        public Input<Inputs.PaymentManagerAuthorizerConfigurationArgs>? AuthorizerConfiguration { get; set; }
+        public Input<Inputs.PaymentManagerAuthorizerConfigurationPropertiesArgs>? AuthorizerConfiguration { get; set; }
 
+        /// <summary>
+        /// The type of authorizer for the payment manager
+        /// </summary>
         [Input("authorizerType", required: true)]
-        public Input<Pulumi.AwsNative.BedrockAgentCore.PaymentManagerPaymentsAuthorizerType> AuthorizerType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.BedrockAgentCore.PaymentManagerAuthorizerType> AuthorizerType { get; set; } = null!;
 
         /// <summary>
         /// A description of the payment manager
@@ -154,7 +172,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Tags to assign to the payment manager
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

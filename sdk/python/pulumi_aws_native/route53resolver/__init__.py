@@ -7,9 +7,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .firewall_config import *
 from .firewall_domain_list import *
 from .firewall_rule_group import *
 from .firewall_rule_group_association import *
+from .get_firewall_config import *
 from .get_firewall_domain_list import *
 from .get_firewall_rule_group import *
 from .get_firewall_rule_group_association import *

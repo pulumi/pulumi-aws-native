@@ -90,6 +90,7 @@ import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
+import * as autoscalingplans from "./autoscalingplans";
 import * as awsexternalanthropic from "./awsexternalanthropic";
 import * as b2bi from "./b2bi";
 import * as backup from "./backup";
@@ -226,6 +227,8 @@ import * as lambda from "./lambda";
 import * as launchwizard from "./launchwizard";
 import * as lex from "./lex";
 import * as licensemanager from "./licensemanager";
+import * as licensemanagerlinuxsubscriptions from "./licensemanagerlinuxsubscriptions";
+import * as licensemanagerusersubscriptions from "./licensemanagerusersubscriptions";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
 import * as logs from "./logs";
@@ -270,6 +273,7 @@ import * as personalize from "./personalize";
 import * as pi from "./pi";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
+import * as polly from "./polly";
 import * as pricingplanmanager from "./pricingplanmanager";
 import * as proton from "./proton";
 import * as qbusiness from "./qbusiness";
@@ -378,6 +382,7 @@ export {
     athena,
     auditmanager,
     autoscaling,
+    autoscalingplans,
     awsexternalanthropic,
     b2bi,
     backup,
@@ -514,6 +519,8 @@ export {
     launchwizard,
     lex,
     licensemanager,
+    licensemanagerlinuxsubscriptions,
+    licensemanagerusersubscriptions,
     lightsail,
     location,
     logs,
@@ -558,6 +565,7 @@ export {
     pi,
     pinpoint,
     pipes,
+    polly,
     pricingplanmanager,
     proton,
     qbusiness,

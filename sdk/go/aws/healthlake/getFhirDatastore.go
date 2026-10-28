@@ -29,15 +29,22 @@ type LookupFhirDatastoreArgs struct {
 }
 
 type LookupFhirDatastoreResult struct {
-	CreatedAt *FhirDatastoreCreatedAt `pulumi:"createdAt"`
+	AnalyticsConfiguration *FhirDatastoreAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
+	CreatedAt              *FhirDatastoreCreatedAt              `pulumi:"createdAt"`
 	// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
 	DatastoreArn *string `pulumi:"datastoreArn"`
 	// The endpoint for the created Data Store.
 	DatastoreEndpoint *string `pulumi:"datastoreEndpoint"`
 	// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
 	DatastoreId *string `pulumi:"datastoreId"`
+	// The data store name (user-generated).
+	DatastoreName *string `pulumi:"datastoreName"`
 	// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
 	DatastoreStatus *FhirDatastoreDatastoreStatus `pulumi:"datastoreStatus"`
+	// The identity provider configuration selected when the data store was created.
+	IdentityProviderConfiguration *FhirDatastoreIdentityProviderConfiguration `pulumi:"identityProviderConfiguration"`
+	NlpConfiguration              *FhirDatastoreNlpConfiguration              `pulumi:"nlpConfiguration"`
+	ProfileConfiguration          *FhirDatastoreProfileConfiguration          `pulumi:"profileConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -72,6 +79,12 @@ func (o LookupFhirDatastoreResultOutput) ToLookupFhirDatastoreResultOutputWithCo
 	return o
 }
 
+func (o LookupFhirDatastoreResultOutput) AnalyticsConfiguration() FhirDatastoreAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFhirDatastoreResult) *FhirDatastoreAnalyticsConfiguration {
+		return v.AnalyticsConfiguration
+	}).(FhirDatastoreAnalyticsConfigurationPtrOutput)
+}
+
 func (o LookupFhirDatastoreResultOutput) CreatedAt() FhirDatastoreCreatedAtPtrOutput {
 	return o.ApplyT(func(v LookupFhirDatastoreResult) *FhirDatastoreCreatedAt { return v.CreatedAt }).(FhirDatastoreCreatedAtPtrOutput)
 }
@@ -91,9 +104,29 @@ func (o LookupFhirDatastoreResultOutput) DatastoreId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFhirDatastoreResult) *string { return v.DatastoreId }).(pulumi.StringPtrOutput)
 }
 
+// The data store name (user-generated).
+func (o LookupFhirDatastoreResultOutput) DatastoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFhirDatastoreResult) *string { return v.DatastoreName }).(pulumi.StringPtrOutput)
+}
+
 // The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
 func (o LookupFhirDatastoreResultOutput) DatastoreStatus() FhirDatastoreDatastoreStatusPtrOutput {
 	return o.ApplyT(func(v LookupFhirDatastoreResult) *FhirDatastoreDatastoreStatus { return v.DatastoreStatus }).(FhirDatastoreDatastoreStatusPtrOutput)
+}
+
+// The identity provider configuration selected when the data store was created.
+func (o LookupFhirDatastoreResultOutput) IdentityProviderConfiguration() FhirDatastoreIdentityProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFhirDatastoreResult) *FhirDatastoreIdentityProviderConfiguration {
+		return v.IdentityProviderConfiguration
+	}).(FhirDatastoreIdentityProviderConfigurationPtrOutput)
+}
+
+func (o LookupFhirDatastoreResultOutput) NlpConfiguration() FhirDatastoreNlpConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFhirDatastoreResult) *FhirDatastoreNlpConfiguration { return v.NlpConfiguration }).(FhirDatastoreNlpConfigurationPtrOutput)
+}
+
+func (o LookupFhirDatastoreResultOutput) ProfileConfiguration() FhirDatastoreProfileConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFhirDatastoreResult) *FhirDatastoreProfileConfiguration { return v.ProfileConfiguration }).(FhirDatastoreProfileConfigurationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

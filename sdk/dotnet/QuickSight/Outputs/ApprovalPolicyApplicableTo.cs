@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
     /// <summary>
     /// Scoping: who the policy applies to.
-    /// GROUP: `groupArns` required (one or more group ARNs).
     /// </summary>
     [OutputType]
     public sealed class ApprovalPolicyApplicableTo
@@ -21,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// Required when type = GROUP. One or more group ARNs.
         /// </summary>
         public readonly ImmutableArray<string> GroupArns;
-        public readonly object Type;
+        public readonly Pulumi.AwsNative.QuickSight.ApprovalPolicyApplicableToType Type;
 
         [OutputConstructor]
         private ApprovalPolicyApplicableTo(
             ImmutableArray<string> groupArns,
 
-            object type)
+            Pulumi.AwsNative.QuickSight.ApprovalPolicyApplicableToType type)
         {
             GroupArns = groupArns;
             Type = type;

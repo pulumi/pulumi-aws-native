@@ -68,9 +68,17 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The reputation configuration for the tenant. Sending status remains managed by SES.
+        /// </summary>
+        public readonly Outputs.TenantReputationEntity? ReputationEntity;
+        /// <summary>
         /// The list of resources to associate with the tenant.
         /// </summary>
         public readonly ImmutableArray<Outputs.TenantResourceAssociation> ResourceAssociations;
+        /// <summary>
+        /// The suppression attributes for the tenant.
+        /// </summary>
+        public readonly Outputs.TenantSuppressionAttributes? SuppressionAttributes;
         /// <summary>
         /// The tags (keys and values) associated with the tenant.
         /// </summary>
@@ -80,12 +88,18 @@ namespace Pulumi.AwsNative.Ses
         private GetTenantResult(
             string? arn,
 
+            Outputs.TenantReputationEntity? reputationEntity,
+
             ImmutableArray<Outputs.TenantResourceAssociation> resourceAssociations,
+
+            Outputs.TenantSuppressionAttributes? suppressionAttributes,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            ReputationEntity = reputationEntity;
             ResourceAssociations = resourceAssociations;
+            SuppressionAttributes = suppressionAttributes;
             Tags = tags;
         }
     }

@@ -118,6 +118,44 @@ __all__ = [
     'MitigationActionUpdateCaCertificateParamsArgsDict',
     'MitigationActionUpdateDeviceCertificateParamsArgs',
     'MitigationActionUpdateDeviceCertificateParamsArgsDict',
+    'OtaUpdateAwsJobAbortConfigArgs',
+    'OtaUpdateAwsJobAbortConfigArgsDict',
+    'OtaUpdateAwsJobAbortCriteriaArgs',
+    'OtaUpdateAwsJobAbortCriteriaArgsDict',
+    'OtaUpdateAwsJobExecutionsRolloutConfigArgs',
+    'OtaUpdateAwsJobExecutionsRolloutConfigArgsDict',
+    'OtaUpdateAwsJobExponentialRolloutRateArgs',
+    'OtaUpdateAwsJobExponentialRolloutRateArgsDict',
+    'OtaUpdateAwsJobPresignedUrlConfigArgs',
+    'OtaUpdateAwsJobPresignedUrlConfigArgsDict',
+    'OtaUpdateAwsJobRateIncreaseCriteriaArgs',
+    'OtaUpdateAwsJobRateIncreaseCriteriaArgsDict',
+    'OtaUpdateAwsJobTimeoutConfigArgs',
+    'OtaUpdateAwsJobTimeoutConfigArgsDict',
+    'OtaUpdateCodeSigningArgs',
+    'OtaUpdateCodeSigningArgsDict',
+    'OtaUpdateCodeSigningCertificateChainArgs',
+    'OtaUpdateCodeSigningCertificateChainArgsDict',
+    'OtaUpdateCodeSigningSignatureArgs',
+    'OtaUpdateCodeSigningSignatureArgsDict',
+    'OtaUpdateCustomCodeSigningArgs',
+    'OtaUpdateCustomCodeSigningArgsDict',
+    'OtaUpdateDestinationArgs',
+    'OtaUpdateDestinationArgsDict',
+    'OtaUpdateFileLocationArgs',
+    'OtaUpdateFileLocationArgsDict',
+    'OtaUpdateOtaUpdateFileArgs',
+    'OtaUpdateOtaUpdateFileArgsDict',
+    'OtaUpdateS3DestinationArgs',
+    'OtaUpdateS3DestinationArgsDict',
+    'OtaUpdateS3LocationArgs',
+    'OtaUpdateS3LocationArgsDict',
+    'OtaUpdateSigningProfileParameterArgs',
+    'OtaUpdateSigningProfileParameterArgsDict',
+    'OtaUpdateStartSigningJobParameterArgs',
+    'OtaUpdateStartSigningJobParameterArgsDict',
+    'OtaUpdateStreamArgs',
+    'OtaUpdateStreamArgsDict',
     'PresignedUrlConfigPropertiesArgs',
     'PresignedUrlConfigPropertiesArgsDict',
     'ProvisioningTemplateProvisioningHookArgs',
@@ -3178,6 +3216,994 @@ class MitigationActionUpdateDeviceCertificateParamsArgs:
     @action.setter
     def action(self, value: pulumi.Input['MitigationActionUpdateDeviceCertificateParamsAction']):
         pulumi.set(self, "action", value)
+
+
+class OtaUpdateAwsJobAbortConfigArgsDict(TypedDict):
+    abort_criteria_list: pulumi.Input[Sequence[pulumi.Input['OtaUpdateAwsJobAbortCriteriaArgsDict']]]
+    """
+    The list of criteria that determine when and how to abort the job.
+    """
+
+@pulumi.input_type
+class OtaUpdateAwsJobAbortConfigArgs:
+    def __init__(__self__, *,
+                 abort_criteria_list: pulumi.Input[Sequence[pulumi.Input['OtaUpdateAwsJobAbortCriteriaArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['OtaUpdateAwsJobAbortCriteriaArgs']]] abort_criteria_list: The list of criteria that determine when and how to abort the job.
+        """
+        pulumi.set(__self__, "abort_criteria_list", abort_criteria_list)
+
+    @_builtins.property
+    @pulumi.getter(name="abortCriteriaList")
+    def abort_criteria_list(self) -> pulumi.Input[Sequence[pulumi.Input['OtaUpdateAwsJobAbortCriteriaArgs']]]:
+        """
+        The list of criteria that determine when and how to abort the job.
+        """
+        return pulumi.get(self, "abort_criteria_list")
+
+    @abort_criteria_list.setter
+    def abort_criteria_list(self, value: pulumi.Input[Sequence[pulumi.Input['OtaUpdateAwsJobAbortCriteriaArgs']]]):
+        pulumi.set(self, "abort_criteria_list", value)
+
+
+class OtaUpdateAwsJobAbortCriteriaArgsDict(TypedDict):
+    action: pulumi.Input['OtaUpdateAwsJobAbortCriteriaAction']
+    """
+    The type of job action to take to initiate the job abort.
+    """
+    failure_type: pulumi.Input['OtaUpdateAwsJobAbortCriteriaFailureType']
+    """
+    The type of job execution failures that can initiate a job abort.
+    """
+    min_number_of_executed_things: pulumi.Input[_builtins.int]
+    """
+    The minimum number of things which must receive job execution notifications before the job can be aborted.
+    """
+    threshold_percentage: pulumi.Input[_builtins.float]
+    """
+    The minimum percentage of job execution failures that must occur to initiate the job abort.
+    """
+
+@pulumi.input_type
+class OtaUpdateAwsJobAbortCriteriaArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['OtaUpdateAwsJobAbortCriteriaAction'],
+                 failure_type: pulumi.Input['OtaUpdateAwsJobAbortCriteriaFailureType'],
+                 min_number_of_executed_things: pulumi.Input[_builtins.int],
+                 threshold_percentage: pulumi.Input[_builtins.float]):
+        """
+        :param pulumi.Input['OtaUpdateAwsJobAbortCriteriaAction'] action: The type of job action to take to initiate the job abort.
+        :param pulumi.Input['OtaUpdateAwsJobAbortCriteriaFailureType'] failure_type: The type of job execution failures that can initiate a job abort.
+        :param pulumi.Input[_builtins.int] min_number_of_executed_things: The minimum number of things which must receive job execution notifications before the job can be aborted.
+        :param pulumi.Input[_builtins.float] threshold_percentage: The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "failure_type", failure_type)
+        pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
+        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['OtaUpdateAwsJobAbortCriteriaAction']:
+        """
+        The type of job action to take to initiate the job abort.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['OtaUpdateAwsJobAbortCriteriaAction']):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> pulumi.Input['OtaUpdateAwsJobAbortCriteriaFailureType']:
+        """
+        The type of job execution failures that can initiate a job abort.
+        """
+        return pulumi.get(self, "failure_type")
+
+    @failure_type.setter
+    def failure_type(self, value: pulumi.Input['OtaUpdateAwsJobAbortCriteriaFailureType']):
+        pulumi.set(self, "failure_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minNumberOfExecutedThings")
+    def min_number_of_executed_things(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum number of things which must receive job execution notifications before the job can be aborted.
+        """
+        return pulumi.get(self, "min_number_of_executed_things")
+
+    @min_number_of_executed_things.setter
+    def min_number_of_executed_things(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "min_number_of_executed_things", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdPercentage")
+    def threshold_percentage(self) -> pulumi.Input[_builtins.float]:
+        """
+        The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        return pulumi.get(self, "threshold_percentage")
+
+    @threshold_percentage.setter
+    def threshold_percentage(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "threshold_percentage", value)
+
+
+class OtaUpdateAwsJobExecutionsRolloutConfigArgsDict(TypedDict):
+    exponential_rate: NotRequired[pulumi.Input[Optional['OtaUpdateAwsJobExponentialRolloutRateArgsDict']]]
+    maximum_per_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum number of OTA update job executions started per minute.
+    """
+
+@pulumi.input_type
+class OtaUpdateAwsJobExecutionsRolloutConfigArgs:
+    def __init__(__self__, *,
+                 exponential_rate: pulumi.Input[Optional['OtaUpdateAwsJobExponentialRolloutRateArgs']] = None,
+                 maximum_per_minute: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] maximum_per_minute: The maximum number of OTA update job executions started per minute.
+        """
+        if exponential_rate is not None:
+            pulumi.set(__self__, "exponential_rate", exponential_rate)
+        if maximum_per_minute is not None:
+            pulumi.set(__self__, "maximum_per_minute", maximum_per_minute)
+
+    @_builtins.property
+    @pulumi.getter(name="exponentialRate")
+    def exponential_rate(self) -> pulumi.Input[Optional['OtaUpdateAwsJobExponentialRolloutRateArgs']]:
+        return pulumi.get(self, "exponential_rate")
+
+    @exponential_rate.setter
+    def exponential_rate(self, value: pulumi.Input[Optional['OtaUpdateAwsJobExponentialRolloutRateArgs']]):
+        pulumi.set(self, "exponential_rate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumPerMinute")
+    def maximum_per_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum number of OTA update job executions started per minute.
+        """
+        return pulumi.get(self, "maximum_per_minute")
+
+    @maximum_per_minute.setter
+    def maximum_per_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_per_minute", value)
+
+
+class OtaUpdateAwsJobExponentialRolloutRateArgsDict(TypedDict):
+    base_rate_per_minute: pulumi.Input[_builtins.int]
+    """
+    The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+    """
+    increment_factor: pulumi.Input[_builtins.float]
+    """
+    The rate of increase for a job rollout.
+    """
+    rate_increase_criteria: pulumi.Input['OtaUpdateAwsJobRateIncreaseCriteriaArgsDict']
+
+@pulumi.input_type
+class OtaUpdateAwsJobExponentialRolloutRateArgs:
+    def __init__(__self__, *,
+                 base_rate_per_minute: pulumi.Input[_builtins.int],
+                 increment_factor: pulumi.Input[_builtins.float],
+                 rate_increase_criteria: pulumi.Input['OtaUpdateAwsJobRateIncreaseCriteriaArgs']):
+        """
+        :param pulumi.Input[_builtins.int] base_rate_per_minute: The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+        :param pulumi.Input[_builtins.float] increment_factor: The rate of increase for a job rollout.
+        """
+        pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
+        pulumi.set(__self__, "increment_factor", increment_factor)
+        pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="baseRatePerMinute")
+    def base_rate_per_minute(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+        """
+        return pulumi.get(self, "base_rate_per_minute")
+
+    @base_rate_per_minute.setter
+    def base_rate_per_minute(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "base_rate_per_minute", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incrementFactor")
+    def increment_factor(self) -> pulumi.Input[_builtins.float]:
+        """
+        The rate of increase for a job rollout.
+        """
+        return pulumi.get(self, "increment_factor")
+
+    @increment_factor.setter
+    def increment_factor(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "increment_factor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rateIncreaseCriteria")
+    def rate_increase_criteria(self) -> pulumi.Input['OtaUpdateAwsJobRateIncreaseCriteriaArgs']:
+        return pulumi.get(self, "rate_increase_criteria")
+
+    @rate_increase_criteria.setter
+    def rate_increase_criteria(self, value: pulumi.Input['OtaUpdateAwsJobRateIncreaseCriteriaArgs']):
+        pulumi.set(self, "rate_increase_criteria", value)
+
+
+class OtaUpdateAwsJobPresignedUrlConfigArgsDict(TypedDict):
+    expires_in_sec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+    """
+
+@pulumi.input_type
+class OtaUpdateAwsJobPresignedUrlConfigArgs:
+    def __init__(__self__, *,
+                 expires_in_sec: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] expires_in_sec: How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+        """
+        if expires_in_sec is not None:
+            pulumi.set(__self__, "expires_in_sec", expires_in_sec)
+
+    @_builtins.property
+    @pulumi.getter(name="expiresInSec")
+    def expires_in_sec(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+        """
+        return pulumi.get(self, "expires_in_sec")
+
+    @expires_in_sec.setter
+    def expires_in_sec(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "expires_in_sec", value)
+
+
+class OtaUpdateAwsJobRateIncreaseCriteriaArgsDict(TypedDict):
+    number_of_notified_things: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    When this number of things have been notified, it will initiate an increase in the rollout rate.
+    """
+    number_of_succeeded_things: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+    """
+
+@pulumi.input_type
+class OtaUpdateAwsJobRateIncreaseCriteriaArgs:
+    def __init__(__self__, *,
+                 number_of_notified_things: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_succeeded_things: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] number_of_notified_things: When this number of things have been notified, it will initiate an increase in the rollout rate.
+        :param pulumi.Input[_builtins.int] number_of_succeeded_things: When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+        """
+        if number_of_notified_things is not None:
+            pulumi.set(__self__, "number_of_notified_things", number_of_notified_things)
+        if number_of_succeeded_things is not None:
+            pulumi.set(__self__, "number_of_succeeded_things", number_of_succeeded_things)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfNotifiedThings")
+    def number_of_notified_things(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        When this number of things have been notified, it will initiate an increase in the rollout rate.
+        """
+        return pulumi.get(self, "number_of_notified_things")
+
+    @number_of_notified_things.setter
+    def number_of_notified_things(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_notified_things", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfSucceededThings")
+    def number_of_succeeded_things(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+        """
+        return pulumi.get(self, "number_of_succeeded_things")
+
+    @number_of_succeeded_things.setter
+    def number_of_succeeded_things(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_succeeded_things", value)
+
+
+class OtaUpdateAwsJobTimeoutConfigArgsDict(TypedDict):
+    in_progress_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the amount of time, in minutes, this device has to finish execution of this job.
+    """
+
+@pulumi.input_type
+class OtaUpdateAwsJobTimeoutConfigArgs:
+    def __init__(__self__, *,
+                 in_progress_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] in_progress_timeout_in_minutes: Specifies the amount of time, in minutes, this device has to finish execution of this job.
+        """
+        if in_progress_timeout_in_minutes is not None:
+            pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="inProgressTimeoutInMinutes")
+    def in_progress_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the amount of time, in minutes, this device has to finish execution of this job.
+        """
+        return pulumi.get(self, "in_progress_timeout_in_minutes")
+
+    @in_progress_timeout_in_minutes.setter
+    def in_progress_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "in_progress_timeout_in_minutes", value)
+
+
+class OtaUpdateCodeSigningArgsDict(TypedDict):
+    aws_signer_job_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the AWSSignerJob which was created to sign the file.
+    """
+    custom_code_signing: NotRequired[pulumi.Input[Optional['OtaUpdateCustomCodeSigningArgsDict']]]
+    start_signing_job_parameter: NotRequired[pulumi.Input[Optional['OtaUpdateStartSigningJobParameterArgsDict']]]
+
+@pulumi.input_type
+class OtaUpdateCodeSigningArgs:
+    def __init__(__self__, *,
+                 aws_signer_job_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_code_signing: pulumi.Input[Optional['OtaUpdateCustomCodeSigningArgs']] = None,
+                 start_signing_job_parameter: pulumi.Input[Optional['OtaUpdateStartSigningJobParameterArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] aws_signer_job_id: The ID of the AWSSignerJob which was created to sign the file.
+        """
+        if aws_signer_job_id is not None:
+            pulumi.set(__self__, "aws_signer_job_id", aws_signer_job_id)
+        if custom_code_signing is not None:
+            pulumi.set(__self__, "custom_code_signing", custom_code_signing)
+        if start_signing_job_parameter is not None:
+            pulumi.set(__self__, "start_signing_job_parameter", start_signing_job_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSignerJobId")
+    def aws_signer_job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the AWSSignerJob which was created to sign the file.
+        """
+        return pulumi.get(self, "aws_signer_job_id")
+
+    @aws_signer_job_id.setter
+    def aws_signer_job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aws_signer_job_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customCodeSigning")
+    def custom_code_signing(self) -> pulumi.Input[Optional['OtaUpdateCustomCodeSigningArgs']]:
+        return pulumi.get(self, "custom_code_signing")
+
+    @custom_code_signing.setter
+    def custom_code_signing(self, value: pulumi.Input[Optional['OtaUpdateCustomCodeSigningArgs']]):
+        pulumi.set(self, "custom_code_signing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startSigningJobParameter")
+    def start_signing_job_parameter(self) -> pulumi.Input[Optional['OtaUpdateStartSigningJobParameterArgs']]:
+        return pulumi.get(self, "start_signing_job_parameter")
+
+    @start_signing_job_parameter.setter
+    def start_signing_job_parameter(self, value: pulumi.Input[Optional['OtaUpdateStartSigningJobParameterArgs']]):
+        pulumi.set(self, "start_signing_job_parameter", value)
+
+
+class OtaUpdateCodeSigningCertificateChainArgsDict(TypedDict):
+    certificate_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the certificate.
+    """
+    inline_document: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A base64 encoded binary representation of the code signing certificate chain.
+    """
+
+@pulumi.input_type
+class OtaUpdateCodeSigningCertificateChainArgs:
+    def __init__(__self__, *,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 inline_document: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_name: The name of the certificate.
+        :param pulumi.Input[_builtins.str] inline_document: A base64 encoded binary representation of the code signing certificate chain.
+        """
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
+        if inline_document is not None:
+            pulumi.set(__self__, "inline_document", inline_document)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the certificate.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inlineDocument")
+    def inline_document(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A base64 encoded binary representation of the code signing certificate chain.
+        """
+        return pulumi.get(self, "inline_document")
+
+    @inline_document.setter
+    def inline_document(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "inline_document", value)
+
+
+class OtaUpdateCodeSigningSignatureArgsDict(TypedDict):
+    inline_document: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A base64 encoded binary representation of the code signing signature.
+    """
+
+@pulumi.input_type
+class OtaUpdateCodeSigningSignatureArgs:
+    def __init__(__self__, *,
+                 inline_document: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] inline_document: A base64 encoded binary representation of the code signing signature.
+        """
+        if inline_document is not None:
+            pulumi.set(__self__, "inline_document", inline_document)
+
+    @_builtins.property
+    @pulumi.getter(name="inlineDocument")
+    def inline_document(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A base64 encoded binary representation of the code signing signature.
+        """
+        return pulumi.get(self, "inline_document")
+
+    @inline_document.setter
+    def inline_document(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "inline_document", value)
+
+
+class OtaUpdateCustomCodeSigningArgsDict(TypedDict):
+    certificate_chain: NotRequired[pulumi.Input[Optional['OtaUpdateCodeSigningCertificateChainArgsDict']]]
+    hash_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The hash algorithm used to code sign the file.
+    """
+    signature: NotRequired[pulumi.Input[Optional['OtaUpdateCodeSigningSignatureArgsDict']]]
+    signature_algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The signature algorithm used to code sign the file.
+    """
+
+@pulumi.input_type
+class OtaUpdateCustomCodeSigningArgs:
+    def __init__(__self__, *,
+                 certificate_chain: pulumi.Input[Optional['OtaUpdateCodeSigningCertificateChainArgs']] = None,
+                 hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature: pulumi.Input[Optional['OtaUpdateCodeSigningSignatureArgs']] = None,
+                 signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] hash_algorithm: The hash algorithm used to code sign the file.
+        :param pulumi.Input[_builtins.str] signature_algorithm: The signature algorithm used to code sign the file.
+        """
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if hash_algorithm is not None:
+            pulumi.set(__self__, "hash_algorithm", hash_algorithm)
+        if signature is not None:
+            pulumi.set(__self__, "signature", signature)
+        if signature_algorithm is not None:
+            pulumi.set(__self__, "signature_algorithm", signature_algorithm)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> pulumi.Input[Optional['OtaUpdateCodeSigningCertificateChainArgs']]:
+        return pulumi.get(self, "certificate_chain")
+
+    @certificate_chain.setter
+    def certificate_chain(self, value: pulumi.Input[Optional['OtaUpdateCodeSigningCertificateChainArgs']]):
+        pulumi.set(self, "certificate_chain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hashAlgorithm")
+    def hash_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The hash algorithm used to code sign the file.
+        """
+        return pulumi.get(self, "hash_algorithm")
+
+    @hash_algorithm.setter
+    def hash_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hash_algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def signature(self) -> pulumi.Input[Optional['OtaUpdateCodeSigningSignatureArgs']]:
+        return pulumi.get(self, "signature")
+
+    @signature.setter
+    def signature(self, value: pulumi.Input[Optional['OtaUpdateCodeSigningSignatureArgs']]):
+        pulumi.set(self, "signature", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signatureAlgorithm")
+    def signature_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The signature algorithm used to code sign the file.
+        """
+        return pulumi.get(self, "signature_algorithm")
+
+    @signature_algorithm.setter
+    def signature_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "signature_algorithm", value)
+
+
+class OtaUpdateDestinationArgsDict(TypedDict):
+    s3_destination: NotRequired[pulumi.Input[Optional['OtaUpdateS3DestinationArgsDict']]]
+
+@pulumi.input_type
+class OtaUpdateDestinationArgs:
+    def __init__(__self__, *,
+                 s3_destination: pulumi.Input[Optional['OtaUpdateS3DestinationArgs']] = None):
+        if s3_destination is not None:
+            pulumi.set(__self__, "s3_destination", s3_destination)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Destination")
+    def s3_destination(self) -> pulumi.Input[Optional['OtaUpdateS3DestinationArgs']]:
+        return pulumi.get(self, "s3_destination")
+
+    @s3_destination.setter
+    def s3_destination(self, value: pulumi.Input[Optional['OtaUpdateS3DestinationArgs']]):
+        pulumi.set(self, "s3_destination", value)
+
+
+class OtaUpdateFileLocationArgsDict(TypedDict):
+    s3_location: NotRequired[pulumi.Input[Optional['OtaUpdateS3LocationArgsDict']]]
+    stream: NotRequired[pulumi.Input[Optional['OtaUpdateStreamArgsDict']]]
+
+@pulumi.input_type
+class OtaUpdateFileLocationArgs:
+    def __init__(__self__, *,
+                 s3_location: pulumi.Input[Optional['OtaUpdateS3LocationArgs']] = None,
+                 stream: pulumi.Input[Optional['OtaUpdateStreamArgs']] = None):
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+        if stream is not None:
+            pulumi.set(__self__, "stream", stream)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> pulumi.Input[Optional['OtaUpdateS3LocationArgs']]:
+        return pulumi.get(self, "s3_location")
+
+    @s3_location.setter
+    def s3_location(self, value: pulumi.Input[Optional['OtaUpdateS3LocationArgs']]):
+        pulumi.set(self, "s3_location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def stream(self) -> pulumi.Input[Optional['OtaUpdateStreamArgs']]:
+        return pulumi.get(self, "stream")
+
+    @stream.setter
+    def stream(self, value: pulumi.Input[Optional['OtaUpdateStreamArgs']]):
+        pulumi.set(self, "stream", value)
+
+
+class OtaUpdateOtaUpdateFileArgsDict(TypedDict):
+    attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A list of name-attribute pairs.
+    """
+    code_signing: NotRequired[pulumi.Input[Optional['OtaUpdateCodeSigningArgsDict']]]
+    file_location: NotRequired[pulumi.Input[Optional['OtaUpdateFileLocationArgsDict']]]
+    file_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the file.
+    """
+    file_type: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+    """
+    file_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The file version.
+    """
+
+@pulumi.input_type
+class OtaUpdateOtaUpdateFileArgs:
+    def __init__(__self__, *,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 code_signing: pulumi.Input[Optional['OtaUpdateCodeSigningArgs']] = None,
+                 file_location: pulumi.Input[Optional['OtaUpdateFileLocationArgs']] = None,
+                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 file_version: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A list of name-attribute pairs.
+        :param pulumi.Input[_builtins.str] file_name: The name of the file.
+        :param pulumi.Input[_builtins.int] file_type: An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+        :param pulumi.Input[_builtins.str] file_version: The file version.
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if code_signing is not None:
+            pulumi.set(__self__, "code_signing", code_signing)
+        if file_location is not None:
+            pulumi.set(__self__, "file_location", file_location)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if file_type is not None:
+            pulumi.set(__self__, "file_type", file_type)
+        if file_version is not None:
+            pulumi.set(__self__, "file_version", file_version)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A list of name-attribute pairs.
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "attributes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="codeSigning")
+    def code_signing(self) -> pulumi.Input[Optional['OtaUpdateCodeSigningArgs']]:
+        return pulumi.get(self, "code_signing")
+
+    @code_signing.setter
+    def code_signing(self, value: pulumi.Input[Optional['OtaUpdateCodeSigningArgs']]):
+        pulumi.set(self, "code_signing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileLocation")
+    def file_location(self) -> pulumi.Input[Optional['OtaUpdateFileLocationArgs']]:
+        return pulumi.get(self, "file_location")
+
+    @file_location.setter
+    def file_location(self, value: pulumi.Input[Optional['OtaUpdateFileLocationArgs']]):
+        pulumi.set(self, "file_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the file.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "file_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileType")
+    def file_type(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+        """
+        return pulumi.get(self, "file_type")
+
+    @file_type.setter
+    def file_type(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "file_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileVersion")
+    def file_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The file version.
+        """
+        return pulumi.get(self, "file_version")
+
+    @file_version.setter
+    def file_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "file_version", value)
+
+
+class OtaUpdateS3DestinationArgsDict(TypedDict):
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 bucket that contains the updated firmware.
+    """
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 prefix.
+    """
+
+@pulumi.input_type
+class OtaUpdateS3DestinationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: The S3 bucket that contains the updated firmware.
+        :param pulumi.Input[_builtins.str] prefix: The S3 prefix.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 bucket that contains the updated firmware.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 prefix.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
+
+
+class OtaUpdateS3LocationArgsDict(TypedDict):
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 bucket.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 key.
+    """
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 bucket version.
+    """
+
+@pulumi.input_type
+class OtaUpdateS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: The S3 bucket.
+        :param pulumi.Input[_builtins.str] key: The S3 key.
+        :param pulumi.Input[_builtins.str] version: The S3 bucket version.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 bucket version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+class OtaUpdateSigningProfileParameterArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Certificate ARN.
+    """
+    certificate_path_on_device: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The location of the code-signing certificate on your device.
+    """
+    platform: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The hardware platform of your device.
+    """
+
+@pulumi.input_type
+class OtaUpdateSigningProfileParameterArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_path_on_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_arn: Certificate ARN.
+        :param pulumi.Input[_builtins.str] certificate_path_on_device: The location of the code-signing certificate on your device.
+        :param pulumi.Input[_builtins.str] platform: The hardware platform of your device.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if certificate_path_on_device is not None:
+            pulumi.set(__self__, "certificate_path_on_device", certificate_path_on_device)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Certificate ARN.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificatePathOnDevice")
+    def certificate_path_on_device(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The location of the code-signing certificate on your device.
+        """
+        return pulumi.get(self, "certificate_path_on_device")
+
+    @certificate_path_on_device.setter
+    def certificate_path_on_device(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_path_on_device", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def platform(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The hardware platform of your device.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "platform", value)
+
+
+class OtaUpdateStartSigningJobParameterArgsDict(TypedDict):
+    destination: NotRequired[pulumi.Input[Optional['OtaUpdateDestinationArgsDict']]]
+    signing_profile_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The code-signing profile name.
+    """
+    signing_profile_parameter: NotRequired[pulumi.Input[Optional['OtaUpdateSigningProfileParameterArgsDict']]]
+
+@pulumi.input_type
+class OtaUpdateStartSigningJobParameterArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[Optional['OtaUpdateDestinationArgs']] = None,
+                 signing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_profile_parameter: pulumi.Input[Optional['OtaUpdateSigningProfileParameterArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] signing_profile_name: The code-signing profile name.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if signing_profile_name is not None:
+            pulumi.set(__self__, "signing_profile_name", signing_profile_name)
+        if signing_profile_parameter is not None:
+            pulumi.set(__self__, "signing_profile_parameter", signing_profile_parameter)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[Optional['OtaUpdateDestinationArgs']]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[Optional['OtaUpdateDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signingProfileName")
+    def signing_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The code-signing profile name.
+        """
+        return pulumi.get(self, "signing_profile_name")
+
+    @signing_profile_name.setter
+    def signing_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "signing_profile_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signingProfileParameter")
+    def signing_profile_parameter(self) -> pulumi.Input[Optional['OtaUpdateSigningProfileParameterArgs']]:
+        return pulumi.get(self, "signing_profile_parameter")
+
+    @signing_profile_parameter.setter
+    def signing_profile_parameter(self, value: pulumi.Input[Optional['OtaUpdateSigningProfileParameterArgs']]):
+        pulumi.set(self, "signing_profile_parameter", value)
+
+
+class OtaUpdateStreamArgsDict(TypedDict):
+    file_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The ID of a file associated with a stream.
+    """
+    stream_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The stream ID.
+    """
+
+@pulumi.input_type
+class OtaUpdateStreamArgs:
+    def __init__(__self__, *,
+                 file_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] file_id: The ID of a file associated with a stream.
+        :param pulumi.Input[_builtins.str] stream_id: The stream ID.
+        """
+        if file_id is not None:
+            pulumi.set(__self__, "file_id", file_id)
+        if stream_id is not None:
+            pulumi.set(__self__, "stream_id", stream_id)
+
+    @_builtins.property
+    @pulumi.getter(name="fileId")
+    def file_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The ID of a file associated with a stream.
+        """
+        return pulumi.get(self, "file_id")
+
+    @file_id.setter
+    def file_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "file_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamId")
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The stream ID.
+        """
+        return pulumi.get(self, "stream_id")
+
+    @stream_id.setter
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stream_id", value)
 
 
 class PresignedUrlConfigPropertiesArgsDict(TypedDict):

@@ -199,6 +199,91 @@ namespace Pulumi.AwsNative.DynamoDb
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct GlobalTableSearchSchemaElementSearchSchemaElementType : IEquatable<GlobalTableSearchSchemaElementSearchSchemaElementType>
+    {
+        private readonly string _value;
+
+        private GlobalTableSearchSchemaElementSearchSchemaElementType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalTableSearchSchemaElementSearchSchemaElementType Hash { get; } = new GlobalTableSearchSchemaElementSearchSchemaElementType("HASH");
+        public static GlobalTableSearchSchemaElementSearchSchemaElementType InlineFilter { get; } = new GlobalTableSearchSchemaElementSearchSchemaElementType("INLINE_FILTER");
+
+        public static bool operator ==(GlobalTableSearchSchemaElementSearchSchemaElementType left, GlobalTableSearchSchemaElementSearchSchemaElementType right) => left.Equals(right);
+        public static bool operator !=(GlobalTableSearchSchemaElementSearchSchemaElementType left, GlobalTableSearchSchemaElementSearchSchemaElementType right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalTableSearchSchemaElementSearchSchemaElementType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalTableSearchSchemaElementSearchSchemaElementType other && Equals(other);
+        public bool Equals(GlobalTableSearchSchemaElementSearchSchemaElementType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GlobalTableTableType : IEquatable<GlobalTableTableType>
+    {
+        private readonly string _value;
+
+        private GlobalTableTableType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalTableTableType GlobalTableReplica { get; } = new GlobalTableTableType("GlobalTableReplica");
+        public static GlobalTableTableType Regional { get; } = new GlobalTableTableType("Regional");
+
+        public static bool operator ==(GlobalTableTableType left, GlobalTableTableType right) => left.Equals(right);
+        public static bool operator !=(GlobalTableTableType left, GlobalTableTableType right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalTableTableType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalTableTableType other && Equals(other);
+        public bool Equals(GlobalTableTableType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GlobalTableVectorIndexDistanceFunction : IEquatable<GlobalTableVectorIndexDistanceFunction>
+    {
+        private readonly string _value;
+
+        private GlobalTableVectorIndexDistanceFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalTableVectorIndexDistanceFunction Cosine { get; } = new GlobalTableVectorIndexDistanceFunction("COSINE");
+        public static GlobalTableVectorIndexDistanceFunction DotProduct { get; } = new GlobalTableVectorIndexDistanceFunction("DOT_PRODUCT");
+        public static GlobalTableVectorIndexDistanceFunction Euclidean { get; } = new GlobalTableVectorIndexDistanceFunction("EUCLIDEAN");
+
+        public static bool operator ==(GlobalTableVectorIndexDistanceFunction left, GlobalTableVectorIndexDistanceFunction right) => left.Equals(right);
+        public static bool operator !=(GlobalTableVectorIndexDistanceFunction left, GlobalTableVectorIndexDistanceFunction right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalTableVectorIndexDistanceFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalTableVectorIndexDistanceFunction other && Equals(other);
+        public bool Equals(GlobalTableVectorIndexDistanceFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
     /// </summary>
@@ -254,6 +339,63 @@ namespace Pulumi.AwsNative.DynamoDb
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TableKinesisStreamSpecificationApproximateCreationDateTimePrecision other && Equals(other);
         public bool Equals(TableKinesisStreamSpecificationApproximateCreationDateTimePrecision other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TableSearchSchemaElementSearchSchemaElementType : IEquatable<TableSearchSchemaElementSearchSchemaElementType>
+    {
+        private readonly string _value;
+
+        private TableSearchSchemaElementSearchSchemaElementType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableSearchSchemaElementSearchSchemaElementType Hash { get; } = new TableSearchSchemaElementSearchSchemaElementType("HASH");
+        public static TableSearchSchemaElementSearchSchemaElementType InlineFilter { get; } = new TableSearchSchemaElementSearchSchemaElementType("INLINE_FILTER");
+
+        public static bool operator ==(TableSearchSchemaElementSearchSchemaElementType left, TableSearchSchemaElementSearchSchemaElementType right) => left.Equals(right);
+        public static bool operator !=(TableSearchSchemaElementSearchSchemaElementType left, TableSearchSchemaElementSearchSchemaElementType right) => !left.Equals(right);
+
+        public static explicit operator string(TableSearchSchemaElementSearchSchemaElementType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableSearchSchemaElementSearchSchemaElementType other && Equals(other);
+        public bool Equals(TableSearchSchemaElementSearchSchemaElementType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TableVectorIndexDistanceFunction : IEquatable<TableVectorIndexDistanceFunction>
+    {
+        private readonly string _value;
+
+        private TableVectorIndexDistanceFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableVectorIndexDistanceFunction Cosine { get; } = new TableVectorIndexDistanceFunction("COSINE");
+        public static TableVectorIndexDistanceFunction DotProduct { get; } = new TableVectorIndexDistanceFunction("DOT_PRODUCT");
+        public static TableVectorIndexDistanceFunction Euclidean { get; } = new TableVectorIndexDistanceFunction("EUCLIDEAN");
+
+        public static bool operator ==(TableVectorIndexDistanceFunction left, TableVectorIndexDistanceFunction right) => left.Equals(right);
+        public static bool operator !=(TableVectorIndexDistanceFunction left, TableVectorIndexDistanceFunction right) => !left.Equals(right);
+
+        public static explicit operator string(TableVectorIndexDistanceFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableVectorIndexDistanceFunction other && Equals(other);
+        public bool Equals(TableVectorIndexDistanceFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

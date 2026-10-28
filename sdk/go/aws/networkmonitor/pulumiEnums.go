@@ -104,7 +104,367 @@ func (o MonitorStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IP address family the probe uses, computed by the service from the source and destination.
+type ProbeAddressFamily string
+
+const (
+	ProbeAddressFamilyIpv4 = ProbeAddressFamily("IPV4")
+	ProbeAddressFamilyIpv6 = ProbeAddressFamily("IPV6")
+)
+
+type ProbeAddressFamilyOutput struct{ *pulumi.OutputState }
+
+func (ProbeAddressFamilyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProbeAddressFamily)(nil)).Elem()
+}
+
+func (o ProbeAddressFamilyOutput) ToProbeAddressFamilyOutput() ProbeAddressFamilyOutput {
+	return o
+}
+
+func (o ProbeAddressFamilyOutput) ToProbeAddressFamilyOutputWithContext(ctx context.Context) ProbeAddressFamilyOutput {
+	return o
+}
+
+func (o ProbeAddressFamilyOutput) ToProbeAddressFamilyPtrOutput() ProbeAddressFamilyPtrOutput {
+	return o.ToProbeAddressFamilyPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeAddressFamilyOutput) ToProbeAddressFamilyPtrOutputWithContext(ctx context.Context) ProbeAddressFamilyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProbeAddressFamily) *ProbeAddressFamily {
+		return &v
+	}).(ProbeAddressFamilyPtrOutput)
+}
+
+func (o ProbeAddressFamilyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProbeAddressFamilyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeAddressFamily) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProbeAddressFamilyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeAddressFamilyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeAddressFamily) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProbeAddressFamilyPtrOutput struct{ *pulumi.OutputState }
+
+func (ProbeAddressFamilyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProbeAddressFamily)(nil)).Elem()
+}
+
+func (o ProbeAddressFamilyPtrOutput) ToProbeAddressFamilyPtrOutput() ProbeAddressFamilyPtrOutput {
+	return o
+}
+
+func (o ProbeAddressFamilyPtrOutput) ToProbeAddressFamilyPtrOutputWithContext(ctx context.Context) ProbeAddressFamilyPtrOutput {
+	return o
+}
+
+func (o ProbeAddressFamilyPtrOutput) Elem() ProbeAddressFamilyOutput {
+	return o.ApplyT(func(v *ProbeAddressFamily) ProbeAddressFamily {
+		if v != nil {
+			return *v
+		}
+		var ret ProbeAddressFamily
+		return ret
+	}).(ProbeAddressFamilyOutput)
+}
+
+func (o ProbeAddressFamilyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeAddressFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProbeAddressFamily) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The protocol the probe uses.
+type ProbeProtocol string
+
+const (
+	ProbeProtocolTcp  = ProbeProtocol("TCP")
+	ProbeProtocolIcmp = ProbeProtocol("ICMP")
+)
+
+func (ProbeProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProbeProtocol)(nil)).Elem()
+}
+
+func (e ProbeProtocol) ToProbeProtocolOutput() ProbeProtocolOutput {
+	return pulumi.ToOutput(e).(ProbeProtocolOutput)
+}
+
+func (e ProbeProtocol) ToProbeProtocolOutputWithContext(ctx context.Context) ProbeProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProbeProtocolOutput)
+}
+
+func (e ProbeProtocol) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return e.ToProbeProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ProbeProtocol) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return ProbeProtocol(e).ToProbeProtocolOutputWithContext(ctx).ToProbeProtocolPtrOutputWithContext(ctx)
+}
+
+func (e ProbeProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProbeProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProbeProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProbeProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProbeProtocolOutput struct{ *pulumi.OutputState }
+
+func (ProbeProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProbeProtocol)(nil)).Elem()
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolOutput() ProbeProtocolOutput {
+	return o
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolOutputWithContext(ctx context.Context) ProbeProtocolOutput {
+	return o
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return o.ToProbeProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProbeProtocol) *ProbeProtocol {
+		return &v
+	}).(ProbeProtocolPtrOutput)
+}
+
+func (o ProbeProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProbeProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProbeProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ProbeProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProbeProtocol)(nil)).Elem()
+}
+
+func (o ProbeProtocolPtrOutput) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return o
+}
+
+func (o ProbeProtocolPtrOutput) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return o
+}
+
+func (o ProbeProtocolPtrOutput) Elem() ProbeProtocolOutput {
+	return o.ApplyT(func(v *ProbeProtocol) ProbeProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ProbeProtocol
+		return ret
+	}).(ProbeProtocolOutput)
+}
+
+func (o ProbeProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProbeProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProbeProtocolInput is an input type that accepts values of the ProbeProtocol enum
+// A concrete instance of `ProbeProtocolInput` can be one of the following:
+//
+//	ProbeProtocolTcp
+//	ProbeProtocolIcmp
+type ProbeProtocolInput interface {
+	pulumi.Input
+
+	ToProbeProtocolOutput() ProbeProtocolOutput
+	ToProbeProtocolOutputWithContext(context.Context) ProbeProtocolOutput
+}
+
+var probeProtocolPtrType = reflect.TypeOf((**ProbeProtocol)(nil)).Elem()
+
+type ProbeProtocolPtrInput interface {
+	pulumi.Input
+
+	ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput
+	ToProbeProtocolPtrOutputWithContext(context.Context) ProbeProtocolPtrOutput
+}
+
+type probeProtocolPtr string
+
+func ProbeProtocolPtr(v string) ProbeProtocolPtrInput {
+	return (*probeProtocolPtr)(&v)
+}
+
+func (*probeProtocolPtr) ElementType() reflect.Type {
+	return probeProtocolPtrType
+}
+
+func (in *probeProtocolPtr) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ProbeProtocolPtrOutput)
+}
+
+func (in *probeProtocolPtr) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProbeProtocolPtrOutput)
+}
+
+// The state of the probe.
+type ProbeStateEnum string
+
+const (
+	ProbeStateEnumPending  = ProbeStateEnum("PENDING")
+	ProbeStateEnumActive   = ProbeStateEnum("ACTIVE")
+	ProbeStateEnumInactive = ProbeStateEnum("INACTIVE")
+	ProbeStateEnumError    = ProbeStateEnum("ERROR")
+	ProbeStateEnumDeleting = ProbeStateEnum("DELETING")
+	ProbeStateEnumDeleted  = ProbeStateEnum("DELETED")
+)
+
+type ProbeStateEnumOutput struct{ *pulumi.OutputState }
+
+func (ProbeStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProbeStateEnum)(nil)).Elem()
+}
+
+func (o ProbeStateEnumOutput) ToProbeStateEnumOutput() ProbeStateEnumOutput {
+	return o
+}
+
+func (o ProbeStateEnumOutput) ToProbeStateEnumOutputWithContext(ctx context.Context) ProbeStateEnumOutput {
+	return o
+}
+
+func (o ProbeStateEnumOutput) ToProbeStateEnumPtrOutput() ProbeStateEnumPtrOutput {
+	return o.ToProbeStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeStateEnumOutput) ToProbeStateEnumPtrOutputWithContext(ctx context.Context) ProbeStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProbeStateEnum) *ProbeStateEnum {
+		return &v
+	}).(ProbeStateEnumPtrOutput)
+}
+
+func (o ProbeStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProbeStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProbeStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProbeStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (ProbeStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProbeStateEnum)(nil)).Elem()
+}
+
+func (o ProbeStateEnumPtrOutput) ToProbeStateEnumPtrOutput() ProbeStateEnumPtrOutput {
+	return o
+}
+
+func (o ProbeStateEnumPtrOutput) ToProbeStateEnumPtrOutputWithContext(ctx context.Context) ProbeStateEnumPtrOutput {
+	return o
+}
+
+func (o ProbeStateEnumPtrOutput) Elem() ProbeStateEnumOutput {
+	return o.ApplyT(func(v *ProbeStateEnum) ProbeStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret ProbeStateEnum
+		return ret
+	}).(ProbeStateEnumOutput)
+}
+
+func (o ProbeStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProbeStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProbeProtocolInput)(nil)).Elem(), ProbeProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProbeProtocolPtrInput)(nil)).Elem(), ProbeProtocol("TCP"))
 	pulumi.RegisterOutputType(MonitorStateEnumOutput{})
 	pulumi.RegisterOutputType(MonitorStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(ProbeAddressFamilyOutput{})
+	pulumi.RegisterOutputType(ProbeAddressFamilyPtrOutput{})
+	pulumi.RegisterOutputType(ProbeProtocolOutput{})
+	pulumi.RegisterOutputType(ProbeProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ProbeStateEnumOutput{})
+	pulumi.RegisterOutputType(ProbeStateEnumPtrOutput{})
 }

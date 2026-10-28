@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Ec2
     public partial class VpcPeeringConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+        /// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided. You can update this property.
         /// </summary>
         [Output("assumeRoleRegion")]
         public Output<string?> AssumeRoleRegion { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> PeerRegion { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+        /// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account. You can update this property. To manage PeerVpcPeeringConnectionOptions on a peering connection with another AWS account, the role must allow ec2:DescribeVpcPeeringConnections and ec2:ModifyVpcPeeringConnectionOptions.
         /// </summary>
         [Output("peerRoleArn")]
         public Output<string?> PeerRoleArn { get; private set; } = null!;
@@ -88,10 +88,8 @@ namespace Pulumi.AwsNative.Ec2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "assumeRoleRegion",
                     "peerOwnerId",
                     "peerRegion",
-                    "peerRoleArn",
                     "peerVpcId",
                     "vpcId",
                 },
@@ -118,7 +116,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class VpcPeeringConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+        /// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided. You can update this property.
         /// </summary>
         [Input("assumeRoleRegion")]
         public Input<string>? AssumeRoleRegion { get; set; }
@@ -136,7 +134,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? PeerRegion { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+        /// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account. You can update this property. To manage PeerVpcPeeringConnectionOptions on a peering connection with another AWS account, the role must allow ec2:DescribeVpcPeeringConnections and ec2:ModifyVpcPeeringConnectionOptions.
         /// </summary>
         [Input("peerRoleArn")]
         public Input<string>? PeerRoleArn { get; set; }

@@ -27,8 +27,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "aws-native:securityagent:Artifact":
 		r = &Artifact{}
+	case "aws-native:securityagent:Integration":
+		r = &Integration{}
 	case "aws-native:securityagent:Pentest":
 		r = &Pentest{}
+	case "aws-native:securityagent:PrivateConnection":
+		r = &PrivateConnection{}
 	case "aws-native:securityagent:SecurityRequirementPack":
 		r = &SecurityRequirementPack{}
 	case "aws-native:securityagent:TargetDomain":

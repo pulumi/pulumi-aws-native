@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessProfileArgs } from "./accessProfile";
+export type AccessProfile = import("./accessProfile").AccessProfile;
+export const AccessProfile: typeof import("./accessProfile").AccessProfile = null as any;
+utilities.lazyLoad(exports, ["AccessProfile"], () => require("./accessProfile"));
+
 export { AlarmArgs } from "./alarm";
 export type Alarm = import("./alarm").Alarm;
 export const Alarm: typeof import("./alarm").Alarm = null as any;
@@ -24,6 +29,16 @@ export { DashboardArgs } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
 utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+
+export { DomainForOrganizationArgs } from "./domainForOrganization";
+export type DomainForOrganization = import("./domainForOrganization").DomainForOrganization;
+export const DomainForOrganization: typeof import("./domainForOrganization").DomainForOrganization = null as any;
+utilities.lazyLoad(exports, ["DomainForOrganization"], () => require("./domainForOrganization"));
+
+export { GetAccessProfileArgs, GetAccessProfileResult, GetAccessProfileOutputArgs } from "./getAccessProfile";
+export const getAccessProfile: typeof import("./getAccessProfile").getAccessProfile = null as any;
+export const getAccessProfileOutput: typeof import("./getAccessProfile").getAccessProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessProfile","getAccessProfileOutput"], () => require("./getAccessProfile"));
 
 export { GetAlarmArgs, GetAlarmResult, GetAlarmOutputArgs } from "./getAlarm";
 export const getAlarm: typeof import("./getAlarm").getAlarm = null as any;
@@ -45,10 +60,20 @@ export const getDashboard: typeof import("./getDashboard").getDashboard = null a
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
 
+export { GetDomainForOrganizationArgs, GetDomainForOrganizationResult, GetDomainForOrganizationOutputArgs } from "./getDomainForOrganization";
+export const getDomainForOrganization: typeof import("./getDomainForOrganization").getDomainForOrganization = null as any;
+export const getDomainForOrganizationOutput: typeof import("./getDomainForOrganization").getDomainForOrganizationOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainForOrganization","getDomainForOrganizationOutput"], () => require("./getDomainForOrganization"));
+
 export { GetInsightRuleArgs, GetInsightRuleResult, GetInsightRuleOutputArgs } from "./getInsightRule";
 export const getInsightRule: typeof import("./getInsightRule").getInsightRule = null as any;
 export const getInsightRuleOutput: typeof import("./getInsightRule").getInsightRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getInsightRule","getInsightRuleOutput"], () => require("./getInsightRule"));
+
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
 
 export { GetLogAlarmArgs, GetLogAlarmResult, GetLogAlarmOutputArgs } from "./getLogAlarm";
 export const getLogAlarm: typeof import("./getLogAlarm").getLogAlarm = null as any;
@@ -65,6 +90,11 @@ export const getOTelEnrichment: typeof import("./getOTelEnrichment").getOTelEnri
 export const getOTelEnrichmentOutput: typeof import("./getOTelEnrichment").getOTelEnrichmentOutput = null as any;
 utilities.lazyLoad(exports, ["getOTelEnrichment","getOTelEnrichmentOutput"], () => require("./getOTelEnrichment"));
 
+export { GetOmniDashboardArgs, GetOmniDashboardResult, GetOmniDashboardOutputArgs } from "./getOmniDashboard";
+export const getOmniDashboard: typeof import("./getOmniDashboard").getOmniDashboard = null as any;
+export const getOmniDashboardOutput: typeof import("./getOmniDashboard").getOmniDashboardOutput = null as any;
+utilities.lazyLoad(exports, ["getOmniDashboard","getOmniDashboardOutput"], () => require("./getOmniDashboard"));
+
 export { GetResourceMetricsConfigurationArgs, GetResourceMetricsConfigurationResult, GetResourceMetricsConfigurationOutputArgs } from "./getResourceMetricsConfiguration";
 export const getResourceMetricsConfiguration: typeof import("./getResourceMetricsConfiguration").getResourceMetricsConfiguration = null as any;
 export const getResourceMetricsConfigurationOutput: typeof import("./getResourceMetricsConfiguration").getResourceMetricsConfigurationOutput = null as any;
@@ -80,6 +110,11 @@ export type InsightRule = import("./insightRule").InsightRule;
 export const InsightRule: typeof import("./insightRule").InsightRule = null as any;
 utilities.lazyLoad(exports, ["InsightRule"], () => require("./insightRule"));
 
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
+
 export { LogAlarmArgs } from "./logAlarm";
 export type LogAlarm = import("./logAlarm").LogAlarm;
 export const LogAlarm: typeof import("./logAlarm").LogAlarm = null as any;
@@ -89,6 +124,11 @@ export { MetricStreamArgs } from "./metricStream";
 export type MetricStream = import("./metricStream").MetricStream;
 export const MetricStream: typeof import("./metricStream").MetricStream = null as any;
 utilities.lazyLoad(exports, ["MetricStream"], () => require("./metricStream"));
+
+export { OmniDashboardArgs } from "./omniDashboard";
+export type OmniDashboard = import("./omniDashboard").OmniDashboard;
+export const OmniDashboard: typeof import("./omniDashboard").OmniDashboard = null as any;
+utilities.lazyLoad(exports, ["OmniDashboard"], () => require("./omniDashboard"));
 
 export { OTelEnrichmentArgs } from "./otelEnrichment";
 export type OTelEnrichment = import("./otelEnrichment").OTelEnrichment;
@@ -113,6 +153,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cloudwatch:AccessProfile":
+                return new AccessProfile(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:Alarm":
                 return new Alarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:AlarmMuteRule":
@@ -121,14 +163,20 @@ const _module = {
                 return new CompositeAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:DomainForOrganization":
+                return new DomainForOrganization(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:InsightRule":
                 return new InsightRule(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:LogAlarm":
                 return new LogAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:MetricStream":
                 return new MetricStream(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:OTelEnrichment":
                 return new OTelEnrichment(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:OmniDashboard":
+                return new OmniDashboard(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:ResourceMetricsConfiguration":
                 return new ResourceMetricsConfiguration(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:View":

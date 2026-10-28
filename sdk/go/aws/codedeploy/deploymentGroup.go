@@ -35,6 +35,8 @@ type DeploymentGroup struct {
 	DeploymentGroupName pulumi.StringPtrOutput `pulumi:"deploymentGroupName"`
 	// Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
 	DeploymentStyle DeploymentGroupDeploymentStylePtrOutput `pulumi:"deploymentStyle"`
+	// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+	Ec2DeploymentOptions DeploymentGroupEc2DeploymentOptionsPtrOutput `pulumi:"ec2DeploymentOptions"`
 	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
 	Ec2TagFilters DeploymentGroupEc2TagFilterArrayOutput `pulumi:"ec2TagFilters"`
 	// Information about groups of tags applied to Amazon EC2 instances. Use when the deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilter.
@@ -128,6 +130,8 @@ type deploymentGroupArgs struct {
 	DeploymentGroupName *string `pulumi:"deploymentGroupName"`
 	// Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
 	DeploymentStyle *DeploymentGroupDeploymentStyle `pulumi:"deploymentStyle"`
+	// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+	Ec2DeploymentOptions *DeploymentGroupEc2DeploymentOptions `pulumi:"ec2DeploymentOptions"`
 	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
 	Ec2TagFilters []DeploymentGroupEc2TagFilter `pulumi:"ec2TagFilters"`
 	// Information about groups of tags applied to Amazon EC2 instances. Use when the deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilter.
@@ -172,6 +176,8 @@ type DeploymentGroupArgs struct {
 	DeploymentGroupName pulumi.StringPtrInput
 	// Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
 	DeploymentStyle DeploymentGroupDeploymentStylePtrInput
+	// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+	Ec2DeploymentOptions DeploymentGroupEc2DeploymentOptionsPtrInput
 	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
 	Ec2TagFilters DeploymentGroupEc2TagFilterArrayInput
 	// Information about groups of tags applied to Amazon EC2 instances. Use when the deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilter.
@@ -280,6 +286,11 @@ func (o DeploymentGroupOutput) DeploymentGroupName() pulumi.StringPtrOutput {
 // Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
 func (o DeploymentGroupOutput) DeploymentStyle() DeploymentGroupDeploymentStylePtrOutput {
 	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupDeploymentStylePtrOutput { return v.DeploymentStyle }).(DeploymentGroupDeploymentStylePtrOutput)
+}
+
+// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group. Applies only to in-place deployment groups on the EC2/On-premises compute platform that include at least one Auto Scaling group.
+func (o DeploymentGroupOutput) Ec2DeploymentOptions() DeploymentGroupEc2DeploymentOptionsPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupEc2DeploymentOptionsPtrOutput { return v.Ec2DeploymentOptions }).(DeploymentGroupEc2DeploymentOptionsPtrOutput)
 }
 
 // The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.

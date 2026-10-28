@@ -48,7 +48,7 @@ export class VpnConcentrator extends pulumi.CustomResource {
     /**
      * The ID of the transit gateway associated with the VPN concentrator.
      */
-    declare public readonly transitGatewayId: pulumi.Output<string>;
+    declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
     /**
      * The type of VPN concentrator.
      */
@@ -69,9 +69,6 @@ export class VpnConcentrator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.transitGatewayId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'transitGatewayId'");
-            }
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -105,7 +102,7 @@ export interface VpnConcentratorArgs {
     /**
      * The ID of the transit gateway associated with the VPN concentrator.
      */
-    transitGatewayId: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The type of VPN concentrator.
      */

@@ -247,6 +247,91 @@ export const ExpressGatewayServiceStatusCode = {
 
 export type ExpressGatewayServiceStatusCode = (typeof ExpressGatewayServiceStatusCode)[keyof typeof ExpressGatewayServiceStatusCode];
 
+export const GatewayAccessType = {
+    Public: "PUBLIC",
+    Private: "PRIVATE",
+} as const;
+
+/**
+ * The access type for the gateway.
+ */
+export type GatewayAccessType = (typeof GatewayAccessType)[keyof typeof GatewayAccessType];
+
+export const GatewayAlbDesyncMitigationMode = {
+    Monitor: "monitor",
+    Defensive: "defensive",
+    Strictest: "strictest",
+} as const;
+
+/**
+ * The HTTP desync mitigation mode for the ALB.
+ */
+export type GatewayAlbDesyncMitigationMode = (typeof GatewayAlbDesyncMitigationMode)[keyof typeof GatewayAlbDesyncMitigationMode];
+
+export const GatewayAlbProtocol = {
+    Http: "HTTP",
+    Https: "HTTPS",
+} as const;
+
+/**
+ * The protocol for the ALB listener.
+ */
+export type GatewayAlbProtocol = (typeof GatewayAlbProtocol)[keyof typeof GatewayAlbProtocol];
+
+export const GatewayClusterAssociationsGatewayClusterAssociationStatus = {
+    Active: "ACTIVE",
+    Disassociating: "DISASSOCIATING",
+} as const;
+
+/**
+ * The status of the association between the gateway and the cluster.
+ */
+export type GatewayClusterAssociationsGatewayClusterAssociationStatus = (typeof GatewayClusterAssociationsGatewayClusterAssociationStatus)[keyof typeof GatewayClusterAssociationsGatewayClusterAssociationStatus];
+
+export const GatewayElbIpAddressType = {
+    Ipv4: "ipv4",
+    Dualstack: "dualstack",
+    DualstackWithoutPublicIpv4: "dualstack-without-public-ipv4",
+} as const;
+
+/**
+ * The IP address type for the ALB.
+ */
+export type GatewayElbIpAddressType = (typeof GatewayElbIpAddressType)[keyof typeof GatewayElbIpAddressType];
+
+export const GatewayElbScheme = {
+    InternetFacing: "internet-facing",
+    Internal: "internal",
+} as const;
+
+/**
+ * The scheme for the ALB.
+ */
+export type GatewayElbScheme = (typeof GatewayElbScheme)[keyof typeof GatewayElbScheme];
+
+export const GatewayPropagateGatewayTags = {
+    None: "NONE",
+    Gateway: "GATEWAY",
+} as const;
+
+/**
+ * Specifies whether to propagate the tags from the gateway to other resources.
+ */
+export type GatewayPropagateGatewayTags = (typeof GatewayPropagateGatewayTags)[keyof typeof GatewayPropagateGatewayTags];
+
+export const GatewayStatus = {
+    Active: "ACTIVE",
+    UpdateInProgress: "UPDATE_IN_PROGRESS",
+    UpdateComplete: "UPDATE_COMPLETE",
+    UpdateFailed: "UPDATE_FAILED",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * The status of the gateway.
+ */
+export type GatewayStatus = (typeof GatewayStatus)[keyof typeof GatewayStatus];
+
 export const ServiceAvailabilityZoneRebalancing = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -294,6 +379,13 @@ export const ServiceConnectAccessLogConfigurationIncludeQueryParameters = {
  *  When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
  */
 export type ServiceConnectAccessLogConfigurationIncludeQueryParameters = (typeof ServiceConnectAccessLogConfigurationIncludeQueryParameters)[keyof typeof ServiceConnectAccessLogConfigurationIncludeQueryParameters];
+
+export const ServiceConnectContainerConfigurationLogLevel = {
+    Debug: "debug",
+    Info: "info",
+} as const;
+
+export type ServiceConnectContainerConfigurationLogLevel = (typeof ServiceConnectContainerConfigurationLogLevel)[keyof typeof ServiceConnectContainerConfigurationLogLevel];
 
 export const ServiceDeploymentConfigurationStrategy = {
     Rolling: "ROLLING",
@@ -359,6 +451,11 @@ export const ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup =
     Deferred: "DEFERRED",
 } as const;
 
+/**
+ * The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+ *   +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+ *   +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
+ */
 export type ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup = (typeof ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup)[keyof typeof ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup];
 
 export const ServiceDeploymentLifecycleHookLifecycleStagesItem = {
@@ -397,6 +494,20 @@ export const ServiceEbsTagSpecificationPropagateTags = {
  * Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
  */
 export type ServiceEbsTagSpecificationPropagateTags = (typeof ServiceEbsTagSpecificationPropagateTags)[keyof typeof ServiceEbsTagSpecificationPropagateTags];
+
+export const ServiceGatewayConnectorFiltersAccessTypesItem = {
+    Public: "PUBLIC",
+    Private: "PRIVATE",
+} as const;
+
+export type ServiceGatewayConnectorFiltersAccessTypesItem = (typeof ServiceGatewayConnectorFiltersAccessTypesItem)[keyof typeof ServiceGatewayConnectorFiltersAccessTypesItem];
+
+export const ServiceGatewayConnectorHealthCheckHealthCheckProtocol = {
+    Http: "HTTP",
+    Https: "HTTPS",
+} as const;
+
+export type ServiceGatewayConnectorHealthCheckHealthCheckProtocol = (typeof ServiceGatewayConnectorHealthCheckHealthCheckProtocol)[keyof typeof ServiceGatewayConnectorHealthCheckHealthCheckProtocol];
 
 export const ServiceHookTimeoutConfigAction = {
     Rollback: "ROLLBACK",

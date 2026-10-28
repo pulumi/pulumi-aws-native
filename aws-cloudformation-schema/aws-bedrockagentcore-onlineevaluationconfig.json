@@ -22,7 +22,7 @@
     },
     "OnlineEvaluationConfigStatus" : {
       "type" : "string",
-      "enum" : [ "ACTIVE", "CREATING", "CREATE_FAILED", "UPDATING", "UPDATE_FAILED", "DELETING" ]
+      "enum" : [ "ACTIVE", "CREATING", "CREATE_FAILED", "UPDATING", "UPDATE_FAILED", "DELETING", "ERROR" ]
     },
     "ExecutionStatus" : {
       "type" : "string",
@@ -97,8 +97,8 @@
       "properties" : {
         "EvaluatorId" : {
           "type" : "string",
-          "description" : "The unique identifier of the evaluator.",
-          "pattern" : "^(Builtin\\.[a-zA-Z0-9_-]+|[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10})$"
+          "description" : "The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.",
+          "pattern" : "^(Builtin\\.[a-zA-Z0-9._-]+|ThirdParty\\.[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+|[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10})$"
         }
       },
       "required" : [ "EvaluatorId" ],
@@ -315,7 +315,7 @@
         "$ref" : "#/definitions/EvaluatorReference"
       },
       "minItems" : 0,
-      "maxItems" : 10,
+      "maxItems" : 25,
       "insertionOrder" : false
     },
     "Rule" : {

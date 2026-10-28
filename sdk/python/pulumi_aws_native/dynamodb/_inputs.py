@@ -50,6 +50,8 @@ __all__ = [
     'GlobalTableReplicaStreamSpecificationArgsDict',
     'GlobalTableResourcePolicyArgs',
     'GlobalTableResourcePolicyArgsDict',
+    'GlobalTableSearchSchemaElementArgs',
+    'GlobalTableSearchSchemaElementArgsDict',
     'GlobalTableSseSpecificationArgs',
     'GlobalTableSseSpecificationArgsDict',
     'GlobalTableStreamSpecificationArgs',
@@ -60,6 +62,10 @@ __all__ = [
     'GlobalTableTargetTrackingScalingPolicyConfigurationArgsDict',
     'GlobalTableTimeToLiveSpecificationArgs',
     'GlobalTableTimeToLiveSpecificationArgsDict',
+    'GlobalTableVectorAttributeArgs',
+    'GlobalTableVectorAttributeArgsDict',
+    'GlobalTableVectorIndexArgs',
+    'GlobalTableVectorIndexArgsDict',
     'GlobalTableWarmThroughputArgs',
     'GlobalTableWarmThroughputArgsDict',
     'GlobalTableWitnessArgs',
@@ -98,6 +104,8 @@ __all__ = [
     'TableResourcePolicyArgsDict',
     'TableS3BucketSourceArgs',
     'TableS3BucketSourceArgsDict',
+    'TableSearchSchemaElementArgs',
+    'TableSearchSchemaElementArgsDict',
     'TableSseSpecificationArgs',
     'TableSseSpecificationArgsDict',
     'TableStreamSpecificationArgs',
@@ -106,6 +114,10 @@ __all__ = [
     'TableTagArgsDict',
     'TableTimeToLiveSpecificationArgs',
     'TableTimeToLiveSpecificationArgsDict',
+    'TableVectorAttributeArgs',
+    'TableVectorAttributeArgsDict',
+    'TableVectorIndexArgs',
+    'TableVectorIndexArgsDict',
     'TableWarmThroughputArgs',
     'TableWarmThroughputArgsDict',
 ]
@@ -1012,6 +1024,7 @@ class GlobalTableReplicaSpecificationArgsDict(TypedDict):
     """
     Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
     """
+    disassociation_protection_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     global_secondary_indexes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgsDict']]]]]
     """
     Defines additional settings for the global secondary indexes of this replica.
@@ -1064,6 +1077,7 @@ class GlobalTableReplicaSpecificationArgs:
                  region: pulumi.Input[_builtins.str],
                  contributor_insights_specification: pulumi.Input[Optional['GlobalTableContributorInsightsSpecificationArgs']] = None,
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disassociation_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]] = None,
                  global_table_settings_replication_mode: pulumi.Input[Optional['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']] = None,
                  kinesis_stream_specification: pulumi.Input[Optional['GlobalTableKinesisStreamSpecificationArgs']] = None,
@@ -1099,6 +1113,8 @@ class GlobalTableReplicaSpecificationArgs:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
         if deletion_protection_enabled is not None:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
+        if disassociation_protection_enabled is not None:
+            pulumi.set(__self__, "disassociation_protection_enabled", disassociation_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if global_table_settings_replication_mode is not None:
@@ -1157,6 +1173,15 @@ class GlobalTableReplicaSpecificationArgs:
     @deletion_protection_enabled.setter
     def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disassociationProtectionEnabled")
+    def disassociation_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "disassociation_protection_enabled")
+
+    @disassociation_protection_enabled.setter
+    def disassociation_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disassociation_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="globalSecondaryIndexes")
@@ -1400,6 +1425,37 @@ class GlobalTableResourcePolicyArgs:
     @policy_document.setter
     def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
+
+
+class GlobalTableSearchSchemaElementArgsDict(TypedDict):
+    attribute_name: pulumi.Input[_builtins.str]
+    search_schema_element_type: pulumi.Input['GlobalTableSearchSchemaElementSearchSchemaElementType']
+
+@pulumi.input_type
+class GlobalTableSearchSchemaElementArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[_builtins.str],
+                 search_schema_element_type: pulumi.Input['GlobalTableSearchSchemaElementSearchSchemaElementType']):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "search_schema_element_type", search_schema_element_type)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "attribute_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="searchSchemaElementType")
+    def search_schema_element_type(self) -> pulumi.Input['GlobalTableSearchSchemaElementSearchSchemaElementType']:
+        return pulumi.get(self, "search_schema_element_type")
+
+    @search_schema_element_type.setter
+    def search_schema_element_type(self, value: pulumi.Input['GlobalTableSearchSchemaElementSearchSchemaElementType']):
+        pulumi.set(self, "search_schema_element_type", value)
 
 
 class GlobalTableSseSpecificationArgsDict(TypedDict):
@@ -1686,6 +1742,105 @@ class GlobalTableTimeToLiveSpecificationArgs:
     @attribute_name.setter
     def attribute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attribute_name", value)
+
+
+class GlobalTableVectorAttributeArgsDict(TypedDict):
+    attribute_name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class GlobalTableVectorAttributeArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "attribute_name", value)
+
+
+class GlobalTableVectorIndexArgsDict(TypedDict):
+    dimensions: pulumi.Input[_builtins.int]
+    distance_function: pulumi.Input['GlobalTableVectorIndexDistanceFunction']
+    index_name: pulumi.Input[_builtins.str]
+    projection: pulumi.Input['GlobalTableProjectionArgsDict']
+    vector_attribute: pulumi.Input['GlobalTableVectorAttributeArgsDict']
+    search_schema: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableSearchSchemaElementArgsDict']]]]]
+
+@pulumi.input_type
+class GlobalTableVectorIndexArgs:
+    def __init__(__self__, *,
+                 dimensions: pulumi.Input[_builtins.int],
+                 distance_function: pulumi.Input['GlobalTableVectorIndexDistanceFunction'],
+                 index_name: pulumi.Input[_builtins.str],
+                 projection: pulumi.Input['GlobalTableProjectionArgs'],
+                 vector_attribute: pulumi.Input['GlobalTableVectorAttributeArgs'],
+                 search_schema: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableSearchSchemaElementArgs']]]] = None):
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "distance_function", distance_function)
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "projection", projection)
+        pulumi.set(__self__, "vector_attribute", vector_attribute)
+        if search_schema is not None:
+            pulumi.set(__self__, "search_schema", search_schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="distanceFunction")
+    def distance_function(self) -> pulumi.Input['GlobalTableVectorIndexDistanceFunction']:
+        return pulumi.get(self, "distance_function")
+
+    @distance_function.setter
+    def distance_function(self, value: pulumi.Input['GlobalTableVectorIndexDistanceFunction']):
+        pulumi.set(self, "distance_function", value)
+
+    @_builtins.property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "index_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def projection(self) -> pulumi.Input['GlobalTableProjectionArgs']:
+        return pulumi.get(self, "projection")
+
+    @projection.setter
+    def projection(self, value: pulumi.Input['GlobalTableProjectionArgs']):
+        pulumi.set(self, "projection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorAttribute")
+    def vector_attribute(self) -> pulumi.Input['GlobalTableVectorAttributeArgs']:
+        return pulumi.get(self, "vector_attribute")
+
+    @vector_attribute.setter
+    def vector_attribute(self, value: pulumi.Input['GlobalTableVectorAttributeArgs']):
+        pulumi.set(self, "vector_attribute", value)
+
+    @_builtins.property
+    @pulumi.getter(name="searchSchema")
+    def search_schema(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableSearchSchemaElementArgs']]]]:
+        return pulumi.get(self, "search_schema")
+
+    @search_schema.setter
+    def search_schema(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableSearchSchemaElementArgs']]]]):
+        pulumi.set(self, "search_schema", value)
 
 
 class GlobalTableWarmThroughputArgsDict(TypedDict):
@@ -2631,6 +2786,7 @@ class TableProjectionArgsDict(TypedDict):
       +  ``ALL`` - All of the table attributes are projected into the index.
 
      When using the DynamoDB console, ``ALL`` is selected by default.
+     You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
     """
 
 @pulumi.input_type
@@ -2649,6 +2805,7 @@ class TableProjectionArgs:
                  +  ``ALL`` - All of the table attributes are projected into the index.
                
                 When using the DynamoDB console, ``ALL`` is selected by default.
+                You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
         """
         if non_key_attributes is not None:
             pulumi.set(__self__, "non_key_attributes", non_key_attributes)
@@ -2678,6 +2835,7 @@ class TableProjectionArgs:
           +  ``ALL`` - All of the table attributes are projected into the index.
 
          When using the DynamoDB console, ``ALL`` is selected by default.
+         You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
         """
         return pulumi.get(self, "projection_type")
 
@@ -2868,6 +3026,37 @@ class TableS3BucketSourceArgs:
         pulumi.set(self, "s3_key_prefix", value)
 
 
+class TableSearchSchemaElementArgsDict(TypedDict):
+    attribute_name: pulumi.Input[_builtins.str]
+    search_schema_element_type: pulumi.Input['TableSearchSchemaElementSearchSchemaElementType']
+
+@pulumi.input_type
+class TableSearchSchemaElementArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[_builtins.str],
+                 search_schema_element_type: pulumi.Input['TableSearchSchemaElementSearchSchemaElementType']):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "search_schema_element_type", search_schema_element_type)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "attribute_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="searchSchemaElementType")
+    def search_schema_element_type(self) -> pulumi.Input['TableSearchSchemaElementSearchSchemaElementType']:
+        return pulumi.get(self, "search_schema_element_type")
+
+    @search_schema_element_type.setter
+    def search_schema_element_type(self, value: pulumi.Input['TableSearchSchemaElementSearchSchemaElementType']):
+        pulumi.set(self, "search_schema_element_type", value)
+
+
 class TableSseSpecificationArgsDict(TypedDict):
     """
     Represents the settings used to enable server-side encryption.
@@ -2963,6 +3152,10 @@ class TableStreamSpecificationArgsDict(TypedDict):
       In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
     """
     tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgsDict']]]]]
+    """
+    Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+     For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+    """
 
 @pulumi.input_type
 class TableStreamSpecificationArgs:
@@ -2981,6 +3174,8 @@ class TableStreamSpecificationArgs:
         :param pulumi.Input['TableResourcePolicyArgs'] resource_policy: Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
                  When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
                  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+        :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+                For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
         """
         pulumi.set(__self__, "stream_view_type", stream_view_type)
         if resource_policy is not None:
@@ -3021,6 +3216,10 @@ class TableStreamSpecificationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]]:
+        """
+        Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+         For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -3141,6 +3340,105 @@ class TableTimeToLiveSpecificationArgs:
     @attribute_name.setter
     def attribute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attribute_name", value)
+
+
+class TableVectorAttributeArgsDict(TypedDict):
+    attribute_name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TableVectorAttributeArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "attribute_name", value)
+
+
+class TableVectorIndexArgsDict(TypedDict):
+    dimensions: pulumi.Input[_builtins.int]
+    distance_function: pulumi.Input['TableVectorIndexDistanceFunction']
+    index_name: pulumi.Input[_builtins.str]
+    projection: pulumi.Input['TableProjectionArgsDict']
+    vector_attribute: pulumi.Input['TableVectorAttributeArgsDict']
+    search_schema: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSearchSchemaElementArgsDict']]]]]
+
+@pulumi.input_type
+class TableVectorIndexArgs:
+    def __init__(__self__, *,
+                 dimensions: pulumi.Input[_builtins.int],
+                 distance_function: pulumi.Input['TableVectorIndexDistanceFunction'],
+                 index_name: pulumi.Input[_builtins.str],
+                 projection: pulumi.Input['TableProjectionArgs'],
+                 vector_attribute: pulumi.Input['TableVectorAttributeArgs'],
+                 search_schema: pulumi.Input[Optional[Sequence[pulumi.Input['TableSearchSchemaElementArgs']]]] = None):
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "distance_function", distance_function)
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "projection", projection)
+        pulumi.set(__self__, "vector_attribute", vector_attribute)
+        if search_schema is not None:
+            pulumi.set(__self__, "search_schema", search_schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="distanceFunction")
+    def distance_function(self) -> pulumi.Input['TableVectorIndexDistanceFunction']:
+        return pulumi.get(self, "distance_function")
+
+    @distance_function.setter
+    def distance_function(self, value: pulumi.Input['TableVectorIndexDistanceFunction']):
+        pulumi.set(self, "distance_function", value)
+
+    @_builtins.property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "index_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def projection(self) -> pulumi.Input['TableProjectionArgs']:
+        return pulumi.get(self, "projection")
+
+    @projection.setter
+    def projection(self, value: pulumi.Input['TableProjectionArgs']):
+        pulumi.set(self, "projection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorAttribute")
+    def vector_attribute(self) -> pulumi.Input['TableVectorAttributeArgs']:
+        return pulumi.get(self, "vector_attribute")
+
+    @vector_attribute.setter
+    def vector_attribute(self, value: pulumi.Input['TableVectorAttributeArgs']):
+        pulumi.set(self, "vector_attribute", value)
+
+    @_builtins.property
+    @pulumi.getter(name="searchSchema")
+    def search_schema(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableSearchSchemaElementArgs']]]]:
+        return pulumi.get(self, "search_schema")
+
+    @search_schema.setter
+    def search_schema(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableSearchSchemaElementArgs']]]]):
+        pulumi.set(self, "search_schema", value)
 
 
 class TableWarmThroughputArgsDict(TypedDict):

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         }
 
         /// <summary>
-        /// Returns the value of the AccountsUrl property.
+        /// Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
         /// </summary>
         [Input("accountsUrl")]
         public Input<string>? AccountsUrl { get; set; }

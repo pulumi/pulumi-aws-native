@@ -40,4 +40,101 @@ namespace Pulumi.AwsNative.NetworkMonitor
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The IP address family the probe uses, computed by the service from the source and destination.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProbeAddressFamily : IEquatable<ProbeAddressFamily>
+    {
+        private readonly string _value;
+
+        private ProbeAddressFamily(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProbeAddressFamily Ipv4 { get; } = new ProbeAddressFamily("IPV4");
+        public static ProbeAddressFamily Ipv6 { get; } = new ProbeAddressFamily("IPV6");
+
+        public static bool operator ==(ProbeAddressFamily left, ProbeAddressFamily right) => left.Equals(right);
+        public static bool operator !=(ProbeAddressFamily left, ProbeAddressFamily right) => !left.Equals(right);
+
+        public static explicit operator string(ProbeAddressFamily value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProbeAddressFamily other && Equals(other);
+        public bool Equals(ProbeAddressFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The protocol the probe uses.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProbeProtocol : IEquatable<ProbeProtocol>
+    {
+        private readonly string _value;
+
+        private ProbeProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProbeProtocol Tcp { get; } = new ProbeProtocol("TCP");
+        public static ProbeProtocol Icmp { get; } = new ProbeProtocol("ICMP");
+
+        public static bool operator ==(ProbeProtocol left, ProbeProtocol right) => left.Equals(right);
+        public static bool operator !=(ProbeProtocol left, ProbeProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ProbeProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProbeProtocol other && Equals(other);
+        public bool Equals(ProbeProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of the probe.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProbeState : IEquatable<ProbeState>
+    {
+        private readonly string _value;
+
+        private ProbeState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProbeState Pending { get; } = new ProbeState("PENDING");
+        public static ProbeState Active { get; } = new ProbeState("ACTIVE");
+        public static ProbeState Inactive { get; } = new ProbeState("INACTIVE");
+        public static ProbeState Error { get; } = new ProbeState("ERROR");
+        public static ProbeState Deleting { get; } = new ProbeState("DELETING");
+        public static ProbeState Deleted { get; } = new ProbeState("DELETED");
+
+        public static bool operator ==(ProbeState left, ProbeState right) => left.Equals(right);
+        public static bool operator !=(ProbeState left, ProbeState right) => !left.Equals(right);
+
+        public static explicit operator string(ProbeState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProbeState other && Equals(other);
+        public bool Equals(ProbeState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -894,7 +894,7 @@ type CustomLaunchTemplateProperties struct {
 	// The ID of the EC2 launch template to use to provision instances.
 	TemplateId *string `pulumi:"templateId"`
 	// The version of the EC2 launch template to use to provision instances.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 // CustomLaunchTemplatePropertiesInput is an input type that accepts CustomLaunchTemplatePropertiesArgs and CustomLaunchTemplatePropertiesOutput values.
@@ -913,7 +913,7 @@ type CustomLaunchTemplatePropertiesArgs struct {
 	// The ID of the EC2 launch template to use to provision instances.
 	TemplateId pulumi.StringPtrInput `pulumi:"templateId"`
 	// The version of the EC2 launch template to use to provision instances.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (CustomLaunchTemplatePropertiesArgs) ElementType() reflect.Type {
@@ -926,6 +926,47 @@ func (i CustomLaunchTemplatePropertiesArgs) ToCustomLaunchTemplatePropertiesOutp
 
 func (i CustomLaunchTemplatePropertiesArgs) ToCustomLaunchTemplatePropertiesOutputWithContext(ctx context.Context) CustomLaunchTemplatePropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLaunchTemplatePropertiesOutput)
+}
+
+func (i CustomLaunchTemplatePropertiesArgs) ToCustomLaunchTemplatePropertiesPtrOutput() CustomLaunchTemplatePropertiesPtrOutput {
+	return i.ToCustomLaunchTemplatePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CustomLaunchTemplatePropertiesArgs) ToCustomLaunchTemplatePropertiesPtrOutputWithContext(ctx context.Context) CustomLaunchTemplatePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLaunchTemplatePropertiesOutput).ToCustomLaunchTemplatePropertiesPtrOutputWithContext(ctx)
+}
+
+// CustomLaunchTemplatePropertiesPtrInput is an input type that accepts CustomLaunchTemplatePropertiesArgs, CustomLaunchTemplatePropertiesPtr and CustomLaunchTemplatePropertiesPtrOutput values.
+// You can construct a concrete instance of `CustomLaunchTemplatePropertiesPtrInput` via:
+//
+//	        CustomLaunchTemplatePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomLaunchTemplatePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCustomLaunchTemplatePropertiesPtrOutput() CustomLaunchTemplatePropertiesPtrOutput
+	ToCustomLaunchTemplatePropertiesPtrOutputWithContext(context.Context) CustomLaunchTemplatePropertiesPtrOutput
+}
+
+type customLaunchTemplatePropertiesPtrType CustomLaunchTemplatePropertiesArgs
+
+func CustomLaunchTemplatePropertiesPtr(v *CustomLaunchTemplatePropertiesArgs) CustomLaunchTemplatePropertiesPtrInput {
+	return (*customLaunchTemplatePropertiesPtrType)(v)
+}
+
+func (*customLaunchTemplatePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLaunchTemplateProperties)(nil)).Elem()
+}
+
+func (i *customLaunchTemplatePropertiesPtrType) ToCustomLaunchTemplatePropertiesPtrOutput() CustomLaunchTemplatePropertiesPtrOutput {
+	return i.ToCustomLaunchTemplatePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *customLaunchTemplatePropertiesPtrType) ToCustomLaunchTemplatePropertiesPtrOutputWithContext(ctx context.Context) CustomLaunchTemplatePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLaunchTemplatePropertiesPtrOutput)
 }
 
 // An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
@@ -943,14 +984,24 @@ func (o CustomLaunchTemplatePropertiesOutput) ToCustomLaunchTemplatePropertiesOu
 	return o
 }
 
+func (o CustomLaunchTemplatePropertiesOutput) ToCustomLaunchTemplatePropertiesPtrOutput() CustomLaunchTemplatePropertiesPtrOutput {
+	return o.ToCustomLaunchTemplatePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLaunchTemplatePropertiesOutput) ToCustomLaunchTemplatePropertiesPtrOutputWithContext(ctx context.Context) CustomLaunchTemplatePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLaunchTemplateProperties) *CustomLaunchTemplateProperties {
+		return &v
+	}).(CustomLaunchTemplatePropertiesPtrOutput)
+}
+
 // The ID of the EC2 launch template to use to provision instances.
 func (o CustomLaunchTemplatePropertiesOutput) TemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLaunchTemplateProperties) *string { return v.TemplateId }).(pulumi.StringPtrOutput)
 }
 
 // The version of the EC2 launch template to use to provision instances.
-func (o CustomLaunchTemplatePropertiesOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomLaunchTemplateProperties) string { return v.Version }).(pulumi.StringOutput)
+func (o CustomLaunchTemplatePropertiesOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomLaunchTemplateProperties) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type CustomLaunchTemplatePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -993,7 +1044,7 @@ func (o CustomLaunchTemplatePropertiesPtrOutput) Version() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return &v.Version
+		return v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1841,6 +1892,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleStagesPtrInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleStagesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupScriptSourceInput)(nil)).Elem(), ComputeNodeGroupScriptSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLaunchTemplatePropertiesInput)(nil)).Elem(), CustomLaunchTemplatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLaunchTemplatePropertiesPtrInput)(nil)).Elem(), CustomLaunchTemplatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkingPropertiesInput)(nil)).Elem(), NetworkingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueComputeNodeGroupConfigurationInput)(nil)).Elem(), QueueComputeNodeGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueComputeNodeGroupConfigurationArrayInput)(nil)).Elem(), QueueComputeNodeGroupConfigurationArray{})

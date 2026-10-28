@@ -40,6 +40,16 @@ export const getS3AccessPointAttachment: typeof import("./getS3AccessPointAttach
 export const getS3AccessPointAttachmentOutput: typeof import("./getS3AccessPointAttachment").getS3AccessPointAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getS3AccessPointAttachment","getS3AccessPointAttachmentOutput"], () => require("./getS3AccessPointAttachment"));
 
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+
+export { GetStorageVirtualMachineArgs, GetStorageVirtualMachineResult, GetStorageVirtualMachineOutputArgs } from "./getStorageVirtualMachine";
+export const getStorageVirtualMachine: typeof import("./getStorageVirtualMachine").getStorageVirtualMachine = null as any;
+export const getStorageVirtualMachineOutput: typeof import("./getStorageVirtualMachine").getStorageVirtualMachineOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageVirtualMachine","getStorageVirtualMachineOutput"], () => require("./getStorageVirtualMachine"));
+
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
@@ -49,6 +59,16 @@ export { S3AccessPointAttachmentArgs } from "./s3accessPointAttachment";
 export type S3AccessPointAttachment = import("./s3accessPointAttachment").S3AccessPointAttachment;
 export const S3AccessPointAttachment: typeof import("./s3accessPointAttachment").S3AccessPointAttachment = null as any;
 utilities.lazyLoad(exports, ["S3AccessPointAttachment"], () => require("./s3accessPointAttachment"));
+
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
+export { StorageVirtualMachineArgs } from "./storageVirtualMachine";
+export type StorageVirtualMachine = import("./storageVirtualMachine").StorageVirtualMachine;
+export const StorageVirtualMachine: typeof import("./storageVirtualMachine").StorageVirtualMachine = null as any;
+utilities.lazyLoad(exports, ["StorageVirtualMachine"], () => require("./storageVirtualMachine"));
 
 export { VolumeArgs } from "./volume";
 export type Volume = import("./volume").Volume;
@@ -71,6 +91,10 @@ const _module = {
                 return new FileCache(name, <any>undefined, { urn })
             case "aws-native:fsx:S3AccessPointAttachment":
                 return new S3AccessPointAttachment(name, <any>undefined, { urn })
+            case "aws-native:fsx:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
+            case "aws-native:fsx:StorageVirtualMachine":
+                return new StorageVirtualMachine(name, <any>undefined, { urn })
             case "aws-native:fsx:Volume":
                 return new Volume(name, <any>undefined, { urn })
             default:

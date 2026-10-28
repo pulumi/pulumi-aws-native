@@ -473,6 +473,8 @@ func (o CapabilityAckPtrOutput) EnableCrossNamespace() pulumi.BoolPtrOutput {
 // Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
 type CapabilityArgoCd struct {
 	AwsIdc CapabilityAwsIdc `pulumi:"awsIdc"`
+	// An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+	EndpointPrefix *string `pulumi:"endpointPrefix"`
 	// The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
 	Namespace     *string                  `pulumi:"namespace"`
 	NetworkAccess *CapabilityNetworkAccess `pulumi:"networkAccess"`
@@ -496,6 +498,8 @@ type CapabilityArgoCdInput interface {
 // Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
 type CapabilityArgoCdArgs struct {
 	AwsIdc CapabilityAwsIdcInput `pulumi:"awsIdc"`
+	// An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+	EndpointPrefix pulumi.StringPtrInput `pulumi:"endpointPrefix"`
 	// The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
 	Namespace     pulumi.StringPtrInput           `pulumi:"namespace"`
 	NetworkAccess CapabilityNetworkAccessPtrInput `pulumi:"networkAccess"`
@@ -587,6 +591,11 @@ func (o CapabilityArgoCdOutput) AwsIdc() CapabilityAwsIdcOutput {
 	return o.ApplyT(func(v CapabilityArgoCd) CapabilityAwsIdc { return v.AwsIdc }).(CapabilityAwsIdcOutput)
 }
 
+// An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+func (o CapabilityArgoCdOutput) EndpointPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityArgoCd) *string { return v.EndpointPrefix }).(pulumi.StringPtrOutput)
+}
+
 // The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
 func (o CapabilityArgoCdOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapabilityArgoCd) *string { return v.Namespace }).(pulumi.StringPtrOutput)
@@ -637,6 +646,16 @@ func (o CapabilityArgoCdPtrOutput) AwsIdc() CapabilityAwsIdcPtrOutput {
 		}
 		return &v.AwsIdc
 	}).(CapabilityAwsIdcPtrOutput)
+}
+
+// An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+func (o CapabilityArgoCdPtrOutput) EndpointPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityArgoCd) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.

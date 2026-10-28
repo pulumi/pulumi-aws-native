@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     /// <summary>
     /// Scoping: who the policy applies to.
-    /// GROUP: `groupArns` required (one or more group ARNs).
     /// </summary>
     public sealed class ApprovalPolicyApplicableToArgs : global::Pulumi.ResourceArgs
     {
@@ -29,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         [Input("type", required: true)]
-        public Input<object> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.QuickSight.ApprovalPolicyApplicableToType> Type { get; set; } = null!;
 
         public ApprovalPolicyApplicableToArgs()
         {

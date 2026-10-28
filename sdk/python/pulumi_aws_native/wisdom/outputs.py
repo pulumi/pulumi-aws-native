@@ -17,6 +17,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AiAgentAgentTarget0Properties',
+    'AiAgentAgentTarget1Properties',
     'AiAgentAiAgentConfiguration0Properties',
     'AiAgentAiAgentConfiguration1Properties',
     'AiAgentAiAgentConfiguration2Properties',
@@ -31,11 +33,16 @@ __all__ = [
     'AiAgentAssociationConfiguration',
     'AiAgentAssociationConfigurationDataProperties',
     'AiAgentCaseSummarizationAiAgentConfiguration',
+    'AiAgentDelegateAgentConfiguration',
     'AiAgentEmailGenerativeAnswerAiAgentConfiguration',
     'AiAgentEmailOverviewAiAgentConfiguration',
     'AiAgentEmailResponseAiAgentConfiguration',
+    'AiAgentHandoffAgentConfiguration',
     'AiAgentKnowledgeBaseAssociationConfigurationData',
     'AiAgentManualSearchAiAgentConfiguration',
+    'AiAgentMultiAgentConfiguration0Properties',
+    'AiAgentMultiAgentConfiguration1Properties',
+    'AiAgentMultiAgentInstruction',
     'AiAgentNoteTakingAiAgentConfiguration',
     'AiAgentOrCondition0Properties',
     'AiAgentOrCondition1Properties',
@@ -110,6 +117,64 @@ __all__ = [
     'QuickResponseContents',
     'QuickResponseGroupingConfiguration',
 ]
+
+@pulumi.output_type
+class AiAgentAgentTarget0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aiAgentId":
+            suggest = "ai_agent_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAgentTarget0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAgentTarget0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAgentTarget0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ai_agent_id: _builtins.str):
+        pulumi.set(__self__, "ai_agent_id", ai_agent_id)
+
+    @_builtins.property
+    @pulumi.getter(name="aiAgentId")
+    def ai_agent_id(self) -> _builtins.str:
+        return pulumi.get(self, "ai_agent_id")
+
+
+@pulumi.output_type
+class AiAgentAgentTarget1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAgentTarget1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAgentTarget1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAgentTarget1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_id: _builtins.str):
+        pulumi.set(__self__, "application_id", application_id)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> _builtins.str:
+        return pulumi.get(self, "application_id")
+
 
 @pulumi.output_type
 class AiAgentAiAgentConfiguration0Properties(dict):
@@ -584,6 +649,43 @@ class AiAgentCaseSummarizationAiAgentConfiguration(dict):
 
 
 @pulumi.output_type
+class AiAgentDelegateAgentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentTarget":
+            suggest = "agent_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentDelegateAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentDelegateAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentDelegateAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_target: Any,
+                 instruction: Optional['outputs.AiAgentMultiAgentInstruction'] = None):
+        pulumi.set(__self__, "agent_target", agent_target)
+        if instruction is not None:
+            pulumi.set(__self__, "instruction", instruction)
+
+    @_builtins.property
+    @pulumi.getter(name="agentTarget")
+    def agent_target(self) -> Any:
+        return pulumi.get(self, "agent_target")
+
+    @_builtins.property
+    @pulumi.getter
+    def instruction(self) -> Optional['outputs.AiAgentMultiAgentInstruction']:
+        return pulumi.get(self, "instruction")
+
+
+@pulumi.output_type
 class AiAgentEmailGenerativeAnswerAiAgentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -738,6 +840,63 @@ class AiAgentEmailResponseAiAgentConfiguration(dict):
 
 
 @pulumi.output_type
+class AiAgentHandoffAgentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentTarget":
+            suggest = "agent_target"
+        elif key == "audioStreamingEnabled":
+            suggest = "audio_streaming_enabled"
+        elif key == "immediateHandoff":
+            suggest = "immediate_handoff"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentHandoffAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentHandoffAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentHandoffAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_target: Any,
+                 audio_streaming_enabled: Optional[_builtins.bool] = None,
+                 immediate_handoff: Optional[_builtins.bool] = None,
+                 instruction: Optional['outputs.AiAgentMultiAgentInstruction'] = None):
+        pulumi.set(__self__, "agent_target", agent_target)
+        if audio_streaming_enabled is not None:
+            pulumi.set(__self__, "audio_streaming_enabled", audio_streaming_enabled)
+        if immediate_handoff is not None:
+            pulumi.set(__self__, "immediate_handoff", immediate_handoff)
+        if instruction is not None:
+            pulumi.set(__self__, "instruction", instruction)
+
+    @_builtins.property
+    @pulumi.getter(name="agentTarget")
+    def agent_target(self) -> Any:
+        return pulumi.get(self, "agent_target")
+
+    @_builtins.property
+    @pulumi.getter(name="audioStreamingEnabled")
+    def audio_streaming_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "audio_streaming_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="immediateHandoff")
+    def immediate_handoff(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "immediate_handoff")
+
+    @_builtins.property
+    @pulumi.getter
+    def instruction(self) -> Optional['outputs.AiAgentMultiAgentInstruction']:
+        return pulumi.get(self, "instruction")
+
+
+@pulumi.output_type
 class AiAgentKnowledgeBaseAssociationConfigurationData(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -843,6 +1002,85 @@ class AiAgentManualSearchAiAgentConfiguration(dict):
     @pulumi.getter
     def locale(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "locale")
+
+
+@pulumi.output_type
+class AiAgentMultiAgentConfiguration0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "delegateAgentConfiguration":
+            suggest = "delegate_agent_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentMultiAgentConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentMultiAgentConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentMultiAgentConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delegate_agent_configuration: 'outputs.AiAgentDelegateAgentConfiguration'):
+        pulumi.set(__self__, "delegate_agent_configuration", delegate_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="delegateAgentConfiguration")
+    def delegate_agent_configuration(self) -> 'outputs.AiAgentDelegateAgentConfiguration':
+        return pulumi.get(self, "delegate_agent_configuration")
+
+
+@pulumi.output_type
+class AiAgentMultiAgentConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "handoffAgentConfiguration":
+            suggest = "handoff_agent_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentMultiAgentConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentMultiAgentConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentMultiAgentConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 handoff_agent_configuration: 'outputs.AiAgentHandoffAgentConfiguration'):
+        pulumi.set(__self__, "handoff_agent_configuration", handoff_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="handoffAgentConfiguration")
+    def handoff_agent_configuration(self) -> 'outputs.AiAgentHandoffAgentConfiguration':
+        return pulumi.get(self, "handoff_agent_configuration")
+
+
+@pulumi.output_type
+class AiAgentMultiAgentInstruction(dict):
+    def __init__(__self__, *,
+                 examples: Optional[Sequence[_builtins.str]] = None,
+                 instruction: Optional[_builtins.str] = None):
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
+        if instruction is not None:
+            pulumi.set(__self__, "instruction", instruction)
+
+    @_builtins.property
+    @pulumi.getter
+    def examples(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "examples")
+
+    @_builtins.property
+    @pulumi.getter
+    def instruction(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "instruction")
 
 
 @pulumi.output_type
@@ -956,12 +1194,18 @@ class AiAgentOrchestrationAiAgentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "orchestrationAiPromptId":
-            suggest = "orchestration_ai_prompt_id"
-        elif key == "connectInstanceArn":
+        if key == "connectInstanceArn":
             suggest = "connect_instance_arn"
+        elif key == "inputSchemas":
+            suggest = "input_schemas"
+        elif key == "multiAgentConfigurations":
+            suggest = "multi_agent_configurations"
         elif key == "orchestrationAiGuardrailId":
             suggest = "orchestration_ai_guardrail_id"
+        elif key == "orchestrationAiPromptId":
+            suggest = "orchestration_ai_prompt_id"
+        elif key == "outputSchemas":
+            suggest = "output_schemas"
         elif key == "toolConfigurations":
             suggest = "tool_configurations"
 
@@ -977,25 +1221,30 @@ class AiAgentOrchestrationAiAgentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 orchestration_ai_prompt_id: _builtins.str,
                  connect_instance_arn: Optional[_builtins.str] = None,
+                 input_schemas: Optional[Sequence[Any]] = None,
                  locale: Optional[_builtins.str] = None,
+                 multi_agent_configurations: Optional[Sequence[Any]] = None,
                  orchestration_ai_guardrail_id: Optional[_builtins.str] = None,
+                 orchestration_ai_prompt_id: Optional[_builtins.str] = None,
+                 output_schemas: Optional[Sequence[Any]] = None,
                  tool_configurations: Optional[Sequence['outputs.AiAgentToolConfiguration']] = None):
-        pulumi.set(__self__, "orchestration_ai_prompt_id", orchestration_ai_prompt_id)
         if connect_instance_arn is not None:
             pulumi.set(__self__, "connect_instance_arn", connect_instance_arn)
+        if input_schemas is not None:
+            pulumi.set(__self__, "input_schemas", input_schemas)
         if locale is not None:
             pulumi.set(__self__, "locale", locale)
+        if multi_agent_configurations is not None:
+            pulumi.set(__self__, "multi_agent_configurations", multi_agent_configurations)
         if orchestration_ai_guardrail_id is not None:
             pulumi.set(__self__, "orchestration_ai_guardrail_id", orchestration_ai_guardrail_id)
+        if orchestration_ai_prompt_id is not None:
+            pulumi.set(__self__, "orchestration_ai_prompt_id", orchestration_ai_prompt_id)
+        if output_schemas is not None:
+            pulumi.set(__self__, "output_schemas", output_schemas)
         if tool_configurations is not None:
             pulumi.set(__self__, "tool_configurations", tool_configurations)
-
-    @_builtins.property
-    @pulumi.getter(name="orchestrationAiPromptId")
-    def orchestration_ai_prompt_id(self) -> _builtins.str:
-        return pulumi.get(self, "orchestration_ai_prompt_id")
 
     @_builtins.property
     @pulumi.getter(name="connectInstanceArn")
@@ -1003,14 +1252,34 @@ class AiAgentOrchestrationAiAgentConfiguration(dict):
         return pulumi.get(self, "connect_instance_arn")
 
     @_builtins.property
+    @pulumi.getter(name="inputSchemas")
+    def input_schemas(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "input_schemas")
+
+    @_builtins.property
     @pulumi.getter
     def locale(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "locale")
 
     @_builtins.property
+    @pulumi.getter(name="multiAgentConfigurations")
+    def multi_agent_configurations(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "multi_agent_configurations")
+
+    @_builtins.property
     @pulumi.getter(name="orchestrationAiGuardrailId")
     def orchestration_ai_guardrail_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "orchestration_ai_guardrail_id")
+
+    @_builtins.property
+    @pulumi.getter(name="orchestrationAiPromptId")
+    def orchestration_ai_prompt_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "orchestration_ai_prompt_id")
+
+    @_builtins.property
+    @pulumi.getter(name="outputSchemas")
+    def output_schemas(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "output_schemas")
 
     @_builtins.property
     @pulumi.getter(name="toolConfigurations")

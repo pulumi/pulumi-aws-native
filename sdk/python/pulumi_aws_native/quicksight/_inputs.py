@@ -2616,6 +2616,8 @@ __all__ = [
     'DataSourceMariaDbParametersArgsDict',
     'DataSourceMySqlParametersArgs',
     'DataSourceMySqlParametersArgsDict',
+    'DataSourceOAuthClientCredentialsArgs',
+    'DataSourceOAuthClientCredentialsArgsDict',
     'DataSourceOAuthParametersArgs',
     'DataSourceOAuthParametersArgsDict',
     'DataSourceOracleParametersArgs',
@@ -48014,9 +48016,8 @@ class AnalysisYAxisOptionsArgs:
 class ApprovalPolicyApplicableToArgsDict(TypedDict):
     """
     Scoping: who the policy applies to.
-    GROUP: `groupArns` required (one or more group ARNs).
     """
-    type: Any
+    type: pulumi.Input['ApprovalPolicyApplicableToType']
     group_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Required when type = GROUP. One or more group ARNs.
@@ -48025,11 +48026,10 @@ class ApprovalPolicyApplicableToArgsDict(TypedDict):
 @pulumi.input_type
 class ApprovalPolicyApplicableToArgs:
     def __init__(__self__, *,
-                 type: Any,
+                 type: pulumi.Input['ApprovalPolicyApplicableToType'],
                  group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Scoping: who the policy applies to.
-        GROUP: `groupArns` required (one or more group ARNs).
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_arns: Required when type = GROUP. One or more group ARNs.
         """
@@ -48039,11 +48039,11 @@ class ApprovalPolicyApplicableToArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> pulumi.Input['ApprovalPolicyApplicableToType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Any):
+    def type(self, value: pulumi.Input['ApprovalPolicyApplicableToType']):
         pulumi.set(self, "type", value)
 
     @_builtins.property
@@ -102340,6 +102340,7 @@ class DataSourceCredentialsArgsDict(TypedDict):
     """
     The credentials for connecting using key-pair.
     """
+    o_auth_client_credentials: NotRequired[pulumi.Input[Optional['DataSourceOAuthClientCredentialsArgsDict']]]
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
@@ -102351,6 +102352,7 @@ class DataSourceCredentialsArgs:
                  copy_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  credential_pair: pulumi.Input[Optional['DataSourceCredentialPairArgs']] = None,
                  key_pair_credentials: pulumi.Input[Optional['DataSourceKeyPairCredentialsArgs']] = None,
+                 o_auth_client_credentials: pulumi.Input[Optional['DataSourceOAuthClientCredentialsArgs']] = None,
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         <p>Data source credentials. This is a variant type structure. For this structure to be
@@ -102370,6 +102372,8 @@ class DataSourceCredentialsArgs:
             pulumi.set(__self__, "credential_pair", credential_pair)
         if key_pair_credentials is not None:
             pulumi.set(__self__, "key_pair_credentials", key_pair_credentials)
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
 
@@ -102413,6 +102417,15 @@ class DataSourceCredentialsArgs:
         pulumi.set(self, "key_pair_credentials", value)
 
     @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> pulumi.Input[Optional['DataSourceOAuthClientCredentialsArgs']]:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+    @o_auth_client_credentials.setter
+    def o_auth_client_credentials(self, value: pulumi.Input[Optional['DataSourceOAuthClientCredentialsArgs']]):
+        pulumi.set(self, "o_auth_client_credentials", value)
+
+    @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -102441,13 +102454,17 @@ class DataSourceDatabricksParametersArgsDict(TypedDict):
     """
     <p>The HTTP path of the Databricks data source.</p>
     """
+    authentication_type: NotRequired[pulumi.Input[Optional['DataSourceAuthenticationType']]]
+    o_auth_parameters: NotRequired[pulumi.Input[Optional['DataSourceOAuthParametersArgsDict']]]
 
 @pulumi.input_type
 class DataSourceDatabricksParametersArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.float],
-                 sql_endpoint_path: pulumi.Input[_builtins.str]):
+                 sql_endpoint_path: pulumi.Input[_builtins.str],
+                 authentication_type: pulumi.Input[Optional['DataSourceAuthenticationType']] = None,
+                 o_auth_parameters: pulumi.Input[Optional['DataSourceOAuthParametersArgs']] = None):
         """
         <p>The parameters that are required to connect to a Databricks data source.</p>
 
@@ -102458,6 +102475,10 @@ class DataSourceDatabricksParametersArgs:
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "sql_endpoint_path", sql_endpoint_path)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if o_auth_parameters is not None:
+            pulumi.set(__self__, "o_auth_parameters", o_auth_parameters)
 
     @_builtins.property
     @pulumi.getter
@@ -102494,6 +102515,24 @@ class DataSourceDatabricksParametersArgs:
     @sql_endpoint_path.setter
     def sql_endpoint_path(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sql_endpoint_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[Optional['DataSourceAuthenticationType']]:
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[Optional['DataSourceAuthenticationType']]):
+        pulumi.set(self, "authentication_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthParameters")
+    def o_auth_parameters(self) -> pulumi.Input[Optional['DataSourceOAuthParametersArgs']]:
+        return pulumi.get(self, "o_auth_parameters")
+
+    @o_auth_parameters.setter
+    def o_auth_parameters(self, value: pulumi.Input[Optional['DataSourceOAuthParametersArgs']]):
+        pulumi.set(self, "o_auth_parameters", value)
 
 
 class DataSourceErrorInfoArgsDict(TypedDict):
@@ -102843,6 +102882,52 @@ class DataSourceMySqlParametersArgs:
     @port.setter
     def port(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "port", value)
+
+
+class DataSourceOAuthClientCredentialsArgsDict(TypedDict):
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DataSourceOAuthClientCredentialsArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
 
 
 class DataSourceOAuthParametersArgsDict(TypedDict):

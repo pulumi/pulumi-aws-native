@@ -983,6 +983,20 @@ export namespace agentregistry {
     }
 
     /**
+     * Configuration that defines a typed metadata schema for a registry. A default schema and per-record-type schema overrides are both optional. Schema evolution is additive only: you can add fields and enum values, but you cannot remove fields, change types, or remove enum values.
+     */
+    export interface RegistryCustomMetadataSchemaConfigurationArgs {
+        /**
+         * The default JSON Schema that applies to record types without a specific override. Supported property types are string, string with an enum constraint, string with a uri format, and boolean.
+         */
+        defaultSchema?: pulumi.Input<string | undefined>;
+        /**
+         * A list of per-record-type schema overrides. When a record's type matches an override, that override's schema is used instead of the default schema for validation.
+         */
+        recordTypeSchemaOverrides?: pulumi.Input<pulumi.Input<inputs.agentregistry.RegistryRecordTypeSchemaOverrideArgs>[] | undefined>;
+    }
+
+    /**
      * Discovery configuration for the registry. Controls how consumers are authorized to search the registry and invoke its MCP endpoint.
      */
     export interface RegistryDiscoveryConfigurationArgs {
@@ -1212,6 +1226,20 @@ export namespace agentregistry {
          * URL source for descriptor content.
          */
         url: pulumi.Input<string>;
+    }
+
+    /**
+     * A schema override for a specific record type within a custom metadata schema configuration.
+     */
+    export interface RegistryRecordTypeSchemaOverrideArgs {
+        /**
+         * The record type that this schema override applies to.
+         */
+        recordType: pulumi.Input<enums.agentregistry.RegistryRecordTypeSchemaOverrideRecordType>;
+        /**
+         * The JSON Schema for the specified record type. Must follow the same structural rules as the default schema.
+         */
+        schema: pulumi.Input<string>;
     }
 
 }
@@ -5903,10 +5931,115 @@ export namespace applicationinsights {
 }
 
 export namespace applicationsignals {
+    /**
+     * Specifies what to capture when the instrumentation point is hit.
+     */
+    export interface CaptureConfigurationPropertiesArgs {
+        codeCapture: pulumi.Input<inputs.applicationsignals.InstrumentationConfigCodeCaptureConfigurationArgs>;
+    }
+
     export interface GroupingConfigurationGroupingAttributeDefinitionArgs {
         defaultGroupingValue?: pulumi.Input<string | undefined>;
         groupingName: pulumi.Input<string>;
         groupingSourceKeys: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Safety limits that bound what is captured.
+     */
+    export interface InstrumentationConfigCaptureLimitsConfigArgs {
+        /**
+         * Maximum nesting depth to traverse inside collections.
+         */
+        maxCollectionDepth?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum number of items to capture from any collection.
+         */
+        maxCollectionWidth?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum number of fields to capture for any object.
+         */
+        maxFieldsPerObject?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum number of times the instrumentation point can be hit before disabled.
+         */
+        maxHits?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum depth for nested object traversal.
+         */
+        maxObjectDepth?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum number of stack frames to capture.
+         */
+        maxStackFrames?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum total size in bytes of a captured stack trace.
+         */
+        maxStackTraceSize?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum length of captured string values in characters.
+         */
+        maxStringLength?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Defines what data to capture for code-level instrumentation.
+     */
+    export interface InstrumentationConfigCodeCaptureConfigurationArgs {
+        /**
+         * The function arguments to capture.
+         */
+        captureArguments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        captureLimits: pulumi.Input<inputs.applicationsignals.InstrumentationConfigCaptureLimitsConfigArgs>;
+        /**
+         * The local variables to capture by name.
+         */
+        captureLocals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Whether to capture the return value. Defaults to false.
+         */
+        captureReturn?: pulumi.Input<boolean | undefined>;
+        /**
+         * Whether to capture a stack trace. Defaults to true.
+         */
+        captureStackTrace?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * Identifies a code location to instrument.
+     */
+    export interface InstrumentationConfigCodeLocationArgs {
+        /**
+         * The class or type name that contains the method.
+         */
+        className?: pulumi.Input<string | undefined>;
+        /**
+         * The package, module, or namespace that contains the target code.
+         */
+        codeUnit?: pulumi.Input<string | undefined>;
+        /**
+         * The source file path relative to the project or source root.
+         */
+        filePath: pulumi.Input<string>;
+        /**
+         * The programming language for this instrumentation point.
+         */
+        language: pulumi.Input<enums.applicationsignals.InstrumentationConfigCodeLocationLanguage>;
+        /**
+         * The line number to instrument.
+         */
+        lineNumber?: pulumi.Input<number | undefined>;
+        /**
+         * The method or function name to instrument.
+         */
+        methodName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The location where instrumentation should be applied.
+     */
+    export interface LocationPropertiesArgs {
+        codeLocation: pulumi.Input<inputs.applicationsignals.InstrumentationConfigCodeLocationArgs>;
     }
 
     /**
@@ -7964,6 +8097,10 @@ export namespace arcregionswitch {
         rdsSwitchoverReadReplicaConfig: pulumi.Input<inputs.arcregionswitch.PlanRdsSwitchoverReadReplicaConfigurationArgs>;
     }
 
+    export interface PlanExecutionBlockConfiguration18PropertiesArgs {
+        ssmSendCommandConfig: pulumi.Input<inputs.arcregionswitch.PlanSsmSendCommandConfigurationArgs>;
+    }
+
     export interface PlanExecutionBlockConfiguration1PropertiesArgs {
         ec2AsgCapacityIncreaseConfig: pulumi.Input<inputs.arcregionswitch.PlanEc2AsgCapacityIncreaseConfigurationArgs>;
     }
@@ -8038,6 +8175,7 @@ export namespace arcregionswitch {
         arn?: pulumi.Input<string | undefined>;
         crossAccountRole?: pulumi.Input<string | undefined>;
         externalId?: pulumi.Input<string | undefined>;
+        payload?: pulumi.Input<string | undefined>;
     }
 
     export interface PlanNeptuneGlobalDatabaseConfigurationArgs {
@@ -8127,6 +8265,31 @@ export namespace arcregionswitch {
         serviceArn?: pulumi.Input<string | undefined>;
     }
 
+    export interface PlanSsmDocumentConfigArgs {
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        documentArn: pulumi.Input<string>;
+        documentVersion?: pulumi.Input<string | undefined>;
+        externalId?: pulumi.Input<string | undefined>;
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
+        targets: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanSsmTargetArgs>[]>;
+    }
+
+    export interface PlanSsmSendCommandConfigurationArgs {
+        regionDocuments: pulumi.Input<{[key: string]: pulumi.Input<inputs.arcregionswitch.PlanSsmDocumentConfigArgs>}>;
+        retryIntervalMinutes: pulumi.Input<number>;
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+        ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanSsmSendCommandUngracefulArgs | undefined>;
+    }
+
+    export interface PlanSsmSendCommandUngracefulArgs {
+        behavior?: pulumi.Input<enums.arcregionswitch.PlanSsmSendCommandUngracefulBehavior | undefined>;
+    }
+
+    export interface PlanSsmTargetArgs {
+        key: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface PlanStepArgs {
         /**
          * The description of a step in a workflow.
@@ -8135,7 +8298,7 @@ export namespace arcregionswitch {
         /**
          * The configuration for an execution block in a workflow.
          */
-        executionBlockConfiguration: pulumi.Input<inputs.arcregionswitch.PlanExecutionBlockConfiguration0PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration1PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration2PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration3PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration4PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration5PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration6PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration7PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration8PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration9PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration10PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration11PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration12PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration13PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration14PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration15PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration16PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration17PropertiesArgs>;
+        executionBlockConfiguration: pulumi.Input<inputs.arcregionswitch.PlanExecutionBlockConfiguration0PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration1PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration2PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration3PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration4PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration5PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration6PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration7PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration8PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration9PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration10PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration11PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration12PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration13PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration14PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration15PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration16PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration17PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration18PropertiesArgs>;
         /**
          * The type of an execution block in a workflow.
          */
@@ -9956,6 +10119,199 @@ export namespace autoscaling {
          * Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
          */
         reuseOnScaleIn?: pulumi.Input<boolean | undefined>;
+    }
+}
+
+export namespace autoscalingplans {
+    export interface ScalingPlanApplicationSourceArgs {
+        /**
+         * The Amazon Resource Name (ARN) of a CloudFormation stack. The stack must contain at least one scalable resource.
+         */
+        cloudFormationStackArn?: pulumi.Input<string | undefined>;
+        /**
+         * A set of tag filters (keys and values). Each tag filter specified must contain a key with values as optional. Each scaling plan can include up to 50 keys, and each key can include up to 20 values.
+         */
+        tagFilters?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanTagFilterArgs>[] | undefined>;
+    }
+
+    export interface ScalingPlanCustomizedLoadMetricSpecificationArgs {
+        /**
+         * The dimensions of the metric.
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanMetricDimensionArgs>[] | undefined>;
+        /**
+         * The name of the metric.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: pulumi.Input<string>;
+        /**
+         * The statistic of the metric.
+         */
+        statistic: pulumi.Input<string>;
+        /**
+         * The unit of the metric.
+         */
+        unit?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScalingPlanCustomizedScalingMetricSpecificationArgs {
+        /**
+         * The dimensions of the metric.
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanMetricDimensionArgs>[] | undefined>;
+        /**
+         * The name of the metric.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: pulumi.Input<string>;
+        /**
+         * The statistic of the metric.
+         */
+        statistic: pulumi.Input<string>;
+        /**
+         * The unit of the metric.
+         */
+        unit?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScalingPlanMetricDimensionArgs {
+        /**
+         * The name of the dimension.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the dimension.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ScalingPlanPredefinedLoadMetricSpecificationArgs {
+        /**
+         * The metric type.
+         */
+        predefinedLoadMetricType: pulumi.Input<string>;
+        /**
+         * Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBTargetGroupRequestCount and there is a target group for an Application Load Balancer attached to the Auto Scaling group.
+         */
+        resourceLabel?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScalingPlanPredefinedScalingMetricSpecificationArgs {
+        /**
+         * The metric type. The ALBRequestCountPerTarget metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
+         */
+        predefinedScalingMetricType: pulumi.Input<string>;
+        /**
+         * Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
+         */
+        resourceLabel?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ScalingPlanScalingInstructionArgs {
+        /**
+         * The customized load metric to use for predictive scaling. This property or a PredefinedLoadMetricSpecification is required when configuring predictive scaling, and cannot be used otherwise.
+         */
+        customizedLoadMetricSpecification?: pulumi.Input<inputs.autoscalingplans.ScalingPlanCustomizedLoadMetricSpecificationArgs | undefined>;
+        /**
+         * Controls whether dynamic scaling is disabled. When dynamic scaling is enabled, AWS Auto Scaling creates target tracking scaling policies based on the specified target tracking configurations. The default is enabled (false).
+         */
+        disableDynamicScaling?: pulumi.Input<boolean | undefined>;
+        /**
+         * The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for PredictiveScalingMaxCapacityBehavior.
+         */
+        maxCapacity: pulumi.Input<number>;
+        /**
+         * The minimum capacity of the resource.
+         */
+        minCapacity: pulumi.Input<number>;
+        /**
+         * The predefined load metric to use for predictive scaling. This property or a CustomizedLoadMetricSpecification is required when configuring predictive scaling, and cannot be used otherwise.
+         */
+        predefinedLoadMetricSpecification?: pulumi.Input<inputs.autoscalingplans.ScalingPlanPredefinedLoadMetricSpecificationArgs | undefined>;
+        /**
+         * Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource. The default value is SetForecastCapacityToMaxCapacity.
+         */
+        predictiveScalingMaxCapacityBehavior?: pulumi.Input<string | undefined>;
+        /**
+         * The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer. The range is 1-100. Required if PredictiveScalingMaxCapacityBehavior is set to SetMaxCapacityAboveForecastCapacity, and cannot be used otherwise.
+         */
+        predictiveScalingMaxCapacityBuffer?: pulumi.Input<number | undefined>;
+        /**
+         * The predictive scaling mode. The default value is ForecastAndScale. Otherwise, AWS Auto Scaling forecasts capacity but does not apply any scheduled scaling actions based on the capacity forecast.
+         */
+        predictiveScalingMode?: pulumi.Input<string | undefined>;
+        /**
+         * The ID of the resource. This string consists of the resource type and unique identifier.
+         */
+        resourceId: pulumi.Input<string>;
+        /**
+         * The scalable dimension associated with the resource.
+         */
+        scalableDimension: pulumi.Input<string>;
+        /**
+         * Controls whether a resource's externally created scaling policies are deleted and new target tracking scaling policies created. The default value is KeepExternalPolicies. Valid only when configuring dynamic scaling.
+         */
+        scalingPolicyUpdateBehavior?: pulumi.Input<string | undefined>;
+        /**
+         * The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out. The value must be less than the forecast interval duration of 3600 seconds (60 minutes). The default is 300 seconds. Valid only when configuring predictive scaling.
+         */
+        scheduledActionBufferTime?: pulumi.Input<number | undefined>;
+        /**
+         * The namespace of the AWS service.
+         */
+        serviceNamespace: pulumi.Input<string>;
+        /**
+         * The target tracking configurations (up to 10). Each of these structures must specify a unique scaling metric and a target value for the metric.
+         */
+        targetTrackingConfigurations: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanTargetTrackingConfigurationArgs>[]>;
+    }
+
+    export interface ScalingPlanTagFilterArgs {
+        /**
+         * The tag key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The tag values (0 to 20).
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ScalingPlanTargetTrackingConfigurationArgs {
+        /**
+         * A customized metric. You can specify either a predefined metric or a customized metric.
+         */
+        customizedScalingMetricSpecification?: pulumi.Input<inputs.autoscalingplans.ScalingPlanCustomizedScalingMetricSpecificationArgs | undefined>;
+        /**
+         * Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy doesn't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable resource. The default value is false.
+         */
+        disableScaleIn?: pulumi.Input<boolean | undefined>;
+        /**
+         * The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.
+         */
+        estimatedInstanceWarmup?: pulumi.Input<number | undefined>;
+        /**
+         * A predefined metric. You can specify either a predefined metric or a customized metric.
+         */
+        predefinedScalingMetricSpecification?: pulumi.Input<inputs.autoscalingplans.ScalingPlanPredefinedScalingMetricSpecificationArgs | undefined>;
+        /**
+         * The amount of time, in seconds, after a scale-in activity completes before another scale in activity can start. This value is not used if the scalable resource is an Auto Scaling group.
+         */
+        scaleInCooldown?: pulumi.Input<number | undefined>;
+        /**
+         * The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start. This value is not used if the scalable resource is an Auto Scaling group.
+         */
+        scaleOutCooldown?: pulumi.Input<number | undefined>;
+        /**
+         * The target value for the metric.
+         */
+        targetValue: pulumi.Input<number>;
     }
 }
 
@@ -16496,6 +16852,28 @@ export namespace bedrock {
         templateType: pulumi.Input<enums.bedrock.PromptTemplateType>;
     }
 
+    /**
+     * The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+     */
+    export interface RetrievalInstructionInstructionArgs {
+        /**
+         * How the answer is structured, including how sources are cited.
+         */
+        answerFormat?: pulumi.Input<string | undefined>;
+        /**
+         * Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+         */
+        answerPolicy?: pulumi.Input<string | undefined>;
+        /**
+         * Who the assistant is: identity, tone and language.
+         */
+        persona?: pulumi.Input<string | undefined>;
+        /**
+         * How to interpret and decompose the question, and what to prioritise when searching.
+         */
+        retrievalGuidance?: pulumi.Input<string | undefined>;
+    }
+
 }
 
 export namespace bedrockagentcore {
@@ -16937,6 +17315,20 @@ export namespace bedrockagentcore {
         name: pulumi.Input<string>;
     }
 
+    export interface ConsentPortalIdpConfigArgs {
+        audience?: pulumi.Input<string | undefined>;
+        /**
+         * The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+         */
+        credentialProviderArn: pulumi.Input<string>;
+        scopes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ConsentPortalSourceArgs {
+        identifier: pulumi.Input<string>;
+        type: pulumi.Input<enums.bedrockagentcore.ConsentPortalSourceType>;
+    }
+
     /**
      * Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
      */
@@ -17006,7 +17398,48 @@ export namespace bedrockagentcore {
      */
     export interface EvaluatorConfigArgs {
         codeBased?: pulumi.Input<inputs.bedrockagentcore.EvaluatorCodeBasedEvaluatorConfigArgs | undefined>;
+        derived?: pulumi.Input<inputs.bedrockagentcore.EvaluatorDerivedEvaluatorConfigArgs | undefined>;
         llmAsAJudge?: pulumi.Input<inputs.bedrockagentcore.EvaluatorLlmAsAJudgeEvaluatorConfigArgs | undefined>;
+    }
+
+    /**
+     * The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+     */
+    export interface EvaluatorDerivedEvaluatorConfigArgs {
+        /**
+         * The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+         */
+        baseEvaluatorId: pulumi.Input<string>;
+        modelConfig: pulumi.Input<inputs.bedrockagentcore.EvaluatorModelConfigArgs>;
+    }
+
+    /**
+     * The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+     */
+    export interface EvaluatorDimensionRatingScaleArgs {
+        /**
+         * The categorical rating scale for this dimension.
+         */
+        categorical?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.EvaluatorCategoricalScaleDefinitionArgs>[] | undefined>;
+        /**
+         * The numerical rating scale for this dimension.
+         */
+        numerical?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.EvaluatorNumericalScaleDefinitionArgs>[] | undefined>;
+    }
+
+    /**
+     * One dimension of an LLM-as-a-Judge evaluator.
+     */
+    export interface EvaluatorEvaluationDimensionArgs {
+        /**
+         * The instruction to the evaluator model describing what to judge for this dimension.
+         */
+        dimensionInstruction: pulumi.Input<string>;
+        /**
+         * The name of the dimension. Must be unique within the evaluator.
+         */
+        dimensionName: pulumi.Input<string>;
+        dimensionRatingScale: pulumi.Input<inputs.bedrockagentcore.EvaluatorDimensionRatingScaleArgs>;
     }
 
     /**
@@ -17017,6 +17450,10 @@ export namespace bedrockagentcore {
          * The maximum number of tokens to generate in the model response.
          */
         maxTokens?: pulumi.Input<number | undefined>;
+        /**
+         * The sequences that make the model stop generating further tokens.
+         */
+        stopSequences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The temperature value that controls randomness in the model's responses.
          */
@@ -17107,6 +17544,10 @@ export namespace bedrockagentcore {
      */
     export interface EvaluatorRatingScaleArgs {
         categorical?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.EvaluatorCategoricalScaleDefinitionArgs>[] | undefined>;
+        /**
+         * The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+         */
+        multiDimensional?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.EvaluatorEvaluationDimensionArgs>[] | undefined>;
         numerical?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.EvaluatorNumericalScaleDefinitionArgs>[] | undefined>;
     }
 
@@ -17676,14 +18117,14 @@ export namespace bedrockagentcore {
 
     export interface HarnessAgentCoreMemoryRetrievalConfigArgs {
         /**
-         * Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+         * Minimum relevance score for retrieved memories.
          */
-        relevanceScore?: pulumi.Input<number | string | undefined>;
+        relevanceScore?: pulumi.Input<number | undefined>;
         strategyId?: pulumi.Input<string | undefined>;
         /**
-         * Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+         * Maximum number of memory records to retrieve.
          */
-        topK?: pulumi.Input<number | string | undefined>;
+        topK?: pulumi.Input<number | undefined>;
     }
 
     export interface HarnessAgentCoreRuntimeEnvironmentArgs {
@@ -17766,6 +18207,10 @@ export namespace bedrockagentcore {
     }
 
     export interface HarnessCustomJwtAuthorizerConfigurationArgs {
+        /**
+         * A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+         */
+        advertisedScopeMapping?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
         allowedAudience?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         allowedClients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         allowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -17810,6 +18255,10 @@ export namespace bedrockagentcore {
     }
 
     export interface HarnessGeminiModelConfigArgs {
+        /**
+         * Provider-specific parameters passed through to the Gemini model provider unchanged.
+         */
+        additionalParams?: any | undefined;
         apiKeyArn: pulumi.Input<string>;
         maxTokens?: pulumi.Input<number | undefined>;
         modelId: pulumi.Input<string>;
@@ -17966,6 +18415,10 @@ export namespace bedrockagentcore {
          * Provider-specific parameters passed through to the model provider unchanged.
          */
         additionalParams?: any | undefined;
+        /**
+         * Optional custom endpoint URL for an OpenAI-compatible endpoint.
+         */
+        apiBase?: pulumi.Input<string | undefined>;
         apiFormat?: pulumi.Input<enums.bedrockagentcore.HarnessOpenAiModelConfigApiFormat | undefined>;
         apiKeyArn: pulumi.Input<string>;
         maxTokens?: pulumi.Input<number | undefined>;
@@ -18153,6 +18606,8 @@ export namespace bedrockagentcore {
         name: pulumi.Input<string>;
         namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        recordExpiryDurationDays?: pulumi.Input<number | undefined>;
+        recordExpirySpecification?: pulumi.Input<inputs.bedrockagentcore.MemoryRecordExpirySpecificationArgs | undefined>;
         /**
          * Status of the memory strategy
          */
@@ -18181,6 +18636,8 @@ export namespace bedrockagentcore {
         name: pulumi.Input<string>;
         namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        recordExpiryDurationDays?: pulumi.Input<number | undefined>;
+        recordExpirySpecification?: pulumi.Input<inputs.bedrockagentcore.MemoryRecordExpirySpecificationArgs | undefined>;
         reflectionConfiguration?: pulumi.Input<inputs.bedrockagentcore.MemoryEpisodicReflectionConfigurationInputArgs | undefined>;
         /**
          * Status of the memory strategy
@@ -18290,6 +18747,13 @@ export namespace bedrockagentcore {
         minValue?: pulumi.Input<number | undefined>;
     }
 
+    /**
+     * Specifies the record expiry (LTM TTL) for a strategy. Provide RecordExpiryDurationDays to configure the duration after which records expire. Omit the specification entirely to leave records without an expiry on create, or to clear a previously configured expiry on update (the handler derives the removal from the previous and desired state).
+     */
+    export interface MemoryRecordExpirySpecificationArgs {
+        recordExpiryDurationDays?: pulumi.Input<number | undefined>;
+    }
+
     export interface MemoryRecordSchemaArgs {
         metadataSchema?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.MemoryMetadataSchemaEntryArgs>[] | undefined>;
     }
@@ -18310,6 +18774,8 @@ export namespace bedrockagentcore {
         name: pulumi.Input<string>;
         namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        recordExpiryDurationDays?: pulumi.Input<number | undefined>;
+        recordExpirySpecification?: pulumi.Input<inputs.bedrockagentcore.MemoryRecordExpirySpecificationArgs | undefined>;
         /**
          * Status of the memory strategy
          */
@@ -18378,6 +18844,8 @@ export namespace bedrockagentcore {
         name: pulumi.Input<string>;
         namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        recordExpiryDurationDays?: pulumi.Input<number | undefined>;
+        recordExpirySpecification?: pulumi.Input<inputs.bedrockagentcore.MemoryRecordExpirySpecificationArgs | undefined>;
         /**
          * Status of the memory strategy
          */
@@ -18429,6 +18897,8 @@ export namespace bedrockagentcore {
         name: pulumi.Input<string>;
         namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        recordExpiryDurationDays?: pulumi.Input<number | undefined>;
+        recordExpirySpecification?: pulumi.Input<inputs.bedrockagentcore.MemoryRecordExpirySpecificationArgs | undefined>;
         /**
          * Status of the memory strategy
          */
@@ -18829,7 +19299,7 @@ export namespace bedrockagentcore {
      */
     export interface OnlineEvaluationConfigEvaluatorReferenceArgs {
         /**
-         * The unique identifier of the evaluator.
+         * The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
          */
         evaluatorId: pulumi.Input<string>;
     }
@@ -18998,27 +19468,33 @@ export namespace bedrockagentcore {
         authorizationPrivateKeySource?: pulumi.Input<enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType | undefined>;
     }
 
-    export interface PaymentManagerAuthorizerConfigurationArgs {
-        customJwtAuthorizer: pulumi.Input<inputs.bedrockagentcore.PaymentManagerCustomJwtAuthorizerConfigurationArgs>;
+    /**
+     * The authorizer configuration for the payment manager
+     */
+    export interface PaymentManagerAuthorizerConfigurationPropertiesArgs {
+        customJwtAuthorizer: pulumi.Input<inputs.bedrockagentcore.PaymentManagerCustomJwtAuthorizerArgs>;
     }
 
-    export interface PaymentManagerAuthorizingClaimMatchValueTypeArgs {
-        claimMatchOperator: pulumi.Input<enums.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator>;
-        claimMatchValue: pulumi.Input<inputs.bedrockagentcore.PaymentManagerClaimMatchValueTypeArgs>;
+    export interface PaymentManagerAuthorizingClaimMatchValueArgs {
+        claimMatchOperator: pulumi.Input<enums.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator>;
+        claimMatchValue: pulumi.Input<inputs.bedrockagentcore.PaymentManagerClaimMatchValue0PropertiesArgs | inputs.bedrockagentcore.PaymentManagerClaimMatchValue1PropertiesArgs>;
     }
 
-    export interface PaymentManagerClaimMatchValueTypeArgs {
-        matchValueString?: pulumi.Input<string | undefined>;
-        matchValueStringList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    export interface PaymentManagerClaimMatchValue0PropertiesArgs {
+        matchValueString: pulumi.Input<string>;
+    }
+
+    export interface PaymentManagerClaimMatchValue1PropertiesArgs {
+        matchValueStringList: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PaymentManagerCustomClaimValidationTypeArgs {
-        authorizingClaimMatchValue: pulumi.Input<inputs.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueTypeArgs>;
+        authorizingClaimMatchValue: pulumi.Input<inputs.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueArgs>;
         inboundTokenClaimName: pulumi.Input<string>;
         inboundTokenClaimValueType: pulumi.Input<enums.bedrockagentcore.PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType>;
     }
 
-    export interface PaymentManagerCustomJwtAuthorizerConfigurationArgs {
+    export interface PaymentManagerCustomJwtAuthorizerArgs {
         allowedAudience?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         allowedClients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         allowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -19383,6 +19859,318 @@ export namespace braket {
 }
 
 export namespace budgets {
+    export interface BudgetAutoAdjustDataArgs {
+        /**
+         * The string that defines whether your budget auto-adjusts based on historical or forecasted data.
+         */
+        autoAdjustType: pulumi.Input<string>;
+        /**
+         * The parameters that define or describe the historical data that your auto-adjusting budget is based on.
+         */
+        historicalOptions?: pulumi.Input<inputs.budgets.BudgetHistoricalOptionsArgs | undefined>;
+    }
+
+    export interface BudgetCostCategoryValuesArgs {
+        /**
+         * The unique name of the cost category.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * The match options that you can use to filter your results.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The specific value of the cost category.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface BudgetCostTypesArgs {
+        /**
+         * Specifies whether a budget includes credits.
+         *
+         * The default value is `true` .
+         */
+        includeCredit?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget includes discounts.
+         *
+         * The default value is `true` .
+         */
+        includeDiscount?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget includes non-RI subscription costs.
+         *
+         * The default value is `true` .
+         */
+        includeOtherSubscription?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget includes recurring fees such as monthly RI fees.
+         *
+         * The default value is `true` .
+         */
+        includeRecurring?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget includes refunds.
+         *
+         * The default value is `true` .
+         */
+        includeRefund?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget includes subscriptions.
+         *
+         * The default value is `true` .
+         */
+        includeSubscription?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget includes support subscription fees.
+         *
+         * The default value is `true` .
+         */
+        includeSupport?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget includes taxes.
+         *
+         * The default value is `true` .
+         */
+        includeTax?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget includes upfront RI costs.
+         *
+         * The default value is `true` .
+         */
+        includeUpfront?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget uses the amortized rate.
+         *
+         * The default value is `false` .
+         */
+        useAmortized?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether a budget uses a blended rate.
+         *
+         * The default value is `false` .
+         */
+        useBlended?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface BudgetDataArgs {
+        /**
+         * Determine the budget amount for an auto-adjusting budget.
+         */
+        autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustDataArgs | undefined>;
+        billingViewArn?: pulumi.Input<string | undefined>;
+        /**
+         * The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
+         *
+         * `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
+         */
+        budgetLimit?: pulumi.Input<inputs.budgets.BudgetSpendArgs | undefined>;
+        /**
+         * The name of a budget. The value must be unique within an account. `BudgetName` can't include `:` and `\` characters. If you don't include value for `BudgetName` in the template, Billing and Cost Management assigns your budget a randomly generated name.
+         */
+        budgetName?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+         */
+        budgetType: pulumi.Input<string>;
+        /**
+         * The cost filters, such as `Region` , `Service` , `LinkedAccount` , `Tag` , or `CostCategory` , that are applied to a budget.
+         *
+         * AWS Budgets supports the following services as a `Service` filter for RI budgets:
+         *
+         * - Amazon EC2
+         * - Amazon Redshift
+         * - Amazon Relational Database Service
+         * - Amazon ElastiCache
+         * - Amazon OpenSearch Service
+         */
+        costFilters?: any | undefined;
+        /**
+         * The types of costs that are included in this `COST` budget.
+         *
+         * `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes` .
+         */
+        costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypesArgs | undefined>;
+        filterExpression?: pulumi.Input<inputs.budgets.BudgetExpressionArgs | undefined>;
+        metrics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A map containing multiple `BudgetLimit` , including current or future limits.
+         *
+         * `PlannedBudgetLimits` is available for cost or usage budget and supports both monthly and quarterly `TimeUnit` .
+         *
+         * For monthly budgets, provide 12 months of `PlannedBudgetLimits` values. This must start from the current month and include the next 11 months. The `key` is the start of the month, `UTC` in epoch seconds.
+         *
+         * For quarterly budgets, provide four quarters of `PlannedBudgetLimits` value entries in standard calendar quarter increments. This must start from the current quarter and include the next three quarters. The `key` is the start of the quarter, `UTC` in epoch seconds.
+         *
+         * If the planned budget expires before 12 months for monthly or four quarters for quarterly, provide the `PlannedBudgetLimits` values only for the remaining periods.
+         *
+         * If the budget begins at a date in the future, provide `PlannedBudgetLimits` values from the start date of the budget.
+         *
+         * After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit` . At that point, the planned budget provides the same experience as a fixed budget.
+         *
+         * `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets that are created with `PlannedBudgetLimits` . Budgets that are created without `PlannedBudgetLimits` only contain `BudgetLimit` . They don't contain `PlannedBudgetLimits` .
+         */
+        plannedBudgetLimits?: any | undefined;
+        /**
+         * The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
+         *
+         * The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+         *
+         * You can change your start date with the `UpdateBudget` operation.
+         *
+         * After the end date, AWS deletes the budget and all associated notifications and subscribers.
+         */
+        timePeriod?: pulumi.Input<inputs.budgets.BudgetTimePeriodArgs | undefined>;
+        /**
+         * The length of time until a budget resets the actual and forecasted spend. `DAILY` is available only for `RI_UTILIZATION` and `RI_COVERAGE` budgets.
+         */
+        timeUnit: pulumi.Input<string>;
+    }
+
+    export interface BudgetExpressionArgs {
+        /**
+         * Return results that match both Dimension objects.
+         */
+        and?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetExpressionArgs>[] | undefined>;
+        /**
+         * The filter that's based on CostCategoryValues.
+         */
+        costCategories?: pulumi.Input<inputs.budgets.BudgetCostCategoryValuesArgs | undefined>;
+        /**
+         * The specific Dimension to use for Expression.
+         */
+        dimensions?: pulumi.Input<inputs.budgets.BudgetExpressionDimensionValuesArgs | undefined>;
+        /**
+         * Return results that don't match a Dimension object.
+         */
+        not?: pulumi.Input<inputs.budgets.BudgetExpressionArgs | undefined>;
+        /**
+         * Return results that match either Dimension object.
+         */
+        or?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetExpressionArgs>[] | undefined>;
+        /**
+         * The specific Tag to use for Expression.
+         */
+        tags?: pulumi.Input<inputs.budgets.BudgetTagValuesArgs | undefined>;
+    }
+
+    export interface BudgetExpressionDimensionValuesArgs {
+        /**
+         * The name of the dimension that you want to filter on.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * The match options that you can use to filter your results. You can specify only one of these values in the array.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The metadata values you can specify to filter upon, so that the results all match at least one of the specified values.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface BudgetHistoricalOptionsArgs {
+        /**
+         * The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the `TimeUnit` granularity of the budget:
+         *
+         * - For the `DAILY` granularity, the maximum value is `60` .
+         * - For the `MONTHLY` granularity, the maximum value is `12` .
+         * - For the `QUARTERLY` granularity, the maximum value is `4` .
+         * - For the `ANNUALLY` granularity, the maximum value is `1` .
+         */
+        budgetAdjustmentPeriod: pulumi.Input<number>;
+    }
+
+    export interface BudgetNotificationArgs {
+        /**
+         * The comparison that's used for this notification.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * Specifies whether the notification is for how much you have spent ( `ACTUAL` ) or for how much that you're forecasted to spend ( `FORECASTED` ).
+         */
+        notificationType: pulumi.Input<string>;
+        /**
+         * The threshold that's associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
+         */
+        threshold: pulumi.Input<number>;
+        /**
+         * The type of threshold for a notification. For `ABSOLUTE_VALUE` thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For `PERCENTAGE` thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a `PERCENTAGE` threshold of 80%, AWS notifies you when you go over 160 dollars.
+         */
+        thresholdType?: pulumi.Input<string | undefined>;
+    }
+
+    export interface BudgetNotificationWithSubscribersArgs {
+        /**
+         * The notification that's associated with a budget.
+         */
+        notification: pulumi.Input<inputs.budgets.BudgetNotificationArgs>;
+        /**
+         * A list of subscribers who are subscribed to this notification.
+         */
+        subscribers: pulumi.Input<pulumi.Input<inputs.budgets.BudgetSubscriberArgs>[]>;
+    }
+
+    export interface BudgetSpendArgs {
+        /**
+         * The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.
+         */
+        amount: pulumi.Input<number>;
+        /**
+         * The unit of measurement that's used for the budget forecast, actual spend, or budget threshold.
+         */
+        unit: pulumi.Input<string>;
+    }
+
+    export interface BudgetSubscriberArgs {
+        /**
+         * The address that AWS sends budget notifications to, either an SNS topic or an email.
+         *
+         * When you create a subscriber, the value of `Address` can't contain line breaks.
+         */
+        address: pulumi.Input<string>;
+        /**
+         * The type of notification that AWS sends to a subscriber.
+         */
+        subscriptionType: pulumi.Input<string>;
+    }
+
+    export interface BudgetTagValuesArgs {
+        /**
+         * The key for the tag.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * The match options that you can use to filter your results.
+         */
+        matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The specific value of the tag.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface BudgetTimePeriodArgs {
+        /**
+         * The end date for a budget. If you didn't specify an end date, AWS set your end date to `06/15/87 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+         *
+         * After the end date, AWS deletes the budget and all the associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
+         */
+        end?: pulumi.Input<string | undefined>;
+        /**
+         * The start date for a budget. If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the Billing and Cost Management console and the API.
+         *
+         * You can change your start date with the `UpdateBudget` operation.
+         *
+         * Valid values depend on the value of `BudgetType` :
+         *
+         * - If `BudgetType` is `COST` or `USAGE` : Valid values are `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+         * - If `BudgetType` is `RI_UTILIZATION` or `RI_COVERAGE` : Valid values are `DAILY` , `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
+         */
+        start?: pulumi.Input<string | undefined>;
+    }
+
     export interface BudgetsActionActionThresholdArgs {
         /**
          * The type of threshold for a notification.
@@ -21418,7 +22206,7 @@ export namespace cloudformation {
          */
         accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Returns the value of the AccountsUrl property.
+         * Returns the value of the AccountsUrl property. AccountsUrl is currently not supported when using Account Level Targeting (ALT).
          */
         accountsUrl?: pulumi.Input<string | undefined>;
         /**
@@ -23952,6 +24740,13 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
+    export interface AlarmActionConfigurationArgs {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        alarmTagsPropagation?: pulumi.Input<inputs.cloudwatch.AlarmTagsPropagationArgs | undefined>;
+    }
+
     /**
      * Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
      */
@@ -24094,6 +24889,21 @@ export namespace cloudwatch {
         recoveryPeriod?: pulumi.Input<number | undefined>;
     }
 
+    export interface AlarmTagsPropagationArgs {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+         */
+        excludedTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+         */
+        includedTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     /**
      * An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
      *  When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
@@ -24121,6 +24931,96 @@ export namespace cloudwatch {
          *  You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
          */
         warmUpPeriodDurationInMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    export interface CompositeAlarmActionConfigurationArgs {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        alarmTagsPropagation?: pulumi.Input<inputs.cloudwatch.CompositeAlarmAlarmTagsPropagationArgs | undefined>;
+    }
+
+    /**
+     * Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+     */
+    export interface CompositeAlarmAlarmTagsPropagationArgs {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+         */
+        excludedTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+         */
+        includedTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * Identity Center configuration. Required when identityProviders includes IDC.
+     */
+    export interface DomainForOrganizationIdentityCenterConfigurationArgs {
+        /**
+         * Identity Center instance ARN
+         */
+        identityCenterInstanceArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Identity provider configuration for the domain.
+     */
+    export interface DomainForOrganizationIdentityProviderConfigurationArgs {
+        identityCenterConfiguration?: pulumi.Input<inputs.cloudwatch.DomainForOrganizationIdentityCenterConfigurationArgs | undefined>;
+    }
+
+    /**
+     * Write-only API-key credential material for the integration. Stored encrypted and never returned on read.
+     */
+    export interface IntegrationCredentialArgs {
+        /**
+         * API-key credential material that can be rotated in place on update.
+         */
+        apiKeyCredential: pulumi.Input<inputs.cloudwatch.IntegrationCredentialApiKeyCredentialPropertiesArgs>;
+    }
+
+    /**
+     * API-key credential material that can be rotated in place on update.
+     */
+    export interface IntegrationCredentialApiKeyCredentialPropertiesArgs {
+        apiKeyValue: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    export interface LogAlarmActionConfigurationArgs {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        alarmTagsPropagation?: pulumi.Input<inputs.cloudwatch.LogAlarmAlarmTagsPropagationArgs | undefined>;
+    }
+
+    /**
+     * Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+     */
+    export interface LogAlarmAlarmTagsPropagationArgs {
+        /**
+         * Whether the alarm's tags are included in its action notifications and state-change events.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+         */
+        excludedTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+         */
+        includedTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     /**
@@ -24424,6 +25324,573 @@ export namespace codebuild {
          * The ID of the Amazon VPC.
          */
         vpcId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectArtifactsArgs {
+        /**
+         * An identifier for this artifact definition.
+         */
+        artifactIdentifier?: pulumi.Input<string | undefined>;
+        /**
+         * Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an `invalidInputException` is thrown.
+         */
+        encryptionDisabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Information about the build output artifact location:
+         * * If `type` is set to `CODEPIPELINE`, AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output locations instead of CodeBuild.
+         * * If `type` is set to `NO_ARTIFACTS`, this value is ignored if specified, because no build output is produced.
+         * * If `type` is set to `S3`, this is the name of the output bucket.
+         *   If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+         */
+        location?: pulumi.Input<string | undefined>;
+        /**
+         * Along with `path` and `namespaceType` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+         *
+         * - If `type` is set to `CODEPIPELINE` , AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket.
+         *
+         * For example:
+         *
+         * - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , then the output artifact is stored in `MyArtifacts/ *build-ID* /MyArtifact.zip` .
+         * - If `path` is empty, `namespaceType` is set to `NONE` , and `name` is set to " `/` ", the output artifact is stored in the root of the output bucket.
+         * - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to " `/` ", the output artifact is stored in `MyArtifacts/ *build-ID*` .
+         *
+         * If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * Along with `path` and `name` , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:
+         *
+         * - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , valid values include:
+         *
+         * - `BUILD_ID` : Include the build ID in the location of the build output artifact.
+         * - `NONE` : Do not include the build ID. This is the default if `namespaceType` is not specified.
+         *
+         * For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in `MyArtifacts/<build-ID>/MyArtifact.zip` .
+         */
+        namespaceType?: pulumi.Input<string | undefined>;
+        /**
+         * If set to true a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique.
+         */
+        overrideArtifactName?: pulumi.Input<boolean | undefined>;
+        /**
+         * The type of build output artifact to create:
+         *
+         * - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output artifacts instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , valid values include:
+         *
+         * - `NONE` : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if `packaging` is not specified.
+         * - `ZIP` : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+         */
+        packaging?: pulumi.Input<string | undefined>;
+        /**
+         * Along with `namespaceType` and `name` , the pattern that AWS CodeBuild uses to name and store the output artifact:
+         *
+         * - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
+         * - If `type` is set to `NO_ARTIFACTS` , this value is ignored if specified, because no build output is produced.
+         * - If `type` is set to `S3` , this is the path to the output artifact. If `path` is not specified, `path` is not used.
+         *
+         * For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `NONE` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in the output bucket at `MyArtifacts/MyArtifact.zip` .
+         */
+        path?: pulumi.Input<string | undefined>;
+        /**
+         * The type of build output artifact. Valid values include:
+         * * `CODEPIPELINE`: The build project has build output generated through CodePipeline.
+         *   The `CODEPIPELINE` type is not supported for `secondaryArtifacts`.
+         * * `NO_ARTIFACTS`: The build project does not produce any build output.
+         * * `S3`: The build project stores build output in Amazon S3.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ProjectBatchRestrictionsArgs {
+        /**
+         * An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide* for these values.
+         */
+        computeTypesAllowed?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        fleetsAllowed?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Specifies the maximum number of builds allowed.
+         */
+        maximumBuildsAllowed?: pulumi.Input<number | undefined>;
+    }
+
+    export interface ProjectBuildBatchConfigArgs {
+        /**
+         * Specifies how build status reports are sent to the source provider for the batch build. This property is only used when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider.
+         *
+         * - **REPORT_AGGREGATED_BATCH** - (Default) Aggregate all of the build statuses into a single status report.
+         * - **REPORT_INDIVIDUAL_BUILDS** - Send a separate status report for each individual build.
+         */
+        batchReportMode?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+         */
+        combineArtifacts?: pulumi.Input<boolean | undefined>;
+        /**
+         * A `BatchRestrictions` object that specifies the restrictions for the batch build.
+         */
+        restrictions?: pulumi.Input<inputs.codebuild.ProjectBatchRestrictionsArgs | undefined>;
+        /**
+         * Specifies the service role ARN for the batch build project.
+         */
+        serviceRole?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+         */
+        timeoutInMins?: pulumi.Input<number | undefined>;
+    }
+
+    export interface ProjectBuildStatusConfigArgs {
+        /**
+         * Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         *
+         * - **Bitbucket** - This parameter is used for the `name` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+         * - **GitHub/GitHub Enterprise Server** - This parameter is used for the `context` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+         */
+        context?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         *
+         * - **Bitbucket** - This parameter is used for the `url` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
+         * - **GitHub/GitHub Enterprise Server** - This parameter is used for the `target_url` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
+         */
+        targetUrl?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectCacheArgs {
+        /**
+         * Defines the scope of the cache. You can use this namespace to share a cache across multiple projects.
+         */
+        cacheNamespace?: pulumi.Input<string | undefined>;
+        /**
+         * Information about the cache location:
+         *
+         * - `NO_CACHE` or `LOCAL` : This value is ignored.
+         * - `S3` : This is the S3 bucket name/prefix.
+         */
+        location?: pulumi.Input<string | undefined>;
+        /**
+         * An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for `LOCAL` cache types.
+         *
+         * Possible values are:
+         *
+         * - **LOCAL_SOURCE_CACHE** - Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+         * - **LOCAL_DOCKER_LAYER_CACHE** - Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
+         *
+         * > - You can use a Docker layer cache in the Linux environment only.
+         * > - The `privileged` flag must be set so that your project has the required Docker permissions.
+         * > - You should consider the security implications before you use a Docker layer cache.
+         * - **LOCAL_CUSTOM_CACHE** - Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
+         *
+         * - Only directories can be specified for caching. You cannot specify individual files.
+         * - Symlinks are used to reference cached directories.
+         * - Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+         */
+        modes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The type of cache used by the build project. Allowed values: NO_CACHE | S3 | LOCAL.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ProjectCloudWatchLogsConfigArgs {
+        /**
+         * The group name of the logs in CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+         */
+        groupName?: pulumi.Input<string | undefined>;
+        /**
+         * The current status of the logs in CloudWatch Logs for a build project. Valid values are:
+         *
+         * - `ENABLED` : CloudWatch Logs are enabled for this build project.
+         * - `DISABLED` : CloudWatch Logs are not enabled for this build project.
+         */
+        status: pulumi.Input<string>;
+        /**
+         * The prefix of the stream name of the CloudWatch Logs. For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
+         */
+        streamName?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectDockerServerArgs {
+        /**
+         * Information about the compute resources the docker server uses. Valid Values: BUILD_GENERAL1_SMALL | BUILD_GENERAL1_MEDIUM | BUILD_GENERAL1_LARGE | BUILD_GENERAL1_XLARGE | BUILD_GENERAL1_2XLARGE | BUILD_LAMBDA_1GB | BUILD_LAMBDA_2GB | BUILD_LAMBDA_4GB | BUILD_LAMBDA_8GB | BUILD_LAMBDA_10GB | ATTRIBUTE_BASED_COMPUTE | CUSTOM_INSTANCE_TYPE
+         */
+        computeType: pulumi.Input<string>;
+        /**
+         * A list of one or more security groups IDs.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface ProjectEnvironmentArgs {
+        /**
+         * The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project. For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
+         */
+        certificate?: pulumi.Input<string | undefined>;
+        /**
+         * The type of compute environment. This determines the number of CPU cores and memory the build environment uses. Available values include:
+         *
+         * - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
+         *
+         * > If you use `ATTRIBUTE_BASED_COMPUTE` , you must define your attributes by using `computeConfiguration` . AWS CodeBuild will select the cheapest instance that satisfies your specified attributes. For more information, see [Reserved capacity environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types) in the *AWS CodeBuild User Guide* .
+         * - `BUILD_GENERAL1_SMALL` : Use up to 4 GiB memory and 2 vCPUs for builds.
+         * - `BUILD_GENERAL1_MEDIUM` : Use up to 8 GiB memory and 4 vCPUs for builds.
+         * - `BUILD_GENERAL1_LARGE` : Use up to 16 GiB memory and 8 vCPUs for builds, depending on your environment type.
+         * - `BUILD_GENERAL1_XLARGE` : Use up to 72 GiB memory and 36 vCPUs for builds, depending on your environment type.
+         * - `BUILD_GENERAL1_2XLARGE` : Use up to 144 GiB memory, 72 vCPUs, and 824 GB of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.
+         * - `BUILD_LAMBDA_1GB` : Use up to 1 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_2GB` : Use up to 2 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_4GB` : Use up to 4 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_8GB` : Use up to 8 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         * - `BUILD_LAMBDA_10GB` : Use up to 10 GiB memory for builds. Only available for environment type `LINUX_LAMBDA_CONTAINER` and `ARM_LAMBDA_CONTAINER` .
+         *
+         * If you use `BUILD_GENERAL1_SMALL` :
+         *
+         * - For environment type `LINUX_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs for builds.
+         * - For environment type `LINUX_GPU_CONTAINER` , you can use up to 16 GiB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.
+         * - For environment type `ARM_CONTAINER` , you can use up to 4 GiB memory and 2 vCPUs on ARM-based processors for builds.
+         *
+         * If you use `BUILD_GENERAL1_LARGE` :
+         *
+         * - For environment type `LINUX_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs for builds.
+         * - For environment type `LINUX_GPU_CONTAINER` , you can use up to 255 GiB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.
+         * - For environment type `ARM_CONTAINER` , you can use up to 16 GiB memory and 8 vCPUs on ARM-based processors for builds.
+         *
+         * For more information, see [On-demand environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) in the *AWS CodeBuild User Guide.*
+         */
+        computeType: pulumi.Input<string>;
+        /**
+         * Contains docker server information.
+         */
+        dockerServer?: pulumi.Input<inputs.codebuild.ProjectDockerServerArgs | undefined>;
+        /**
+         * A set of environment variables to make available to builds for this build project.
+         */
+        environmentVariables?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectEnvironmentVariableArgs>[] | undefined>;
+        fleet?: pulumi.Input<inputs.codebuild.ProjectFleetArgs | undefined>;
+        /**
+         * The kernel version of the host operating system for the build environment. Allowed values: LINUX_KERNEL_4 | LINUX_KERNEL_6 | LINUX_KERNEL_LATEST
+         */
+        hostKernel?: pulumi.Input<string | undefined>;
+        /**
+         * The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:
+         *
+         * - For an image tag: `<registry>/<repository>:<tag>` . For example, in the Docker repository that CodeBuild uses to manage its Docker images, this would be `aws/codebuild/standard:4.0` .
+         * - For an image digest: `<registry>/<repository>@<digest>` . For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use `<registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf` .
+         *
+         * For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-available.html) in the *AWS CodeBuild user guide* .
+         */
+        image: pulumi.Input<string>;
+        /**
+         * The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
+         *
+         * - `CODEBUILD` specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.
+         * - `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role.
+         *
+         * When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+         */
+        imagePullCredentialsType?: pulumi.Input<string | undefined>;
+        /**
+         * Enables running the Docker daemon inside a Docker container. Set to true only if the build project is used to build Docker images. Otherwise, a build that attempts to interact with the Docker daemon fails. The default setting is `false` .
+         *
+         * You can initialize the Docker daemon during the install phase of your build by adding one of the following sets of commands to the install phase of your buildspec file:
+         *
+         * If the operating system's base image is Ubuntu Linux:
+         *
+         * `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+         *
+         * `- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"`
+         *
+         * If the operating system's base image is Alpine Linux and the previous command does not work, add the `-t` argument to `timeout` :
+         *
+         * `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
+         *
+         * `- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"`
+         */
+        privilegedMode?: pulumi.Input<boolean | undefined>;
+        /**
+         * `RegistryCredential` is a property of the [AWS::CodeBuild::Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment) property that specifies information about credentials that provide access to a private Docker registry. When this is set:
+         *
+         * - `imagePullCredentialsType` must be set to `SERVICE_ROLE` .
+         * - images cannot be curated or an Amazon ECR image.
+         */
+        registryCredential?: pulumi.Input<inputs.codebuild.ProjectRegistryCredentialArgs | undefined>;
+        /**
+         * The type of build environment to use for related builds.
+         *
+         * > If you're using compute fleets during project creation, `type` will be ignored.
+         *
+         * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ProjectEnvironmentVariableArgs {
+        /**
+         * The name or key of the environment variable.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The type of environment variable. Valid values include:
+         *
+         * - `PARAMETER_STORE` : An environment variable stored in Systems Manager Parameter Store. For environment variables of this type, specify the name of the parameter as the `value` of the EnvironmentVariable. The parameter value will be substituted for the name at runtime. You can also define Parameter Store environment variables in the buildspec. To learn how to do so, see [env/parameter-store](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) in the *AWS CodeBuild User Guide* .
+         * - `PLAINTEXT` : An environment variable in plain text format. This is the default value.
+         * - `SECRETS_MANAGER` : An environment variable stored in AWS Secrets Manager . For environment variables of this type, specify the name of the secret as the `value` of the EnvironmentVariable. The secret value will be substituted for the name at runtime. You can also define AWS Secrets Manager environment variables in the buildspec. To learn how to do so, see [env/secrets-manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager) in the *AWS CodeBuild User Guide* .
+         */
+        type?: pulumi.Input<string | undefined>;
+        /**
+         * The value of the environment variable.
+         *
+         * > We strongly discourage the use of `PLAINTEXT` environment variables to store sensitive values, especially AWS secret key IDs. `PLAINTEXT` environment variables can be displayed in plain text using the AWS CodeBuild console and the AWS CLI . For sensitive values, we recommend you use an environment variable of type `PARAMETER_STORE` or `SECRETS_MANAGER` .
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ProjectFileSystemLocationArgs {
+        /**
+         * The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the `identifier` in all capital letters to `CODEBUILD_` . For example, if you specify `my_efs` for `identifier` , a new environment variable is create named `CODEBUILD_MY_EFS` .
+         *
+         * The `identifier` is used to mount your file system.
+         */
+        identifier: pulumi.Input<string>;
+        /**
+         * A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path` . You can find the DNS name of file system when you view it in the Amazon EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is `fs-abcd1234.efs.us-west-2.amazonaws.com` , and its mount directory is `my-efs-mount-directory` , then the `location` is `fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory` .
+         *
+         * The directory path in the format `efs-dns-name:/directory-path` is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+         */
+        location: pulumi.Input<string>;
+        /**
+         * The mount options for a file system created by Amazon EFS. The default mount options used by CodeBuild are `nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2` . For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) .
+         */
+        mountOptions?: pulumi.Input<string | undefined>;
+        /**
+         * The location in the container where you mount the file system.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The type of the file system. The one supported type is `EFS` .
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ProjectFleetArgs {
+        /**
+         * Specifies the compute fleet ARN for the build project.
+         */
+        fleetArn?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectGitSubmodulesConfigArgs {
+        /**
+         * Set to true to fetch Git submodules for your AWS CodeBuild build project.
+         */
+        fetchSubmodules: pulumi.Input<boolean>;
+    }
+
+    export interface ProjectLogsConfigArgs {
+        /**
+         * Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default.
+         */
+        cloudWatchLogs?: pulumi.Input<inputs.codebuild.ProjectCloudWatchLogsConfigArgs | undefined>;
+        /**
+         * Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+         */
+        s3Logs?: pulumi.Input<inputs.codebuild.ProjectS3LogsConfigArgs | undefined>;
+    }
+
+    export interface ProjectPullRequestBuildPolicyArgs {
+        approverRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        requiresCommentApproval: pulumi.Input<string>;
+    }
+
+    export interface ProjectRegistryCredentialArgs {
+        /**
+         * The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager .
+         *
+         * > The `credential` can use the name of the credentials only if they exist in your current AWS Region .
+         */
+        credential: pulumi.Input<string>;
+        /**
+         * The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager .
+         */
+        credentialProvider: pulumi.Input<string>;
+    }
+
+    export interface ProjectS3LogsConfigArgs {
+        /**
+         * Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+         */
+        encryptionDisabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is `my-bucket` , and your path prefix is `build-log` , then acceptable formats are `my-bucket/build-log` or `arn:aws:s3:::my-bucket/build-log` .
+         */
+        location?: pulumi.Input<string | undefined>;
+        /**
+         * The current status of the S3 build logs. Valid values are:
+         *
+         * - `ENABLED` : S3 build logs are enabled for this build project.
+         * - `DISABLED` : S3 build logs are not enabled for this build project.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface ProjectScopeConfigurationArgs {
+        /**
+         * The domain of the GitHub Enterprise organization or the GitLab Self Managed group. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE or GITLAB_SELF_MANAGED.
+         */
+        domain?: pulumi.Input<string | undefined>;
+        /**
+         * The name of either the enterprise or organization that will send webhook events to CodeBuild, depending on if the webhook is a global or organization webhook respectively.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The type of scope for a GitHub or GitLab webhook. The scope default is GITHUB_ORGANIZATION. Allowed values: GITHUB_ORGANIZATION | GITHUB_GLOBAL | GITLAB_GROUP
+         */
+        scope?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectSourceArgs {
+        /**
+         * Information about the authorization settings for AWS CodeBuild to access the source code to be built.
+         */
+        auth?: pulumi.Input<inputs.codebuild.ProjectSourceAuthArgs | undefined>;
+        /**
+         * The build specification for the project. If this value is not provided, then the source code must contain a buildspec file named `buildspec.yml` at the root level. If this value is provided, it can be either a single string containing the entire build specification, or the path to an alternate buildspec file relative to the value of the built-in environment variable `CODEBUILD_SRC_DIR` . The alternate buildspec file can have a name other than `buildspec.yml` , for example `myspec.yml` or `build_spec_qa.yml` or similar. For more information, see the [Build Spec Reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example) in the *AWS CodeBuild User Guide* .
+         */
+        buildSpec?: pulumi.Input<string | undefined>;
+        /**
+         * Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB` , `GITHUB_ENTERPRISE` , or `BITBUCKET` .
+         */
+        buildStatusConfig?: pulumi.Input<inputs.codebuild.ProjectBuildStatusConfigArgs | undefined>;
+        /**
+         * The depth of history to download. Minimum value is 0. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project. If your source type is Amazon S3, this value is not supported.
+         */
+        gitCloneDepth?: pulumi.Input<number | undefined>;
+        /**
+         * Information about the Git submodules configuration for the build project.
+         */
+        gitSubmodulesConfig?: pulumi.Input<inputs.codebuild.ProjectGitSubmodulesConfigArgs | undefined>;
+        /**
+         * This is used with GitHub Enterprise only. Set to true to ignore SSL warnings while connecting to your GitHub Enterprise project repository. The default value is `false` . `InsecureSsl` should be used for testing purposes only. It should not be used in a production environment.
+         */
+        insecureSsl?: pulumi.Input<boolean | undefined>;
+        /**
+         * Information about the location of the source code to be built. Valid values include:
+         *
+         * - For source code settings that are specified in the source action of a pipeline in CodePipeline, `location` should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source action instead of this value.
+         * - For source code in an CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the buildspec file (for example, `https://git-codecommit.<region-ID>.amazonaws.com/v1/repos/<repo-name>` ).
+         * - For source code in an Amazon S3 input bucket, one of the following.
+         *
+         * - The path to the ZIP file that contains the source code (for example, `<bucket-name>/<path>/<object-name>.zip` ).
+         * - The path to the folder that contains the source code (for example, `<bucket-name>/<path-to-source-code>/<folder>/` ).
+         * - For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub *Authorize application* page, for *Organization access* , choose *Request access* next to each repository you want to allow AWS CodeBuild to have access to, and then choose *Authorize application* . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+         * - For source code in an GitLab or self-managed GitLab repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your GitLab account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitLab, on the Connections *Authorize application* page, choose *Authorize* . Then on the AWS CodeConnections *Create GitLab connection* page, choose *Connect to GitLab* . (After you have connected to your GitLab account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to override the default connection and use this connection instead, set the `auth` object's `type` value to `CODECONNECTIONS` in the `source` object.
+         * - For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket *Confirm access to your account* page, choose *Grant access* . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
+         *
+         * If you specify `CODEPIPELINE` for the `Type` property, don't specify this property. For all of the other types, you must specify `Location` .
+         */
+        location?: pulumi.Input<string | undefined>;
+        /**
+         * Set to true to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an `invalidInputException` is thrown.
+         */
+        reportBuildStatus?: pulumi.Input<boolean | undefined>;
+        /**
+         * An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+         */
+        sourceIdentifier?: pulumi.Input<string | undefined>;
+        /**
+         * The type of repository that contains the source code to be built. Valid values include:
+         *
+         * - `BITBUCKET` : The source code is in a Bitbucket repository.
+         * - `CODECOMMIT` : The source code is in an CodeCommit repository.
+         * - `CODEPIPELINE` : The source code settings are specified in the source action of a pipeline in CodePipeline.
+         * - `GITHUB` : The source code is in a GitHub repository.
+         * - `GITHUB_ENTERPRISE` : The source code is in a GitHub Enterprise Server repository.
+         * - `GITLAB` : The source code is in a GitLab repository.
+         * - `GITLAB_SELF_MANAGED` : The source code is in a self-managed GitLab repository.
+         * - `NO_SOURCE` : The project does not have input source code.
+         * - `S3` : The source code is in an Amazon S3 bucket.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ProjectSourceAuthArgs {
+        /**
+         * The resource value that applies to the specified authorization type.
+         */
+        resource?: pulumi.Input<string | undefined>;
+        /**
+         * The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ProjectSourceVersionArgs {
+        /**
+         * An identifier for a source in the build project. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+         */
+        sourceIdentifier: pulumi.Input<string>;
+        /**
+         * The source version for the corresponding source identifier. If specified, must be one of:
+         *
+         * - For CodeCommit: the commit ID, branch, or Git tag to use.
+         * - For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format `pr/pull-request-ID` (for example, `pr/25` ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+         * - For GitLab: the commit ID, branch, or Git tag to use.
+         * - For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+         * - For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
+         *
+         * For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
+         */
+        sourceVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectTriggersArgs {
+        /**
+         * Specifies the type of build this webhook will trigger. Allowed values are:
+         *
+         * - **BUILD** - A single build
+         * - **BUILD_BATCH** - A batch build
+         */
+        buildType?: pulumi.Input<string | undefined>;
+        /**
+         * A list of lists of `WebhookFilter` objects used to determine which webhook events are triggered. At least one `WebhookFilter` in the array must specify `EVENT` as its type.
+         */
+        filterGroups?: pulumi.Input<pulumi.Input<pulumi.Input<inputs.codebuild.ProjectWebhookFilterArgs>[]>[] | undefined>;
+        pullRequestBuildPolicy?: pulumi.Input<inputs.codebuild.ProjectPullRequestBuildPolicyArgs | undefined>;
+        /**
+         * Contains configuration information about the scope for a webhook.
+         */
+        scopeConfiguration?: pulumi.Input<inputs.codebuild.ProjectScopeConfigurationArgs | undefined>;
+        /**
+         * Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+         */
+        webhook?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface ProjectVpcConfigArgs {
+        /**
+         * A list of one or more security groups IDs in your Amazon VPC. The maximum count is 5.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A list of one or more subnet IDs in your Amazon VPC. The maximum count is 16.
+         */
+        subnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The ID of the Amazon VPC.
+         */
+        vpcId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ProjectWebhookFilterArgs {
+        excludeMatchedPattern?: pulumi.Input<boolean | undefined>;
+        pattern: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface ReportGroupReportExportConfigArgs {
@@ -24766,6 +26233,16 @@ export namespace codedeploy {
          * Indicates whether to run an in-place or blue/green deployment.
          */
         deploymentType?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+     */
+    export interface DeploymentGroupEc2DeploymentOptionsArgs {
+        /**
+         * The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+         */
+        autoScalingGroupProcessesToSuspend?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     /**
@@ -28200,6 +29677,7 @@ export namespace connect {
     }
 
     export interface InstanceAttributesArgs {
+        autoMuteAgentOnHold?: pulumi.Input<boolean | undefined>;
         autoResolveBestVoices?: pulumi.Input<boolean | undefined>;
         contactLens?: pulumi.Input<boolean | undefined>;
         contactflowLogs?: pulumi.Input<boolean | undefined>;
@@ -28538,6 +30016,7 @@ export namespace connect {
          * Information about the EV action.
          */
         eventBridgeActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleEventBridgeActionArgs>[] | undefined>;
+        sendInAppNotificationActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleSendInAppNotificationActionArgs>[] | undefined>;
         /**
          * Information about the send notification action.
          */
@@ -28620,6 +30099,31 @@ export namespace connect {
         stringValue?: pulumi.Input<string | undefined>;
     }
 
+    export interface RuleInAppNotificationRecipientTypeArgs {
+        /**
+         * The list of recipients by user arns.
+         */
+        userArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The collection of recipients who are identified by user tags
+         */
+        userTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface RuleNotificationContentArgs {
+        deDe?: pulumi.Input<string | undefined>;
+        enUs?: pulumi.Input<string | undefined>;
+        esEs?: pulumi.Input<string | undefined>;
+        frFr?: pulumi.Input<string | undefined>;
+        idId?: pulumi.Input<string | undefined>;
+        itIt?: pulumi.Input<string | undefined>;
+        jaJp?: pulumi.Input<string | undefined>;
+        koKr?: pulumi.Input<string | undefined>;
+        ptBr?: pulumi.Input<string | undefined>;
+        zhCn?: pulumi.Input<string | undefined>;
+        zhTw?: pulumi.Input<string | undefined>;
+    }
+
     /**
      * The type of notification recipient.
      */
@@ -28647,6 +30151,16 @@ export namespace connect {
          * A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface RuleSendInAppNotificationActionArgs {
+        content: pulumi.Input<inputs.connect.RuleNotificationContentArgs>;
+        exclusion?: pulumi.Input<inputs.connect.RuleInAppNotificationRecipientTypeArgs | undefined>;
+        /**
+         * The priority of the notification.
+         */
+        priority?: pulumi.Input<enums.connect.RuleSendInAppNotificationActionPriority | undefined>;
+        recipient: pulumi.Input<inputs.connect.RuleInAppNotificationRecipientTypeArgs>;
     }
 
     /**
@@ -33718,11 +35232,16 @@ export namespace deadline {
         memoryMiB: pulumi.Input<inputs.deadline.FleetMemoryMiBRangeArgs>;
         osFamily: pulumi.Input<enums.deadline.FleetServiceManagedFleetOperatingSystemFamily>;
         rootEbsVolume?: pulumi.Input<inputs.deadline.FleetEc2EbsVolumeArgs | undefined>;
+        softwareAddOns?: pulumi.Input<pulumi.Input<inputs.deadline.FleetSoftwareAddOnArgs>[] | undefined>;
         vCpuCount: pulumi.Input<inputs.deadline.FleetVCpuCountRangeArgs>;
     }
 
     export interface FleetServiceManagedEc2InstanceMarketOptionsArgs {
         type: pulumi.Input<enums.deadline.FleetEc2MarketType>;
+    }
+
+    export interface FleetSoftwareAddOnArgs {
+        name: pulumi.Input<enums.deadline.FleetSoftwareAddOnName>;
     }
 
     export interface FleetVCpuCountRangeArgs {
@@ -33942,9 +35461,42 @@ export namespace devopsagent {
         updatedAt?: pulumi.Input<string | undefined>;
     }
 
+    /**
+     * External identity provider configuration for the Operator App.
+     */
+    export interface AgentSpaceIdpAuthConfigurationArgs {
+        /**
+         * The OIDC client identifier for the external identity provider application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OIDC client secret for the external identity provider application. Use a Secrets Manager dynamic reference to avoid storing the secret in the template.
+         */
+        clientSecret: pulumi.Input<string>;
+        createdAt?: pulumi.Input<string | undefined>;
+        /**
+         * The OIDC issuer URL for the external identity provider.
+         */
+        issuerUrl: pulumi.Input<string>;
+        /**
+         * The IAM role that Operator App users assume to access DevOps Agent APIs.
+         */
+        operatorAppRoleArn: pulumi.Input<string>;
+        /**
+         * The external identity provider type.
+         */
+        provider: pulumi.Input<enums.devopsagent.AgentSpaceIdpAuthConfigurationProvider>;
+        updatedAt?: pulumi.Input<string | undefined>;
+        /**
+         * The identity claim used to identify users. This value is selected by the service for the configured provider.
+         */
+        userIdClaim?: pulumi.Input<string | undefined>;
+    }
+
     export interface AgentSpaceOperatorAppArgs {
         iam?: pulumi.Input<inputs.devopsagent.AgentSpaceIamAuthConfigurationArgs | undefined>;
         idc?: pulumi.Input<inputs.devopsagent.AgentSpaceIdcAuthConfigurationArgs | undefined>;
+        idp?: pulumi.Input<inputs.devopsagent.AgentSpaceIdpAuthConfigurationArgs | undefined>;
     }
 
     /**
@@ -33991,6 +35543,10 @@ export namespace devopsagent {
          * Account Type 'monitor' for DevOpsAgent monitoring
          */
         accountType: pulumi.Input<enums.devopsagent.AssociationAwsConfigurationAccountType>;
+        /**
+         * The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+         */
+        agentElevatedRoleArn?: pulumi.Input<string | undefined>;
         /**
          * Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
          */
@@ -34146,6 +35702,10 @@ export namespace devopsagent {
          */
         enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
         /**
+         * The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
+         */
+        enabledElevatedTools?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
          * MCP server endpoint URL
          */
         endpoint?: pulumi.Input<string | undefined>;
@@ -34163,6 +35723,10 @@ export namespace devopsagent {
          * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
          */
         enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
+         */
+        enabledElevatedTools?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * MCP server endpoint URL
          */
@@ -34274,6 +35838,20 @@ export namespace devopsagent {
     }
 
     /**
+     * Optional bidirectional communication configuration. Supply this configuration and set Enabled to true so you can interact with the agent directly from Slack
+     */
+    export interface AssociationSlackBidirectionalConfigurationArgs {
+        /**
+         * Whether bidirectional communication is enabled for this association. When set to true, you can mention the agent in a configured Slack channel and it responds in that channel. When omitted or set to false, the agent ignores mentions and only sends notifications
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace on behalf of this association
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    /**
      * Slack channel configuration
      */
     export interface AssociationSlackChannelArgs {
@@ -34291,6 +35869,7 @@ export namespace devopsagent {
      * Slack workspace integration configuration
      */
     export interface AssociationSlackConfigurationArgs {
+        bidirectional?: pulumi.Input<inputs.devopsagent.AssociationSlackBidirectionalConfigurationArgs | undefined>;
         transmissionTarget: pulumi.Input<inputs.devopsagent.AssociationSlackTransmissionTargetArgs>;
         /**
          * Associated Slack workspace ID
@@ -34324,6 +35903,10 @@ export namespace devopsagent {
          * Account Type 'source' for DevOpsAgent monitoring
          */
         accountType: pulumi.Input<enums.devopsagent.AssociationSourceAwsConfigurationAccountType>;
+        /**
+         * The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+         */
+        agentElevatedRoleArn?: pulumi.Input<string | undefined>;
         /**
          * Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
          */
@@ -34447,11 +36030,12 @@ export namespace devopsagent {
     }
 
     /**
-     * Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
+     * Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields, including GitHub, require replacement when modified
      */
     export interface ServiceDetailsArgs {
         azureIdentity?: pulumi.Input<inputs.devopsagent.ServiceAzureIdentityServiceDetailsArgs | undefined>;
         dynatrace?: pulumi.Input<inputs.devopsagent.ServiceDynatraceServiceDetailsArgs | undefined>;
+        gitHub?: pulumi.Input<inputs.devopsagent.ServiceGitHubDetailsArgs | undefined>;
         gitLab?: pulumi.Input<inputs.devopsagent.ServiceGitLabDetailsArgs | undefined>;
         mcpServer?: pulumi.Input<inputs.devopsagent.ServiceMcpServerDetailsArgs | undefined>;
         mcpServerGrafana?: pulumi.Input<inputs.devopsagent.ServiceMcpServerGrafanaDetailsArgs | undefined>;
@@ -34478,6 +36062,54 @@ export namespace devopsagent {
          */
         accountUrn: pulumi.Input<string>;
         authorizationConfig?: pulumi.Input<inputs.devopsagent.ServiceDynatraceAuthorizationConfigArgs | undefined>;
+    }
+
+    /**
+     * The token verifies an existing DevOps Agent GitHub App installation on github.com and is then discarded. Not supported for GitHub Enterprise Server
+     */
+    export interface ServiceGitHubAppVerificationDetailsArgs {
+        /**
+         * Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+         */
+        appVariant: pulumi.Input<enums.devopsagent.ServiceGitHubAppVerificationDetailsAppVariant>;
+        /**
+         * GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+         */
+        organizationName?: pulumi.Input<string | undefined>;
+        /**
+         * GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+         */
+        targetUrl?: pulumi.Input<string | undefined>;
+        /**
+         * GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+         */
+        tokenValue: pulumi.Input<string>;
+    }
+
+    /**
+     * GitHub personal access token (PAT) service configuration. Exactly one of AppVerification or DirectAccess selects how the token is used
+     */
+    export interface ServiceGitHubDetailsArgs {
+        appVerification?: pulumi.Input<inputs.devopsagent.ServiceGitHubAppVerificationDetailsArgs | undefined>;
+        directAccess?: pulumi.Input<inputs.devopsagent.ServiceGitHubPatDetailsArgs | undefined>;
+    }
+
+    /**
+     * The token is stored and used as the long-lived credential for GitHub API access
+     */
+    export interface ServiceGitHubPatDetailsArgs {
+        /**
+         * GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+         */
+        organizationName?: pulumi.Input<string | undefined>;
+        /**
+         * GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+         */
+        targetUrl?: pulumi.Input<string | undefined>;
+        /**
+         * GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+         */
+        tokenValue: pulumi.Input<string>;
     }
 
     /**
@@ -37128,6 +38760,7 @@ export namespace dynamodb {
          * Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
          */
         deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
+        disassociationProtectionEnabled?: pulumi.Input<boolean | undefined>;
         /**
          * Defines additional settings for the global secondary indexes of this replica.
          */
@@ -37205,6 +38838,11 @@ export namespace dynamodb {
         policyDocument: any;
     }
 
+    export interface GlobalTableSearchSchemaElementArgs {
+        attributeName: pulumi.Input<string>;
+        searchSchemaElementType: pulumi.Input<enums.dynamodb.GlobalTableSearchSchemaElementSearchSchemaElementType>;
+    }
+
     export interface GlobalTableSseSpecificationArgs {
         /**
          * Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
@@ -37271,6 +38909,19 @@ export namespace dynamodb {
          * Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
          */
         enabled: pulumi.Input<boolean>;
+    }
+
+    export interface GlobalTableVectorAttributeArgs {
+        attributeName: pulumi.Input<string>;
+    }
+
+    export interface GlobalTableVectorIndexArgs {
+        dimensions: pulumi.Input<number>;
+        distanceFunction: pulumi.Input<enums.dynamodb.GlobalTableVectorIndexDistanceFunction>;
+        indexName: pulumi.Input<string>;
+        projection: pulumi.Input<inputs.dynamodb.GlobalTableProjectionArgs>;
+        searchSchema?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableSearchSchemaElementArgs>[] | undefined>;
+        vectorAttribute: pulumi.Input<inputs.dynamodb.GlobalTableVectorAttributeArgs>;
     }
 
     export interface GlobalTableWarmThroughputArgs {
@@ -37527,6 +39178,7 @@ export namespace dynamodb {
          *   +  ``ALL`` - All of the table attributes are projected into the index.
          *
          *  When using the DynamoDB console, ``ALL`` is selected by default.
+         *  You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
          */
         projectionType?: pulumi.Input<string | undefined>;
     }
@@ -37584,6 +39236,11 @@ export namespace dynamodb {
         s3KeyPrefix?: pulumi.Input<string | undefined>;
     }
 
+    export interface TableSearchSchemaElementArgs {
+        attributeName: pulumi.Input<string>;
+        searchSchemaElementType: pulumi.Input<enums.dynamodb.TableSearchSchemaElementSearchSchemaElementType>;
+    }
+
     /**
      * Represents the settings used to enable server-side encryption.
      */
@@ -37621,6 +39278,10 @@ export namespace dynamodb {
          *   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
          */
         streamViewType: pulumi.Input<string>;
+        /**
+         * Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+         *  For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+         */
         tags?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableTagArgs>[] | undefined>;
     }
 
@@ -37654,6 +39315,19 @@ export namespace dynamodb {
          * Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
          */
         enabled: pulumi.Input<boolean>;
+    }
+
+    export interface TableVectorAttributeArgs {
+        attributeName: pulumi.Input<string>;
+    }
+
+    export interface TableVectorIndexArgs {
+        dimensions: pulumi.Input<number>;
+        distanceFunction: pulumi.Input<enums.dynamodb.TableVectorIndexDistanceFunction>;
+        indexName: pulumi.Input<string>;
+        projection: pulumi.Input<inputs.dynamodb.TableProjectionArgs>;
+        searchSchema?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableSearchSchemaElementArgs>[] | undefined>;
+        vectorAttribute: pulumi.Input<inputs.dynamodb.TableVectorAttributeArgs>;
     }
 
     /**
@@ -41722,6 +43396,24 @@ export namespace ec2 {
         toPort: pulumi.Input<number>;
     }
 
+    /**
+     * A static 1:1 NAT rule. Traffic whose source address falls within MatchSourceCidr is translated to the corresponding address in NatCidr.
+     */
+    export interface TransitGatewayAttachmentNatConfigurationNatRuleArgs {
+        /**
+         * The source CIDR that the rule matches on.
+         */
+        matchSourceCidr: pulumi.Input<string>;
+        /**
+         * The CIDR that the matched source addresses are translated to.
+         */
+        natCidr: pulumi.Input<string>;
+        /**
+         * The rule number.
+         */
+        ruleNumber: pulumi.Input<number>;
+    }
+
     export interface TransitGatewayConnectOptionsArgs {
         /**
          * The tunnel protocol.
@@ -43900,6 +45592,105 @@ export namespace ecs {
     }
 
     /**
+     * The test traffic rules for the gateway ALB.
+     */
+    export interface GatewayAlbTestTrafficRulesArgs {
+        header?: pulumi.Input<inputs.ecs.GatewayTestTrafficHeaderArgs | undefined>;
+    }
+
+    /**
+     * The configuration for the gateway. Currently only supports hostSharedAlb.
+     */
+    export interface GatewayConfigurationArgs {
+        hostSharedAlb: pulumi.Input<inputs.ecs.GatewayHostSharedAlbConfigurationArgs>;
+    }
+
+    /**
+     * The access log configuration for the gateway ALB. Access logging is enabled by the presence of a destination.
+     */
+    export interface GatewayElbAccessLogConfigurationArgs {
+        destination?: pulumi.Input<inputs.ecs.GatewayElbAccessLogDestinationArgs | undefined>;
+    }
+
+    /**
+     * The destination for gateway ALB access logs. Exactly one destination type must be specified.
+     */
+    export interface GatewayElbAccessLogDestinationArgs {
+        s3?: pulumi.Input<inputs.ecs.GatewayElbAccessLogS3DestinationArgs | undefined>;
+    }
+
+    /**
+     * The S3 destination for gateway ALB access logs.
+     */
+    export interface GatewayElbAccessLogS3DestinationArgs {
+        /**
+         * The S3 bucket for access logs.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The S3 prefix for access logs.
+         */
+        prefix?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The network configuration for the gateway ALB.
+     */
+    export interface GatewayElbNetworkConfigurationArgs {
+        /**
+         * The inbound security group for the ALB.
+         */
+        inboundSecurityGroup?: pulumi.Input<string | undefined>;
+        ipAddressType?: pulumi.Input<enums.ecs.GatewayElbIpAddressType | undefined>;
+        /**
+         * The subnets for the ALB.
+         */
+        subnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * The host shared ALB configuration for the gateway.
+     */
+    export interface GatewayHostSharedAlbConfigurationArgs {
+        accessLogs?: pulumi.Input<inputs.ecs.GatewayElbAccessLogConfigurationArgs | undefined>;
+        /**
+         * The current number of ALBs provisioned for the gateway.
+         */
+        currentAlbCount?: pulumi.Input<number | undefined>;
+        httpDesync?: pulumi.Input<enums.ecs.GatewayAlbDesyncMitigationMode | undefined>;
+        /**
+         * The maximum number of ALBs to provision for the gateway.
+         */
+        maxAlbCount?: pulumi.Input<number | undefined>;
+        networkConfiguration?: pulumi.Input<inputs.ecs.GatewayElbNetworkConfigurationArgs | undefined>;
+        /**
+         * The port on which the ALB listens.
+         */
+        port?: pulumi.Input<number | undefined>;
+        protocol?: pulumi.Input<enums.ecs.GatewayAlbProtocol | undefined>;
+        scheme?: pulumi.Input<enums.ecs.GatewayElbScheme | undefined>;
+        testTrafficRules?: pulumi.Input<inputs.ecs.GatewayAlbTestTrafficRulesArgs | undefined>;
+        /**
+         * The ARN of the WAFv2 web ACL to associate with the ALB.
+         */
+        webAclArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The header configuration for test traffic routing.
+     */
+    export interface GatewayTestTrafficHeaderArgs {
+        /**
+         * The name of the header.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The values for the header.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
     export interface ServiceAdvancedConfigurationArgs {
@@ -44051,6 +45842,7 @@ export namespace ecs {
          *   To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
          */
         accessLogConfiguration?: pulumi.Input<inputs.ecs.ServiceConnectAccessLogConfigurationArgs | undefined>;
+        containerConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceConnectContainerConfigurationArgs>[] | undefined>;
         /**
          * Specifies whether to use Service Connect with this service.
          */
@@ -44077,6 +45869,10 @@ export namespace ecs {
          *  An object selects a port from the task definition, assigns a name for the CMAPlong service, and a list of aliases (endpoints) and ports for client applications to refer to this service.
          */
         services?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceConnectServiceArgs>[] | undefined>;
+    }
+
+    export interface ServiceConnectContainerConfigurationArgs {
+        logLevel?: pulumi.Input<enums.ecs.ServiceConnectContainerConfigurationLogLevel | undefined>;
     }
 
     /**
@@ -44235,6 +46031,9 @@ export namespace ecs {
          *   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
          */
         deploymentCircuitBreaker?: pulumi.Input<inputs.ecs.ServiceDeploymentCircuitBreakerArgs | undefined>;
+        /**
+         * The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
+         */
         earlySuccessCriteria?: pulumi.Input<inputs.ecs.ServiceDeploymentEarlySuccessCriteriaArgs | undefined>;
         /**
          * An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
@@ -44323,9 +46122,26 @@ export namespace ecs {
         type?: pulumi.Input<enums.ecs.ServiceDeploymentControllerType | undefined>;
     }
 
+    /**
+     * You can use early success criteria only with rolling deployment strategy.
+     *   The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
+     */
     export interface ServiceDeploymentEarlySuccessCriteriaArgs {
+        /**
+         * Specifies whether to use the early success criteria for the service deployment. When set to ``false``, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is ``false``.
+         *  When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
+         */
         enable?: pulumi.Input<boolean | undefined>;
+        /**
+         * The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's ``desiredCount`` and must be an integer between ``0`` and ``100``. This value must be greater than or equal to the ``minimumHealthyPercent`` value.
+         *  After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
+         */
         healthyPercent?: pulumi.Input<number | undefined>;
+        /**
+         * The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+         *   +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+         *   +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
+         */
         sourceServiceRevisionCleanup?: pulumi.Input<enums.ecs.ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup | undefined>;
     }
 
@@ -44424,6 +46240,32 @@ export namespace ecs {
          * When you change the``ForceNewDeploymentNonce`` value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
          */
         forceNewDeploymentNonce?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ServiceGatewayConnectorArgs {
+        filters?: pulumi.Input<inputs.ecs.ServiceGatewayConnectorFiltersArgs | undefined>;
+        healthCheck?: pulumi.Input<inputs.ecs.ServiceGatewayConnectorHealthCheckArgs | undefined>;
+        portName: pulumi.Input<string>;
+    }
+
+    export interface ServiceGatewayConnectorFiltersArgs {
+        accessTypes?: pulumi.Input<pulumi.Input<enums.ecs.ServiceGatewayConnectorFiltersAccessTypesItem>[] | undefined>;
+    }
+
+    export interface ServiceGatewayConnectorHealthCheckArgs {
+        healthCheckIntervalSeconds?: pulumi.Input<number | undefined>;
+        healthCheckPath?: pulumi.Input<string | undefined>;
+        healthCheckPort?: pulumi.Input<number | undefined>;
+        healthCheckProtocol?: pulumi.Input<enums.ecs.ServiceGatewayConnectorHealthCheckHealthCheckProtocol | undefined>;
+        healthCheckTimeoutSeconds?: pulumi.Input<number | undefined>;
+        healthyThresholdCount?: pulumi.Input<number | undefined>;
+        matcher?: pulumi.Input<inputs.ecs.ServiceGatewayConnectorHealthCheckMatcherArgs | undefined>;
+        unhealthyThresholdCount?: pulumi.Input<number | undefined>;
+    }
+
+    export interface ServiceGatewayConnectorHealthCheckMatcherArgs {
+        grpcCode?: pulumi.Input<string | undefined>;
+        httpCode?: pulumi.Input<string | undefined>;
     }
 
     export interface ServiceHookTimeoutConfigArgs {
@@ -44786,9 +46628,21 @@ export namespace ecs {
         name: pulumi.Input<string>;
     }
 
+    /**
+     * The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface ServiceVpcLatticeAdvancedConfigurationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
+         */
         alternateTargetGroupArn?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
+         */
         productionListenerRule?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
+         */
         testListenerRule?: pulumi.Input<string | undefined>;
     }
 
@@ -45466,6 +47320,17 @@ export namespace ecs {
         sourceVolume?: pulumi.Input<string | undefined>;
     }
 
+    export interface TaskDefinitionNvidiaMpsAllocationArgs {
+        /**
+         * The maximum percentage of the GPU's compute capacity that the container can use.
+         */
+        maxComputePercent?: pulumi.Input<number | undefined>;
+        /**
+         * The amount of GPU memory, in MiB, allocated to the container.
+         */
+        memory: pulumi.Input<number>;
+    }
+
     /**
      * The constraint on task placement in the task definition. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
      *   Task placement constraints aren't supported for tasks run on FARGATElong.
@@ -45586,6 +47451,7 @@ export namespace ecs {
      * The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
      */
     export interface TaskDefinitionResourceRequirementArgs {
+        sharingStrategy?: pulumi.Input<inputs.ecs.TaskDefinitionSharingStrategyArgs | undefined>;
         /**
          * The type of resource to assign to a container.
          */
@@ -45596,7 +47462,7 @@ export namespace ecs {
          *  When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
          *  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
          */
-        value: pulumi.Input<string>;
+        value?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -45675,6 +47541,10 @@ export namespace ecs {
          *   If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
          */
         valueFrom: pulumi.Input<string>;
+    }
+
+    export interface TaskDefinitionSharingStrategyArgs {
+        nvidiaMps: pulumi.Input<inputs.ecs.TaskDefinitionNvidiaMpsAllocationArgs>;
     }
 
     /**
@@ -46133,6 +48003,10 @@ export namespace eks {
      */
     export interface CapabilityArgoCdArgs {
         awsIdc: pulumi.Input<inputs.eks.CapabilityAwsIdcArgs>;
+        /**
+         * An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+         */
+        endpointPrefix?: pulumi.Input<string | undefined>;
         /**
          * The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
          */
@@ -48489,6 +50363,214 @@ export namespace elementalinference {
 }
 
 export namespace emr {
+    /**
+     * Configuration specifies optional configurations for customizing open-source big data applications and environment parameters.
+     */
+    export interface InstanceFleetConfigApplicationConfigurationArgs {
+        /**
+         * The classification within a configuration.
+         */
+        classification?: pulumi.Input<string | undefined>;
+        /**
+         * Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
+         */
+        configurationProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * A list of additional configurations to apply within a configuration object.
+         */
+        configurations?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetConfigApplicationConfigurationArgs>[] | undefined>;
+    }
+
+    /**
+     * EbsBlockDeviceConfig defines the number and type of EBS volumes to associate with all EC2 instances in an EMR cluster.
+     */
+    export interface InstanceFleetConfigEbsBlockDeviceConfigArgs {
+        /**
+         * EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+         */
+        volumeSpecification: pulumi.Input<inputs.emr.InstanceFleetConfigVolumeSpecificationArgs>;
+        /**
+         * Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+         */
+        volumesPerInstance?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * EbsConfiguration determines the EBS volumes to attach to EMR cluster instances.
+     */
+    export interface InstanceFleetConfigEbsConfigurationArgs {
+        /**
+         * An array of Amazon EBS volume specifications attached to a cluster instance.
+         */
+        ebsBlockDeviceConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetConfigEbsBlockDeviceConfigArgs>[] | undefined>;
+        /**
+         * Indicates whether an Amazon EBS volume is EBS-optimized.
+         */
+        ebsOptimized?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * InstanceTypeConfig determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+     */
+    export interface InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs {
+        /**
+         * The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+         */
+        onDemandSpecification?: pulumi.Input<inputs.emr.InstanceFleetConfigOnDemandProvisioningSpecificationArgs | undefined>;
+        /**
+         * The launch specification for Spot instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+         */
+        spotSpecification?: pulumi.Input<inputs.emr.InstanceFleetConfigSpotProvisioningSpecificationArgs | undefined>;
+    }
+
+    export interface InstanceFleetConfigInstanceFleetResizingSpecificationsArgs {
+        /**
+         * The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+         */
+        onDemandResizeSpecification?: pulumi.Input<inputs.emr.InstanceFleetConfigOnDemandResizingSpecificationArgs | undefined>;
+        /**
+         * The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+         */
+        spotResizeSpecification?: pulumi.Input<inputs.emr.InstanceFleetConfigSpotResizingSpecificationArgs | undefined>;
+    }
+
+    /**
+     * The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+     */
+    export interface InstanceFleetConfigInstanceTypeConfigArgs {
+        /**
+         * The bid price for each Amazon EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+         */
+        bidPrice?: pulumi.Input<string | undefined>;
+        /**
+         * The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+         */
+        bidPriceAsPercentageOfOnDemandPrice?: pulumi.Input<number | undefined>;
+        /**
+         * An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+         */
+        configurations?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetConfigApplicationConfigurationArgs>[] | undefined>;
+        /**
+         * The custom AMI ID to use for the instance type.
+         */
+        customAmiId?: pulumi.Input<string | undefined>;
+        /**
+         * The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+         */
+        ebsConfiguration?: pulumi.Input<inputs.emr.InstanceFleetConfigEbsConfigurationArgs | undefined>;
+        /**
+         * An Amazon EC2 instance type, such as m3.xlarge.
+         */
+        instanceType: pulumi.Input<string>;
+        /**
+         * The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+         */
+        priority?: pulumi.Input<number | undefined>;
+        /**
+         * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+         */
+        weightedCapacity?: pulumi.Input<number | undefined>;
+    }
+
+    export interface InstanceFleetConfigOnDemandCapacityReservationOptionsArgs {
+        /**
+         * Indicates the instance's Capacity Reservation preferences.
+         */
+        capacityReservationPreference?: pulumi.Input<string | undefined>;
+        /**
+         * The ARN of the Capacity Reservation resource group in which to run the instance.
+         */
+        capacityReservationResourceGroupArn?: pulumi.Input<string | undefined>;
+        /**
+         * Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+         */
+        usageStrategy?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+     */
+    export interface InstanceFleetConfigOnDemandProvisioningSpecificationArgs {
+        /**
+         * Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+         */
+        allocationStrategy: pulumi.Input<string>;
+        /**
+         * The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+         */
+        capacityReservationOptions?: pulumi.Input<inputs.emr.InstanceFleetConfigOnDemandCapacityReservationOptionsArgs | undefined>;
+    }
+
+    export interface InstanceFleetConfigOnDemandResizingSpecificationArgs {
+        /**
+         * Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is lowest-price.
+         */
+        allocationStrategy?: pulumi.Input<string | undefined>;
+        /**
+         * Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+         */
+        capacityReservationOptions?: pulumi.Input<inputs.emr.InstanceFleetConfigOnDemandCapacityReservationOptionsArgs | undefined>;
+        /**
+         * On-Demand resize timeout in minutes.
+         */
+        timeoutDurationMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * SpotProvisioningSpecification determines the launch specification for Spot instances in the instance fleet, which includes the defined duration and provisioning timeout behavior.
+     */
+    export interface InstanceFleetConfigSpotProvisioningSpecificationArgs {
+        /**
+         * Specifies one of the following strategies to launch Spot Instance fleets: price-capacity-optimized, capacity-optimized, lowest-price, or diversified
+         */
+        allocationStrategy?: pulumi.Input<string | undefined>;
+        /**
+         * The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360.
+         */
+        blockDurationMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+         */
+        timeoutAction: pulumi.Input<string>;
+        /**
+         * The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+         */
+        timeoutDurationMinutes: pulumi.Input<number>;
+    }
+
+    export interface InstanceFleetConfigSpotResizingSpecificationArgs {
+        /**
+         * Specifies the allocation strategy to use to launch Spot instances during a resize.
+         */
+        allocationStrategy?: pulumi.Input<string | undefined>;
+        /**
+         * Spot resize timeout in minutes.
+         */
+        timeoutDurationMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * VolumeSpecification is a subproperty of the EbsBlockDeviceConfig property type. VolumeSecification determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
+     */
+    export interface InstanceFleetConfigVolumeSpecificationArgs {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports.
+         */
+        iops?: pulumi.Input<number | undefined>;
+        /**
+         * The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+         */
+        sizeInGb: pulumi.Input<number>;
+        /**
+         * The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+         */
+        throughput?: pulumi.Input<number | undefined>;
+        /**
+         * The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+         */
+        volumeType: pulumi.Input<string>;
+    }
+
     export interface InstanceGroupConfigAppConfigurationArgs {
         classification?: pulumi.Input<string | undefined>;
         configurationProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -50495,23 +52577,23 @@ export namespace eventsv2 {
     /**
      * Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
      */
-    export interface SubscriberInvokeConfigurationPropertiesArgs {
+    export interface SubscriberInvokeConfigurationArgs {
         /**
          * Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
          */
-        eventBusV2Parameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs | undefined>;
+        eventBusV2Parameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs | undefined>;
         /**
          * Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
          */
-        httpParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs | undefined>;
+        httpParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationHttpParametersPropertiesArgs | undefined>;
         /**
          * Parameters for writing events to an Amazon Kinesis Data Streams target.
          */
-        kinesisParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs | undefined>;
+        kinesisParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationKinesisParametersPropertiesArgs | undefined>;
         /**
          * Parameters for invoking an AWS Lambda function target.
          */
-        lambdaParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs | undefined>;
+        lambdaParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationLambdaParametersPropertiesArgs | undefined>;
         /**
          * The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
          */
@@ -50519,15 +52601,15 @@ export namespace eventsv2 {
         /**
          * Parameters for publishing events to an Amazon SNS topic target.
          */
-        snsParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs | undefined>;
+        snsParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationSnsParametersPropertiesArgs | undefined>;
         /**
          * Parameters for sending events to an Amazon SQS queue target.
          */
-        sqsParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs | undefined>;
+        sqsParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationSqsParametersPropertiesArgs | undefined>;
         /**
          * Parameters for starting an AWS Step Functions state machine execution target.
          */
-        stepFunctionsParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs | undefined>;
+        stepFunctionsParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs | undefined>;
         /**
          * The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
          */
@@ -50535,13 +52617,13 @@ export namespace eventsv2 {
         /**
          * Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
          */
-        universalTargetParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs | undefined>;
+        universalTargetParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs | undefined>;
     }
 
     /**
      * Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
      */
-    export interface SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs {
+    export interface SubscriberInvokeConfigurationEventBusV2ParametersPropertiesArgs {
         /**
          * Deduplication settings applied to the forwarded events on the downstream event bus.
          */
@@ -50559,7 +52641,7 @@ export namespace eventsv2 {
     /**
      * Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
      */
-    export interface SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs {
+    export interface SubscriberInvokeConfigurationHttpParametersPropertiesArgs {
         /**
          * HTTP headers to add to the request.
          */
@@ -50581,7 +52663,7 @@ export namespace eventsv2 {
     /**
      * Parameters for writing events to an Amazon Kinesis Data Streams target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs {
+    export interface SubscriberInvokeConfigurationKinesisParametersPropertiesArgs {
         /**
          * An explicit hash key that overrides the partition key's shard assignment. Accepts a literal value or a JSONata expression.
          */
@@ -50595,7 +52677,7 @@ export namespace eventsv2 {
     /**
      * Parameters for invoking an AWS Lambda function target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs {
+    export interface SubscriberInvokeConfigurationLambdaParametersPropertiesArgs {
         /**
          * A unique name for a durable function execution. Accepts a literal value or a JSONata expression.
          */
@@ -50621,7 +52703,7 @@ export namespace eventsv2 {
     /**
      * Parameters for publishing events to an Amazon SNS topic target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs {
+    export interface SubscriberInvokeConfigurationSnsParametersPropertiesArgs {
         /**
          * Custom message attributes to attach to each message; Amazon SNS subscription filter policies can match on them.
          */
@@ -50647,7 +52729,7 @@ export namespace eventsv2 {
     /**
      * Parameters for sending events to an Amazon SQS queue target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs {
+    export interface SubscriberInvokeConfigurationSqsParametersPropertiesArgs {
         /**
          * The delay in seconds for the message, written as a string. Accepts a literal value or a JSONata expression.
          */
@@ -50673,7 +52755,7 @@ export namespace eventsv2 {
     /**
      * Parameters for starting an AWS Step Functions state machine execution target.
      */
-    export interface SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs {
+    export interface SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs {
         /**
          * The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
          */
@@ -50695,7 +52777,7 @@ export namespace eventsv2 {
     /**
      * Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
      */
-    export interface SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs {
+    export interface SubscriberInvokeConfigurationUniversalTargetParametersPropertiesArgs {
         /**
          * JSON string or JSONata expression that produces the API request. Supports {% ... %} JSONata expressions for dynamic values from the event.
          */
@@ -52380,6 +54462,51 @@ export namespace fsx {
         vpcId: pulumi.Input<string>;
     }
 
+    /**
+     * Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
+     */
+    export interface StorageVirtualMachineActiveDirectoryConfigurationArgs {
+        /**
+         * The NetBIOS name of the Active Directory computer object that will be created for your SVM. Minimum values: 1. Maximum values: 15. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+         */
+        netBiosName?: pulumi.Input<string | undefined>;
+        /**
+         * The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory directory.
+         */
+        selfManagedActiveDirectoryConfiguration?: pulumi.Input<inputs.fsx.StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs | undefined>;
+    }
+
+    export interface StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs {
+        /**
+         * A list of IP addresses of DNS servers or domain controllers in the self-managed AD directory. Minimum: 1. Maximum: 3.
+         */
+        dnsIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the self-managed Active Directory domain join service account credentials. Minimum: 64. Maximum: 1024.
+         */
+        domainJoinServiceAccountSecret?: pulumi.Input<string | undefined>;
+        /**
+         * The fully qualified domain name of the self-managed AD directory, such as corp.example.com. Minimum: 1. Maximum: 255. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+         */
+        domainName?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the domain group whose members are granted administrative privileges for the file system. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+         */
+        fileSystemAdministratorsGroup?: pulumi.Input<string | undefined>;
+        /**
+         * The fully qualified distinguished name of the organizational unit within your self-managed AD directory. Minimum: 1. Maximum: 2000. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,2000}$`
+         */
+        organizationalUnitDistinguishedName?: pulumi.Input<string | undefined>;
+        /**
+         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^.{1,256}$`
+         */
+        password?: pulumi.Input<string | undefined>;
+        /**
+         * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+         */
+        userName?: pulumi.Input<string | undefined>;
+    }
+
     export interface VolumeAggregateConfigurationArgs {
         /**
          * The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
@@ -52977,6 +55104,10 @@ export namespace gamelift {
          * The version of the server SDK used in this container group
          */
         serverSdkVersion: pulumi.Input<string>;
+        /**
+         * The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
+         */
+        vcpu?: pulumi.Input<number | undefined>;
     }
 
     /**
@@ -55199,6 +57330,274 @@ export namespace glue {
         roleArn: pulumi.Input<string>;
     }
 
+    /**
+     * A column in a Table.
+     */
+    export interface TableColumnArgs {
+        /**
+         * A free-form text comment.
+         */
+        comment?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the Column.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The data type of the Column.
+         */
+        type?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Specifies an input structure that defines an Apache Iceberg metadata table.
+     */
+    export interface TableIcebergInputArgs {
+        /**
+         * Specifies the Iceberg table configuration.
+         */
+        icebergTableInput?: pulumi.Input<inputs.glue.TableIcebergTableInputArgs | undefined>;
+        /**
+         * A required metadata operation. Can only be set to CREATE.
+         */
+        metadataOperation?: pulumi.Input<string | undefined>;
+        /**
+         * The table version of the Iceberg table. Defaults to 2.
+         */
+        version?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A partition field in an Iceberg partition spec.
+     */
+    export interface TableIcebergPartitionFieldArgs {
+        /**
+         * The partition field ID.
+         */
+        fieldId?: pulumi.Input<number | undefined>;
+        /**
+         * The partition field name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The source field ID.
+         */
+        sourceId: pulumi.Input<number>;
+        /**
+         * The transform to apply.
+         */
+        transform: pulumi.Input<string>;
+    }
+
+    /**
+     * The partition spec for an Iceberg table.
+     */
+    export interface TableIcebergPartitionSpecArgs {
+        /**
+         * The partition fields.
+         */
+        fields: pulumi.Input<pulumi.Input<inputs.glue.TableIcebergPartitionFieldArgs>[]>;
+        /**
+         * The spec ID.
+         */
+        specId?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * The schema for an Iceberg table.
+     */
+    export interface TableIcebergSchemaArgs {
+        /**
+         * The fields in the schema.
+         */
+        fields: pulumi.Input<pulumi.Input<inputs.glue.TableIcebergStructFieldArgs>[]>;
+        /**
+         * The identifier field IDs.
+         */
+        identifierFieldIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+        /**
+         * The schema ID.
+         */
+        schemaId?: pulumi.Input<number | undefined>;
+        /**
+         * The type of the schema.
+         */
+        type?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A sort field in an Iceberg sort order.
+     */
+    export interface TableIcebergSortFieldArgs {
+        /**
+         * The sort direction.
+         */
+        direction: pulumi.Input<string>;
+        /**
+         * The null ordering.
+         */
+        nullOrder: pulumi.Input<string>;
+        /**
+         * The source field ID.
+         */
+        sourceId: pulumi.Input<number>;
+        /**
+         * The transform to apply.
+         */
+        transform: pulumi.Input<string>;
+    }
+
+    /**
+     * The sort order for an Iceberg table.
+     */
+    export interface TableIcebergSortOrderArgs {
+        /**
+         * The sort fields.
+         */
+        fields: pulumi.Input<pulumi.Input<inputs.glue.TableIcebergSortFieldArgs>[]>;
+        /**
+         * The order ID.
+         */
+        orderId: pulumi.Input<number>;
+    }
+
+    /**
+     * A field in an Iceberg schema.
+     */
+    export interface TableIcebergStructFieldArgs {
+        /**
+         * Documentation for the field.
+         */
+        doc?: pulumi.Input<string | undefined>;
+        /**
+         * The field ID.
+         */
+        id: pulumi.Input<number>;
+        /**
+         * The field name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Whether the field is required.
+         */
+        required: pulumi.Input<boolean>;
+        /**
+         * The field type.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies the Iceberg table configuration.
+     */
+    export interface TableIcebergTableInputArgs {
+        /**
+         * The location of the Iceberg table.
+         */
+        location: pulumi.Input<string>;
+        /**
+         * The partition spec for the Iceberg table.
+         */
+        partitionSpec?: pulumi.Input<inputs.glue.TableIcebergPartitionSpecArgs | undefined>;
+        /**
+         * The properties for the Iceberg table.
+         */
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * The schema for the Iceberg table.
+         */
+        schema: pulumi.Input<inputs.glue.TableIcebergSchemaArgs>;
+        /**
+         * The write order for the Iceberg table.
+         */
+        writeOrder?: pulumi.Input<inputs.glue.TableIcebergSortOrderArgs | undefined>;
+    }
+
+    /**
+     * A structure that describes a target table for resource linking.
+     */
+    export interface TableIdentifierArgs {
+        /**
+         * The ID of the Data Catalog in which the table resides.
+         */
+        catalogId?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the catalog database that contains the target table.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the target table.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * The Region of the table.
+         */
+        region?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A structure used to define a table.
+     */
+    export interface TableInputArgs {
+        /**
+         * A description of the table.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+         */
+        owner?: pulumi.Input<string | undefined>;
+        /**
+         * These key-value pairs define properties associated with the table.
+         */
+        parameters?: any | undefined;
+        /**
+         * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+         */
+        partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.TableColumnArgs>[] | undefined>;
+        /**
+         * The retention time for this table.
+         */
+        retention?: pulumi.Input<number | undefined>;
+        /**
+         * A storage descriptor containing information about the physical storage of this table.
+         */
+        storageDescriptor?: pulumi.Input<inputs.glue.TableStorageDescriptorArgs | undefined>;
+        /**
+         * The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+         */
+        tableType?: pulumi.Input<string | undefined>;
+        /**
+         * A TableIdentifier structure that describes a target table for resource linking.
+         */
+        targetTable?: pulumi.Input<inputs.glue.TableIdentifierArgs | undefined>;
+        /**
+         * The view definition for the table.
+         */
+        viewDefinition?: pulumi.Input<inputs.glue.TableViewDefinitionArgs | undefined>;
+        /**
+         * Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+         */
+        viewExpandedText?: pulumi.Input<string | undefined>;
+        /**
+         * Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+         */
+        viewOriginalText?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Specifies an OpenTableFormatInput structure when creating an open format table.
+     */
+    export interface TableOpenTableFormatInputArgs {
+        /**
+         * Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+         */
+        icebergInput?: pulumi.Input<inputs.glue.TableIcebergInputArgs | undefined>;
+    }
+
     export interface TableOptimizerCompactionConfigurationArgs {
         /**
          * The configuration for an Iceberg compaction optimizer.
@@ -55284,6 +57683,198 @@ export namespace glue {
          * The name of the AWS Glue connection used for the VPC for the table optimizer.
          */
         glueConnectionName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Specifies the sort order of a sorted column.
+     */
+    export interface TableOrderArgs {
+        /**
+         * The name of the column.
+         */
+        column: pulumi.Input<string>;
+        /**
+         * Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+         */
+        sortOrder: pulumi.Input<number>;
+    }
+
+    /**
+     * A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+     */
+    export interface TableSchemaIdArgs {
+        /**
+         * The name of the schema registry that contains the schema.
+         */
+        registryName?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+         */
+        schemaArn?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the schema. One of SchemaArn or SchemaName has to be provided.
+         */
+        schemaName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * An object that references a schema stored in the AWS Glue Schema Registry.
+     */
+    export interface TableSchemaReferenceArgs {
+        /**
+         * A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+         */
+        schemaId?: pulumi.Input<inputs.glue.TableSchemaIdArgs | undefined>;
+        /**
+         * The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+         */
+        schemaVersionId?: pulumi.Input<string | undefined>;
+        /**
+         * The version number of the schema.
+         */
+        schemaVersionNumber?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Information about a serialization/deserialization program (SerDe) that serves as an extractor an loader.
+     */
+    export interface TableSerdeInfoArgs {
+        /**
+         * Name of the SerDe.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * These key-value pairs define initialization parameters for the SerDe.
+         */
+        parameters?: any | undefined;
+        /**
+         * Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+         */
+        serializationLibrary?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+     */
+    export interface TableSkewedInfoArgs {
+        /**
+         * A list of names of columns that contain skewed values.
+         */
+        skewedColumnNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A mapping of skewed values to the columns that contain them.
+         */
+        skewedColumnValueLocationMaps?: any | undefined;
+        /**
+         * A list of names of columns that contain skewed values.
+         */
+        skewedColumnValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * Describes the physical storage of table data.
+     */
+    export interface TableStorageDescriptorArgs {
+        /**
+         * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         */
+        bucketColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A list of the Columns in the table.
+         */
+        columns?: pulumi.Input<pulumi.Input<inputs.glue.TableColumnArgs>[] | undefined>;
+        /**
+         * True if the data in the table is compressed, or False if not.
+         */
+        compressed?: pulumi.Input<boolean | undefined>;
+        /**
+         * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+         */
+        inputFormat?: pulumi.Input<string | undefined>;
+        /**
+         * The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+         */
+        location?: pulumi.Input<string | undefined>;
+        /**
+         * Must be specified if the table contains any dimension columns.
+         */
+        numberOfBuckets?: pulumi.Input<number | undefined>;
+        /**
+         * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+         */
+        outputFormat?: pulumi.Input<string | undefined>;
+        /**
+         * The user-supplied properties in key-value form.
+         */
+        parameters?: any | undefined;
+        /**
+         * An object that references a schema stored in the AWS Glue Schema Registry.
+         */
+        schemaReference?: pulumi.Input<inputs.glue.TableSchemaReferenceArgs | undefined>;
+        /**
+         * The serialization/deserialization (SerDe) information.
+         */
+        serdeInfo?: pulumi.Input<inputs.glue.TableSerdeInfoArgs | undefined>;
+        /**
+         * The information about values that appear frequently in a column (skewed values).
+         */
+        skewedInfo?: pulumi.Input<inputs.glue.TableSkewedInfoArgs | undefined>;
+        /**
+         * A list specifying the sort order of each bucket in the table.
+         */
+        sortColumns?: pulumi.Input<pulumi.Input<inputs.glue.TableOrderArgs>[] | undefined>;
+        /**
+         * True if the table data is stored in subdirectories, or False if not.
+         */
+        storedAsSubDirectories?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * A structure that defines the view.
+     */
+    export interface TableViewDefinitionArgs {
+        /**
+         * The definer of the view.
+         */
+        definer?: pulumi.Input<string | undefined>;
+        /**
+         * Indicates whether the view is protected.
+         */
+        isProtected?: pulumi.Input<boolean | undefined>;
+        /**
+         * The representations of the view.
+         */
+        representations?: pulumi.Input<pulumi.Input<inputs.glue.TableViewRepresentationArgs>[] | undefined>;
+        /**
+         * The sub-objects of the view.
+         */
+        subObjects?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * A structure that defines a view representation.
+     */
+    export interface TableViewRepresentationArgs {
+        /**
+         * The dialect of the view representation.
+         */
+        dialect?: pulumi.Input<string | undefined>;
+        /**
+         * The version of the dialect.
+         */
+        dialectVersion?: pulumi.Input<string | undefined>;
+        /**
+         * The connection used for validation.
+         */
+        validationConnection?: pulumi.Input<string | undefined>;
+        /**
+         * The expanded text of the view.
+         */
+        viewExpandedText?: pulumi.Input<string | undefined>;
+        /**
+         * The original text of the view.
+         */
+        viewOriginalText?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -56732,6 +59323,16 @@ export namespace healthlake {
     }
 
     /**
+     * The analytics configuration for the Data Store. Omitted when the Data Store can't carry analytics.
+     */
+    export interface FhirDatastoreAnalyticsConfigurationArgs {
+        /**
+         * The analytics status for the Data Store.
+         */
+        status: pulumi.Input<enums.healthlake.FhirDatastoreAnalyticsConfigurationStatus>;
+    }
+
+    /**
      * The identity provider configuration for the datastore
      */
     export interface FhirDatastoreIdentityProviderConfigurationArgs {
@@ -56768,6 +59369,16 @@ export namespace healthlake {
     }
 
     /**
+     * The natural language processing (NLP) configuration for the Data Store.
+     */
+    export interface FhirDatastoreNlpConfigurationArgs {
+        /**
+         * The NLP status for the Data Store.
+         */
+        status: pulumi.Input<enums.healthlake.FhirDatastoreNlpConfigurationStatus>;
+    }
+
+    /**
      * The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
      */
     export interface FhirDatastorePreloadDataConfigArgs {
@@ -56775,6 +59386,16 @@ export namespace healthlake {
          * The type of preloaded data. Only Synthea preloaded data is supported.
          */
         preloadDataType: pulumi.Input<enums.healthlake.FhirDatastorePreloadDataConfigPreloadDataType>;
+    }
+
+    /**
+     * The profile configuration for the Data Store.
+     */
+    export interface FhirDatastoreProfileConfigurationArgs {
+        /**
+         * The FHIR profiles the Data Store validates resources against by default, for example us-core-3.1.1.
+         */
+        defaultProfiles: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -57286,7 +59907,7 @@ export namespace imagebuilder {
          */
         ecrConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineEcrConfigurationArgs | undefined>;
         /**
-         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
          */
         imageScanningEnabled?: pulumi.Input<boolean | undefined>;
     }
@@ -57498,7 +60119,7 @@ export namespace imagebuilder {
          */
         ecrConfiguration?: pulumi.Input<inputs.imagebuilder.ImageEcrConfigurationArgs | undefined>;
         /**
-         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
          */
         imageScanningEnabled?: pulumi.Input<boolean | undefined>;
     }
@@ -57554,6 +60175,20 @@ export namespace imagebuilder {
     }
 
     /**
+     * Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.
+     */
+    export interface InfrastructureConfigurationAutoScalingGroupArgs {
+        /**
+         * The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.
+         */
+        capacityWaitTimeoutSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
      * The instance metadata option settings for the infrastructure configuration.
      */
     export interface InfrastructureConfigurationInstanceMetadataOptionsArgs {
@@ -57575,6 +60210,16 @@ export namespace imagebuilder {
          * The Amazon S3 logging configuration.
          */
         s3Logs?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationS3LogsArgs | undefined>;
+    }
+
+    /**
+     * Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+     */
+    export interface InfrastructureConfigurationParentInstanceArgs {
+        /**
+         * The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.
+         */
+        autoScalingGroup: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationAutoScalingGroupArgs>;
     }
 
     /**
@@ -58001,6 +60646,7 @@ export namespace inspectorv2 {
          * Details of the Amazon ECR image hashes used to filter findings.
          */
         ecrImageHash?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[] | undefined>;
+        ecrImageInUseCount?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterNumberFilterArgs>[] | undefined>;
         /**
          * Details on the Amazon ECR image push date and time used to filter findings.
          */
@@ -59019,6 +61665,208 @@ export namespace iot {
          * The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
          */
         action: pulumi.Input<enums.iot.MitigationActionUpdateDeviceCertificateParamsAction>;
+    }
+
+    export interface OtaUpdateAwsJobAbortConfigArgs {
+        /**
+         * The list of criteria that determine when and how to abort the job.
+         */
+        abortCriteriaList: pulumi.Input<pulumi.Input<inputs.iot.OtaUpdateAwsJobAbortCriteriaArgs>[]>;
+    }
+
+    export interface OtaUpdateAwsJobAbortCriteriaArgs {
+        /**
+         * The type of job action to take to initiate the job abort.
+         */
+        action: pulumi.Input<enums.iot.OtaUpdateAwsJobAbortCriteriaAction>;
+        /**
+         * The type of job execution failures that can initiate a job abort.
+         */
+        failureType: pulumi.Input<enums.iot.OtaUpdateAwsJobAbortCriteriaFailureType>;
+        /**
+         * The minimum number of things which must receive job execution notifications before the job can be aborted.
+         */
+        minNumberOfExecutedThings: pulumi.Input<number>;
+        /**
+         * The minimum percentage of job execution failures that must occur to initiate the job abort.
+         */
+        thresholdPercentage: pulumi.Input<number>;
+    }
+
+    export interface OtaUpdateAwsJobExecutionsRolloutConfigArgs {
+        exponentialRate?: pulumi.Input<inputs.iot.OtaUpdateAwsJobExponentialRolloutRateArgs | undefined>;
+        /**
+         * The maximum number of OTA update job executions started per minute.
+         */
+        maximumPerMinute?: pulumi.Input<number | undefined>;
+    }
+
+    export interface OtaUpdateAwsJobExponentialRolloutRateArgs {
+        /**
+         * The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout.
+         */
+        baseRatePerMinute: pulumi.Input<number>;
+        /**
+         * The rate of increase for a job rollout.
+         */
+        incrementFactor: pulumi.Input<number>;
+        rateIncreaseCriteria: pulumi.Input<inputs.iot.OtaUpdateAwsJobRateIncreaseCriteriaArgs>;
+    }
+
+    export interface OtaUpdateAwsJobPresignedUrlConfigArgs {
+        /**
+         * How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds.
+         */
+        expiresInSec?: pulumi.Input<number | undefined>;
+    }
+
+    export interface OtaUpdateAwsJobRateIncreaseCriteriaArgs {
+        /**
+         * When this number of things have been notified, it will initiate an increase in the rollout rate.
+         */
+        numberOfNotifiedThings?: pulumi.Input<number | undefined>;
+        /**
+         * When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+         */
+        numberOfSucceededThings?: pulumi.Input<number | undefined>;
+    }
+
+    export interface OtaUpdateAwsJobTimeoutConfigArgs {
+        /**
+         * Specifies the amount of time, in minutes, this device has to finish execution of this job.
+         */
+        inProgressTimeoutInMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    export interface OtaUpdateCodeSigningArgs {
+        /**
+         * The ID of the AWSSignerJob which was created to sign the file.
+         */
+        awsSignerJobId?: pulumi.Input<string | undefined>;
+        customCodeSigning?: pulumi.Input<inputs.iot.OtaUpdateCustomCodeSigningArgs | undefined>;
+        startSigningJobParameter?: pulumi.Input<inputs.iot.OtaUpdateStartSigningJobParameterArgs | undefined>;
+    }
+
+    export interface OtaUpdateCodeSigningCertificateChainArgs {
+        /**
+         * The name of the certificate.
+         */
+        certificateName?: pulumi.Input<string | undefined>;
+        /**
+         * A base64 encoded binary representation of the code signing certificate chain.
+         */
+        inlineDocument?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OtaUpdateCodeSigningSignatureArgs {
+        /**
+         * A base64 encoded binary representation of the code signing signature.
+         */
+        inlineDocument?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OtaUpdateCustomCodeSigningArgs {
+        certificateChain?: pulumi.Input<inputs.iot.OtaUpdateCodeSigningCertificateChainArgs | undefined>;
+        /**
+         * The hash algorithm used to code sign the file.
+         */
+        hashAlgorithm?: pulumi.Input<string | undefined>;
+        signature?: pulumi.Input<inputs.iot.OtaUpdateCodeSigningSignatureArgs | undefined>;
+        /**
+         * The signature algorithm used to code sign the file.
+         */
+        signatureAlgorithm?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OtaUpdateDestinationArgs {
+        s3Destination?: pulumi.Input<inputs.iot.OtaUpdateS3DestinationArgs | undefined>;
+    }
+
+    export interface OtaUpdateFileLocationArgs {
+        s3Location?: pulumi.Input<inputs.iot.OtaUpdateS3LocationArgs | undefined>;
+        stream?: pulumi.Input<inputs.iot.OtaUpdateStreamArgs | undefined>;
+    }
+
+    export interface OtaUpdateOtaUpdateFileArgs {
+        /**
+         * A list of name-attribute pairs.
+         */
+        attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        codeSigning?: pulumi.Input<inputs.iot.OtaUpdateCodeSigningArgs | undefined>;
+        fileLocation?: pulumi.Input<inputs.iot.OtaUpdateFileLocationArgs | undefined>;
+        /**
+         * The name of the file.
+         */
+        fileName?: pulumi.Input<string | undefined>;
+        /**
+         * An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+         */
+        fileType?: pulumi.Input<number | undefined>;
+        /**
+         * The file version.
+         */
+        fileVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OtaUpdateS3DestinationArgs {
+        /**
+         * The S3 bucket that contains the updated firmware.
+         */
+        bucket?: pulumi.Input<string | undefined>;
+        /**
+         * The S3 prefix.
+         */
+        prefix?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OtaUpdateS3LocationArgs {
+        /**
+         * The S3 bucket.
+         */
+        bucket?: pulumi.Input<string | undefined>;
+        /**
+         * The S3 key.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * The S3 bucket version.
+         */
+        version?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OtaUpdateSigningProfileParameterArgs {
+        /**
+         * Certificate ARN.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * The location of the code-signing certificate on your device.
+         */
+        certificatePathOnDevice?: pulumi.Input<string | undefined>;
+        /**
+         * The hardware platform of your device.
+         */
+        platform?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OtaUpdateStartSigningJobParameterArgs {
+        destination?: pulumi.Input<inputs.iot.OtaUpdateDestinationArgs | undefined>;
+        /**
+         * The code-signing profile name.
+         */
+        signingProfileName?: pulumi.Input<string | undefined>;
+        signingProfileParameter?: pulumi.Input<inputs.iot.OtaUpdateSigningProfileParameterArgs | undefined>;
+    }
+
+    export interface OtaUpdateStreamArgs {
+        /**
+         * The ID of a file associated with a stream.
+         */
+        fileId?: pulumi.Input<number | undefined>;
+        /**
+         * The stream ID.
+         */
+        streamId?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -60885,52 +63733,58 @@ export namespace iotcoredeviceadvisor {
 }
 
 export namespace iotevents {
-    /**
-     * Specifies whether to get notified for alarm state changes.
-     */
     export interface AlarmModelAcknowledgeFlowArgs {
         /**
-         * The value must be ``TRUE`` or ``FALSE``. If ``TRUE``, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to ``NORMAL``. If ``FALSE``, you won't receive notifications. The alarm automatically changes to the ``NORMAL`` state when the input property value returns to the specified range.
+         * The value must be `TRUE` or `FALSE` . If `TRUE` , you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to `NORMAL` . If `FALSE` , you won't receive notifications. The alarm automatically changes to the `NORMAL` state when the input property value returns to the specified range.
          */
         enabled?: pulumi.Input<boolean | undefined>;
     }
 
-    /**
-     * Specifies one of the following actions to receive notifications when the alarm state changes.
-     */
     export interface AlarmModelAlarmActionArgs {
         /**
-         * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-         *  You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
-         *   **Examples**
-         *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
-         *   +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
-         *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
-         *        ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
-         *   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-         *        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+         * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
          *
-         *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-         *  The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
+         * You must use expressions for all parameters in `DynamoDBv2Action` . The expressions accept literals, operators, functions, references, and substitution templates.
+         *
+         * **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `tableName` parameter can be `'GreenhouseTemperatureTable'` .
+         * - For references, you must specify either variables or input values. For example, the value for the `tableName` parameter can be `$variable.ddbtableName` .
+         * - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `contentExpression` parameter in `Payload` uses a substitution template.
+         *
+         * `'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'`
+         * - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `tableName` parameter uses a string concatenation.
+         *
+         * `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+         *
+         * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+         *
+         * The value for the `type` parameter in `Payload` must be `JSON` .
          */
         dynamoDBv2?: pulumi.Input<inputs.iotevents.AlarmModelDynamoDBv2Args | undefined>;
         /**
-         * Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-         *  You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
-         *   **Examples**
-         *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
-         *   +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
-         *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
-         *        ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
-         *   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-         *        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+         * Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
          *
-         *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-         *  If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+         * You must use expressions for all parameters in `DynamoDBAction` . The expressions accept literals, operators, functions, references, and substitution templates.
+         *
+         * **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `hashKeyType` parameter can be `'STRING'` .
+         * - For references, you must specify either variables or input values. For example, the value for the `hashKeyField` parameter can be `$input.GreenhouseInput.name` .
+         * - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `hashKeyValue` parameter uses a substitution template.
+         *
+         * `'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`
+         * - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `tableName` parameter uses a string concatenation.
+         *
+         * `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
+         *
+         * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+         *
+         * If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
          */
         dynamoDb?: pulumi.Input<inputs.iotevents.AlarmModelDynamoDbArgs | undefined>;
         /**
@@ -60938,25 +63792,29 @@ export namespace iotevents {
          */
         firehose?: pulumi.Input<inputs.iotevents.AlarmModelFirehoseArgs | undefined>;
         /**
-         * Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
+         * Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
          */
         iotEvents?: pulumi.Input<inputs.iotevents.AlarmModelIotEventsArgs | undefined>;
         /**
-         * Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
-         *  You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
-         *   **Examples**
-         *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
-         *   +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
-         *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         *       In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
-         *        ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+         * Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
          *
-         *  You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
-         *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         * You must use expressions for all parameters in `IotSiteWiseAction` . The expressions accept literals, operators, functions, references, and substitutions templates.
+         *
+         * **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `propertyAlias` parameter can be `'/company/windfarm/3/turbine/7/temperature'` .
+         * - For references, you must specify either variables or input values. For example, the value for the `assetId` parameter can be `$input.TurbineInput.assetId1` .
+         * - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         *
+         * In the following example, the value for the `propertyAlias` parameter uses a substitution template.
+         *
+         * `'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`
+         *
+         * You must specify either `propertyAlias` or both `assetId` and `propertyId` to identify the target asset property in AWS IoT SiteWise .
+         *
+         * For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
          */
         iotSiteWise?: pulumi.Input<inputs.iotevents.AlarmModelIotSiteWiseArgs | undefined>;
         /**
-         * Information required to publish the MQTT message through the IoT message broker.
+         * Information required to publish the MQTT message through the AWS IoT message broker.
          */
         iotTopicPublish?: pulumi.Input<inputs.iotevents.AlarmModelIotTopicPublishArgs | undefined>;
         /**
@@ -60973,9 +63831,6 @@ export namespace iotevents {
         sqs?: pulumi.Input<inputs.iotevents.AlarmModelSqsArgs | undefined>;
     }
 
-    /**
-     * Contains the configuration information of alarm state changes.
-     */
     export interface AlarmModelAlarmCapabilitiesArgs {
         /**
          * Specifies whether to get notified for alarm state changes.
@@ -60987,9 +63842,6 @@ export namespace iotevents {
         initializationConfiguration?: pulumi.Input<inputs.iotevents.AlarmModelInitializationConfigurationArgs | undefined>;
     }
 
-    /**
-     * Contains information about one or more alarm actions.
-     */
     export interface AlarmModelAlarmEventActionsArgs {
         /**
          * Specifies one or more supported actions to receive notifications when the alarm state changes.
@@ -60997,9 +63849,6 @@ export namespace iotevents {
         alarmActions?: pulumi.Input<pulumi.Input<inputs.iotevents.AlarmModelAlarmActionArgs>[] | undefined>;
     }
 
-    /**
-     * Defines when your alarm is invoked.
-     */
     export interface AlarmModelAlarmRuleArgs {
         /**
          * A rule that compares an input property value to a threshold value with a comparison operator.
@@ -61007,21 +63856,9 @@ export namespace iotevents {
         simpleRule?: pulumi.Input<inputs.iotevents.AlarmModelSimpleRuleArgs | undefined>;
     }
 
-    /**
-     * A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
-     *  You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
-     *        ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     */
     export interface AlarmModelAssetPropertyTimestampArgs {
         /**
-         * The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
+         * The nanosecond offset converted from `timeInSeconds` . The valid range is between 0-999999999.
          */
         offsetInNanos?: pulumi.Input<string | undefined>;
         /**
@@ -61030,18 +63867,9 @@ export namespace iotevents {
         timeInSeconds: pulumi.Input<string>;
     }
 
-    /**
-     * A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
-     *  You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     */
     export interface AlarmModelAssetPropertyValueArgs {
         /**
-         * The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
+         * The quality of the asset property value. The value must be `'GOOD'` , `'BAD'` , or `'UNCERTAIN'` .
          */
         quality?: pulumi.Input<string | undefined>;
         /**
@@ -61054,22 +63882,9 @@ export namespace iotevents {
         value: pulumi.Input<inputs.iotevents.AlarmModelAssetPropertyVariantArgs>;
     }
 
-    /**
-     * A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
-     *  You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
-     *   +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
-     *        ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     *  You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
-     */
     export interface AlarmModelAssetPropertyVariantArgs {
         /**
-         * The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
+         * The asset property value is a Boolean value that must be `'TRUE'` or `'FALSE'` . You must use an expression, and the evaluated result should be a Boolean value.
          */
         booleanValue?: pulumi.Input<string | undefined>;
         /**
@@ -61086,26 +63901,11 @@ export namespace iotevents {
         stringValue?: pulumi.Input<string | undefined>;
     }
 
-    /**
-     * Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-     *  You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
-     *        ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
-     *   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-     *        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     *  The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
-     */
     export interface AlarmModelDynamoDBv2Args {
         /**
          * Information needed to configure the payload.
-         *  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+         *
+         * By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
          */
         payload?: pulumi.Input<inputs.iotevents.AlarmModelPayloadArgs | undefined>;
         /**
@@ -61114,33 +63914,18 @@ export namespace iotevents {
         tableName: pulumi.Input<string>;
     }
 
-    /**
-     * Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-     *  You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
-     *        ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
-     *   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
-     *        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
-     *
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     *  If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
-     */
     export interface AlarmModelDynamoDbArgs {
         /**
-         * The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
+         * The name of the hash key (also called the partition key). The `hashKeyField` value must match the partition key of the target DynamoDB table.
          */
         hashKeyField: pulumi.Input<string>;
         /**
          * The data type for the hash key (also called the partition key). You can specify the following values:
-         *   +  ``'STRING'`` - The hash key is a string.
-         *   +  ``'NUMBER'`` - The hash key is a number.
          *
-         *  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
+         * - `'STRING'` - The hash key is a string.
+         * - `'NUMBER'` - The hash key is a number.
+         *
+         * If you don't specify `hashKeyType` , the default value is `'STRING'` .
          */
         hashKeyType?: pulumi.Input<string | undefined>;
         /**
@@ -61149,33 +63934,37 @@ export namespace iotevents {
         hashKeyValue: pulumi.Input<string>;
         /**
          * The type of operation to perform. You can specify the following values:
-         *   +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-         *   +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-         *   +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
          *
-         *  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
+         * - `'INSERT'` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+         * - `'UPDATE'` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+         * - `'DELETE'` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+         *
+         * If you don't specify this parameter, AWS IoT Events triggers the `'INSERT'` operation.
          */
         operation?: pulumi.Input<string | undefined>;
         /**
          * Information needed to configure the payload.
-         *  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+         *
+         * By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
          */
         payload?: pulumi.Input<inputs.iotevents.AlarmModelPayloadArgs | undefined>;
         /**
          * The name of the DynamoDB column that receives the action payload.
-         *  If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
+         *
+         * If you don't specify this parameter, the name of the DynamoDB column is `payload` .
          */
         payloadField?: pulumi.Input<string | undefined>;
         /**
-         * The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
+         * The name of the range key (also called the sort key). The `rangeKeyField` value must match the sort key of the target DynamoDB table.
          */
         rangeKeyField?: pulumi.Input<string | undefined>;
         /**
          * The data type for the range key (also called the sort key), You can specify the following values:
-         *   +  ``'STRING'`` - The range key is a string.
-         *   +  ``'NUMBER'`` - The range key is number.
          *
-         *  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
+         * - `'STRING'` - The range key is a string.
+         * - `'NUMBER'` - The range key is number.
+         *
+         * If you don't specify `rangeKeyField` , the default value is `'STRING'` .
          */
         rangeKeyType?: pulumi.Input<string | undefined>;
         /**
@@ -61183,14 +63972,11 @@ export namespace iotevents {
          */
         rangeKeyValue?: pulumi.Input<string | undefined>;
         /**
-         * The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
+         * The name of the DynamoDB table. The `tableName` value must match the table name of the target DynamoDB table.
          */
         tableName: pulumi.Input<string>;
     }
 
-    /**
-     * Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-     */
     export interface AlarmModelFirehoseArgs {
         /**
          * The name of the Kinesis Data Firehose delivery stream where the data is written.
@@ -61206,43 +63992,24 @@ export namespace iotevents {
         separator?: pulumi.Input<string | undefined>;
     }
 
-    /**
-     * Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
-     */
     export interface AlarmModelInitializationConfigurationArgs {
         /**
-         * The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
+         * The value must be `TRUE` or `FALSE` . If `FALSE` , all alarm instances created based on the alarm model are activated. The default value is `TRUE` .
          */
         disabledOnInitialization: pulumi.Input<boolean>;
     }
 
-    /**
-     * Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
-     */
     export interface AlarmModelIotEventsArgs {
         /**
-         * The name of the ITE input where the data is sent.
+         * The name of the AWS IoT Events input where the data is sent.
          */
         inputName: pulumi.Input<string>;
         /**
-         * You can configure the action payload when you send a message to an ITE input.
+         * You can configure the action payload when you send a message to an AWS IoT Events input.
          */
         payload?: pulumi.Input<inputs.iotevents.AlarmModelPayloadArgs | undefined>;
     }
 
-    /**
-     * Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
-     *  You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
-     *   **Examples**
-     *  +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
-     *   +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
-     *   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     *       In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
-     *        ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
-     *
-     *  You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
-     *  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
-     */
     export interface AlarmModelIotSiteWiseArgs {
         /**
          * The ID of the asset that has the specified property.
@@ -61266,23 +64033,17 @@ export namespace iotevents {
         propertyValue?: pulumi.Input<inputs.iotevents.AlarmModelAssetPropertyValueArgs | undefined>;
     }
 
-    /**
-     * Information required to publish the MQTT message through the IoT message broker.
-     */
     export interface AlarmModelIotTopicPublishArgs {
         /**
-         * The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
+         * The MQTT topic of the message. You can use a string expression that includes variables ( `$variable.<variable-name>` ) and input values ( `$input.<input-name>.<path-to-datum>` ) as the topic string.
          */
         mqttTopic: pulumi.Input<string>;
         /**
-         * You can configure the action payload when you publish a message to an IoTCore topic.
+         * You can configure the action payload when you publish a message to an AWS IoT Core topic.
          */
         payload?: pulumi.Input<inputs.iotevents.AlarmModelPayloadArgs | undefined>;
     }
 
-    /**
-     * Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
-     */
     export interface AlarmModelLambdaArgs {
         /**
          * The ARN of the Lambda function that is executed.
@@ -61294,42 +64055,32 @@ export namespace iotevents {
         payload?: pulumi.Input<inputs.iotevents.AlarmModelPayloadArgs | undefined>;
     }
 
-    /**
-     * Information needed to configure the payload.
-     *  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
-     */
     export interface AlarmModelPayloadArgs {
         /**
-         * The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
+         * The content of the payload. You can use a string expression that includes quoted strings ( `'<string>'` ), variables ( `$variable.<variable-name>` ), input values ( `$input.<input-name>.<path-to-datum>` ), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
          */
         contentExpression: pulumi.Input<string>;
         /**
-         * The value of the payload type can be either ``STRING`` or ``JSON``.
+         * The value of the payload type can be either `STRING` or `JSON` .
          */
         type: pulumi.Input<string>;
     }
 
-    /**
-     * A rule that compares an input property value to a threshold value with a comparison operator.
-     */
     export interface AlarmModelSimpleRuleArgs {
         /**
          * The comparison operator.
          */
-        comparisonOperator: pulumi.Input<enums.iotevents.AlarmModelSimpleRuleComparisonOperator>;
+        comparisonOperator: pulumi.Input<string>;
         /**
-         * The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
+         * The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
          */
         inputProperty: pulumi.Input<string>;
         /**
-         * The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
+         * The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
          */
         threshold: pulumi.Input<string>;
     }
 
-    /**
-     * Information required to publish the Amazon SNS message.
-     */
     export interface AlarmModelSnsArgs {
         /**
          * You can configure the action payload when you send a message as an Amazon SNS push notification.
@@ -61341,9 +64092,6 @@ export namespace iotevents {
         targetArn: pulumi.Input<string>;
     }
 
-    /**
-     * Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
-     */
     export interface AlarmModelSqsArgs {
         /**
          * You can configure the action payload when you send a message to an Amazon SQS queue.
@@ -63390,6 +66138,30 @@ export namespace iotwireless {
 }
 
 export namespace ivs {
+    /**
+     * Object specifying a configuration for integration with an AWS Elemental MediaTailor (EMT).
+     */
+    export interface AdConfigurationMediaTailorPlaybackConfigurationArgs {
+        /**
+         * ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+         */
+        playbackConfigurationArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Configuration for the post-roll ad break to use for this ad configuration.
+     */
+    export interface AdConfigurationPostRollConfigurationArgs {
+        /**
+         * Duration of the post-roll ad break, in seconds.
+         */
+        durationSeconds: pulumi.Input<number>;
+        /**
+         * Whether the post-roll ad configuration is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
     export interface ChannelMultitrackInputConfigurationArgs {
         /**
          * Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
@@ -68303,7 +71075,7 @@ export namespace lambda {
          */
         networkProtocol: pulumi.Input<enums.lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol>;
         /**
-         * The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+         * The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
          */
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -68316,6 +71088,10 @@ export namespace lambda {
      * The service configuration for the revision.
      */
     export interface ServiceConfigPropertiesArgs {
+        /**
+         * The versioned ARN of the network connector used for outbound network access from the revision.
+         */
+        egressNetworkConnectorArn?: pulumi.Input<string | undefined>;
         /**
          * Environment variables for the function.
          */
@@ -70045,6 +72821,38 @@ export namespace licensemanager {
         maxTimeToLiveInMinutes: pulumi.Input<number>;
     }
 
+    /**
+     * Describes product information for a license configuration.
+     */
+    export interface LicenseConfigurationProductInformationArgs {
+        /**
+         * A product information filter list.
+         */
+        productInformationFilterList: pulumi.Input<pulumi.Input<inputs.licensemanager.LicenseConfigurationProductInformationFilterArgs>[]>;
+        /**
+         * Resource type. The possible values are SSM_MANAGED | RDS.
+         */
+        resourceType: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes a product information filter.
+     */
+    export interface LicenseConfigurationProductInformationFilterArgs {
+        /**
+         * Logical operator.
+         */
+        productInformationFilterComparator: pulumi.Input<string>;
+        /**
+         * Filter name.
+         */
+        productInformationFilterName: pulumi.Input<string>;
+        /**
+         * Filter value.
+         */
+        productInformationFilterValue?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     export interface LicenseConsumptionConfigurationArgs {
         /**
          * Details about a borrow configuration.
@@ -70126,6 +72934,54 @@ export namespace licensemanager {
          */
         end: pulumi.Input<string>;
     }
+}
+
+export namespace licensemanagerlinuxsubscriptions {
+}
+
+export namespace licensemanagerusersubscriptions {
+    /**
+     * The source of the credentials that License Manager uses to reach the license server.
+     */
+    export interface LicenseServerEndpointCredentialsProviderArgs {
+        secretsManagerCredentialsProvider: pulumi.Input<inputs.licensemanagerusersubscriptions.LicenseServerEndpointSecretsManagerCredentialsProviderArgs>;
+    }
+
+    /**
+     * The settings of the RDS license server to create the endpoint for.
+     */
+    export interface LicenseServerEndpointLicenseServerSettingsArgs {
+        serverSettings: pulumi.Input<inputs.licensemanagerusersubscriptions.LicenseServerEndpointServerSettingsArgs>;
+        /**
+         * The type of license server.
+         */
+        serverType: pulumi.Input<enums.licensemanagerusersubscriptions.LicenseServerEndpointLicenseServerSettingsServerType>;
+    }
+
+    /**
+     * The settings of a Remote Desktop Services Subscriber Access License server.
+     */
+    export interface LicenseServerEndpointRdsSalSettingsArgs {
+        rdsSalCredentialsProvider: pulumi.Input<inputs.licensemanagerusersubscriptions.LicenseServerEndpointCredentialsProviderArgs>;
+    }
+
+    /**
+     * Credentials held in AWS Secrets Manager.
+     */
+    export interface LicenseServerEndpointSecretsManagerCredentialsProviderArgs {
+        /**
+         * The identifier of the Secrets Manager secret that holds the license server administrator credentials. The name of the secret must begin with the prefix license-manager-user-.
+         */
+        secretId: pulumi.Input<string>;
+    }
+
+    /**
+     * The settings of a license server, by server type.
+     */
+    export interface LicenseServerEndpointServerSettingsArgs {
+        rdsSalSettings: pulumi.Input<inputs.licensemanagerusersubscriptions.LicenseServerEndpointRdsSalSettingsArgs>;
+    }
+
 }
 
 export namespace lightsail {
@@ -71972,6 +74828,10 @@ export namespace mediaconnect {
     }
 
     export interface FlowNdiSourceSettingsArgs {
+        /**
+         * The audio reference level of the NDI sender, in dBFS.
+         */
+        audioReferenceLevel?: pulumi.Input<number | undefined>;
         sourceName?: pulumi.Input<string | undefined>;
     }
 
@@ -73287,6 +76147,338 @@ export namespace medialive {
     }
 
     /**
+     * The settings for a PUSH type input.
+     */
+    export interface InputDestinationArgs {
+        /**
+         * The system-generated static IP address of endpoint.
+         * It remains fixed for the lifetime of the input.
+         */
+        ip?: pulumi.Input<string | undefined>;
+        /**
+         * The ID of the attached network.
+         */
+        network?: pulumi.Input<string | undefined>;
+        /**
+         * If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+         * is going to be on the customer local network.
+         */
+        networkRoutes?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestinationRouteArgs>[] | undefined>;
+        /**
+         * The port number for the input.
+         */
+        port?: pulumi.Input<string | undefined>;
+        /**
+         * The static IP address for the input destination.
+         */
+        staticIpAddress?: pulumi.Input<string | undefined>;
+        /**
+         * The stream name for the input destination.
+         */
+        streamName?: pulumi.Input<string | undefined>;
+        /**
+         * This represents the endpoint that the customer stream will be
+         * pushed to.
+         */
+        url?: pulumi.Input<string | undefined>;
+        /**
+         * The properties for a VPC type input destination.
+         */
+        vpc?: pulumi.Input<inputs.medialive.InputDestinationVpcArgs | undefined>;
+    }
+
+    /**
+     * A network route configuration.
+     */
+    export interface InputDestinationRouteArgs {
+        /**
+         * The CIDR of the route.
+         */
+        cidr?: pulumi.Input<string | undefined>;
+        /**
+         * An optional gateway for the route.
+         */
+        gateway?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The properties for a VPC type input destination.
+     */
+    export interface InputDestinationVpcArgs {
+        /**
+         * The availability zone of the Input destination.
+         */
+        availabilityZone?: pulumi.Input<string | undefined>;
+        /**
+         * The network interface ID of the Input destination in the VPC.
+         */
+        networkInterfaceId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Settings for an input device.
+     */
+    export interface InputDeviceSettingsArgs {
+        /**
+         * The unique ID for the device.
+         */
+        id?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The settings for a MediaConnect Flow.
+     */
+    export interface InputMediaConnectFlowArgs {
+        /**
+         * The unique ARN of the MediaConnect Flow being used as a source.
+         */
+        flowArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+     */
+    export interface InputMulticastSettingsArgs {
+        /**
+         * Placeholder documentation for __listOfMulticastSource
+         */
+        sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputMulticastSourceArgs>[] | undefined>;
+    }
+
+    /**
+     * Pair of multicast url and source ip address (optional) that make up a multicast source.
+     */
+    export interface InputMulticastSourceArgs {
+        /**
+         * This represents the ip address of the device sending the multicast stream.
+         */
+        sourceIp?: pulumi.Input<string | undefined>;
+        /**
+         * This represents the customer's source URL where multicast stream is pulled from.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    /**
+     * A MediaConnect Router destination associated with a MediaLive Input. RouterOutputArn is server-assigned.
+     */
+    export interface InputRouterDestinationSettingsArgs {
+        /**
+         * The Availability Zone (AZ) name this destination is created in.
+         */
+        availabilityZoneName: pulumi.Input<string>;
+        /**
+         * The ARN of the MediaConnect Router output currently connected to this input.
+         */
+        routerOutputArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Information about the MediaConnect Router association for this input.
+     */
+    export interface InputRouterSettingsArgs {
+        /**
+         * MediaConnect Router destinations associated with this input.
+         */
+        destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputRouterDestinationSettingsArgs>[] | undefined>;
+        /**
+         * Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+         */
+        encryptionType?: pulumi.Input<enums.medialive.InputRouterSettingsEncryptionType | undefined>;
+        /**
+         * The ARN of the Secrets Manager secret used to encrypt this input. Required when EncryptionType is SECRETS_MANAGER.
+         */
+        secretArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The location of the SDP file for one of the SMPTE 2110 streams in a receiver group.
+     */
+    export interface InputSdpLocationArgs {
+        /**
+         * The index of the media stream in the SDP file for one SMPTE 2110 stream.
+         */
+        mediaIndex?: pulumi.Input<number | undefined>;
+        /**
+         * The URL of the SDP file for one SMPTE 2110 stream.
+         */
+        sdpUrl?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Whitelist rule
+     */
+    export interface InputSecurityGroupInputWhitelistRuleArgs {
+        /**
+         * The IPv4 CIDR that's whitelisted.
+         */
+        cidr?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A receiver group is a collection of video, audio, and ancillary streams that you want to group together and attach to one input.
+     */
+    export interface InputSmpte2110ReceiverGroupArgs {
+        /**
+         * The single Smpte2110ReceiverGroupSdpSettings that identify the video, audio, and ancillary streams for this receiver group.
+         */
+        sdpSettings?: pulumi.Input<inputs.medialive.InputSmpte2110ReceiverGroupSdpSettingsArgs | undefined>;
+    }
+
+    /**
+     * Information about the SDP files that describe the SMPTE 2110 streams that go into one SMPTE 2110 receiver group.
+     */
+    export interface InputSmpte2110ReceiverGroupSdpSettingsArgs {
+        /**
+         * A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+         * Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+         */
+        ancillarySdps?: pulumi.Input<pulumi.Input<inputs.medialive.InputSdpLocationArgs>[] | undefined>;
+        /**
+         * A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+         */
+        audioSdps?: pulumi.Input<pulumi.Input<inputs.medialive.InputSdpLocationArgs>[] | undefined>;
+        /**
+         * The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+         */
+        videoSdp?: pulumi.Input<inputs.medialive.InputSdpLocationArgs | undefined>;
+    }
+
+    /**
+     * Configures the sources for the SMPTE 2110 Receiver Group input.
+     */
+    export interface InputSmpte2110ReceiverGroupSettingsArgs {
+        /**
+         * Placeholder documentation for __listOfSmpte2110ReceiverGroup
+         */
+        smpte2110ReceiverGroups?: pulumi.Input<pulumi.Input<inputs.medialive.InputSmpte2110ReceiverGroupArgs>[] | undefined>;
+    }
+
+    /**
+     * The settings for a PULL type input.
+     */
+    export interface InputSourceArgs {
+        /**
+         * The key used to extract the password from EC2 Parameter store.
+         */
+        passwordParam?: pulumi.Input<string | undefined>;
+        /**
+         * This represents the customer's source URL where stream is
+         * pulled from.
+         */
+        url?: pulumi.Input<string | undefined>;
+        /**
+         * The username for the input source.
+         */
+        username?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+     */
+    export interface InputSrtCallerDecryptionArgs {
+        /**
+         * The algorithm used to encrypt content.
+         */
+        algorithm?: pulumi.Input<enums.medialive.InputAlgorithm | undefined>;
+        /**
+         * The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+         */
+        passphraseSecretArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+     */
+    export interface InputSrtCallerSourceArgs {
+        /**
+         * The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+         */
+        decryption?: pulumi.Input<inputs.medialive.InputSrtCallerDecryptionArgs | undefined>;
+        /**
+         * The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+         */
+        minimumLatency?: pulumi.Input<number | undefined>;
+        /**
+         * The IP address at the upstream system (the listener) that MediaLive (the caller) connects to.
+         */
+        srtListenerAddress?: pulumi.Input<string | undefined>;
+        /**
+         * The port at the upstream system (the listener) that MediaLive (the caller) connects to.
+         */
+        srtListenerPort?: pulumi.Input<string | undefined>;
+        /**
+         * The stream ID, if the upstream system uses this identifier.
+         */
+        streamId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+     */
+    export interface InputSrtListenerDecryptionArgs {
+        /**
+         * The algorithm used to encrypt content.
+         */
+        algorithm?: pulumi.Input<enums.medialive.InputAlgorithm | undefined>;
+        /**
+         * The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+         */
+        passphraseSecretArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is the listener and the upstream system is the caller.
+     */
+    export interface InputSrtListenerSettingsArgs {
+        /**
+         * The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+         */
+        decryption?: pulumi.Input<inputs.medialive.InputSrtListenerDecryptionArgs | undefined>;
+        /**
+         * The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+         */
+        minimumLatency?: pulumi.Input<number | undefined>;
+        /**
+         * The stream ID, if the upstream system uses this identifier.
+         */
+        streamId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The configured sources for this SRT input.
+     */
+    export interface InputSrtSettingsArgs {
+        /**
+         * Placeholder documentation for __listOfSrtCallerSource
+         */
+        srtCallerSources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSrtCallerSourceArgs>[] | undefined>;
+        /**
+         * Settings for an SRT listener input. Configured only when the input uses the SRT_LISTENER input type.
+         */
+        srtListenerSettings?: pulumi.Input<inputs.medialive.InputSrtListenerSettingsArgs | undefined>;
+    }
+
+    /**
+     * Settings for a private VPC Input.
+     * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+     * This property requires setting the roleArn property on Input creation.
+     * Not compatible with the inputSecurityGroups property.
+     */
+    export interface InputVpcRequestArgs {
+        /**
+         * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+         * Requires subnetIds. If none are specified then the VPC default security group will be used.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A list of 2 VPC subnet IDs from the same VPC.
+         * Subnet IDs must be mapped to two unique availability zones (AZ).
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
      * Multiplex MediaConnect output destination settings.
      */
     export interface MultiplexOutputDestinationArgs {
@@ -74246,6 +77438,13 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>
+     */
+    export interface OriginEndpointContentKeyPeriodConfigurationArgs {
+        contentKeyPeriodTiming?: pulumi.Input<enums.mediapackagev2.OriginEndpointContentKeyPeriodTiming | undefined>;
+    }
+
+    /**
      * <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
      */
     export interface OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs {
@@ -74567,6 +77766,7 @@ export namespace mediapackagev2 {
          * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
          */
         manifestFilter?: pulumi.Input<string | undefined>;
+        multiview?: pulumi.Input<inputs.mediapackagev2.OriginEndpointMultiviewFilterConfigurationArgs | undefined>;
         /**
          * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
          */
@@ -74631,6 +77831,36 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+     */
+    export interface OriginEndpointLowLatencyHlsFilterConfigurationArgs {
+        /**
+         * <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+         */
+        clipStartTime?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+         */
+        drmSettings?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+         */
+        end?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+         */
+        manifestFilter?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+         */
+        start?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+         */
+        timeDelaySeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
      * <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
      */
     export interface OriginEndpointLowLatencyHlsManifestConfigurationArgs {
@@ -74641,7 +77871,7 @@ export namespace mediapackagev2 {
         /**
          * Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
          */
-        filterConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointFilterConfigurationArgs | undefined>;
+        filterConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointLowLatencyHlsFilterConfigurationArgs | undefined>;
         /**
          * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
@@ -74674,10 +77904,40 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+     */
+    export interface OriginEndpointMssFilterConfigurationArgs {
+        /**
+         * <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+         */
+        clipStartTime?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+         */
+        drmSettings?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+         */
+        end?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+         */
+        manifestFilter?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+         */
+        start?: pulumi.Input<string | undefined>;
+        /**
+         * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+         */
+        timeDelaySeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
      * <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
      */
     export interface OriginEndpointMssManifestConfigurationArgs {
-        filterConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointFilterConfigurationArgs | undefined>;
+        filterConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointMssFilterConfigurationArgs | undefined>;
         manifestLayout?: pulumi.Input<enums.mediapackagev2.OriginEndpointMssManifestLayout | undefined>;
         /**
          * <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
@@ -74687,6 +77947,17 @@ export namespace mediapackagev2 {
          * <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
          */
         manifestWindowSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * <p>The multiview combination for a pinned manifest. MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+     */
+    export interface OriginEndpointMultiviewFilterConfigurationArgs {
+        layout: pulumi.Input<enums.mediapackagev2.OriginEndpointMultiviewLayoutType>;
+        /**
+         * <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+         */
+        sources: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -74796,6 +78067,7 @@ export namespace mediapackagev2 {
          * <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
          */
         certificateArn?: pulumi.Input<string | undefined>;
+        contentKeyPeriodConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointContentKeyPeriodConfigurationArgs | undefined>;
         /**
          * <p>The DRM solution provider you're using to protect your content during distribution.</p>
          */
@@ -74812,6 +78084,7 @@ export namespace mediapackagev2 {
          * <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
          */
         roleArn: pulumi.Input<string>;
+        spekeVersion?: pulumi.Input<enums.mediapackagev2.OriginEndpointSpekeVersion | undefined>;
         /**
          * <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
          */
@@ -74936,6 +78209,10 @@ export namespace mediatailor {
          */
         body?: pulumi.Input<string | undefined>;
         /**
+         * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+         */
+        cache?: pulumi.Input<inputs.mediatailor.FunctionHttpRequestCacheConfigurationArgs | undefined>;
+        /**
          * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
          */
         headers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -75001,6 +78278,24 @@ export namespace mediatailor {
     }
 
     /**
+     * The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST). When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+     */
+    export interface FunctionHttpRequestCacheConfigurationArgs {
+        /**
+         * A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, request body, and HTTP method; request headers are not included. The evaluated key must be smaller than 1 KB.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to TtlMinimumSeconds.
+         */
+        ttlMaximumSeconds: pulumi.Input<number>;
+        /**
+         * The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no Cache-Control max-age directive.
+         */
+        ttlMinimumSeconds: pulumi.Input<number>;
+    }
+
+    /**
      * Configuration for HTTP request functions.
      */
     export interface FunctionHttpRequestConfigurationArgs {
@@ -75008,6 +78303,10 @@ export namespace mediatailor {
          * The body of the HTTP request.
          */
         body?: pulumi.Input<string | undefined>;
+        /**
+         * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+         */
+        cache?: pulumi.Input<inputs.mediatailor.FunctionHttpRequestCacheConfigurationArgs | undefined>;
         /**
          * A map of HTTP headers to include in the request.
          */
@@ -75079,6 +78378,10 @@ export namespace mediatailor {
          * An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
          */
         body?: pulumi.Input<string | undefined>;
+        /**
+         * The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+         */
+        cache?: pulumi.Input<inputs.mediatailor.FunctionHttpRequestCacheConfigurationArgs | undefined>;
         /**
          * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
          */
@@ -75215,6 +78518,16 @@ export namespace mediatailor {
     }
 
     /**
+     * The beaconing configuration for a playback configuration. Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+     */
+    export interface PlaybackConfigurationBeaconingConfigurationArgs {
+        /**
+         * The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+         */
+        clientSide?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationClientSideBeaconingConfigurationArgs | undefined>;
+    }
+
+    /**
      * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
      */
     export interface PlaybackConfigurationBumperArgs {
@@ -75240,6 +78553,20 @@ export namespace mediatailor {
          * A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
          */
         contentSegmentUrlPrefix?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The beaconing settings that apply to client-side reporting sessions: whether AWS Elemental MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+     */
+    export interface PlaybackConfigurationClientSideBeaconingConfigurationArgs {
+        /**
+         * The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+         */
+        additionalEventTypes?: pulumi.Input<pulumi.Input<enums.mediatailor.PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem>[] | undefined>;
+        /**
+         * Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+         */
+        reportingMode: pulumi.Input<enums.mediatailor.PlaybackConfigurationClientSideBeaconingConfigurationReportingMode>;
     }
 
     /**
@@ -79922,6 +83249,10 @@ export namespace opensearchservice {
          */
         enabled?: pulumi.Input<boolean | undefined>;
         /**
+         * The type of encryption at rest applied to the domain's data. Valid values are DISK and NATIVE. DISK is the default and uses volume-level encryption. NATIVE uses engine-native, index-level encryption and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After the mode is set to NATIVE, it can't be changed back to DISK.
+         */
+        encryptionMode?: pulumi.Input<enums.opensearchservice.DomainEncryptionAtRestOptionsEncryptionMode | undefined>;
+        /**
          * The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
          *
          * You can also use `keyAlias` as a value.
@@ -80823,7 +84154,7 @@ export namespace pcs {
         /**
          * The version of the EC2 launch template to use to provision instances.
          */
-        version: pulumi.Input<string>;
+        version?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -92523,14 +95854,13 @@ export namespace quicksight {
 
     /**
      * Scoping: who the policy applies to.
-     * GROUP: `groupArns` required (one or more group ARNs).
      */
     export interface ApprovalPolicyApplicableToArgs {
         /**
          * Required when type = GROUP. One or more group ARNs.
          */
         groupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        type: any;
+        type: pulumi.Input<enums.quicksight.ApprovalPolicyApplicableToType>;
     }
 
     export interface CustomPermissionsCapabilitiesArgs {
@@ -104182,6 +107512,7 @@ export namespace quicksight {
          * The credentials for connecting using key-pair.
          */
         keyPairCredentials?: pulumi.Input<inputs.quicksight.DataSourceKeyPairCredentialsArgs | undefined>;
+        oAuthClientCredentials?: pulumi.Input<inputs.quicksight.DataSourceOAuthClientCredentialsArgs | undefined>;
         /**
          * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
          */
@@ -104192,10 +107523,12 @@ export namespace quicksight {
      * <p>The parameters that are required to connect to a Databricks data source.</p>
      */
     export interface DataSourceDatabricksParametersArgs {
+        authenticationType?: pulumi.Input<enums.quicksight.DataSourceAuthenticationType | undefined>;
         /**
          * <p>The host name of the Databricks data source.</p>
          */
         host: pulumi.Input<string>;
+        oAuthParameters?: pulumi.Input<inputs.quicksight.DataSourceOAuthParametersArgs | undefined>;
         /**
          * <p>The port for the Databricks data source.</p>
          */
@@ -104293,6 +107626,12 @@ export namespace quicksight {
          * <p>Port.</p>
          */
         port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceOAuthClientCredentialsArgs {
+        clientId?: pulumi.Input<string | undefined>;
+        clientSecret?: pulumi.Input<string | undefined>;
+        username?: pulumi.Input<string | undefined>;
     }
 
     export interface DataSourceOAuthParametersArgs {
@@ -115951,11 +119290,54 @@ export namespace resiliencehubv2 {
         externalId?: pulumi.Input<string | undefined>;
     }
 
+    /**
+     * Links the service to an AWS DevOps Agent Agent Space. Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+     */
+    export interface ServiceDevOpsAgentConfigurationArgs {
+        /**
+         * The ARN of the DevOps Agent Agent Space to link to this service.
+         */
+        agentSpaceArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Kubernetes label selector that scopes discovery to matching objects in the specified namespaces. An object must satisfy both MatchLabels and MatchExpressions. Specify at least one of them; a selector carrying neither is treated as though no selector were supplied, and all supported objects in the specified namespaces are discovered.
+     */
+    export interface ServiceEksLabelSelectorArgs {
+        /**
+         * Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+         */
+        matchExpressions?: pulumi.Input<pulumi.Input<inputs.resiliencehubv2.ServiceEksLabelSelectorRequirementArgs>[] | undefined>;
+        /**
+         * Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+         */
+        matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    /**
+     * A single label selector requirement. Specify Values when Operator is IN or NOT_IN, and omit Values when Operator is EXISTS or DOES_NOT_EXIST.
+     */
+    export interface ServiceEksLabelSelectorRequirementArgs {
+        /**
+         * Label key the requirement applies to.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Operator applied to the label key.
+         */
+        operator: pulumi.Input<enums.resiliencehubv2.ServiceEksLabelSelectorRequirementOperator>;
+        /**
+         * Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     export interface ServiceEksSourceArgs {
         /**
          * ARN of the EKS cluster.
          */
         clusterArn: pulumi.Input<string>;
+        labelSelector?: pulumi.Input<inputs.resiliencehubv2.ServiceEksLabelSelectorArgs | undefined>;
         /**
          * EKS namespaces.
          */
@@ -117551,8 +120933,18 @@ export namespace s3 {
         outputSchemaVersion: pulumi.Input<string>;
     }
 
+    /**
+     * The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket, unless an object's upload request specifies its own Object Lock settings. New object versions are placed under an event hold and remain protected while the hold is active. When the event hold is released, Amazon S3 retains the object version for this duration, measured from the time the hold is released.
+     *   The ``DefaultEventHold`` duration can be specified in either ``Days`` or ``Years``, but you must select one. You can't specify ``Days`` and ``Years`` at the same time.
+     */
     export interface BucketDefaultEventHoldArgs {
+        /**
+         * The number of days that you want to specify for the default event hold duration. Valid values are ``1`` to ``36500`` days. You must specify either ``Days`` or ``Years``, but not both.
+         */
         days?: pulumi.Input<number | undefined>;
+        /**
+         * The number of years that you want to specify for the default event hold duration. Valid values are ``1`` to ``100`` years. You must specify either ``Days`` or ``Years``, but not both.
+         */
         years?: pulumi.Input<number | undefined>;
     }
 
@@ -117566,6 +120958,10 @@ export namespace s3 {
          * The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
          */
         days?: pulumi.Input<number | undefined>;
+        /**
+         * The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+         *   If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
+         */
         defaultEventHold?: pulumi.Input<inputs.s3.BucketDefaultEventHoldArgs | undefined>;
         /**
          * The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
@@ -120443,6 +123839,10 @@ export namespace sagemaker {
         executionRole: pulumi.Input<string>;
         imageId?: pulumi.Input<string | undefined>;
         /**
+         * The version of the HyperPod-managed AMI for the instance group, in semantic version format MAJOR.MINOR.PATCH (for example, 1.2.3). Supported only for EKS-orchestrated clusters. If omitted at creation, the latest available version is used (or the version of an existing same-architecture instance group when adding a group). Changing this value on an existing instance group triggers a software update via UpdateClusterSoftware. Automatic patching (AutoPatchConfig) and out-of-band software updates can advance the running version past this value; CloudFormation does not revert such changes and may report the property as drifted. Only an explicit change to this value in the template triggers an update.
+         */
+        imageReleaseVersion?: pulumi.Input<string | undefined>;
+        /**
          * The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
          */
         instanceCount: pulumi.Input<number>;
@@ -120734,6 +124134,100 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
          */
         secretArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Multi-instance GPU (MIG) partition profile and count for fractional accelerator allocation.
+     */
+    export interface ComputeQuotaAcceleratorPartitionConfigArgs {
+        /**
+         * The number of MIG partitions of the specified Type allocated to the team.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+         */
+        type: pulumi.Input<enums.sagemaker.ComputeQuotaAcceleratorPartitionConfigType>;
+    }
+
+    /**
+     * Compute allocation rules: per-resource quotas, idle-borrowing strategy, and team-task preemption policy.
+     */
+    export interface ComputeQuotaConfigArgs {
+        /**
+         * Per-instance-type compute quotas for the team. When VCpu / MemoryInGiB / Accelerators are partially specified, SageMaker auto-fills the remaining fields ratio-proportionally to the underlying instance — Read may return values the customer did not supply (drift may flag this).
+         */
+        computeQuotaResources?: pulumi.Input<pulumi.Input<inputs.sagemaker.ComputeQuotaResourceConfigArgs>[] | undefined>;
+        /**
+         * Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+         */
+        preemptTeamTasks?: pulumi.Input<enums.sagemaker.ComputeQuotaConfigPreemptTeamTasks | undefined>;
+        /**
+         * Idle-resource-sharing strategy for this team's quota. When omitted, the service applies defaults (Strategy=LendAndBorrow, BorrowLimit=50).
+         */
+        resourceSharingConfig?: pulumi.Input<inputs.sagemaker.ComputeQuotaResourceSharingConfigArgs | undefined>;
+    }
+
+    /**
+     * Per-instance-type compute quota element. Reused under ComputeQuotaConfig.ComputeQuotaResources and ResourceSharingConfig.AbsoluteBorrowLimits.
+     */
+    export interface ComputeQuotaResourceConfigArgs {
+        /**
+         * Multi-instance GPU (MIG) partition profile and count, for fractional accelerator allocation. Service rejects MIG profiles that the chosen InstanceType does not support.
+         */
+        acceleratorPartition?: pulumi.Input<inputs.sagemaker.ComputeQuotaAcceleratorPartitionConfigArgs | undefined>;
+        /**
+         * The number of accelerators (e.g., GPUs) of this type allocated to the team. SageMaker auto-fills VCpu / MemoryInGiB ratio-proportionally if only this is set.
+         */
+        accelerators?: pulumi.Input<number | undefined>;
+        /**
+         * The number of instances of this type allocated to the team.
+         */
+        count?: pulumi.Input<number | undefined>;
+        /**
+         * The cluster instance type the quota applies to (e.g., 'ml.m5.xlarge', 'ml.p5.48xlarge'). Validated by the service against the supported HyperPod instance types.
+         */
+        instanceType: pulumi.Input<string>;
+        /**
+         * The memory in GiB allocated to the team. Floating-point. SageMaker auto-fills Accelerators / VCpu ratio-proportionally if only this is set.
+         */
+        memoryInGiB?: pulumi.Input<number | undefined>;
+        /**
+         * The number of vCPUs allocated to the team. Floating-point. SageMaker auto-fills Accelerators / MemoryInGiB ratio-proportionally if only this is set.
+         */
+        vCpu?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Idle-resource-sharing strategy for this team's quota.
+     */
+    export interface ComputeQuotaResourceSharingConfigArgs {
+        /**
+         * Per-instance-type absolute caps on resources this team can borrow.
+         */
+        absoluteBorrowLimits?: pulumi.Input<pulumi.Input<inputs.sagemaker.ComputeQuotaResourceConfigArgs>[] | undefined>;
+        /**
+         * Maximum percentage of the team's idle quota that can be borrowed by other teams. Smithy admits 0..10000; in practice the service-documented operational range is 1..500. Defaults service-side to 50 when omitted on Create.
+         */
+        borrowLimit?: pulumi.Input<number | undefined>;
+        /**
+         * How this team participates in idle-resource sharing.
+         */
+        strategy: pulumi.Input<enums.sagemaker.ComputeQuotaResourceSharingConfigStrategy>;
+    }
+
+    /**
+     * The team this compute allocation rule applies to.
+     */
+    export interface ComputeQuotaTargetArgs {
+        /**
+         * Relative fair-share weight when fair-share scheduling is enabled on the parent ClusterSchedulerConfig. Defaults service-side to 0 when omitted.
+         */
+        fairShareWeight?: pulumi.Input<number | undefined>;
+        /**
+         * The name of the team. Materialized as Kubernetes namespace 'hyperpod-ns-<TeamName>' on the EKS cluster, so the value must satisfy RFC 1123 namespace constraints. Reassignment is not supported (createOnly).
+         */
+        teamName: pulumi.Input<string>;
     }
 
     /**
@@ -123036,7 +126530,7 @@ export namespace sagemaker {
         name: pulumi.Input<string>;
         notes?: pulumi.Input<string | undefined>;
         type: pulumi.Input<enums.sagemaker.ModelCardBarChartMetricType>;
-        value: pulumi.Input<pulumi.Input<number>[]>;
+        value: pulumi.Input<pulumi.Input<number | string>[]>;
         xAxisName?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         yAxisName?: pulumi.Input<string | undefined>;
     }
@@ -123165,7 +126659,7 @@ export namespace sagemaker {
         name: pulumi.Input<string>;
         notes?: pulumi.Input<string | undefined>;
         type: pulumi.Input<enums.sagemaker.ModelCardLinearGraphMetricType>;
-        value: pulumi.Input<pulumi.Input<pulumi.Input<number>[]>[]>;
+        value: pulumi.Input<pulumi.Input<pulumi.Input<number | string>[]>[]>;
         xAxisName?: pulumi.Input<string | undefined>;
         yAxisName?: pulumi.Input<string | undefined>;
     }
@@ -123174,7 +126668,7 @@ export namespace sagemaker {
         name: pulumi.Input<string>;
         notes?: pulumi.Input<string | undefined>;
         type: pulumi.Input<enums.sagemaker.ModelCardMatrixMetricType>;
-        value: pulumi.Input<pulumi.Input<pulumi.Input<number>[]>[]>;
+        value: pulumi.Input<pulumi.Input<pulumi.Input<number | string>[]>[]>;
         xAxisName?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         yAxisName?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -127302,6 +130796,108 @@ export namespace securityagent {
     }
 
     /**
+     * The input required to create a Bitbucket integration.
+     */
+    export interface IntegrationBitbucketInputArgs {
+        /**
+         * The OAuth 2.0 authorization code returned from the consent redirect.
+         */
+        code: pulumi.Input<string>;
+        /**
+         * The Atlassian installation identifier, available from the Atlassian administration console.
+         */
+        installationId: pulumi.Input<string>;
+        /**
+         * The CSRF state token echoed back from the OAuth redirect.
+         */
+        state: pulumi.Input<string>;
+        /**
+         * The Bitbucket workspace slug that identifies the workspace to integrate.
+         */
+        workspace: pulumi.Input<string>;
+    }
+
+    /**
+     * The input required to create a Confluence integration.
+     */
+    export interface IntegrationConfluenceInputArgs {
+        /**
+         * The OAuth 2.0 authorization code returned from the consent redirect.
+         */
+        code: pulumi.Input<string>;
+        /**
+         * The Atlassian installation identifier, available from the Atlassian administration console.
+         */
+        installationId: pulumi.Input<string>;
+        /**
+         * The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+         */
+        siteUrl: pulumi.Input<string>;
+        /**
+         * The CSRF state token echoed back from the OAuth redirect.
+         */
+        state: pulumi.Input<string>;
+    }
+
+    /**
+     * The input required to create a GitHub integration.
+     */
+    export interface IntegrationGitHubInputArgs {
+        /**
+         * The OAuth authorization code received from GitHub.
+         */
+        code: pulumi.Input<string>;
+        /**
+         * The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+         */
+        installationId?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the GitHub organization to integrate with.
+         */
+        organizationName?: pulumi.Input<string | undefined>;
+        /**
+         * The CSRF state token for validating the OAuth flow.
+         */
+        state: pulumi.Input<string>;
+        /**
+         * The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+         */
+        targetUrl?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The input required to create a GitLab integration.
+     */
+    export interface IntegrationGitLabInputArgs {
+        /**
+         * The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+         */
+        accessToken: pulumi.Input<string>;
+        /**
+         * The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+         */
+        groupId?: pulumi.Input<string | undefined>;
+        /**
+         * The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+         */
+        targetUrl?: pulumi.Input<string | undefined>;
+        /**
+         * The type of GitLab access token.
+         */
+        tokenType: pulumi.Input<enums.securityagent.IntegrationGitLabInputTokenType>;
+    }
+
+    /**
+     * The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+     */
+    export interface IntegrationProviderInputArgs {
+        bitbucket?: pulumi.Input<inputs.securityagent.IntegrationBitbucketInputArgs | undefined>;
+        confluence?: pulumi.Input<inputs.securityagent.IntegrationConfluenceInputArgs | undefined>;
+        github?: pulumi.Input<inputs.securityagent.IntegrationGitHubInputArgs | undefined>;
+        gitlab?: pulumi.Input<inputs.securityagent.IntegrationGitLabInputArgs | undefined>;
+    }
+
+    /**
      * An authenticated actor to be used during pentest execution
      */
     export interface PentestActorArgs {
@@ -127496,6 +131092,66 @@ export namespace securityagent {
     }
 
     /**
+     * Destination for publishing a scan report to Confluence
+     */
+    export interface PentestReportDestinationArgs {
+        /**
+         * Identifier of the container, such as a space, within the integration to publish the report to
+         */
+        containerId: pulumi.Input<string>;
+        /**
+         * Identifier of an existing document to update with the report
+         */
+        documentId?: pulumi.Input<string | undefined>;
+        /**
+         * Unique identifier of the provider integration to publish the report to
+         */
+        integrationId: pulumi.Input<string>;
+        /**
+         * Identifier of the parent under which the report document is created
+         */
+        parentId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Filters applied when a scan report is published to Confluence
+     */
+    export interface PentestReportFiltersArgs {
+        /**
+         * Whether to include reviewer annotation notes under each finding
+         */
+        annotationNotes?: pulumi.Input<boolean | undefined>;
+        /**
+         * Whether to include the compliance-ready report additions
+         */
+        complianceReport?: pulumi.Input<boolean | undefined>;
+        /**
+         * Confidence levels to include in the report
+         */
+        confidenceLevels?: pulumi.Input<pulumi.Input<enums.securityagent.PentestReportFiltersConfidenceLevelsItem>[] | undefined>;
+        /**
+         * Finding types to include in the report
+         */
+        findingTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Severity levels to include in the report
+         */
+        riskLevels?: pulumi.Input<pulumi.Input<enums.securityagent.PentestReportFiltersRiskLevelsItem>[] | undefined>;
+        /**
+         * Risk types to include in the report
+         */
+        riskTypes?: pulumi.Input<pulumi.Input<enums.securityagent.PentestRiskType>[] | undefined>;
+        /**
+         * Finding statuses to include in the report
+         */
+        statuses?: pulumi.Input<pulumi.Input<enums.securityagent.PentestReportFiltersStatusesItem>[] | undefined>;
+        /**
+         * Task execution statuses to include in the report's task table
+         */
+        taskStatuses?: pulumi.Input<pulumi.Input<enums.securityagent.PentestReportFiltersTaskStatusesItem>[] | undefined>;
+    }
+
+    /**
      * A source code archive stored in S3 for analysis during the pentest
      */
     export interface PentestSourceCodeRepositoryArgs {
@@ -127503,6 +131159,16 @@ export namespace securityagent {
          * S3 source code location
          */
         s3Location?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Scope of the target under test, determining which classes of risk are assessed
+     */
+    export interface PentestTestScopeArgs {
+        /**
+         * The kind of application the target is tested as
+         */
+        type: pulumi.Input<enums.securityagent.PentestTestScopeType>;
     }
 
     /**
@@ -127528,6 +131194,62 @@ export namespace securityagent {
          */
         subnetArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         vpcArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The configuration for the private connection. Specify either a service-managed or a self-managed mode.
+     */
+    export interface PrivateConnectionModeArgs {
+        selfManaged?: pulumi.Input<inputs.securityagent.PrivateConnectionSelfManagedArgs | undefined>;
+        serviceManaged?: pulumi.Input<inputs.securityagent.PrivateConnectionServiceManagedArgs | undefined>;
+    }
+
+    /**
+     * The configuration for a self-managed private connection, where you manage your own resource configuration.
+     */
+    export interface PrivateConnectionSelfManagedArgs {
+        /**
+         * The identifier or ARN of the resource configuration.
+         */
+        resourceConfigurationId: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.
+     */
+    export interface PrivateConnectionServiceManagedArgs {
+        /**
+         * The DNS resolution mode for the resource gateway.
+         */
+        dnsResolution?: pulumi.Input<enums.securityagent.PrivateConnectionServiceManagedDnsResolution | undefined>;
+        /**
+         * The IP address or DNS name of the target resource.
+         */
+        hostAddress: pulumi.Input<string>;
+        /**
+         * The IP address type of the service-managed resource gateway.
+         */
+        ipAddressType?: pulumi.Input<enums.securityagent.PrivateConnectionServiceManagedIpAddressType | undefined>;
+        /**
+         * The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+         */
+        ipv4AddressesPerEni?: pulumi.Input<number | undefined>;
+        /**
+         * The TCP port ranges that a consumer can use to access the resource.
+         */
+        portRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The security groups to attach to the service-managed resource gateway.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The subnets that the service-managed resource gateway spans.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The VPC to create the service-managed resource gateway in.
+         */
+        vpcId: pulumi.Input<string>;
     }
 
     export interface SecurityRequirementPackSecurityRequirementArgs {
@@ -129646,7 +133368,7 @@ export namespace ses {
          */
         matchingEventTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the event destination set.
+         * The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
          */
         name?: pulumi.Input<string | undefined>;
         /**
@@ -130546,6 +134268,23 @@ export namespace ses {
     }
 
     /**
+     * The reputation configuration for the tenant.
+     */
+    export interface TenantReputationEntityArgs {
+        policy: pulumi.Input<inputs.ses.TenantReputationPolicyArgs>;
+    }
+
+    /**
+     * The reputation policy for the tenant.
+     */
+    export interface TenantReputationPolicyArgs {
+        /**
+         * The ARN of an SES-managed reputation policy.
+         */
+        reputationEntityPolicy: pulumi.Input<string>;
+    }
+
+    /**
      * The resource to associate with the tenant
      */
     export interface TenantResourceAssociationArgs {
@@ -130553,6 +134292,20 @@ export namespace ses {
          * The ARN of the resource to associate with the tenant
          */
         resourceArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The suppression attributes for the tenant.
+     */
+    export interface TenantSuppressionAttributesArgs {
+        /**
+         * The reasons that cause messages to be added to the suppression list.
+         */
+        suppressedReasons: pulumi.Input<pulumi.Input<enums.ses.TenantSuppressionAttributesSuppressedReasonsItem>[]>;
+        /**
+         * The scope of the suppression list for the tenant.
+         */
+        suppressionScope: pulumi.Input<enums.ses.TenantSuppressionAttributesSuppressionScope>;
     }
 
     /**
@@ -132309,6 +136062,48 @@ export namespace stepfunctions {
 }
 
 export namespace storagegateway {
+    /**
+     * Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+     */
+    export interface NfsFileShareCacheAttributesArgs {
+        /**
+         * How long the directory contents cached by the gateway are considered valid.
+         */
+        cacheStaleTimeoutInSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Default values for the file and directory permissions of an NFS share. Removing this property from a template leaves the live values unchanged rather than clearing them, because the service has no reset for it: a create that omits the object leaves it absent, but the update path merges member by member keyed on the same internal sentinel that reports absence, so no request can restore that state. Set the members you want rather than relying on removal.
+     */
+    export interface NfsFileShareNfsFileShareDefaultsArgs {
+        /**
+         * The Unix directory mode in the form nnnn.
+         */
+        directoryMode?: pulumi.Input<string | undefined>;
+        /**
+         * The Unix file mode in the form nnnn.
+         */
+        fileMode?: pulumi.Input<string | undefined>;
+        /**
+         * The default group ID for files in the file share.
+         */
+        groupId?: pulumi.Input<number | undefined>;
+        /**
+         * The default owner ID for files in the file share.
+         */
+        ownerId?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Refresh cache information for the file share. Removing this property from a template leaves the share's current value: the service documents no value that resets it.
+     */
+    export interface SmbFileShareCacheAttributesArgs {
+        /**
+         * How long the directory contents cached by the gateway are considered valid.
+         */
+        cacheStaleTimeoutInSeconds?: pulumi.Input<number | undefined>;
+    }
+
 }
 
 export namespace supportauthz {
@@ -137575,6 +141370,14 @@ export namespace wellarchitected {
 }
 
 export namespace wisdom {
+    export interface AiAgentAgentTarget0PropertiesArgs {
+        aiAgentId: pulumi.Input<string>;
+    }
+
+    export interface AiAgentAgentTarget1PropertiesArgs {
+        applicationId: pulumi.Input<string>;
+    }
+
     export interface AiAgentAiAgentConfiguration0PropertiesArgs {
         manualSearchAiAgentConfiguration: pulumi.Input<inputs.wisdom.AiAgentManualSearchAiAgentConfigurationArgs>;
     }
@@ -137639,6 +141442,11 @@ export namespace wisdom {
         locale?: pulumi.Input<string | undefined>;
     }
 
+    export interface AiAgentDelegateAgentConfigurationArgs {
+        agentTarget: pulumi.Input<inputs.wisdom.AiAgentAgentTarget0PropertiesArgs | inputs.wisdom.AiAgentAgentTarget1PropertiesArgs>;
+        instruction?: pulumi.Input<inputs.wisdom.AiAgentMultiAgentInstructionArgs | undefined>;
+    }
+
     export interface AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs {
         associationConfigurations?: pulumi.Input<pulumi.Input<inputs.wisdom.AiAgentAssociationConfigurationArgs>[] | undefined>;
         emailGenerativeAnswerAiPromptId?: pulumi.Input<string | undefined>;
@@ -137658,6 +141466,13 @@ export namespace wisdom {
         locale?: pulumi.Input<string | undefined>;
     }
 
+    export interface AiAgentHandoffAgentConfigurationArgs {
+        agentTarget: pulumi.Input<inputs.wisdom.AiAgentAgentTarget0PropertiesArgs | inputs.wisdom.AiAgentAgentTarget1PropertiesArgs>;
+        audioStreamingEnabled?: pulumi.Input<boolean | undefined>;
+        immediateHandoff?: pulumi.Input<boolean | undefined>;
+        instruction?: pulumi.Input<inputs.wisdom.AiAgentMultiAgentInstructionArgs | undefined>;
+    }
+
     export interface AiAgentKnowledgeBaseAssociationConfigurationDataArgs {
         contentTagFilter?: pulumi.Input<inputs.wisdom.AiAgentTagFilter0PropertiesArgs | inputs.wisdom.AiAgentTagFilter1PropertiesArgs | inputs.wisdom.AiAgentTagFilter2PropertiesArgs | undefined>;
         maxResults?: pulumi.Input<number | undefined>;
@@ -137669,6 +141484,19 @@ export namespace wisdom {
         answerGenerationAiPromptId?: pulumi.Input<string | undefined>;
         associationConfigurations?: pulumi.Input<pulumi.Input<inputs.wisdom.AiAgentAssociationConfigurationArgs>[] | undefined>;
         locale?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AiAgentMultiAgentConfiguration0PropertiesArgs {
+        delegateAgentConfiguration: pulumi.Input<inputs.wisdom.AiAgentDelegateAgentConfigurationArgs>;
+    }
+
+    export interface AiAgentMultiAgentConfiguration1PropertiesArgs {
+        handoffAgentConfiguration: pulumi.Input<inputs.wisdom.AiAgentHandoffAgentConfigurationArgs>;
+    }
+
+    export interface AiAgentMultiAgentInstructionArgs {
+        examples?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        instruction?: pulumi.Input<string | undefined>;
     }
 
     export interface AiAgentNoteTakingAiAgentConfigurationArgs {
@@ -137687,9 +141515,12 @@ export namespace wisdom {
 
     export interface AiAgentOrchestrationAiAgentConfigurationArgs {
         connectInstanceArn?: pulumi.Input<string | undefined>;
+        inputSchemas?: pulumi.Input<any[] | undefined>;
         locale?: pulumi.Input<string | undefined>;
+        multiAgentConfigurations?: pulumi.Input<pulumi.Input<inputs.wisdom.AiAgentMultiAgentConfiguration0PropertiesArgs | inputs.wisdom.AiAgentMultiAgentConfiguration1PropertiesArgs>[] | undefined>;
         orchestrationAiGuardrailId?: pulumi.Input<string | undefined>;
-        orchestrationAiPromptId: pulumi.Input<string>;
+        orchestrationAiPromptId?: pulumi.Input<string | undefined>;
+        outputSchemas?: pulumi.Input<any[] | undefined>;
         toolConfigurations?: pulumi.Input<pulumi.Input<inputs.wisdom.AiAgentToolConfigurationArgs>[] | undefined>;
     }
 
@@ -138687,6 +142518,258 @@ export namespace wisdom {
 
 export namespace workspaces {
     /**
+     * Describes the access type and endpoint for a WorkSpace.
+     */
+    export interface DirectoryAccessEndpointArgs {
+        /**
+         * Indicates the type of access endpoint.
+         */
+        accessEndpointType?: pulumi.Input<enums.workspaces.DirectoryAccessEndpointAccessEndpointType | undefined>;
+        /**
+         * Indicates the VPC endpoint to use for access.
+         */
+        vpcEndpointId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Describes the access endpoint configuration for a WorkSpace.
+     */
+    export interface DirectoryAccessEndpointConfigArgs {
+        /**
+         * Indicates a list of access endpoints associated with this directory.
+         */
+        accessEndpoints: pulumi.Input<pulumi.Input<inputs.workspaces.DirectoryAccessEndpointArgs>[]>;
+        /**
+         * Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+         */
+        internetFallbackProtocols?: pulumi.Input<pulumi.Input<enums.workspaces.DirectoryAccessEndpointConfigInternetFallbackProtocolsItem>[] | undefined>;
+    }
+
+    /**
+     * Information about the Active Directory config.
+     */
+    export interface DirectoryActiveDirectoryConfigArgs {
+        /**
+         * The name of the domain.
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * Indicates the secret ARN on the service account.
+         */
+        serviceAccountSecretArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the properties of the certificate-based authentication you want to use with your WorkSpaces.
+     */
+    export interface DirectoryCertificateBasedAuthPropertiesArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+         */
+        certificateAuthorityArn?: pulumi.Input<string | undefined>;
+        /**
+         * The status of the certificate-based authentication properties.
+         */
+        status?: pulumi.Input<enums.workspaces.DirectoryCertificateBasedAuthPropertiesStatus | undefined>;
+    }
+
+    /**
+     * The default values that are used to create WorkSpaces.
+     */
+    export interface DirectoryDefaultWorkspaceCreationPropertiesArgs {
+        /**
+         * The identifier of the default security group to apply to WorkSpaces when they are created.
+         */
+        customSecurityGroupId?: pulumi.Input<string | undefined>;
+        /**
+         * The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+         */
+        defaultOu?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+         */
+        enableInternetAccess?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies whether maintenance mode is enabled for WorkSpaces.
+         */
+        enableMaintenanceMode?: pulumi.Input<boolean | undefined>;
+        /**
+         * Indicates the IAM role ARN of the instance.
+         */
+        instanceIamRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+         */
+        userEnabledAsLocalAdministrator?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * Describes the Global Accelerator for directory.
+     */
+    export interface DirectoryGlobalAcceleratorForDirectoryArgs {
+        /**
+         * Indicates if Global Accelerator for directory is enabled or disabled.
+         */
+        mode: pulumi.Input<enums.workspaces.DirectoryGlobalAcceleratorForDirectoryMode>;
+        /**
+         * Indicates the preferred protocol for Global Accelerator.
+         */
+        preferredProtocol?: pulumi.Input<enums.workspaces.DirectoryGlobalAcceleratorForDirectoryPreferredProtocol | undefined>;
+    }
+
+    /**
+     * Specifies the configurations of the Microsoft Entra.
+     */
+    export interface DirectoryMicrosoftEntraConfigArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the application config.
+         */
+        applicationConfigSecretArn?: pulumi.Input<string | undefined>;
+        /**
+         * The identifier of the tenant.
+         */
+        tenantId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Describes the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.
+     */
+    export interface DirectorySamlPropertiesArgs {
+        /**
+         * The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+         */
+        relayStateParameterName?: pulumi.Input<string | undefined>;
+        /**
+         * Indicates the status of SAML 2.0 authentication.
+         */
+        status?: pulumi.Input<enums.workspaces.DirectorySamlPropertiesStatus | undefined>;
+        /**
+         * The SAML 2.0 identity provider (IdP) user access URL.
+         */
+        userAccessUrl?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Describes the self-service permissions for a directory.
+     */
+    export interface DirectorySelfservicePermissionsArgs {
+        /**
+         * Specifies whether users can change the compute type (bundle) for their WorkSpace.
+         */
+        changeComputeType?: pulumi.Input<enums.workspaces.DirectorySelfservicePermissionsChangeComputeType | undefined>;
+        /**
+         * Specifies whether users can increase the volume size of the drives on their WorkSpace.
+         */
+        increaseVolumeSize?: pulumi.Input<enums.workspaces.DirectorySelfservicePermissionsIncreaseVolumeSize | undefined>;
+        /**
+         * Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+         */
+        rebuildWorkspace?: pulumi.Input<enums.workspaces.DirectorySelfservicePermissionsRebuildWorkspace | undefined>;
+        /**
+         * Specifies whether users can restart their WorkSpace.
+         */
+        restartWorkspace?: pulumi.Input<enums.workspaces.DirectorySelfservicePermissionsRestartWorkspace | undefined>;
+        /**
+         * Specifies whether users can switch the running mode of their WorkSpace.
+         */
+        switchRunningMode?: pulumi.Input<enums.workspaces.DirectorySelfservicePermissionsSwitchRunningMode | undefined>;
+    }
+
+    /**
+     * Describes the storage connector.
+     */
+    export interface DirectoryStorageConnectorArgs {
+        /**
+         * The type of connector used to save user files.
+         */
+        connectorType: pulumi.Input<enums.workspaces.DirectoryStorageConnectorConnectorType>;
+        /**
+         * Indicates if the storage connector is enabled or disabled.
+         */
+        status: pulumi.Input<enums.workspaces.DirectoryStorageConnectorStatus>;
+    }
+
+    /**
+     * Describes the streaming properties.
+     */
+    export interface DirectoryStreamingPropertiesArgs {
+        globalAccelerator?: pulumi.Input<inputs.workspaces.DirectoryGlobalAcceleratorForDirectoryArgs | undefined>;
+        /**
+         * Indicates the storage connector used.
+         */
+        storageConnectors?: pulumi.Input<pulumi.Input<inputs.workspaces.DirectoryStorageConnectorArgs>[] | undefined>;
+        /**
+         * Indicates the type of preferred protocol for the streaming experience.
+         */
+        streamingExperiencePreferredProtocol?: pulumi.Input<enums.workspaces.DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol | undefined>;
+        /**
+         * Indicates the permission settings associated with the user.
+         */
+        userSettings?: pulumi.Input<pulumi.Input<inputs.workspaces.DirectoryUserSettingArgs>[] | undefined>;
+    }
+
+    /**
+     * Information about the user's permission settings.
+     */
+    export interface DirectoryUserSettingArgs {
+        /**
+         * Indicates the type of action.
+         */
+        action: pulumi.Input<enums.workspaces.DirectoryUserSettingAction>;
+        /**
+         * Indicates the maximum character length for the specified user setting.
+         */
+        maximumLength?: pulumi.Input<number | undefined>;
+        /**
+         * Indicates if the setting is enabled or disabled.
+         */
+        permission: pulumi.Input<enums.workspaces.DirectoryUserSettingPermission>;
+    }
+
+    /**
+     * The device types and operating systems that can be used to access a WorkSpace.
+     */
+    export interface DirectoryWorkspaceAccessPropertiesArgs {
+        accessEndpointConfig?: pulumi.Input<inputs.workspaces.DirectoryAccessEndpointConfigArgs | undefined>;
+        /**
+         * Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+         */
+        deviceTypeAndroid?: pulumi.Input<enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid | undefined>;
+        /**
+         * Indicates whether users can use Chromebooks to access their WorkSpaces.
+         */
+        deviceTypeChromeOs?: pulumi.Input<enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs | undefined>;
+        /**
+         * Indicates whether users can use iOS devices to access their WorkSpaces.
+         */
+        deviceTypeIos?: pulumi.Input<enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeIos | undefined>;
+        /**
+         * Indicates whether users can use Linux clients to access their WorkSpaces.
+         */
+        deviceTypeLinux?: pulumi.Input<enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeLinux | undefined>;
+        /**
+         * Indicates whether users can use macOS clients to access their WorkSpaces.
+         */
+        deviceTypeOsx?: pulumi.Input<enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeOsx | undefined>;
+        /**
+         * Indicates whether users can access their WorkSpaces through a web browser.
+         */
+        deviceTypeWeb?: pulumi.Input<enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeWeb | undefined>;
+        /**
+         * Indicates whether users can use Windows clients to access their WorkSpaces.
+         */
+        deviceTypeWindows?: pulumi.Input<enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeWindows | undefined>;
+        /**
+         * Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+         */
+        deviceTypeWorkSpacesThinClient?: pulumi.Input<enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient | undefined>;
+        /**
+         * Indicates whether users can use zero client devices to access their WorkSpaces.
+         */
+        deviceTypeZeroClient?: pulumi.Input<enums.workspaces.DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient | undefined>;
+    }
+
+    /**
      * Describes a rule for an IP access control group.
      */
     export interface WorkspaceIpGroupIpRuleItemArgs {
@@ -139372,5 +143455,15 @@ export namespace xray {
          * Matches the path from a request URL.
          */
         urlPath?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Configuration for the CloudWatch Logs log group that X-Ray creates when this resource enables Transaction Search. It is used only at that time and is never returned
+     */
+    export interface TransactionSearchConfigCloudWatchLogsConfigurationArgs {
+        /**
+         * The ARN of a symmetric customer managed AWS KMS key in the same account and Region, used to encrypt the aws/spans log group. Key IDs and alias ARNs are not supported, so for an AWS::KMS::Key use Fn::GetAtt Arn, not Ref. X-Ray applies the key only when it creates aws/spans while enabling Transaction Search. If aws/spans already exists, for example from an earlier enablement or an earlier create that failed partway, the create fails and X-Ray does not enable Transaction Search or change the log group. Remove this property to use the existing log group with its current encryption, and use the CloudWatch Logs AssociateKmsKey API to change its key. The caller needs kms:DescribeKey on the key, and the key policy must allow CloudWatch Logs to use it. Adding, changing or removing this property replaces the resource, which fails while Transaction Search is enabled
+         */
+        spansLogGroupKmsKeyId?: pulumi.Input<string | undefined>;
     }
 }

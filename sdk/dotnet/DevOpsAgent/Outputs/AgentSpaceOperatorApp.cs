@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
     {
         public readonly Outputs.AgentSpaceIamAuthConfiguration? Iam;
         public readonly Outputs.AgentSpaceIdcAuthConfiguration? Idc;
+        public readonly Outputs.AgentSpaceIdpAuthConfiguration? Idp;
 
         [OutputConstructor]
         private AgentSpaceOperatorApp(
             Outputs.AgentSpaceIamAuthConfiguration? iam,
 
-            Outputs.AgentSpaceIdcAuthConfiguration? idc)
+            Outputs.AgentSpaceIdcAuthConfiguration? idc,
+
+            Outputs.AgentSpaceIdpAuthConfiguration? idp)
         {
             Iam = iam;
             Idc = idc;
+            Idp = idp;
         }
     }
 }

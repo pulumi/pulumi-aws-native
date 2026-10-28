@@ -33,6 +33,11 @@ __all__ = [
     'AgentSpaceProviderResource',
     'AgentSpaceVpcConfig',
     'ApplicationIdCConfiguration',
+    'IntegrationBitbucketInput',
+    'IntegrationConfluenceInput',
+    'IntegrationGitHubInput',
+    'IntegrationGitLabInput',
+    'IntegrationProviderInput',
     'PentestActor',
     'PentestAssets',
     'PentestAuthentication',
@@ -44,9 +49,15 @@ __all__ = [
     'PentestIntegratedRepository',
     'PentestNetworkTrafficConfig',
     'PentestNetworkTrafficRule',
+    'PentestReportDestination',
+    'PentestReportFilters',
     'PentestSourceCodeRepository',
+    'PentestTestScope',
     'PentestTrustedCaCertificate',
     'PentestVpcConfig',
+    'PrivateConnectionMode',
+    'PrivateConnectionSelfManaged',
+    'PrivateConnectionServiceManaged',
     'SecurityRequirementPackSecurityRequirement',
     'TargetDomainDnsVerification',
     'TargetDomainHttpVerification',
@@ -1027,6 +1038,369 @@ class ApplicationIdCConfiguration(dict):
 
 
 @pulumi.output_type
+class IntegrationBitbucketInput(dict):
+    """
+    The input required to create a Bitbucket integration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "installationId":
+            suggest = "installation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationBitbucketInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationBitbucketInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationBitbucketInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 installation_id: _builtins.str,
+                 state: _builtins.str,
+                 workspace: _builtins.str):
+        """
+        The input required to create a Bitbucket integration.
+
+        :param _builtins.str code: The OAuth 2.0 authorization code returned from the consent redirect.
+        :param _builtins.str installation_id: The Atlassian installation identifier, available from the Atlassian administration console.
+        :param _builtins.str state: The CSRF state token echoed back from the OAuth redirect.
+        :param _builtins.str workspace: The Bitbucket workspace slug that identifies the workspace to integrate.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "installation_id", installation_id)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "workspace", workspace)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The OAuth 2.0 authorization code returned from the consent redirect.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> _builtins.str:
+        """
+        The Atlassian installation identifier, available from the Atlassian administration console.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        The CSRF state token echoed back from the OAuth redirect.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def workspace(self) -> _builtins.str:
+        """
+        The Bitbucket workspace slug that identifies the workspace to integrate.
+        """
+        return pulumi.get(self, "workspace")
+
+
+@pulumi.output_type
+class IntegrationConfluenceInput(dict):
+    """
+    The input required to create a Confluence integration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "installationId":
+            suggest = "installation_id"
+        elif key == "siteUrl":
+            suggest = "site_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationConfluenceInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationConfluenceInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationConfluenceInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 installation_id: _builtins.str,
+                 site_url: _builtins.str,
+                 state: _builtins.str):
+        """
+        The input required to create a Confluence integration.
+
+        :param _builtins.str code: The OAuth 2.0 authorization code returned from the consent redirect.
+        :param _builtins.str installation_id: The Atlassian installation identifier, available from the Atlassian administration console.
+        :param _builtins.str site_url: The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+        :param _builtins.str state: The CSRF state token echoed back from the OAuth redirect.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "installation_id", installation_id)
+        pulumi.set(__self__, "site_url", site_url)
+        pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The OAuth 2.0 authorization code returned from the consent redirect.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> _builtins.str:
+        """
+        The Atlassian installation identifier, available from the Atlassian administration console.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @_builtins.property
+    @pulumi.getter(name="siteUrl")
+    def site_url(self) -> _builtins.str:
+        """
+        The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+        """
+        return pulumi.get(self, "site_url")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        The CSRF state token echoed back from the OAuth redirect.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class IntegrationGitHubInput(dict):
+    """
+    The input required to create a GitHub integration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "installationId":
+            suggest = "installation_id"
+        elif key == "organizationName":
+            suggest = "organization_name"
+        elif key == "targetUrl":
+            suggest = "target_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationGitHubInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationGitHubInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationGitHubInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 state: _builtins.str,
+                 installation_id: Optional[_builtins.str] = None,
+                 organization_name: Optional[_builtins.str] = None,
+                 target_url: Optional[_builtins.str] = None):
+        """
+        The input required to create a GitHub integration.
+
+        :param _builtins.str code: The OAuth authorization code received from GitHub.
+        :param _builtins.str state: The CSRF state token for validating the OAuth flow.
+        :param _builtins.str installation_id: The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+        :param _builtins.str organization_name: The name of the GitHub organization to integrate with.
+        :param _builtins.str target_url: The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "state", state)
+        if installation_id is not None:
+            pulumi.set(__self__, "installation_id", installation_id)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if target_url is not None:
+            pulumi.set(__self__, "target_url", target_url)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The OAuth authorization code received from GitHub.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        The CSRF state token for validating the OAuth flow.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> Optional[_builtins.str]:
+        """
+        The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the GitHub organization to integrate with.
+        """
+        return pulumi.get(self, "organization_name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> Optional[_builtins.str]:
+        """
+        The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+        """
+        return pulumi.get(self, "target_url")
+
+
+@pulumi.output_type
+class IntegrationGitLabInput(dict):
+    """
+    The input required to create a GitLab integration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "tokenType":
+            suggest = "token_type"
+        elif key == "groupId":
+            suggest = "group_id"
+        elif key == "targetUrl":
+            suggest = "target_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationGitLabInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationGitLabInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationGitLabInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: _builtins.str,
+                 token_type: 'IntegrationGitLabInputTokenType',
+                 group_id: Optional[_builtins.str] = None,
+                 target_url: Optional[_builtins.str] = None):
+        """
+        The input required to create a GitLab integration.
+
+        :param _builtins.str access_token: The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+        :param 'IntegrationGitLabInputTokenType' token_type: The type of GitLab access token.
+        :param _builtins.str group_id: The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+        :param _builtins.str target_url: The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "token_type", token_type)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if target_url is not None:
+            pulumi.set(__self__, "target_url", target_url)
+
+    @_builtins.property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> _builtins.str:
+        """
+        The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+        """
+        return pulumi.get(self, "access_token")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> 'IntegrationGitLabInputTokenType':
+        """
+        The type of GitLab access token.
+        """
+        return pulumi.get(self, "token_type")
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+        """
+        return pulumi.get(self, "group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> Optional[_builtins.str]:
+        """
+        The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+        """
+        return pulumi.get(self, "target_url")
+
+
+@pulumi.output_type
+class IntegrationProviderInput(dict):
+    """
+    The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+    """
+    def __init__(__self__, *,
+                 bitbucket: Optional['outputs.IntegrationBitbucketInput'] = None,
+                 confluence: Optional['outputs.IntegrationConfluenceInput'] = None,
+                 github: Optional['outputs.IntegrationGitHubInput'] = None,
+                 gitlab: Optional['outputs.IntegrationGitLabInput'] = None):
+        """
+        The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+        """
+        if bitbucket is not None:
+            pulumi.set(__self__, "bitbucket", bitbucket)
+        if confluence is not None:
+            pulumi.set(__self__, "confluence", confluence)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if gitlab is not None:
+            pulumi.set(__self__, "gitlab", gitlab)
+
+    @_builtins.property
+    @pulumi.getter
+    def bitbucket(self) -> Optional['outputs.IntegrationBitbucketInput']:
+        return pulumi.get(self, "bitbucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def confluence(self) -> Optional['outputs.IntegrationConfluenceInput']:
+        return pulumi.get(self, "confluence")
+
+    @_builtins.property
+    @pulumi.getter
+    def github(self) -> Optional['outputs.IntegrationGitHubInput']:
+        return pulumi.get(self, "github")
+
+    @_builtins.property
+    @pulumi.getter
+    def gitlab(self) -> Optional['outputs.IntegrationGitLabInput']:
+        return pulumi.get(self, "gitlab")
+
+
+@pulumi.output_type
 class PentestActor(dict):
     """
     An authenticated actor to be used during pentest execution
@@ -1710,6 +2084,224 @@ class PentestNetworkTrafficRule(dict):
 
 
 @pulumi.output_type
+class PentestReportDestination(dict):
+    """
+    Destination for publishing a scan report to Confluence
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerId":
+            suggest = "container_id"
+        elif key == "integrationId":
+            suggest = "integration_id"
+        elif key == "documentId":
+            suggest = "document_id"
+        elif key == "parentId":
+            suggest = "parent_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PentestReportDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PentestReportDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PentestReportDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_id: _builtins.str,
+                 integration_id: _builtins.str,
+                 document_id: Optional[_builtins.str] = None,
+                 parent_id: Optional[_builtins.str] = None):
+        """
+        Destination for publishing a scan report to Confluence
+
+        :param _builtins.str container_id: Identifier of the container, such as a space, within the integration to publish the report to
+        :param _builtins.str integration_id: Unique identifier of the provider integration to publish the report to
+        :param _builtins.str document_id: Identifier of an existing document to update with the report
+        :param _builtins.str parent_id: Identifier of the parent under which the report document is created
+        """
+        pulumi.set(__self__, "container_id", container_id)
+        pulumi.set(__self__, "integration_id", integration_id)
+        if document_id is not None:
+            pulumi.set(__self__, "document_id", document_id)
+        if parent_id is not None:
+            pulumi.set(__self__, "parent_id", parent_id)
+
+    @_builtins.property
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> _builtins.str:
+        """
+        Identifier of the container, such as a space, within the integration to publish the report to
+        """
+        return pulumi.get(self, "container_id")
+
+    @_builtins.property
+    @pulumi.getter(name="integrationId")
+    def integration_id(self) -> _builtins.str:
+        """
+        Unique identifier of the provider integration to publish the report to
+        """
+        return pulumi.get(self, "integration_id")
+
+    @_builtins.property
+    @pulumi.getter(name="documentId")
+    def document_id(self) -> Optional[_builtins.str]:
+        """
+        Identifier of an existing document to update with the report
+        """
+        return pulumi.get(self, "document_id")
+
+    @_builtins.property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> Optional[_builtins.str]:
+        """
+        Identifier of the parent under which the report document is created
+        """
+        return pulumi.get(self, "parent_id")
+
+
+@pulumi.output_type
+class PentestReportFilters(dict):
+    """
+    Filters applied when a scan report is published to Confluence
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "annotationNotes":
+            suggest = "annotation_notes"
+        elif key == "complianceReport":
+            suggest = "compliance_report"
+        elif key == "confidenceLevels":
+            suggest = "confidence_levels"
+        elif key == "findingTypes":
+            suggest = "finding_types"
+        elif key == "riskLevels":
+            suggest = "risk_levels"
+        elif key == "riskTypes":
+            suggest = "risk_types"
+        elif key == "taskStatuses":
+            suggest = "task_statuses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PentestReportFilters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PentestReportFilters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PentestReportFilters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 annotation_notes: Optional[_builtins.bool] = None,
+                 compliance_report: Optional[_builtins.bool] = None,
+                 confidence_levels: Optional[Sequence['PentestReportFiltersConfidenceLevelsItem']] = None,
+                 finding_types: Optional[Sequence[_builtins.str]] = None,
+                 risk_levels: Optional[Sequence['PentestReportFiltersRiskLevelsItem']] = None,
+                 risk_types: Optional[Sequence['PentestRiskType']] = None,
+                 statuses: Optional[Sequence['PentestReportFiltersStatusesItem']] = None,
+                 task_statuses: Optional[Sequence['PentestReportFiltersTaskStatusesItem']] = None):
+        """
+        Filters applied when a scan report is published to Confluence
+
+        :param _builtins.bool annotation_notes: Whether to include reviewer annotation notes under each finding
+        :param _builtins.bool compliance_report: Whether to include the compliance-ready report additions
+        :param Sequence['PentestReportFiltersConfidenceLevelsItem'] confidence_levels: Confidence levels to include in the report
+        :param Sequence[_builtins.str] finding_types: Finding types to include in the report
+        :param Sequence['PentestReportFiltersRiskLevelsItem'] risk_levels: Severity levels to include in the report
+        :param Sequence['PentestRiskType'] risk_types: Risk types to include in the report
+        :param Sequence['PentestReportFiltersStatusesItem'] statuses: Finding statuses to include in the report
+        :param Sequence['PentestReportFiltersTaskStatusesItem'] task_statuses: Task execution statuses to include in the report's task table
+        """
+        if annotation_notes is not None:
+            pulumi.set(__self__, "annotation_notes", annotation_notes)
+        if compliance_report is not None:
+            pulumi.set(__self__, "compliance_report", compliance_report)
+        if confidence_levels is not None:
+            pulumi.set(__self__, "confidence_levels", confidence_levels)
+        if finding_types is not None:
+            pulumi.set(__self__, "finding_types", finding_types)
+        if risk_levels is not None:
+            pulumi.set(__self__, "risk_levels", risk_levels)
+        if risk_types is not None:
+            pulumi.set(__self__, "risk_types", risk_types)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
+        if task_statuses is not None:
+            pulumi.set(__self__, "task_statuses", task_statuses)
+
+    @_builtins.property
+    @pulumi.getter(name="annotationNotes")
+    def annotation_notes(self) -> Optional[_builtins.bool]:
+        """
+        Whether to include reviewer annotation notes under each finding
+        """
+        return pulumi.get(self, "annotation_notes")
+
+    @_builtins.property
+    @pulumi.getter(name="complianceReport")
+    def compliance_report(self) -> Optional[_builtins.bool]:
+        """
+        Whether to include the compliance-ready report additions
+        """
+        return pulumi.get(self, "compliance_report")
+
+    @_builtins.property
+    @pulumi.getter(name="confidenceLevels")
+    def confidence_levels(self) -> Optional[Sequence['PentestReportFiltersConfidenceLevelsItem']]:
+        """
+        Confidence levels to include in the report
+        """
+        return pulumi.get(self, "confidence_levels")
+
+    @_builtins.property
+    @pulumi.getter(name="findingTypes")
+    def finding_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Finding types to include in the report
+        """
+        return pulumi.get(self, "finding_types")
+
+    @_builtins.property
+    @pulumi.getter(name="riskLevels")
+    def risk_levels(self) -> Optional[Sequence['PentestReportFiltersRiskLevelsItem']]:
+        """
+        Severity levels to include in the report
+        """
+        return pulumi.get(self, "risk_levels")
+
+    @_builtins.property
+    @pulumi.getter(name="riskTypes")
+    def risk_types(self) -> Optional[Sequence['PentestRiskType']]:
+        """
+        Risk types to include in the report
+        """
+        return pulumi.get(self, "risk_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def statuses(self) -> Optional[Sequence['PentestReportFiltersStatusesItem']]:
+        """
+        Finding statuses to include in the report
+        """
+        return pulumi.get(self, "statuses")
+
+    @_builtins.property
+    @pulumi.getter(name="taskStatuses")
+    def task_statuses(self) -> Optional[Sequence['PentestReportFiltersTaskStatusesItem']]:
+        """
+        Task execution statuses to include in the report's task table
+        """
+        return pulumi.get(self, "task_statuses")
+
+
+@pulumi.output_type
 class PentestSourceCodeRepository(dict):
     """
     A source code archive stored in S3 for analysis during the pentest
@@ -1748,6 +2340,29 @@ class PentestSourceCodeRepository(dict):
         S3 source code location
         """
         return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class PentestTestScope(dict):
+    """
+    Scope of the target under test, determining which classes of risk are assessed
+    """
+    def __init__(__self__, *,
+                 type: 'PentestTestScopeType'):
+        """
+        Scope of the target under test, determining which classes of risk are assessed
+
+        :param 'PentestTestScopeType' type: The kind of application the target is tested as
+        """
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'PentestTestScopeType':
+        """
+        The kind of application the target is tested as
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -1836,6 +2451,228 @@ class PentestVpcConfig(dict):
     @pulumi.getter(name="vpcArn")
     def vpc_arn(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "vpc_arn")
+
+
+@pulumi.output_type
+class PrivateConnectionMode(dict):
+    """
+    The configuration for the private connection. Specify either a service-managed or a self-managed mode.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selfManaged":
+            suggest = "self_managed"
+        elif key == "serviceManaged":
+            suggest = "service_managed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateConnectionMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateConnectionMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateConnectionMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 self_managed: Optional['outputs.PrivateConnectionSelfManaged'] = None,
+                 service_managed: Optional['outputs.PrivateConnectionServiceManaged'] = None):
+        """
+        The configuration for the private connection. Specify either a service-managed or a self-managed mode.
+        """
+        if self_managed is not None:
+            pulumi.set(__self__, "self_managed", self_managed)
+        if service_managed is not None:
+            pulumi.set(__self__, "service_managed", service_managed)
+
+    @_builtins.property
+    @pulumi.getter(name="selfManaged")
+    def self_managed(self) -> Optional['outputs.PrivateConnectionSelfManaged']:
+        return pulumi.get(self, "self_managed")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceManaged")
+    def service_managed(self) -> Optional['outputs.PrivateConnectionServiceManaged']:
+        return pulumi.get(self, "service_managed")
+
+
+@pulumi.output_type
+class PrivateConnectionSelfManaged(dict):
+    """
+    The configuration for a self-managed private connection, where you manage your own resource configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationId":
+            suggest = "resource_configuration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateConnectionSelfManaged. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateConnectionSelfManaged.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateConnectionSelfManaged.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_id: _builtins.str):
+        """
+        The configuration for a self-managed private connection, where you manage your own resource configuration.
+
+        :param _builtins.str resource_configuration_id: The identifier or ARN of the resource configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_id", resource_configuration_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationId")
+    def resource_configuration_id(self) -> _builtins.str:
+        """
+        The identifier or ARN of the resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_id")
+
+
+@pulumi.output_type
+class PrivateConnectionServiceManaged(dict):
+    """
+    The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostAddress":
+            suggest = "host_address"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+        elif key == "dnsResolution":
+            suggest = "dns_resolution"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "ipv4AddressesPerEni":
+            suggest = "ipv4_addresses_per_eni"
+        elif key == "portRanges":
+            suggest = "port_ranges"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateConnectionServiceManaged. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateConnectionServiceManaged.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateConnectionServiceManaged.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_address: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_id: _builtins.str,
+                 dns_resolution: Optional['PrivateConnectionServiceManagedDnsResolution'] = None,
+                 ip_address_type: Optional['PrivateConnectionServiceManagedIpAddressType'] = None,
+                 ipv4_addresses_per_eni: Optional[_builtins.int] = None,
+                 port_ranges: Optional[Sequence[_builtins.str]] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.
+
+        :param _builtins.str host_address: The IP address or DNS name of the target resource.
+        :param Sequence[_builtins.str] subnet_ids: The subnets that the service-managed resource gateway spans.
+        :param _builtins.str vpc_id: The VPC to create the service-managed resource gateway in.
+        :param 'PrivateConnectionServiceManagedDnsResolution' dns_resolution: The DNS resolution mode for the resource gateway.
+        :param 'PrivateConnectionServiceManagedIpAddressType' ip_address_type: The IP address type of the service-managed resource gateway.
+        :param _builtins.int ipv4_addresses_per_eni: The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+        :param Sequence[_builtins.str] port_ranges: The TCP port ranges that a consumer can use to access the resource.
+        :param Sequence[_builtins.str] security_group_ids: The security groups to attach to the service-managed resource gateway.
+        """
+        pulumi.set(__self__, "host_address", host_address)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if dns_resolution is not None:
+            pulumi.set(__self__, "dns_resolution", dns_resolution)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipv4_addresses_per_eni is not None:
+            pulumi.set(__self__, "ipv4_addresses_per_eni", ipv4_addresses_per_eni)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="hostAddress")
+    def host_address(self) -> _builtins.str:
+        """
+        The IP address or DNS name of the target resource.
+        """
+        return pulumi.get(self, "host_address")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        The subnets that the service-managed resource gateway spans.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> _builtins.str:
+        """
+        The VPC to create the service-managed resource gateway in.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsResolution")
+    def dns_resolution(self) -> Optional['PrivateConnectionServiceManagedDnsResolution']:
+        """
+        The DNS resolution mode for the resource gateway.
+        """
+        return pulumi.get(self, "dns_resolution")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional['PrivateConnectionServiceManagedIpAddressType']:
+        """
+        The IP address type of the service-managed resource gateway.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4AddressesPerEni")
+    def ipv4_addresses_per_eni(self) -> Optional[_builtins.int]:
+        """
+        The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+        """
+        return pulumi.get(self, "ipv4_addresses_per_eni")
+
+    @_builtins.property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The TCP port ranges that a consumer can use to access the resource.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The security groups to attach to the service-managed resource gateway.
+        """
+        return pulumi.get(self, "security_group_ids")
 
 
 @pulumi.output_type

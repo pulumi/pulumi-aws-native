@@ -149,6 +149,124 @@ class SourceCredential(pulumi.CustomResource):
             auth_type="PERSONAL_ACCESS_TOKEN")
 
         ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_source_creds = aws_native.codebuild.SourceCredential("mySourceCreds",
+            token="{{resolve:secretsmanager:bitbucket:SecretString:token}}",
+            server_type="BITBUCKET",
+            username="{{resolve:secretsmanager:bitbucket:SecretString:username}}",
+            auth_type="BASIC_AUTH")
+        my_project = aws_native.codebuild.Project("myProject",
+            name="myProjectName",
+            description="A description about my project",
+            service_role="testServiceRoleArn",
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            environment={
+                "type": "LINUX_CONTAINER",
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:5.0",
+            },
+            source={
+                "type": "BITBUCKET",
+                "location": "your-bitbucket-repo-url",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[my_source_creds]))
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_source_creds = aws_native.codebuild.SourceCredential("mySourceCreds",
+            token="{{resolve:secretsmanager:bitbucket:SecretString:token}}",
+            server_type="BITBUCKET",
+            username="{{resolve:secretsmanager:bitbucket:SecretString:username}}",
+            auth_type="BASIC_AUTH")
+        my_project = aws_native.codebuild.Project("myProject",
+            name="myProjectName",
+            description="A description about my project",
+            service_role="testServiceRoleAr",
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            environment={
+                "type": "LINUX_CONTAINER",
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:5.0",
+            },
+            source={
+                "type": "BITBUCKET",
+                "location": "your-bitbucket-repo-url",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[my_source_creds]))
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_source_creds = aws_native.codebuild.SourceCredential("mySourceCreds",
+            token="{{resolve:secretsmanager:github:SecretString:token}}",
+            server_type="GITHUB",
+            auth_type="PERSONAL_ACCESS_TOKEN")
+        my_project = aws_native.codebuild.Project("myProject",
+            name="myProjectName",
+            description="A description about my project",
+            service_role="testServiceRoleArn",
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            environment={
+                "type": "LINUX_CONTAINER",
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:5.0",
+            },
+            source={
+                "type": "GITHUB",
+                "location": "your-github-repo-url",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[my_source_creds]))
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_source_creds = aws_native.codebuild.SourceCredential("mySourceCreds",
+            token="{{resolve:secretsmanager:github:SecretString:token}}",
+            server_type="GITHUB",
+            auth_type="PERSONAL_ACCESS_TOKEN")
+        my_project = aws_native.codebuild.Project("myProject",
+            name="myProjectName",
+            description="A description about my project",
+            service_role="testServiceRoleArn",
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            environment={
+                "type": "LINUX_CONTAINER",
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:5.0",
+            },
+            source={
+                "type": "GITHUB",
+                "location": "your-github-repo-url",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[my_source_creds]))
+
+        ```
 
 
         :param str resource_name: The name of the resource.
@@ -214,6 +332,124 @@ class SourceCredential(pulumi.CustomResource):
             token="{{resolve:secretsmanager:github:SecretString:token}}",
             server_type="GITHUB",
             auth_type="PERSONAL_ACCESS_TOKEN")
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_source_creds = aws_native.codebuild.SourceCredential("mySourceCreds",
+            token="{{resolve:secretsmanager:bitbucket:SecretString:token}}",
+            server_type="BITBUCKET",
+            username="{{resolve:secretsmanager:bitbucket:SecretString:username}}",
+            auth_type="BASIC_AUTH")
+        my_project = aws_native.codebuild.Project("myProject",
+            name="myProjectName",
+            description="A description about my project",
+            service_role="testServiceRoleArn",
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            environment={
+                "type": "LINUX_CONTAINER",
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:5.0",
+            },
+            source={
+                "type": "BITBUCKET",
+                "location": "your-bitbucket-repo-url",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[my_source_creds]))
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_source_creds = aws_native.codebuild.SourceCredential("mySourceCreds",
+            token="{{resolve:secretsmanager:bitbucket:SecretString:token}}",
+            server_type="BITBUCKET",
+            username="{{resolve:secretsmanager:bitbucket:SecretString:username}}",
+            auth_type="BASIC_AUTH")
+        my_project = aws_native.codebuild.Project("myProject",
+            name="myProjectName",
+            description="A description about my project",
+            service_role="testServiceRoleAr",
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            environment={
+                "type": "LINUX_CONTAINER",
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:5.0",
+            },
+            source={
+                "type": "BITBUCKET",
+                "location": "your-bitbucket-repo-url",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[my_source_creds]))
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_source_creds = aws_native.codebuild.SourceCredential("mySourceCreds",
+            token="{{resolve:secretsmanager:github:SecretString:token}}",
+            server_type="GITHUB",
+            auth_type="PERSONAL_ACCESS_TOKEN")
+        my_project = aws_native.codebuild.Project("myProject",
+            name="myProjectName",
+            description="A description about my project",
+            service_role="testServiceRoleArn",
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            environment={
+                "type": "LINUX_CONTAINER",
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:5.0",
+            },
+            source={
+                "type": "GITHUB",
+                "location": "your-github-repo-url",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[my_source_creds]))
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_source_creds = aws_native.codebuild.SourceCredential("mySourceCreds",
+            token="{{resolve:secretsmanager:github:SecretString:token}}",
+            server_type="GITHUB",
+            auth_type="PERSONAL_ACCESS_TOKEN")
+        my_project = aws_native.codebuild.Project("myProject",
+            name="myProjectName",
+            description="A description about my project",
+            service_role="testServiceRoleArn",
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            environment={
+                "type": "LINUX_CONTAINER",
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:5.0",
+            },
+            source={
+                "type": "GITHUB",
+                "location": "your-github-repo-url",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[my_source_creds]))
 
         ```
 

@@ -17,6 +17,7 @@ __all__ = [
     'StreamEncryptionEncryptionType',
     'StreamEnhancedMetric',
     'StreamModeDetailsStreamMode',
+    'StreamRecordDistributionStrategy',
 ]
 
 
@@ -119,3 +120,12 @@ class StreamModeDetailsStreamMode(_builtins.str, Enum):
     """
     ON_DEMAND = "ON_DEMAND"
     PROVISIONED = "PROVISIONED"
+
+
+@pulumi.type_token("aws-native:kinesis:StreamRecordDistributionStrategy")
+class StreamRecordDistributionStrategy(_builtins.str, Enum):
+    """
+    The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+    """
+    AUTO = "AUTO"
+    USER_PARTITION_KEY = "USER_PARTITION_KEY"

@@ -190,6 +190,433 @@ func (in *artifactTypePtr) ToArtifactTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(ArtifactTypePtrOutput)
 }
 
+// The type of GitLab access token.
+type IntegrationGitLabInputTokenType string
+
+const (
+	IntegrationGitLabInputTokenTypePersonal = IntegrationGitLabInputTokenType("PERSONAL")
+	IntegrationGitLabInputTokenTypeGroup    = IntegrationGitLabInputTokenType("GROUP")
+)
+
+func (IntegrationGitLabInputTokenType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitLabInputTokenType)(nil)).Elem()
+}
+
+func (e IntegrationGitLabInputTokenType) ToIntegrationGitLabInputTokenTypeOutput() IntegrationGitLabInputTokenTypeOutput {
+	return pulumi.ToOutput(e).(IntegrationGitLabInputTokenTypeOutput)
+}
+
+func (e IntegrationGitLabInputTokenType) ToIntegrationGitLabInputTokenTypeOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationGitLabInputTokenTypeOutput)
+}
+
+func (e IntegrationGitLabInputTokenType) ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput {
+	return e.ToIntegrationGitLabInputTokenTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationGitLabInputTokenType) ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypePtrOutput {
+	return IntegrationGitLabInputTokenType(e).ToIntegrationGitLabInputTokenTypeOutputWithContext(ctx).ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationGitLabInputTokenType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationGitLabInputTokenType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationGitLabInputTokenType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationGitLabInputTokenType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationGitLabInputTokenTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitLabInputTokenTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitLabInputTokenType)(nil)).Elem()
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToIntegrationGitLabInputTokenTypeOutput() IntegrationGitLabInputTokenTypeOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToIntegrationGitLabInputTokenTypeOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypeOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput {
+	return o.ToIntegrationGitLabInputTokenTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationGitLabInputTokenType) *IntegrationGitLabInputTokenType {
+		return &v
+	}).(IntegrationGitLabInputTokenTypePtrOutput)
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationGitLabInputTokenType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputTokenTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationGitLabInputTokenType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationGitLabInputTokenTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitLabInputTokenTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitLabInputTokenType)(nil)).Elem()
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypePtrOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) Elem() IntegrationGitLabInputTokenTypeOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInputTokenType) IntegrationGitLabInputTokenType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationGitLabInputTokenType
+		return ret
+	}).(IntegrationGitLabInputTokenTypeOutput)
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputTokenTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationGitLabInputTokenType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntegrationGitLabInputTokenTypeInput is an input type that accepts values of the IntegrationGitLabInputTokenType enum
+// A concrete instance of `IntegrationGitLabInputTokenTypeInput` can be one of the following:
+//
+//	IntegrationGitLabInputTokenTypePersonal
+//	IntegrationGitLabInputTokenTypeGroup
+type IntegrationGitLabInputTokenTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationGitLabInputTokenTypeOutput() IntegrationGitLabInputTokenTypeOutput
+	ToIntegrationGitLabInputTokenTypeOutputWithContext(context.Context) IntegrationGitLabInputTokenTypeOutput
+}
+
+var integrationGitLabInputTokenTypePtrType = reflect.TypeOf((**IntegrationGitLabInputTokenType)(nil)).Elem()
+
+type IntegrationGitLabInputTokenTypePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput
+	ToIntegrationGitLabInputTokenTypePtrOutputWithContext(context.Context) IntegrationGitLabInputTokenTypePtrOutput
+}
+
+type integrationGitLabInputTokenTypePtr string
+
+func IntegrationGitLabInputTokenTypePtr(v string) IntegrationGitLabInputTokenTypePtrInput {
+	return (*integrationGitLabInputTokenTypePtr)(&v)
+}
+
+func (*integrationGitLabInputTokenTypePtr) ElementType() reflect.Type {
+	return integrationGitLabInputTokenTypePtrType
+}
+
+func (in *integrationGitLabInputTokenTypePtr) ToIntegrationGitLabInputTokenTypePtrOutput() IntegrationGitLabInputTokenTypePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationGitLabInputTokenTypePtrOutput)
+}
+
+func (in *integrationGitLabInputTokenTypePtr) ToIntegrationGitLabInputTokenTypePtrOutputWithContext(ctx context.Context) IntegrationGitLabInputTokenTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationGitLabInputTokenTypePtrOutput)
+}
+
+// The integration provider.
+type IntegrationProviderEnum string
+
+const (
+	IntegrationProviderEnumGithub     = IntegrationProviderEnum("GITHUB")
+	IntegrationProviderEnumGitlab     = IntegrationProviderEnum("GITLAB")
+	IntegrationProviderEnumBitbucket  = IntegrationProviderEnum("BITBUCKET")
+	IntegrationProviderEnumConfluence = IntegrationProviderEnum("CONFLUENCE")
+)
+
+func (IntegrationProviderEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderEnum)(nil)).Elem()
+}
+
+func (e IntegrationProviderEnum) ToIntegrationProviderEnumOutput() IntegrationProviderEnumOutput {
+	return pulumi.ToOutput(e).(IntegrationProviderEnumOutput)
+}
+
+func (e IntegrationProviderEnum) ToIntegrationProviderEnumOutputWithContext(ctx context.Context) IntegrationProviderEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationProviderEnumOutput)
+}
+
+func (e IntegrationProviderEnum) ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput {
+	return e.ToIntegrationProviderEnumPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationProviderEnum) ToIntegrationProviderEnumPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumPtrOutput {
+	return IntegrationProviderEnum(e).ToIntegrationProviderEnumOutputWithContext(ctx).ToIntegrationProviderEnumPtrOutputWithContext(ctx)
+}
+
+func (e IntegrationProviderEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationProviderEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationProviderEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationProviderEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationProviderEnumOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderEnum)(nil)).Elem()
+}
+
+func (o IntegrationProviderEnumOutput) ToIntegrationProviderEnumOutput() IntegrationProviderEnumOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumOutput) ToIntegrationProviderEnumOutputWithContext(ctx context.Context) IntegrationProviderEnumOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumOutput) ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput {
+	return o.ToIntegrationProviderEnumPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderEnumOutput) ToIntegrationProviderEnumPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationProviderEnum) *IntegrationProviderEnum {
+		return &v
+	}).(IntegrationProviderEnumPtrOutput)
+}
+
+func (o IntegrationProviderEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationProviderEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationProviderEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationProviderEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationProviderEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderEnum)(nil)).Elem()
+}
+
+func (o IntegrationProviderEnumPtrOutput) ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumPtrOutput) ToIntegrationProviderEnumPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumPtrOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumPtrOutput) Elem() IntegrationProviderEnumOutput {
+	return o.ApplyT(func(v *IntegrationProviderEnum) IntegrationProviderEnum {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationProviderEnum
+		return ret
+	}).(IntegrationProviderEnumOutput)
+}
+
+func (o IntegrationProviderEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationProviderEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntegrationProviderEnumInput is an input type that accepts values of the IntegrationProviderEnum enum
+// A concrete instance of `IntegrationProviderEnumInput` can be one of the following:
+//
+//	IntegrationProviderEnumGithub
+//	IntegrationProviderEnumGitlab
+//	IntegrationProviderEnumBitbucket
+//	IntegrationProviderEnumConfluence
+type IntegrationProviderEnumInput interface {
+	pulumi.Input
+
+	ToIntegrationProviderEnumOutput() IntegrationProviderEnumOutput
+	ToIntegrationProviderEnumOutputWithContext(context.Context) IntegrationProviderEnumOutput
+}
+
+var integrationProviderEnumPtrType = reflect.TypeOf((**IntegrationProviderEnum)(nil)).Elem()
+
+type IntegrationProviderEnumPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput
+	ToIntegrationProviderEnumPtrOutputWithContext(context.Context) IntegrationProviderEnumPtrOutput
+}
+
+type integrationProviderEnumPtr string
+
+func IntegrationProviderEnumPtr(v string) IntegrationProviderEnumPtrInput {
+	return (*integrationProviderEnumPtr)(&v)
+}
+
+func (*integrationProviderEnumPtr) ElementType() reflect.Type {
+	return integrationProviderEnumPtrType
+}
+
+func (in *integrationProviderEnumPtr) ToIntegrationProviderEnumPtrOutput() IntegrationProviderEnumPtrOutput {
+	return pulumi.ToOutput(in).(IntegrationProviderEnumPtrOutput)
+}
+
+func (in *integrationProviderEnumPtr) ToIntegrationProviderEnumPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationProviderEnumPtrOutput)
+}
+
+// The type of the integration provider.
+type IntegrationProviderType string
+
+const (
+	IntegrationProviderTypeSourceCode    = IntegrationProviderType("SOURCE_CODE")
+	IntegrationProviderTypeDocumentation = IntegrationProviderType("DOCUMENTATION")
+)
+
+type IntegrationProviderTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderType)(nil)).Elem()
+}
+
+func (o IntegrationProviderTypeOutput) ToIntegrationProviderTypeOutput() IntegrationProviderTypeOutput {
+	return o
+}
+
+func (o IntegrationProviderTypeOutput) ToIntegrationProviderTypeOutputWithContext(ctx context.Context) IntegrationProviderTypeOutput {
+	return o
+}
+
+func (o IntegrationProviderTypeOutput) ToIntegrationProviderTypePtrOutput() IntegrationProviderTypePtrOutput {
+	return o.ToIntegrationProviderTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderTypeOutput) ToIntegrationProviderTypePtrOutputWithContext(ctx context.Context) IntegrationProviderTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationProviderType) *IntegrationProviderType {
+		return &v
+	}).(IntegrationProviderTypePtrOutput)
+}
+
+func (o IntegrationProviderTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationProviderType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationProviderTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationProviderType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationProviderTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderType)(nil)).Elem()
+}
+
+func (o IntegrationProviderTypePtrOutput) ToIntegrationProviderTypePtrOutput() IntegrationProviderTypePtrOutput {
+	return o
+}
+
+func (o IntegrationProviderTypePtrOutput) ToIntegrationProviderTypePtrOutputWithContext(ctx context.Context) IntegrationProviderTypePtrOutput {
+	return o
+}
+
+func (o IntegrationProviderTypePtrOutput) Elem() IntegrationProviderTypeOutput {
+	return o.ApplyT(func(v *IntegrationProviderType) IntegrationProviderType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationProviderType
+		return ret
+	}).(IntegrationProviderTypeOutput)
+}
+
+func (o IntegrationProviderTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationProviderType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Type of authentication provider
 type PentestAuthenticationProviderType string
 
@@ -1022,6 +1449,870 @@ func (in *pentestNetworkTrafficRuleNetworkTrafficRuleTypePtr) ToPentestNetworkTr
 	return pulumi.ToOutputWithContext(ctx, in).(PentestNetworkTrafficRuleNetworkTrafficRuleTypePtrOutput)
 }
 
+type PentestReportFiltersConfidenceLevelsItem string
+
+const (
+	PentestReportFiltersConfidenceLevelsItemFalsePositive = PentestReportFiltersConfidenceLevelsItem("FALSE_POSITIVE")
+	PentestReportFiltersConfidenceLevelsItemUnconfirmed   = PentestReportFiltersConfidenceLevelsItem("UNCONFIRMED")
+	PentestReportFiltersConfidenceLevelsItemLow           = PentestReportFiltersConfidenceLevelsItem("LOW")
+	PentestReportFiltersConfidenceLevelsItemMedium        = PentestReportFiltersConfidenceLevelsItem("MEDIUM")
+	PentestReportFiltersConfidenceLevelsItemHigh          = PentestReportFiltersConfidenceLevelsItem("HIGH")
+)
+
+func (PentestReportFiltersConfidenceLevelsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFiltersConfidenceLevelsItem)(nil)).Elem()
+}
+
+func (e PentestReportFiltersConfidenceLevelsItem) ToPentestReportFiltersConfidenceLevelsItemOutput() PentestReportFiltersConfidenceLevelsItemOutput {
+	return pulumi.ToOutput(e).(PentestReportFiltersConfidenceLevelsItemOutput)
+}
+
+func (e PentestReportFiltersConfidenceLevelsItem) ToPentestReportFiltersConfidenceLevelsItemOutputWithContext(ctx context.Context) PentestReportFiltersConfidenceLevelsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PentestReportFiltersConfidenceLevelsItemOutput)
+}
+
+func (e PentestReportFiltersConfidenceLevelsItem) ToPentestReportFiltersConfidenceLevelsItemPtrOutput() PentestReportFiltersConfidenceLevelsItemPtrOutput {
+	return e.ToPentestReportFiltersConfidenceLevelsItemPtrOutputWithContext(context.Background())
+}
+
+func (e PentestReportFiltersConfidenceLevelsItem) ToPentestReportFiltersConfidenceLevelsItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersConfidenceLevelsItemPtrOutput {
+	return PentestReportFiltersConfidenceLevelsItem(e).ToPentestReportFiltersConfidenceLevelsItemOutputWithContext(ctx).ToPentestReportFiltersConfidenceLevelsItemPtrOutputWithContext(ctx)
+}
+
+func (e PentestReportFiltersConfidenceLevelsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestReportFiltersConfidenceLevelsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestReportFiltersConfidenceLevelsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PentestReportFiltersConfidenceLevelsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PentestReportFiltersConfidenceLevelsItemOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersConfidenceLevelsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFiltersConfidenceLevelsItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemOutput) ToPentestReportFiltersConfidenceLevelsItemOutput() PentestReportFiltersConfidenceLevelsItemOutput {
+	return o
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemOutput) ToPentestReportFiltersConfidenceLevelsItemOutputWithContext(ctx context.Context) PentestReportFiltersConfidenceLevelsItemOutput {
+	return o
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemOutput) ToPentestReportFiltersConfidenceLevelsItemPtrOutput() PentestReportFiltersConfidenceLevelsItemPtrOutput {
+	return o.ToPentestReportFiltersConfidenceLevelsItemPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemOutput) ToPentestReportFiltersConfidenceLevelsItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersConfidenceLevelsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestReportFiltersConfidenceLevelsItem) *PentestReportFiltersConfidenceLevelsItem {
+		return &v
+	}).(PentestReportFiltersConfidenceLevelsItemPtrOutput)
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestReportFiltersConfidenceLevelsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestReportFiltersConfidenceLevelsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PentestReportFiltersConfidenceLevelsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersConfidenceLevelsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestReportFiltersConfidenceLevelsItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemPtrOutput) ToPentestReportFiltersConfidenceLevelsItemPtrOutput() PentestReportFiltersConfidenceLevelsItemPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemPtrOutput) ToPentestReportFiltersConfidenceLevelsItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersConfidenceLevelsItemPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemPtrOutput) Elem() PentestReportFiltersConfidenceLevelsItemOutput {
+	return o.ApplyT(func(v *PentestReportFiltersConfidenceLevelsItem) PentestReportFiltersConfidenceLevelsItem {
+		if v != nil {
+			return *v
+		}
+		var ret PentestReportFiltersConfidenceLevelsItem
+		return ret
+	}).(PentestReportFiltersConfidenceLevelsItemOutput)
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PentestReportFiltersConfidenceLevelsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PentestReportFiltersConfidenceLevelsItemInput is an input type that accepts values of the PentestReportFiltersConfidenceLevelsItem enum
+// A concrete instance of `PentestReportFiltersConfidenceLevelsItemInput` can be one of the following:
+//
+//	PentestReportFiltersConfidenceLevelsItemFalsePositive
+//	PentestReportFiltersConfidenceLevelsItemUnconfirmed
+//	PentestReportFiltersConfidenceLevelsItemLow
+//	PentestReportFiltersConfidenceLevelsItemMedium
+//	PentestReportFiltersConfidenceLevelsItemHigh
+type PentestReportFiltersConfidenceLevelsItemInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersConfidenceLevelsItemOutput() PentestReportFiltersConfidenceLevelsItemOutput
+	ToPentestReportFiltersConfidenceLevelsItemOutputWithContext(context.Context) PentestReportFiltersConfidenceLevelsItemOutput
+}
+
+var pentestReportFiltersConfidenceLevelsItemPtrType = reflect.TypeOf((**PentestReportFiltersConfidenceLevelsItem)(nil)).Elem()
+
+type PentestReportFiltersConfidenceLevelsItemPtrInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersConfidenceLevelsItemPtrOutput() PentestReportFiltersConfidenceLevelsItemPtrOutput
+	ToPentestReportFiltersConfidenceLevelsItemPtrOutputWithContext(context.Context) PentestReportFiltersConfidenceLevelsItemPtrOutput
+}
+
+type pentestReportFiltersConfidenceLevelsItemPtr string
+
+func PentestReportFiltersConfidenceLevelsItemPtr(v string) PentestReportFiltersConfidenceLevelsItemPtrInput {
+	return (*pentestReportFiltersConfidenceLevelsItemPtr)(&v)
+}
+
+func (*pentestReportFiltersConfidenceLevelsItemPtr) ElementType() reflect.Type {
+	return pentestReportFiltersConfidenceLevelsItemPtrType
+}
+
+func (in *pentestReportFiltersConfidenceLevelsItemPtr) ToPentestReportFiltersConfidenceLevelsItemPtrOutput() PentestReportFiltersConfidenceLevelsItemPtrOutput {
+	return pulumi.ToOutput(in).(PentestReportFiltersConfidenceLevelsItemPtrOutput)
+}
+
+func (in *pentestReportFiltersConfidenceLevelsItemPtr) ToPentestReportFiltersConfidenceLevelsItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersConfidenceLevelsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PentestReportFiltersConfidenceLevelsItemPtrOutput)
+}
+
+// PentestReportFiltersConfidenceLevelsItemArrayInput is an input type that accepts PentestReportFiltersConfidenceLevelsItemArray and PentestReportFiltersConfidenceLevelsItemArrayOutput values.
+// You can construct a concrete instance of `PentestReportFiltersConfidenceLevelsItemArrayInput` via:
+//
+//	PentestReportFiltersConfidenceLevelsItemArray{ PentestReportFiltersConfidenceLevelsItemArgs{...} }
+type PentestReportFiltersConfidenceLevelsItemArrayInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersConfidenceLevelsItemArrayOutput() PentestReportFiltersConfidenceLevelsItemArrayOutput
+	ToPentestReportFiltersConfidenceLevelsItemArrayOutputWithContext(context.Context) PentestReportFiltersConfidenceLevelsItemArrayOutput
+}
+
+type PentestReportFiltersConfidenceLevelsItemArray []PentestReportFiltersConfidenceLevelsItem
+
+func (PentestReportFiltersConfidenceLevelsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestReportFiltersConfidenceLevelsItem)(nil)).Elem()
+}
+
+func (i PentestReportFiltersConfidenceLevelsItemArray) ToPentestReportFiltersConfidenceLevelsItemArrayOutput() PentestReportFiltersConfidenceLevelsItemArrayOutput {
+	return i.ToPentestReportFiltersConfidenceLevelsItemArrayOutputWithContext(context.Background())
+}
+
+func (i PentestReportFiltersConfidenceLevelsItemArray) ToPentestReportFiltersConfidenceLevelsItemArrayOutputWithContext(ctx context.Context) PentestReportFiltersConfidenceLevelsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportFiltersConfidenceLevelsItemArrayOutput)
+}
+
+type PentestReportFiltersConfidenceLevelsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersConfidenceLevelsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestReportFiltersConfidenceLevelsItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemArrayOutput) ToPentestReportFiltersConfidenceLevelsItemArrayOutput() PentestReportFiltersConfidenceLevelsItemArrayOutput {
+	return o
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemArrayOutput) ToPentestReportFiltersConfidenceLevelsItemArrayOutputWithContext(ctx context.Context) PentestReportFiltersConfidenceLevelsItemArrayOutput {
+	return o
+}
+
+func (o PentestReportFiltersConfidenceLevelsItemArrayOutput) Index(i pulumi.IntInput) PentestReportFiltersConfidenceLevelsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PentestReportFiltersConfidenceLevelsItem {
+		return vs[0].([]PentestReportFiltersConfidenceLevelsItem)[vs[1].(int)]
+	}).(PentestReportFiltersConfidenceLevelsItemOutput)
+}
+
+type PentestReportFiltersRiskLevelsItem string
+
+const (
+	PentestReportFiltersRiskLevelsItemUnknown       = PentestReportFiltersRiskLevelsItem("UNKNOWN")
+	PentestReportFiltersRiskLevelsItemInformational = PentestReportFiltersRiskLevelsItem("INFORMATIONAL")
+	PentestReportFiltersRiskLevelsItemLow           = PentestReportFiltersRiskLevelsItem("LOW")
+	PentestReportFiltersRiskLevelsItemMedium        = PentestReportFiltersRiskLevelsItem("MEDIUM")
+	PentestReportFiltersRiskLevelsItemHigh          = PentestReportFiltersRiskLevelsItem("HIGH")
+	PentestReportFiltersRiskLevelsItemCritical      = PentestReportFiltersRiskLevelsItem("CRITICAL")
+)
+
+func (PentestReportFiltersRiskLevelsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFiltersRiskLevelsItem)(nil)).Elem()
+}
+
+func (e PentestReportFiltersRiskLevelsItem) ToPentestReportFiltersRiskLevelsItemOutput() PentestReportFiltersRiskLevelsItemOutput {
+	return pulumi.ToOutput(e).(PentestReportFiltersRiskLevelsItemOutput)
+}
+
+func (e PentestReportFiltersRiskLevelsItem) ToPentestReportFiltersRiskLevelsItemOutputWithContext(ctx context.Context) PentestReportFiltersRiskLevelsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PentestReportFiltersRiskLevelsItemOutput)
+}
+
+func (e PentestReportFiltersRiskLevelsItem) ToPentestReportFiltersRiskLevelsItemPtrOutput() PentestReportFiltersRiskLevelsItemPtrOutput {
+	return e.ToPentestReportFiltersRiskLevelsItemPtrOutputWithContext(context.Background())
+}
+
+func (e PentestReportFiltersRiskLevelsItem) ToPentestReportFiltersRiskLevelsItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersRiskLevelsItemPtrOutput {
+	return PentestReportFiltersRiskLevelsItem(e).ToPentestReportFiltersRiskLevelsItemOutputWithContext(ctx).ToPentestReportFiltersRiskLevelsItemPtrOutputWithContext(ctx)
+}
+
+func (e PentestReportFiltersRiskLevelsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestReportFiltersRiskLevelsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestReportFiltersRiskLevelsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PentestReportFiltersRiskLevelsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PentestReportFiltersRiskLevelsItemOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersRiskLevelsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFiltersRiskLevelsItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersRiskLevelsItemOutput) ToPentestReportFiltersRiskLevelsItemOutput() PentestReportFiltersRiskLevelsItemOutput {
+	return o
+}
+
+func (o PentestReportFiltersRiskLevelsItemOutput) ToPentestReportFiltersRiskLevelsItemOutputWithContext(ctx context.Context) PentestReportFiltersRiskLevelsItemOutput {
+	return o
+}
+
+func (o PentestReportFiltersRiskLevelsItemOutput) ToPentestReportFiltersRiskLevelsItemPtrOutput() PentestReportFiltersRiskLevelsItemPtrOutput {
+	return o.ToPentestReportFiltersRiskLevelsItemPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersRiskLevelsItemOutput) ToPentestReportFiltersRiskLevelsItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersRiskLevelsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestReportFiltersRiskLevelsItem) *PentestReportFiltersRiskLevelsItem {
+		return &v
+	}).(PentestReportFiltersRiskLevelsItemPtrOutput)
+}
+
+func (o PentestReportFiltersRiskLevelsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersRiskLevelsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestReportFiltersRiskLevelsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PentestReportFiltersRiskLevelsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersRiskLevelsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestReportFiltersRiskLevelsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PentestReportFiltersRiskLevelsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersRiskLevelsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestReportFiltersRiskLevelsItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersRiskLevelsItemPtrOutput) ToPentestReportFiltersRiskLevelsItemPtrOutput() PentestReportFiltersRiskLevelsItemPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersRiskLevelsItemPtrOutput) ToPentestReportFiltersRiskLevelsItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersRiskLevelsItemPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersRiskLevelsItemPtrOutput) Elem() PentestReportFiltersRiskLevelsItemOutput {
+	return o.ApplyT(func(v *PentestReportFiltersRiskLevelsItem) PentestReportFiltersRiskLevelsItem {
+		if v != nil {
+			return *v
+		}
+		var ret PentestReportFiltersRiskLevelsItem
+		return ret
+	}).(PentestReportFiltersRiskLevelsItemOutput)
+}
+
+func (o PentestReportFiltersRiskLevelsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersRiskLevelsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PentestReportFiltersRiskLevelsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PentestReportFiltersRiskLevelsItemInput is an input type that accepts values of the PentestReportFiltersRiskLevelsItem enum
+// A concrete instance of `PentestReportFiltersRiskLevelsItemInput` can be one of the following:
+//
+//	PentestReportFiltersRiskLevelsItemUnknown
+//	PentestReportFiltersRiskLevelsItemInformational
+//	PentestReportFiltersRiskLevelsItemLow
+//	PentestReportFiltersRiskLevelsItemMedium
+//	PentestReportFiltersRiskLevelsItemHigh
+//	PentestReportFiltersRiskLevelsItemCritical
+type PentestReportFiltersRiskLevelsItemInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersRiskLevelsItemOutput() PentestReportFiltersRiskLevelsItemOutput
+	ToPentestReportFiltersRiskLevelsItemOutputWithContext(context.Context) PentestReportFiltersRiskLevelsItemOutput
+}
+
+var pentestReportFiltersRiskLevelsItemPtrType = reflect.TypeOf((**PentestReportFiltersRiskLevelsItem)(nil)).Elem()
+
+type PentestReportFiltersRiskLevelsItemPtrInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersRiskLevelsItemPtrOutput() PentestReportFiltersRiskLevelsItemPtrOutput
+	ToPentestReportFiltersRiskLevelsItemPtrOutputWithContext(context.Context) PentestReportFiltersRiskLevelsItemPtrOutput
+}
+
+type pentestReportFiltersRiskLevelsItemPtr string
+
+func PentestReportFiltersRiskLevelsItemPtr(v string) PentestReportFiltersRiskLevelsItemPtrInput {
+	return (*pentestReportFiltersRiskLevelsItemPtr)(&v)
+}
+
+func (*pentestReportFiltersRiskLevelsItemPtr) ElementType() reflect.Type {
+	return pentestReportFiltersRiskLevelsItemPtrType
+}
+
+func (in *pentestReportFiltersRiskLevelsItemPtr) ToPentestReportFiltersRiskLevelsItemPtrOutput() PentestReportFiltersRiskLevelsItemPtrOutput {
+	return pulumi.ToOutput(in).(PentestReportFiltersRiskLevelsItemPtrOutput)
+}
+
+func (in *pentestReportFiltersRiskLevelsItemPtr) ToPentestReportFiltersRiskLevelsItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersRiskLevelsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PentestReportFiltersRiskLevelsItemPtrOutput)
+}
+
+// PentestReportFiltersRiskLevelsItemArrayInput is an input type that accepts PentestReportFiltersRiskLevelsItemArray and PentestReportFiltersRiskLevelsItemArrayOutput values.
+// You can construct a concrete instance of `PentestReportFiltersRiskLevelsItemArrayInput` via:
+//
+//	PentestReportFiltersRiskLevelsItemArray{ PentestReportFiltersRiskLevelsItemArgs{...} }
+type PentestReportFiltersRiskLevelsItemArrayInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersRiskLevelsItemArrayOutput() PentestReportFiltersRiskLevelsItemArrayOutput
+	ToPentestReportFiltersRiskLevelsItemArrayOutputWithContext(context.Context) PentestReportFiltersRiskLevelsItemArrayOutput
+}
+
+type PentestReportFiltersRiskLevelsItemArray []PentestReportFiltersRiskLevelsItem
+
+func (PentestReportFiltersRiskLevelsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestReportFiltersRiskLevelsItem)(nil)).Elem()
+}
+
+func (i PentestReportFiltersRiskLevelsItemArray) ToPentestReportFiltersRiskLevelsItemArrayOutput() PentestReportFiltersRiskLevelsItemArrayOutput {
+	return i.ToPentestReportFiltersRiskLevelsItemArrayOutputWithContext(context.Background())
+}
+
+func (i PentestReportFiltersRiskLevelsItemArray) ToPentestReportFiltersRiskLevelsItemArrayOutputWithContext(ctx context.Context) PentestReportFiltersRiskLevelsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportFiltersRiskLevelsItemArrayOutput)
+}
+
+type PentestReportFiltersRiskLevelsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersRiskLevelsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestReportFiltersRiskLevelsItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersRiskLevelsItemArrayOutput) ToPentestReportFiltersRiskLevelsItemArrayOutput() PentestReportFiltersRiskLevelsItemArrayOutput {
+	return o
+}
+
+func (o PentestReportFiltersRiskLevelsItemArrayOutput) ToPentestReportFiltersRiskLevelsItemArrayOutputWithContext(ctx context.Context) PentestReportFiltersRiskLevelsItemArrayOutput {
+	return o
+}
+
+func (o PentestReportFiltersRiskLevelsItemArrayOutput) Index(i pulumi.IntInput) PentestReportFiltersRiskLevelsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PentestReportFiltersRiskLevelsItem {
+		return vs[0].([]PentestReportFiltersRiskLevelsItem)[vs[1].(int)]
+	}).(PentestReportFiltersRiskLevelsItemOutput)
+}
+
+type PentestReportFiltersStatusesItem string
+
+const (
+	PentestReportFiltersStatusesItemActive        = PentestReportFiltersStatusesItem("ACTIVE")
+	PentestReportFiltersStatusesItemResolved      = PentestReportFiltersStatusesItem("RESOLVED")
+	PentestReportFiltersStatusesItemAccepted      = PentestReportFiltersStatusesItem("ACCEPTED")
+	PentestReportFiltersStatusesItemFalsePositive = PentestReportFiltersStatusesItem("FALSE_POSITIVE")
+)
+
+func (PentestReportFiltersStatusesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFiltersStatusesItem)(nil)).Elem()
+}
+
+func (e PentestReportFiltersStatusesItem) ToPentestReportFiltersStatusesItemOutput() PentestReportFiltersStatusesItemOutput {
+	return pulumi.ToOutput(e).(PentestReportFiltersStatusesItemOutput)
+}
+
+func (e PentestReportFiltersStatusesItem) ToPentestReportFiltersStatusesItemOutputWithContext(ctx context.Context) PentestReportFiltersStatusesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PentestReportFiltersStatusesItemOutput)
+}
+
+func (e PentestReportFiltersStatusesItem) ToPentestReportFiltersStatusesItemPtrOutput() PentestReportFiltersStatusesItemPtrOutput {
+	return e.ToPentestReportFiltersStatusesItemPtrOutputWithContext(context.Background())
+}
+
+func (e PentestReportFiltersStatusesItem) ToPentestReportFiltersStatusesItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersStatusesItemPtrOutput {
+	return PentestReportFiltersStatusesItem(e).ToPentestReportFiltersStatusesItemOutputWithContext(ctx).ToPentestReportFiltersStatusesItemPtrOutputWithContext(ctx)
+}
+
+func (e PentestReportFiltersStatusesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestReportFiltersStatusesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestReportFiltersStatusesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PentestReportFiltersStatusesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PentestReportFiltersStatusesItemOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersStatusesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFiltersStatusesItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersStatusesItemOutput) ToPentestReportFiltersStatusesItemOutput() PentestReportFiltersStatusesItemOutput {
+	return o
+}
+
+func (o PentestReportFiltersStatusesItemOutput) ToPentestReportFiltersStatusesItemOutputWithContext(ctx context.Context) PentestReportFiltersStatusesItemOutput {
+	return o
+}
+
+func (o PentestReportFiltersStatusesItemOutput) ToPentestReportFiltersStatusesItemPtrOutput() PentestReportFiltersStatusesItemPtrOutput {
+	return o.ToPentestReportFiltersStatusesItemPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersStatusesItemOutput) ToPentestReportFiltersStatusesItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersStatusesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestReportFiltersStatusesItem) *PentestReportFiltersStatusesItem {
+		return &v
+	}).(PentestReportFiltersStatusesItemPtrOutput)
+}
+
+func (o PentestReportFiltersStatusesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersStatusesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestReportFiltersStatusesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PentestReportFiltersStatusesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersStatusesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestReportFiltersStatusesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PentestReportFiltersStatusesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersStatusesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestReportFiltersStatusesItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersStatusesItemPtrOutput) ToPentestReportFiltersStatusesItemPtrOutput() PentestReportFiltersStatusesItemPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersStatusesItemPtrOutput) ToPentestReportFiltersStatusesItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersStatusesItemPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersStatusesItemPtrOutput) Elem() PentestReportFiltersStatusesItemOutput {
+	return o.ApplyT(func(v *PentestReportFiltersStatusesItem) PentestReportFiltersStatusesItem {
+		if v != nil {
+			return *v
+		}
+		var ret PentestReportFiltersStatusesItem
+		return ret
+	}).(PentestReportFiltersStatusesItemOutput)
+}
+
+func (o PentestReportFiltersStatusesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersStatusesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PentestReportFiltersStatusesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PentestReportFiltersStatusesItemInput is an input type that accepts values of the PentestReportFiltersStatusesItem enum
+// A concrete instance of `PentestReportFiltersStatusesItemInput` can be one of the following:
+//
+//	PentestReportFiltersStatusesItemActive
+//	PentestReportFiltersStatusesItemResolved
+//	PentestReportFiltersStatusesItemAccepted
+//	PentestReportFiltersStatusesItemFalsePositive
+type PentestReportFiltersStatusesItemInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersStatusesItemOutput() PentestReportFiltersStatusesItemOutput
+	ToPentestReportFiltersStatusesItemOutputWithContext(context.Context) PentestReportFiltersStatusesItemOutput
+}
+
+var pentestReportFiltersStatusesItemPtrType = reflect.TypeOf((**PentestReportFiltersStatusesItem)(nil)).Elem()
+
+type PentestReportFiltersStatusesItemPtrInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersStatusesItemPtrOutput() PentestReportFiltersStatusesItemPtrOutput
+	ToPentestReportFiltersStatusesItemPtrOutputWithContext(context.Context) PentestReportFiltersStatusesItemPtrOutput
+}
+
+type pentestReportFiltersStatusesItemPtr string
+
+func PentestReportFiltersStatusesItemPtr(v string) PentestReportFiltersStatusesItemPtrInput {
+	return (*pentestReportFiltersStatusesItemPtr)(&v)
+}
+
+func (*pentestReportFiltersStatusesItemPtr) ElementType() reflect.Type {
+	return pentestReportFiltersStatusesItemPtrType
+}
+
+func (in *pentestReportFiltersStatusesItemPtr) ToPentestReportFiltersStatusesItemPtrOutput() PentestReportFiltersStatusesItemPtrOutput {
+	return pulumi.ToOutput(in).(PentestReportFiltersStatusesItemPtrOutput)
+}
+
+func (in *pentestReportFiltersStatusesItemPtr) ToPentestReportFiltersStatusesItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersStatusesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PentestReportFiltersStatusesItemPtrOutput)
+}
+
+// PentestReportFiltersStatusesItemArrayInput is an input type that accepts PentestReportFiltersStatusesItemArray and PentestReportFiltersStatusesItemArrayOutput values.
+// You can construct a concrete instance of `PentestReportFiltersStatusesItemArrayInput` via:
+//
+//	PentestReportFiltersStatusesItemArray{ PentestReportFiltersStatusesItemArgs{...} }
+type PentestReportFiltersStatusesItemArrayInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersStatusesItemArrayOutput() PentestReportFiltersStatusesItemArrayOutput
+	ToPentestReportFiltersStatusesItemArrayOutputWithContext(context.Context) PentestReportFiltersStatusesItemArrayOutput
+}
+
+type PentestReportFiltersStatusesItemArray []PentestReportFiltersStatusesItem
+
+func (PentestReportFiltersStatusesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestReportFiltersStatusesItem)(nil)).Elem()
+}
+
+func (i PentestReportFiltersStatusesItemArray) ToPentestReportFiltersStatusesItemArrayOutput() PentestReportFiltersStatusesItemArrayOutput {
+	return i.ToPentestReportFiltersStatusesItemArrayOutputWithContext(context.Background())
+}
+
+func (i PentestReportFiltersStatusesItemArray) ToPentestReportFiltersStatusesItemArrayOutputWithContext(ctx context.Context) PentestReportFiltersStatusesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportFiltersStatusesItemArrayOutput)
+}
+
+type PentestReportFiltersStatusesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersStatusesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestReportFiltersStatusesItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersStatusesItemArrayOutput) ToPentestReportFiltersStatusesItemArrayOutput() PentestReportFiltersStatusesItemArrayOutput {
+	return o
+}
+
+func (o PentestReportFiltersStatusesItemArrayOutput) ToPentestReportFiltersStatusesItemArrayOutputWithContext(ctx context.Context) PentestReportFiltersStatusesItemArrayOutput {
+	return o
+}
+
+func (o PentestReportFiltersStatusesItemArrayOutput) Index(i pulumi.IntInput) PentestReportFiltersStatusesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PentestReportFiltersStatusesItem {
+		return vs[0].([]PentestReportFiltersStatusesItem)[vs[1].(int)]
+	}).(PentestReportFiltersStatusesItemOutput)
+}
+
+type PentestReportFiltersTaskStatusesItem string
+
+const (
+	PentestReportFiltersTaskStatusesItemInProgress    = PentestReportFiltersTaskStatusesItem("IN_PROGRESS")
+	PentestReportFiltersTaskStatusesItemAborted       = PentestReportFiltersTaskStatusesItem("ABORTED")
+	PentestReportFiltersTaskStatusesItemCompleted     = PentestReportFiltersTaskStatusesItem("COMPLETED")
+	PentestReportFiltersTaskStatusesItemInternalError = PentestReportFiltersTaskStatusesItem("INTERNAL_ERROR")
+	PentestReportFiltersTaskStatusesItemFailed        = PentestReportFiltersTaskStatusesItem("FAILED")
+)
+
+func (PentestReportFiltersTaskStatusesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFiltersTaskStatusesItem)(nil)).Elem()
+}
+
+func (e PentestReportFiltersTaskStatusesItem) ToPentestReportFiltersTaskStatusesItemOutput() PentestReportFiltersTaskStatusesItemOutput {
+	return pulumi.ToOutput(e).(PentestReportFiltersTaskStatusesItemOutput)
+}
+
+func (e PentestReportFiltersTaskStatusesItem) ToPentestReportFiltersTaskStatusesItemOutputWithContext(ctx context.Context) PentestReportFiltersTaskStatusesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PentestReportFiltersTaskStatusesItemOutput)
+}
+
+func (e PentestReportFiltersTaskStatusesItem) ToPentestReportFiltersTaskStatusesItemPtrOutput() PentestReportFiltersTaskStatusesItemPtrOutput {
+	return e.ToPentestReportFiltersTaskStatusesItemPtrOutputWithContext(context.Background())
+}
+
+func (e PentestReportFiltersTaskStatusesItem) ToPentestReportFiltersTaskStatusesItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersTaskStatusesItemPtrOutput {
+	return PentestReportFiltersTaskStatusesItem(e).ToPentestReportFiltersTaskStatusesItemOutputWithContext(ctx).ToPentestReportFiltersTaskStatusesItemPtrOutputWithContext(ctx)
+}
+
+func (e PentestReportFiltersTaskStatusesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestReportFiltersTaskStatusesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestReportFiltersTaskStatusesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PentestReportFiltersTaskStatusesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PentestReportFiltersTaskStatusesItemOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersTaskStatusesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFiltersTaskStatusesItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersTaskStatusesItemOutput) ToPentestReportFiltersTaskStatusesItemOutput() PentestReportFiltersTaskStatusesItemOutput {
+	return o
+}
+
+func (o PentestReportFiltersTaskStatusesItemOutput) ToPentestReportFiltersTaskStatusesItemOutputWithContext(ctx context.Context) PentestReportFiltersTaskStatusesItemOutput {
+	return o
+}
+
+func (o PentestReportFiltersTaskStatusesItemOutput) ToPentestReportFiltersTaskStatusesItemPtrOutput() PentestReportFiltersTaskStatusesItemPtrOutput {
+	return o.ToPentestReportFiltersTaskStatusesItemPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersTaskStatusesItemOutput) ToPentestReportFiltersTaskStatusesItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersTaskStatusesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestReportFiltersTaskStatusesItem) *PentestReportFiltersTaskStatusesItem {
+		return &v
+	}).(PentestReportFiltersTaskStatusesItemPtrOutput)
+}
+
+func (o PentestReportFiltersTaskStatusesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersTaskStatusesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestReportFiltersTaskStatusesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PentestReportFiltersTaskStatusesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersTaskStatusesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestReportFiltersTaskStatusesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PentestReportFiltersTaskStatusesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersTaskStatusesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestReportFiltersTaskStatusesItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersTaskStatusesItemPtrOutput) ToPentestReportFiltersTaskStatusesItemPtrOutput() PentestReportFiltersTaskStatusesItemPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersTaskStatusesItemPtrOutput) ToPentestReportFiltersTaskStatusesItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersTaskStatusesItemPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersTaskStatusesItemPtrOutput) Elem() PentestReportFiltersTaskStatusesItemOutput {
+	return o.ApplyT(func(v *PentestReportFiltersTaskStatusesItem) PentestReportFiltersTaskStatusesItem {
+		if v != nil {
+			return *v
+		}
+		var ret PentestReportFiltersTaskStatusesItem
+		return ret
+	}).(PentestReportFiltersTaskStatusesItemOutput)
+}
+
+func (o PentestReportFiltersTaskStatusesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersTaskStatusesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PentestReportFiltersTaskStatusesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PentestReportFiltersTaskStatusesItemInput is an input type that accepts values of the PentestReportFiltersTaskStatusesItem enum
+// A concrete instance of `PentestReportFiltersTaskStatusesItemInput` can be one of the following:
+//
+//	PentestReportFiltersTaskStatusesItemInProgress
+//	PentestReportFiltersTaskStatusesItemAborted
+//	PentestReportFiltersTaskStatusesItemCompleted
+//	PentestReportFiltersTaskStatusesItemInternalError
+//	PentestReportFiltersTaskStatusesItemFailed
+type PentestReportFiltersTaskStatusesItemInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersTaskStatusesItemOutput() PentestReportFiltersTaskStatusesItemOutput
+	ToPentestReportFiltersTaskStatusesItemOutputWithContext(context.Context) PentestReportFiltersTaskStatusesItemOutput
+}
+
+var pentestReportFiltersTaskStatusesItemPtrType = reflect.TypeOf((**PentestReportFiltersTaskStatusesItem)(nil)).Elem()
+
+type PentestReportFiltersTaskStatusesItemPtrInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersTaskStatusesItemPtrOutput() PentestReportFiltersTaskStatusesItemPtrOutput
+	ToPentestReportFiltersTaskStatusesItemPtrOutputWithContext(context.Context) PentestReportFiltersTaskStatusesItemPtrOutput
+}
+
+type pentestReportFiltersTaskStatusesItemPtr string
+
+func PentestReportFiltersTaskStatusesItemPtr(v string) PentestReportFiltersTaskStatusesItemPtrInput {
+	return (*pentestReportFiltersTaskStatusesItemPtr)(&v)
+}
+
+func (*pentestReportFiltersTaskStatusesItemPtr) ElementType() reflect.Type {
+	return pentestReportFiltersTaskStatusesItemPtrType
+}
+
+func (in *pentestReportFiltersTaskStatusesItemPtr) ToPentestReportFiltersTaskStatusesItemPtrOutput() PentestReportFiltersTaskStatusesItemPtrOutput {
+	return pulumi.ToOutput(in).(PentestReportFiltersTaskStatusesItemPtrOutput)
+}
+
+func (in *pentestReportFiltersTaskStatusesItemPtr) ToPentestReportFiltersTaskStatusesItemPtrOutputWithContext(ctx context.Context) PentestReportFiltersTaskStatusesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PentestReportFiltersTaskStatusesItemPtrOutput)
+}
+
+// PentestReportFiltersTaskStatusesItemArrayInput is an input type that accepts PentestReportFiltersTaskStatusesItemArray and PentestReportFiltersTaskStatusesItemArrayOutput values.
+// You can construct a concrete instance of `PentestReportFiltersTaskStatusesItemArrayInput` via:
+//
+//	PentestReportFiltersTaskStatusesItemArray{ PentestReportFiltersTaskStatusesItemArgs{...} }
+type PentestReportFiltersTaskStatusesItemArrayInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersTaskStatusesItemArrayOutput() PentestReportFiltersTaskStatusesItemArrayOutput
+	ToPentestReportFiltersTaskStatusesItemArrayOutputWithContext(context.Context) PentestReportFiltersTaskStatusesItemArrayOutput
+}
+
+type PentestReportFiltersTaskStatusesItemArray []PentestReportFiltersTaskStatusesItem
+
+func (PentestReportFiltersTaskStatusesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestReportFiltersTaskStatusesItem)(nil)).Elem()
+}
+
+func (i PentestReportFiltersTaskStatusesItemArray) ToPentestReportFiltersTaskStatusesItemArrayOutput() PentestReportFiltersTaskStatusesItemArrayOutput {
+	return i.ToPentestReportFiltersTaskStatusesItemArrayOutputWithContext(context.Background())
+}
+
+func (i PentestReportFiltersTaskStatusesItemArray) ToPentestReportFiltersTaskStatusesItemArrayOutputWithContext(ctx context.Context) PentestReportFiltersTaskStatusesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportFiltersTaskStatusesItemArrayOutput)
+}
+
+type PentestReportFiltersTaskStatusesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersTaskStatusesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestReportFiltersTaskStatusesItem)(nil)).Elem()
+}
+
+func (o PentestReportFiltersTaskStatusesItemArrayOutput) ToPentestReportFiltersTaskStatusesItemArrayOutput() PentestReportFiltersTaskStatusesItemArrayOutput {
+	return o
+}
+
+func (o PentestReportFiltersTaskStatusesItemArrayOutput) ToPentestReportFiltersTaskStatusesItemArrayOutputWithContext(ctx context.Context) PentestReportFiltersTaskStatusesItemArrayOutput {
+	return o
+}
+
+func (o PentestReportFiltersTaskStatusesItemArrayOutput) Index(i pulumi.IntInput) PentestReportFiltersTaskStatusesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PentestReportFiltersTaskStatusesItem {
+		return vs[0].([]PentestReportFiltersTaskStatusesItem)[vs[1].(int)]
+	}).(PentestReportFiltersTaskStatusesItemOutput)
+}
+
 // Type of security risk to test for
 type PentestRiskType string
 
@@ -1494,6 +2785,782 @@ func (o PentestSkillTypeArrayOutput) Index(i pulumi.IntInput) PentestSkillTypeOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PentestSkillType {
 		return vs[0].([]PentestSkillType)[vs[1].(int)]
 	}).(PentestSkillTypeOutput)
+}
+
+// The kind of application a pentest target is tested as
+type PentestTestScopeType string
+
+const (
+	PentestTestScopeTypeWebApp          = PentestTestScopeType("WEB_APP")
+	PentestTestScopeTypeGenerativeAiApp = PentestTestScopeType("GENERATIVE_AI_APP")
+)
+
+func (PentestTestScopeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestTestScopeType)(nil)).Elem()
+}
+
+func (e PentestTestScopeType) ToPentestTestScopeTypeOutput() PentestTestScopeTypeOutput {
+	return pulumi.ToOutput(e).(PentestTestScopeTypeOutput)
+}
+
+func (e PentestTestScopeType) ToPentestTestScopeTypeOutputWithContext(ctx context.Context) PentestTestScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PentestTestScopeTypeOutput)
+}
+
+func (e PentestTestScopeType) ToPentestTestScopeTypePtrOutput() PentestTestScopeTypePtrOutput {
+	return e.ToPentestTestScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (e PentestTestScopeType) ToPentestTestScopeTypePtrOutputWithContext(ctx context.Context) PentestTestScopeTypePtrOutput {
+	return PentestTestScopeType(e).ToPentestTestScopeTypeOutputWithContext(ctx).ToPentestTestScopeTypePtrOutputWithContext(ctx)
+}
+
+func (e PentestTestScopeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestTestScopeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestTestScopeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PentestTestScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PentestTestScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (PentestTestScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestTestScopeType)(nil)).Elem()
+}
+
+func (o PentestTestScopeTypeOutput) ToPentestTestScopeTypeOutput() PentestTestScopeTypeOutput {
+	return o
+}
+
+func (o PentestTestScopeTypeOutput) ToPentestTestScopeTypeOutputWithContext(ctx context.Context) PentestTestScopeTypeOutput {
+	return o
+}
+
+func (o PentestTestScopeTypeOutput) ToPentestTestScopeTypePtrOutput() PentestTestScopeTypePtrOutput {
+	return o.ToPentestTestScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (o PentestTestScopeTypeOutput) ToPentestTestScopeTypePtrOutputWithContext(ctx context.Context) PentestTestScopeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestTestScopeType) *PentestTestScopeType {
+		return &v
+	}).(PentestTestScopeTypePtrOutput)
+}
+
+func (o PentestTestScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PentestTestScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestTestScopeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PentestTestScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestTestScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestTestScopeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PentestTestScopeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PentestTestScopeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestTestScopeType)(nil)).Elem()
+}
+
+func (o PentestTestScopeTypePtrOutput) ToPentestTestScopeTypePtrOutput() PentestTestScopeTypePtrOutput {
+	return o
+}
+
+func (o PentestTestScopeTypePtrOutput) ToPentestTestScopeTypePtrOutputWithContext(ctx context.Context) PentestTestScopeTypePtrOutput {
+	return o
+}
+
+func (o PentestTestScopeTypePtrOutput) Elem() PentestTestScopeTypeOutput {
+	return o.ApplyT(func(v *PentestTestScopeType) PentestTestScopeType {
+		if v != nil {
+			return *v
+		}
+		var ret PentestTestScopeType
+		return ret
+	}).(PentestTestScopeTypeOutput)
+}
+
+func (o PentestTestScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestTestScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PentestTestScopeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PentestTestScopeTypeInput is an input type that accepts values of the PentestTestScopeType enum
+// A concrete instance of `PentestTestScopeTypeInput` can be one of the following:
+//
+//	PentestTestScopeTypeWebApp
+//	PentestTestScopeTypeGenerativeAiApp
+type PentestTestScopeTypeInput interface {
+	pulumi.Input
+
+	ToPentestTestScopeTypeOutput() PentestTestScopeTypeOutput
+	ToPentestTestScopeTypeOutputWithContext(context.Context) PentestTestScopeTypeOutput
+}
+
+var pentestTestScopeTypePtrType = reflect.TypeOf((**PentestTestScopeType)(nil)).Elem()
+
+type PentestTestScopeTypePtrInput interface {
+	pulumi.Input
+
+	ToPentestTestScopeTypePtrOutput() PentestTestScopeTypePtrOutput
+	ToPentestTestScopeTypePtrOutputWithContext(context.Context) PentestTestScopeTypePtrOutput
+}
+
+type pentestTestScopeTypePtr string
+
+func PentestTestScopeTypePtr(v string) PentestTestScopeTypePtrInput {
+	return (*pentestTestScopeTypePtr)(&v)
+}
+
+func (*pentestTestScopeTypePtr) ElementType() reflect.Type {
+	return pentestTestScopeTypePtrType
+}
+
+func (in *pentestTestScopeTypePtr) ToPentestTestScopeTypePtrOutput() PentestTestScopeTypePtrOutput {
+	return pulumi.ToOutput(in).(PentestTestScopeTypePtrOutput)
+}
+
+func (in *pentestTestScopeTypePtr) ToPentestTestScopeTypePtrOutputWithContext(ctx context.Context) PentestTestScopeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PentestTestScopeTypePtrOutput)
+}
+
+// The DNS resolution mode for the resource gateway.
+type PrivateConnectionDnsResolution string
+
+const (
+	PrivateConnectionDnsResolutionPublic = PrivateConnectionDnsResolution("PUBLIC")
+	PrivateConnectionDnsResolutionInVpc  = PrivateConnectionDnsResolution("IN_VPC")
+)
+
+type PrivateConnectionDnsResolutionOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionDnsResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionDnsResolution)(nil)).Elem()
+}
+
+func (o PrivateConnectionDnsResolutionOutput) ToPrivateConnectionDnsResolutionOutput() PrivateConnectionDnsResolutionOutput {
+	return o
+}
+
+func (o PrivateConnectionDnsResolutionOutput) ToPrivateConnectionDnsResolutionOutputWithContext(ctx context.Context) PrivateConnectionDnsResolutionOutput {
+	return o
+}
+
+func (o PrivateConnectionDnsResolutionOutput) ToPrivateConnectionDnsResolutionPtrOutput() PrivateConnectionDnsResolutionPtrOutput {
+	return o.ToPrivateConnectionDnsResolutionPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionDnsResolutionOutput) ToPrivateConnectionDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionDnsResolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionDnsResolution) *PrivateConnectionDnsResolution {
+		return &v
+	}).(PrivateConnectionDnsResolutionPtrOutput)
+}
+
+func (o PrivateConnectionDnsResolutionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionDnsResolutionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionDnsResolution) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivateConnectionDnsResolutionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionDnsResolutionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionDnsResolution) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateConnectionDnsResolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionDnsResolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionDnsResolution)(nil)).Elem()
+}
+
+func (o PrivateConnectionDnsResolutionPtrOutput) ToPrivateConnectionDnsResolutionPtrOutput() PrivateConnectionDnsResolutionPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionDnsResolutionPtrOutput) ToPrivateConnectionDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionDnsResolutionPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionDnsResolutionPtrOutput) Elem() PrivateConnectionDnsResolutionOutput {
+	return o.ApplyT(func(v *PrivateConnectionDnsResolution) PrivateConnectionDnsResolution {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionDnsResolution
+		return ret
+	}).(PrivateConnectionDnsResolutionOutput)
+}
+
+func (o PrivateConnectionDnsResolutionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionDnsResolutionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateConnectionDnsResolution) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The DNS resolution mode for the resource gateway.
+type PrivateConnectionServiceManagedDnsResolution string
+
+const (
+	PrivateConnectionServiceManagedDnsResolutionPublic = PrivateConnectionServiceManagedDnsResolution("PUBLIC")
+	PrivateConnectionServiceManagedDnsResolutionInVpc  = PrivateConnectionServiceManagedDnsResolution("IN_VPC")
+)
+
+func (PrivateConnectionServiceManagedDnsResolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedDnsResolution)(nil)).Elem()
+}
+
+func (e PrivateConnectionServiceManagedDnsResolution) ToPrivateConnectionServiceManagedDnsResolutionOutput() PrivateConnectionServiceManagedDnsResolutionOutput {
+	return pulumi.ToOutput(e).(PrivateConnectionServiceManagedDnsResolutionOutput)
+}
+
+func (e PrivateConnectionServiceManagedDnsResolution) ToPrivateConnectionServiceManagedDnsResolutionOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedDnsResolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrivateConnectionServiceManagedDnsResolutionOutput)
+}
+
+func (e PrivateConnectionServiceManagedDnsResolution) ToPrivateConnectionServiceManagedDnsResolutionPtrOutput() PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return e.ToPrivateConnectionServiceManagedDnsResolutionPtrOutputWithContext(context.Background())
+}
+
+func (e PrivateConnectionServiceManagedDnsResolution) ToPrivateConnectionServiceManagedDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return PrivateConnectionServiceManagedDnsResolution(e).ToPrivateConnectionServiceManagedDnsResolutionOutputWithContext(ctx).ToPrivateConnectionServiceManagedDnsResolutionPtrOutputWithContext(ctx)
+}
+
+func (e PrivateConnectionServiceManagedDnsResolution) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateConnectionServiceManagedDnsResolution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateConnectionServiceManagedDnsResolution) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivateConnectionServiceManagedDnsResolution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrivateConnectionServiceManagedDnsResolutionOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedDnsResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedDnsResolution)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionOutput) ToPrivateConnectionServiceManagedDnsResolutionOutput() PrivateConnectionServiceManagedDnsResolutionOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionOutput) ToPrivateConnectionServiceManagedDnsResolutionOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedDnsResolutionOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionOutput) ToPrivateConnectionServiceManagedDnsResolutionPtrOutput() PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return o.ToPrivateConnectionServiceManagedDnsResolutionPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionOutput) ToPrivateConnectionServiceManagedDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionServiceManagedDnsResolution) *PrivateConnectionServiceManagedDnsResolution {
+		return &v
+	}).(PrivateConnectionServiceManagedDnsResolutionPtrOutput)
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionServiceManagedDnsResolution) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionServiceManagedDnsResolution) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateConnectionServiceManagedDnsResolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedDnsResolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionServiceManagedDnsResolution)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionPtrOutput) ToPrivateConnectionServiceManagedDnsResolutionPtrOutput() PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionPtrOutput) ToPrivateConnectionServiceManagedDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionPtrOutput) Elem() PrivateConnectionServiceManagedDnsResolutionOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedDnsResolution) PrivateConnectionServiceManagedDnsResolution {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionServiceManagedDnsResolution
+		return ret
+	}).(PrivateConnectionServiceManagedDnsResolutionOutput)
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedDnsResolutionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateConnectionServiceManagedDnsResolution) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivateConnectionServiceManagedDnsResolutionInput is an input type that accepts values of the PrivateConnectionServiceManagedDnsResolution enum
+// A concrete instance of `PrivateConnectionServiceManagedDnsResolutionInput` can be one of the following:
+//
+//	PrivateConnectionServiceManagedDnsResolutionPublic
+//	PrivateConnectionServiceManagedDnsResolutionInVpc
+type PrivateConnectionServiceManagedDnsResolutionInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedDnsResolutionOutput() PrivateConnectionServiceManagedDnsResolutionOutput
+	ToPrivateConnectionServiceManagedDnsResolutionOutputWithContext(context.Context) PrivateConnectionServiceManagedDnsResolutionOutput
+}
+
+var privateConnectionServiceManagedDnsResolutionPtrType = reflect.TypeOf((**PrivateConnectionServiceManagedDnsResolution)(nil)).Elem()
+
+type PrivateConnectionServiceManagedDnsResolutionPtrInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedDnsResolutionPtrOutput() PrivateConnectionServiceManagedDnsResolutionPtrOutput
+	ToPrivateConnectionServiceManagedDnsResolutionPtrOutputWithContext(context.Context) PrivateConnectionServiceManagedDnsResolutionPtrOutput
+}
+
+type privateConnectionServiceManagedDnsResolutionPtr string
+
+func PrivateConnectionServiceManagedDnsResolutionPtr(v string) PrivateConnectionServiceManagedDnsResolutionPtrInput {
+	return (*privateConnectionServiceManagedDnsResolutionPtr)(&v)
+}
+
+func (*privateConnectionServiceManagedDnsResolutionPtr) ElementType() reflect.Type {
+	return privateConnectionServiceManagedDnsResolutionPtrType
+}
+
+func (in *privateConnectionServiceManagedDnsResolutionPtr) ToPrivateConnectionServiceManagedDnsResolutionPtrOutput() PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return pulumi.ToOutput(in).(PrivateConnectionServiceManagedDnsResolutionPtrOutput)
+}
+
+func (in *privateConnectionServiceManagedDnsResolutionPtr) ToPrivateConnectionServiceManagedDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrivateConnectionServiceManagedDnsResolutionPtrOutput)
+}
+
+// The IP address type of the service-managed resource gateway.
+type PrivateConnectionServiceManagedIpAddressType string
+
+const (
+	PrivateConnectionServiceManagedIpAddressTypeIpv4      = PrivateConnectionServiceManagedIpAddressType("IPV4")
+	PrivateConnectionServiceManagedIpAddressTypeIpv6      = PrivateConnectionServiceManagedIpAddressType("IPV6")
+	PrivateConnectionServiceManagedIpAddressTypeDualStack = PrivateConnectionServiceManagedIpAddressType("DUAL_STACK")
+)
+
+func (PrivateConnectionServiceManagedIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedIpAddressType)(nil)).Elem()
+}
+
+func (e PrivateConnectionServiceManagedIpAddressType) ToPrivateConnectionServiceManagedIpAddressTypeOutput() PrivateConnectionServiceManagedIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(PrivateConnectionServiceManagedIpAddressTypeOutput)
+}
+
+func (e PrivateConnectionServiceManagedIpAddressType) ToPrivateConnectionServiceManagedIpAddressTypeOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrivateConnectionServiceManagedIpAddressTypeOutput)
+}
+
+func (e PrivateConnectionServiceManagedIpAddressType) ToPrivateConnectionServiceManagedIpAddressTypePtrOutput() PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return e.ToPrivateConnectionServiceManagedIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e PrivateConnectionServiceManagedIpAddressType) ToPrivateConnectionServiceManagedIpAddressTypePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return PrivateConnectionServiceManagedIpAddressType(e).ToPrivateConnectionServiceManagedIpAddressTypeOutputWithContext(ctx).ToPrivateConnectionServiceManagedIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e PrivateConnectionServiceManagedIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateConnectionServiceManagedIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateConnectionServiceManagedIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivateConnectionServiceManagedIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrivateConnectionServiceManagedIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedIpAddressType)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypeOutput) ToPrivateConnectionServiceManagedIpAddressTypeOutput() PrivateConnectionServiceManagedIpAddressTypeOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypeOutput) ToPrivateConnectionServiceManagedIpAddressTypeOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedIpAddressTypeOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypeOutput) ToPrivateConnectionServiceManagedIpAddressTypePtrOutput() PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return o.ToPrivateConnectionServiceManagedIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypeOutput) ToPrivateConnectionServiceManagedIpAddressTypePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionServiceManagedIpAddressType) *PrivateConnectionServiceManagedIpAddressType {
+		return &v
+	}).(PrivateConnectionServiceManagedIpAddressTypePtrOutput)
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionServiceManagedIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionServiceManagedIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateConnectionServiceManagedIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionServiceManagedIpAddressType)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypePtrOutput) ToPrivateConnectionServiceManagedIpAddressTypePtrOutput() PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypePtrOutput) ToPrivateConnectionServiceManagedIpAddressTypePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypePtrOutput) Elem() PrivateConnectionServiceManagedIpAddressTypeOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedIpAddressType) PrivateConnectionServiceManagedIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionServiceManagedIpAddressType
+		return ret
+	}).(PrivateConnectionServiceManagedIpAddressTypeOutput)
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateConnectionServiceManagedIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivateConnectionServiceManagedIpAddressTypeInput is an input type that accepts values of the PrivateConnectionServiceManagedIpAddressType enum
+// A concrete instance of `PrivateConnectionServiceManagedIpAddressTypeInput` can be one of the following:
+//
+//	PrivateConnectionServiceManagedIpAddressTypeIpv4
+//	PrivateConnectionServiceManagedIpAddressTypeIpv6
+//	PrivateConnectionServiceManagedIpAddressTypeDualStack
+type PrivateConnectionServiceManagedIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedIpAddressTypeOutput() PrivateConnectionServiceManagedIpAddressTypeOutput
+	ToPrivateConnectionServiceManagedIpAddressTypeOutputWithContext(context.Context) PrivateConnectionServiceManagedIpAddressTypeOutput
+}
+
+var privateConnectionServiceManagedIpAddressTypePtrType = reflect.TypeOf((**PrivateConnectionServiceManagedIpAddressType)(nil)).Elem()
+
+type PrivateConnectionServiceManagedIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedIpAddressTypePtrOutput() PrivateConnectionServiceManagedIpAddressTypePtrOutput
+	ToPrivateConnectionServiceManagedIpAddressTypePtrOutputWithContext(context.Context) PrivateConnectionServiceManagedIpAddressTypePtrOutput
+}
+
+type privateConnectionServiceManagedIpAddressTypePtr string
+
+func PrivateConnectionServiceManagedIpAddressTypePtr(v string) PrivateConnectionServiceManagedIpAddressTypePtrInput {
+	return (*privateConnectionServiceManagedIpAddressTypePtr)(&v)
+}
+
+func (*privateConnectionServiceManagedIpAddressTypePtr) ElementType() reflect.Type {
+	return privateConnectionServiceManagedIpAddressTypePtrType
+}
+
+func (in *privateConnectionServiceManagedIpAddressTypePtr) ToPrivateConnectionServiceManagedIpAddressTypePtrOutput() PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(PrivateConnectionServiceManagedIpAddressTypePtrOutput)
+}
+
+func (in *privateConnectionServiceManagedIpAddressTypePtr) ToPrivateConnectionServiceManagedIpAddressTypePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrivateConnectionServiceManagedIpAddressTypePtrOutput)
+}
+
+// The current status of the private connection.
+type PrivateConnectionStatus string
+
+const (
+	PrivateConnectionStatusActive           = PrivateConnectionStatus("ACTIVE")
+	PrivateConnectionStatusCreateInProgress = PrivateConnectionStatus("CREATE_IN_PROGRESS")
+	PrivateConnectionStatusCreateFailed     = PrivateConnectionStatus("CREATE_FAILED")
+	PrivateConnectionStatusDeleteInProgress = PrivateConnectionStatus("DELETE_IN_PROGRESS")
+	PrivateConnectionStatusDeleteFailed     = PrivateConnectionStatus("DELETE_FAILED")
+)
+
+type PrivateConnectionStatusOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionStatus)(nil)).Elem()
+}
+
+func (o PrivateConnectionStatusOutput) ToPrivateConnectionStatusOutput() PrivateConnectionStatusOutput {
+	return o
+}
+
+func (o PrivateConnectionStatusOutput) ToPrivateConnectionStatusOutputWithContext(ctx context.Context) PrivateConnectionStatusOutput {
+	return o
+}
+
+func (o PrivateConnectionStatusOutput) ToPrivateConnectionStatusPtrOutput() PrivateConnectionStatusPtrOutput {
+	return o.ToPrivateConnectionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionStatusOutput) ToPrivateConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateConnectionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionStatus) *PrivateConnectionStatus {
+		return &v
+	}).(PrivateConnectionStatusPtrOutput)
+}
+
+func (o PrivateConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivateConnectionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateConnectionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionStatus)(nil)).Elem()
+}
+
+func (o PrivateConnectionStatusPtrOutput) ToPrivateConnectionStatusPtrOutput() PrivateConnectionStatusPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionStatusPtrOutput) ToPrivateConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateConnectionStatusPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionStatusPtrOutput) Elem() PrivateConnectionStatusOutput {
+	return o.ApplyT(func(v *PrivateConnectionStatus) PrivateConnectionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionStatus
+		return ret
+	}).(PrivateConnectionStatusOutput)
+}
+
+func (o PrivateConnectionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateConnectionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the private connection, indicating whether it is service-managed or self-managed.
+type PrivateConnectionType string
+
+const (
+	PrivateConnectionTypeServiceManaged = PrivateConnectionType("SERVICE_MANAGED")
+	PrivateConnectionTypeSelfManaged    = PrivateConnectionType("SELF_MANAGED")
+)
+
+type PrivateConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionType)(nil)).Elem()
+}
+
+func (o PrivateConnectionTypeOutput) ToPrivateConnectionTypeOutput() PrivateConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateConnectionTypeOutput) ToPrivateConnectionTypeOutputWithContext(ctx context.Context) PrivateConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateConnectionTypeOutput) ToPrivateConnectionTypePtrOutput() PrivateConnectionTypePtrOutput {
+	return o.ToPrivateConnectionTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionTypeOutput) ToPrivateConnectionTypePtrOutputWithContext(ctx context.Context) PrivateConnectionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionType) *PrivateConnectionType {
+		return &v
+	}).(PrivateConnectionTypePtrOutput)
+}
+
+func (o PrivateConnectionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivateConnectionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateConnectionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionType)(nil)).Elem()
+}
+
+func (o PrivateConnectionTypePtrOutput) ToPrivateConnectionTypePtrOutput() PrivateConnectionTypePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionTypePtrOutput) ToPrivateConnectionTypePtrOutputWithContext(ctx context.Context) PrivateConnectionTypePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionTypePtrOutput) Elem() PrivateConnectionTypeOutput {
+	return o.ApplyT(func(v *PrivateConnectionType) PrivateConnectionType {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionType
+		return ret
+	}).(PrivateConnectionTypeOutput)
+}
+
+func (o PrivateConnectionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateConnectionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 // Whether the pack is enabled or disabled
@@ -2108,6 +4175,10 @@ func (o TargetDomainVerificationStatusPtrOutput) ToStringPtrOutputWithContext(ct
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactTypeInput)(nil)).Elem(), ArtifactType("TXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactTypePtrInput)(nil)).Elem(), ArtifactType("TXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputTokenTypeInput)(nil)).Elem(), IntegrationGitLabInputTokenType("PERSONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputTokenTypePtrInput)(nil)).Elem(), IntegrationGitLabInputTokenType("PERSONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderEnumInput)(nil)).Elem(), IntegrationProviderEnum("GITHUB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderEnumPtrInput)(nil)).Elem(), IntegrationProviderEnum("GITHUB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationProviderTypeInput)(nil)).Elem(), PentestAuthenticationProviderType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationProviderTypePtrInput)(nil)).Elem(), PentestAuthenticationProviderType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCleanUpStrategyInput)(nil)).Elem(), PentestCleanUpStrategy("BEST_EFFORT_DELETE"))
@@ -2118,18 +4189,42 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestNetworkTrafficRuleEffectPtrInput)(nil)).Elem(), PentestNetworkTrafficRuleEffect("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestNetworkTrafficRuleNetworkTrafficRuleTypeInput)(nil)).Elem(), PentestNetworkTrafficRuleNetworkTrafficRuleType("URL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestNetworkTrafficRuleNetworkTrafficRuleTypePtrInput)(nil)).Elem(), PentestNetworkTrafficRuleNetworkTrafficRuleType("URL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersConfidenceLevelsItemInput)(nil)).Elem(), PentestReportFiltersConfidenceLevelsItem("FALSE_POSITIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersConfidenceLevelsItemPtrInput)(nil)).Elem(), PentestReportFiltersConfidenceLevelsItem("FALSE_POSITIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersConfidenceLevelsItemArrayInput)(nil)).Elem(), PentestReportFiltersConfidenceLevelsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersRiskLevelsItemInput)(nil)).Elem(), PentestReportFiltersRiskLevelsItem("UNKNOWN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersRiskLevelsItemPtrInput)(nil)).Elem(), PentestReportFiltersRiskLevelsItem("UNKNOWN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersRiskLevelsItemArrayInput)(nil)).Elem(), PentestReportFiltersRiskLevelsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersStatusesItemInput)(nil)).Elem(), PentestReportFiltersStatusesItem("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersStatusesItemPtrInput)(nil)).Elem(), PentestReportFiltersStatusesItem("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersStatusesItemArrayInput)(nil)).Elem(), PentestReportFiltersStatusesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersTaskStatusesItemInput)(nil)).Elem(), PentestReportFiltersTaskStatusesItem("IN_PROGRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersTaskStatusesItemPtrInput)(nil)).Elem(), PentestReportFiltersTaskStatusesItem("IN_PROGRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersTaskStatusesItemArrayInput)(nil)).Elem(), PentestReportFiltersTaskStatusesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestRiskTypeInput)(nil)).Elem(), PentestRiskType("CROSS_SITE_SCRIPTING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestRiskTypePtrInput)(nil)).Elem(), PentestRiskType("CROSS_SITE_SCRIPTING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestRiskTypeArrayInput)(nil)).Elem(), PentestRiskTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestSkillTypeInput)(nil)).Elem(), PentestSkillType("FINDING_PERSONALIZATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestSkillTypePtrInput)(nil)).Elem(), PentestSkillType("FINDING_PERSONALIZATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestSkillTypeArrayInput)(nil)).Elem(), PentestSkillTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestTestScopeTypeInput)(nil)).Elem(), PentestTestScopeType("WEB_APP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestTestScopeTypePtrInput)(nil)).Elem(), PentestTestScopeType("WEB_APP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedDnsResolutionInput)(nil)).Elem(), PrivateConnectionServiceManagedDnsResolution("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedDnsResolutionPtrInput)(nil)).Elem(), PrivateConnectionServiceManagedDnsResolution("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedIpAddressTypeInput)(nil)).Elem(), PrivateConnectionServiceManagedIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedIpAddressTypePtrInput)(nil)).Elem(), PrivateConnectionServiceManagedIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackStatusInput)(nil)).Elem(), SecurityRequirementPackStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackStatusPtrInput)(nil)).Elem(), SecurityRequirementPackStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetDomainVerificationMethodInput)(nil)).Elem(), TargetDomainVerificationMethod("DNS_TXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetDomainVerificationMethodPtrInput)(nil)).Elem(), TargetDomainVerificationMethod("DNS_TXT"))
 	pulumi.RegisterOutputType(ArtifactTypeOutput{})
 	pulumi.RegisterOutputType(ArtifactTypePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationGitLabInputTokenTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationGitLabInputTokenTypePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderEnumOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderEnumPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationProviderTypeOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(PentestCleanUpStrategyOutput{})
@@ -2140,12 +4235,36 @@ func init() {
 	pulumi.RegisterOutputType(PentestNetworkTrafficRuleEffectPtrOutput{})
 	pulumi.RegisterOutputType(PentestNetworkTrafficRuleNetworkTrafficRuleTypeOutput{})
 	pulumi.RegisterOutputType(PentestNetworkTrafficRuleNetworkTrafficRuleTypePtrOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersConfidenceLevelsItemOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersConfidenceLevelsItemPtrOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersConfidenceLevelsItemArrayOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersRiskLevelsItemOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersRiskLevelsItemPtrOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersRiskLevelsItemArrayOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersStatusesItemOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersStatusesItemPtrOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersStatusesItemArrayOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersTaskStatusesItemOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersTaskStatusesItemPtrOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersTaskStatusesItemArrayOutput{})
 	pulumi.RegisterOutputType(PentestRiskTypeOutput{})
 	pulumi.RegisterOutputType(PentestRiskTypePtrOutput{})
 	pulumi.RegisterOutputType(PentestRiskTypeArrayOutput{})
 	pulumi.RegisterOutputType(PentestSkillTypeOutput{})
 	pulumi.RegisterOutputType(PentestSkillTypePtrOutput{})
 	pulumi.RegisterOutputType(PentestSkillTypeArrayOutput{})
+	pulumi.RegisterOutputType(PentestTestScopeTypeOutput{})
+	pulumi.RegisterOutputType(PentestTestScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionDnsResolutionOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionDnsResolutionPtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedDnsResolutionOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedDnsResolutionPtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedIpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionStatusOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionStatusPtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionTypeOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(SecurityRequirementPackStatusOutput{})
 	pulumi.RegisterOutputType(SecurityRequirementPackStatusPtrOutput{})
 	pulumi.RegisterOutputType(TargetDomainDnsVerificationDnsRecordTypeOutput{})

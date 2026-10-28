@@ -87,6 +87,12 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         [Input("serverSdkVersion", required: true)]
         public Input<string> ServerSdkVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
+        /// </summary>
+        [Input("vcpu")]
+        public Input<double>? Vcpu { get; set; }
+
         public ContainerGroupDefinitionGameServerContainerDefinitionArgs()
         {
         }

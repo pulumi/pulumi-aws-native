@@ -14,22 +14,22 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class HarnessAgentCoreMemoryRetrievalConfig
     {
         /// <summary>
-        /// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+        /// Minimum relevance score for retrieved memories.
         /// </summary>
-        public readonly Union<double, string>? RelevanceScore;
+        public readonly double? RelevanceScore;
         public readonly string? StrategyId;
         /// <summary>
-        /// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+        /// Maximum number of memory records to retrieve.
         /// </summary>
-        public readonly Union<int, string>? TopK;
+        public readonly int? TopK;
 
         [OutputConstructor]
         private HarnessAgentCoreMemoryRetrievalConfig(
-            Union<double, string>? relevanceScore,
+            double? relevanceScore,
 
             string? strategyId,
 
-            Union<int, string>? topK)
+            int? topK)
         {
             RelevanceScore = relevanceScore;
             StrategyId = strategyId;

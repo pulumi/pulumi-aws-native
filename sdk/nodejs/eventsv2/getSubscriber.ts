@@ -48,7 +48,7 @@ export interface GetSubscriberResult {
     /**
      * Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
      */
-    readonly invokeConfiguration?: outputs.eventsv2.SubscriberInvokeConfigurationProperties;
+    readonly invokeConfiguration?: outputs.eventsv2.SubscriberInvokeConfiguration;
     /**
      * Last-modification timestamp (ISO-8601), read-only.
      */

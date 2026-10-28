@@ -2644,6 +2644,1002 @@ type ApplicationTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The input required to create a Bitbucket integration.
+type IntegrationBitbucketInput struct {
+	// The OAuth 2.0 authorization code returned from the consent redirect.
+	Code string `pulumi:"code"`
+	// The Atlassian installation identifier, available from the Atlassian administration console.
+	InstallationId string `pulumi:"installationId"`
+	// The CSRF state token echoed back from the OAuth redirect.
+	State string `pulumi:"state"`
+	// The Bitbucket workspace slug that identifies the workspace to integrate.
+	Workspace string `pulumi:"workspace"`
+}
+
+// IntegrationBitbucketInputInput is an input type that accepts IntegrationBitbucketInputArgs and IntegrationBitbucketInputOutput values.
+// You can construct a concrete instance of `IntegrationBitbucketInputInput` via:
+//
+//	IntegrationBitbucketInputArgs{...}
+type IntegrationBitbucketInputInput interface {
+	pulumi.Input
+
+	ToIntegrationBitbucketInputOutput() IntegrationBitbucketInputOutput
+	ToIntegrationBitbucketInputOutputWithContext(context.Context) IntegrationBitbucketInputOutput
+}
+
+// The input required to create a Bitbucket integration.
+type IntegrationBitbucketInputArgs struct {
+	// The OAuth 2.0 authorization code returned from the consent redirect.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The Atlassian installation identifier, available from the Atlassian administration console.
+	InstallationId pulumi.StringInput `pulumi:"installationId"`
+	// The CSRF state token echoed back from the OAuth redirect.
+	State pulumi.StringInput `pulumi:"state"`
+	// The Bitbucket workspace slug that identifies the workspace to integrate.
+	Workspace pulumi.StringInput `pulumi:"workspace"`
+}
+
+func (IntegrationBitbucketInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationBitbucketInput)(nil)).Elem()
+}
+
+func (i IntegrationBitbucketInputArgs) ToIntegrationBitbucketInputOutput() IntegrationBitbucketInputOutput {
+	return i.ToIntegrationBitbucketInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationBitbucketInputArgs) ToIntegrationBitbucketInputOutputWithContext(ctx context.Context) IntegrationBitbucketInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationBitbucketInputOutput)
+}
+
+func (i IntegrationBitbucketInputArgs) ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput {
+	return i.ToIntegrationBitbucketInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationBitbucketInputArgs) ToIntegrationBitbucketInputPtrOutputWithContext(ctx context.Context) IntegrationBitbucketInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationBitbucketInputOutput).ToIntegrationBitbucketInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationBitbucketInputPtrInput is an input type that accepts IntegrationBitbucketInputArgs, IntegrationBitbucketInputPtr and IntegrationBitbucketInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationBitbucketInputPtrInput` via:
+//
+//	        IntegrationBitbucketInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationBitbucketInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput
+	ToIntegrationBitbucketInputPtrOutputWithContext(context.Context) IntegrationBitbucketInputPtrOutput
+}
+
+type integrationBitbucketInputPtrType IntegrationBitbucketInputArgs
+
+func IntegrationBitbucketInputPtr(v *IntegrationBitbucketInputArgs) IntegrationBitbucketInputPtrInput {
+	return (*integrationBitbucketInputPtrType)(v)
+}
+
+func (*integrationBitbucketInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationBitbucketInput)(nil)).Elem()
+}
+
+func (i *integrationBitbucketInputPtrType) ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput {
+	return i.ToIntegrationBitbucketInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationBitbucketInputPtrType) ToIntegrationBitbucketInputPtrOutputWithContext(ctx context.Context) IntegrationBitbucketInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationBitbucketInputPtrOutput)
+}
+
+// The input required to create a Bitbucket integration.
+type IntegrationBitbucketInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationBitbucketInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationBitbucketInput)(nil)).Elem()
+}
+
+func (o IntegrationBitbucketInputOutput) ToIntegrationBitbucketInputOutput() IntegrationBitbucketInputOutput {
+	return o
+}
+
+func (o IntegrationBitbucketInputOutput) ToIntegrationBitbucketInputOutputWithContext(ctx context.Context) IntegrationBitbucketInputOutput {
+	return o
+}
+
+func (o IntegrationBitbucketInputOutput) ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput {
+	return o.ToIntegrationBitbucketInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationBitbucketInputOutput) ToIntegrationBitbucketInputPtrOutputWithContext(ctx context.Context) IntegrationBitbucketInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationBitbucketInput) *IntegrationBitbucketInput {
+		return &v
+	}).(IntegrationBitbucketInputPtrOutput)
+}
+
+// The OAuth 2.0 authorization code returned from the consent redirect.
+func (o IntegrationBitbucketInputOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationBitbucketInput) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The Atlassian installation identifier, available from the Atlassian administration console.
+func (o IntegrationBitbucketInputOutput) InstallationId() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationBitbucketInput) string { return v.InstallationId }).(pulumi.StringOutput)
+}
+
+// The CSRF state token echoed back from the OAuth redirect.
+func (o IntegrationBitbucketInputOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationBitbucketInput) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The Bitbucket workspace slug that identifies the workspace to integrate.
+func (o IntegrationBitbucketInputOutput) Workspace() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationBitbucketInput) string { return v.Workspace }).(pulumi.StringOutput)
+}
+
+type IntegrationBitbucketInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationBitbucketInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationBitbucketInput)(nil)).Elem()
+}
+
+func (o IntegrationBitbucketInputPtrOutput) ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput {
+	return o
+}
+
+func (o IntegrationBitbucketInputPtrOutput) ToIntegrationBitbucketInputPtrOutputWithContext(ctx context.Context) IntegrationBitbucketInputPtrOutput {
+	return o
+}
+
+func (o IntegrationBitbucketInputPtrOutput) Elem() IntegrationBitbucketInputOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) IntegrationBitbucketInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationBitbucketInput
+		return ret
+	}).(IntegrationBitbucketInputOutput)
+}
+
+// The OAuth 2.0 authorization code returned from the consent redirect.
+func (o IntegrationBitbucketInputPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Atlassian installation identifier, available from the Atlassian administration console.
+func (o IntegrationBitbucketInputPtrOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstallationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CSRF state token echoed back from the OAuth redirect.
+func (o IntegrationBitbucketInputPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Bitbucket workspace slug that identifies the workspace to integrate.
+func (o IntegrationBitbucketInputPtrOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Workspace
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input required to create a Confluence integration.
+type IntegrationConfluenceInput struct {
+	// The OAuth 2.0 authorization code returned from the consent redirect.
+	Code string `pulumi:"code"`
+	// The Atlassian installation identifier, available from the Atlassian administration console.
+	InstallationId string `pulumi:"installationId"`
+	// The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+	SiteUrl string `pulumi:"siteUrl"`
+	// The CSRF state token echoed back from the OAuth redirect.
+	State string `pulumi:"state"`
+}
+
+// IntegrationConfluenceInputInput is an input type that accepts IntegrationConfluenceInputArgs and IntegrationConfluenceInputOutput values.
+// You can construct a concrete instance of `IntegrationConfluenceInputInput` via:
+//
+//	IntegrationConfluenceInputArgs{...}
+type IntegrationConfluenceInputInput interface {
+	pulumi.Input
+
+	ToIntegrationConfluenceInputOutput() IntegrationConfluenceInputOutput
+	ToIntegrationConfluenceInputOutputWithContext(context.Context) IntegrationConfluenceInputOutput
+}
+
+// The input required to create a Confluence integration.
+type IntegrationConfluenceInputArgs struct {
+	// The OAuth 2.0 authorization code returned from the consent redirect.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The Atlassian installation identifier, available from the Atlassian administration console.
+	InstallationId pulumi.StringInput `pulumi:"installationId"`
+	// The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+	SiteUrl pulumi.StringInput `pulumi:"siteUrl"`
+	// The CSRF state token echoed back from the OAuth redirect.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (IntegrationConfluenceInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationConfluenceInput)(nil)).Elem()
+}
+
+func (i IntegrationConfluenceInputArgs) ToIntegrationConfluenceInputOutput() IntegrationConfluenceInputOutput {
+	return i.ToIntegrationConfluenceInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationConfluenceInputArgs) ToIntegrationConfluenceInputOutputWithContext(ctx context.Context) IntegrationConfluenceInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConfluenceInputOutput)
+}
+
+func (i IntegrationConfluenceInputArgs) ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput {
+	return i.ToIntegrationConfluenceInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationConfluenceInputArgs) ToIntegrationConfluenceInputPtrOutputWithContext(ctx context.Context) IntegrationConfluenceInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConfluenceInputOutput).ToIntegrationConfluenceInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationConfluenceInputPtrInput is an input type that accepts IntegrationConfluenceInputArgs, IntegrationConfluenceInputPtr and IntegrationConfluenceInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationConfluenceInputPtrInput` via:
+//
+//	        IntegrationConfluenceInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationConfluenceInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput
+	ToIntegrationConfluenceInputPtrOutputWithContext(context.Context) IntegrationConfluenceInputPtrOutput
+}
+
+type integrationConfluenceInputPtrType IntegrationConfluenceInputArgs
+
+func IntegrationConfluenceInputPtr(v *IntegrationConfluenceInputArgs) IntegrationConfluenceInputPtrInput {
+	return (*integrationConfluenceInputPtrType)(v)
+}
+
+func (*integrationConfluenceInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationConfluenceInput)(nil)).Elem()
+}
+
+func (i *integrationConfluenceInputPtrType) ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput {
+	return i.ToIntegrationConfluenceInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationConfluenceInputPtrType) ToIntegrationConfluenceInputPtrOutputWithContext(ctx context.Context) IntegrationConfluenceInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConfluenceInputPtrOutput)
+}
+
+// The input required to create a Confluence integration.
+type IntegrationConfluenceInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationConfluenceInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationConfluenceInput)(nil)).Elem()
+}
+
+func (o IntegrationConfluenceInputOutput) ToIntegrationConfluenceInputOutput() IntegrationConfluenceInputOutput {
+	return o
+}
+
+func (o IntegrationConfluenceInputOutput) ToIntegrationConfluenceInputOutputWithContext(ctx context.Context) IntegrationConfluenceInputOutput {
+	return o
+}
+
+func (o IntegrationConfluenceInputOutput) ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput {
+	return o.ToIntegrationConfluenceInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationConfluenceInputOutput) ToIntegrationConfluenceInputPtrOutputWithContext(ctx context.Context) IntegrationConfluenceInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationConfluenceInput) *IntegrationConfluenceInput {
+		return &v
+	}).(IntegrationConfluenceInputPtrOutput)
+}
+
+// The OAuth 2.0 authorization code returned from the consent redirect.
+func (o IntegrationConfluenceInputOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationConfluenceInput) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The Atlassian installation identifier, available from the Atlassian administration console.
+func (o IntegrationConfluenceInputOutput) InstallationId() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationConfluenceInput) string { return v.InstallationId }).(pulumi.StringOutput)
+}
+
+// The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+func (o IntegrationConfluenceInputOutput) SiteUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationConfluenceInput) string { return v.SiteUrl }).(pulumi.StringOutput)
+}
+
+// The CSRF state token echoed back from the OAuth redirect.
+func (o IntegrationConfluenceInputOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationConfluenceInput) string { return v.State }).(pulumi.StringOutput)
+}
+
+type IntegrationConfluenceInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationConfluenceInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationConfluenceInput)(nil)).Elem()
+}
+
+func (o IntegrationConfluenceInputPtrOutput) ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput {
+	return o
+}
+
+func (o IntegrationConfluenceInputPtrOutput) ToIntegrationConfluenceInputPtrOutputWithContext(ctx context.Context) IntegrationConfluenceInputPtrOutput {
+	return o
+}
+
+func (o IntegrationConfluenceInputPtrOutput) Elem() IntegrationConfluenceInputOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) IntegrationConfluenceInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationConfluenceInput
+		return ret
+	}).(IntegrationConfluenceInputOutput)
+}
+
+// The OAuth 2.0 authorization code returned from the consent redirect.
+func (o IntegrationConfluenceInputPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Atlassian installation identifier, available from the Atlassian administration console.
+func (o IntegrationConfluenceInputPtrOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstallationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+func (o IntegrationConfluenceInputPtrOutput) SiteUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SiteUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CSRF state token echoed back from the OAuth redirect.
+func (o IntegrationConfluenceInputPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input required to create a GitHub integration.
+type IntegrationGitHubInput struct {
+	// The OAuth authorization code received from GitHub.
+	Code string `pulumi:"code"`
+	// The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+	InstallationId *string `pulumi:"installationId"`
+	// The name of the GitHub organization to integrate with.
+	OrganizationName *string `pulumi:"organizationName"`
+	// The CSRF state token for validating the OAuth flow.
+	State string `pulumi:"state"`
+	// The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+	TargetUrl *string `pulumi:"targetUrl"`
+}
+
+// IntegrationGitHubInputInput is an input type that accepts IntegrationGitHubInputArgs and IntegrationGitHubInputOutput values.
+// You can construct a concrete instance of `IntegrationGitHubInputInput` via:
+//
+//	IntegrationGitHubInputArgs{...}
+type IntegrationGitHubInputInput interface {
+	pulumi.Input
+
+	ToIntegrationGitHubInputOutput() IntegrationGitHubInputOutput
+	ToIntegrationGitHubInputOutputWithContext(context.Context) IntegrationGitHubInputOutput
+}
+
+// The input required to create a GitHub integration.
+type IntegrationGitHubInputArgs struct {
+	// The OAuth authorization code received from GitHub.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+	InstallationId pulumi.StringPtrInput `pulumi:"installationId"`
+	// The name of the GitHub organization to integrate with.
+	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
+	// The CSRF state token for validating the OAuth flow.
+	State pulumi.StringInput `pulumi:"state"`
+	// The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
+}
+
+func (IntegrationGitHubInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitHubInput)(nil)).Elem()
+}
+
+func (i IntegrationGitHubInputArgs) ToIntegrationGitHubInputOutput() IntegrationGitHubInputOutput {
+	return i.ToIntegrationGitHubInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationGitHubInputArgs) ToIntegrationGitHubInputOutputWithContext(ctx context.Context) IntegrationGitHubInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitHubInputOutput)
+}
+
+func (i IntegrationGitHubInputArgs) ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput {
+	return i.ToIntegrationGitHubInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationGitHubInputArgs) ToIntegrationGitHubInputPtrOutputWithContext(ctx context.Context) IntegrationGitHubInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitHubInputOutput).ToIntegrationGitHubInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationGitHubInputPtrInput is an input type that accepts IntegrationGitHubInputArgs, IntegrationGitHubInputPtr and IntegrationGitHubInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationGitHubInputPtrInput` via:
+//
+//	        IntegrationGitHubInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationGitHubInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput
+	ToIntegrationGitHubInputPtrOutputWithContext(context.Context) IntegrationGitHubInputPtrOutput
+}
+
+type integrationGitHubInputPtrType IntegrationGitHubInputArgs
+
+func IntegrationGitHubInputPtr(v *IntegrationGitHubInputArgs) IntegrationGitHubInputPtrInput {
+	return (*integrationGitHubInputPtrType)(v)
+}
+
+func (*integrationGitHubInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitHubInput)(nil)).Elem()
+}
+
+func (i *integrationGitHubInputPtrType) ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput {
+	return i.ToIntegrationGitHubInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationGitHubInputPtrType) ToIntegrationGitHubInputPtrOutputWithContext(ctx context.Context) IntegrationGitHubInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitHubInputPtrOutput)
+}
+
+// The input required to create a GitHub integration.
+type IntegrationGitHubInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitHubInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitHubInput)(nil)).Elem()
+}
+
+func (o IntegrationGitHubInputOutput) ToIntegrationGitHubInputOutput() IntegrationGitHubInputOutput {
+	return o
+}
+
+func (o IntegrationGitHubInputOutput) ToIntegrationGitHubInputOutputWithContext(ctx context.Context) IntegrationGitHubInputOutput {
+	return o
+}
+
+func (o IntegrationGitHubInputOutput) ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput {
+	return o.ToIntegrationGitHubInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitHubInputOutput) ToIntegrationGitHubInputPtrOutputWithContext(ctx context.Context) IntegrationGitHubInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationGitHubInput) *IntegrationGitHubInput {
+		return &v
+	}).(IntegrationGitHubInputPtrOutput)
+}
+
+// The OAuth authorization code received from GitHub.
+func (o IntegrationGitHubInputOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+func (o IntegrationGitHubInputOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) *string { return v.InstallationId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the GitHub organization to integrate with.
+func (o IntegrationGitHubInputOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
+}
+
+// The CSRF state token for validating the OAuth flow.
+func (o IntegrationGitHubInputOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+func (o IntegrationGitHubInputOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationGitHubInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitHubInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitHubInput)(nil)).Elem()
+}
+
+func (o IntegrationGitHubInputPtrOutput) ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput {
+	return o
+}
+
+func (o IntegrationGitHubInputPtrOutput) ToIntegrationGitHubInputPtrOutputWithContext(ctx context.Context) IntegrationGitHubInputPtrOutput {
+	return o
+}
+
+func (o IntegrationGitHubInputPtrOutput) Elem() IntegrationGitHubInputOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) IntegrationGitHubInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationGitHubInput
+		return ret
+	}).(IntegrationGitHubInputOutput)
+}
+
+// The OAuth authorization code received from GitHub.
+func (o IntegrationGitHubInputPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+func (o IntegrationGitHubInputPtrOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstallationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the GitHub organization to integrate with.
+func (o IntegrationGitHubInputPtrOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CSRF state token for validating the OAuth flow.
+func (o IntegrationGitHubInputPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+func (o IntegrationGitHubInputPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input required to create a GitLab integration.
+type IntegrationGitLabInput struct {
+	// The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+	AccessToken string `pulumi:"accessToken"`
+	// The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+	GroupId *string `pulumi:"groupId"`
+	// The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+	TargetUrl *string `pulumi:"targetUrl"`
+	// The type of GitLab access token.
+	TokenType IntegrationGitLabInputTokenType `pulumi:"tokenType"`
+}
+
+// IntegrationGitLabInputInput is an input type that accepts IntegrationGitLabInputArgs and IntegrationGitLabInputOutput values.
+// You can construct a concrete instance of `IntegrationGitLabInputInput` via:
+//
+//	IntegrationGitLabInputArgs{...}
+type IntegrationGitLabInputInput interface {
+	pulumi.Input
+
+	ToIntegrationGitLabInputOutput() IntegrationGitLabInputOutput
+	ToIntegrationGitLabInputOutputWithContext(context.Context) IntegrationGitLabInputOutput
+}
+
+// The input required to create a GitLab integration.
+type IntegrationGitLabInputArgs struct {
+	// The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+	// The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
+	// The type of GitLab access token.
+	TokenType IntegrationGitLabInputTokenTypeInput `pulumi:"tokenType"`
+}
+
+func (IntegrationGitLabInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitLabInput)(nil)).Elem()
+}
+
+func (i IntegrationGitLabInputArgs) ToIntegrationGitLabInputOutput() IntegrationGitLabInputOutput {
+	return i.ToIntegrationGitLabInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationGitLabInputArgs) ToIntegrationGitLabInputOutputWithContext(ctx context.Context) IntegrationGitLabInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitLabInputOutput)
+}
+
+func (i IntegrationGitLabInputArgs) ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput {
+	return i.ToIntegrationGitLabInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationGitLabInputArgs) ToIntegrationGitLabInputPtrOutputWithContext(ctx context.Context) IntegrationGitLabInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitLabInputOutput).ToIntegrationGitLabInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationGitLabInputPtrInput is an input type that accepts IntegrationGitLabInputArgs, IntegrationGitLabInputPtr and IntegrationGitLabInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationGitLabInputPtrInput` via:
+//
+//	        IntegrationGitLabInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationGitLabInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput
+	ToIntegrationGitLabInputPtrOutputWithContext(context.Context) IntegrationGitLabInputPtrOutput
+}
+
+type integrationGitLabInputPtrType IntegrationGitLabInputArgs
+
+func IntegrationGitLabInputPtr(v *IntegrationGitLabInputArgs) IntegrationGitLabInputPtrInput {
+	return (*integrationGitLabInputPtrType)(v)
+}
+
+func (*integrationGitLabInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitLabInput)(nil)).Elem()
+}
+
+func (i *integrationGitLabInputPtrType) ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput {
+	return i.ToIntegrationGitLabInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationGitLabInputPtrType) ToIntegrationGitLabInputPtrOutputWithContext(ctx context.Context) IntegrationGitLabInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitLabInputPtrOutput)
+}
+
+// The input required to create a GitLab integration.
+type IntegrationGitLabInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitLabInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitLabInput)(nil)).Elem()
+}
+
+func (o IntegrationGitLabInputOutput) ToIntegrationGitLabInputOutput() IntegrationGitLabInputOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputOutput) ToIntegrationGitLabInputOutputWithContext(ctx context.Context) IntegrationGitLabInputOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputOutput) ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput {
+	return o.ToIntegrationGitLabInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputOutput) ToIntegrationGitLabInputPtrOutputWithContext(ctx context.Context) IntegrationGitLabInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationGitLabInput) *IntegrationGitLabInput {
+		return &v
+	}).(IntegrationGitLabInputPtrOutput)
+}
+
+// The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+func (o IntegrationGitLabInputOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationGitLabInput) string { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+// The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+func (o IntegrationGitLabInputOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitLabInput) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+func (o IntegrationGitLabInputOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitLabInput) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+// The type of GitLab access token.
+func (o IntegrationGitLabInputOutput) TokenType() IntegrationGitLabInputTokenTypeOutput {
+	return o.ApplyT(func(v IntegrationGitLabInput) IntegrationGitLabInputTokenType { return v.TokenType }).(IntegrationGitLabInputTokenTypeOutput)
+}
+
+type IntegrationGitLabInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitLabInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitLabInput)(nil)).Elem()
+}
+
+func (o IntegrationGitLabInputPtrOutput) ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputPtrOutput) ToIntegrationGitLabInputPtrOutputWithContext(ctx context.Context) IntegrationGitLabInputPtrOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputPtrOutput) Elem() IntegrationGitLabInputOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) IntegrationGitLabInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationGitLabInput
+		return ret
+	}).(IntegrationGitLabInputOutput)
+}
+
+// The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+func (o IntegrationGitLabInputPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+func (o IntegrationGitLabInputPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+func (o IntegrationGitLabInputPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of GitLab access token.
+func (o IntegrationGitLabInputPtrOutput) TokenType() IntegrationGitLabInputTokenTypePtrOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) *IntegrationGitLabInputTokenType {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenType
+	}).(IntegrationGitLabInputTokenTypePtrOutput)
+}
+
+// The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+type IntegrationProviderInput struct {
+	Bitbucket  *IntegrationBitbucketInput  `pulumi:"bitbucket"`
+	Confluence *IntegrationConfluenceInput `pulumi:"confluence"`
+	Github     *IntegrationGitHubInput     `pulumi:"github"`
+	Gitlab     *IntegrationGitLabInput     `pulumi:"gitlab"`
+}
+
+// IntegrationProviderInputInput is an input type that accepts IntegrationProviderInputArgs and IntegrationProviderInputOutput values.
+// You can construct a concrete instance of `IntegrationProviderInputInput` via:
+//
+//	IntegrationProviderInputArgs{...}
+type IntegrationProviderInputInput interface {
+	pulumi.Input
+
+	ToIntegrationProviderInputOutput() IntegrationProviderInputOutput
+	ToIntegrationProviderInputOutputWithContext(context.Context) IntegrationProviderInputOutput
+}
+
+// The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+type IntegrationProviderInputArgs struct {
+	Bitbucket  IntegrationBitbucketInputPtrInput  `pulumi:"bitbucket"`
+	Confluence IntegrationConfluenceInputPtrInput `pulumi:"confluence"`
+	Github     IntegrationGitHubInputPtrInput     `pulumi:"github"`
+	Gitlab     IntegrationGitLabInputPtrInput     `pulumi:"gitlab"`
+}
+
+func (IntegrationProviderInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderInput)(nil)).Elem()
+}
+
+func (i IntegrationProviderInputArgs) ToIntegrationProviderInputOutput() IntegrationProviderInputOutput {
+	return i.ToIntegrationProviderInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationProviderInputArgs) ToIntegrationProviderInputOutputWithContext(ctx context.Context) IntegrationProviderInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderInputOutput)
+}
+
+func (i IntegrationProviderInputArgs) ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput {
+	return i.ToIntegrationProviderInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationProviderInputArgs) ToIntegrationProviderInputPtrOutputWithContext(ctx context.Context) IntegrationProviderInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderInputOutput).ToIntegrationProviderInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationProviderInputPtrInput is an input type that accepts IntegrationProviderInputArgs, IntegrationProviderInputPtr and IntegrationProviderInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationProviderInputPtrInput` via:
+//
+//	        IntegrationProviderInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationProviderInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput
+	ToIntegrationProviderInputPtrOutputWithContext(context.Context) IntegrationProviderInputPtrOutput
+}
+
+type integrationProviderInputPtrType IntegrationProviderInputArgs
+
+func IntegrationProviderInputPtr(v *IntegrationProviderInputArgs) IntegrationProviderInputPtrInput {
+	return (*integrationProviderInputPtrType)(v)
+}
+
+func (*integrationProviderInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderInput)(nil)).Elem()
+}
+
+func (i *integrationProviderInputPtrType) ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput {
+	return i.ToIntegrationProviderInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationProviderInputPtrType) ToIntegrationProviderInputPtrOutputWithContext(ctx context.Context) IntegrationProviderInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderInputPtrOutput)
+}
+
+// The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+type IntegrationProviderInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderInput)(nil)).Elem()
+}
+
+func (o IntegrationProviderInputOutput) ToIntegrationProviderInputOutput() IntegrationProviderInputOutput {
+	return o
+}
+
+func (o IntegrationProviderInputOutput) ToIntegrationProviderInputOutputWithContext(ctx context.Context) IntegrationProviderInputOutput {
+	return o
+}
+
+func (o IntegrationProviderInputOutput) ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput {
+	return o.ToIntegrationProviderInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderInputOutput) ToIntegrationProviderInputPtrOutputWithContext(ctx context.Context) IntegrationProviderInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationProviderInput) *IntegrationProviderInput {
+		return &v
+	}).(IntegrationProviderInputPtrOutput)
+}
+
+func (o IntegrationProviderInputOutput) Bitbucket() IntegrationBitbucketInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderInput) *IntegrationBitbucketInput { return v.Bitbucket }).(IntegrationBitbucketInputPtrOutput)
+}
+
+func (o IntegrationProviderInputOutput) Confluence() IntegrationConfluenceInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderInput) *IntegrationConfluenceInput { return v.Confluence }).(IntegrationConfluenceInputPtrOutput)
+}
+
+func (o IntegrationProviderInputOutput) Github() IntegrationGitHubInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderInput) *IntegrationGitHubInput { return v.Github }).(IntegrationGitHubInputPtrOutput)
+}
+
+func (o IntegrationProviderInputOutput) Gitlab() IntegrationGitLabInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderInput) *IntegrationGitLabInput { return v.Gitlab }).(IntegrationGitLabInputPtrOutput)
+}
+
+type IntegrationProviderInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderInput)(nil)).Elem()
+}
+
+func (o IntegrationProviderInputPtrOutput) ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput {
+	return o
+}
+
+func (o IntegrationProviderInputPtrOutput) ToIntegrationProviderInputPtrOutputWithContext(ctx context.Context) IntegrationProviderInputPtrOutput {
+	return o
+}
+
+func (o IntegrationProviderInputPtrOutput) Elem() IntegrationProviderInputOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) IntegrationProviderInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationProviderInput
+		return ret
+	}).(IntegrationProviderInputOutput)
+}
+
+func (o IntegrationProviderInputPtrOutput) Bitbucket() IntegrationBitbucketInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) *IntegrationBitbucketInput {
+		if v == nil {
+			return nil
+		}
+		return v.Bitbucket
+	}).(IntegrationBitbucketInputPtrOutput)
+}
+
+func (o IntegrationProviderInputPtrOutput) Confluence() IntegrationConfluenceInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) *IntegrationConfluenceInput {
+		if v == nil {
+			return nil
+		}
+		return v.Confluence
+	}).(IntegrationConfluenceInputPtrOutput)
+}
+
+func (o IntegrationProviderInputPtrOutput) Github() IntegrationGitHubInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) *IntegrationGitHubInput {
+		if v == nil {
+			return nil
+		}
+		return v.Github
+	}).(IntegrationGitHubInputPtrOutput)
+}
+
+func (o IntegrationProviderInputPtrOutput) Gitlab() IntegrationGitLabInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) *IntegrationGitLabInput {
+		if v == nil {
+			return nil
+		}
+		return v.Gitlab
+	}).(IntegrationGitLabInputPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IntegrationTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // An authenticated actor to be used during pentest execution
 type PentestActor struct {
 	// Authentication credentials for this actor
@@ -4079,6 +5075,476 @@ func (o PentestNetworkTrafficRuleArrayOutput) Index(i pulumi.IntInput) PentestNe
 	}).(PentestNetworkTrafficRuleOutput)
 }
 
+// Destination for publishing a scan report to Confluence
+type PentestReportDestination struct {
+	// Identifier of the container, such as a space, within the integration to publish the report to
+	ContainerId string `pulumi:"containerId"`
+	// Identifier of an existing document to update with the report
+	DocumentId *string `pulumi:"documentId"`
+	// Unique identifier of the provider integration to publish the report to
+	IntegrationId string `pulumi:"integrationId"`
+	// Identifier of the parent under which the report document is created
+	ParentId *string `pulumi:"parentId"`
+}
+
+// PentestReportDestinationInput is an input type that accepts PentestReportDestinationArgs and PentestReportDestinationOutput values.
+// You can construct a concrete instance of `PentestReportDestinationInput` via:
+//
+//	PentestReportDestinationArgs{...}
+type PentestReportDestinationInput interface {
+	pulumi.Input
+
+	ToPentestReportDestinationOutput() PentestReportDestinationOutput
+	ToPentestReportDestinationOutputWithContext(context.Context) PentestReportDestinationOutput
+}
+
+// Destination for publishing a scan report to Confluence
+type PentestReportDestinationArgs struct {
+	// Identifier of the container, such as a space, within the integration to publish the report to
+	ContainerId pulumi.StringInput `pulumi:"containerId"`
+	// Identifier of an existing document to update with the report
+	DocumentId pulumi.StringPtrInput `pulumi:"documentId"`
+	// Unique identifier of the provider integration to publish the report to
+	IntegrationId pulumi.StringInput `pulumi:"integrationId"`
+	// Identifier of the parent under which the report document is created
+	ParentId pulumi.StringPtrInput `pulumi:"parentId"`
+}
+
+func (PentestReportDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportDestination)(nil)).Elem()
+}
+
+func (i PentestReportDestinationArgs) ToPentestReportDestinationOutput() PentestReportDestinationOutput {
+	return i.ToPentestReportDestinationOutputWithContext(context.Background())
+}
+
+func (i PentestReportDestinationArgs) ToPentestReportDestinationOutputWithContext(ctx context.Context) PentestReportDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportDestinationOutput)
+}
+
+func (i PentestReportDestinationArgs) ToPentestReportDestinationPtrOutput() PentestReportDestinationPtrOutput {
+	return i.ToPentestReportDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i PentestReportDestinationArgs) ToPentestReportDestinationPtrOutputWithContext(ctx context.Context) PentestReportDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportDestinationOutput).ToPentestReportDestinationPtrOutputWithContext(ctx)
+}
+
+// PentestReportDestinationPtrInput is an input type that accepts PentestReportDestinationArgs, PentestReportDestinationPtr and PentestReportDestinationPtrOutput values.
+// You can construct a concrete instance of `PentestReportDestinationPtrInput` via:
+//
+//	        PentestReportDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PentestReportDestinationPtrInput interface {
+	pulumi.Input
+
+	ToPentestReportDestinationPtrOutput() PentestReportDestinationPtrOutput
+	ToPentestReportDestinationPtrOutputWithContext(context.Context) PentestReportDestinationPtrOutput
+}
+
+type pentestReportDestinationPtrType PentestReportDestinationArgs
+
+func PentestReportDestinationPtr(v *PentestReportDestinationArgs) PentestReportDestinationPtrInput {
+	return (*pentestReportDestinationPtrType)(v)
+}
+
+func (*pentestReportDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestReportDestination)(nil)).Elem()
+}
+
+func (i *pentestReportDestinationPtrType) ToPentestReportDestinationPtrOutput() PentestReportDestinationPtrOutput {
+	return i.ToPentestReportDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *pentestReportDestinationPtrType) ToPentestReportDestinationPtrOutputWithContext(ctx context.Context) PentestReportDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportDestinationPtrOutput)
+}
+
+// Destination for publishing a scan report to Confluence
+type PentestReportDestinationOutput struct{ *pulumi.OutputState }
+
+func (PentestReportDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportDestination)(nil)).Elem()
+}
+
+func (o PentestReportDestinationOutput) ToPentestReportDestinationOutput() PentestReportDestinationOutput {
+	return o
+}
+
+func (o PentestReportDestinationOutput) ToPentestReportDestinationOutputWithContext(ctx context.Context) PentestReportDestinationOutput {
+	return o
+}
+
+func (o PentestReportDestinationOutput) ToPentestReportDestinationPtrOutput() PentestReportDestinationPtrOutput {
+	return o.ToPentestReportDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportDestinationOutput) ToPentestReportDestinationPtrOutputWithContext(ctx context.Context) PentestReportDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestReportDestination) *PentestReportDestination {
+		return &v
+	}).(PentestReportDestinationPtrOutput)
+}
+
+// Identifier of the container, such as a space, within the integration to publish the report to
+func (o PentestReportDestinationOutput) ContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v PentestReportDestination) string { return v.ContainerId }).(pulumi.StringOutput)
+}
+
+// Identifier of an existing document to update with the report
+func (o PentestReportDestinationOutput) DocumentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PentestReportDestination) *string { return v.DocumentId }).(pulumi.StringPtrOutput)
+}
+
+// Unique identifier of the provider integration to publish the report to
+func (o PentestReportDestinationOutput) IntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v PentestReportDestination) string { return v.IntegrationId }).(pulumi.StringOutput)
+}
+
+// Identifier of the parent under which the report document is created
+func (o PentestReportDestinationOutput) ParentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PentestReportDestination) *string { return v.ParentId }).(pulumi.StringPtrOutput)
+}
+
+type PentestReportDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (PentestReportDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestReportDestination)(nil)).Elem()
+}
+
+func (o PentestReportDestinationPtrOutput) ToPentestReportDestinationPtrOutput() PentestReportDestinationPtrOutput {
+	return o
+}
+
+func (o PentestReportDestinationPtrOutput) ToPentestReportDestinationPtrOutputWithContext(ctx context.Context) PentestReportDestinationPtrOutput {
+	return o
+}
+
+func (o PentestReportDestinationPtrOutput) Elem() PentestReportDestinationOutput {
+	return o.ApplyT(func(v *PentestReportDestination) PentestReportDestination {
+		if v != nil {
+			return *v
+		}
+		var ret PentestReportDestination
+		return ret
+	}).(PentestReportDestinationOutput)
+}
+
+// Identifier of the container, such as a space, within the integration to publish the report to
+func (o PentestReportDestinationPtrOutput) ContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PentestReportDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of an existing document to update with the report
+func (o PentestReportDestinationPtrOutput) DocumentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PentestReportDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique identifier of the provider integration to publish the report to
+func (o PentestReportDestinationPtrOutput) IntegrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PentestReportDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IntegrationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the parent under which the report document is created
+func (o PentestReportDestinationPtrOutput) ParentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PentestReportDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ParentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filters applied when a scan report is published to Confluence
+type PentestReportFilters struct {
+	// Whether to include reviewer annotation notes under each finding
+	AnnotationNotes *bool `pulumi:"annotationNotes"`
+	// Whether to include the compliance-ready report additions
+	ComplianceReport *bool `pulumi:"complianceReport"`
+	// Confidence levels to include in the report
+	ConfidenceLevels []PentestReportFiltersConfidenceLevelsItem `pulumi:"confidenceLevels"`
+	// Finding types to include in the report
+	FindingTypes []string `pulumi:"findingTypes"`
+	// Severity levels to include in the report
+	RiskLevels []PentestReportFiltersRiskLevelsItem `pulumi:"riskLevels"`
+	// Risk types to include in the report
+	RiskTypes []PentestRiskType `pulumi:"riskTypes"`
+	// Finding statuses to include in the report
+	Statuses []PentestReportFiltersStatusesItem `pulumi:"statuses"`
+	// Task execution statuses to include in the report's task table
+	TaskStatuses []PentestReportFiltersTaskStatusesItem `pulumi:"taskStatuses"`
+}
+
+// PentestReportFiltersInput is an input type that accepts PentestReportFiltersArgs and PentestReportFiltersOutput values.
+// You can construct a concrete instance of `PentestReportFiltersInput` via:
+//
+//	PentestReportFiltersArgs{...}
+type PentestReportFiltersInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersOutput() PentestReportFiltersOutput
+	ToPentestReportFiltersOutputWithContext(context.Context) PentestReportFiltersOutput
+}
+
+// Filters applied when a scan report is published to Confluence
+type PentestReportFiltersArgs struct {
+	// Whether to include reviewer annotation notes under each finding
+	AnnotationNotes pulumi.BoolPtrInput `pulumi:"annotationNotes"`
+	// Whether to include the compliance-ready report additions
+	ComplianceReport pulumi.BoolPtrInput `pulumi:"complianceReport"`
+	// Confidence levels to include in the report
+	ConfidenceLevels PentestReportFiltersConfidenceLevelsItemArrayInput `pulumi:"confidenceLevels"`
+	// Finding types to include in the report
+	FindingTypes pulumi.StringArrayInput `pulumi:"findingTypes"`
+	// Severity levels to include in the report
+	RiskLevels PentestReportFiltersRiskLevelsItemArrayInput `pulumi:"riskLevels"`
+	// Risk types to include in the report
+	RiskTypes PentestRiskTypeArrayInput `pulumi:"riskTypes"`
+	// Finding statuses to include in the report
+	Statuses PentestReportFiltersStatusesItemArrayInput `pulumi:"statuses"`
+	// Task execution statuses to include in the report's task table
+	TaskStatuses PentestReportFiltersTaskStatusesItemArrayInput `pulumi:"taskStatuses"`
+}
+
+func (PentestReportFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFilters)(nil)).Elem()
+}
+
+func (i PentestReportFiltersArgs) ToPentestReportFiltersOutput() PentestReportFiltersOutput {
+	return i.ToPentestReportFiltersOutputWithContext(context.Background())
+}
+
+func (i PentestReportFiltersArgs) ToPentestReportFiltersOutputWithContext(ctx context.Context) PentestReportFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportFiltersOutput)
+}
+
+func (i PentestReportFiltersArgs) ToPentestReportFiltersPtrOutput() PentestReportFiltersPtrOutput {
+	return i.ToPentestReportFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i PentestReportFiltersArgs) ToPentestReportFiltersPtrOutputWithContext(ctx context.Context) PentestReportFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportFiltersOutput).ToPentestReportFiltersPtrOutputWithContext(ctx)
+}
+
+// PentestReportFiltersPtrInput is an input type that accepts PentestReportFiltersArgs, PentestReportFiltersPtr and PentestReportFiltersPtrOutput values.
+// You can construct a concrete instance of `PentestReportFiltersPtrInput` via:
+//
+//	        PentestReportFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type PentestReportFiltersPtrInput interface {
+	pulumi.Input
+
+	ToPentestReportFiltersPtrOutput() PentestReportFiltersPtrOutput
+	ToPentestReportFiltersPtrOutputWithContext(context.Context) PentestReportFiltersPtrOutput
+}
+
+type pentestReportFiltersPtrType PentestReportFiltersArgs
+
+func PentestReportFiltersPtr(v *PentestReportFiltersArgs) PentestReportFiltersPtrInput {
+	return (*pentestReportFiltersPtrType)(v)
+}
+
+func (*pentestReportFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestReportFilters)(nil)).Elem()
+}
+
+func (i *pentestReportFiltersPtrType) ToPentestReportFiltersPtrOutput() PentestReportFiltersPtrOutput {
+	return i.ToPentestReportFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *pentestReportFiltersPtrType) ToPentestReportFiltersPtrOutputWithContext(ctx context.Context) PentestReportFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestReportFiltersPtrOutput)
+}
+
+// Filters applied when a scan report is published to Confluence
+type PentestReportFiltersOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestReportFilters)(nil)).Elem()
+}
+
+func (o PentestReportFiltersOutput) ToPentestReportFiltersOutput() PentestReportFiltersOutput {
+	return o
+}
+
+func (o PentestReportFiltersOutput) ToPentestReportFiltersOutputWithContext(ctx context.Context) PentestReportFiltersOutput {
+	return o
+}
+
+func (o PentestReportFiltersOutput) ToPentestReportFiltersPtrOutput() PentestReportFiltersPtrOutput {
+	return o.ToPentestReportFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o PentestReportFiltersOutput) ToPentestReportFiltersPtrOutputWithContext(ctx context.Context) PentestReportFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestReportFilters) *PentestReportFilters {
+		return &v
+	}).(PentestReportFiltersPtrOutput)
+}
+
+// Whether to include reviewer annotation notes under each finding
+func (o PentestReportFiltersOutput) AnnotationNotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PentestReportFilters) *bool { return v.AnnotationNotes }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to include the compliance-ready report additions
+func (o PentestReportFiltersOutput) ComplianceReport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PentestReportFilters) *bool { return v.ComplianceReport }).(pulumi.BoolPtrOutput)
+}
+
+// Confidence levels to include in the report
+func (o PentestReportFiltersOutput) ConfidenceLevels() PentestReportFiltersConfidenceLevelsItemArrayOutput {
+	return o.ApplyT(func(v PentestReportFilters) []PentestReportFiltersConfidenceLevelsItem { return v.ConfidenceLevels }).(PentestReportFiltersConfidenceLevelsItemArrayOutput)
+}
+
+// Finding types to include in the report
+func (o PentestReportFiltersOutput) FindingTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PentestReportFilters) []string { return v.FindingTypes }).(pulumi.StringArrayOutput)
+}
+
+// Severity levels to include in the report
+func (o PentestReportFiltersOutput) RiskLevels() PentestReportFiltersRiskLevelsItemArrayOutput {
+	return o.ApplyT(func(v PentestReportFilters) []PentestReportFiltersRiskLevelsItem { return v.RiskLevels }).(PentestReportFiltersRiskLevelsItemArrayOutput)
+}
+
+// Risk types to include in the report
+func (o PentestReportFiltersOutput) RiskTypes() PentestRiskTypeArrayOutput {
+	return o.ApplyT(func(v PentestReportFilters) []PentestRiskType { return v.RiskTypes }).(PentestRiskTypeArrayOutput)
+}
+
+// Finding statuses to include in the report
+func (o PentestReportFiltersOutput) Statuses() PentestReportFiltersStatusesItemArrayOutput {
+	return o.ApplyT(func(v PentestReportFilters) []PentestReportFiltersStatusesItem { return v.Statuses }).(PentestReportFiltersStatusesItemArrayOutput)
+}
+
+// Task execution statuses to include in the report's task table
+func (o PentestReportFiltersOutput) TaskStatuses() PentestReportFiltersTaskStatusesItemArrayOutput {
+	return o.ApplyT(func(v PentestReportFilters) []PentestReportFiltersTaskStatusesItem { return v.TaskStatuses }).(PentestReportFiltersTaskStatusesItemArrayOutput)
+}
+
+type PentestReportFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (PentestReportFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestReportFilters)(nil)).Elem()
+}
+
+func (o PentestReportFiltersPtrOutput) ToPentestReportFiltersPtrOutput() PentestReportFiltersPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersPtrOutput) ToPentestReportFiltersPtrOutputWithContext(ctx context.Context) PentestReportFiltersPtrOutput {
+	return o
+}
+
+func (o PentestReportFiltersPtrOutput) Elem() PentestReportFiltersOutput {
+	return o.ApplyT(func(v *PentestReportFilters) PentestReportFilters {
+		if v != nil {
+			return *v
+		}
+		var ret PentestReportFilters
+		return ret
+	}).(PentestReportFiltersOutput)
+}
+
+// Whether to include reviewer annotation notes under each finding
+func (o PentestReportFiltersPtrOutput) AnnotationNotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PentestReportFilters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AnnotationNotes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to include the compliance-ready report additions
+func (o PentestReportFiltersPtrOutput) ComplianceReport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PentestReportFilters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceReport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Confidence levels to include in the report
+func (o PentestReportFiltersPtrOutput) ConfidenceLevels() PentestReportFiltersConfidenceLevelsItemArrayOutput {
+	return o.ApplyT(func(v *PentestReportFilters) []PentestReportFiltersConfidenceLevelsItem {
+		if v == nil {
+			return nil
+		}
+		return v.ConfidenceLevels
+	}).(PentestReportFiltersConfidenceLevelsItemArrayOutput)
+}
+
+// Finding types to include in the report
+func (o PentestReportFiltersPtrOutput) FindingTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PentestReportFilters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FindingTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Severity levels to include in the report
+func (o PentestReportFiltersPtrOutput) RiskLevels() PentestReportFiltersRiskLevelsItemArrayOutput {
+	return o.ApplyT(func(v *PentestReportFilters) []PentestReportFiltersRiskLevelsItem {
+		if v == nil {
+			return nil
+		}
+		return v.RiskLevels
+	}).(PentestReportFiltersRiskLevelsItemArrayOutput)
+}
+
+// Risk types to include in the report
+func (o PentestReportFiltersPtrOutput) RiskTypes() PentestRiskTypeArrayOutput {
+	return o.ApplyT(func(v *PentestReportFilters) []PentestRiskType {
+		if v == nil {
+			return nil
+		}
+		return v.RiskTypes
+	}).(PentestRiskTypeArrayOutput)
+}
+
+// Finding statuses to include in the report
+func (o PentestReportFiltersPtrOutput) Statuses() PentestReportFiltersStatusesItemArrayOutput {
+	return o.ApplyT(func(v *PentestReportFilters) []PentestReportFiltersStatusesItem {
+		if v == nil {
+			return nil
+		}
+		return v.Statuses
+	}).(PentestReportFiltersStatusesItemArrayOutput)
+}
+
+// Task execution statuses to include in the report's task table
+func (o PentestReportFiltersPtrOutput) TaskStatuses() PentestReportFiltersTaskStatusesItemArrayOutput {
+	return o.ApplyT(func(v *PentestReportFilters) []PentestReportFiltersTaskStatusesItem {
+		if v == nil {
+			return nil
+		}
+		return v.TaskStatuses
+	}).(PentestReportFiltersTaskStatusesItemArrayOutput)
+}
+
 // A source code archive stored in S3 for analysis during the pentest
 type PentestSourceCodeRepository struct {
 	// S3 source code location
@@ -4177,6 +5643,146 @@ func (o PentestSourceCodeRepositoryArrayOutput) Index(i pulumi.IntInput) Pentest
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PentestSourceCodeRepository {
 		return vs[0].([]PentestSourceCodeRepository)[vs[1].(int)]
 	}).(PentestSourceCodeRepositoryOutput)
+}
+
+// Scope of the target under test, determining which classes of risk are assessed
+type PentestTestScope struct {
+	// The kind of application the target is tested as
+	Type PentestTestScopeType `pulumi:"type"`
+}
+
+// PentestTestScopeInput is an input type that accepts PentestTestScopeArgs and PentestTestScopeOutput values.
+// You can construct a concrete instance of `PentestTestScopeInput` via:
+//
+//	PentestTestScopeArgs{...}
+type PentestTestScopeInput interface {
+	pulumi.Input
+
+	ToPentestTestScopeOutput() PentestTestScopeOutput
+	ToPentestTestScopeOutputWithContext(context.Context) PentestTestScopeOutput
+}
+
+// Scope of the target under test, determining which classes of risk are assessed
+type PentestTestScopeArgs struct {
+	// The kind of application the target is tested as
+	Type PentestTestScopeTypeInput `pulumi:"type"`
+}
+
+func (PentestTestScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestTestScope)(nil)).Elem()
+}
+
+func (i PentestTestScopeArgs) ToPentestTestScopeOutput() PentestTestScopeOutput {
+	return i.ToPentestTestScopeOutputWithContext(context.Background())
+}
+
+func (i PentestTestScopeArgs) ToPentestTestScopeOutputWithContext(ctx context.Context) PentestTestScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestTestScopeOutput)
+}
+
+func (i PentestTestScopeArgs) ToPentestTestScopePtrOutput() PentestTestScopePtrOutput {
+	return i.ToPentestTestScopePtrOutputWithContext(context.Background())
+}
+
+func (i PentestTestScopeArgs) ToPentestTestScopePtrOutputWithContext(ctx context.Context) PentestTestScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestTestScopeOutput).ToPentestTestScopePtrOutputWithContext(ctx)
+}
+
+// PentestTestScopePtrInput is an input type that accepts PentestTestScopeArgs, PentestTestScopePtr and PentestTestScopePtrOutput values.
+// You can construct a concrete instance of `PentestTestScopePtrInput` via:
+//
+//	        PentestTestScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PentestTestScopePtrInput interface {
+	pulumi.Input
+
+	ToPentestTestScopePtrOutput() PentestTestScopePtrOutput
+	ToPentestTestScopePtrOutputWithContext(context.Context) PentestTestScopePtrOutput
+}
+
+type pentestTestScopePtrType PentestTestScopeArgs
+
+func PentestTestScopePtr(v *PentestTestScopeArgs) PentestTestScopePtrInput {
+	return (*pentestTestScopePtrType)(v)
+}
+
+func (*pentestTestScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestTestScope)(nil)).Elem()
+}
+
+func (i *pentestTestScopePtrType) ToPentestTestScopePtrOutput() PentestTestScopePtrOutput {
+	return i.ToPentestTestScopePtrOutputWithContext(context.Background())
+}
+
+func (i *pentestTestScopePtrType) ToPentestTestScopePtrOutputWithContext(ctx context.Context) PentestTestScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestTestScopePtrOutput)
+}
+
+// Scope of the target under test, determining which classes of risk are assessed
+type PentestTestScopeOutput struct{ *pulumi.OutputState }
+
+func (PentestTestScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestTestScope)(nil)).Elem()
+}
+
+func (o PentestTestScopeOutput) ToPentestTestScopeOutput() PentestTestScopeOutput {
+	return o
+}
+
+func (o PentestTestScopeOutput) ToPentestTestScopeOutputWithContext(ctx context.Context) PentestTestScopeOutput {
+	return o
+}
+
+func (o PentestTestScopeOutput) ToPentestTestScopePtrOutput() PentestTestScopePtrOutput {
+	return o.ToPentestTestScopePtrOutputWithContext(context.Background())
+}
+
+func (o PentestTestScopeOutput) ToPentestTestScopePtrOutputWithContext(ctx context.Context) PentestTestScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestTestScope) *PentestTestScope {
+		return &v
+	}).(PentestTestScopePtrOutput)
+}
+
+// The kind of application the target is tested as
+func (o PentestTestScopeOutput) Type() PentestTestScopeTypeOutput {
+	return o.ApplyT(func(v PentestTestScope) PentestTestScopeType { return v.Type }).(PentestTestScopeTypeOutput)
+}
+
+type PentestTestScopePtrOutput struct{ *pulumi.OutputState }
+
+func (PentestTestScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestTestScope)(nil)).Elem()
+}
+
+func (o PentestTestScopePtrOutput) ToPentestTestScopePtrOutput() PentestTestScopePtrOutput {
+	return o
+}
+
+func (o PentestTestScopePtrOutput) ToPentestTestScopePtrOutputWithContext(ctx context.Context) PentestTestScopePtrOutput {
+	return o
+}
+
+func (o PentestTestScopePtrOutput) Elem() PentestTestScopeOutput {
+	return o.ApplyT(func(v *PentestTestScope) PentestTestScope {
+		if v != nil {
+			return *v
+		}
+		var ret PentestTestScope
+		return ret
+	}).(PentestTestScopeOutput)
+}
+
+// The kind of application the target is tested as
+func (o PentestTestScopePtrOutput) Type() PentestTestScopeTypePtrOutput {
+	return o.ApplyT(func(v *PentestTestScope) *PentestTestScopeType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(PentestTestScopeTypePtrOutput)
 }
 
 // Trust anchor used when validating a target endpoint's TLS certificate
@@ -4451,6 +6057,582 @@ func (o PentestVpcConfigPtrOutput) VpcArn() pulumi.StringPtrOutput {
 		}
 		return v.VpcArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for the private connection. Specify either a service-managed or a self-managed mode.
+type PrivateConnectionMode struct {
+	SelfManaged    *PrivateConnectionSelfManaged    `pulumi:"selfManaged"`
+	ServiceManaged *PrivateConnectionServiceManaged `pulumi:"serviceManaged"`
+}
+
+// PrivateConnectionModeInput is an input type that accepts PrivateConnectionModeArgs and PrivateConnectionModeOutput values.
+// You can construct a concrete instance of `PrivateConnectionModeInput` via:
+//
+//	PrivateConnectionModeArgs{...}
+type PrivateConnectionModeInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionModeOutput() PrivateConnectionModeOutput
+	ToPrivateConnectionModeOutputWithContext(context.Context) PrivateConnectionModeOutput
+}
+
+// The configuration for the private connection. Specify either a service-managed or a self-managed mode.
+type PrivateConnectionModeArgs struct {
+	SelfManaged    PrivateConnectionSelfManagedPtrInput    `pulumi:"selfManaged"`
+	ServiceManaged PrivateConnectionServiceManagedPtrInput `pulumi:"serviceManaged"`
+}
+
+func (PrivateConnectionModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionMode)(nil)).Elem()
+}
+
+func (i PrivateConnectionModeArgs) ToPrivateConnectionModeOutput() PrivateConnectionModeOutput {
+	return i.ToPrivateConnectionModeOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionModeArgs) ToPrivateConnectionModeOutputWithContext(ctx context.Context) PrivateConnectionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionModeOutput)
+}
+
+func (i PrivateConnectionModeArgs) ToPrivateConnectionModePtrOutput() PrivateConnectionModePtrOutput {
+	return i.ToPrivateConnectionModePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionModeArgs) ToPrivateConnectionModePtrOutputWithContext(ctx context.Context) PrivateConnectionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionModeOutput).ToPrivateConnectionModePtrOutputWithContext(ctx)
+}
+
+// PrivateConnectionModePtrInput is an input type that accepts PrivateConnectionModeArgs, PrivateConnectionModePtr and PrivateConnectionModePtrOutput values.
+// You can construct a concrete instance of `PrivateConnectionModePtrInput` via:
+//
+//	        PrivateConnectionModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateConnectionModePtrInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionModePtrOutput() PrivateConnectionModePtrOutput
+	ToPrivateConnectionModePtrOutputWithContext(context.Context) PrivateConnectionModePtrOutput
+}
+
+type privateConnectionModePtrType PrivateConnectionModeArgs
+
+func PrivateConnectionModePtr(v *PrivateConnectionModeArgs) PrivateConnectionModePtrInput {
+	return (*privateConnectionModePtrType)(v)
+}
+
+func (*privateConnectionModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionMode)(nil)).Elem()
+}
+
+func (i *privateConnectionModePtrType) ToPrivateConnectionModePtrOutput() PrivateConnectionModePtrOutput {
+	return i.ToPrivateConnectionModePtrOutputWithContext(context.Background())
+}
+
+func (i *privateConnectionModePtrType) ToPrivateConnectionModePtrOutputWithContext(ctx context.Context) PrivateConnectionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionModePtrOutput)
+}
+
+// The configuration for the private connection. Specify either a service-managed or a self-managed mode.
+type PrivateConnectionModeOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionMode)(nil)).Elem()
+}
+
+func (o PrivateConnectionModeOutput) ToPrivateConnectionModeOutput() PrivateConnectionModeOutput {
+	return o
+}
+
+func (o PrivateConnectionModeOutput) ToPrivateConnectionModeOutputWithContext(ctx context.Context) PrivateConnectionModeOutput {
+	return o
+}
+
+func (o PrivateConnectionModeOutput) ToPrivateConnectionModePtrOutput() PrivateConnectionModePtrOutput {
+	return o.ToPrivateConnectionModePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionModeOutput) ToPrivateConnectionModePtrOutputWithContext(ctx context.Context) PrivateConnectionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionMode) *PrivateConnectionMode {
+		return &v
+	}).(PrivateConnectionModePtrOutput)
+}
+
+func (o PrivateConnectionModeOutput) SelfManaged() PrivateConnectionSelfManagedPtrOutput {
+	return o.ApplyT(func(v PrivateConnectionMode) *PrivateConnectionSelfManaged { return v.SelfManaged }).(PrivateConnectionSelfManagedPtrOutput)
+}
+
+func (o PrivateConnectionModeOutput) ServiceManaged() PrivateConnectionServiceManagedPtrOutput {
+	return o.ApplyT(func(v PrivateConnectionMode) *PrivateConnectionServiceManaged { return v.ServiceManaged }).(PrivateConnectionServiceManagedPtrOutput)
+}
+
+type PrivateConnectionModePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionMode)(nil)).Elem()
+}
+
+func (o PrivateConnectionModePtrOutput) ToPrivateConnectionModePtrOutput() PrivateConnectionModePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionModePtrOutput) ToPrivateConnectionModePtrOutputWithContext(ctx context.Context) PrivateConnectionModePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionModePtrOutput) Elem() PrivateConnectionModeOutput {
+	return o.ApplyT(func(v *PrivateConnectionMode) PrivateConnectionMode {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionMode
+		return ret
+	}).(PrivateConnectionModeOutput)
+}
+
+func (o PrivateConnectionModePtrOutput) SelfManaged() PrivateConnectionSelfManagedPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionMode) *PrivateConnectionSelfManaged {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManaged
+	}).(PrivateConnectionSelfManagedPtrOutput)
+}
+
+func (o PrivateConnectionModePtrOutput) ServiceManaged() PrivateConnectionServiceManagedPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionMode) *PrivateConnectionServiceManaged {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceManaged
+	}).(PrivateConnectionServiceManagedPtrOutput)
+}
+
+// The configuration for a self-managed private connection, where you manage your own resource configuration.
+type PrivateConnectionSelfManaged struct {
+	// The identifier or ARN of the resource configuration.
+	ResourceConfigurationId string `pulumi:"resourceConfigurationId"`
+}
+
+// PrivateConnectionSelfManagedInput is an input type that accepts PrivateConnectionSelfManagedArgs and PrivateConnectionSelfManagedOutput values.
+// You can construct a concrete instance of `PrivateConnectionSelfManagedInput` via:
+//
+//	PrivateConnectionSelfManagedArgs{...}
+type PrivateConnectionSelfManagedInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionSelfManagedOutput() PrivateConnectionSelfManagedOutput
+	ToPrivateConnectionSelfManagedOutputWithContext(context.Context) PrivateConnectionSelfManagedOutput
+}
+
+// The configuration for a self-managed private connection, where you manage your own resource configuration.
+type PrivateConnectionSelfManagedArgs struct {
+	// The identifier or ARN of the resource configuration.
+	ResourceConfigurationId pulumi.StringInput `pulumi:"resourceConfigurationId"`
+}
+
+func (PrivateConnectionSelfManagedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionSelfManaged)(nil)).Elem()
+}
+
+func (i PrivateConnectionSelfManagedArgs) ToPrivateConnectionSelfManagedOutput() PrivateConnectionSelfManagedOutput {
+	return i.ToPrivateConnectionSelfManagedOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionSelfManagedArgs) ToPrivateConnectionSelfManagedOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionSelfManagedOutput)
+}
+
+func (i PrivateConnectionSelfManagedArgs) ToPrivateConnectionSelfManagedPtrOutput() PrivateConnectionSelfManagedPtrOutput {
+	return i.ToPrivateConnectionSelfManagedPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionSelfManagedArgs) ToPrivateConnectionSelfManagedPtrOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionSelfManagedOutput).ToPrivateConnectionSelfManagedPtrOutputWithContext(ctx)
+}
+
+// PrivateConnectionSelfManagedPtrInput is an input type that accepts PrivateConnectionSelfManagedArgs, PrivateConnectionSelfManagedPtr and PrivateConnectionSelfManagedPtrOutput values.
+// You can construct a concrete instance of `PrivateConnectionSelfManagedPtrInput` via:
+//
+//	        PrivateConnectionSelfManagedArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateConnectionSelfManagedPtrInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionSelfManagedPtrOutput() PrivateConnectionSelfManagedPtrOutput
+	ToPrivateConnectionSelfManagedPtrOutputWithContext(context.Context) PrivateConnectionSelfManagedPtrOutput
+}
+
+type privateConnectionSelfManagedPtrType PrivateConnectionSelfManagedArgs
+
+func PrivateConnectionSelfManagedPtr(v *PrivateConnectionSelfManagedArgs) PrivateConnectionSelfManagedPtrInput {
+	return (*privateConnectionSelfManagedPtrType)(v)
+}
+
+func (*privateConnectionSelfManagedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionSelfManaged)(nil)).Elem()
+}
+
+func (i *privateConnectionSelfManagedPtrType) ToPrivateConnectionSelfManagedPtrOutput() PrivateConnectionSelfManagedPtrOutput {
+	return i.ToPrivateConnectionSelfManagedPtrOutputWithContext(context.Background())
+}
+
+func (i *privateConnectionSelfManagedPtrType) ToPrivateConnectionSelfManagedPtrOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionSelfManagedPtrOutput)
+}
+
+// The configuration for a self-managed private connection, where you manage your own resource configuration.
+type PrivateConnectionSelfManagedOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionSelfManagedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionSelfManaged)(nil)).Elem()
+}
+
+func (o PrivateConnectionSelfManagedOutput) ToPrivateConnectionSelfManagedOutput() PrivateConnectionSelfManagedOutput {
+	return o
+}
+
+func (o PrivateConnectionSelfManagedOutput) ToPrivateConnectionSelfManagedOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedOutput {
+	return o
+}
+
+func (o PrivateConnectionSelfManagedOutput) ToPrivateConnectionSelfManagedPtrOutput() PrivateConnectionSelfManagedPtrOutput {
+	return o.ToPrivateConnectionSelfManagedPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionSelfManagedOutput) ToPrivateConnectionSelfManagedPtrOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionSelfManaged) *PrivateConnectionSelfManaged {
+		return &v
+	}).(PrivateConnectionSelfManagedPtrOutput)
+}
+
+// The identifier or ARN of the resource configuration.
+func (o PrivateConnectionSelfManagedOutput) ResourceConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateConnectionSelfManaged) string { return v.ResourceConfigurationId }).(pulumi.StringOutput)
+}
+
+type PrivateConnectionSelfManagedPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionSelfManagedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionSelfManaged)(nil)).Elem()
+}
+
+func (o PrivateConnectionSelfManagedPtrOutput) ToPrivateConnectionSelfManagedPtrOutput() PrivateConnectionSelfManagedPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionSelfManagedPtrOutput) ToPrivateConnectionSelfManagedPtrOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionSelfManagedPtrOutput) Elem() PrivateConnectionSelfManagedOutput {
+	return o.ApplyT(func(v *PrivateConnectionSelfManaged) PrivateConnectionSelfManaged {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionSelfManaged
+		return ret
+	}).(PrivateConnectionSelfManagedOutput)
+}
+
+// The identifier or ARN of the resource configuration.
+func (o PrivateConnectionSelfManagedPtrOutput) ResourceConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionSelfManaged) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.
+type PrivateConnectionServiceManaged struct {
+	// The DNS resolution mode for the resource gateway.
+	DnsResolution *PrivateConnectionServiceManagedDnsResolution `pulumi:"dnsResolution"`
+	// The IP address or DNS name of the target resource.
+	HostAddress string `pulumi:"hostAddress"`
+	// The IP address type of the service-managed resource gateway.
+	IpAddressType *PrivateConnectionServiceManagedIpAddressType `pulumi:"ipAddressType"`
+	// The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
+	// The TCP port ranges that a consumer can use to access the resource.
+	PortRanges []string `pulumi:"portRanges"`
+	// The security groups to attach to the service-managed resource gateway.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The subnets that the service-managed resource gateway spans.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The VPC to create the service-managed resource gateway in.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// PrivateConnectionServiceManagedInput is an input type that accepts PrivateConnectionServiceManagedArgs and PrivateConnectionServiceManagedOutput values.
+// You can construct a concrete instance of `PrivateConnectionServiceManagedInput` via:
+//
+//	PrivateConnectionServiceManagedArgs{...}
+type PrivateConnectionServiceManagedInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedOutput() PrivateConnectionServiceManagedOutput
+	ToPrivateConnectionServiceManagedOutputWithContext(context.Context) PrivateConnectionServiceManagedOutput
+}
+
+// The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.
+type PrivateConnectionServiceManagedArgs struct {
+	// The DNS resolution mode for the resource gateway.
+	DnsResolution PrivateConnectionServiceManagedDnsResolutionPtrInput `pulumi:"dnsResolution"`
+	// The IP address or DNS name of the target resource.
+	HostAddress pulumi.StringInput `pulumi:"hostAddress"`
+	// The IP address type of the service-managed resource gateway.
+	IpAddressType PrivateConnectionServiceManagedIpAddressTypePtrInput `pulumi:"ipAddressType"`
+	// The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+	Ipv4AddressesPerEni pulumi.IntPtrInput `pulumi:"ipv4AddressesPerEni"`
+	// The TCP port ranges that a consumer can use to access the resource.
+	PortRanges pulumi.StringArrayInput `pulumi:"portRanges"`
+	// The security groups to attach to the service-managed resource gateway.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The subnets that the service-managed resource gateway spans.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The VPC to create the service-managed resource gateway in.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (PrivateConnectionServiceManagedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManaged)(nil)).Elem()
+}
+
+func (i PrivateConnectionServiceManagedArgs) ToPrivateConnectionServiceManagedOutput() PrivateConnectionServiceManagedOutput {
+	return i.ToPrivateConnectionServiceManagedOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionServiceManagedArgs) ToPrivateConnectionServiceManagedOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionServiceManagedOutput)
+}
+
+func (i PrivateConnectionServiceManagedArgs) ToPrivateConnectionServiceManagedPtrOutput() PrivateConnectionServiceManagedPtrOutput {
+	return i.ToPrivateConnectionServiceManagedPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionServiceManagedArgs) ToPrivateConnectionServiceManagedPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionServiceManagedOutput).ToPrivateConnectionServiceManagedPtrOutputWithContext(ctx)
+}
+
+// PrivateConnectionServiceManagedPtrInput is an input type that accepts PrivateConnectionServiceManagedArgs, PrivateConnectionServiceManagedPtr and PrivateConnectionServiceManagedPtrOutput values.
+// You can construct a concrete instance of `PrivateConnectionServiceManagedPtrInput` via:
+//
+//	        PrivateConnectionServiceManagedArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateConnectionServiceManagedPtrInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedPtrOutput() PrivateConnectionServiceManagedPtrOutput
+	ToPrivateConnectionServiceManagedPtrOutputWithContext(context.Context) PrivateConnectionServiceManagedPtrOutput
+}
+
+type privateConnectionServiceManagedPtrType PrivateConnectionServiceManagedArgs
+
+func PrivateConnectionServiceManagedPtr(v *PrivateConnectionServiceManagedArgs) PrivateConnectionServiceManagedPtrInput {
+	return (*privateConnectionServiceManagedPtrType)(v)
+}
+
+func (*privateConnectionServiceManagedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionServiceManaged)(nil)).Elem()
+}
+
+func (i *privateConnectionServiceManagedPtrType) ToPrivateConnectionServiceManagedPtrOutput() PrivateConnectionServiceManagedPtrOutput {
+	return i.ToPrivateConnectionServiceManagedPtrOutputWithContext(context.Background())
+}
+
+func (i *privateConnectionServiceManagedPtrType) ToPrivateConnectionServiceManagedPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionServiceManagedPtrOutput)
+}
+
+// The configuration for a service-managed private connection, where the service manages the resource gateway lifecycle.
+type PrivateConnectionServiceManagedOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManaged)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedOutput) ToPrivateConnectionServiceManagedOutput() PrivateConnectionServiceManagedOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedOutput) ToPrivateConnectionServiceManagedOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedOutput) ToPrivateConnectionServiceManagedPtrOutput() PrivateConnectionServiceManagedPtrOutput {
+	return o.ToPrivateConnectionServiceManagedPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedOutput) ToPrivateConnectionServiceManagedPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionServiceManaged) *PrivateConnectionServiceManaged {
+		return &v
+	}).(PrivateConnectionServiceManagedPtrOutput)
+}
+
+// The DNS resolution mode for the resource gateway.
+func (o PrivateConnectionServiceManagedOutput) DnsResolution() PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManaged) *PrivateConnectionServiceManagedDnsResolution {
+		return v.DnsResolution
+	}).(PrivateConnectionServiceManagedDnsResolutionPtrOutput)
+}
+
+// The IP address or DNS name of the target resource.
+func (o PrivateConnectionServiceManagedOutput) HostAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManaged) string { return v.HostAddress }).(pulumi.StringOutput)
+}
+
+// The IP address type of the service-managed resource gateway.
+func (o PrivateConnectionServiceManagedOutput) IpAddressType() PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManaged) *PrivateConnectionServiceManagedIpAddressType {
+		return v.IpAddressType
+	}).(PrivateConnectionServiceManagedIpAddressTypePtrOutput)
+}
+
+// The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+func (o PrivateConnectionServiceManagedOutput) Ipv4AddressesPerEni() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManaged) *int { return v.Ipv4AddressesPerEni }).(pulumi.IntPtrOutput)
+}
+
+// The TCP port ranges that a consumer can use to access the resource.
+func (o PrivateConnectionServiceManagedOutput) PortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManaged) []string { return v.PortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The security groups to attach to the service-managed resource gateway.
+func (o PrivateConnectionServiceManagedOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManaged) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The subnets that the service-managed resource gateway spans.
+func (o PrivateConnectionServiceManagedOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManaged) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The VPC to create the service-managed resource gateway in.
+func (o PrivateConnectionServiceManagedOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManaged) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type PrivateConnectionServiceManagedPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionServiceManaged)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedPtrOutput) ToPrivateConnectionServiceManagedPtrOutput() PrivateConnectionServiceManagedPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedPtrOutput) ToPrivateConnectionServiceManagedPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedPtrOutput) Elem() PrivateConnectionServiceManagedOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManaged) PrivateConnectionServiceManaged {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionServiceManaged
+		return ret
+	}).(PrivateConnectionServiceManagedOutput)
+}
+
+// The DNS resolution mode for the resource gateway.
+func (o PrivateConnectionServiceManagedPtrOutput) DnsResolution() PrivateConnectionServiceManagedDnsResolutionPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManaged) *PrivateConnectionServiceManagedDnsResolution {
+		if v == nil {
+			return nil
+		}
+		return v.DnsResolution
+	}).(PrivateConnectionServiceManagedDnsResolutionPtrOutput)
+}
+
+// The IP address or DNS name of the target resource.
+func (o PrivateConnectionServiceManagedPtrOutput) HostAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManaged) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP address type of the service-managed resource gateway.
+func (o PrivateConnectionServiceManagedPtrOutput) IpAddressType() PrivateConnectionServiceManagedIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManaged) *PrivateConnectionServiceManagedIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(PrivateConnectionServiceManagedIpAddressTypePtrOutput)
+}
+
+// The number of IPv4 addresses in each elastic network interface for the service-managed resource gateway.
+func (o PrivateConnectionServiceManagedPtrOutput) Ipv4AddressesPerEni() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManaged) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv4AddressesPerEni
+	}).(pulumi.IntPtrOutput)
+}
+
+// The TCP port ranges that a consumer can use to access the resource.
+func (o PrivateConnectionServiceManagedPtrOutput) PortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManaged) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PortRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// The security groups to attach to the service-managed resource gateway.
+func (o PrivateConnectionServiceManagedPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManaged) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The subnets that the service-managed resource gateway spans.
+func (o PrivateConnectionServiceManagedPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManaged) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The VPC to create the service-managed resource gateway in.
+func (o PrivateConnectionServiceManagedPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManaged) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type PrivateConnectionTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
 }
 
 type SecurityRequirementPackSecurityRequirement struct {
@@ -4894,6 +7076,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceVpcConfigArrayInput)(nil)).Elem(), AgentSpaceVpcConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdCConfigurationInput)(nil)).Elem(), ApplicationIdCConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdCConfigurationPtrInput)(nil)).Elem(), ApplicationIdCConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationBitbucketInputInput)(nil)).Elem(), IntegrationBitbucketInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationBitbucketInputPtrInput)(nil)).Elem(), IntegrationBitbucketInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConfluenceInputInput)(nil)).Elem(), IntegrationConfluenceInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConfluenceInputPtrInput)(nil)).Elem(), IntegrationConfluenceInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitHubInputInput)(nil)).Elem(), IntegrationGitHubInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitHubInputPtrInput)(nil)).Elem(), IntegrationGitHubInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputInput)(nil)).Elem(), IntegrationGitLabInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputPtrInput)(nil)).Elem(), IntegrationGitLabInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderInputInput)(nil)).Elem(), IntegrationProviderInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderInputPtrInput)(nil)).Elem(), IntegrationProviderInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestActorInput)(nil)).Elem(), PentestActorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestActorArrayInput)(nil)).Elem(), PentestActorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAssetsInput)(nil)).Elem(), PentestAssetsArgs{})
@@ -4914,12 +7106,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestNetworkTrafficConfigPtrInput)(nil)).Elem(), PentestNetworkTrafficConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestNetworkTrafficRuleInput)(nil)).Elem(), PentestNetworkTrafficRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestNetworkTrafficRuleArrayInput)(nil)).Elem(), PentestNetworkTrafficRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportDestinationInput)(nil)).Elem(), PentestReportDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportDestinationPtrInput)(nil)).Elem(), PentestReportDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersInput)(nil)).Elem(), PentestReportFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestReportFiltersPtrInput)(nil)).Elem(), PentestReportFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestSourceCodeRepositoryInput)(nil)).Elem(), PentestSourceCodeRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestSourceCodeRepositoryArrayInput)(nil)).Elem(), PentestSourceCodeRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestTestScopeInput)(nil)).Elem(), PentestTestScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestTestScopePtrInput)(nil)).Elem(), PentestTestScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestTrustedCaCertificateInput)(nil)).Elem(), PentestTrustedCaCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestTrustedCaCertificateArrayInput)(nil)).Elem(), PentestTrustedCaCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestVpcConfigInput)(nil)).Elem(), PentestVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestVpcConfigPtrInput)(nil)).Elem(), PentestVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionModeInput)(nil)).Elem(), PrivateConnectionModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionModePtrInput)(nil)).Elem(), PrivateConnectionModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionSelfManagedInput)(nil)).Elem(), PrivateConnectionSelfManagedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionSelfManagedPtrInput)(nil)).Elem(), PrivateConnectionSelfManagedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedInput)(nil)).Elem(), PrivateConnectionServiceManagedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedPtrInput)(nil)).Elem(), PrivateConnectionServiceManagedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackSecurityRequirementInput)(nil)).Elem(), SecurityRequirementPackSecurityRequirementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackSecurityRequirementArrayInput)(nil)).Elem(), SecurityRequirementPackSecurityRequirementArray{})
 	pulumi.RegisterOutputType(AgentSpaceAwsResourcesOutput{})
@@ -4954,6 +7158,16 @@ func init() {
 	pulumi.RegisterOutputType(AgentSpaceVpcConfigArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationIdCConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationIdCConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationBitbucketInputOutput{})
+	pulumi.RegisterOutputType(IntegrationBitbucketInputPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationConfluenceInputOutput{})
+	pulumi.RegisterOutputType(IntegrationConfluenceInputPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationGitHubInputOutput{})
+	pulumi.RegisterOutputType(IntegrationGitHubInputPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationGitLabInputOutput{})
+	pulumi.RegisterOutputType(IntegrationGitLabInputPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderInputOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderInputPtrOutput{})
 	pulumi.RegisterOutputType(PentestActorOutput{})
 	pulumi.RegisterOutputType(PentestActorArrayOutput{})
 	pulumi.RegisterOutputType(PentestAssetsOutput{})
@@ -4975,12 +7189,24 @@ func init() {
 	pulumi.RegisterOutputType(PentestNetworkTrafficConfigPtrOutput{})
 	pulumi.RegisterOutputType(PentestNetworkTrafficRuleOutput{})
 	pulumi.RegisterOutputType(PentestNetworkTrafficRuleArrayOutput{})
+	pulumi.RegisterOutputType(PentestReportDestinationOutput{})
+	pulumi.RegisterOutputType(PentestReportDestinationPtrOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersOutput{})
+	pulumi.RegisterOutputType(PentestReportFiltersPtrOutput{})
 	pulumi.RegisterOutputType(PentestSourceCodeRepositoryOutput{})
 	pulumi.RegisterOutputType(PentestSourceCodeRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(PentestTestScopeOutput{})
+	pulumi.RegisterOutputType(PentestTestScopePtrOutput{})
 	pulumi.RegisterOutputType(PentestTrustedCaCertificateOutput{})
 	pulumi.RegisterOutputType(PentestTrustedCaCertificateArrayOutput{})
 	pulumi.RegisterOutputType(PentestVpcConfigOutput{})
 	pulumi.RegisterOutputType(PentestVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionModeOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionModePtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionSelfManagedOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionSelfManagedPtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedPtrOutput{})
 	pulumi.RegisterOutputType(SecurityRequirementPackSecurityRequirementOutput{})
 	pulumi.RegisterOutputType(SecurityRequirementPackSecurityRequirementArrayOutput{})
 	pulumi.RegisterOutputType(TargetDomainDnsVerificationOutput{})

@@ -13,6 +13,1842 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Configuration specifies optional configurations for customizing open-source big data applications and environment parameters.
+type InstanceFleetConfigApplicationConfiguration struct {
+	// The classification within a configuration.
+	Classification *string `pulumi:"classification"`
+	// Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
+	ConfigurationProperties map[string]string `pulumi:"configurationProperties"`
+	// A list of additional configurations to apply within a configuration object.
+	Configurations []InstanceFleetConfigApplicationConfiguration `pulumi:"configurations"`
+}
+
+// InstanceFleetConfigApplicationConfigurationInput is an input type that accepts InstanceFleetConfigApplicationConfigurationArgs and InstanceFleetConfigApplicationConfigurationOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigApplicationConfigurationInput` via:
+//
+//	InstanceFleetConfigApplicationConfigurationArgs{...}
+type InstanceFleetConfigApplicationConfigurationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigApplicationConfigurationOutput() InstanceFleetConfigApplicationConfigurationOutput
+	ToInstanceFleetConfigApplicationConfigurationOutputWithContext(context.Context) InstanceFleetConfigApplicationConfigurationOutput
+}
+
+// Configuration specifies optional configurations for customizing open-source big data applications and environment parameters.
+type InstanceFleetConfigApplicationConfigurationArgs struct {
+	// The classification within a configuration.
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
+	ConfigurationProperties pulumi.StringMapInput `pulumi:"configurationProperties"`
+	// A list of additional configurations to apply within a configuration object.
+	Configurations InstanceFleetConfigApplicationConfigurationArrayInput `pulumi:"configurations"`
+}
+
+func (InstanceFleetConfigApplicationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigApplicationConfiguration)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigApplicationConfigurationArgs) ToInstanceFleetConfigApplicationConfigurationOutput() InstanceFleetConfigApplicationConfigurationOutput {
+	return i.ToInstanceFleetConfigApplicationConfigurationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigApplicationConfigurationArgs) ToInstanceFleetConfigApplicationConfigurationOutputWithContext(ctx context.Context) InstanceFleetConfigApplicationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigApplicationConfigurationOutput)
+}
+
+// InstanceFleetConfigApplicationConfigurationArrayInput is an input type that accepts InstanceFleetConfigApplicationConfigurationArray and InstanceFleetConfigApplicationConfigurationArrayOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigApplicationConfigurationArrayInput` via:
+//
+//	InstanceFleetConfigApplicationConfigurationArray{ InstanceFleetConfigApplicationConfigurationArgs{...} }
+type InstanceFleetConfigApplicationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigApplicationConfigurationArrayOutput() InstanceFleetConfigApplicationConfigurationArrayOutput
+	ToInstanceFleetConfigApplicationConfigurationArrayOutputWithContext(context.Context) InstanceFleetConfigApplicationConfigurationArrayOutput
+}
+
+type InstanceFleetConfigApplicationConfigurationArray []InstanceFleetConfigApplicationConfigurationInput
+
+func (InstanceFleetConfigApplicationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetConfigApplicationConfiguration)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigApplicationConfigurationArray) ToInstanceFleetConfigApplicationConfigurationArrayOutput() InstanceFleetConfigApplicationConfigurationArrayOutput {
+	return i.ToInstanceFleetConfigApplicationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigApplicationConfigurationArray) ToInstanceFleetConfigApplicationConfigurationArrayOutputWithContext(ctx context.Context) InstanceFleetConfigApplicationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigApplicationConfigurationArrayOutput)
+}
+
+// Configuration specifies optional configurations for customizing open-source big data applications and environment parameters.
+type InstanceFleetConfigApplicationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigApplicationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigApplicationConfiguration)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigApplicationConfigurationOutput) ToInstanceFleetConfigApplicationConfigurationOutput() InstanceFleetConfigApplicationConfigurationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigApplicationConfigurationOutput) ToInstanceFleetConfigApplicationConfigurationOutputWithContext(ctx context.Context) InstanceFleetConfigApplicationConfigurationOutput {
+	return o
+}
+
+// The classification within a configuration.
+func (o InstanceFleetConfigApplicationConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigApplicationConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
+func (o InstanceFleetConfigApplicationConfigurationOutput) ConfigurationProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceFleetConfigApplicationConfiguration) map[string]string {
+		return v.ConfigurationProperties
+	}).(pulumi.StringMapOutput)
+}
+
+// A list of additional configurations to apply within a configuration object.
+func (o InstanceFleetConfigApplicationConfigurationOutput) Configurations() InstanceFleetConfigApplicationConfigurationArrayOutput {
+	return o.ApplyT(func(v InstanceFleetConfigApplicationConfiguration) []InstanceFleetConfigApplicationConfiguration {
+		return v.Configurations
+	}).(InstanceFleetConfigApplicationConfigurationArrayOutput)
+}
+
+type InstanceFleetConfigApplicationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigApplicationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetConfigApplicationConfiguration)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigApplicationConfigurationArrayOutput) ToInstanceFleetConfigApplicationConfigurationArrayOutput() InstanceFleetConfigApplicationConfigurationArrayOutput {
+	return o
+}
+
+func (o InstanceFleetConfigApplicationConfigurationArrayOutput) ToInstanceFleetConfigApplicationConfigurationArrayOutputWithContext(ctx context.Context) InstanceFleetConfigApplicationConfigurationArrayOutput {
+	return o
+}
+
+func (o InstanceFleetConfigApplicationConfigurationArrayOutput) Index(i pulumi.IntInput) InstanceFleetConfigApplicationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetConfigApplicationConfiguration {
+		return vs[0].([]InstanceFleetConfigApplicationConfiguration)[vs[1].(int)]
+	}).(InstanceFleetConfigApplicationConfigurationOutput)
+}
+
+// EbsBlockDeviceConfig defines the number and type of EBS volumes to associate with all EC2 instances in an EMR cluster.
+type InstanceFleetConfigEbsBlockDeviceConfig struct {
+	// EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+	VolumeSpecification InstanceFleetConfigVolumeSpecification `pulumi:"volumeSpecification"`
+	// Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+
+// InstanceFleetConfigEbsBlockDeviceConfigInput is an input type that accepts InstanceFleetConfigEbsBlockDeviceConfigArgs and InstanceFleetConfigEbsBlockDeviceConfigOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigEbsBlockDeviceConfigInput` via:
+//
+//	InstanceFleetConfigEbsBlockDeviceConfigArgs{...}
+type InstanceFleetConfigEbsBlockDeviceConfigInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigEbsBlockDeviceConfigOutput() InstanceFleetConfigEbsBlockDeviceConfigOutput
+	ToInstanceFleetConfigEbsBlockDeviceConfigOutputWithContext(context.Context) InstanceFleetConfigEbsBlockDeviceConfigOutput
+}
+
+// EbsBlockDeviceConfig defines the number and type of EBS volumes to associate with all EC2 instances in an EMR cluster.
+type InstanceFleetConfigEbsBlockDeviceConfigArgs struct {
+	// EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+	VolumeSpecification InstanceFleetConfigVolumeSpecificationInput `pulumi:"volumeSpecification"`
+	// Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
+}
+
+func (InstanceFleetConfigEbsBlockDeviceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigEbsBlockDeviceConfigArgs) ToInstanceFleetConfigEbsBlockDeviceConfigOutput() InstanceFleetConfigEbsBlockDeviceConfigOutput {
+	return i.ToInstanceFleetConfigEbsBlockDeviceConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigEbsBlockDeviceConfigArgs) ToInstanceFleetConfigEbsBlockDeviceConfigOutputWithContext(ctx context.Context) InstanceFleetConfigEbsBlockDeviceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigEbsBlockDeviceConfigOutput)
+}
+
+// InstanceFleetConfigEbsBlockDeviceConfigArrayInput is an input type that accepts InstanceFleetConfigEbsBlockDeviceConfigArray and InstanceFleetConfigEbsBlockDeviceConfigArrayOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigEbsBlockDeviceConfigArrayInput` via:
+//
+//	InstanceFleetConfigEbsBlockDeviceConfigArray{ InstanceFleetConfigEbsBlockDeviceConfigArgs{...} }
+type InstanceFleetConfigEbsBlockDeviceConfigArrayInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigEbsBlockDeviceConfigArrayOutput() InstanceFleetConfigEbsBlockDeviceConfigArrayOutput
+	ToInstanceFleetConfigEbsBlockDeviceConfigArrayOutputWithContext(context.Context) InstanceFleetConfigEbsBlockDeviceConfigArrayOutput
+}
+
+type InstanceFleetConfigEbsBlockDeviceConfigArray []InstanceFleetConfigEbsBlockDeviceConfigInput
+
+func (InstanceFleetConfigEbsBlockDeviceConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetConfigEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigEbsBlockDeviceConfigArray) ToInstanceFleetConfigEbsBlockDeviceConfigArrayOutput() InstanceFleetConfigEbsBlockDeviceConfigArrayOutput {
+	return i.ToInstanceFleetConfigEbsBlockDeviceConfigArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigEbsBlockDeviceConfigArray) ToInstanceFleetConfigEbsBlockDeviceConfigArrayOutputWithContext(ctx context.Context) InstanceFleetConfigEbsBlockDeviceConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigEbsBlockDeviceConfigArrayOutput)
+}
+
+// EbsBlockDeviceConfig defines the number and type of EBS volumes to associate with all EC2 instances in an EMR cluster.
+type InstanceFleetConfigEbsBlockDeviceConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigEbsBlockDeviceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigEbsBlockDeviceConfigOutput) ToInstanceFleetConfigEbsBlockDeviceConfigOutput() InstanceFleetConfigEbsBlockDeviceConfigOutput {
+	return o
+}
+
+func (o InstanceFleetConfigEbsBlockDeviceConfigOutput) ToInstanceFleetConfigEbsBlockDeviceConfigOutputWithContext(ctx context.Context) InstanceFleetConfigEbsBlockDeviceConfigOutput {
+	return o
+}
+
+// EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+func (o InstanceFleetConfigEbsBlockDeviceConfigOutput) VolumeSpecification() InstanceFleetConfigVolumeSpecificationOutput {
+	return o.ApplyT(func(v InstanceFleetConfigEbsBlockDeviceConfig) InstanceFleetConfigVolumeSpecification {
+		return v.VolumeSpecification
+	}).(InstanceFleetConfigVolumeSpecificationOutput)
+}
+
+// Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+func (o InstanceFleetConfigEbsBlockDeviceConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigEbsBlockDeviceConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
+}
+
+type InstanceFleetConfigEbsBlockDeviceConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigEbsBlockDeviceConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetConfigEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigEbsBlockDeviceConfigArrayOutput) ToInstanceFleetConfigEbsBlockDeviceConfigArrayOutput() InstanceFleetConfigEbsBlockDeviceConfigArrayOutput {
+	return o
+}
+
+func (o InstanceFleetConfigEbsBlockDeviceConfigArrayOutput) ToInstanceFleetConfigEbsBlockDeviceConfigArrayOutputWithContext(ctx context.Context) InstanceFleetConfigEbsBlockDeviceConfigArrayOutput {
+	return o
+}
+
+func (o InstanceFleetConfigEbsBlockDeviceConfigArrayOutput) Index(i pulumi.IntInput) InstanceFleetConfigEbsBlockDeviceConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetConfigEbsBlockDeviceConfig {
+		return vs[0].([]InstanceFleetConfigEbsBlockDeviceConfig)[vs[1].(int)]
+	}).(InstanceFleetConfigEbsBlockDeviceConfigOutput)
+}
+
+// EbsConfiguration determines the EBS volumes to attach to EMR cluster instances.
+type InstanceFleetConfigEbsConfiguration struct {
+	// An array of Amazon EBS volume specifications attached to a cluster instance.
+	EbsBlockDeviceConfigs []InstanceFleetConfigEbsBlockDeviceConfig `pulumi:"ebsBlockDeviceConfigs"`
+	// Indicates whether an Amazon EBS volume is EBS-optimized.
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+}
+
+// InstanceFleetConfigEbsConfigurationInput is an input type that accepts InstanceFleetConfigEbsConfigurationArgs and InstanceFleetConfigEbsConfigurationOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigEbsConfigurationInput` via:
+//
+//	InstanceFleetConfigEbsConfigurationArgs{...}
+type InstanceFleetConfigEbsConfigurationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigEbsConfigurationOutput() InstanceFleetConfigEbsConfigurationOutput
+	ToInstanceFleetConfigEbsConfigurationOutputWithContext(context.Context) InstanceFleetConfigEbsConfigurationOutput
+}
+
+// EbsConfiguration determines the EBS volumes to attach to EMR cluster instances.
+type InstanceFleetConfigEbsConfigurationArgs struct {
+	// An array of Amazon EBS volume specifications attached to a cluster instance.
+	EbsBlockDeviceConfigs InstanceFleetConfigEbsBlockDeviceConfigArrayInput `pulumi:"ebsBlockDeviceConfigs"`
+	// Indicates whether an Amazon EBS volume is EBS-optimized.
+	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
+}
+
+func (InstanceFleetConfigEbsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigEbsConfiguration)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigEbsConfigurationArgs) ToInstanceFleetConfigEbsConfigurationOutput() InstanceFleetConfigEbsConfigurationOutput {
+	return i.ToInstanceFleetConfigEbsConfigurationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigEbsConfigurationArgs) ToInstanceFleetConfigEbsConfigurationOutputWithContext(ctx context.Context) InstanceFleetConfigEbsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigEbsConfigurationOutput)
+}
+
+func (i InstanceFleetConfigEbsConfigurationArgs) ToInstanceFleetConfigEbsConfigurationPtrOutput() InstanceFleetConfigEbsConfigurationPtrOutput {
+	return i.ToInstanceFleetConfigEbsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigEbsConfigurationArgs) ToInstanceFleetConfigEbsConfigurationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigEbsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigEbsConfigurationOutput).ToInstanceFleetConfigEbsConfigurationPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetConfigEbsConfigurationPtrInput is an input type that accepts InstanceFleetConfigEbsConfigurationArgs, InstanceFleetConfigEbsConfigurationPtr and InstanceFleetConfigEbsConfigurationPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigEbsConfigurationPtrInput` via:
+//
+//	        InstanceFleetConfigEbsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceFleetConfigEbsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigEbsConfigurationPtrOutput() InstanceFleetConfigEbsConfigurationPtrOutput
+	ToInstanceFleetConfigEbsConfigurationPtrOutputWithContext(context.Context) InstanceFleetConfigEbsConfigurationPtrOutput
+}
+
+type instanceFleetConfigEbsConfigurationPtrType InstanceFleetConfigEbsConfigurationArgs
+
+func InstanceFleetConfigEbsConfigurationPtr(v *InstanceFleetConfigEbsConfigurationArgs) InstanceFleetConfigEbsConfigurationPtrInput {
+	return (*instanceFleetConfigEbsConfigurationPtrType)(v)
+}
+
+func (*instanceFleetConfigEbsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigEbsConfiguration)(nil)).Elem()
+}
+
+func (i *instanceFleetConfigEbsConfigurationPtrType) ToInstanceFleetConfigEbsConfigurationPtrOutput() InstanceFleetConfigEbsConfigurationPtrOutput {
+	return i.ToInstanceFleetConfigEbsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetConfigEbsConfigurationPtrType) ToInstanceFleetConfigEbsConfigurationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigEbsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigEbsConfigurationPtrOutput)
+}
+
+// EbsConfiguration determines the EBS volumes to attach to EMR cluster instances.
+type InstanceFleetConfigEbsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigEbsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigEbsConfiguration)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigEbsConfigurationOutput) ToInstanceFleetConfigEbsConfigurationOutput() InstanceFleetConfigEbsConfigurationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigEbsConfigurationOutput) ToInstanceFleetConfigEbsConfigurationOutputWithContext(ctx context.Context) InstanceFleetConfigEbsConfigurationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigEbsConfigurationOutput) ToInstanceFleetConfigEbsConfigurationPtrOutput() InstanceFleetConfigEbsConfigurationPtrOutput {
+	return o.ToInstanceFleetConfigEbsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetConfigEbsConfigurationOutput) ToInstanceFleetConfigEbsConfigurationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigEbsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetConfigEbsConfiguration) *InstanceFleetConfigEbsConfiguration {
+		return &v
+	}).(InstanceFleetConfigEbsConfigurationPtrOutput)
+}
+
+// An array of Amazon EBS volume specifications attached to a cluster instance.
+func (o InstanceFleetConfigEbsConfigurationOutput) EbsBlockDeviceConfigs() InstanceFleetConfigEbsBlockDeviceConfigArrayOutput {
+	return o.ApplyT(func(v InstanceFleetConfigEbsConfiguration) []InstanceFleetConfigEbsBlockDeviceConfig {
+		return v.EbsBlockDeviceConfigs
+	}).(InstanceFleetConfigEbsBlockDeviceConfigArrayOutput)
+}
+
+// Indicates whether an Amazon EBS volume is EBS-optimized.
+func (o InstanceFleetConfigEbsConfigurationOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigEbsConfiguration) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceFleetConfigEbsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigEbsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigEbsConfiguration)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigEbsConfigurationPtrOutput) ToInstanceFleetConfigEbsConfigurationPtrOutput() InstanceFleetConfigEbsConfigurationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigEbsConfigurationPtrOutput) ToInstanceFleetConfigEbsConfigurationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigEbsConfigurationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigEbsConfigurationPtrOutput) Elem() InstanceFleetConfigEbsConfigurationOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigEbsConfiguration) InstanceFleetConfigEbsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleetConfigEbsConfiguration
+		return ret
+	}).(InstanceFleetConfigEbsConfigurationOutput)
+}
+
+// An array of Amazon EBS volume specifications attached to a cluster instance.
+func (o InstanceFleetConfigEbsConfigurationPtrOutput) EbsBlockDeviceConfigs() InstanceFleetConfigEbsBlockDeviceConfigArrayOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigEbsConfiguration) []InstanceFleetConfigEbsBlockDeviceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.EbsBlockDeviceConfigs
+	}).(InstanceFleetConfigEbsBlockDeviceConfigArrayOutput)
+}
+
+// Indicates whether an Amazon EBS volume is EBS-optimized.
+func (o InstanceFleetConfigEbsConfigurationPtrOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigEbsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EbsOptimized
+	}).(pulumi.BoolPtrOutput)
+}
+
+// InstanceTypeConfig determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+type InstanceFleetConfigInstanceFleetProvisioningSpecifications struct {
+	// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+	OnDemandSpecification *InstanceFleetConfigOnDemandProvisioningSpecification `pulumi:"onDemandSpecification"`
+	// The launch specification for Spot instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+	SpotSpecification *InstanceFleetConfigSpotProvisioningSpecification `pulumi:"spotSpecification"`
+}
+
+// InstanceFleetConfigInstanceFleetProvisioningSpecificationsInput is an input type that accepts InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs and InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigInstanceFleetProvisioningSpecificationsInput` via:
+//
+//	InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs{...}
+type InstanceFleetConfigInstanceFleetProvisioningSpecificationsInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput() InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput
+	ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsOutputWithContext(context.Context) InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput
+}
+
+// InstanceTypeConfig determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+type InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs struct {
+	// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+	OnDemandSpecification InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput `pulumi:"onDemandSpecification"`
+	// The launch specification for Spot instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+	SpotSpecification InstanceFleetConfigSpotProvisioningSpecificationPtrInput `pulumi:"spotSpecification"`
+}
+
+func (InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigInstanceFleetProvisioningSpecifications)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput() InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput {
+	return i.ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput)
+}
+
+func (i InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+	return i.ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput).ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrInput is an input type that accepts InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs, InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtr and InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrInput` via:
+//
+//	        InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput
+	ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutputWithContext(context.Context) InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput
+}
+
+type instanceFleetConfigInstanceFleetProvisioningSpecificationsPtrType InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs
+
+func InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtr(v *InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs) InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrInput {
+	return (*instanceFleetConfigInstanceFleetProvisioningSpecificationsPtrType)(v)
+}
+
+func (*instanceFleetConfigInstanceFleetProvisioningSpecificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigInstanceFleetProvisioningSpecifications)(nil)).Elem()
+}
+
+func (i *instanceFleetConfigInstanceFleetProvisioningSpecificationsPtrType) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+	return i.ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetConfigInstanceFleetProvisioningSpecificationsPtrType) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput)
+}
+
+// InstanceTypeConfig determines the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+type InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigInstanceFleetProvisioningSpecifications)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput() InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o.ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetConfigInstanceFleetProvisioningSpecifications) *InstanceFleetConfigInstanceFleetProvisioningSpecifications {
+		return &v
+	}).(InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput)
+}
+
+// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) OnDemandSpecification() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceFleetProvisioningSpecifications) *InstanceFleetConfigOnDemandProvisioningSpecification {
+		return v.OnDemandSpecification
+	}).(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// The launch specification for Spot instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput) SpotSpecification() InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceFleetProvisioningSpecifications) *InstanceFleetConfigSpotProvisioningSpecification {
+		return v.SpotSpecification
+	}).(InstanceFleetConfigSpotProvisioningSpecificationPtrOutput)
+}
+
+type InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigInstanceFleetProvisioningSpecifications)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput) ToInstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput) Elem() InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigInstanceFleetProvisioningSpecifications) InstanceFleetConfigInstanceFleetProvisioningSpecifications {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleetConfigInstanceFleetProvisioningSpecifications
+		return ret
+	}).(InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput)
+}
+
+// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput) OnDemandSpecification() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigInstanceFleetProvisioningSpecifications) *InstanceFleetConfigOnDemandProvisioningSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandSpecification
+	}).(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// The launch specification for Spot instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+func (o InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput) SpotSpecification() InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigInstanceFleetProvisioningSpecifications) *InstanceFleetConfigSpotProvisioningSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.SpotSpecification
+	}).(InstanceFleetConfigSpotProvisioningSpecificationPtrOutput)
+}
+
+type InstanceFleetConfigInstanceFleetResizingSpecifications struct {
+	// The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+	OnDemandResizeSpecification *InstanceFleetConfigOnDemandResizingSpecification `pulumi:"onDemandResizeSpecification"`
+	// The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+	SpotResizeSpecification *InstanceFleetConfigSpotResizingSpecification `pulumi:"spotResizeSpecification"`
+}
+
+// InstanceFleetConfigInstanceFleetResizingSpecificationsInput is an input type that accepts InstanceFleetConfigInstanceFleetResizingSpecificationsArgs and InstanceFleetConfigInstanceFleetResizingSpecificationsOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigInstanceFleetResizingSpecificationsInput` via:
+//
+//	InstanceFleetConfigInstanceFleetResizingSpecificationsArgs{...}
+type InstanceFleetConfigInstanceFleetResizingSpecificationsInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigInstanceFleetResizingSpecificationsOutput() InstanceFleetConfigInstanceFleetResizingSpecificationsOutput
+	ToInstanceFleetConfigInstanceFleetResizingSpecificationsOutputWithContext(context.Context) InstanceFleetConfigInstanceFleetResizingSpecificationsOutput
+}
+
+type InstanceFleetConfigInstanceFleetResizingSpecificationsArgs struct {
+	// The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+	OnDemandResizeSpecification InstanceFleetConfigOnDemandResizingSpecificationPtrInput `pulumi:"onDemandResizeSpecification"`
+	// The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+	SpotResizeSpecification InstanceFleetConfigSpotResizingSpecificationPtrInput `pulumi:"spotResizeSpecification"`
+}
+
+func (InstanceFleetConfigInstanceFleetResizingSpecificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigInstanceFleetResizingSpecifications)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigInstanceFleetResizingSpecificationsArgs) ToInstanceFleetConfigInstanceFleetResizingSpecificationsOutput() InstanceFleetConfigInstanceFleetResizingSpecificationsOutput {
+	return i.ToInstanceFleetConfigInstanceFleetResizingSpecificationsOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigInstanceFleetResizingSpecificationsArgs) ToInstanceFleetConfigInstanceFleetResizingSpecificationsOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetResizingSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigInstanceFleetResizingSpecificationsOutput)
+}
+
+func (i InstanceFleetConfigInstanceFleetResizingSpecificationsArgs) ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput {
+	return i.ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigInstanceFleetResizingSpecificationsArgs) ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigInstanceFleetResizingSpecificationsOutput).ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetConfigInstanceFleetResizingSpecificationsPtrInput is an input type that accepts InstanceFleetConfigInstanceFleetResizingSpecificationsArgs, InstanceFleetConfigInstanceFleetResizingSpecificationsPtr and InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigInstanceFleetResizingSpecificationsPtrInput` via:
+//
+//	        InstanceFleetConfigInstanceFleetResizingSpecificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceFleetConfigInstanceFleetResizingSpecificationsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput
+	ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutputWithContext(context.Context) InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput
+}
+
+type instanceFleetConfigInstanceFleetResizingSpecificationsPtrType InstanceFleetConfigInstanceFleetResizingSpecificationsArgs
+
+func InstanceFleetConfigInstanceFleetResizingSpecificationsPtr(v *InstanceFleetConfigInstanceFleetResizingSpecificationsArgs) InstanceFleetConfigInstanceFleetResizingSpecificationsPtrInput {
+	return (*instanceFleetConfigInstanceFleetResizingSpecificationsPtrType)(v)
+}
+
+func (*instanceFleetConfigInstanceFleetResizingSpecificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigInstanceFleetResizingSpecifications)(nil)).Elem()
+}
+
+func (i *instanceFleetConfigInstanceFleetResizingSpecificationsPtrType) ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput {
+	return i.ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetConfigInstanceFleetResizingSpecificationsPtrType) ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput)
+}
+
+type InstanceFleetConfigInstanceFleetResizingSpecificationsOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigInstanceFleetResizingSpecificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigInstanceFleetResizingSpecifications)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsOutput) ToInstanceFleetConfigInstanceFleetResizingSpecificationsOutput() InstanceFleetConfigInstanceFleetResizingSpecificationsOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsOutput) ToInstanceFleetConfigInstanceFleetResizingSpecificationsOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetResizingSpecificationsOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsOutput) ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput {
+	return o.ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsOutput) ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetConfigInstanceFleetResizingSpecifications) *InstanceFleetConfigInstanceFleetResizingSpecifications {
+		return &v
+	}).(InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput)
+}
+
+// The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsOutput) OnDemandResizeSpecification() InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceFleetResizingSpecifications) *InstanceFleetConfigOnDemandResizingSpecification {
+		return v.OnDemandResizeSpecification
+	}).(InstanceFleetConfigOnDemandResizingSpecificationPtrOutput)
+}
+
+// The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsOutput) SpotResizeSpecification() InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceFleetResizingSpecifications) *InstanceFleetConfigSpotResizingSpecification {
+		return v.SpotResizeSpecification
+	}).(InstanceFleetConfigSpotResizingSpecificationPtrOutput)
+}
+
+type InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigInstanceFleetResizingSpecifications)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput) ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput() InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput) ToInstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput) Elem() InstanceFleetConfigInstanceFleetResizingSpecificationsOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigInstanceFleetResizingSpecifications) InstanceFleetConfigInstanceFleetResizingSpecifications {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleetConfigInstanceFleetResizingSpecifications
+		return ret
+	}).(InstanceFleetConfigInstanceFleetResizingSpecificationsOutput)
+}
+
+// The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput) OnDemandResizeSpecification() InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigInstanceFleetResizingSpecifications) *InstanceFleetConfigOnDemandResizingSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandResizeSpecification
+	}).(InstanceFleetConfigOnDemandResizingSpecificationPtrOutput)
+}
+
+// The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+func (o InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput) SpotResizeSpecification() InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigInstanceFleetResizingSpecifications) *InstanceFleetConfigSpotResizingSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.SpotResizeSpecification
+	}).(InstanceFleetConfigSpotResizingSpecificationPtrOutput)
+}
+
+// The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+type InstanceFleetConfigInstanceTypeConfig struct {
+	// The bid price for each Amazon EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+	BidPrice *string `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+	Configurations []InstanceFleetConfigApplicationConfiguration `pulumi:"configurations"`
+	// The custom AMI ID to use for the instance type.
+	CustomAmiId *string `pulumi:"customAmiId"`
+	// The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+	EbsConfiguration *InstanceFleetConfigEbsConfiguration `pulumi:"ebsConfiguration"`
+	// An Amazon EC2 instance type, such as m3.xlarge.
+	InstanceType string `pulumi:"instanceType"`
+	// The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+	Priority *float64 `pulumi:"priority"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+	WeightedCapacity *int `pulumi:"weightedCapacity"`
+}
+
+// InstanceFleetConfigInstanceTypeConfigInput is an input type that accepts InstanceFleetConfigInstanceTypeConfigArgs and InstanceFleetConfigInstanceTypeConfigOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigInstanceTypeConfigInput` via:
+//
+//	InstanceFleetConfigInstanceTypeConfigArgs{...}
+type InstanceFleetConfigInstanceTypeConfigInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigInstanceTypeConfigOutput() InstanceFleetConfigInstanceTypeConfigOutput
+	ToInstanceFleetConfigInstanceTypeConfigOutputWithContext(context.Context) InstanceFleetConfigInstanceTypeConfigOutput
+}
+
+// The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+type InstanceFleetConfigInstanceTypeConfigArgs struct {
+	// The bid price for each Amazon EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+	Configurations InstanceFleetConfigApplicationConfigurationArrayInput `pulumi:"configurations"`
+	// The custom AMI ID to use for the instance type.
+	CustomAmiId pulumi.StringPtrInput `pulumi:"customAmiId"`
+	// The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+	EbsConfiguration InstanceFleetConfigEbsConfigurationPtrInput `pulumi:"ebsConfiguration"`
+	// An Amazon EC2 instance type, such as m3.xlarge.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+	WeightedCapacity pulumi.IntPtrInput `pulumi:"weightedCapacity"`
+}
+
+func (InstanceFleetConfigInstanceTypeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigInstanceTypeConfigArgs) ToInstanceFleetConfigInstanceTypeConfigOutput() InstanceFleetConfigInstanceTypeConfigOutput {
+	return i.ToInstanceFleetConfigInstanceTypeConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigInstanceTypeConfigArgs) ToInstanceFleetConfigInstanceTypeConfigOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceTypeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigInstanceTypeConfigOutput)
+}
+
+// InstanceFleetConfigInstanceTypeConfigArrayInput is an input type that accepts InstanceFleetConfigInstanceTypeConfigArray and InstanceFleetConfigInstanceTypeConfigArrayOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigInstanceTypeConfigArrayInput` via:
+//
+//	InstanceFleetConfigInstanceTypeConfigArray{ InstanceFleetConfigInstanceTypeConfigArgs{...} }
+type InstanceFleetConfigInstanceTypeConfigArrayInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigInstanceTypeConfigArrayOutput() InstanceFleetConfigInstanceTypeConfigArrayOutput
+	ToInstanceFleetConfigInstanceTypeConfigArrayOutputWithContext(context.Context) InstanceFleetConfigInstanceTypeConfigArrayOutput
+}
+
+type InstanceFleetConfigInstanceTypeConfigArray []InstanceFleetConfigInstanceTypeConfigInput
+
+func (InstanceFleetConfigInstanceTypeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetConfigInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigInstanceTypeConfigArray) ToInstanceFleetConfigInstanceTypeConfigArrayOutput() InstanceFleetConfigInstanceTypeConfigArrayOutput {
+	return i.ToInstanceFleetConfigInstanceTypeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigInstanceTypeConfigArray) ToInstanceFleetConfigInstanceTypeConfigArrayOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceTypeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigInstanceTypeConfigArrayOutput)
+}
+
+// The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+type InstanceFleetConfigInstanceTypeConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigInstanceTypeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigInstanceTypeConfigOutput) ToInstanceFleetConfigInstanceTypeConfigOutput() InstanceFleetConfigInstanceTypeConfigOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceTypeConfigOutput) ToInstanceFleetConfigInstanceTypeConfigOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceTypeConfigOutput {
+	return o
+}
+
+// The bid price for each Amazon EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+func (o InstanceFleetConfigInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
+}
+
+// The bid price, as a percentage of On-Demand price, for each Amazon EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+func (o InstanceFleetConfigInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) *float64 { return v.BidPriceAsPercentageOfOnDemandPrice }).(pulumi.Float64PtrOutput)
+}
+
+// An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+func (o InstanceFleetConfigInstanceTypeConfigOutput) Configurations() InstanceFleetConfigApplicationConfigurationArrayOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) []InstanceFleetConfigApplicationConfiguration {
+		return v.Configurations
+	}).(InstanceFleetConfigApplicationConfigurationArrayOutput)
+}
+
+// The custom AMI ID to use for the instance type.
+func (o InstanceFleetConfigInstanceTypeConfigOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) *string { return v.CustomAmiId }).(pulumi.StringPtrOutput)
+}
+
+// The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+func (o InstanceFleetConfigInstanceTypeConfigOutput) EbsConfiguration() InstanceFleetConfigEbsConfigurationPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) *InstanceFleetConfigEbsConfiguration {
+		return v.EbsConfiguration
+	}).(InstanceFleetConfigEbsConfigurationPtrOutput)
+}
+
+// An Amazon EC2 instance type, such as m3.xlarge.
+func (o InstanceFleetConfigInstanceTypeConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+func (o InstanceFleetConfigInstanceTypeConfigOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
+}
+
+// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+func (o InstanceFleetConfigInstanceTypeConfigOutput) WeightedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) *int { return v.WeightedCapacity }).(pulumi.IntPtrOutput)
+}
+
+type InstanceFleetConfigInstanceTypeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigInstanceTypeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetConfigInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigInstanceTypeConfigArrayOutput) ToInstanceFleetConfigInstanceTypeConfigArrayOutput() InstanceFleetConfigInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceTypeConfigArrayOutput) ToInstanceFleetConfigInstanceTypeConfigArrayOutputWithContext(ctx context.Context) InstanceFleetConfigInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o InstanceFleetConfigInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) InstanceFleetConfigInstanceTypeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetConfigInstanceTypeConfig {
+		return vs[0].([]InstanceFleetConfigInstanceTypeConfig)[vs[1].(int)]
+	}).(InstanceFleetConfigInstanceTypeConfigOutput)
+}
+
+type InstanceFleetConfigOnDemandCapacityReservationOptions struct {
+	// Indicates the instance's Capacity Reservation preferences.
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
+	// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+	UsageStrategy *string `pulumi:"usageStrategy"`
+}
+
+// InstanceFleetConfigOnDemandCapacityReservationOptionsInput is an input type that accepts InstanceFleetConfigOnDemandCapacityReservationOptionsArgs and InstanceFleetConfigOnDemandCapacityReservationOptionsOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigOnDemandCapacityReservationOptionsInput` via:
+//
+//	InstanceFleetConfigOnDemandCapacityReservationOptionsArgs{...}
+type InstanceFleetConfigOnDemandCapacityReservationOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigOnDemandCapacityReservationOptionsOutput() InstanceFleetConfigOnDemandCapacityReservationOptionsOutput
+	ToInstanceFleetConfigOnDemandCapacityReservationOptionsOutputWithContext(context.Context) InstanceFleetConfigOnDemandCapacityReservationOptionsOutput
+}
+
+type InstanceFleetConfigOnDemandCapacityReservationOptionsArgs struct {
+	// Indicates the instance's Capacity Reservation preferences.
+	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
+	// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+	UsageStrategy pulumi.StringPtrInput `pulumi:"usageStrategy"`
+}
+
+func (InstanceFleetConfigOnDemandCapacityReservationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigOnDemandCapacityReservationOptions)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigOnDemandCapacityReservationOptionsArgs) ToInstanceFleetConfigOnDemandCapacityReservationOptionsOutput() InstanceFleetConfigOnDemandCapacityReservationOptionsOutput {
+	return i.ToInstanceFleetConfigOnDemandCapacityReservationOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigOnDemandCapacityReservationOptionsArgs) ToInstanceFleetConfigOnDemandCapacityReservationOptionsOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandCapacityReservationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandCapacityReservationOptionsOutput)
+}
+
+func (i InstanceFleetConfigOnDemandCapacityReservationOptionsArgs) ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput() InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return i.ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigOnDemandCapacityReservationOptionsArgs) ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandCapacityReservationOptionsOutput).ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetConfigOnDemandCapacityReservationOptionsPtrInput is an input type that accepts InstanceFleetConfigOnDemandCapacityReservationOptionsArgs, InstanceFleetConfigOnDemandCapacityReservationOptionsPtr and InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigOnDemandCapacityReservationOptionsPtrInput` via:
+//
+//	        InstanceFleetConfigOnDemandCapacityReservationOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceFleetConfigOnDemandCapacityReservationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput() InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput
+	ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutputWithContext(context.Context) InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput
+}
+
+type instanceFleetConfigOnDemandCapacityReservationOptionsPtrType InstanceFleetConfigOnDemandCapacityReservationOptionsArgs
+
+func InstanceFleetConfigOnDemandCapacityReservationOptionsPtr(v *InstanceFleetConfigOnDemandCapacityReservationOptionsArgs) InstanceFleetConfigOnDemandCapacityReservationOptionsPtrInput {
+	return (*instanceFleetConfigOnDemandCapacityReservationOptionsPtrType)(v)
+}
+
+func (*instanceFleetConfigOnDemandCapacityReservationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigOnDemandCapacityReservationOptions)(nil)).Elem()
+}
+
+func (i *instanceFleetConfigOnDemandCapacityReservationOptionsPtrType) ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput() InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return i.ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetConfigOnDemandCapacityReservationOptionsPtrType) ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+type InstanceFleetConfigOnDemandCapacityReservationOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigOnDemandCapacityReservationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigOnDemandCapacityReservationOptions)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsOutput) ToInstanceFleetConfigOnDemandCapacityReservationOptionsOutput() InstanceFleetConfigOnDemandCapacityReservationOptionsOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsOutput) ToInstanceFleetConfigOnDemandCapacityReservationOptionsOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandCapacityReservationOptionsOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsOutput) ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput() InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsOutput) ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetConfigOnDemandCapacityReservationOptions) *InstanceFleetConfigOnDemandCapacityReservationOptions {
+		return &v
+	}).(InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+// Indicates the instance's Capacity Reservation preferences.
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandCapacityReservationOptions) *string {
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandCapacityReservationOptions) *string {
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsOutput) UsageStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandCapacityReservationOptions) *string { return v.UsageStrategy }).(pulumi.StringPtrOutput)
+}
+
+type InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigOnDemandCapacityReservationOptions)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput) ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput() InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput) ToInstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput) Elem() InstanceFleetConfigOnDemandCapacityReservationOptionsOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandCapacityReservationOptions) InstanceFleetConfigOnDemandCapacityReservationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleetConfigOnDemandCapacityReservationOptions
+		return ret
+	}).(InstanceFleetConfigOnDemandCapacityReservationOptionsOutput)
+}
+
+// Indicates the instance's Capacity Reservation preferences.
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandCapacityReservationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandCapacityReservationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+func (o InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput) UsageStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandCapacityReservationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsageStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+type InstanceFleetConfigOnDemandProvisioningSpecification struct {
+	// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+	CapacityReservationOptions *InstanceFleetConfigOnDemandCapacityReservationOptions `pulumi:"capacityReservationOptions"`
+}
+
+// InstanceFleetConfigOnDemandProvisioningSpecificationInput is an input type that accepts InstanceFleetConfigOnDemandProvisioningSpecificationArgs and InstanceFleetConfigOnDemandProvisioningSpecificationOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigOnDemandProvisioningSpecificationInput` via:
+//
+//	InstanceFleetConfigOnDemandProvisioningSpecificationArgs{...}
+type InstanceFleetConfigOnDemandProvisioningSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigOnDemandProvisioningSpecificationOutput() InstanceFleetConfigOnDemandProvisioningSpecificationOutput
+	ToInstanceFleetConfigOnDemandProvisioningSpecificationOutputWithContext(context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationOutput
+}
+
+// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+type InstanceFleetConfigOnDemandProvisioningSpecificationArgs struct {
+	// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+	CapacityReservationOptions InstanceFleetConfigOnDemandCapacityReservationOptionsPtrInput `pulumi:"capacityReservationOptions"`
+}
+
+func (InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ToInstanceFleetConfigOnDemandProvisioningSpecificationOutput() InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return i.ToInstanceFleetConfigOnDemandProvisioningSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ToInstanceFleetConfigOnDemandProvisioningSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandProvisioningSpecificationOutput)
+}
+
+func (i InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigOnDemandProvisioningSpecificationArgs) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandProvisioningSpecificationOutput).ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput is an input type that accepts InstanceFleetConfigOnDemandProvisioningSpecificationArgs, InstanceFleetConfigOnDemandProvisioningSpecificationPtr and InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput` via:
+//
+//	        InstanceFleetConfigOnDemandProvisioningSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput
+	ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput
+}
+
+type instanceFleetConfigOnDemandProvisioningSpecificationPtrType InstanceFleetConfigOnDemandProvisioningSpecificationArgs
+
+func InstanceFleetConfigOnDemandProvisioningSpecificationPtr(v *InstanceFleetConfigOnDemandProvisioningSpecificationArgs) InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput {
+	return (*instanceFleetConfigOnDemandProvisioningSpecificationPtrType)(v)
+}
+
+func (*instanceFleetConfigOnDemandProvisioningSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (i *instanceFleetConfigOnDemandProvisioningSpecificationPtrType) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetConfigOnDemandProvisioningSpecificationPtrType) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+type InstanceFleetConfigOnDemandProvisioningSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationOutput() InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o.ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetConfigOnDemandProvisioningSpecification) *InstanceFleetConfigOnDemandProvisioningSpecification {
+		return &v
+	}).(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandProvisioningSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
+}
+
+// The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationOutput) CapacityReservationOptions() InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandProvisioningSpecification) *InstanceFleetConfigOnDemandCapacityReservationOptions {
+		return v.CapacityReservationOptions
+	}).(InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+type InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput() InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) ToInstanceFleetConfigOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) Elem() InstanceFleetConfigOnDemandProvisioningSpecificationOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandProvisioningSpecification) InstanceFleetConfigOnDemandProvisioningSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleetConfigOnDemandProvisioningSpecification
+		return ret
+	}).(InstanceFleetConfigOnDemandProvisioningSpecificationOutput)
+}
+
+// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandProvisioningSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+func (o InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput) CapacityReservationOptions() InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandProvisioningSpecification) *InstanceFleetConfigOnDemandCapacityReservationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationOptions
+	}).(InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+type InstanceFleetConfigOnDemandResizingSpecification struct {
+	// Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is lowest-price.
+	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+	CapacityReservationOptions *InstanceFleetConfigOnDemandCapacityReservationOptions `pulumi:"capacityReservationOptions"`
+	// On-Demand resize timeout in minutes.
+	TimeoutDurationMinutes *int `pulumi:"timeoutDurationMinutes"`
+}
+
+// InstanceFleetConfigOnDemandResizingSpecificationInput is an input type that accepts InstanceFleetConfigOnDemandResizingSpecificationArgs and InstanceFleetConfigOnDemandResizingSpecificationOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigOnDemandResizingSpecificationInput` via:
+//
+//	InstanceFleetConfigOnDemandResizingSpecificationArgs{...}
+type InstanceFleetConfigOnDemandResizingSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigOnDemandResizingSpecificationOutput() InstanceFleetConfigOnDemandResizingSpecificationOutput
+	ToInstanceFleetConfigOnDemandResizingSpecificationOutputWithContext(context.Context) InstanceFleetConfigOnDemandResizingSpecificationOutput
+}
+
+type InstanceFleetConfigOnDemandResizingSpecificationArgs struct {
+	// Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is lowest-price.
+	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
+	// Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+	CapacityReservationOptions InstanceFleetConfigOnDemandCapacityReservationOptionsPtrInput `pulumi:"capacityReservationOptions"`
+	// On-Demand resize timeout in minutes.
+	TimeoutDurationMinutes pulumi.IntPtrInput `pulumi:"timeoutDurationMinutes"`
+}
+
+func (InstanceFleetConfigOnDemandResizingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigOnDemandResizingSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigOnDemandResizingSpecificationArgs) ToInstanceFleetConfigOnDemandResizingSpecificationOutput() InstanceFleetConfigOnDemandResizingSpecificationOutput {
+	return i.ToInstanceFleetConfigOnDemandResizingSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigOnDemandResizingSpecificationArgs) ToInstanceFleetConfigOnDemandResizingSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandResizingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandResizingSpecificationOutput)
+}
+
+func (i InstanceFleetConfigOnDemandResizingSpecificationArgs) ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutput() InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigOnDemandResizingSpecificationArgs) ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandResizingSpecificationOutput).ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetConfigOnDemandResizingSpecificationPtrInput is an input type that accepts InstanceFleetConfigOnDemandResizingSpecificationArgs, InstanceFleetConfigOnDemandResizingSpecificationPtr and InstanceFleetConfigOnDemandResizingSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigOnDemandResizingSpecificationPtrInput` via:
+//
+//	        InstanceFleetConfigOnDemandResizingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceFleetConfigOnDemandResizingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutput() InstanceFleetConfigOnDemandResizingSpecificationPtrOutput
+	ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutputWithContext(context.Context) InstanceFleetConfigOnDemandResizingSpecificationPtrOutput
+}
+
+type instanceFleetConfigOnDemandResizingSpecificationPtrType InstanceFleetConfigOnDemandResizingSpecificationArgs
+
+func InstanceFleetConfigOnDemandResizingSpecificationPtr(v *InstanceFleetConfigOnDemandResizingSpecificationArgs) InstanceFleetConfigOnDemandResizingSpecificationPtrInput {
+	return (*instanceFleetConfigOnDemandResizingSpecificationPtrType)(v)
+}
+
+func (*instanceFleetConfigOnDemandResizingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigOnDemandResizingSpecification)(nil)).Elem()
+}
+
+func (i *instanceFleetConfigOnDemandResizingSpecificationPtrType) ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutput() InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetConfigOnDemandResizingSpecificationPtrType) ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigOnDemandResizingSpecificationPtrOutput)
+}
+
+type InstanceFleetConfigOnDemandResizingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigOnDemandResizingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigOnDemandResizingSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigOnDemandResizingSpecificationOutput) ToInstanceFleetConfigOnDemandResizingSpecificationOutput() InstanceFleetConfigOnDemandResizingSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandResizingSpecificationOutput) ToInstanceFleetConfigOnDemandResizingSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandResizingSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandResizingSpecificationOutput) ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutput() InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return o.ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetConfigOnDemandResizingSpecificationOutput) ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetConfigOnDemandResizingSpecification) *InstanceFleetConfigOnDemandResizingSpecification {
+		return &v
+	}).(InstanceFleetConfigOnDemandResizingSpecificationPtrOutput)
+}
+
+// Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is lowest-price.
+func (o InstanceFleetConfigOnDemandResizingSpecificationOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandResizingSpecification) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+// Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+func (o InstanceFleetConfigOnDemandResizingSpecificationOutput) CapacityReservationOptions() InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandResizingSpecification) *InstanceFleetConfigOnDemandCapacityReservationOptions {
+		return v.CapacityReservationOptions
+	}).(InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+// On-Demand resize timeout in minutes.
+func (o InstanceFleetConfigOnDemandResizingSpecificationOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigOnDemandResizingSpecification) *int { return v.TimeoutDurationMinutes }).(pulumi.IntPtrOutput)
+}
+
+type InstanceFleetConfigOnDemandResizingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigOnDemandResizingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigOnDemandResizingSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigOnDemandResizingSpecificationPtrOutput) ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutput() InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandResizingSpecificationPtrOutput) ToInstanceFleetConfigOnDemandResizingSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigOnDemandResizingSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigOnDemandResizingSpecificationPtrOutput) Elem() InstanceFleetConfigOnDemandResizingSpecificationOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandResizingSpecification) InstanceFleetConfigOnDemandResizingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleetConfigOnDemandResizingSpecification
+		return ret
+	}).(InstanceFleetConfigOnDemandResizingSpecificationOutput)
+}
+
+// Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is lowest-price.
+func (o InstanceFleetConfigOnDemandResizingSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandResizingSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+func (o InstanceFleetConfigOnDemandResizingSpecificationPtrOutput) CapacityReservationOptions() InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandResizingSpecification) *InstanceFleetConfigOnDemandCapacityReservationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationOptions
+	}).(InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+// On-Demand resize timeout in minutes.
+func (o InstanceFleetConfigOnDemandResizingSpecificationPtrOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigOnDemandResizingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// SpotProvisioningSpecification determines the launch specification for Spot instances in the instance fleet, which includes the defined duration and provisioning timeout behavior.
+type InstanceFleetConfigSpotProvisioningSpecification struct {
+	// Specifies one of the following strategies to launch Spot Instance fleets: price-capacity-optimized, capacity-optimized, lowest-price, or diversified
+	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360.
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction string `pulumi:"timeoutAction"`
+	// The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes int `pulumi:"timeoutDurationMinutes"`
+}
+
+// InstanceFleetConfigSpotProvisioningSpecificationInput is an input type that accepts InstanceFleetConfigSpotProvisioningSpecificationArgs and InstanceFleetConfigSpotProvisioningSpecificationOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigSpotProvisioningSpecificationInput` via:
+//
+//	InstanceFleetConfigSpotProvisioningSpecificationArgs{...}
+type InstanceFleetConfigSpotProvisioningSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigSpotProvisioningSpecificationOutput() InstanceFleetConfigSpotProvisioningSpecificationOutput
+	ToInstanceFleetConfigSpotProvisioningSpecificationOutputWithContext(context.Context) InstanceFleetConfigSpotProvisioningSpecificationOutput
+}
+
+// SpotProvisioningSpecification determines the launch specification for Spot instances in the instance fleet, which includes the defined duration and provisioning timeout behavior.
+type InstanceFleetConfigSpotProvisioningSpecificationArgs struct {
+	// Specifies one of the following strategies to launch Spot Instance fleets: price-capacity-optimized, capacity-optimized, lowest-price, or diversified
+	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
+	// The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360.
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction pulumi.StringInput `pulumi:"timeoutAction"`
+	// The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes pulumi.IntInput `pulumi:"timeoutDurationMinutes"`
+}
+
+func (InstanceFleetConfigSpotProvisioningSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigSpotProvisioningSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigSpotProvisioningSpecificationArgs) ToInstanceFleetConfigSpotProvisioningSpecificationOutput() InstanceFleetConfigSpotProvisioningSpecificationOutput {
+	return i.ToInstanceFleetConfigSpotProvisioningSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigSpotProvisioningSpecificationArgs) ToInstanceFleetConfigSpotProvisioningSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigSpotProvisioningSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigSpotProvisioningSpecificationOutput)
+}
+
+func (i InstanceFleetConfigSpotProvisioningSpecificationArgs) ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutput() InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigSpotProvisioningSpecificationArgs) ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigSpotProvisioningSpecificationOutput).ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetConfigSpotProvisioningSpecificationPtrInput is an input type that accepts InstanceFleetConfigSpotProvisioningSpecificationArgs, InstanceFleetConfigSpotProvisioningSpecificationPtr and InstanceFleetConfigSpotProvisioningSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigSpotProvisioningSpecificationPtrInput` via:
+//
+//	        InstanceFleetConfigSpotProvisioningSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceFleetConfigSpotProvisioningSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutput() InstanceFleetConfigSpotProvisioningSpecificationPtrOutput
+	ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutputWithContext(context.Context) InstanceFleetConfigSpotProvisioningSpecificationPtrOutput
+}
+
+type instanceFleetConfigSpotProvisioningSpecificationPtrType InstanceFleetConfigSpotProvisioningSpecificationArgs
+
+func InstanceFleetConfigSpotProvisioningSpecificationPtr(v *InstanceFleetConfigSpotProvisioningSpecificationArgs) InstanceFleetConfigSpotProvisioningSpecificationPtrInput {
+	return (*instanceFleetConfigSpotProvisioningSpecificationPtrType)(v)
+}
+
+func (*instanceFleetConfigSpotProvisioningSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigSpotProvisioningSpecification)(nil)).Elem()
+}
+
+func (i *instanceFleetConfigSpotProvisioningSpecificationPtrType) ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutput() InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetConfigSpotProvisioningSpecificationPtrType) ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigSpotProvisioningSpecificationPtrOutput)
+}
+
+// SpotProvisioningSpecification determines the launch specification for Spot instances in the instance fleet, which includes the defined duration and provisioning timeout behavior.
+type InstanceFleetConfigSpotProvisioningSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigSpotProvisioningSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigSpotProvisioningSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) ToInstanceFleetConfigSpotProvisioningSpecificationOutput() InstanceFleetConfigSpotProvisioningSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) ToInstanceFleetConfigSpotProvisioningSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigSpotProvisioningSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutput() InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return o.ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetConfigSpotProvisioningSpecification) *InstanceFleetConfigSpotProvisioningSpecification {
+		return &v
+	}).(InstanceFleetConfigSpotProvisioningSpecificationPtrOutput)
+}
+
+// Specifies one of the following strategies to launch Spot Instance fleets: price-capacity-optimized, capacity-optimized, lowest-price, or diversified
+func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigSpotProvisioningSpecification) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+// The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360.
+func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigSpotProvisioningSpecification) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) TimeoutAction() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetConfigSpotProvisioningSpecification) string { return v.TimeoutAction }).(pulumi.StringOutput)
+}
+
+// The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+func (o InstanceFleetConfigSpotProvisioningSpecificationOutput) TimeoutDurationMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceFleetConfigSpotProvisioningSpecification) int { return v.TimeoutDurationMinutes }).(pulumi.IntOutput)
+}
+
+type InstanceFleetConfigSpotProvisioningSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigSpotProvisioningSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutput() InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) ToInstanceFleetConfigSpotProvisioningSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigSpotProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) Elem() InstanceFleetConfigSpotProvisioningSpecificationOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigSpotProvisioningSpecification) InstanceFleetConfigSpotProvisioningSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleetConfigSpotProvisioningSpecification
+		return ret
+	}).(InstanceFleetConfigSpotProvisioningSpecificationOutput)
+}
+
+// Specifies one of the following strategies to launch Spot Instance fleets: price-capacity-optimized, capacity-optimized, lowest-price, or diversified
+func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigSpotProvisioningSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360.
+func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigSpotProvisioningSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigSpotProvisioningSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigSpotProvisioningSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type InstanceFleetConfigSpotResizingSpecification struct {
+	// Specifies the allocation strategy to use to launch Spot instances during a resize.
+	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// Spot resize timeout in minutes.
+	TimeoutDurationMinutes *int `pulumi:"timeoutDurationMinutes"`
+}
+
+// InstanceFleetConfigSpotResizingSpecificationInput is an input type that accepts InstanceFleetConfigSpotResizingSpecificationArgs and InstanceFleetConfigSpotResizingSpecificationOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigSpotResizingSpecificationInput` via:
+//
+//	InstanceFleetConfigSpotResizingSpecificationArgs{...}
+type InstanceFleetConfigSpotResizingSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigSpotResizingSpecificationOutput() InstanceFleetConfigSpotResizingSpecificationOutput
+	ToInstanceFleetConfigSpotResizingSpecificationOutputWithContext(context.Context) InstanceFleetConfigSpotResizingSpecificationOutput
+}
+
+type InstanceFleetConfigSpotResizingSpecificationArgs struct {
+	// Specifies the allocation strategy to use to launch Spot instances during a resize.
+	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
+	// Spot resize timeout in minutes.
+	TimeoutDurationMinutes pulumi.IntPtrInput `pulumi:"timeoutDurationMinutes"`
+}
+
+func (InstanceFleetConfigSpotResizingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigSpotResizingSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigSpotResizingSpecificationArgs) ToInstanceFleetConfigSpotResizingSpecificationOutput() InstanceFleetConfigSpotResizingSpecificationOutput {
+	return i.ToInstanceFleetConfigSpotResizingSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigSpotResizingSpecificationArgs) ToInstanceFleetConfigSpotResizingSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigSpotResizingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigSpotResizingSpecificationOutput)
+}
+
+func (i InstanceFleetConfigSpotResizingSpecificationArgs) ToInstanceFleetConfigSpotResizingSpecificationPtrOutput() InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigSpotResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigSpotResizingSpecificationArgs) ToInstanceFleetConfigSpotResizingSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigSpotResizingSpecificationOutput).ToInstanceFleetConfigSpotResizingSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetConfigSpotResizingSpecificationPtrInput is an input type that accepts InstanceFleetConfigSpotResizingSpecificationArgs, InstanceFleetConfigSpotResizingSpecificationPtr and InstanceFleetConfigSpotResizingSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigSpotResizingSpecificationPtrInput` via:
+//
+//	        InstanceFleetConfigSpotResizingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceFleetConfigSpotResizingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigSpotResizingSpecificationPtrOutput() InstanceFleetConfigSpotResizingSpecificationPtrOutput
+	ToInstanceFleetConfigSpotResizingSpecificationPtrOutputWithContext(context.Context) InstanceFleetConfigSpotResizingSpecificationPtrOutput
+}
+
+type instanceFleetConfigSpotResizingSpecificationPtrType InstanceFleetConfigSpotResizingSpecificationArgs
+
+func InstanceFleetConfigSpotResizingSpecificationPtr(v *InstanceFleetConfigSpotResizingSpecificationArgs) InstanceFleetConfigSpotResizingSpecificationPtrInput {
+	return (*instanceFleetConfigSpotResizingSpecificationPtrType)(v)
+}
+
+func (*instanceFleetConfigSpotResizingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigSpotResizingSpecification)(nil)).Elem()
+}
+
+func (i *instanceFleetConfigSpotResizingSpecificationPtrType) ToInstanceFleetConfigSpotResizingSpecificationPtrOutput() InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return i.ToInstanceFleetConfigSpotResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetConfigSpotResizingSpecificationPtrType) ToInstanceFleetConfigSpotResizingSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigSpotResizingSpecificationPtrOutput)
+}
+
+type InstanceFleetConfigSpotResizingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigSpotResizingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigSpotResizingSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigSpotResizingSpecificationOutput) ToInstanceFleetConfigSpotResizingSpecificationOutput() InstanceFleetConfigSpotResizingSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigSpotResizingSpecificationOutput) ToInstanceFleetConfigSpotResizingSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigSpotResizingSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigSpotResizingSpecificationOutput) ToInstanceFleetConfigSpotResizingSpecificationPtrOutput() InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return o.ToInstanceFleetConfigSpotResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetConfigSpotResizingSpecificationOutput) ToInstanceFleetConfigSpotResizingSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetConfigSpotResizingSpecification) *InstanceFleetConfigSpotResizingSpecification {
+		return &v
+	}).(InstanceFleetConfigSpotResizingSpecificationPtrOutput)
+}
+
+// Specifies the allocation strategy to use to launch Spot instances during a resize.
+func (o InstanceFleetConfigSpotResizingSpecificationOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigSpotResizingSpecification) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+// Spot resize timeout in minutes.
+func (o InstanceFleetConfigSpotResizingSpecificationOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigSpotResizingSpecification) *int { return v.TimeoutDurationMinutes }).(pulumi.IntPtrOutput)
+}
+
+type InstanceFleetConfigSpotResizingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigSpotResizingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetConfigSpotResizingSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigSpotResizingSpecificationPtrOutput) ToInstanceFleetConfigSpotResizingSpecificationPtrOutput() InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigSpotResizingSpecificationPtrOutput) ToInstanceFleetConfigSpotResizingSpecificationPtrOutputWithContext(ctx context.Context) InstanceFleetConfigSpotResizingSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceFleetConfigSpotResizingSpecificationPtrOutput) Elem() InstanceFleetConfigSpotResizingSpecificationOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigSpotResizingSpecification) InstanceFleetConfigSpotResizingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleetConfigSpotResizingSpecification
+		return ret
+	}).(InstanceFleetConfigSpotResizingSpecificationOutput)
+}
+
+// Specifies the allocation strategy to use to launch Spot instances during a resize.
+func (o InstanceFleetConfigSpotResizingSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigSpotResizingSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Spot resize timeout in minutes.
+func (o InstanceFleetConfigSpotResizingSpecificationPtrOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceFleetConfigSpotResizingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// VolumeSpecification is a subproperty of the EbsBlockDeviceConfig property type. VolumeSecification determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
+type InstanceFleetConfigVolumeSpecification struct {
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops *int `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	SizeInGb int `pulumi:"sizeInGb"`
+	// The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+	Throughput *int `pulumi:"throughput"`
+	// The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+	VolumeType string `pulumi:"volumeType"`
+}
+
+// InstanceFleetConfigVolumeSpecificationInput is an input type that accepts InstanceFleetConfigVolumeSpecificationArgs and InstanceFleetConfigVolumeSpecificationOutput values.
+// You can construct a concrete instance of `InstanceFleetConfigVolumeSpecificationInput` via:
+//
+//	InstanceFleetConfigVolumeSpecificationArgs{...}
+type InstanceFleetConfigVolumeSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetConfigVolumeSpecificationOutput() InstanceFleetConfigVolumeSpecificationOutput
+	ToInstanceFleetConfigVolumeSpecificationOutputWithContext(context.Context) InstanceFleetConfigVolumeSpecificationOutput
+}
+
+// VolumeSpecification is a subproperty of the EbsBlockDeviceConfig property type. VolumeSecification determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
+type InstanceFleetConfigVolumeSpecificationArgs struct {
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	SizeInGb pulumi.IntInput `pulumi:"sizeInGb"`
+	// The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (InstanceFleetConfigVolumeSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigVolumeSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetConfigVolumeSpecificationArgs) ToInstanceFleetConfigVolumeSpecificationOutput() InstanceFleetConfigVolumeSpecificationOutput {
+	return i.ToInstanceFleetConfigVolumeSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetConfigVolumeSpecificationArgs) ToInstanceFleetConfigVolumeSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigVolumeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetConfigVolumeSpecificationOutput)
+}
+
+// VolumeSpecification is a subproperty of the EbsBlockDeviceConfig property type. VolumeSecification determines the volume type, IOPS, and size (GiB) for EBS volumes attached to EC2 instances.
+type InstanceFleetConfigVolumeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetConfigVolumeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetConfigVolumeSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetConfigVolumeSpecificationOutput) ToInstanceFleetConfigVolumeSpecificationOutput() InstanceFleetConfigVolumeSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetConfigVolumeSpecificationOutput) ToInstanceFleetConfigVolumeSpecificationOutputWithContext(ctx context.Context) InstanceFleetConfigVolumeSpecificationOutput {
+	return o
+}
+
+// The number of I/O operations per second (IOPS) that the volume supports.
+func (o InstanceFleetConfigVolumeSpecificationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigVolumeSpecification) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+func (o InstanceFleetConfigVolumeSpecificationOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceFleetConfigVolumeSpecification) int { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+// The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+func (o InstanceFleetConfigVolumeSpecificationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigVolumeSpecification) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+// The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+func (o InstanceFleetConfigVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetConfigVolumeSpecification) string { return v.VolumeType }).(pulumi.StringOutput)
+}
+
 type InstanceGroupConfigAppConfiguration struct {
 	Classification          *string                               `pulumi:"classification"`
 	ConfigurationProperties map[string]string                     `pulumi:"configurationProperties"`
@@ -1525,6 +3361,29 @@ type WalWorkspaceTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigApplicationConfigurationInput)(nil)).Elem(), InstanceFleetConfigApplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigApplicationConfigurationArrayInput)(nil)).Elem(), InstanceFleetConfigApplicationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigEbsBlockDeviceConfigInput)(nil)).Elem(), InstanceFleetConfigEbsBlockDeviceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigEbsBlockDeviceConfigArrayInput)(nil)).Elem(), InstanceFleetConfigEbsBlockDeviceConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigEbsConfigurationInput)(nil)).Elem(), InstanceFleetConfigEbsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigEbsConfigurationPtrInput)(nil)).Elem(), InstanceFleetConfigEbsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigInstanceFleetProvisioningSpecificationsInput)(nil)).Elem(), InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrInput)(nil)).Elem(), InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigInstanceFleetResizingSpecificationsInput)(nil)).Elem(), InstanceFleetConfigInstanceFleetResizingSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigInstanceFleetResizingSpecificationsPtrInput)(nil)).Elem(), InstanceFleetConfigInstanceFleetResizingSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigInstanceTypeConfigInput)(nil)).Elem(), InstanceFleetConfigInstanceTypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigInstanceTypeConfigArrayInput)(nil)).Elem(), InstanceFleetConfigInstanceTypeConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigOnDemandCapacityReservationOptionsInput)(nil)).Elem(), InstanceFleetConfigOnDemandCapacityReservationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigOnDemandCapacityReservationOptionsPtrInput)(nil)).Elem(), InstanceFleetConfigOnDemandCapacityReservationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigOnDemandProvisioningSpecificationInput)(nil)).Elem(), InstanceFleetConfigOnDemandProvisioningSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigOnDemandProvisioningSpecificationPtrInput)(nil)).Elem(), InstanceFleetConfigOnDemandProvisioningSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigOnDemandResizingSpecificationInput)(nil)).Elem(), InstanceFleetConfigOnDemandResizingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigOnDemandResizingSpecificationPtrInput)(nil)).Elem(), InstanceFleetConfigOnDemandResizingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigSpotProvisioningSpecificationInput)(nil)).Elem(), InstanceFleetConfigSpotProvisioningSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigSpotProvisioningSpecificationPtrInput)(nil)).Elem(), InstanceFleetConfigSpotProvisioningSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigSpotResizingSpecificationInput)(nil)).Elem(), InstanceFleetConfigSpotResizingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigSpotResizingSpecificationPtrInput)(nil)).Elem(), InstanceFleetConfigSpotResizingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigVolumeSpecificationInput)(nil)).Elem(), InstanceFleetConfigVolumeSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigAppConfigurationInput)(nil)).Elem(), InstanceGroupConfigAppConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigAppConfigurationArrayInput)(nil)).Elem(), InstanceGroupConfigAppConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigAutoScalingPolicyInput)(nil)).Elem(), InstanceGroupConfigAutoScalingPolicyArgs{})
@@ -1547,6 +3406,29 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StepHadoopJarStepConfigInput)(nil)).Elem(), StepHadoopJarStepConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueInput)(nil)).Elem(), StepKeyValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueArrayInput)(nil)).Elem(), StepKeyValueArray{})
+	pulumi.RegisterOutputType(InstanceFleetConfigApplicationConfigurationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigApplicationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigEbsBlockDeviceConfigOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigEbsBlockDeviceConfigArrayOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigEbsConfigurationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigEbsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigInstanceFleetProvisioningSpecificationsOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigInstanceFleetProvisioningSpecificationsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigInstanceFleetResizingSpecificationsOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigInstanceFleetResizingSpecificationsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigInstanceTypeConfigOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigInstanceTypeConfigArrayOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigOnDemandCapacityReservationOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigOnDemandCapacityReservationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigOnDemandProvisioningSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigOnDemandProvisioningSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigOnDemandResizingSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigOnDemandResizingSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigSpotProvisioningSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigSpotProvisioningSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigSpotResizingSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigSpotResizingSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetConfigVolumeSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceGroupConfigAppConfigurationOutput{})
 	pulumi.RegisterOutputType(InstanceGroupConfigAppConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceGroupConfigAutoScalingPolicyOutput{})

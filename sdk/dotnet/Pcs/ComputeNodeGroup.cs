@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Pcs
         /// An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
         /// </summary>
         [Output("customLaunchTemplate")]
-        public Output<Outputs.CustomLaunchTemplateProperties> CustomLaunchTemplate { get; private set; } = null!;
+        public Output<Outputs.CustomLaunchTemplateProperties?> CustomLaunchTemplate { get; private set; } = null!;
 
         /// <summary>
         /// The list of errors that occurred during compute node group provisioning.
@@ -180,8 +180,8 @@ namespace Pulumi.AwsNative.Pcs
         /// <summary>
         /// An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
         /// </summary>
-        [Input("customLaunchTemplate", required: true)]
-        public Input<Inputs.CustomLaunchTemplatePropertiesArgs> CustomLaunchTemplate { get; set; } = null!;
+        [Input("customLaunchTemplate")]
+        public Input<Inputs.CustomLaunchTemplatePropertiesArgs>? CustomLaunchTemplate { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.

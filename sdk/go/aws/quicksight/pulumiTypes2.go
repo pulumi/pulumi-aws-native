@@ -50634,7 +50634,8 @@ type DataSourceCredentials struct {
 	// Credential pair. For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 	CredentialPair *DataSourceCredentialPair `pulumi:"credentialPair"`
 	// The credentials for connecting using key-pair.
-	KeyPairCredentials *DataSourceKeyPairCredentials `pulumi:"keyPairCredentials"`
+	KeyPairCredentials     *DataSourceKeyPairCredentials     `pulumi:"keyPairCredentials"`
+	OAuthClientCredentials *DataSourceOAuthClientCredentials `pulumi:"oAuthClientCredentials"`
 	// <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
 	SecretArn *string `pulumi:"secretArn"`
 }
@@ -50662,7 +50663,8 @@ type DataSourceCredentialsArgs struct {
 	// Credential pair. For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 	CredentialPair DataSourceCredentialPairPtrInput `pulumi:"credentialPair"`
 	// The credentials for connecting using key-pair.
-	KeyPairCredentials DataSourceKeyPairCredentialsPtrInput `pulumi:"keyPairCredentials"`
+	KeyPairCredentials     DataSourceKeyPairCredentialsPtrInput     `pulumi:"keyPairCredentials"`
+	OAuthClientCredentials DataSourceOAuthClientCredentialsPtrInput `pulumi:"oAuthClientCredentials"`
 	// <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
@@ -50766,6 +50768,10 @@ func (o DataSourceCredentialsOutput) KeyPairCredentials() DataSourceKeyPairCrede
 	return o.ApplyT(func(v DataSourceCredentials) *DataSourceKeyPairCredentials { return v.KeyPairCredentials }).(DataSourceKeyPairCredentialsPtrOutput)
 }
 
+func (o DataSourceCredentialsOutput) OAuthClientCredentials() DataSourceOAuthClientCredentialsPtrOutput {
+	return o.ApplyT(func(v DataSourceCredentials) *DataSourceOAuthClientCredentials { return v.OAuthClientCredentials }).(DataSourceOAuthClientCredentialsPtrOutput)
+}
+
 // <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
 func (o DataSourceCredentialsOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
@@ -50829,6 +50835,15 @@ func (o DataSourceCredentialsPtrOutput) KeyPairCredentials() DataSourceKeyPairCr
 	}).(DataSourceKeyPairCredentialsPtrOutput)
 }
 
+func (o DataSourceCredentialsPtrOutput) OAuthClientCredentials() DataSourceOAuthClientCredentialsPtrOutput {
+	return o.ApplyT(func(v *DataSourceCredentials) *DataSourceOAuthClientCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthClientCredentials
+	}).(DataSourceOAuthClientCredentialsPtrOutput)
+}
+
 // <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
 func (o DataSourceCredentialsPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *string {
@@ -50841,8 +50856,10 @@ func (o DataSourceCredentialsPtrOutput) SecretArn() pulumi.StringPtrOutput {
 
 // <p>The parameters that are required to connect to a Databricks data source.</p>
 type DataSourceDatabricksParameters struct {
+	AuthenticationType *DataSourceAuthenticationType `pulumi:"authenticationType"`
 	// <p>The host name of the Databricks data source.</p>
-	Host string `pulumi:"host"`
+	Host            string                     `pulumi:"host"`
+	OAuthParameters *DataSourceOAuthParameters `pulumi:"oAuthParameters"`
 	// <p>The port for the Databricks data source.</p>
 	Port float64 `pulumi:"port"`
 	// <p>The HTTP path of the Databricks data source.</p>
@@ -50862,8 +50879,10 @@ type DataSourceDatabricksParametersInput interface {
 
 // <p>The parameters that are required to connect to a Databricks data source.</p>
 type DataSourceDatabricksParametersArgs struct {
+	AuthenticationType DataSourceAuthenticationTypePtrInput `pulumi:"authenticationType"`
 	// <p>The host name of the Databricks data source.</p>
-	Host pulumi.StringInput `pulumi:"host"`
+	Host            pulumi.StringInput                `pulumi:"host"`
+	OAuthParameters DataSourceOAuthParametersPtrInput `pulumi:"oAuthParameters"`
 	// <p>The port for the Databricks data source.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 	// <p>The HTTP path of the Databricks data source.</p>
@@ -50948,9 +50967,17 @@ func (o DataSourceDatabricksParametersOutput) ToDataSourceDatabricksParametersPt
 	}).(DataSourceDatabricksParametersPtrOutput)
 }
 
+func (o DataSourceDatabricksParametersOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v DataSourceDatabricksParameters) *DataSourceAuthenticationType { return v.AuthenticationType }).(DataSourceAuthenticationTypePtrOutput)
+}
+
 // <p>The host name of the Databricks data source.</p>
 func (o DataSourceDatabricksParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDatabricksParameters) string { return v.Host }).(pulumi.StringOutput)
+}
+
+func (o DataSourceDatabricksParametersOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceDatabricksParameters) *DataSourceOAuthParameters { return v.OAuthParameters }).(DataSourceOAuthParametersPtrOutput)
 }
 
 // <p>The port for the Databricks data source.</p>
@@ -50987,6 +51014,15 @@ func (o DataSourceDatabricksParametersPtrOutput) Elem() DataSourceDatabricksPara
 	}).(DataSourceDatabricksParametersOutput)
 }
 
+func (o DataSourceDatabricksParametersPtrOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceDatabricksParameters) *DataSourceAuthenticationType {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationType
+	}).(DataSourceAuthenticationTypePtrOutput)
+}
+
 // <p>The host name of the Databricks data source.</p>
 func (o DataSourceDatabricksParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDatabricksParameters) *string {
@@ -50995,6 +51031,15 @@ func (o DataSourceDatabricksParametersPtrOutput) Host() pulumi.StringPtrOutput {
 		}
 		return &v.Host
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceDatabricksParametersPtrOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceDatabricksParameters) *DataSourceOAuthParameters {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthParameters
+	}).(DataSourceOAuthParametersPtrOutput)
 }
 
 // <p>The port for the Databricks data source.</p>
@@ -52004,6 +52049,169 @@ func (o DataSourceMySqlParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 		}
 		return &v.Port
 	}).(pulumi.Float64PtrOutput)
+}
+
+type DataSourceOAuthClientCredentials struct {
+	ClientId     *string `pulumi:"clientId"`
+	ClientSecret *string `pulumi:"clientSecret"`
+	Username     *string `pulumi:"username"`
+}
+
+// DataSourceOAuthClientCredentialsInput is an input type that accepts DataSourceOAuthClientCredentialsArgs and DataSourceOAuthClientCredentialsOutput values.
+// You can construct a concrete instance of `DataSourceOAuthClientCredentialsInput` via:
+//
+//	DataSourceOAuthClientCredentialsArgs{...}
+type DataSourceOAuthClientCredentialsInput interface {
+	pulumi.Input
+
+	ToDataSourceOAuthClientCredentialsOutput() DataSourceOAuthClientCredentialsOutput
+	ToDataSourceOAuthClientCredentialsOutputWithContext(context.Context) DataSourceOAuthClientCredentialsOutput
+}
+
+type DataSourceOAuthClientCredentialsArgs struct {
+	ClientId     pulumi.StringPtrInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	Username     pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (DataSourceOAuthClientCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOAuthClientCredentials)(nil)).Elem()
+}
+
+func (i DataSourceOAuthClientCredentialsArgs) ToDataSourceOAuthClientCredentialsOutput() DataSourceOAuthClientCredentialsOutput {
+	return i.ToDataSourceOAuthClientCredentialsOutputWithContext(context.Background())
+}
+
+func (i DataSourceOAuthClientCredentialsArgs) ToDataSourceOAuthClientCredentialsOutputWithContext(ctx context.Context) DataSourceOAuthClientCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOAuthClientCredentialsOutput)
+}
+
+func (i DataSourceOAuthClientCredentialsArgs) ToDataSourceOAuthClientCredentialsPtrOutput() DataSourceOAuthClientCredentialsPtrOutput {
+	return i.ToDataSourceOAuthClientCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceOAuthClientCredentialsArgs) ToDataSourceOAuthClientCredentialsPtrOutputWithContext(ctx context.Context) DataSourceOAuthClientCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOAuthClientCredentialsOutput).ToDataSourceOAuthClientCredentialsPtrOutputWithContext(ctx)
+}
+
+// DataSourceOAuthClientCredentialsPtrInput is an input type that accepts DataSourceOAuthClientCredentialsArgs, DataSourceOAuthClientCredentialsPtr and DataSourceOAuthClientCredentialsPtrOutput values.
+// You can construct a concrete instance of `DataSourceOAuthClientCredentialsPtrInput` via:
+//
+//	        DataSourceOAuthClientCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceOAuthClientCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceOAuthClientCredentialsPtrOutput() DataSourceOAuthClientCredentialsPtrOutput
+	ToDataSourceOAuthClientCredentialsPtrOutputWithContext(context.Context) DataSourceOAuthClientCredentialsPtrOutput
+}
+
+type dataSourceOAuthClientCredentialsPtrType DataSourceOAuthClientCredentialsArgs
+
+func DataSourceOAuthClientCredentialsPtr(v *DataSourceOAuthClientCredentialsArgs) DataSourceOAuthClientCredentialsPtrInput {
+	return (*dataSourceOAuthClientCredentialsPtrType)(v)
+}
+
+func (*dataSourceOAuthClientCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceOAuthClientCredentials)(nil)).Elem()
+}
+
+func (i *dataSourceOAuthClientCredentialsPtrType) ToDataSourceOAuthClientCredentialsPtrOutput() DataSourceOAuthClientCredentialsPtrOutput {
+	return i.ToDataSourceOAuthClientCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceOAuthClientCredentialsPtrType) ToDataSourceOAuthClientCredentialsPtrOutputWithContext(ctx context.Context) DataSourceOAuthClientCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOAuthClientCredentialsPtrOutput)
+}
+
+type DataSourceOAuthClientCredentialsOutput struct{ *pulumi.OutputState }
+
+func (DataSourceOAuthClientCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOAuthClientCredentials)(nil)).Elem()
+}
+
+func (o DataSourceOAuthClientCredentialsOutput) ToDataSourceOAuthClientCredentialsOutput() DataSourceOAuthClientCredentialsOutput {
+	return o
+}
+
+func (o DataSourceOAuthClientCredentialsOutput) ToDataSourceOAuthClientCredentialsOutputWithContext(ctx context.Context) DataSourceOAuthClientCredentialsOutput {
+	return o
+}
+
+func (o DataSourceOAuthClientCredentialsOutput) ToDataSourceOAuthClientCredentialsPtrOutput() DataSourceOAuthClientCredentialsPtrOutput {
+	return o.ToDataSourceOAuthClientCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceOAuthClientCredentialsOutput) ToDataSourceOAuthClientCredentialsPtrOutputWithContext(ctx context.Context) DataSourceOAuthClientCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceOAuthClientCredentials) *DataSourceOAuthClientCredentials {
+		return &v
+	}).(DataSourceOAuthClientCredentialsPtrOutput)
+}
+
+func (o DataSourceOAuthClientCredentialsOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceOAuthClientCredentials) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOAuthClientCredentialsOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceOAuthClientCredentials) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOAuthClientCredentialsOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceOAuthClientCredentials) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceOAuthClientCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceOAuthClientCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceOAuthClientCredentials)(nil)).Elem()
+}
+
+func (o DataSourceOAuthClientCredentialsPtrOutput) ToDataSourceOAuthClientCredentialsPtrOutput() DataSourceOAuthClientCredentialsPtrOutput {
+	return o
+}
+
+func (o DataSourceOAuthClientCredentialsPtrOutput) ToDataSourceOAuthClientCredentialsPtrOutputWithContext(ctx context.Context) DataSourceOAuthClientCredentialsPtrOutput {
+	return o
+}
+
+func (o DataSourceOAuthClientCredentialsPtrOutput) Elem() DataSourceOAuthClientCredentialsOutput {
+	return o.ApplyT(func(v *DataSourceOAuthClientCredentials) DataSourceOAuthClientCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceOAuthClientCredentials
+		return ret
+	}).(DataSourceOAuthClientCredentialsOutput)
+}
+
+func (o DataSourceOAuthClientCredentialsPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOAuthClientCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOAuthClientCredentialsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOAuthClientCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOAuthClientCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOAuthClientCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
 }
 
 type DataSourceOAuthParameters struct {
@@ -82246,166 +82454,6 @@ func (o TemplateDefaultGridLayoutConfigurationPtrOutput) CanvasSizeOptions() Tem
 	}).(TemplateGridLayoutCanvasSizeOptionsPtrOutput)
 }
 
-type TemplateDefaultInteractiveLayoutConfiguration struct {
-	// The options that determine the default settings of a free-form layout configuration.
-	FreeForm *TemplateDefaultFreeFormLayoutConfiguration `pulumi:"freeForm"`
-	// The options that determine the default settings for a grid layout configuration.
-	Grid *TemplateDefaultGridLayoutConfiguration `pulumi:"grid"`
-}
-
-// TemplateDefaultInteractiveLayoutConfigurationInput is an input type that accepts TemplateDefaultInteractiveLayoutConfigurationArgs and TemplateDefaultInteractiveLayoutConfigurationOutput values.
-// You can construct a concrete instance of `TemplateDefaultInteractiveLayoutConfigurationInput` via:
-//
-//	TemplateDefaultInteractiveLayoutConfigurationArgs{...}
-type TemplateDefaultInteractiveLayoutConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateDefaultInteractiveLayoutConfigurationOutput() TemplateDefaultInteractiveLayoutConfigurationOutput
-	ToTemplateDefaultInteractiveLayoutConfigurationOutputWithContext(context.Context) TemplateDefaultInteractiveLayoutConfigurationOutput
-}
-
-type TemplateDefaultInteractiveLayoutConfigurationArgs struct {
-	// The options that determine the default settings of a free-form layout configuration.
-	FreeForm TemplateDefaultFreeFormLayoutConfigurationPtrInput `pulumi:"freeForm"`
-	// The options that determine the default settings for a grid layout configuration.
-	Grid TemplateDefaultGridLayoutConfigurationPtrInput `pulumi:"grid"`
-}
-
-func (TemplateDefaultInteractiveLayoutConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateDefaultInteractiveLayoutConfiguration)(nil)).Elem()
-}
-
-func (i TemplateDefaultInteractiveLayoutConfigurationArgs) ToTemplateDefaultInteractiveLayoutConfigurationOutput() TemplateDefaultInteractiveLayoutConfigurationOutput {
-	return i.ToTemplateDefaultInteractiveLayoutConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateDefaultInteractiveLayoutConfigurationArgs) ToTemplateDefaultInteractiveLayoutConfigurationOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateDefaultInteractiveLayoutConfigurationOutput)
-}
-
-func (i TemplateDefaultInteractiveLayoutConfigurationArgs) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
-	return i.ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateDefaultInteractiveLayoutConfigurationArgs) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateDefaultInteractiveLayoutConfigurationOutput).ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx)
-}
-
-// TemplateDefaultInteractiveLayoutConfigurationPtrInput is an input type that accepts TemplateDefaultInteractiveLayoutConfigurationArgs, TemplateDefaultInteractiveLayoutConfigurationPtr and TemplateDefaultInteractiveLayoutConfigurationPtrOutput values.
-// You can construct a concrete instance of `TemplateDefaultInteractiveLayoutConfigurationPtrInput` via:
-//
-//	        TemplateDefaultInteractiveLayoutConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateDefaultInteractiveLayoutConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput
-	ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput
-}
-
-type templateDefaultInteractiveLayoutConfigurationPtrType TemplateDefaultInteractiveLayoutConfigurationArgs
-
-func TemplateDefaultInteractiveLayoutConfigurationPtr(v *TemplateDefaultInteractiveLayoutConfigurationArgs) TemplateDefaultInteractiveLayoutConfigurationPtrInput {
-	return (*templateDefaultInteractiveLayoutConfigurationPtrType)(v)
-}
-
-func (*templateDefaultInteractiveLayoutConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateDefaultInteractiveLayoutConfiguration)(nil)).Elem()
-}
-
-func (i *templateDefaultInteractiveLayoutConfigurationPtrType) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
-	return i.ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *templateDefaultInteractiveLayoutConfigurationPtrType) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateDefaultInteractiveLayoutConfigurationPtrOutput)
-}
-
-type TemplateDefaultInteractiveLayoutConfigurationOutput struct{ *pulumi.OutputState }
-
-func (TemplateDefaultInteractiveLayoutConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateDefaultInteractiveLayoutConfiguration)(nil)).Elem()
-}
-
-func (o TemplateDefaultInteractiveLayoutConfigurationOutput) ToTemplateDefaultInteractiveLayoutConfigurationOutput() TemplateDefaultInteractiveLayoutConfigurationOutput {
-	return o
-}
-
-func (o TemplateDefaultInteractiveLayoutConfigurationOutput) ToTemplateDefaultInteractiveLayoutConfigurationOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationOutput {
-	return o
-}
-
-func (o TemplateDefaultInteractiveLayoutConfigurationOutput) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
-	return o.ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateDefaultInteractiveLayoutConfigurationOutput) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultInteractiveLayoutConfiguration {
-		return &v
-	}).(TemplateDefaultInteractiveLayoutConfigurationPtrOutput)
-}
-
-// The options that determine the default settings of a free-form layout configuration.
-func (o TemplateDefaultInteractiveLayoutConfigurationOutput) FreeForm() TemplateDefaultFreeFormLayoutConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultFreeFormLayoutConfiguration {
-		return v.FreeForm
-	}).(TemplateDefaultFreeFormLayoutConfigurationPtrOutput)
-}
-
-// The options that determine the default settings for a grid layout configuration.
-func (o TemplateDefaultInteractiveLayoutConfigurationOutput) Grid() TemplateDefaultGridLayoutConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultGridLayoutConfiguration {
-		return v.Grid
-	}).(TemplateDefaultGridLayoutConfigurationPtrOutput)
-}
-
-type TemplateDefaultInteractiveLayoutConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateDefaultInteractiveLayoutConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateDefaultInteractiveLayoutConfiguration)(nil)).Elem()
-}
-
-func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutput() TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) ToTemplateDefaultInteractiveLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateDefaultInteractiveLayoutConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) Elem() TemplateDefaultInteractiveLayoutConfigurationOutput {
-	return o.ApplyT(func(v *TemplateDefaultInteractiveLayoutConfiguration) TemplateDefaultInteractiveLayoutConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateDefaultInteractiveLayoutConfiguration
-		return ret
-	}).(TemplateDefaultInteractiveLayoutConfigurationOutput)
-}
-
-// The options that determine the default settings of a free-form layout configuration.
-func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) FreeForm() TemplateDefaultFreeFormLayoutConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultFreeFormLayoutConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.FreeForm
-	}).(TemplateDefaultFreeFormLayoutConfigurationPtrOutput)
-}
-
-// The options that determine the default settings for a grid layout configuration.
-func (o TemplateDefaultInteractiveLayoutConfigurationPtrOutput) Grid() TemplateDefaultGridLayoutConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateDefaultInteractiveLayoutConfiguration) *TemplateDefaultGridLayoutConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.Grid
-	}).(TemplateDefaultGridLayoutConfigurationPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableTotalOptionsInput)(nil)).Elem(), DashboardPivotTableTotalOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableTotalOptionsPtrInput)(nil)).Elem(), DashboardPivotTableTotalOptionsArgs{})
@@ -83022,6 +83070,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMariaDbParametersPtrInput)(nil)).Elem(), DataSourceMariaDbParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMySqlParametersInput)(nil)).Elem(), DataSourceMySqlParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMySqlParametersPtrInput)(nil)).Elem(), DataSourceMySqlParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOAuthClientCredentialsInput)(nil)).Elem(), DataSourceOAuthClientCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOAuthClientCredentialsPtrInput)(nil)).Elem(), DataSourceOAuthClientCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOAuthParametersInput)(nil)).Elem(), DataSourceOAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOAuthParametersPtrInput)(nil)).Elem(), DataSourceOAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOracleParametersInput)(nil)).Elem(), DataSourceOracleParametersArgs{})
@@ -83376,8 +83426,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultFreeFormLayoutConfigurationPtrInput)(nil)).Elem(), TemplateDefaultFreeFormLayoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultGridLayoutConfigurationInput)(nil)).Elem(), TemplateDefaultGridLayoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultGridLayoutConfigurationPtrInput)(nil)).Elem(), TemplateDefaultGridLayoutConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultInteractiveLayoutConfigurationInput)(nil)).Elem(), TemplateDefaultInteractiveLayoutConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDefaultInteractiveLayoutConfigurationPtrInput)(nil)).Elem(), TemplateDefaultInteractiveLayoutConfigurationArgs{})
 	pulumi.RegisterOutputType(DashboardPivotTableTotalOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableTotalOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableVisualOutput{})
@@ -83999,6 +84047,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceMariaDbParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceMySqlParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceMySqlParametersPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceOAuthClientCredentialsOutput{})
+	pulumi.RegisterOutputType(DataSourceOAuthClientCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceOAuthParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceOAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceOracleParametersOutput{})
@@ -84359,6 +84409,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateDefaultFreeFormLayoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDefaultGridLayoutConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateDefaultGridLayoutConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateDefaultInteractiveLayoutConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateDefaultInteractiveLayoutConfigurationPtrOutput{})
 }

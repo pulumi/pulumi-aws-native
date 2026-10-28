@@ -3859,6 +3859,227 @@ func (o ConfigurationBundleVersionLineageMetadataPtrOutput) ParentVersionIds() p
 	}).(pulumi.StringArrayOutput)
 }
 
+type ConsentPortalIdpConfig struct {
+	Audience *string `pulumi:"audience"`
+	// The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+	CredentialProviderArn string   `pulumi:"credentialProviderArn"`
+	Scopes                []string `pulumi:"scopes"`
+}
+
+// ConsentPortalIdpConfigInput is an input type that accepts ConsentPortalIdpConfigArgs and ConsentPortalIdpConfigOutput values.
+// You can construct a concrete instance of `ConsentPortalIdpConfigInput` via:
+//
+//	ConsentPortalIdpConfigArgs{...}
+type ConsentPortalIdpConfigInput interface {
+	pulumi.Input
+
+	ToConsentPortalIdpConfigOutput() ConsentPortalIdpConfigOutput
+	ToConsentPortalIdpConfigOutputWithContext(context.Context) ConsentPortalIdpConfigOutput
+}
+
+type ConsentPortalIdpConfigArgs struct {
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+	CredentialProviderArn pulumi.StringInput      `pulumi:"credentialProviderArn"`
+	Scopes                pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (ConsentPortalIdpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalIdpConfig)(nil)).Elem()
+}
+
+func (i ConsentPortalIdpConfigArgs) ToConsentPortalIdpConfigOutput() ConsentPortalIdpConfigOutput {
+	return i.ToConsentPortalIdpConfigOutputWithContext(context.Background())
+}
+
+func (i ConsentPortalIdpConfigArgs) ToConsentPortalIdpConfigOutputWithContext(ctx context.Context) ConsentPortalIdpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsentPortalIdpConfigOutput)
+}
+
+type ConsentPortalIdpConfigOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalIdpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalIdpConfig)(nil)).Elem()
+}
+
+func (o ConsentPortalIdpConfigOutput) ToConsentPortalIdpConfigOutput() ConsentPortalIdpConfigOutput {
+	return o
+}
+
+func (o ConsentPortalIdpConfigOutput) ToConsentPortalIdpConfigOutputWithContext(ctx context.Context) ConsentPortalIdpConfigOutput {
+	return o
+}
+
+func (o ConsentPortalIdpConfigOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentPortalIdpConfig) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+func (o ConsentPortalIdpConfigOutput) CredentialProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsentPortalIdpConfig) string { return v.CredentialProviderArn }).(pulumi.StringOutput)
+}
+
+func (o ConsentPortalIdpConfigOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConsentPortalIdpConfig) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type ConsentPortalIdpConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalIdpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConsentPortalIdpConfig)(nil)).Elem()
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) ToConsentPortalIdpConfigPtrOutput() ConsentPortalIdpConfigPtrOutput {
+	return o
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) ToConsentPortalIdpConfigPtrOutputWithContext(ctx context.Context) ConsentPortalIdpConfigPtrOutput {
+	return o
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) Elem() ConsentPortalIdpConfigOutput {
+	return o.ApplyT(func(v *ConsentPortalIdpConfig) ConsentPortalIdpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConsentPortalIdpConfig
+		return ret
+	}).(ConsentPortalIdpConfigOutput)
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConsentPortalIdpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+func (o ConsentPortalIdpConfigPtrOutput) CredentialProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConsentPortalIdpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConsentPortalIdpConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
+type ConsentPortalSource struct {
+	Identifier string                  `pulumi:"identifier"`
+	Type       ConsentPortalSourceType `pulumi:"type"`
+}
+
+// ConsentPortalSourceInput is an input type that accepts ConsentPortalSourceArgs and ConsentPortalSourceOutput values.
+// You can construct a concrete instance of `ConsentPortalSourceInput` via:
+//
+//	ConsentPortalSourceArgs{...}
+type ConsentPortalSourceInput interface {
+	pulumi.Input
+
+	ToConsentPortalSourceOutput() ConsentPortalSourceOutput
+	ToConsentPortalSourceOutputWithContext(context.Context) ConsentPortalSourceOutput
+}
+
+type ConsentPortalSourceArgs struct {
+	Identifier pulumi.StringInput           `pulumi:"identifier"`
+	Type       ConsentPortalSourceTypeInput `pulumi:"type"`
+}
+
+func (ConsentPortalSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalSource)(nil)).Elem()
+}
+
+func (i ConsentPortalSourceArgs) ToConsentPortalSourceOutput() ConsentPortalSourceOutput {
+	return i.ToConsentPortalSourceOutputWithContext(context.Background())
+}
+
+func (i ConsentPortalSourceArgs) ToConsentPortalSourceOutputWithContext(ctx context.Context) ConsentPortalSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsentPortalSourceOutput)
+}
+
+// ConsentPortalSourceArrayInput is an input type that accepts ConsentPortalSourceArray and ConsentPortalSourceArrayOutput values.
+// You can construct a concrete instance of `ConsentPortalSourceArrayInput` via:
+//
+//	ConsentPortalSourceArray{ ConsentPortalSourceArgs{...} }
+type ConsentPortalSourceArrayInput interface {
+	pulumi.Input
+
+	ToConsentPortalSourceArrayOutput() ConsentPortalSourceArrayOutput
+	ToConsentPortalSourceArrayOutputWithContext(context.Context) ConsentPortalSourceArrayOutput
+}
+
+type ConsentPortalSourceArray []ConsentPortalSourceInput
+
+func (ConsentPortalSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsentPortalSource)(nil)).Elem()
+}
+
+func (i ConsentPortalSourceArray) ToConsentPortalSourceArrayOutput() ConsentPortalSourceArrayOutput {
+	return i.ToConsentPortalSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ConsentPortalSourceArray) ToConsentPortalSourceArrayOutputWithContext(ctx context.Context) ConsentPortalSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsentPortalSourceArrayOutput)
+}
+
+type ConsentPortalSourceOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalSource)(nil)).Elem()
+}
+
+func (o ConsentPortalSourceOutput) ToConsentPortalSourceOutput() ConsentPortalSourceOutput {
+	return o
+}
+
+func (o ConsentPortalSourceOutput) ToConsentPortalSourceOutputWithContext(ctx context.Context) ConsentPortalSourceOutput {
+	return o
+}
+
+func (o ConsentPortalSourceOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsentPortalSource) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+func (o ConsentPortalSourceOutput) Type() ConsentPortalSourceTypeOutput {
+	return o.ApplyT(func(v ConsentPortalSource) ConsentPortalSourceType { return v.Type }).(ConsentPortalSourceTypeOutput)
+}
+
+type ConsentPortalSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsentPortalSource)(nil)).Elem()
+}
+
+func (o ConsentPortalSourceArrayOutput) ToConsentPortalSourceArrayOutput() ConsentPortalSourceArrayOutput {
+	return o
+}
+
+func (o ConsentPortalSourceArrayOutput) ToConsentPortalSourceArrayOutputWithContext(ctx context.Context) ConsentPortalSourceArrayOutput {
+	return o
+}
+
+func (o ConsentPortalSourceArrayOutput) Index(i pulumi.IntInput) ConsentPortalSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConsentPortalSource {
+		return vs[0].([]ConsentPortalSource)[vs[1].(int)]
+	}).(ConsentPortalSourceOutput)
+}
+
+type ConsentPortalTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
 type DatasetDataSourceType struct {
 	InlineExamples *DatasetInlineExamplesSource `pulumi:"inlineExamples"`
@@ -4719,6 +4940,7 @@ func (o EvaluatorCodeBasedEvaluatorConfigPtrOutput) LambdaConfig() EvaluatorLamb
 // The configuration that defines how an evaluator assesses agent performance.
 type EvaluatorConfig struct {
 	CodeBased   *EvaluatorCodeBasedEvaluatorConfig   `pulumi:"codeBased"`
+	Derived     *EvaluatorDerivedEvaluatorConfig     `pulumi:"derived"`
 	LlmAsAJudge *EvaluatorLlmAsAJudgeEvaluatorConfig `pulumi:"llmAsAJudge"`
 }
 
@@ -4736,6 +4958,7 @@ type EvaluatorConfigInput interface {
 // The configuration that defines how an evaluator assesses agent performance.
 type EvaluatorConfigArgs struct {
 	CodeBased   EvaluatorCodeBasedEvaluatorConfigPtrInput   `pulumi:"codeBased"`
+	Derived     EvaluatorDerivedEvaluatorConfigPtrInput     `pulumi:"derived"`
 	LlmAsAJudge EvaluatorLlmAsAJudgeEvaluatorConfigPtrInput `pulumi:"llmAsAJudge"`
 }
 
@@ -4768,6 +4991,10 @@ func (o EvaluatorConfigOutput) ToEvaluatorConfigOutputWithContext(ctx context.Co
 
 func (o EvaluatorConfigOutput) CodeBased() EvaluatorCodeBasedEvaluatorConfigPtrOutput {
 	return o.ApplyT(func(v EvaluatorConfig) *EvaluatorCodeBasedEvaluatorConfig { return v.CodeBased }).(EvaluatorCodeBasedEvaluatorConfigPtrOutput)
+}
+
+func (o EvaluatorConfigOutput) Derived() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o.ApplyT(func(v EvaluatorConfig) *EvaluatorDerivedEvaluatorConfig { return v.Derived }).(EvaluatorDerivedEvaluatorConfigPtrOutput)
 }
 
 func (o EvaluatorConfigOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
@@ -4807,6 +5034,15 @@ func (o EvaluatorConfigPtrOutput) CodeBased() EvaluatorCodeBasedEvaluatorConfigP
 	}).(EvaluatorCodeBasedEvaluatorConfigPtrOutput)
 }
 
+func (o EvaluatorConfigPtrOutput) Derived() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorConfig) *EvaluatorDerivedEvaluatorConfig {
+		if v == nil {
+			return nil
+		}
+		return v.Derived
+	}).(EvaluatorDerivedEvaluatorConfigPtrOutput)
+}
+
 func (o EvaluatorConfigPtrOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
 	return o.ApplyT(func(v *EvaluatorConfig) *EvaluatorLlmAsAJudgeEvaluatorConfig {
 		if v == nil {
@@ -4816,10 +5052,346 @@ func (o EvaluatorConfigPtrOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorCon
 	}).(EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput)
 }
 
+// The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+type EvaluatorDerivedEvaluatorConfig struct {
+	// The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+	BaseEvaluatorId string               `pulumi:"baseEvaluatorId"`
+	ModelConfig     EvaluatorModelConfig `pulumi:"modelConfig"`
+}
+
+// EvaluatorDerivedEvaluatorConfigInput is an input type that accepts EvaluatorDerivedEvaluatorConfigArgs and EvaluatorDerivedEvaluatorConfigOutput values.
+// You can construct a concrete instance of `EvaluatorDerivedEvaluatorConfigInput` via:
+//
+//	EvaluatorDerivedEvaluatorConfigArgs{...}
+type EvaluatorDerivedEvaluatorConfigInput interface {
+	pulumi.Input
+
+	ToEvaluatorDerivedEvaluatorConfigOutput() EvaluatorDerivedEvaluatorConfigOutput
+	ToEvaluatorDerivedEvaluatorConfigOutputWithContext(context.Context) EvaluatorDerivedEvaluatorConfigOutput
+}
+
+// The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+type EvaluatorDerivedEvaluatorConfigArgs struct {
+	// The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+	BaseEvaluatorId pulumi.StringInput        `pulumi:"baseEvaluatorId"`
+	ModelConfig     EvaluatorModelConfigInput `pulumi:"modelConfig"`
+}
+
+func (EvaluatorDerivedEvaluatorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorDerivedEvaluatorConfig)(nil)).Elem()
+}
+
+func (i EvaluatorDerivedEvaluatorConfigArgs) ToEvaluatorDerivedEvaluatorConfigOutput() EvaluatorDerivedEvaluatorConfigOutput {
+	return i.ToEvaluatorDerivedEvaluatorConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluatorDerivedEvaluatorConfigArgs) ToEvaluatorDerivedEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorDerivedEvaluatorConfigOutput)
+}
+
+func (i EvaluatorDerivedEvaluatorConfigArgs) ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorDerivedEvaluatorConfigArgs) ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorDerivedEvaluatorConfigOutput).ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluatorDerivedEvaluatorConfigPtrInput is an input type that accepts EvaluatorDerivedEvaluatorConfigArgs, EvaluatorDerivedEvaluatorConfigPtr and EvaluatorDerivedEvaluatorConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluatorDerivedEvaluatorConfigPtrInput` via:
+//
+//	        EvaluatorDerivedEvaluatorConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorDerivedEvaluatorConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput
+	ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput
+}
+
+type evaluatorDerivedEvaluatorConfigPtrType EvaluatorDerivedEvaluatorConfigArgs
+
+func EvaluatorDerivedEvaluatorConfigPtr(v *EvaluatorDerivedEvaluatorConfigArgs) EvaluatorDerivedEvaluatorConfigPtrInput {
+	return (*evaluatorDerivedEvaluatorConfigPtrType)(v)
+}
+
+func (*evaluatorDerivedEvaluatorConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorDerivedEvaluatorConfig)(nil)).Elem()
+}
+
+func (i *evaluatorDerivedEvaluatorConfigPtrType) ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorDerivedEvaluatorConfigPtrType) ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorDerivedEvaluatorConfigPtrOutput)
+}
+
+// The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+type EvaluatorDerivedEvaluatorConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorDerivedEvaluatorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorDerivedEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ToEvaluatorDerivedEvaluatorConfigOutput() EvaluatorDerivedEvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ToEvaluatorDerivedEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o.ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorDerivedEvaluatorConfig) *EvaluatorDerivedEvaluatorConfig {
+		return &v
+	}).(EvaluatorDerivedEvaluatorConfigPtrOutput)
+}
+
+// The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+func (o EvaluatorDerivedEvaluatorConfigOutput) BaseEvaluatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorDerivedEvaluatorConfig) string { return v.BaseEvaluatorId }).(pulumi.StringOutput)
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ModelConfig() EvaluatorModelConfigOutput {
+	return o.ApplyT(func(v EvaluatorDerivedEvaluatorConfig) EvaluatorModelConfig { return v.ModelConfig }).(EvaluatorModelConfigOutput)
+}
+
+type EvaluatorDerivedEvaluatorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorDerivedEvaluatorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorDerivedEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) Elem() EvaluatorDerivedEvaluatorConfigOutput {
+	return o.ApplyT(func(v *EvaluatorDerivedEvaluatorConfig) EvaluatorDerivedEvaluatorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorDerivedEvaluatorConfig
+		return ret
+	}).(EvaluatorDerivedEvaluatorConfigOutput)
+}
+
+// The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) BaseEvaluatorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluatorDerivedEvaluatorConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseEvaluatorId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) ModelConfig() EvaluatorModelConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorDerivedEvaluatorConfig) *EvaluatorModelConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelConfig
+	}).(EvaluatorModelConfigPtrOutput)
+}
+
+// The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorDimensionRatingScale struct {
+	// The categorical rating scale for this dimension.
+	Categorical []EvaluatorCategoricalScaleDefinition `pulumi:"categorical"`
+	// The numerical rating scale for this dimension.
+	Numerical []EvaluatorNumericalScaleDefinition `pulumi:"numerical"`
+}
+
+// EvaluatorDimensionRatingScaleInput is an input type that accepts EvaluatorDimensionRatingScaleArgs and EvaluatorDimensionRatingScaleOutput values.
+// You can construct a concrete instance of `EvaluatorDimensionRatingScaleInput` via:
+//
+//	EvaluatorDimensionRatingScaleArgs{...}
+type EvaluatorDimensionRatingScaleInput interface {
+	pulumi.Input
+
+	ToEvaluatorDimensionRatingScaleOutput() EvaluatorDimensionRatingScaleOutput
+	ToEvaluatorDimensionRatingScaleOutputWithContext(context.Context) EvaluatorDimensionRatingScaleOutput
+}
+
+// The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorDimensionRatingScaleArgs struct {
+	// The categorical rating scale for this dimension.
+	Categorical EvaluatorCategoricalScaleDefinitionArrayInput `pulumi:"categorical"`
+	// The numerical rating scale for this dimension.
+	Numerical EvaluatorNumericalScaleDefinitionArrayInput `pulumi:"numerical"`
+}
+
+func (EvaluatorDimensionRatingScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorDimensionRatingScale)(nil)).Elem()
+}
+
+func (i EvaluatorDimensionRatingScaleArgs) ToEvaluatorDimensionRatingScaleOutput() EvaluatorDimensionRatingScaleOutput {
+	return i.ToEvaluatorDimensionRatingScaleOutputWithContext(context.Background())
+}
+
+func (i EvaluatorDimensionRatingScaleArgs) ToEvaluatorDimensionRatingScaleOutputWithContext(ctx context.Context) EvaluatorDimensionRatingScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorDimensionRatingScaleOutput)
+}
+
+// The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorDimensionRatingScaleOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorDimensionRatingScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorDimensionRatingScale)(nil)).Elem()
+}
+
+func (o EvaluatorDimensionRatingScaleOutput) ToEvaluatorDimensionRatingScaleOutput() EvaluatorDimensionRatingScaleOutput {
+	return o
+}
+
+func (o EvaluatorDimensionRatingScaleOutput) ToEvaluatorDimensionRatingScaleOutputWithContext(ctx context.Context) EvaluatorDimensionRatingScaleOutput {
+	return o
+}
+
+// The categorical rating scale for this dimension.
+func (o EvaluatorDimensionRatingScaleOutput) Categorical() EvaluatorCategoricalScaleDefinitionArrayOutput {
+	return o.ApplyT(func(v EvaluatorDimensionRatingScale) []EvaluatorCategoricalScaleDefinition { return v.Categorical }).(EvaluatorCategoricalScaleDefinitionArrayOutput)
+}
+
+// The numerical rating scale for this dimension.
+func (o EvaluatorDimensionRatingScaleOutput) Numerical() EvaluatorNumericalScaleDefinitionArrayOutput {
+	return o.ApplyT(func(v EvaluatorDimensionRatingScale) []EvaluatorNumericalScaleDefinition { return v.Numerical }).(EvaluatorNumericalScaleDefinitionArrayOutput)
+}
+
+// One dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorEvaluationDimension struct {
+	// The instruction to the evaluator model describing what to judge for this dimension.
+	DimensionInstruction string `pulumi:"dimensionInstruction"`
+	// The name of the dimension. Must be unique within the evaluator.
+	DimensionName        string                        `pulumi:"dimensionName"`
+	DimensionRatingScale EvaluatorDimensionRatingScale `pulumi:"dimensionRatingScale"`
+}
+
+// EvaluatorEvaluationDimensionInput is an input type that accepts EvaluatorEvaluationDimensionArgs and EvaluatorEvaluationDimensionOutput values.
+// You can construct a concrete instance of `EvaluatorEvaluationDimensionInput` via:
+//
+//	EvaluatorEvaluationDimensionArgs{...}
+type EvaluatorEvaluationDimensionInput interface {
+	pulumi.Input
+
+	ToEvaluatorEvaluationDimensionOutput() EvaluatorEvaluationDimensionOutput
+	ToEvaluatorEvaluationDimensionOutputWithContext(context.Context) EvaluatorEvaluationDimensionOutput
+}
+
+// One dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorEvaluationDimensionArgs struct {
+	// The instruction to the evaluator model describing what to judge for this dimension.
+	DimensionInstruction pulumi.StringInput `pulumi:"dimensionInstruction"`
+	// The name of the dimension. Must be unique within the evaluator.
+	DimensionName        pulumi.StringInput                 `pulumi:"dimensionName"`
+	DimensionRatingScale EvaluatorDimensionRatingScaleInput `pulumi:"dimensionRatingScale"`
+}
+
+func (EvaluatorEvaluationDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorEvaluationDimension)(nil)).Elem()
+}
+
+func (i EvaluatorEvaluationDimensionArgs) ToEvaluatorEvaluationDimensionOutput() EvaluatorEvaluationDimensionOutput {
+	return i.ToEvaluatorEvaluationDimensionOutputWithContext(context.Background())
+}
+
+func (i EvaluatorEvaluationDimensionArgs) ToEvaluatorEvaluationDimensionOutputWithContext(ctx context.Context) EvaluatorEvaluationDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorEvaluationDimensionOutput)
+}
+
+// EvaluatorEvaluationDimensionArrayInput is an input type that accepts EvaluatorEvaluationDimensionArray and EvaluatorEvaluationDimensionArrayOutput values.
+// You can construct a concrete instance of `EvaluatorEvaluationDimensionArrayInput` via:
+//
+//	EvaluatorEvaluationDimensionArray{ EvaluatorEvaluationDimensionArgs{...} }
+type EvaluatorEvaluationDimensionArrayInput interface {
+	pulumi.Input
+
+	ToEvaluatorEvaluationDimensionArrayOutput() EvaluatorEvaluationDimensionArrayOutput
+	ToEvaluatorEvaluationDimensionArrayOutputWithContext(context.Context) EvaluatorEvaluationDimensionArrayOutput
+}
+
+type EvaluatorEvaluationDimensionArray []EvaluatorEvaluationDimensionInput
+
+func (EvaluatorEvaluationDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluatorEvaluationDimension)(nil)).Elem()
+}
+
+func (i EvaluatorEvaluationDimensionArray) ToEvaluatorEvaluationDimensionArrayOutput() EvaluatorEvaluationDimensionArrayOutput {
+	return i.ToEvaluatorEvaluationDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluatorEvaluationDimensionArray) ToEvaluatorEvaluationDimensionArrayOutputWithContext(ctx context.Context) EvaluatorEvaluationDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorEvaluationDimensionArrayOutput)
+}
+
+// One dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorEvaluationDimensionOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorEvaluationDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorEvaluationDimension)(nil)).Elem()
+}
+
+func (o EvaluatorEvaluationDimensionOutput) ToEvaluatorEvaluationDimensionOutput() EvaluatorEvaluationDimensionOutput {
+	return o
+}
+
+func (o EvaluatorEvaluationDimensionOutput) ToEvaluatorEvaluationDimensionOutputWithContext(ctx context.Context) EvaluatorEvaluationDimensionOutput {
+	return o
+}
+
+// The instruction to the evaluator model describing what to judge for this dimension.
+func (o EvaluatorEvaluationDimensionOutput) DimensionInstruction() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorEvaluationDimension) string { return v.DimensionInstruction }).(pulumi.StringOutput)
+}
+
+// The name of the dimension. Must be unique within the evaluator.
+func (o EvaluatorEvaluationDimensionOutput) DimensionName() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorEvaluationDimension) string { return v.DimensionName }).(pulumi.StringOutput)
+}
+
+func (o EvaluatorEvaluationDimensionOutput) DimensionRatingScale() EvaluatorDimensionRatingScaleOutput {
+	return o.ApplyT(func(v EvaluatorEvaluationDimension) EvaluatorDimensionRatingScale { return v.DimensionRatingScale }).(EvaluatorDimensionRatingScaleOutput)
+}
+
+type EvaluatorEvaluationDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorEvaluationDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluatorEvaluationDimension)(nil)).Elem()
+}
+
+func (o EvaluatorEvaluationDimensionArrayOutput) ToEvaluatorEvaluationDimensionArrayOutput() EvaluatorEvaluationDimensionArrayOutput {
+	return o
+}
+
+func (o EvaluatorEvaluationDimensionArrayOutput) ToEvaluatorEvaluationDimensionArrayOutputWithContext(ctx context.Context) EvaluatorEvaluationDimensionArrayOutput {
+	return o
+}
+
+func (o EvaluatorEvaluationDimensionArrayOutput) Index(i pulumi.IntInput) EvaluatorEvaluationDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluatorEvaluationDimension {
+		return vs[0].([]EvaluatorEvaluationDimension)[vs[1].(int)]
+	}).(EvaluatorEvaluationDimensionOutput)
+}
+
 // The inference configuration parameters that control model behavior during evaluation.
 type EvaluatorInferenceConfiguration struct {
 	// The maximum number of tokens to generate in the model response.
 	MaxTokens *int `pulumi:"maxTokens"`
+	// The sequences that make the model stop generating further tokens.
+	StopSequences []string `pulumi:"stopSequences"`
 	// The temperature value that controls randomness in the model's responses.
 	Temperature *float64 `pulumi:"temperature"`
 	// The top-p sampling parameter that controls the diversity of the model's responses.
@@ -4841,6 +5413,8 @@ type EvaluatorInferenceConfigurationInput interface {
 type EvaluatorInferenceConfigurationArgs struct {
 	// The maximum number of tokens to generate in the model response.
 	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
+	// The sequences that make the model stop generating further tokens.
+	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
 	// The temperature value that controls randomness in the model's responses.
 	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
 	// The top-p sampling parameter that controls the diversity of the model's responses.
@@ -4930,6 +5504,11 @@ func (o EvaluatorInferenceConfigurationOutput) MaxTokens() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EvaluatorInferenceConfiguration) *int { return v.MaxTokens }).(pulumi.IntPtrOutput)
 }
 
+// The sequences that make the model stop generating further tokens.
+func (o EvaluatorInferenceConfigurationOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EvaluatorInferenceConfiguration) []string { return v.StopSequences }).(pulumi.StringArrayOutput)
+}
+
 // The temperature value that controls randomness in the model's responses.
 func (o EvaluatorInferenceConfigurationOutput) Temperature() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EvaluatorInferenceConfiguration) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
@@ -4972,6 +5551,16 @@ func (o EvaluatorInferenceConfigurationPtrOutput) MaxTokens() pulumi.IntPtrOutpu
 		}
 		return v.MaxTokens
 	}).(pulumi.IntPtrOutput)
+}
+
+// The sequences that make the model stop generating further tokens.
+func (o EvaluatorInferenceConfigurationPtrOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EvaluatorInferenceConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StopSequences
+	}).(pulumi.StringArrayOutput)
 }
 
 // The temperature value that controls randomness in the model's responses.
@@ -5813,7 +6402,9 @@ func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) TopP() pulumi.Float
 // The rating scale that defines how evaluators should score agent performance.
 type EvaluatorRatingScale struct {
 	Categorical []EvaluatorCategoricalScaleDefinition `pulumi:"categorical"`
-	Numerical   []EvaluatorNumericalScaleDefinition   `pulumi:"numerical"`
+	// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+	MultiDimensional []EvaluatorEvaluationDimension      `pulumi:"multiDimensional"`
+	Numerical        []EvaluatorNumericalScaleDefinition `pulumi:"numerical"`
 }
 
 // EvaluatorRatingScaleInput is an input type that accepts EvaluatorRatingScaleArgs and EvaluatorRatingScaleOutput values.
@@ -5830,7 +6421,9 @@ type EvaluatorRatingScaleInput interface {
 // The rating scale that defines how evaluators should score agent performance.
 type EvaluatorRatingScaleArgs struct {
 	Categorical EvaluatorCategoricalScaleDefinitionArrayInput `pulumi:"categorical"`
-	Numerical   EvaluatorNumericalScaleDefinitionArrayInput   `pulumi:"numerical"`
+	// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+	MultiDimensional EvaluatorEvaluationDimensionArrayInput      `pulumi:"multiDimensional"`
+	Numerical        EvaluatorNumericalScaleDefinitionArrayInput `pulumi:"numerical"`
 }
 
 func (EvaluatorRatingScaleArgs) ElementType() reflect.Type {
@@ -5915,6 +6508,11 @@ func (o EvaluatorRatingScaleOutput) Categorical() EvaluatorCategoricalScaleDefin
 	return o.ApplyT(func(v EvaluatorRatingScale) []EvaluatorCategoricalScaleDefinition { return v.Categorical }).(EvaluatorCategoricalScaleDefinitionArrayOutput)
 }
 
+// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+func (o EvaluatorRatingScaleOutput) MultiDimensional() EvaluatorEvaluationDimensionArrayOutput {
+	return o.ApplyT(func(v EvaluatorRatingScale) []EvaluatorEvaluationDimension { return v.MultiDimensional }).(EvaluatorEvaluationDimensionArrayOutput)
+}
+
 func (o EvaluatorRatingScaleOutput) Numerical() EvaluatorNumericalScaleDefinitionArrayOutput {
 	return o.ApplyT(func(v EvaluatorRatingScale) []EvaluatorNumericalScaleDefinition { return v.Numerical }).(EvaluatorNumericalScaleDefinitionArrayOutput)
 }
@@ -5950,6 +6548,16 @@ func (o EvaluatorRatingScalePtrOutput) Categorical() EvaluatorCategoricalScaleDe
 		}
 		return v.Categorical
 	}).(EvaluatorCategoricalScaleDefinitionArrayOutput)
+}
+
+// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+func (o EvaluatorRatingScalePtrOutput) MultiDimensional() EvaluatorEvaluationDimensionArrayOutput {
+	return o.ApplyT(func(v *EvaluatorRatingScale) []EvaluatorEvaluationDimension {
+		if v == nil {
+			return nil
+		}
+		return v.MultiDimensional
+	}).(EvaluatorEvaluationDimensionArrayOutput)
 }
 
 func (o EvaluatorRatingScalePtrOutput) Numerical() EvaluatorNumericalScaleDefinitionArrayOutput {
@@ -18044,11 +18652,11 @@ func (o HarnessAgentCoreMemoryConfigurationPtrOutput) RetrievalConfig() HarnessA
 }
 
 type HarnessAgentCoreMemoryRetrievalConfig struct {
-	// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
-	RelevanceScore interface{} `pulumi:"relevanceScore"`
-	StrategyId     *string     `pulumi:"strategyId"`
-	// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
-	TopK interface{} `pulumi:"topK"`
+	// Minimum relevance score for retrieved memories.
+	RelevanceScore *float64 `pulumi:"relevanceScore"`
+	StrategyId     *string  `pulumi:"strategyId"`
+	// Maximum number of memory records to retrieve.
+	TopK *int `pulumi:"topK"`
 }
 
 // HarnessAgentCoreMemoryRetrievalConfigInput is an input type that accepts HarnessAgentCoreMemoryRetrievalConfigArgs and HarnessAgentCoreMemoryRetrievalConfigOutput values.
@@ -18063,11 +18671,11 @@ type HarnessAgentCoreMemoryRetrievalConfigInput interface {
 }
 
 type HarnessAgentCoreMemoryRetrievalConfigArgs struct {
-	// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
-	RelevanceScore pulumi.Input          `pulumi:"relevanceScore"`
-	StrategyId     pulumi.StringPtrInput `pulumi:"strategyId"`
-	// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
-	TopK pulumi.Input `pulumi:"topK"`
+	// Minimum relevance score for retrieved memories.
+	RelevanceScore pulumi.Float64PtrInput `pulumi:"relevanceScore"`
+	StrategyId     pulumi.StringPtrInput  `pulumi:"strategyId"`
+	// Maximum number of memory records to retrieve.
+	TopK pulumi.IntPtrInput `pulumi:"topK"`
 }
 
 func (HarnessAgentCoreMemoryRetrievalConfigArgs) ElementType() reflect.Type {
@@ -18121,18 +18729,18 @@ func (o HarnessAgentCoreMemoryRetrievalConfigOutput) ToHarnessAgentCoreMemoryRet
 	return o
 }
 
-// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
-func (o HarnessAgentCoreMemoryRetrievalConfigOutput) RelevanceScore() pulumi.AnyOutput {
-	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) interface{} { return v.RelevanceScore }).(pulumi.AnyOutput)
+// Minimum relevance score for retrieved memories.
+func (o HarnessAgentCoreMemoryRetrievalConfigOutput) RelevanceScore() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) *float64 { return v.RelevanceScore }).(pulumi.Float64PtrOutput)
 }
 
 func (o HarnessAgentCoreMemoryRetrievalConfigOutput) StrategyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) *string { return v.StrategyId }).(pulumi.StringPtrOutput)
 }
 
-// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
-func (o HarnessAgentCoreMemoryRetrievalConfigOutput) TopK() pulumi.AnyOutput {
-	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) interface{} { return v.TopK }).(pulumi.AnyOutput)
+// Maximum number of memory records to retrieve.
+func (o HarnessAgentCoreMemoryRetrievalConfigOutput) TopK() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) *int { return v.TopK }).(pulumi.IntPtrOutput)
 }
 
 type HarnessAgentCoreMemoryRetrievalConfigMapOutput struct{ *pulumi.OutputState }
@@ -19396,6 +20004,8 @@ func (o HarnessCustomClaimValidationTypeArrayOutput) Index(i pulumi.IntInput) Ha
 }
 
 type HarnessCustomJwtAuthorizerConfiguration struct {
+	// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+	AdvertisedScopeMapping   map[string]string                  `pulumi:"advertisedScopeMapping"`
 	AllowedAudience          []string                           `pulumi:"allowedAudience"`
 	AllowedClients           []string                           `pulumi:"allowedClients"`
 	AllowedScopes            []string                           `pulumi:"allowedScopes"`
@@ -19417,6 +20027,8 @@ type HarnessCustomJwtAuthorizerConfigurationInput interface {
 }
 
 type HarnessCustomJwtAuthorizerConfigurationArgs struct {
+	// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+	AdvertisedScopeMapping   pulumi.StringMapInput                      `pulumi:"advertisedScopeMapping"`
 	AllowedAudience          pulumi.StringArrayInput                    `pulumi:"allowedAudience"`
 	AllowedClients           pulumi.StringArrayInput                    `pulumi:"allowedClients"`
 	AllowedScopes            pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
@@ -19503,6 +20115,11 @@ func (o HarnessCustomJwtAuthorizerConfigurationOutput) ToHarnessCustomJwtAuthori
 	}).(HarnessCustomJwtAuthorizerConfigurationPtrOutput)
 }
 
+// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+func (o HarnessCustomJwtAuthorizerConfigurationOutput) AdvertisedScopeMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v HarnessCustomJwtAuthorizerConfiguration) map[string]string { return v.AdvertisedScopeMapping }).(pulumi.StringMapOutput)
+}
+
 func (o HarnessCustomJwtAuthorizerConfigurationOutput) AllowedAudience() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HarnessCustomJwtAuthorizerConfiguration) []string { return v.AllowedAudience }).(pulumi.StringArrayOutput)
 }
@@ -19557,6 +20174,16 @@ func (o HarnessCustomJwtAuthorizerConfigurationPtrOutput) Elem() HarnessCustomJw
 		var ret HarnessCustomJwtAuthorizerConfiguration
 		return ret
 	}).(HarnessCustomJwtAuthorizerConfigurationOutput)
+}
+
+// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+func (o HarnessCustomJwtAuthorizerConfigurationPtrOutput) AdvertisedScopeMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HarnessCustomJwtAuthorizerConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertisedScopeMapping
+	}).(pulumi.StringMapOutput)
 }
 
 func (o HarnessCustomJwtAuthorizerConfigurationPtrOutput) AllowedAudience() pulumi.StringArrayOutput {
@@ -20439,12 +21066,14 @@ func (o HarnessGatewayOutboundAuthPtrOutput) Oauth() HarnessOAuthCredentialProvi
 }
 
 type HarnessGeminiModelConfig struct {
-	ApiKeyArn   string   `pulumi:"apiKeyArn"`
-	MaxTokens   *int     `pulumi:"maxTokens"`
-	ModelId     string   `pulumi:"modelId"`
-	Temperature *float64 `pulumi:"temperature"`
-	TopK        *int     `pulumi:"topK"`
-	TopP        *float64 `pulumi:"topP"`
+	// Provider-specific parameters passed through to the Gemini model provider unchanged.
+	AdditionalParams interface{} `pulumi:"additionalParams"`
+	ApiKeyArn        string      `pulumi:"apiKeyArn"`
+	MaxTokens        *int        `pulumi:"maxTokens"`
+	ModelId          string      `pulumi:"modelId"`
+	Temperature      *float64    `pulumi:"temperature"`
+	TopK             *int        `pulumi:"topK"`
+	TopP             *float64    `pulumi:"topP"`
 }
 
 // HarnessGeminiModelConfigInput is an input type that accepts HarnessGeminiModelConfigArgs and HarnessGeminiModelConfigOutput values.
@@ -20459,12 +21088,14 @@ type HarnessGeminiModelConfigInput interface {
 }
 
 type HarnessGeminiModelConfigArgs struct {
-	ApiKeyArn   pulumi.StringInput     `pulumi:"apiKeyArn"`
-	MaxTokens   pulumi.IntPtrInput     `pulumi:"maxTokens"`
-	ModelId     pulumi.StringInput     `pulumi:"modelId"`
-	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
-	TopK        pulumi.IntPtrInput     `pulumi:"topK"`
-	TopP        pulumi.Float64PtrInput `pulumi:"topP"`
+	// Provider-specific parameters passed through to the Gemini model provider unchanged.
+	AdditionalParams pulumi.Input           `pulumi:"additionalParams"`
+	ApiKeyArn        pulumi.StringInput     `pulumi:"apiKeyArn"`
+	MaxTokens        pulumi.IntPtrInput     `pulumi:"maxTokens"`
+	ModelId          pulumi.StringInput     `pulumi:"modelId"`
+	Temperature      pulumi.Float64PtrInput `pulumi:"temperature"`
+	TopK             pulumi.IntPtrInput     `pulumi:"topK"`
+	TopP             pulumi.Float64PtrInput `pulumi:"topP"`
 }
 
 func (HarnessGeminiModelConfigArgs) ElementType() reflect.Type {
@@ -20544,6 +21175,11 @@ func (o HarnessGeminiModelConfigOutput) ToHarnessGeminiModelConfigPtrOutputWithC
 	}).(HarnessGeminiModelConfigPtrOutput)
 }
 
+// Provider-specific parameters passed through to the Gemini model provider unchanged.
+func (o HarnessGeminiModelConfigOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v HarnessGeminiModelConfig) interface{} { return v.AdditionalParams }).(pulumi.AnyOutput)
+}
+
 func (o HarnessGeminiModelConfigOutput) ApiKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v HarnessGeminiModelConfig) string { return v.ApiKeyArn }).(pulumi.StringOutput)
 }
@@ -20590,6 +21226,16 @@ func (o HarnessGeminiModelConfigPtrOutput) Elem() HarnessGeminiModelConfigOutput
 		var ret HarnessGeminiModelConfig
 		return ret
 	}).(HarnessGeminiModelConfigOutput)
+}
+
+// Provider-specific parameters passed through to the Gemini model provider unchanged.
+func (o HarnessGeminiModelConfigPtrOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v *HarnessGeminiModelConfig) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalParams
+	}).(pulumi.AnyOutput)
 }
 
 func (o HarnessGeminiModelConfigPtrOutput) ApiKeyArn() pulumi.StringPtrOutput {
@@ -22961,13 +23607,15 @@ func (o HarnessOAuthCredentialProviderPtrOutput) Scopes() pulumi.StringArrayOutp
 
 type HarnessOpenAiModelConfig struct {
 	// Provider-specific parameters passed through to the model provider unchanged.
-	AdditionalParams interface{}                        `pulumi:"additionalParams"`
-	ApiFormat        *HarnessOpenAiModelConfigApiFormat `pulumi:"apiFormat"`
-	ApiKeyArn        string                             `pulumi:"apiKeyArn"`
-	MaxTokens        *int                               `pulumi:"maxTokens"`
-	ModelId          string                             `pulumi:"modelId"`
-	Temperature      *float64                           `pulumi:"temperature"`
-	TopP             *float64                           `pulumi:"topP"`
+	AdditionalParams interface{} `pulumi:"additionalParams"`
+	// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+	ApiBase     *string                            `pulumi:"apiBase"`
+	ApiFormat   *HarnessOpenAiModelConfigApiFormat `pulumi:"apiFormat"`
+	ApiKeyArn   string                             `pulumi:"apiKeyArn"`
+	MaxTokens   *int                               `pulumi:"maxTokens"`
+	ModelId     string                             `pulumi:"modelId"`
+	Temperature *float64                           `pulumi:"temperature"`
+	TopP        *float64                           `pulumi:"topP"`
 }
 
 // HarnessOpenAiModelConfigInput is an input type that accepts HarnessOpenAiModelConfigArgs and HarnessOpenAiModelConfigOutput values.
@@ -22983,13 +23631,15 @@ type HarnessOpenAiModelConfigInput interface {
 
 type HarnessOpenAiModelConfigArgs struct {
 	// Provider-specific parameters passed through to the model provider unchanged.
-	AdditionalParams pulumi.Input                              `pulumi:"additionalParams"`
-	ApiFormat        HarnessOpenAiModelConfigApiFormatPtrInput `pulumi:"apiFormat"`
-	ApiKeyArn        pulumi.StringInput                        `pulumi:"apiKeyArn"`
-	MaxTokens        pulumi.IntPtrInput                        `pulumi:"maxTokens"`
-	ModelId          pulumi.StringInput                        `pulumi:"modelId"`
-	Temperature      pulumi.Float64PtrInput                    `pulumi:"temperature"`
-	TopP             pulumi.Float64PtrInput                    `pulumi:"topP"`
+	AdditionalParams pulumi.Input `pulumi:"additionalParams"`
+	// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+	ApiBase     pulumi.StringPtrInput                     `pulumi:"apiBase"`
+	ApiFormat   HarnessOpenAiModelConfigApiFormatPtrInput `pulumi:"apiFormat"`
+	ApiKeyArn   pulumi.StringInput                        `pulumi:"apiKeyArn"`
+	MaxTokens   pulumi.IntPtrInput                        `pulumi:"maxTokens"`
+	ModelId     pulumi.StringInput                        `pulumi:"modelId"`
+	Temperature pulumi.Float64PtrInput                    `pulumi:"temperature"`
+	TopP        pulumi.Float64PtrInput                    `pulumi:"topP"`
 }
 
 func (HarnessOpenAiModelConfigArgs) ElementType() reflect.Type {
@@ -23074,6 +23724,11 @@ func (o HarnessOpenAiModelConfigOutput) AdditionalParams() pulumi.AnyOutput {
 	return o.ApplyT(func(v HarnessOpenAiModelConfig) interface{} { return v.AdditionalParams }).(pulumi.AnyOutput)
 }
 
+// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+func (o HarnessOpenAiModelConfigOutput) ApiBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessOpenAiModelConfig) *string { return v.ApiBase }).(pulumi.StringPtrOutput)
+}
+
 func (o HarnessOpenAiModelConfigOutput) ApiFormat() HarnessOpenAiModelConfigApiFormatPtrOutput {
 	return o.ApplyT(func(v HarnessOpenAiModelConfig) *HarnessOpenAiModelConfigApiFormat { return v.ApiFormat }).(HarnessOpenAiModelConfigApiFormatPtrOutput)
 }
@@ -23130,6 +23785,16 @@ func (o HarnessOpenAiModelConfigPtrOutput) AdditionalParams() pulumi.AnyOutput {
 		}
 		return v.AdditionalParams
 	}).(pulumi.AnyOutput)
+}
+
+// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+func (o HarnessOpenAiModelConfigPtrOutput) ApiBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessOpenAiModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiBase
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o HarnessOpenAiModelConfigPtrOutput) ApiFormat() HarnessOpenAiModelConfigApiFormatPtrOutput {
@@ -26240,12 +26905,14 @@ func (o MemoryCustomConfigurationInputPtrOutput) UserPreferenceOverride() Memory
 type MemoryCustomMemoryStrategy struct {
 	Configuration *MemoryCustomConfigurationInput `pulumi:"configuration"`
 	// Creation timestamp of the memory strategy
-	CreatedAt          *string             `pulumi:"createdAt"`
-	Description        *string             `pulumi:"description"`
-	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
-	Name               string              `pulumi:"name"`
-	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
-	Namespaces         []string            `pulumi:"namespaces"`
+	CreatedAt                 *string                          `pulumi:"createdAt"`
+	Description               *string                          `pulumi:"description"`
+	MemoryRecordSchema        *MemoryRecordSchema              `pulumi:"memoryRecordSchema"`
+	Name                      string                           `pulumi:"name"`
+	NamespaceTemplates        []string                         `pulumi:"namespaceTemplates"`
+	Namespaces                []string                         `pulumi:"namespaces"`
+	RecordExpiryDurationDays  *int                             `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification *MemoryRecordExpirySpecification `pulumi:"recordExpirySpecification"`
 	// Status of the memory strategy
 	Status *MemoryCustomMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -26270,12 +26937,14 @@ type MemoryCustomMemoryStrategyInput interface {
 type MemoryCustomMemoryStrategyArgs struct {
 	Configuration MemoryCustomConfigurationInputPtrInput `pulumi:"configuration"`
 	// Creation timestamp of the memory strategy
-	CreatedAt          pulumi.StringPtrInput      `pulumi:"createdAt"`
-	Description        pulumi.StringPtrInput      `pulumi:"description"`
-	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
-	Name               pulumi.StringInput         `pulumi:"name"`
-	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
+	CreatedAt                 pulumi.StringPtrInput                   `pulumi:"createdAt"`
+	Description               pulumi.StringPtrInput                   `pulumi:"description"`
+	MemoryRecordSchema        MemoryRecordSchemaPtrInput              `pulumi:"memoryRecordSchema"`
+	Name                      pulumi.StringInput                      `pulumi:"name"`
+	NamespaceTemplates        pulumi.StringArrayInput                 `pulumi:"namespaceTemplates"`
+	Namespaces                pulumi.StringArrayInput                 `pulumi:"namespaces"`
+	RecordExpiryDurationDays  pulumi.IntPtrInput                      `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification MemoryRecordExpirySpecificationPtrInput `pulumi:"recordExpirySpecification"`
 	// Status of the memory strategy
 	Status MemoryCustomMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -26392,6 +27061,16 @@ func (o MemoryCustomMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v MemoryCustomMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
 
+func (o MemoryCustomMemoryStrategyOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemoryCustomMemoryStrategy) *int { return v.RecordExpiryDurationDays }).(pulumi.IntPtrOutput)
+}
+
+func (o MemoryCustomMemoryStrategyOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v MemoryCustomMemoryStrategy) *MemoryRecordExpirySpecification {
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
+}
+
 // Status of the memory strategy
 func (o MemoryCustomMemoryStrategyOutput) Status() MemoryCustomMemoryStrategyStatusPtrOutput {
 	return o.ApplyT(func(v MemoryCustomMemoryStrategy) *MemoryCustomMemoryStrategyStatus { return v.Status }).(MemoryCustomMemoryStrategyStatusPtrOutput)
@@ -26500,6 +27179,24 @@ func (o MemoryCustomMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o MemoryCustomMemoryStrategyPtrOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemoryCustomMemoryStrategy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpiryDurationDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MemoryCustomMemoryStrategyPtrOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v *MemoryCustomMemoryStrategy) *MemoryRecordExpirySpecification {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
+}
+
 // Status of the memory strategy
 func (o MemoryCustomMemoryStrategyPtrOutput) Status() MemoryCustomMemoryStrategyStatusPtrOutput {
 	return o.ApplyT(func(v *MemoryCustomMemoryStrategy) *MemoryCustomMemoryStrategyStatus {
@@ -26542,13 +27239,15 @@ func (o MemoryCustomMemoryStrategyPtrOutput) UpdatedAt() pulumi.StringPtrOutput 
 
 type MemoryEpisodicMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt               *string                                     `pulumi:"createdAt"`
-	Description             *string                                     `pulumi:"description"`
-	MemoryRecordSchema      *MemoryRecordSchema                         `pulumi:"memoryRecordSchema"`
-	Name                    string                                      `pulumi:"name"`
-	NamespaceTemplates      []string                                    `pulumi:"namespaceTemplates"`
-	Namespaces              []string                                    `pulumi:"namespaces"`
-	ReflectionConfiguration *MemoryEpisodicReflectionConfigurationInput `pulumi:"reflectionConfiguration"`
+	CreatedAt                 *string                                     `pulumi:"createdAt"`
+	Description               *string                                     `pulumi:"description"`
+	MemoryRecordSchema        *MemoryRecordSchema                         `pulumi:"memoryRecordSchema"`
+	Name                      string                                      `pulumi:"name"`
+	NamespaceTemplates        []string                                    `pulumi:"namespaceTemplates"`
+	Namespaces                []string                                    `pulumi:"namespaces"`
+	RecordExpiryDurationDays  *int                                        `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification *MemoryRecordExpirySpecification            `pulumi:"recordExpirySpecification"`
+	ReflectionConfiguration   *MemoryEpisodicReflectionConfigurationInput `pulumi:"reflectionConfiguration"`
 	// Status of the memory strategy
 	Status *MemoryEpisodicMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -26572,13 +27271,15 @@ type MemoryEpisodicMemoryStrategyInput interface {
 
 type MemoryEpisodicMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt               pulumi.StringPtrInput                              `pulumi:"createdAt"`
-	Description             pulumi.StringPtrInput                              `pulumi:"description"`
-	MemoryRecordSchema      MemoryRecordSchemaPtrInput                         `pulumi:"memoryRecordSchema"`
-	Name                    pulumi.StringInput                                 `pulumi:"name"`
-	NamespaceTemplates      pulumi.StringArrayInput                            `pulumi:"namespaceTemplates"`
-	Namespaces              pulumi.StringArrayInput                            `pulumi:"namespaces"`
-	ReflectionConfiguration MemoryEpisodicReflectionConfigurationInputPtrInput `pulumi:"reflectionConfiguration"`
+	CreatedAt                 pulumi.StringPtrInput                              `pulumi:"createdAt"`
+	Description               pulumi.StringPtrInput                              `pulumi:"description"`
+	MemoryRecordSchema        MemoryRecordSchemaPtrInput                         `pulumi:"memoryRecordSchema"`
+	Name                      pulumi.StringInput                                 `pulumi:"name"`
+	NamespaceTemplates        pulumi.StringArrayInput                            `pulumi:"namespaceTemplates"`
+	Namespaces                pulumi.StringArrayInput                            `pulumi:"namespaces"`
+	RecordExpiryDurationDays  pulumi.IntPtrInput                                 `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification MemoryRecordExpirySpecificationPtrInput            `pulumi:"recordExpirySpecification"`
+	ReflectionConfiguration   MemoryEpisodicReflectionConfigurationInputPtrInput `pulumi:"reflectionConfiguration"`
 	// Status of the memory strategy
 	Status MemoryEpisodicMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -26691,6 +27392,16 @@ func (o MemoryEpisodicMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
 
+func (o MemoryEpisodicMemoryStrategyOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *int { return v.RecordExpiryDurationDays }).(pulumi.IntPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *MemoryRecordExpirySpecification {
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
+}
+
 func (o MemoryEpisodicMemoryStrategyOutput) ReflectionConfiguration() MemoryEpisodicReflectionConfigurationInputPtrOutput {
 	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *MemoryEpisodicReflectionConfigurationInput {
 		return v.ReflectionConfiguration
@@ -26794,6 +27505,24 @@ func (o MemoryEpisodicMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOu
 		}
 		return v.Namespaces
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpiryDurationDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *MemoryRecordExpirySpecification {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
 }
 
 func (o MemoryEpisodicMemoryStrategyPtrOutput) ReflectionConfiguration() MemoryEpisodicReflectionConfigurationInputPtrOutput {
@@ -29011,6 +29740,142 @@ func (o MemoryNumberValidationPtrOutput) MinValue() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Specifies the record expiry (LTM TTL) for a strategy. Provide RecordExpiryDurationDays to configure the duration after which records expire. Omit the specification entirely to leave records without an expiry on create, or to clear a previously configured expiry on update (the handler derives the removal from the previous and desired state).
+type MemoryRecordExpirySpecification struct {
+	RecordExpiryDurationDays *int `pulumi:"recordExpiryDurationDays"`
+}
+
+// MemoryRecordExpirySpecificationInput is an input type that accepts MemoryRecordExpirySpecificationArgs and MemoryRecordExpirySpecificationOutput values.
+// You can construct a concrete instance of `MemoryRecordExpirySpecificationInput` via:
+//
+//	MemoryRecordExpirySpecificationArgs{...}
+type MemoryRecordExpirySpecificationInput interface {
+	pulumi.Input
+
+	ToMemoryRecordExpirySpecificationOutput() MemoryRecordExpirySpecificationOutput
+	ToMemoryRecordExpirySpecificationOutputWithContext(context.Context) MemoryRecordExpirySpecificationOutput
+}
+
+// Specifies the record expiry (LTM TTL) for a strategy. Provide RecordExpiryDurationDays to configure the duration after which records expire. Omit the specification entirely to leave records without an expiry on create, or to clear a previously configured expiry on update (the handler derives the removal from the previous and desired state).
+type MemoryRecordExpirySpecificationArgs struct {
+	RecordExpiryDurationDays pulumi.IntPtrInput `pulumi:"recordExpiryDurationDays"`
+}
+
+func (MemoryRecordExpirySpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryRecordExpirySpecification)(nil)).Elem()
+}
+
+func (i MemoryRecordExpirySpecificationArgs) ToMemoryRecordExpirySpecificationOutput() MemoryRecordExpirySpecificationOutput {
+	return i.ToMemoryRecordExpirySpecificationOutputWithContext(context.Background())
+}
+
+func (i MemoryRecordExpirySpecificationArgs) ToMemoryRecordExpirySpecificationOutputWithContext(ctx context.Context) MemoryRecordExpirySpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryRecordExpirySpecificationOutput)
+}
+
+func (i MemoryRecordExpirySpecificationArgs) ToMemoryRecordExpirySpecificationPtrOutput() MemoryRecordExpirySpecificationPtrOutput {
+	return i.ToMemoryRecordExpirySpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryRecordExpirySpecificationArgs) ToMemoryRecordExpirySpecificationPtrOutputWithContext(ctx context.Context) MemoryRecordExpirySpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryRecordExpirySpecificationOutput).ToMemoryRecordExpirySpecificationPtrOutputWithContext(ctx)
+}
+
+// MemoryRecordExpirySpecificationPtrInput is an input type that accepts MemoryRecordExpirySpecificationArgs, MemoryRecordExpirySpecificationPtr and MemoryRecordExpirySpecificationPtrOutput values.
+// You can construct a concrete instance of `MemoryRecordExpirySpecificationPtrInput` via:
+//
+//	        MemoryRecordExpirySpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryRecordExpirySpecificationPtrInput interface {
+	pulumi.Input
+
+	ToMemoryRecordExpirySpecificationPtrOutput() MemoryRecordExpirySpecificationPtrOutput
+	ToMemoryRecordExpirySpecificationPtrOutputWithContext(context.Context) MemoryRecordExpirySpecificationPtrOutput
+}
+
+type memoryRecordExpirySpecificationPtrType MemoryRecordExpirySpecificationArgs
+
+func MemoryRecordExpirySpecificationPtr(v *MemoryRecordExpirySpecificationArgs) MemoryRecordExpirySpecificationPtrInput {
+	return (*memoryRecordExpirySpecificationPtrType)(v)
+}
+
+func (*memoryRecordExpirySpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryRecordExpirySpecification)(nil)).Elem()
+}
+
+func (i *memoryRecordExpirySpecificationPtrType) ToMemoryRecordExpirySpecificationPtrOutput() MemoryRecordExpirySpecificationPtrOutput {
+	return i.ToMemoryRecordExpirySpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryRecordExpirySpecificationPtrType) ToMemoryRecordExpirySpecificationPtrOutputWithContext(ctx context.Context) MemoryRecordExpirySpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryRecordExpirySpecificationPtrOutput)
+}
+
+// Specifies the record expiry (LTM TTL) for a strategy. Provide RecordExpiryDurationDays to configure the duration after which records expire. Omit the specification entirely to leave records without an expiry on create, or to clear a previously configured expiry on update (the handler derives the removal from the previous and desired state).
+type MemoryRecordExpirySpecificationOutput struct{ *pulumi.OutputState }
+
+func (MemoryRecordExpirySpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryRecordExpirySpecification)(nil)).Elem()
+}
+
+func (o MemoryRecordExpirySpecificationOutput) ToMemoryRecordExpirySpecificationOutput() MemoryRecordExpirySpecificationOutput {
+	return o
+}
+
+func (o MemoryRecordExpirySpecificationOutput) ToMemoryRecordExpirySpecificationOutputWithContext(ctx context.Context) MemoryRecordExpirySpecificationOutput {
+	return o
+}
+
+func (o MemoryRecordExpirySpecificationOutput) ToMemoryRecordExpirySpecificationPtrOutput() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ToMemoryRecordExpirySpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryRecordExpirySpecificationOutput) ToMemoryRecordExpirySpecificationPtrOutputWithContext(ctx context.Context) MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryRecordExpirySpecification) *MemoryRecordExpirySpecification {
+		return &v
+	}).(MemoryRecordExpirySpecificationPtrOutput)
+}
+
+func (o MemoryRecordExpirySpecificationOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemoryRecordExpirySpecification) *int { return v.RecordExpiryDurationDays }).(pulumi.IntPtrOutput)
+}
+
+type MemoryRecordExpirySpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryRecordExpirySpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryRecordExpirySpecification)(nil)).Elem()
+}
+
+func (o MemoryRecordExpirySpecificationPtrOutput) ToMemoryRecordExpirySpecificationPtrOutput() MemoryRecordExpirySpecificationPtrOutput {
+	return o
+}
+
+func (o MemoryRecordExpirySpecificationPtrOutput) ToMemoryRecordExpirySpecificationPtrOutputWithContext(ctx context.Context) MemoryRecordExpirySpecificationPtrOutput {
+	return o
+}
+
+func (o MemoryRecordExpirySpecificationPtrOutput) Elem() MemoryRecordExpirySpecificationOutput {
+	return o.ApplyT(func(v *MemoryRecordExpirySpecification) MemoryRecordExpirySpecification {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryRecordExpirySpecification
+		return ret
+	}).(MemoryRecordExpirySpecificationOutput)
+}
+
+func (o MemoryRecordExpirySpecificationPtrOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemoryRecordExpirySpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpiryDurationDays
+	}).(pulumi.IntPtrOutput)
+}
+
 type MemoryRecordSchema struct {
 	MetadataSchema []MemoryMetadataSchemaEntry `pulumi:"metadataSchema"`
 }
@@ -29311,12 +30176,14 @@ func (o MemorySelfManagedConfigurationPtrOutput) TriggerConditions() MemoryTrigg
 
 type MemorySemanticMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          *string             `pulumi:"createdAt"`
-	Description        *string             `pulumi:"description"`
-	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
-	Name               string              `pulumi:"name"`
-	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
-	Namespaces         []string            `pulumi:"namespaces"`
+	CreatedAt                 *string                          `pulumi:"createdAt"`
+	Description               *string                          `pulumi:"description"`
+	MemoryRecordSchema        *MemoryRecordSchema              `pulumi:"memoryRecordSchema"`
+	Name                      string                           `pulumi:"name"`
+	NamespaceTemplates        []string                         `pulumi:"namespaceTemplates"`
+	Namespaces                []string                         `pulumi:"namespaces"`
+	RecordExpiryDurationDays  *int                             `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification *MemoryRecordExpirySpecification `pulumi:"recordExpirySpecification"`
 	// Status of the memory strategy
 	Status *MemorySemanticMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -29340,12 +30207,14 @@ type MemorySemanticMemoryStrategyInput interface {
 
 type MemorySemanticMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          pulumi.StringPtrInput      `pulumi:"createdAt"`
-	Description        pulumi.StringPtrInput      `pulumi:"description"`
-	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
-	Name               pulumi.StringInput         `pulumi:"name"`
-	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
+	CreatedAt                 pulumi.StringPtrInput                   `pulumi:"createdAt"`
+	Description               pulumi.StringPtrInput                   `pulumi:"description"`
+	MemoryRecordSchema        MemoryRecordSchemaPtrInput              `pulumi:"memoryRecordSchema"`
+	Name                      pulumi.StringInput                      `pulumi:"name"`
+	NamespaceTemplates        pulumi.StringArrayInput                 `pulumi:"namespaceTemplates"`
+	Namespaces                pulumi.StringArrayInput                 `pulumi:"namespaces"`
+	RecordExpiryDurationDays  pulumi.IntPtrInput                      `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification MemoryRecordExpirySpecificationPtrInput `pulumi:"recordExpirySpecification"`
 	// Status of the memory strategy
 	Status MemorySemanticMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -29458,6 +30327,16 @@ func (o MemorySemanticMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v MemorySemanticMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
 
+func (o MemorySemanticMemoryStrategyOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemorySemanticMemoryStrategy) *int { return v.RecordExpiryDurationDays }).(pulumi.IntPtrOutput)
+}
+
+func (o MemorySemanticMemoryStrategyOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v MemorySemanticMemoryStrategy) *MemoryRecordExpirySpecification {
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
+}
+
 // Status of the memory strategy
 func (o MemorySemanticMemoryStrategyOutput) Status() MemorySemanticMemoryStrategyStatusPtrOutput {
 	return o.ApplyT(func(v MemorySemanticMemoryStrategy) *MemorySemanticMemoryStrategyStatus { return v.Status }).(MemorySemanticMemoryStrategyStatusPtrOutput)
@@ -29555,6 +30434,24 @@ func (o MemorySemanticMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOu
 		}
 		return v.Namespaces
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o MemorySemanticMemoryStrategyPtrOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemorySemanticMemoryStrategy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpiryDurationDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MemorySemanticMemoryStrategyPtrOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v *MemorySemanticMemoryStrategy) *MemoryRecordExpirySpecification {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
 }
 
 // Status of the memory strategy
@@ -30673,12 +31570,14 @@ func (o MemoryStringValidationPtrOutput) AllowedValues() pulumi.StringArrayOutpu
 
 type MemorySummaryMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          *string             `pulumi:"createdAt"`
-	Description        *string             `pulumi:"description"`
-	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
-	Name               string              `pulumi:"name"`
-	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
-	Namespaces         []string            `pulumi:"namespaces"`
+	CreatedAt                 *string                          `pulumi:"createdAt"`
+	Description               *string                          `pulumi:"description"`
+	MemoryRecordSchema        *MemoryRecordSchema              `pulumi:"memoryRecordSchema"`
+	Name                      string                           `pulumi:"name"`
+	NamespaceTemplates        []string                         `pulumi:"namespaceTemplates"`
+	Namespaces                []string                         `pulumi:"namespaces"`
+	RecordExpiryDurationDays  *int                             `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification *MemoryRecordExpirySpecification `pulumi:"recordExpirySpecification"`
 	// Status of the memory strategy
 	Status *MemorySummaryMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -30702,12 +31601,14 @@ type MemorySummaryMemoryStrategyInput interface {
 
 type MemorySummaryMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          pulumi.StringPtrInput      `pulumi:"createdAt"`
-	Description        pulumi.StringPtrInput      `pulumi:"description"`
-	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
-	Name               pulumi.StringInput         `pulumi:"name"`
-	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
+	CreatedAt                 pulumi.StringPtrInput                   `pulumi:"createdAt"`
+	Description               pulumi.StringPtrInput                   `pulumi:"description"`
+	MemoryRecordSchema        MemoryRecordSchemaPtrInput              `pulumi:"memoryRecordSchema"`
+	Name                      pulumi.StringInput                      `pulumi:"name"`
+	NamespaceTemplates        pulumi.StringArrayInput                 `pulumi:"namespaceTemplates"`
+	Namespaces                pulumi.StringArrayInput                 `pulumi:"namespaces"`
+	RecordExpiryDurationDays  pulumi.IntPtrInput                      `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification MemoryRecordExpirySpecificationPtrInput `pulumi:"recordExpirySpecification"`
 	// Status of the memory strategy
 	Status MemorySummaryMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -30820,6 +31721,16 @@ func (o MemorySummaryMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput
 	return o.ApplyT(func(v MemorySummaryMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
 
+func (o MemorySummaryMemoryStrategyOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemorySummaryMemoryStrategy) *int { return v.RecordExpiryDurationDays }).(pulumi.IntPtrOutput)
+}
+
+func (o MemorySummaryMemoryStrategyOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v MemorySummaryMemoryStrategy) *MemoryRecordExpirySpecification {
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
+}
+
 // Status of the memory strategy
 func (o MemorySummaryMemoryStrategyOutput) Status() MemorySummaryMemoryStrategyStatusPtrOutput {
 	return o.ApplyT(func(v MemorySummaryMemoryStrategy) *MemorySummaryMemoryStrategyStatus { return v.Status }).(MemorySummaryMemoryStrategyStatusPtrOutput)
@@ -30917,6 +31828,24 @@ func (o MemorySummaryMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOut
 		}
 		return v.Namespaces
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o MemorySummaryMemoryStrategyPtrOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemorySummaryMemoryStrategy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpiryDurationDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MemorySummaryMemoryStrategyPtrOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v *MemorySummaryMemoryStrategy) *MemoryRecordExpirySpecification {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
 }
 
 // Status of the memory strategy
@@ -31616,12 +32545,14 @@ func (o MemoryTriggerConditionInputArrayOutput) Index(i pulumi.IntInput) MemoryT
 
 type MemoryUserPreferenceMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          *string             `pulumi:"createdAt"`
-	Description        *string             `pulumi:"description"`
-	MemoryRecordSchema *MemoryRecordSchema `pulumi:"memoryRecordSchema"`
-	Name               string              `pulumi:"name"`
-	NamespaceTemplates []string            `pulumi:"namespaceTemplates"`
-	Namespaces         []string            `pulumi:"namespaces"`
+	CreatedAt                 *string                          `pulumi:"createdAt"`
+	Description               *string                          `pulumi:"description"`
+	MemoryRecordSchema        *MemoryRecordSchema              `pulumi:"memoryRecordSchema"`
+	Name                      string                           `pulumi:"name"`
+	NamespaceTemplates        []string                         `pulumi:"namespaceTemplates"`
+	Namespaces                []string                         `pulumi:"namespaces"`
+	RecordExpiryDurationDays  *int                             `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification *MemoryRecordExpirySpecification `pulumi:"recordExpirySpecification"`
 	// Status of the memory strategy
 	Status *MemoryUserPreferenceMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -31645,12 +32576,14 @@ type MemoryUserPreferenceMemoryStrategyInput interface {
 
 type MemoryUserPreferenceMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt          pulumi.StringPtrInput      `pulumi:"createdAt"`
-	Description        pulumi.StringPtrInput      `pulumi:"description"`
-	MemoryRecordSchema MemoryRecordSchemaPtrInput `pulumi:"memoryRecordSchema"`
-	Name               pulumi.StringInput         `pulumi:"name"`
-	NamespaceTemplates pulumi.StringArrayInput    `pulumi:"namespaceTemplates"`
-	Namespaces         pulumi.StringArrayInput    `pulumi:"namespaces"`
+	CreatedAt                 pulumi.StringPtrInput                   `pulumi:"createdAt"`
+	Description               pulumi.StringPtrInput                   `pulumi:"description"`
+	MemoryRecordSchema        MemoryRecordSchemaPtrInput              `pulumi:"memoryRecordSchema"`
+	Name                      pulumi.StringInput                      `pulumi:"name"`
+	NamespaceTemplates        pulumi.StringArrayInput                 `pulumi:"namespaceTemplates"`
+	Namespaces                pulumi.StringArrayInput                 `pulumi:"namespaces"`
+	RecordExpiryDurationDays  pulumi.IntPtrInput                      `pulumi:"recordExpiryDurationDays"`
+	RecordExpirySpecification MemoryRecordExpirySpecificationPtrInput `pulumi:"recordExpirySpecification"`
 	// Status of the memory strategy
 	Status MemoryUserPreferenceMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -31763,6 +32696,16 @@ func (o MemoryUserPreferenceMemoryStrategyOutput) Namespaces() pulumi.StringArra
 	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
 
+func (o MemoryUserPreferenceMemoryStrategyOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) *int { return v.RecordExpiryDurationDays }).(pulumi.IntPtrOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) *MemoryRecordExpirySpecification {
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
+}
+
 // Status of the memory strategy
 func (o MemoryUserPreferenceMemoryStrategyOutput) Status() MemoryUserPreferenceMemoryStrategyStatusPtrOutput {
 	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) *MemoryUserPreferenceMemoryStrategyStatus { return v.Status }).(MemoryUserPreferenceMemoryStrategyStatusPtrOutput)
@@ -31860,6 +32803,24 @@ func (o MemoryUserPreferenceMemoryStrategyPtrOutput) Namespaces() pulumi.StringA
 		}
 		return v.Namespaces
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyPtrOutput) RecordExpiryDurationDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemoryUserPreferenceMemoryStrategy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpiryDurationDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyPtrOutput) RecordExpirySpecification() MemoryRecordExpirySpecificationPtrOutput {
+	return o.ApplyT(func(v *MemoryUserPreferenceMemoryStrategy) *MemoryRecordExpirySpecification {
+		if v == nil {
+			return nil
+		}
+		return v.RecordExpirySpecification
+	}).(MemoryRecordExpirySpecificationPtrOutput)
 }
 
 // Status of the memory strategy
@@ -37360,7 +38321,7 @@ func (o OnlineEvaluationConfigDataSourceConfigPtrOutput) CloudWatchLogs() Online
 
 // The reference to an evaluator used in online evaluation configurations.
 type OnlineEvaluationConfigEvaluatorReference struct {
-	// The unique identifier of the evaluator.
+	// The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
 	EvaluatorId string `pulumi:"evaluatorId"`
 }
 
@@ -37377,7 +38338,7 @@ type OnlineEvaluationConfigEvaluatorReferenceInput interface {
 
 // The reference to an evaluator used in online evaluation configurations.
 type OnlineEvaluationConfigEvaluatorReferenceArgs struct {
-	// The unique identifier of the evaluator.
+	// The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
 	EvaluatorId pulumi.StringInput `pulumi:"evaluatorId"`
 }
 
@@ -37433,7 +38394,7 @@ func (o OnlineEvaluationConfigEvaluatorReferenceOutput) ToOnlineEvaluationConfig
 	return o
 }
 
-// The unique identifier of the evaluator.
+// The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
 func (o OnlineEvaluationConfigEvaluatorReferenceOutput) EvaluatorId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnlineEvaluationConfigEvaluatorReference) string { return v.EvaluatorId }).(pulumi.StringOutput)
 }
@@ -39780,257 +40741,306 @@ type PaymentCredentialProviderTag struct {
 	Value string `pulumi:"value"`
 }
 
-type PaymentManagerAuthorizerConfiguration struct {
-	CustomJwtAuthorizer PaymentManagerCustomJwtAuthorizerConfiguration `pulumi:"customJwtAuthorizer"`
+// The authorizer configuration for the payment manager
+type PaymentManagerAuthorizerConfiguration0Properties struct {
+	CustomJwtAuthorizer PaymentManagerCustomJwtAuthorizer `pulumi:"customJwtAuthorizer"`
 }
 
-// PaymentManagerAuthorizerConfigurationInput is an input type that accepts PaymentManagerAuthorizerConfigurationArgs and PaymentManagerAuthorizerConfigurationOutput values.
-// You can construct a concrete instance of `PaymentManagerAuthorizerConfigurationInput` via:
+// The authorizer configuration for the payment manager
+type PaymentManagerAuthorizerConfigurationProperties struct {
+	CustomJwtAuthorizer PaymentManagerCustomJwtAuthorizer `pulumi:"customJwtAuthorizer"`
+}
+
+// PaymentManagerAuthorizerConfigurationPropertiesInput is an input type that accepts PaymentManagerAuthorizerConfigurationPropertiesArgs and PaymentManagerAuthorizerConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `PaymentManagerAuthorizerConfigurationPropertiesInput` via:
 //
-//	PaymentManagerAuthorizerConfigurationArgs{...}
-type PaymentManagerAuthorizerConfigurationInput interface {
+//	PaymentManagerAuthorizerConfigurationPropertiesArgs{...}
+type PaymentManagerAuthorizerConfigurationPropertiesInput interface {
 	pulumi.Input
 
-	ToPaymentManagerAuthorizerConfigurationOutput() PaymentManagerAuthorizerConfigurationOutput
-	ToPaymentManagerAuthorizerConfigurationOutputWithContext(context.Context) PaymentManagerAuthorizerConfigurationOutput
+	ToPaymentManagerAuthorizerConfigurationPropertiesOutput() PaymentManagerAuthorizerConfigurationPropertiesOutput
+	ToPaymentManagerAuthorizerConfigurationPropertiesOutputWithContext(context.Context) PaymentManagerAuthorizerConfigurationPropertiesOutput
 }
 
-type PaymentManagerAuthorizerConfigurationArgs struct {
-	CustomJwtAuthorizer PaymentManagerCustomJwtAuthorizerConfigurationInput `pulumi:"customJwtAuthorizer"`
+// The authorizer configuration for the payment manager
+type PaymentManagerAuthorizerConfigurationPropertiesArgs struct {
+	CustomJwtAuthorizer PaymentManagerCustomJwtAuthorizerInput `pulumi:"customJwtAuthorizer"`
 }
 
-func (PaymentManagerAuthorizerConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerAuthorizerConfiguration)(nil)).Elem()
+func (PaymentManagerAuthorizerConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizerConfigurationProperties)(nil)).Elem()
 }
 
-func (i PaymentManagerAuthorizerConfigurationArgs) ToPaymentManagerAuthorizerConfigurationOutput() PaymentManagerAuthorizerConfigurationOutput {
-	return i.ToPaymentManagerAuthorizerConfigurationOutputWithContext(context.Background())
+func (i PaymentManagerAuthorizerConfigurationPropertiesArgs) ToPaymentManagerAuthorizerConfigurationPropertiesOutput() PaymentManagerAuthorizerConfigurationPropertiesOutput {
+	return i.ToPaymentManagerAuthorizerConfigurationPropertiesOutputWithContext(context.Background())
 }
 
-func (i PaymentManagerAuthorizerConfigurationArgs) ToPaymentManagerAuthorizerConfigurationOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizerConfigurationOutput)
+func (i PaymentManagerAuthorizerConfigurationPropertiesArgs) ToPaymentManagerAuthorizerConfigurationPropertiesOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizerConfigurationPropertiesOutput)
 }
 
-func (i PaymentManagerAuthorizerConfigurationArgs) ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput {
-	return i.ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(context.Background())
+func (i PaymentManagerAuthorizerConfigurationPropertiesArgs) ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutput() PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
+	return i.ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i PaymentManagerAuthorizerConfigurationArgs) ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizerConfigurationOutput).ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx)
+func (i PaymentManagerAuthorizerConfigurationPropertiesArgs) ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizerConfigurationPropertiesOutput).ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutputWithContext(ctx)
 }
 
-// PaymentManagerAuthorizerConfigurationPtrInput is an input type that accepts PaymentManagerAuthorizerConfigurationArgs, PaymentManagerAuthorizerConfigurationPtr and PaymentManagerAuthorizerConfigurationPtrOutput values.
-// You can construct a concrete instance of `PaymentManagerAuthorizerConfigurationPtrInput` via:
+// PaymentManagerAuthorizerConfigurationPropertiesPtrInput is an input type that accepts PaymentManagerAuthorizerConfigurationPropertiesArgs, PaymentManagerAuthorizerConfigurationPropertiesPtr and PaymentManagerAuthorizerConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `PaymentManagerAuthorizerConfigurationPropertiesPtrInput` via:
 //
-//	        PaymentManagerAuthorizerConfigurationArgs{...}
+//	        PaymentManagerAuthorizerConfigurationPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type PaymentManagerAuthorizerConfigurationPtrInput interface {
+type PaymentManagerAuthorizerConfigurationPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput
-	ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(context.Context) PaymentManagerAuthorizerConfigurationPtrOutput
+	ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutput() PaymentManagerAuthorizerConfigurationPropertiesPtrOutput
+	ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutputWithContext(context.Context) PaymentManagerAuthorizerConfigurationPropertiesPtrOutput
 }
 
-type paymentManagerAuthorizerConfigurationPtrType PaymentManagerAuthorizerConfigurationArgs
+type paymentManagerAuthorizerConfigurationPropertiesPtrType PaymentManagerAuthorizerConfigurationPropertiesArgs
 
-func PaymentManagerAuthorizerConfigurationPtr(v *PaymentManagerAuthorizerConfigurationArgs) PaymentManagerAuthorizerConfigurationPtrInput {
-	return (*paymentManagerAuthorizerConfigurationPtrType)(v)
+func PaymentManagerAuthorizerConfigurationPropertiesPtr(v *PaymentManagerAuthorizerConfigurationPropertiesArgs) PaymentManagerAuthorizerConfigurationPropertiesPtrInput {
+	return (*paymentManagerAuthorizerConfigurationPropertiesPtrType)(v)
 }
 
-func (*paymentManagerAuthorizerConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PaymentManagerAuthorizerConfiguration)(nil)).Elem()
+func (*paymentManagerAuthorizerConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerAuthorizerConfigurationProperties)(nil)).Elem()
 }
 
-func (i *paymentManagerAuthorizerConfigurationPtrType) ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput {
-	return i.ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(context.Background())
+func (i *paymentManagerAuthorizerConfigurationPropertiesPtrType) ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutput() PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
+	return i.ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *paymentManagerAuthorizerConfigurationPtrType) ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizerConfigurationPtrOutput)
+func (i *paymentManagerAuthorizerConfigurationPropertiesPtrType) ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizerConfigurationPropertiesPtrOutput)
 }
 
-type PaymentManagerAuthorizerConfigurationOutput struct{ *pulumi.OutputState }
+// The authorizer configuration for the payment manager
+type PaymentManagerAuthorizerConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
-func (PaymentManagerAuthorizerConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerAuthorizerConfiguration)(nil)).Elem()
+func (PaymentManagerAuthorizerConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizerConfigurationProperties)(nil)).Elem()
 }
 
-func (o PaymentManagerAuthorizerConfigurationOutput) ToPaymentManagerAuthorizerConfigurationOutput() PaymentManagerAuthorizerConfigurationOutput {
+func (o PaymentManagerAuthorizerConfigurationPropertiesOutput) ToPaymentManagerAuthorizerConfigurationPropertiesOutput() PaymentManagerAuthorizerConfigurationPropertiesOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizerConfigurationOutput) ToPaymentManagerAuthorizerConfigurationOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationOutput {
+func (o PaymentManagerAuthorizerConfigurationPropertiesOutput) ToPaymentManagerAuthorizerConfigurationPropertiesOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPropertiesOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizerConfigurationOutput) ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput {
-	return o.ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(context.Background())
+func (o PaymentManagerAuthorizerConfigurationPropertiesOutput) ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutput() PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
+	return o.ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o PaymentManagerAuthorizerConfigurationOutput) ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentManagerAuthorizerConfiguration) *PaymentManagerAuthorizerConfiguration {
+func (o PaymentManagerAuthorizerConfigurationPropertiesOutput) ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentManagerAuthorizerConfigurationProperties) *PaymentManagerAuthorizerConfigurationProperties {
 		return &v
-	}).(PaymentManagerAuthorizerConfigurationPtrOutput)
+	}).(PaymentManagerAuthorizerConfigurationPropertiesPtrOutput)
 }
 
-func (o PaymentManagerAuthorizerConfigurationOutput) CustomJwtAuthorizer() PaymentManagerCustomJwtAuthorizerConfigurationOutput {
-	return o.ApplyT(func(v PaymentManagerAuthorizerConfiguration) PaymentManagerCustomJwtAuthorizerConfiguration {
+func (o PaymentManagerAuthorizerConfigurationPropertiesOutput) CustomJwtAuthorizer() PaymentManagerCustomJwtAuthorizerOutput {
+	return o.ApplyT(func(v PaymentManagerAuthorizerConfigurationProperties) PaymentManagerCustomJwtAuthorizer {
 		return v.CustomJwtAuthorizer
-	}).(PaymentManagerCustomJwtAuthorizerConfigurationOutput)
+	}).(PaymentManagerCustomJwtAuthorizerOutput)
 }
 
-type PaymentManagerAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+type PaymentManagerAuthorizerConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (PaymentManagerAuthorizerConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PaymentManagerAuthorizerConfiguration)(nil)).Elem()
+func (PaymentManagerAuthorizerConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerAuthorizerConfigurationProperties)(nil)).Elem()
 }
 
-func (o PaymentManagerAuthorizerConfigurationPtrOutput) ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput {
+func (o PaymentManagerAuthorizerConfigurationPropertiesPtrOutput) ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutput() PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizerConfigurationPtrOutput) ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPtrOutput {
+func (o PaymentManagerAuthorizerConfigurationPropertiesPtrOutput) ToPaymentManagerAuthorizerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPropertiesPtrOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizerConfigurationPtrOutput) Elem() PaymentManagerAuthorizerConfigurationOutput {
-	return o.ApplyT(func(v *PaymentManagerAuthorizerConfiguration) PaymentManagerAuthorizerConfiguration {
+func (o PaymentManagerAuthorizerConfigurationPropertiesPtrOutput) Elem() PaymentManagerAuthorizerConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *PaymentManagerAuthorizerConfigurationProperties) PaymentManagerAuthorizerConfigurationProperties {
 		if v != nil {
 			return *v
 		}
-		var ret PaymentManagerAuthorizerConfiguration
+		var ret PaymentManagerAuthorizerConfigurationProperties
 		return ret
-	}).(PaymentManagerAuthorizerConfigurationOutput)
+	}).(PaymentManagerAuthorizerConfigurationPropertiesOutput)
 }
 
-func (o PaymentManagerAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
-	return o.ApplyT(func(v *PaymentManagerAuthorizerConfiguration) *PaymentManagerCustomJwtAuthorizerConfiguration {
+func (o PaymentManagerAuthorizerConfigurationPropertiesPtrOutput) CustomJwtAuthorizer() PaymentManagerCustomJwtAuthorizerPtrOutput {
+	return o.ApplyT(func(v *PaymentManagerAuthorizerConfigurationProperties) *PaymentManagerCustomJwtAuthorizer {
 		if v == nil {
 			return nil
 		}
 		return &v.CustomJwtAuthorizer
-	}).(PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput)
+	}).(PaymentManagerCustomJwtAuthorizerPtrOutput)
 }
 
-type PaymentManagerAuthorizingClaimMatchValueType struct {
-	ClaimMatchOperator PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator `pulumi:"claimMatchOperator"`
-	ClaimMatchValue    PaymentManagerClaimMatchValueType                              `pulumi:"claimMatchValue"`
+type PaymentManagerAuthorizingClaimMatchValue struct {
+	ClaimMatchOperator PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    interface{}                                                `pulumi:"claimMatchValue"`
 }
 
-// PaymentManagerAuthorizingClaimMatchValueTypeInput is an input type that accepts PaymentManagerAuthorizingClaimMatchValueTypeArgs and PaymentManagerAuthorizingClaimMatchValueTypeOutput values.
-// You can construct a concrete instance of `PaymentManagerAuthorizingClaimMatchValueTypeInput` via:
+// PaymentManagerAuthorizingClaimMatchValueInput is an input type that accepts PaymentManagerAuthorizingClaimMatchValueArgs and PaymentManagerAuthorizingClaimMatchValueOutput values.
+// You can construct a concrete instance of `PaymentManagerAuthorizingClaimMatchValueInput` via:
 //
-//	PaymentManagerAuthorizingClaimMatchValueTypeArgs{...}
-type PaymentManagerAuthorizingClaimMatchValueTypeInput interface {
+//	PaymentManagerAuthorizingClaimMatchValueArgs{...}
+type PaymentManagerAuthorizingClaimMatchValueInput interface {
 	pulumi.Input
 
-	ToPaymentManagerAuthorizingClaimMatchValueTypeOutput() PaymentManagerAuthorizingClaimMatchValueTypeOutput
-	ToPaymentManagerAuthorizingClaimMatchValueTypeOutputWithContext(context.Context) PaymentManagerAuthorizingClaimMatchValueTypeOutput
+	ToPaymentManagerAuthorizingClaimMatchValueOutput() PaymentManagerAuthorizingClaimMatchValueOutput
+	ToPaymentManagerAuthorizingClaimMatchValueOutputWithContext(context.Context) PaymentManagerAuthorizingClaimMatchValueOutput
 }
 
-type PaymentManagerAuthorizingClaimMatchValueTypeArgs struct {
-	ClaimMatchOperator PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorInput `pulumi:"claimMatchOperator"`
-	ClaimMatchValue    PaymentManagerClaimMatchValueTypeInput                              `pulumi:"claimMatchValue"`
+type PaymentManagerAuthorizingClaimMatchValueArgs struct {
+	ClaimMatchOperator PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorInput `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    pulumi.Input                                                    `pulumi:"claimMatchValue"`
 }
 
-func (PaymentManagerAuthorizingClaimMatchValueTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueType)(nil)).Elem()
+func (PaymentManagerAuthorizingClaimMatchValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValue)(nil)).Elem()
 }
 
-func (i PaymentManagerAuthorizingClaimMatchValueTypeArgs) ToPaymentManagerAuthorizingClaimMatchValueTypeOutput() PaymentManagerAuthorizingClaimMatchValueTypeOutput {
-	return i.ToPaymentManagerAuthorizingClaimMatchValueTypeOutputWithContext(context.Background())
+func (i PaymentManagerAuthorizingClaimMatchValueArgs) ToPaymentManagerAuthorizingClaimMatchValueOutput() PaymentManagerAuthorizingClaimMatchValueOutput {
+	return i.ToPaymentManagerAuthorizingClaimMatchValueOutputWithContext(context.Background())
 }
 
-func (i PaymentManagerAuthorizingClaimMatchValueTypeArgs) ToPaymentManagerAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizingClaimMatchValueTypeOutput)
+func (i PaymentManagerAuthorizingClaimMatchValueArgs) ToPaymentManagerAuthorizingClaimMatchValueOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizingClaimMatchValueOutput)
 }
 
-type PaymentManagerAuthorizingClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+type PaymentManagerAuthorizingClaimMatchValueOutput struct{ *pulumi.OutputState }
 
-func (PaymentManagerAuthorizingClaimMatchValueTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueType)(nil)).Elem()
+func (PaymentManagerAuthorizingClaimMatchValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValue)(nil)).Elem()
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueTypeOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeOutput() PaymentManagerAuthorizingClaimMatchValueTypeOutput {
+func (o PaymentManagerAuthorizingClaimMatchValueOutput) ToPaymentManagerAuthorizingClaimMatchValueOutput() PaymentManagerAuthorizingClaimMatchValueOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueTypeOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeOutput {
+func (o PaymentManagerAuthorizingClaimMatchValueOutput) ToPaymentManagerAuthorizingClaimMatchValueOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueTypeOutput) ClaimMatchOperator() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
-	return o.ApplyT(func(v PaymentManagerAuthorizingClaimMatchValueType) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator {
+func (o PaymentManagerAuthorizingClaimMatchValueOutput) ClaimMatchOperator() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput {
+	return o.ApplyT(func(v PaymentManagerAuthorizingClaimMatchValue) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator {
 		return v.ClaimMatchOperator
-	}).(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput)
+	}).(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput)
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() PaymentManagerClaimMatchValueTypeOutput {
-	return o.ApplyT(func(v PaymentManagerAuthorizingClaimMatchValueType) PaymentManagerClaimMatchValueType {
-		return v.ClaimMatchValue
-	}).(PaymentManagerClaimMatchValueTypeOutput)
+func (o PaymentManagerAuthorizingClaimMatchValueOutput) ClaimMatchValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v PaymentManagerAuthorizingClaimMatchValue) interface{} { return v.ClaimMatchValue }).(pulumi.AnyOutput)
 }
 
-type PaymentManagerClaimMatchValueType struct {
-	MatchValueString     *string  `pulumi:"matchValueString"`
+type PaymentManagerClaimMatchValue0Properties struct {
+	MatchValueString string `pulumi:"matchValueString"`
+}
+
+// PaymentManagerClaimMatchValue0PropertiesInput is an input type that accepts PaymentManagerClaimMatchValue0PropertiesArgs and PaymentManagerClaimMatchValue0PropertiesOutput values.
+// You can construct a concrete instance of `PaymentManagerClaimMatchValue0PropertiesInput` via:
+//
+//	PaymentManagerClaimMatchValue0PropertiesArgs{...}
+type PaymentManagerClaimMatchValue0PropertiesInput interface {
+	pulumi.Input
+
+	ToPaymentManagerClaimMatchValue0PropertiesOutput() PaymentManagerClaimMatchValue0PropertiesOutput
+	ToPaymentManagerClaimMatchValue0PropertiesOutputWithContext(context.Context) PaymentManagerClaimMatchValue0PropertiesOutput
+}
+
+type PaymentManagerClaimMatchValue0PropertiesArgs struct {
+	MatchValueString pulumi.StringInput `pulumi:"matchValueString"`
+}
+
+func (PaymentManagerClaimMatchValue0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerClaimMatchValue0Properties)(nil)).Elem()
+}
+
+func (i PaymentManagerClaimMatchValue0PropertiesArgs) ToPaymentManagerClaimMatchValue0PropertiesOutput() PaymentManagerClaimMatchValue0PropertiesOutput {
+	return i.ToPaymentManagerClaimMatchValue0PropertiesOutputWithContext(context.Background())
+}
+
+func (i PaymentManagerClaimMatchValue0PropertiesArgs) ToPaymentManagerClaimMatchValue0PropertiesOutputWithContext(ctx context.Context) PaymentManagerClaimMatchValue0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerClaimMatchValue0PropertiesOutput)
+}
+
+type PaymentManagerClaimMatchValue0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerClaimMatchValue0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerClaimMatchValue0Properties)(nil)).Elem()
+}
+
+func (o PaymentManagerClaimMatchValue0PropertiesOutput) ToPaymentManagerClaimMatchValue0PropertiesOutput() PaymentManagerClaimMatchValue0PropertiesOutput {
+	return o
+}
+
+func (o PaymentManagerClaimMatchValue0PropertiesOutput) ToPaymentManagerClaimMatchValue0PropertiesOutputWithContext(ctx context.Context) PaymentManagerClaimMatchValue0PropertiesOutput {
+	return o
+}
+
+func (o PaymentManagerClaimMatchValue0PropertiesOutput) MatchValueString() pulumi.StringOutput {
+	return o.ApplyT(func(v PaymentManagerClaimMatchValue0Properties) string { return v.MatchValueString }).(pulumi.StringOutput)
+}
+
+type PaymentManagerClaimMatchValue1Properties struct {
 	MatchValueStringList []string `pulumi:"matchValueStringList"`
 }
 
-// PaymentManagerClaimMatchValueTypeInput is an input type that accepts PaymentManagerClaimMatchValueTypeArgs and PaymentManagerClaimMatchValueTypeOutput values.
-// You can construct a concrete instance of `PaymentManagerClaimMatchValueTypeInput` via:
+// PaymentManagerClaimMatchValue1PropertiesInput is an input type that accepts PaymentManagerClaimMatchValue1PropertiesArgs and PaymentManagerClaimMatchValue1PropertiesOutput values.
+// You can construct a concrete instance of `PaymentManagerClaimMatchValue1PropertiesInput` via:
 //
-//	PaymentManagerClaimMatchValueTypeArgs{...}
-type PaymentManagerClaimMatchValueTypeInput interface {
+//	PaymentManagerClaimMatchValue1PropertiesArgs{...}
+type PaymentManagerClaimMatchValue1PropertiesInput interface {
 	pulumi.Input
 
-	ToPaymentManagerClaimMatchValueTypeOutput() PaymentManagerClaimMatchValueTypeOutput
-	ToPaymentManagerClaimMatchValueTypeOutputWithContext(context.Context) PaymentManagerClaimMatchValueTypeOutput
+	ToPaymentManagerClaimMatchValue1PropertiesOutput() PaymentManagerClaimMatchValue1PropertiesOutput
+	ToPaymentManagerClaimMatchValue1PropertiesOutputWithContext(context.Context) PaymentManagerClaimMatchValue1PropertiesOutput
 }
 
-type PaymentManagerClaimMatchValueTypeArgs struct {
-	MatchValueString     pulumi.StringPtrInput   `pulumi:"matchValueString"`
+type PaymentManagerClaimMatchValue1PropertiesArgs struct {
 	MatchValueStringList pulumi.StringArrayInput `pulumi:"matchValueStringList"`
 }
 
-func (PaymentManagerClaimMatchValueTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerClaimMatchValueType)(nil)).Elem()
+func (PaymentManagerClaimMatchValue1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerClaimMatchValue1Properties)(nil)).Elem()
 }
 
-func (i PaymentManagerClaimMatchValueTypeArgs) ToPaymentManagerClaimMatchValueTypeOutput() PaymentManagerClaimMatchValueTypeOutput {
-	return i.ToPaymentManagerClaimMatchValueTypeOutputWithContext(context.Background())
+func (i PaymentManagerClaimMatchValue1PropertiesArgs) ToPaymentManagerClaimMatchValue1PropertiesOutput() PaymentManagerClaimMatchValue1PropertiesOutput {
+	return i.ToPaymentManagerClaimMatchValue1PropertiesOutputWithContext(context.Background())
 }
 
-func (i PaymentManagerClaimMatchValueTypeArgs) ToPaymentManagerClaimMatchValueTypeOutputWithContext(ctx context.Context) PaymentManagerClaimMatchValueTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerClaimMatchValueTypeOutput)
+func (i PaymentManagerClaimMatchValue1PropertiesArgs) ToPaymentManagerClaimMatchValue1PropertiesOutputWithContext(ctx context.Context) PaymentManagerClaimMatchValue1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerClaimMatchValue1PropertiesOutput)
 }
 
-type PaymentManagerClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+type PaymentManagerClaimMatchValue1PropertiesOutput struct{ *pulumi.OutputState }
 
-func (PaymentManagerClaimMatchValueTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerClaimMatchValueType)(nil)).Elem()
+func (PaymentManagerClaimMatchValue1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerClaimMatchValue1Properties)(nil)).Elem()
 }
 
-func (o PaymentManagerClaimMatchValueTypeOutput) ToPaymentManagerClaimMatchValueTypeOutput() PaymentManagerClaimMatchValueTypeOutput {
+func (o PaymentManagerClaimMatchValue1PropertiesOutput) ToPaymentManagerClaimMatchValue1PropertiesOutput() PaymentManagerClaimMatchValue1PropertiesOutput {
 	return o
 }
 
-func (o PaymentManagerClaimMatchValueTypeOutput) ToPaymentManagerClaimMatchValueTypeOutputWithContext(ctx context.Context) PaymentManagerClaimMatchValueTypeOutput {
+func (o PaymentManagerClaimMatchValue1PropertiesOutput) ToPaymentManagerClaimMatchValue1PropertiesOutputWithContext(ctx context.Context) PaymentManagerClaimMatchValue1PropertiesOutput {
 	return o
 }
 
-func (o PaymentManagerClaimMatchValueTypeOutput) MatchValueString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PaymentManagerClaimMatchValueType) *string { return v.MatchValueString }).(pulumi.StringPtrOutput)
-}
-
-func (o PaymentManagerClaimMatchValueTypeOutput) MatchValueStringList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PaymentManagerClaimMatchValueType) []string { return v.MatchValueStringList }).(pulumi.StringArrayOutput)
+func (o PaymentManagerClaimMatchValue1PropertiesOutput) MatchValueStringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PaymentManagerClaimMatchValue1Properties) []string { return v.MatchValueStringList }).(pulumi.StringArrayOutput)
 }
 
 type PaymentManagerCustomClaimValidationType struct {
-	AuthorizingClaimMatchValue PaymentManagerAuthorizingClaimMatchValueType                      `pulumi:"authorizingClaimMatchValue"`
+	AuthorizingClaimMatchValue PaymentManagerAuthorizingClaimMatchValue                          `pulumi:"authorizingClaimMatchValue"`
 	InboundTokenClaimName      string                                                            `pulumi:"inboundTokenClaimName"`
 	InboundTokenClaimValueType PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType `pulumi:"inboundTokenClaimValueType"`
 }
@@ -40047,7 +41057,7 @@ type PaymentManagerCustomClaimValidationTypeInput interface {
 }
 
 type PaymentManagerCustomClaimValidationTypeArgs struct {
-	AuthorizingClaimMatchValue PaymentManagerAuthorizingClaimMatchValueTypeInput                      `pulumi:"authorizingClaimMatchValue"`
+	AuthorizingClaimMatchValue PaymentManagerAuthorizingClaimMatchValueInput                          `pulumi:"authorizingClaimMatchValue"`
 	InboundTokenClaimName      pulumi.StringInput                                                     `pulumi:"inboundTokenClaimName"`
 	InboundTokenClaimValueType PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueTypeInput `pulumi:"inboundTokenClaimValueType"`
 }
@@ -40103,10 +41113,10 @@ func (o PaymentManagerCustomClaimValidationTypeOutput) ToPaymentManagerCustomCla
 	return o
 }
 
-func (o PaymentManagerCustomClaimValidationTypeOutput) AuthorizingClaimMatchValue() PaymentManagerAuthorizingClaimMatchValueTypeOutput {
-	return o.ApplyT(func(v PaymentManagerCustomClaimValidationType) PaymentManagerAuthorizingClaimMatchValueType {
+func (o PaymentManagerCustomClaimValidationTypeOutput) AuthorizingClaimMatchValue() PaymentManagerAuthorizingClaimMatchValueOutput {
+	return o.ApplyT(func(v PaymentManagerCustomClaimValidationType) PaymentManagerAuthorizingClaimMatchValue {
 		return v.AuthorizingClaimMatchValue
-	}).(PaymentManagerAuthorizingClaimMatchValueTypeOutput)
+	}).(PaymentManagerAuthorizingClaimMatchValueOutput)
 }
 
 func (o PaymentManagerCustomClaimValidationTypeOutput) InboundTokenClaimName() pulumi.StringOutput {
@@ -40139,7 +41149,7 @@ func (o PaymentManagerCustomClaimValidationTypeArrayOutput) Index(i pulumi.IntIn
 	}).(PaymentManagerCustomClaimValidationTypeOutput)
 }
 
-type PaymentManagerCustomJwtAuthorizerConfiguration struct {
+type PaymentManagerCustomJwtAuthorizer struct {
 	AllowedAudience []string                                  `pulumi:"allowedAudience"`
 	AllowedClients  []string                                  `pulumi:"allowedClients"`
 	AllowedScopes   []string                                  `pulumi:"allowedScopes"`
@@ -40147,18 +41157,18 @@ type PaymentManagerCustomJwtAuthorizerConfiguration struct {
 	DiscoveryUrl    string                                    `pulumi:"discoveryUrl"`
 }
 
-// PaymentManagerCustomJwtAuthorizerConfigurationInput is an input type that accepts PaymentManagerCustomJwtAuthorizerConfigurationArgs and PaymentManagerCustomJwtAuthorizerConfigurationOutput values.
-// You can construct a concrete instance of `PaymentManagerCustomJwtAuthorizerConfigurationInput` via:
+// PaymentManagerCustomJwtAuthorizerInput is an input type that accepts PaymentManagerCustomJwtAuthorizerArgs and PaymentManagerCustomJwtAuthorizerOutput values.
+// You can construct a concrete instance of `PaymentManagerCustomJwtAuthorizerInput` via:
 //
-//	PaymentManagerCustomJwtAuthorizerConfigurationArgs{...}
-type PaymentManagerCustomJwtAuthorizerConfigurationInput interface {
+//	PaymentManagerCustomJwtAuthorizerArgs{...}
+type PaymentManagerCustomJwtAuthorizerInput interface {
 	pulumi.Input
 
-	ToPaymentManagerCustomJwtAuthorizerConfigurationOutput() PaymentManagerCustomJwtAuthorizerConfigurationOutput
-	ToPaymentManagerCustomJwtAuthorizerConfigurationOutputWithContext(context.Context) PaymentManagerCustomJwtAuthorizerConfigurationOutput
+	ToPaymentManagerCustomJwtAuthorizerOutput() PaymentManagerCustomJwtAuthorizerOutput
+	ToPaymentManagerCustomJwtAuthorizerOutputWithContext(context.Context) PaymentManagerCustomJwtAuthorizerOutput
 }
 
-type PaymentManagerCustomJwtAuthorizerConfigurationArgs struct {
+type PaymentManagerCustomJwtAuthorizerArgs struct {
 	AllowedAudience pulumi.StringArrayInput                           `pulumi:"allowedAudience"`
 	AllowedClients  pulumi.StringArrayInput                           `pulumi:"allowedClients"`
 	AllowedScopes   pulumi.StringArrayInput                           `pulumi:"allowedScopes"`
@@ -40166,131 +41176,131 @@ type PaymentManagerCustomJwtAuthorizerConfigurationArgs struct {
 	DiscoveryUrl    pulumi.StringInput                                `pulumi:"discoveryUrl"`
 }
 
-func (PaymentManagerCustomJwtAuthorizerConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfiguration)(nil)).Elem()
+func (PaymentManagerCustomJwtAuthorizerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerCustomJwtAuthorizer)(nil)).Elem()
 }
 
-func (i PaymentManagerCustomJwtAuthorizerConfigurationArgs) ToPaymentManagerCustomJwtAuthorizerConfigurationOutput() PaymentManagerCustomJwtAuthorizerConfigurationOutput {
-	return i.ToPaymentManagerCustomJwtAuthorizerConfigurationOutputWithContext(context.Background())
+func (i PaymentManagerCustomJwtAuthorizerArgs) ToPaymentManagerCustomJwtAuthorizerOutput() PaymentManagerCustomJwtAuthorizerOutput {
+	return i.ToPaymentManagerCustomJwtAuthorizerOutputWithContext(context.Background())
 }
 
-func (i PaymentManagerCustomJwtAuthorizerConfigurationArgs) ToPaymentManagerCustomJwtAuthorizerConfigurationOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomJwtAuthorizerConfigurationOutput)
+func (i PaymentManagerCustomJwtAuthorizerArgs) ToPaymentManagerCustomJwtAuthorizerOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomJwtAuthorizerOutput)
 }
 
-func (i PaymentManagerCustomJwtAuthorizerConfigurationArgs) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
-	return i.ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(context.Background())
+func (i PaymentManagerCustomJwtAuthorizerArgs) ToPaymentManagerCustomJwtAuthorizerPtrOutput() PaymentManagerCustomJwtAuthorizerPtrOutput {
+	return i.ToPaymentManagerCustomJwtAuthorizerPtrOutputWithContext(context.Background())
 }
 
-func (i PaymentManagerCustomJwtAuthorizerConfigurationArgs) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomJwtAuthorizerConfigurationOutput).ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx)
+func (i PaymentManagerCustomJwtAuthorizerArgs) ToPaymentManagerCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomJwtAuthorizerOutput).ToPaymentManagerCustomJwtAuthorizerPtrOutputWithContext(ctx)
 }
 
-// PaymentManagerCustomJwtAuthorizerConfigurationPtrInput is an input type that accepts PaymentManagerCustomJwtAuthorizerConfigurationArgs, PaymentManagerCustomJwtAuthorizerConfigurationPtr and PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput values.
-// You can construct a concrete instance of `PaymentManagerCustomJwtAuthorizerConfigurationPtrInput` via:
+// PaymentManagerCustomJwtAuthorizerPtrInput is an input type that accepts PaymentManagerCustomJwtAuthorizerArgs, PaymentManagerCustomJwtAuthorizerPtr and PaymentManagerCustomJwtAuthorizerPtrOutput values.
+// You can construct a concrete instance of `PaymentManagerCustomJwtAuthorizerPtrInput` via:
 //
-//	        PaymentManagerCustomJwtAuthorizerConfigurationArgs{...}
+//	        PaymentManagerCustomJwtAuthorizerArgs{...}
 //
 //	or:
 //
 //	        nil
-type PaymentManagerCustomJwtAuthorizerConfigurationPtrInput interface {
+type PaymentManagerCustomJwtAuthorizerPtrInput interface {
 	pulumi.Input
 
-	ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput
-	ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput
+	ToPaymentManagerCustomJwtAuthorizerPtrOutput() PaymentManagerCustomJwtAuthorizerPtrOutput
+	ToPaymentManagerCustomJwtAuthorizerPtrOutputWithContext(context.Context) PaymentManagerCustomJwtAuthorizerPtrOutput
 }
 
-type paymentManagerCustomJwtAuthorizerConfigurationPtrType PaymentManagerCustomJwtAuthorizerConfigurationArgs
+type paymentManagerCustomJwtAuthorizerPtrType PaymentManagerCustomJwtAuthorizerArgs
 
-func PaymentManagerCustomJwtAuthorizerConfigurationPtr(v *PaymentManagerCustomJwtAuthorizerConfigurationArgs) PaymentManagerCustomJwtAuthorizerConfigurationPtrInput {
-	return (*paymentManagerCustomJwtAuthorizerConfigurationPtrType)(v)
+func PaymentManagerCustomJwtAuthorizerPtr(v *PaymentManagerCustomJwtAuthorizerArgs) PaymentManagerCustomJwtAuthorizerPtrInput {
+	return (*paymentManagerCustomJwtAuthorizerPtrType)(v)
 }
 
-func (*paymentManagerCustomJwtAuthorizerConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PaymentManagerCustomJwtAuthorizerConfiguration)(nil)).Elem()
+func (*paymentManagerCustomJwtAuthorizerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerCustomJwtAuthorizer)(nil)).Elem()
 }
 
-func (i *paymentManagerCustomJwtAuthorizerConfigurationPtrType) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
-	return i.ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(context.Background())
+func (i *paymentManagerCustomJwtAuthorizerPtrType) ToPaymentManagerCustomJwtAuthorizerPtrOutput() PaymentManagerCustomJwtAuthorizerPtrOutput {
+	return i.ToPaymentManagerCustomJwtAuthorizerPtrOutputWithContext(context.Background())
 }
 
-func (i *paymentManagerCustomJwtAuthorizerConfigurationPtrType) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput)
+func (i *paymentManagerCustomJwtAuthorizerPtrType) ToPaymentManagerCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomJwtAuthorizerPtrOutput)
 }
 
-type PaymentManagerCustomJwtAuthorizerConfigurationOutput struct{ *pulumi.OutputState }
+type PaymentManagerCustomJwtAuthorizerOutput struct{ *pulumi.OutputState }
 
-func (PaymentManagerCustomJwtAuthorizerConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfiguration)(nil)).Elem()
+func (PaymentManagerCustomJwtAuthorizerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerCustomJwtAuthorizer)(nil)).Elem()
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationOutput() PaymentManagerCustomJwtAuthorizerConfigurationOutput {
+func (o PaymentManagerCustomJwtAuthorizerOutput) ToPaymentManagerCustomJwtAuthorizerOutput() PaymentManagerCustomJwtAuthorizerOutput {
 	return o
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationOutput {
+func (o PaymentManagerCustomJwtAuthorizerOutput) ToPaymentManagerCustomJwtAuthorizerOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerOutput {
 	return o
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
-	return o.ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(context.Background())
+func (o PaymentManagerCustomJwtAuthorizerOutput) ToPaymentManagerCustomJwtAuthorizerPtrOutput() PaymentManagerCustomJwtAuthorizerPtrOutput {
+	return o.ToPaymentManagerCustomJwtAuthorizerPtrOutputWithContext(context.Background())
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentManagerCustomJwtAuthorizerConfiguration) *PaymentManagerCustomJwtAuthorizerConfiguration {
+func (o PaymentManagerCustomJwtAuthorizerOutput) ToPaymentManagerCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentManagerCustomJwtAuthorizer) *PaymentManagerCustomJwtAuthorizer {
 		return &v
-	}).(PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput)
+	}).(PaymentManagerCustomJwtAuthorizerPtrOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) AllowedAudience() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) []string { return v.AllowedAudience }).(pulumi.StringArrayOutput)
+func (o PaymentManagerCustomJwtAuthorizerOutput) AllowedAudience() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizer) []string { return v.AllowedAudience }).(pulumi.StringArrayOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) AllowedClients() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
+func (o PaymentManagerCustomJwtAuthorizerOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizer) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) AllowedScopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
+func (o PaymentManagerCustomJwtAuthorizerOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizer) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) CustomClaims() PaymentManagerCustomClaimValidationTypeArrayOutput {
-	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) []PaymentManagerCustomClaimValidationType {
+func (o PaymentManagerCustomJwtAuthorizerOutput) CustomClaims() PaymentManagerCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizer) []PaymentManagerCustomClaimValidationType {
 		return v.CustomClaims
 	}).(PaymentManagerCustomClaimValidationTypeArrayOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
+func (o PaymentManagerCustomJwtAuthorizerOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizer) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
 }
 
-type PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+type PaymentManagerCustomJwtAuthorizerPtrOutput struct{ *pulumi.OutputState }
 
-func (PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PaymentManagerCustomJwtAuthorizerConfiguration)(nil)).Elem()
+func (PaymentManagerCustomJwtAuthorizerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerCustomJwtAuthorizer)(nil)).Elem()
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+func (o PaymentManagerCustomJwtAuthorizerPtrOutput) ToPaymentManagerCustomJwtAuthorizerPtrOutput() PaymentManagerCustomJwtAuthorizerPtrOutput {
 	return o
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+func (o PaymentManagerCustomJwtAuthorizerPtrOutput) ToPaymentManagerCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerPtrOutput {
 	return o
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) Elem() PaymentManagerCustomJwtAuthorizerConfigurationOutput {
-	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) PaymentManagerCustomJwtAuthorizerConfiguration {
+func (o PaymentManagerCustomJwtAuthorizerPtrOutput) Elem() PaymentManagerCustomJwtAuthorizerOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizer) PaymentManagerCustomJwtAuthorizer {
 		if v != nil {
 			return *v
 		}
-		var ret PaymentManagerCustomJwtAuthorizerConfiguration
+		var ret PaymentManagerCustomJwtAuthorizer
 		return ret
-	}).(PaymentManagerCustomJwtAuthorizerConfigurationOutput)
+	}).(PaymentManagerCustomJwtAuthorizerOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) AllowedAudience() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) []string {
+func (o PaymentManagerCustomJwtAuthorizerPtrOutput) AllowedAudience() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizer) []string {
 		if v == nil {
 			return nil
 		}
@@ -40298,8 +41308,8 @@ func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) AllowedAudience
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) AllowedClients() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) []string {
+func (o PaymentManagerCustomJwtAuthorizerPtrOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizer) []string {
 		if v == nil {
 			return nil
 		}
@@ -40307,8 +41317,8 @@ func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) AllowedClients(
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) []string {
+func (o PaymentManagerCustomJwtAuthorizerPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizer) []string {
 		if v == nil {
 			return nil
 		}
@@ -40316,8 +41326,8 @@ func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) AllowedScopes()
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) CustomClaims() PaymentManagerCustomClaimValidationTypeArrayOutput {
-	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) []PaymentManagerCustomClaimValidationType {
+func (o PaymentManagerCustomJwtAuthorizerPtrOutput) CustomClaims() PaymentManagerCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizer) []PaymentManagerCustomClaimValidationType {
 		if v == nil {
 			return nil
 		}
@@ -40325,8 +41335,8 @@ func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) CustomClaims() 
 	}).(PaymentManagerCustomClaimValidationTypeArrayOutput)
 }
 
-func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) *string {
+func (o PaymentManagerCustomJwtAuthorizerPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizer) *string {
 		if v == nil {
 			return nil
 		}
@@ -40334,15 +41344,20 @@ func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
 type PaymentManagerTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
 	Value string `pulumi:"value"`
 }
 
+// The workload identity details for the payment manager
 type PaymentManagerWorkloadIdentityDetails struct {
-	WorkloadIdentityArn string `pulumi:"workloadIdentityArn"`
+	WorkloadIdentityArn *string `pulumi:"workloadIdentityArn"`
 }
 
+// The workload identity details for the payment manager
 type PaymentManagerWorkloadIdentityDetailsOutput struct{ *pulumi.OutputState }
 
 func (PaymentManagerWorkloadIdentityDetailsOutput) ElementType() reflect.Type {
@@ -40357,8 +41372,8 @@ func (o PaymentManagerWorkloadIdentityDetailsOutput) ToPaymentManagerWorkloadIde
 	return o
 }
 
-func (o PaymentManagerWorkloadIdentityDetailsOutput) WorkloadIdentityArn() pulumi.StringOutput {
-	return o.ApplyT(func(v PaymentManagerWorkloadIdentityDetails) string { return v.WorkloadIdentityArn }).(pulumi.StringOutput)
+func (o PaymentManagerWorkloadIdentityDetailsOutput) WorkloadIdentityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PaymentManagerWorkloadIdentityDetails) *string { return v.WorkloadIdentityArn }).(pulumi.StringPtrOutput)
 }
 
 type PaymentManagerWorkloadIdentityDetailsPtrOutput struct{ *pulumi.OutputState }
@@ -40390,7 +41405,7 @@ func (o PaymentManagerWorkloadIdentityDetailsPtrOutput) WorkloadIdentityArn() pu
 		if v == nil {
 			return nil
 		}
-		return &v.WorkloadIdentityArn
+		return v.WorkloadIdentityArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -44572,6 +45587,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleComponentConfigurationMapInput)(nil)).Elem(), ConfigurationBundleComponentConfigurationMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleVersionCreatedBySourceInput)(nil)).Elem(), ConfigurationBundleVersionCreatedBySourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleVersionCreatedBySourcePtrInput)(nil)).Elem(), ConfigurationBundleVersionCreatedBySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsentPortalIdpConfigInput)(nil)).Elem(), ConsentPortalIdpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsentPortalSourceInput)(nil)).Elem(), ConsentPortalSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsentPortalSourceArrayInput)(nil)).Elem(), ConsentPortalSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataSourceTypeInput)(nil)).Elem(), DatasetDataSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataSourceTypePtrInput)(nil)).Elem(), DatasetDataSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetInlineExamplesSourceInput)(nil)).Elem(), DatasetInlineExamplesSourceArgs{})
@@ -44585,6 +45603,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCodeBasedEvaluatorConfigInput)(nil)).Elem(), EvaluatorCodeBasedEvaluatorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCodeBasedEvaluatorConfigPtrInput)(nil)).Elem(), EvaluatorCodeBasedEvaluatorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorConfigInput)(nil)).Elem(), EvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorDerivedEvaluatorConfigInput)(nil)).Elem(), EvaluatorDerivedEvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorDerivedEvaluatorConfigPtrInput)(nil)).Elem(), EvaluatorDerivedEvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorDimensionRatingScaleInput)(nil)).Elem(), EvaluatorDimensionRatingScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorEvaluationDimensionInput)(nil)).Elem(), EvaluatorEvaluationDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorEvaluationDimensionArrayInput)(nil)).Elem(), EvaluatorEvaluationDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorInferenceConfigurationInput)(nil)).Elem(), EvaluatorInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorInferenceConfigurationPtrInput)(nil)).Elem(), EvaluatorInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLambdaEvaluatorConfigInput)(nil)).Elem(), EvaluatorLambdaEvaluatorConfigArgs{})
@@ -44905,6 +45928,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNamespaceKeyValidationPtrInput)(nil)).Elem(), MemoryNamespaceKeyValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNumberValidationInput)(nil)).Elem(), MemoryNumberValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNumberValidationPtrInput)(nil)).Elem(), MemoryNumberValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryRecordExpirySpecificationInput)(nil)).Elem(), MemoryRecordExpirySpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryRecordExpirySpecificationPtrInput)(nil)).Elem(), MemoryRecordExpirySpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryRecordSchemaInput)(nil)).Elem(), MemoryRecordSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryRecordSchemaPtrInput)(nil)).Elem(), MemoryRecordSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySelfManagedConfigurationInput)(nil)).Elem(), MemorySelfManagedConfigurationArgs{})
@@ -45024,14 +46049,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderSecretReferencePtrInput)(nil)).Elem(), PaymentCredentialProviderSecretReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderStripePrivyConfigurationInputInput)(nil)).Elem(), PaymentCredentialProviderStripePrivyConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderStripePrivyConfigurationInputPtrInput)(nil)).Elem(), PaymentCredentialProviderStripePrivyConfigurationInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizerConfigurationInput)(nil)).Elem(), PaymentManagerAuthorizerConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizerConfigurationPtrInput)(nil)).Elem(), PaymentManagerAuthorizerConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), PaymentManagerAuthorizingClaimMatchValueTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerClaimMatchValueTypeInput)(nil)).Elem(), PaymentManagerClaimMatchValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizerConfigurationPropertiesInput)(nil)).Elem(), PaymentManagerAuthorizerConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizerConfigurationPropertiesPtrInput)(nil)).Elem(), PaymentManagerAuthorizerConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueInput)(nil)).Elem(), PaymentManagerAuthorizingClaimMatchValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerClaimMatchValue0PropertiesInput)(nil)).Elem(), PaymentManagerClaimMatchValue0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerClaimMatchValue1PropertiesInput)(nil)).Elem(), PaymentManagerClaimMatchValue1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomClaimValidationTypeInput)(nil)).Elem(), PaymentManagerCustomClaimValidationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomClaimValidationTypeArrayInput)(nil)).Elem(), PaymentManagerCustomClaimValidationTypeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), PaymentManagerCustomJwtAuthorizerConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), PaymentManagerCustomJwtAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerInput)(nil)).Elem(), PaymentManagerCustomJwtAuthorizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerPtrInput)(nil)).Elem(), PaymentManagerCustomJwtAuthorizerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCedarPolicyInput)(nil)).Elem(), PolicyCedarPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCedarPolicyPtrInput)(nil)).Elem(), PolicyCedarPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionInput)(nil)).Elem(), PolicyDefinitionArgs{})
@@ -45140,6 +46166,10 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationBundleVersionCreatedBySourcePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationBundleVersionLineageMetadataOutput{})
 	pulumi.RegisterOutputType(ConfigurationBundleVersionLineageMetadataPtrOutput{})
+	pulumi.RegisterOutputType(ConsentPortalIdpConfigOutput{})
+	pulumi.RegisterOutputType(ConsentPortalIdpConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConsentPortalSourceOutput{})
+	pulumi.RegisterOutputType(ConsentPortalSourceArrayOutput{})
 	pulumi.RegisterOutputType(DatasetDataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DatasetDataSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(DatasetInlineExamplesSourceOutput{})
@@ -45154,6 +46184,11 @@ func init() {
 	pulumi.RegisterOutputType(EvaluatorCodeBasedEvaluatorConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorConfigOutput{})
 	pulumi.RegisterOutputType(EvaluatorConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorDerivedEvaluatorConfigOutput{})
+	pulumi.RegisterOutputType(EvaluatorDerivedEvaluatorConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorDimensionRatingScaleOutput{})
+	pulumi.RegisterOutputType(EvaluatorEvaluationDimensionOutput{})
+	pulumi.RegisterOutputType(EvaluatorEvaluationDimensionArrayOutput{})
 	pulumi.RegisterOutputType(EvaluatorInferenceConfigurationOutput{})
 	pulumi.RegisterOutputType(EvaluatorInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorLambdaEvaluatorConfigOutput{})
@@ -45514,6 +46549,8 @@ func init() {
 	pulumi.RegisterOutputType(MemoryNamespaceKeyValidationPtrOutput{})
 	pulumi.RegisterOutputType(MemoryNumberValidationOutput{})
 	pulumi.RegisterOutputType(MemoryNumberValidationPtrOutput{})
+	pulumi.RegisterOutputType(MemoryRecordExpirySpecificationOutput{})
+	pulumi.RegisterOutputType(MemoryRecordExpirySpecificationPtrOutput{})
 	pulumi.RegisterOutputType(MemoryRecordSchemaOutput{})
 	pulumi.RegisterOutputType(MemoryRecordSchemaPtrOutput{})
 	pulumi.RegisterOutputType(MemorySelfManagedConfigurationOutput{})
@@ -45649,14 +46686,15 @@ func init() {
 	pulumi.RegisterOutputType(PaymentCredentialProviderStripePrivyConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderStripePrivyConfigurationOutputOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput{})
-	pulumi.RegisterOutputType(PaymentManagerAuthorizerConfigurationOutput{})
-	pulumi.RegisterOutputType(PaymentManagerAuthorizerConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(PaymentManagerAuthorizingClaimMatchValueTypeOutput{})
-	pulumi.RegisterOutputType(PaymentManagerClaimMatchValueTypeOutput{})
+	pulumi.RegisterOutputType(PaymentManagerAuthorizerConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(PaymentManagerAuthorizerConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PaymentManagerAuthorizingClaimMatchValueOutput{})
+	pulumi.RegisterOutputType(PaymentManagerClaimMatchValue0PropertiesOutput{})
+	pulumi.RegisterOutputType(PaymentManagerClaimMatchValue1PropertiesOutput{})
 	pulumi.RegisterOutputType(PaymentManagerCustomClaimValidationTypeOutput{})
 	pulumi.RegisterOutputType(PaymentManagerCustomClaimValidationTypeArrayOutput{})
-	pulumi.RegisterOutputType(PaymentManagerCustomJwtAuthorizerConfigurationOutput{})
-	pulumi.RegisterOutputType(PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PaymentManagerCustomJwtAuthorizerOutput{})
+	pulumi.RegisterOutputType(PaymentManagerCustomJwtAuthorizerPtrOutput{})
 	pulumi.RegisterOutputType(PaymentManagerWorkloadIdentityDetailsOutput{})
 	pulumi.RegisterOutputType(PaymentManagerWorkloadIdentityDetailsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyCedarPolicyOutput{})

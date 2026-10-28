@@ -112,7 +112,7 @@ class GetSubscriberResult:
 
     @_builtins.property
     @pulumi.getter(name="invokeConfiguration")
-    def invoke_configuration(self) -> Optional['outputs.SubscriberInvokeConfigurationProperties']:
+    def invoke_configuration(self) -> Optional['outputs.SubscriberInvokeConfiguration']:
         """
         Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
         """

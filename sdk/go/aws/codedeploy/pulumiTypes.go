@@ -2344,6 +2344,146 @@ func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+type DeploymentGroupEc2DeploymentOptions struct {
+	// The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+	AutoScalingGroupProcessesToSuspend []string `pulumi:"autoScalingGroupProcessesToSuspend"`
+}
+
+// DeploymentGroupEc2DeploymentOptionsInput is an input type that accepts DeploymentGroupEc2DeploymentOptionsArgs and DeploymentGroupEc2DeploymentOptionsOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2DeploymentOptionsInput` via:
+//
+//	DeploymentGroupEc2DeploymentOptionsArgs{...}
+type DeploymentGroupEc2DeploymentOptionsInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2DeploymentOptionsOutput() DeploymentGroupEc2DeploymentOptionsOutput
+	ToDeploymentGroupEc2DeploymentOptionsOutputWithContext(context.Context) DeploymentGroupEc2DeploymentOptionsOutput
+}
+
+// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+type DeploymentGroupEc2DeploymentOptionsArgs struct {
+	// The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+	AutoScalingGroupProcessesToSuspend pulumi.StringArrayInput `pulumi:"autoScalingGroupProcessesToSuspend"`
+}
+
+func (DeploymentGroupEc2DeploymentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2DeploymentOptions)(nil)).Elem()
+}
+
+func (i DeploymentGroupEc2DeploymentOptionsArgs) ToDeploymentGroupEc2DeploymentOptionsOutput() DeploymentGroupEc2DeploymentOptionsOutput {
+	return i.ToDeploymentGroupEc2DeploymentOptionsOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEc2DeploymentOptionsArgs) ToDeploymentGroupEc2DeploymentOptionsOutputWithContext(ctx context.Context) DeploymentGroupEc2DeploymentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2DeploymentOptionsOutput)
+}
+
+func (i DeploymentGroupEc2DeploymentOptionsArgs) ToDeploymentGroupEc2DeploymentOptionsPtrOutput() DeploymentGroupEc2DeploymentOptionsPtrOutput {
+	return i.ToDeploymentGroupEc2DeploymentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEc2DeploymentOptionsArgs) ToDeploymentGroupEc2DeploymentOptionsPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2DeploymentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2DeploymentOptionsOutput).ToDeploymentGroupEc2DeploymentOptionsPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupEc2DeploymentOptionsPtrInput is an input type that accepts DeploymentGroupEc2DeploymentOptionsArgs, DeploymentGroupEc2DeploymentOptionsPtr and DeploymentGroupEc2DeploymentOptionsPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2DeploymentOptionsPtrInput` via:
+//
+//	        DeploymentGroupEc2DeploymentOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupEc2DeploymentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2DeploymentOptionsPtrOutput() DeploymentGroupEc2DeploymentOptionsPtrOutput
+	ToDeploymentGroupEc2DeploymentOptionsPtrOutputWithContext(context.Context) DeploymentGroupEc2DeploymentOptionsPtrOutput
+}
+
+type deploymentGroupEc2DeploymentOptionsPtrType DeploymentGroupEc2DeploymentOptionsArgs
+
+func DeploymentGroupEc2DeploymentOptionsPtr(v *DeploymentGroupEc2DeploymentOptionsArgs) DeploymentGroupEc2DeploymentOptionsPtrInput {
+	return (*deploymentGroupEc2DeploymentOptionsPtrType)(v)
+}
+
+func (*deploymentGroupEc2DeploymentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupEc2DeploymentOptions)(nil)).Elem()
+}
+
+func (i *deploymentGroupEc2DeploymentOptionsPtrType) ToDeploymentGroupEc2DeploymentOptionsPtrOutput() DeploymentGroupEc2DeploymentOptionsPtrOutput {
+	return i.ToDeploymentGroupEc2DeploymentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupEc2DeploymentOptionsPtrType) ToDeploymentGroupEc2DeploymentOptionsPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2DeploymentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2DeploymentOptionsPtrOutput)
+}
+
+// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+type DeploymentGroupEc2DeploymentOptionsOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEc2DeploymentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2DeploymentOptions)(nil)).Elem()
+}
+
+func (o DeploymentGroupEc2DeploymentOptionsOutput) ToDeploymentGroupEc2DeploymentOptionsOutput() DeploymentGroupEc2DeploymentOptionsOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2DeploymentOptionsOutput) ToDeploymentGroupEc2DeploymentOptionsOutputWithContext(ctx context.Context) DeploymentGroupEc2DeploymentOptionsOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2DeploymentOptionsOutput) ToDeploymentGroupEc2DeploymentOptionsPtrOutput() DeploymentGroupEc2DeploymentOptionsPtrOutput {
+	return o.ToDeploymentGroupEc2DeploymentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupEc2DeploymentOptionsOutput) ToDeploymentGroupEc2DeploymentOptionsPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2DeploymentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupEc2DeploymentOptions) *DeploymentGroupEc2DeploymentOptions {
+		return &v
+	}).(DeploymentGroupEc2DeploymentOptionsPtrOutput)
+}
+
+// The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+func (o DeploymentGroupEc2DeploymentOptionsOutput) AutoScalingGroupProcessesToSuspend() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2DeploymentOptions) []string { return v.AutoScalingGroupProcessesToSuspend }).(pulumi.StringArrayOutput)
+}
+
+type DeploymentGroupEc2DeploymentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEc2DeploymentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupEc2DeploymentOptions)(nil)).Elem()
+}
+
+func (o DeploymentGroupEc2DeploymentOptionsPtrOutput) ToDeploymentGroupEc2DeploymentOptionsPtrOutput() DeploymentGroupEc2DeploymentOptionsPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2DeploymentOptionsPtrOutput) ToDeploymentGroupEc2DeploymentOptionsPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2DeploymentOptionsPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2DeploymentOptionsPtrOutput) Elem() DeploymentGroupEc2DeploymentOptionsOutput {
+	return o.ApplyT(func(v *DeploymentGroupEc2DeploymentOptions) DeploymentGroupEc2DeploymentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupEc2DeploymentOptions
+		return ret
+	}).(DeploymentGroupEc2DeploymentOptionsOutput)
+}
+
+// The Amazon EC2 Auto Scaling processes to suspend during an in-place deployment. CodeDeploy suspends these processes before it deploys to instances in an Auto Scaling group, and resumes them when the deployment succeeds, fails, or is stopped. Valid values are Terminate, AZRebalance, InstanceRefresh, and ScheduledActions. Process names are case sensitive. To stop suspending processes, remove the property.
+func (o DeploymentGroupEc2DeploymentOptionsPtrOutput) AutoScalingGroupProcessesToSuspend() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupEc2DeploymentOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingGroupProcessesToSuspend
+	}).(pulumi.StringArrayOutput)
+}
+
 // Information about an Amazon EC2 tag filter.
 type DeploymentGroupEc2TagFilter struct {
 	// The tag filter key.
@@ -4659,6 +4799,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentReadyOptionPtrInput)(nil)).Elem(), DeploymentGroupDeploymentReadyOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentStyleInput)(nil)).Elem(), DeploymentGroupDeploymentStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentStylePtrInput)(nil)).Elem(), DeploymentGroupDeploymentStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2DeploymentOptionsInput)(nil)).Elem(), DeploymentGroupEc2DeploymentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2DeploymentOptionsPtrInput)(nil)).Elem(), DeploymentGroupEc2DeploymentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagFilterInput)(nil)).Elem(), DeploymentGroupEc2TagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagFilterArrayInput)(nil)).Elem(), DeploymentGroupEc2TagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagSetInput)(nil)).Elem(), DeploymentGroupEc2TagSetArgs{})
@@ -4721,6 +4863,8 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentGroupDeploymentReadyOptionPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupDeploymentStyleOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupDeploymentStylePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2DeploymentOptionsOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2DeploymentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupEc2TagFilterOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupEc2TagFilterArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupEc2TagSetOutput{})

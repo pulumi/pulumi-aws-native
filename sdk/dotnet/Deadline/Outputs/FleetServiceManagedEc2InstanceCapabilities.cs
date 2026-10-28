@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
         public readonly Outputs.FleetMemoryMiBRange MemoryMiB;
         public readonly Pulumi.AwsNative.Deadline.FleetServiceManagedFleetOperatingSystemFamily OsFamily;
         public readonly Outputs.FleetEc2EbsVolume? RootEbsVolume;
+        public readonly ImmutableArray<Outputs.FleetSoftwareAddOn> SoftwareAddOns;
         public readonly Outputs.FleetVCpuCountRange VCpuCount;
 
         [OutputConstructor]
@@ -44,6 +45,8 @@ namespace Pulumi.AwsNative.Deadline.Outputs
 
             Outputs.FleetEc2EbsVolume? rootEbsVolume,
 
+            ImmutableArray<Outputs.FleetSoftwareAddOn> softwareAddOns,
+
             Outputs.FleetVCpuCountRange vCpuCount)
         {
             AcceleratorCapabilities = acceleratorCapabilities;
@@ -55,6 +58,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
             MemoryMiB = memoryMiB;
             OsFamily = osFamily;
             RootEbsVolume = rootEbsVolume;
+            SoftwareAddOns = softwareAddOns;
             VCpuCount = vCpuCount;
         }
     }

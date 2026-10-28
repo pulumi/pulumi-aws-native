@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ses.Outputs
         /// </summary>
         public readonly ImmutableArray<string> MatchingEventTypes;
         /// <summary>
-        /// The name of the event destination set.
+        /// The name of the event destination set. SES cannot rename an event destination, so changing the name replaces it.
         /// </summary>
         public readonly string? Name;
         /// <summary>

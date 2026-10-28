@@ -303,3 +303,20 @@ export const MailManagerTrafficPolicyIngressTlsProtocolOperator = {
 } as const;
 
 export type MailManagerTrafficPolicyIngressTlsProtocolOperator = (typeof MailManagerTrafficPolicyIngressTlsProtocolOperator)[keyof typeof MailManagerTrafficPolicyIngressTlsProtocolOperator];
+
+export const TenantSuppressionAttributesSuppressedReasonsItem = {
+    Bounce: "BOUNCE",
+    Complaint: "COMPLAINT",
+} as const;
+
+export type TenantSuppressionAttributesSuppressedReasonsItem = (typeof TenantSuppressionAttributesSuppressedReasonsItem)[keyof typeof TenantSuppressionAttributesSuppressedReasonsItem];
+
+export const TenantSuppressionAttributesSuppressionScope = {
+    Account: "ACCOUNT",
+    Tenant: "TENANT",
+} as const;
+
+/**
+ * The scope of the suppression list for the tenant.
+ */
+export type TenantSuppressionAttributesSuppressionScope = (typeof TenantSuppressionAttributesSuppressionScope)[keyof typeof TenantSuppressionAttributesSuppressionScope];

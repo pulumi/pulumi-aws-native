@@ -30,6 +30,10 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         ///   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
         /// </summary>
         public readonly string StreamViewType;
+        /// <summary>
+        /// Specifies the tags to apply to the DDB stream. Stream tags are independent of table tags.
+        ///  For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TableTag> Tags;
 
         [OutputConstructor]

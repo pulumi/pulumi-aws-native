@@ -140,7 +140,7 @@ func (o DbClusterDbClusterRoleArrayOutput) Index(i pulumi.IntInput) DbClusterDbC
 }
 
 // The “Endpoint“ return value specifies the connection endpoint for the primary instance of the DB cluster.
-type DbClusterEndpoint struct {
+type DbClusterEndpointType struct {
 	// Specifies the connection endpoint for the primary instance of the DB cluster.
 	Address *string `pulumi:"address"`
 	// Specifies the port that the database engine is listening on.
@@ -148,57 +148,57 @@ type DbClusterEndpoint struct {
 }
 
 // The “Endpoint“ return value specifies the connection endpoint for the primary instance of the DB cluster.
-type DbClusterEndpointOutput struct{ *pulumi.OutputState }
+type DbClusterEndpointTypeOutput struct{ *pulumi.OutputState }
 
-func (DbClusterEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DbClusterEndpoint)(nil)).Elem()
+func (DbClusterEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterEndpointType)(nil)).Elem()
 }
 
-func (o DbClusterEndpointOutput) ToDbClusterEndpointOutput() DbClusterEndpointOutput {
+func (o DbClusterEndpointTypeOutput) ToDbClusterEndpointTypeOutput() DbClusterEndpointTypeOutput {
 	return o
 }
 
-func (o DbClusterEndpointOutput) ToDbClusterEndpointOutputWithContext(ctx context.Context) DbClusterEndpointOutput {
+func (o DbClusterEndpointTypeOutput) ToDbClusterEndpointTypeOutputWithContext(ctx context.Context) DbClusterEndpointTypeOutput {
 	return o
 }
 
 // Specifies the connection endpoint for the primary instance of the DB cluster.
-func (o DbClusterEndpointOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DbClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+func (o DbClusterEndpointTypeOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterEndpointType) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the port that the database engine is listening on.
-func (o DbClusterEndpointOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DbClusterEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
+func (o DbClusterEndpointTypeOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbClusterEndpointType) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-type DbClusterEndpointPtrOutput struct{ *pulumi.OutputState }
+type DbClusterEndpointTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DbClusterEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DbClusterEndpoint)(nil)).Elem()
+func (DbClusterEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterEndpointType)(nil)).Elem()
 }
 
-func (o DbClusterEndpointPtrOutput) ToDbClusterEndpointPtrOutput() DbClusterEndpointPtrOutput {
+func (o DbClusterEndpointTypePtrOutput) ToDbClusterEndpointTypePtrOutput() DbClusterEndpointTypePtrOutput {
 	return o
 }
 
-func (o DbClusterEndpointPtrOutput) ToDbClusterEndpointPtrOutputWithContext(ctx context.Context) DbClusterEndpointPtrOutput {
+func (o DbClusterEndpointTypePtrOutput) ToDbClusterEndpointTypePtrOutputWithContext(ctx context.Context) DbClusterEndpointTypePtrOutput {
 	return o
 }
 
-func (o DbClusterEndpointPtrOutput) Elem() DbClusterEndpointOutput {
-	return o.ApplyT(func(v *DbClusterEndpoint) DbClusterEndpoint {
+func (o DbClusterEndpointTypePtrOutput) Elem() DbClusterEndpointTypeOutput {
+	return o.ApplyT(func(v *DbClusterEndpointType) DbClusterEndpointType {
 		if v != nil {
 			return *v
 		}
-		var ret DbClusterEndpoint
+		var ret DbClusterEndpointType
 		return ret
-	}).(DbClusterEndpointOutput)
+	}).(DbClusterEndpointTypeOutput)
 }
 
 // Specifies the connection endpoint for the primary instance of the DB cluster.
-func (o DbClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DbClusterEndpoint) *string {
+func (o DbClusterEndpointTypePtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterEndpointType) *string {
 		if v == nil {
 			return nil
 		}
@@ -207,13 +207,20 @@ func (o DbClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 }
 
 // Specifies the port that the database engine is listening on.
-func (o DbClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DbClusterEndpoint) *string {
+func (o DbClusterEndpointTypePtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterEndpointType) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Port
 	}).(pulumi.StringPtrOutput)
+}
+
+type DbClusterEndpointTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
 }
 
 // The “MasterUserSecret“ return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
@@ -2211,6 +2218,122 @@ type DbSubnetGroupTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type DeploymentSwitchoverDetail struct {
+	// The source database member in the Blue/Green Deployment.
+	SourceMember *string `pulumi:"sourceMember"`
+	// The status of this source and target member pair.
+	SwitchoverDetailStatus *string `pulumi:"switchoverDetailStatus"`
+	// The target database member in the Blue/Green Deployment.
+	TargetMember *string `pulumi:"targetMember"`
+}
+
+type DeploymentSwitchoverDetailOutput struct{ *pulumi.OutputState }
+
+func (DeploymentSwitchoverDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentSwitchoverDetail)(nil)).Elem()
+}
+
+func (o DeploymentSwitchoverDetailOutput) ToDeploymentSwitchoverDetailOutput() DeploymentSwitchoverDetailOutput {
+	return o
+}
+
+func (o DeploymentSwitchoverDetailOutput) ToDeploymentSwitchoverDetailOutputWithContext(ctx context.Context) DeploymentSwitchoverDetailOutput {
+	return o
+}
+
+// The source database member in the Blue/Green Deployment.
+func (o DeploymentSwitchoverDetailOutput) SourceMember() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSwitchoverDetail) *string { return v.SourceMember }).(pulumi.StringPtrOutput)
+}
+
+// The status of this source and target member pair.
+func (o DeploymentSwitchoverDetailOutput) SwitchoverDetailStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSwitchoverDetail) *string { return v.SwitchoverDetailStatus }).(pulumi.StringPtrOutput)
+}
+
+// The target database member in the Blue/Green Deployment.
+func (o DeploymentSwitchoverDetailOutput) TargetMember() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSwitchoverDetail) *string { return v.TargetMember }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentSwitchoverDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentSwitchoverDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentSwitchoverDetail)(nil)).Elem()
+}
+
+func (o DeploymentSwitchoverDetailArrayOutput) ToDeploymentSwitchoverDetailArrayOutput() DeploymentSwitchoverDetailArrayOutput {
+	return o
+}
+
+func (o DeploymentSwitchoverDetailArrayOutput) ToDeploymentSwitchoverDetailArrayOutputWithContext(ctx context.Context) DeploymentSwitchoverDetailArrayOutput {
+	return o
+}
+
+func (o DeploymentSwitchoverDetailArrayOutput) Index(i pulumi.IntInput) DeploymentSwitchoverDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentSwitchoverDetail {
+		return vs[0].([]DeploymentSwitchoverDetail)[vs[1].(int)]
+	}).(DeploymentSwitchoverDetailOutput)
+}
+
+type DeploymentTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
+type DeploymentTask struct {
+	// The name of a Blue/Green Deployment provisioning task.
+	TaskName *string `pulumi:"taskName"`
+	// The status of a Blue/Green Deployment provisioning task.
+	TaskStatus *string `pulumi:"taskStatus"`
+}
+
+type DeploymentTaskOutput struct{ *pulumi.OutputState }
+
+func (DeploymentTaskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentTask)(nil)).Elem()
+}
+
+func (o DeploymentTaskOutput) ToDeploymentTaskOutput() DeploymentTaskOutput {
+	return o
+}
+
+func (o DeploymentTaskOutput) ToDeploymentTaskOutputWithContext(ctx context.Context) DeploymentTaskOutput {
+	return o
+}
+
+// The name of a Blue/Green Deployment provisioning task.
+func (o DeploymentTaskOutput) TaskName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentTask) *string { return v.TaskName }).(pulumi.StringPtrOutput)
+}
+
+// The status of a Blue/Green Deployment provisioning task.
+func (o DeploymentTaskOutput) TaskStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentTask) *string { return v.TaskStatus }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentTaskArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentTaskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentTask)(nil)).Elem()
+}
+
+func (o DeploymentTaskArrayOutput) ToDeploymentTaskArrayOutput() DeploymentTaskArrayOutput {
+	return o
+}
+
+func (o DeploymentTaskArrayOutput) ToDeploymentTaskArrayOutputWithContext(ctx context.Context) DeploymentTaskArrayOutput {
+	return o
+}
+
+func (o DeploymentTaskArrayOutput) Index(i pulumi.IntInput) DeploymentTaskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentTask {
+		return vs[0].([]DeploymentTask)[vs[1].(int)]
+	}).(DeploymentTaskOutput)
+}
+
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
 //	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
@@ -2588,8 +2711,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionSettingArrayInput)(nil)).Elem(), OptionGroupOptionSettingArray{})
 	pulumi.RegisterOutputType(DbClusterDbClusterRoleOutput{})
 	pulumi.RegisterOutputType(DbClusterDbClusterRoleArrayOutput{})
-	pulumi.RegisterOutputType(DbClusterEndpointOutput{})
-	pulumi.RegisterOutputType(DbClusterEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterEndpointTypeOutput{})
+	pulumi.RegisterOutputType(DbClusterEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(DbClusterMasterUserSecretOutput{})
 	pulumi.RegisterOutputType(DbClusterMasterUserSecretPtrOutput{})
 	pulumi.RegisterOutputType(DbClusterReadEndpointOutput{})
@@ -2616,6 +2739,10 @@ func init() {
 	pulumi.RegisterOutputType(DbProxyAuthFormatArrayOutput{})
 	pulumi.RegisterOutputType(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput{})
 	pulumi.RegisterOutputType(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentSwitchoverDetailOutput{})
+	pulumi.RegisterOutputType(DeploymentSwitchoverDetailArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentTaskOutput{})
+	pulumi.RegisterOutputType(DeploymentTaskArrayOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalEndpointOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalEndpointPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationOutput{})

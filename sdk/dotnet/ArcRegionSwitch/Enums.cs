@@ -118,6 +118,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         public static PlanExecutionBlockType RdsPromoteReadReplica { get; } = new PlanExecutionBlockType("RdsPromoteReadReplica");
         public static PlanExecutionBlockType RdsSwitchoverReadReplica { get; } = new PlanExecutionBlockType("RdsSwitchoverReadReplica");
         public static PlanExecutionBlockType Route53HealthCheck { get; } = new PlanExecutionBlockType("Route53HealthCheck");
+        public static PlanExecutionBlockType SsmSendCommand { get; } = new PlanExecutionBlockType("SSMSendCommand");
 
         public static bool operator ==(PlanExecutionBlockType left, PlanExecutionBlockType right) => left.Equals(right);
         public static bool operator !=(PlanExecutionBlockType left, PlanExecutionBlockType right) => !left.Equals(right);
@@ -349,6 +350,33 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PlanRoutingControlStateChange other && Equals(other);
         public bool Equals(PlanRoutingControlStateChange other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PlanSsmSendCommandUngracefulBehavior : IEquatable<PlanSsmSendCommandUngracefulBehavior>
+    {
+        private readonly string _value;
+
+        private PlanSsmSendCommandUngracefulBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlanSsmSendCommandUngracefulBehavior Skip { get; } = new PlanSsmSendCommandUngracefulBehavior("skip");
+
+        public static bool operator ==(PlanSsmSendCommandUngracefulBehavior left, PlanSsmSendCommandUngracefulBehavior right) => left.Equals(right);
+        public static bool operator !=(PlanSsmSendCommandUngracefulBehavior left, PlanSsmSendCommandUngracefulBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(PlanSsmSendCommandUngracefulBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlanSsmSendCommandUngracefulBehavior other && Equals(other);
+        public bool Equals(PlanSsmSendCommandUngracefulBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

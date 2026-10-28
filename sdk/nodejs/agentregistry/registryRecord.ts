@@ -46,6 +46,12 @@ export class RegistryRecord extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
+     * The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+     */
+    declare public readonly customMetadata: pulumi.Output<any | undefined>;
+    /**
      * The description of the registry record.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -106,6 +112,7 @@ export class RegistryRecord extends pulumi.CustomResource {
             if (args?.recordType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recordType'");
             }
+            resourceInputs["customMetadata"] = args?.customMetadata;
             resourceInputs["description"] = args?.description;
             resourceInputs["descriptors"] = args?.descriptors;
             resourceInputs["displayName"] = args?.displayName;
@@ -124,6 +131,7 @@ export class RegistryRecord extends pulumi.CustomResource {
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["customMetadata"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["descriptors"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -149,6 +157,12 @@ export class RegistryRecord extends pulumi.CustomResource {
  * The set of arguments for constructing a RegistryRecord resource.
  */
 export interface RegistryRecordArgs {
+    /**
+     * The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+     */
+    customMetadata?: any | undefined;
     /**
      * The description of the registry record.
      */

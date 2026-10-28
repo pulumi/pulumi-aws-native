@@ -35,10 +35,20 @@ export const getArtifact: typeof import("./getArtifact").getArtifact = null as a
 export const getArtifactOutput: typeof import("./getArtifact").getArtifactOutput = null as any;
 utilities.lazyLoad(exports, ["getArtifact","getArtifactOutput"], () => require("./getArtifact"));
 
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
+
 export { GetPentestArgs, GetPentestResult, GetPentestOutputArgs } from "./getPentest";
 export const getPentest: typeof import("./getPentest").getPentest = null as any;
 export const getPentestOutput: typeof import("./getPentest").getPentestOutput = null as any;
 utilities.lazyLoad(exports, ["getPentest","getPentestOutput"], () => require("./getPentest"));
+
+export { GetPrivateConnectionArgs, GetPrivateConnectionResult, GetPrivateConnectionOutputArgs } from "./getPrivateConnection";
+export const getPrivateConnection: typeof import("./getPrivateConnection").getPrivateConnection = null as any;
+export const getPrivateConnectionOutput: typeof import("./getPrivateConnection").getPrivateConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateConnection","getPrivateConnectionOutput"], () => require("./getPrivateConnection"));
 
 export { GetSecurityRequirementPackArgs, GetSecurityRequirementPackResult, GetSecurityRequirementPackOutputArgs } from "./getSecurityRequirementPack";
 export const getSecurityRequirementPack: typeof import("./getSecurityRequirementPack").getSecurityRequirementPack = null as any;
@@ -50,10 +60,20 @@ export const getTargetDomain: typeof import("./getTargetDomain").getTargetDomain
 export const getTargetDomainOutput: typeof import("./getTargetDomain").getTargetDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getTargetDomain","getTargetDomainOutput"], () => require("./getTargetDomain"));
 
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
+
 export { PentestArgs } from "./pentest";
 export type Pentest = import("./pentest").Pentest;
 export const Pentest: typeof import("./pentest").Pentest = null as any;
 utilities.lazyLoad(exports, ["Pentest"], () => require("./pentest"));
+
+export { PrivateConnectionArgs } from "./privateConnection";
+export type PrivateConnection = import("./privateConnection").PrivateConnection;
+export const PrivateConnection: typeof import("./privateConnection").PrivateConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateConnection"], () => require("./privateConnection"));
 
 export { SecurityRequirementPackArgs } from "./securityRequirementPack";
 export type SecurityRequirementPack = import("./securityRequirementPack").SecurityRequirementPack;
@@ -79,8 +99,12 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "aws-native:securityagent:Artifact":
                 return new Artifact(name, <any>undefined, { urn })
+            case "aws-native:securityagent:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws-native:securityagent:Pentest":
                 return new Pentest(name, <any>undefined, { urn })
+            case "aws-native:securityagent:PrivateConnection":
+                return new PrivateConnection(name, <any>undefined, { urn })
             case "aws-native:securityagent:SecurityRequirementPack":
                 return new SecurityRequirementPack(name, <any>undefined, { urn })
             case "aws-native:securityagent:TargetDomain":

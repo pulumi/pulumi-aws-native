@@ -8,7 +8,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .connection_alias import *
+from .directory import *
 from .get_connection_alias import *
+from .get_directory import *
 from .get_workspace import *
 from .get_workspace_ip_group import *
 from .get_workspaces_pool import *

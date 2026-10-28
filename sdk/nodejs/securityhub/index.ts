@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ActionTargetArgs } from "./actionTarget";
+export type ActionTarget = import("./actionTarget").ActionTarget;
+export const ActionTarget: typeof import("./actionTarget").ActionTarget = null as any;
+utilities.lazyLoad(exports, ["ActionTarget"], () => require("./actionTarget"));
+
 export { AggregatorV2Args } from "./aggregatorV2";
 export type AggregatorV2 = import("./aggregatorV2").AggregatorV2;
 export const AggregatorV2: typeof import("./aggregatorV2").AggregatorV2 = null as any;
@@ -44,6 +49,11 @@ export { FindingAggregatorArgs } from "./findingAggregator";
 export type FindingAggregator = import("./findingAggregator").FindingAggregator;
 export const FindingAggregator: typeof import("./findingAggregator").FindingAggregator = null as any;
 utilities.lazyLoad(exports, ["FindingAggregator"], () => require("./findingAggregator"));
+
+export { GetActionTargetArgs, GetActionTargetResult, GetActionTargetOutputArgs } from "./getActionTarget";
+export const getActionTarget: typeof import("./getActionTarget").getActionTarget = null as any;
+export const getActionTargetOutput: typeof import("./getActionTarget").getActionTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getActionTarget","getActionTargetOutput"], () => require("./getActionTarget"));
 
 export { GetAggregatorV2Args, GetAggregatorV2Result, GetAggregatorV2OutputArgs } from "./getAggregatorV2";
 export const getAggregatorV2: typeof import("./getAggregatorV2").getAggregatorV2 = null as any;
@@ -173,6 +183,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:securityhub:ActionTarget":
+                return new ActionTarget(name, <any>undefined, { urn })
             case "aws-native:securityhub:AggregatorV2":
                 return new AggregatorV2(name, <any>undefined, { urn })
             case "aws-native:securityhub:AutomationRule":

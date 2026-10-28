@@ -83,6 +83,14 @@
     "Placement" : {
       "description" : "The placement option settings for the infrastructure configuration.",
       "$ref" : "#/definitions/Placement"
+    },
+    "ParentInstance" : {
+      "description" : "The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.",
+      "$ref" : "#/definitions/ParentInstance"
+    },
+    "TerminateInstanceOnCompletion" : {
+      "description" : "Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.",
+      "type" : "boolean"
     }
   },
   "definitions" : {
@@ -169,6 +177,38 @@
           "type" : "string"
         }
       }
+    },
+    "ParentInstance" : {
+      "description" : "Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AutoScalingGroup" : {
+          "description" : "The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from.",
+          "$ref" : "#/definitions/AutoScalingGroup"
+        }
+      },
+      "required" : [ "AutoScalingGroup" ]
+    },
+    "AutoScalingGroup" : {
+      "description" : "Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, and how long Image Builder waits when the group has no instance available.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Name" : {
+          "description" : "The name of the Auto Scaling group, in the same account and AWS Region as the infrastructure configuration.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 1024
+        },
+        "CapacityWaitTimeoutSeconds" : {
+          "description" : "The number of seconds that Image Builder waits for an instance to become available in the group before the build fails. If you set this value to 0 or omit it, the build fails as soon as the group has no instance available.",
+          "type" : "integer",
+          "minimum" : 0,
+          "maximum" : 3600
+        }
+      },
+      "required" : [ "Name" ]
     }
   },
   "required" : [ "Name", "InstanceProfileName" ],
@@ -185,10 +225,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "iam:GetRole", "iam:GetInstanceProfile", "iam:CreateServiceLinkedRole", "sns:Publish", "imagebuilder:TagResource", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:CreateInfrastructureConfiguration" ]
+      "permissions" : [ "iam:PassRole", "iam:GetRole", "iam:GetInstanceProfile", "iam:CreateServiceLinkedRole", "sns:Publish", "imagebuilder:TagResource", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:CreateInfrastructureConfiguration", "autoscaling:DescribeAutoScalingGroups" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "sns:Publish", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:UpdateInfrastructureConfiguration", "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
+      "permissions" : [ "iam:PassRole", "sns:Publish", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:UpdateInfrastructureConfiguration", "imagebuilder:TagResource", "imagebuilder:UntagResource", "autoscaling:DescribeAutoScalingGroups" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetInfrastructureConfiguration" ]

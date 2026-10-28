@@ -115,6 +115,7 @@ namespace Pulumi.AwsNative.Eks
                     "capabilityName",
                     "clusterName",
                     "configuration.argoCd.awsIdc",
+                    "configuration.argoCd.endpointPrefix",
                     "configuration.argoCd.namespace",
                     "type",
                 },

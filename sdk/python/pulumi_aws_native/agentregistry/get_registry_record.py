@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetRegistryRecordResult:
-    def __init__(__self__, created_at=None, created_by=None, description=None, descriptors=None, display_name=None, name=None, record_arn=None, record_id=None, record_version=None, registry_arn=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, created_by=None, custom_metadata=None, description=None, descriptors=None, display_name=None, name=None, record_arn=None, record_id=None, record_version=None, registry_arn=None, status=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if created_by and not isinstance(created_by, str):
             raise TypeError("Expected argument 'created_by' to be a str")
         pulumi.set(__self__, "created_by", created_by)
+        if custom_metadata and not isinstance(custom_metadata, dict):
+            raise TypeError("Expected argument 'custom_metadata' to be a dict")
+        pulumi.set(__self__, "custom_metadata", custom_metadata)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -82,6 +85,16 @@ class GetRegistryRecordResult:
         The identifier of the AWS account that created the registry record.
         """
         return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="customMetadata")
+    def custom_metadata(self) -> Optional[Any]:
+        """
+        The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "custom_metadata")
 
     @_builtins.property
     @pulumi.getter
@@ -174,6 +187,7 @@ class AwaitableGetRegistryRecordResult(GetRegistryRecordResult):
         return GetRegistryRecordResult(
             created_at=self.created_at,
             created_by=self.created_by,
+            custom_metadata=self.custom_metadata,
             description=self.description,
             descriptors=self.descriptors,
             display_name=self.display_name,
@@ -202,6 +216,7 @@ def get_registry_record(record_arn: Optional[_builtins.str] = None,
     return AwaitableGetRegistryRecordResult(
         created_at=pulumi.get(__ret__, 'created_at'),
         created_by=pulumi.get(__ret__, 'created_by'),
+        custom_metadata=pulumi.get(__ret__, 'custom_metadata'),
         description=pulumi.get(__ret__, 'description'),
         descriptors=pulumi.get(__ret__, 'descriptors'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -227,6 +242,7 @@ def get_registry_record_output(record_arn: pulumi.Input[Optional[_builtins.str]]
     return __ret__.apply(lambda __response__: GetRegistryRecordResult(
         created_at=pulumi.get(__response__, 'created_at'),
         created_by=pulumi.get(__response__, 'created_by'),
+        custom_metadata=pulumi.get(__response__, 'custom_metadata'),
         description=pulumi.get(__response__, 'description'),
         descriptors=pulumi.get(__response__, 'descriptors'),
         display_name=pulumi.get(__response__, 'display_name'),

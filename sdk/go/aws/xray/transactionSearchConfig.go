@@ -15,8 +15,9 @@ import (
 type TransactionSearchConfig struct {
 	pulumi.CustomResourceState
 
-	AccountId          pulumi.StringOutput     `pulumi:"accountId"`
-	IndexingPercentage pulumi.Float64PtrOutput `pulumi:"indexingPercentage"`
+	AccountId                   pulumi.StringOutput                                         `pulumi:"accountId"`
+	CloudWatchLogsConfiguration TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput `pulumi:"cloudWatchLogsConfiguration"`
+	IndexingPercentage          pulumi.Float64PtrOutput                                     `pulumi:"indexingPercentage"`
 }
 
 // NewTransactionSearchConfig registers a new resource with the given unique name, arguments, and options.
@@ -26,6 +27,10 @@ func NewTransactionSearchConfig(ctx *pulumi.Context,
 		args = &TransactionSearchConfigArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"cloudWatchLogsConfiguration",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransactionSearchConfig
 	err := ctx.RegisterResource("aws-native:xray:TransactionSearchConfig", name, args, &resource, opts...)
@@ -59,12 +64,14 @@ func (TransactionSearchConfigState) ElementType() reflect.Type {
 }
 
 type transactionSearchConfigArgs struct {
-	IndexingPercentage *float64 `pulumi:"indexingPercentage"`
+	CloudWatchLogsConfiguration *TransactionSearchConfigCloudWatchLogsConfiguration `pulumi:"cloudWatchLogsConfiguration"`
+	IndexingPercentage          *float64                                            `pulumi:"indexingPercentage"`
 }
 
 // The set of arguments for constructing a TransactionSearchConfig resource.
 type TransactionSearchConfigArgs struct {
-	IndexingPercentage pulumi.Float64PtrInput
+	CloudWatchLogsConfiguration TransactionSearchConfigCloudWatchLogsConfigurationPtrInput
+	IndexingPercentage          pulumi.Float64PtrInput
 }
 
 func (TransactionSearchConfigArgs) ElementType() reflect.Type {
@@ -106,6 +113,12 @@ func (o TransactionSearchConfigOutput) ToTransactionSearchConfigOutputWithContex
 
 func (o TransactionSearchConfigOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransactionSearchConfig) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+func (o TransactionSearchConfigOutput) CloudWatchLogsConfiguration() TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v *TransactionSearchConfig) TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+		return v.CloudWatchLogsConfiguration
+	}).(TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput)
 }
 
 func (o TransactionSearchConfigOutput) IndexingPercentage() pulumi.Float64PtrOutput {

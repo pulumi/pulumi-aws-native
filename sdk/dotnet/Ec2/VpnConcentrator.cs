@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The ID of the transit gateway associated with the VPN concentrator.
         /// </summary>
         [Output("transitGatewayId")]
-        public Output<string> TransitGatewayId { get; private set; } = null!;
+        public Output<string?> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// The type of VPN concentrator.
@@ -110,8 +110,8 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The ID of the transit gateway associated with the VPN concentrator.
         /// </summary>
-        [Input("transitGatewayId", required: true)]
-        public Input<string> TransitGatewayId { get; set; } = null!;
+        [Input("transitGatewayId")]
+        public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
         /// The type of VPN concentrator.

@@ -2557,7 +2557,9 @@ class FlowNdiSourceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceName":
+        if key == "audioReferenceLevel":
+            suggest = "audio_reference_level"
+        elif key == "sourceName":
             suggest = "source_name"
 
         if suggest:
@@ -2572,9 +2574,23 @@ class FlowNdiSourceSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 audio_reference_level: Optional[_builtins.int] = None,
                  source_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int audio_reference_level: The audio reference level of the NDI sender, in dBFS.
+        """
+        if audio_reference_level is not None:
+            pulumi.set(__self__, "audio_reference_level", audio_reference_level)
         if source_name is not None:
             pulumi.set(__self__, "source_name", source_name)
+
+    @_builtins.property
+    @pulumi.getter(name="audioReferenceLevel")
+    def audio_reference_level(self) -> Optional[_builtins.int]:
+        """
+        The audio reference level of the NDI sender, in dBFS.
+        """
+        return pulumi.get(self, "audio_reference_level")
 
     @_builtins.property
     @pulumi.getter(name="sourceName")

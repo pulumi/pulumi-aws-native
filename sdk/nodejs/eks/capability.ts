@@ -136,7 +136,7 @@ export class Capability extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["capabilityName", "clusterName", "configuration.argoCd.awsIdc", "configuration.argoCd.namespace", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["capabilityName", "clusterName", "configuration.argoCd.awsIdc", "configuration.argoCd.endpointPrefix", "configuration.argoCd.namespace", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Capability.__pulumiType, name, resourceInputs, opts);
     }

@@ -43,6 +43,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
             set => _namespaces = value;
         }
 
+        [Input("recordExpiryDurationDays")]
+        public Input<int>? RecordExpiryDurationDays { get; set; }
+
+        [Input("recordExpirySpecification")]
+        public Input<Inputs.MemoryRecordExpirySpecificationArgs>? RecordExpirySpecification { get; set; }
+
         [Input("reflectionConfiguration")]
         public Input<Inputs.MemoryEpisodicReflectionConfigurationInputArgs>? ReflectionConfiguration { get; set; }
 

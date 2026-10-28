@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Dms
         /// The property describes an instance profile arn for the migration project. For read
         /// </summary>
         [Output("instanceProfileArn")]
-        public Output<string?> InstanceProfileArn { get; private set; } = null!;
+        public Output<string> InstanceProfileArn { get; private set; } = null!;
 
         /// <summary>
         /// The property describes an instance profile identifier for the migration project. For create
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Dms
         /// The property describes an instance profile name for the migration project. For read
         /// </summary>
         [Output("instanceProfileName")]
-        public Output<string?> InstanceProfileName { get; private set; } = null!;
+        public Output<string> InstanceProfileName { get; private set; } = null!;
 
         /// <summary>
         /// The property describes an ARN of the migration project.
@@ -49,10 +49,10 @@ namespace Pulumi.AwsNative.Dms
         /// The property describes a creating time of the migration project.
         /// </summary>
         [Output("migrationProjectCreationTime")]
-        public Output<string?> MigrationProjectCreationTime { get; private set; } = null!;
+        public Output<string> MigrationProjectCreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+        /// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         /// </summary>
         [Output("migrationProjectIdentifier")]
         public Output<string?> MigrationProjectIdentifier { get; private set; } = null!;
@@ -145,31 +145,13 @@ namespace Pulumi.AwsNative.Dms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The property describes an instance profile arn for the migration project. For read
-        /// </summary>
-        [Input("instanceProfileArn")]
-        public Input<string>? InstanceProfileArn { get; set; }
-
-        /// <summary>
         /// The property describes an instance profile identifier for the migration project. For create
         /// </summary>
         [Input("instanceProfileIdentifier")]
         public Input<string>? InstanceProfileIdentifier { get; set; }
 
         /// <summary>
-        /// The property describes an instance profile name for the migration project. For read
-        /// </summary>
-        [Input("instanceProfileName")]
-        public Input<string>? InstanceProfileName { get; set; }
-
-        /// <summary>
-        /// The property describes a creating time of the migration project.
-        /// </summary>
-        [Input("migrationProjectCreationTime")]
-        public Input<string>? MigrationProjectCreationTime { get; set; }
-
-        /// <summary>
-        /// The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+        /// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         /// </summary>
         [Input("migrationProjectIdentifier")]
         public Input<string>? MigrationProjectIdentifier { get; set; }

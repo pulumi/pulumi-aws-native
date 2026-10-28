@@ -13,8 +13,10 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['CompositeAlarmArgs', 'CompositeAlarm']
 
@@ -22,6 +24,7 @@ __all__ = ['CompositeAlarmArgs', 'CompositeAlarm']
 class CompositeAlarmArgs:
     def __init__(__self__, *,
                  alarm_rule: pulumi.Input[_builtins.str],
+                 action_configuration: pulumi.Input[Optional['CompositeAlarmActionConfigurationArgs']] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  actions_suppressor: pulumi.Input[Optional[_builtins.str]] = None,
                  actions_suppressor_extension_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -36,6 +39,7 @@ class CompositeAlarmArgs:
         The set of arguments for constructing a CompositeAlarm resource.
 
         :param pulumi.Input[_builtins.str] alarm_rule: Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
+        :param pulumi.Input['CompositeAlarmActionConfigurationArgs'] action_configuration: Configuration that applies to the notifications this alarm sends when it performs its actions.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         :param pulumi.Input[_builtins.str] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
         :param pulumi.Input[_builtins.int] actions_suppressor_extension_period: Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
@@ -48,6 +52,8 @@ class CompositeAlarmArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
         """
         pulumi.set(__self__, "alarm_rule", alarm_rule)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
         if actions_suppressor is not None:
@@ -80,6 +86,18 @@ class CompositeAlarmArgs:
     @alarm_rule.setter
     def alarm_rule(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "alarm_rule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> pulumi.Input[Optional['CompositeAlarmActionConfigurationArgs']]:
+        """
+        Configuration that applies to the notifications this alarm sends when it performs its actions.
+        """
+        return pulumi.get(self, "action_configuration")
+
+    @action_configuration.setter
+    def action_configuration(self, value: pulumi.Input[Optional['CompositeAlarmActionConfigurationArgs']]):
+        pulumi.set(self, "action_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -208,6 +226,7 @@ class CompositeAlarm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_configuration: pulumi.Input[Optional[Union['CompositeAlarmActionConfigurationArgs', 'CompositeAlarmActionConfigurationArgsDict']]] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  actions_suppressor: pulumi.Input[Optional[_builtins.str]] = None,
                  actions_suppressor_extension_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -225,6 +244,7 @@ class CompositeAlarm(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['CompositeAlarmActionConfigurationArgs', 'CompositeAlarmActionConfigurationArgsDict']] action_configuration: Configuration that applies to the notifications this alarm sends when it performs its actions.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         :param pulumi.Input[_builtins.str] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
         :param pulumi.Input[_builtins.int] actions_suppressor_extension_period: Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
@@ -261,6 +281,7 @@ class CompositeAlarm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_configuration: pulumi.Input[Optional[Union['CompositeAlarmActionConfigurationArgs', 'CompositeAlarmActionConfigurationArgsDict']]] = None,
                  actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  actions_suppressor: pulumi.Input[Optional[_builtins.str]] = None,
                  actions_suppressor_extension_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -281,6 +302,7 @@ class CompositeAlarm(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CompositeAlarmArgs.__new__(CompositeAlarmArgs)
 
+            __props__.__dict__["action_configuration"] = action_configuration
             __props__.__dict__["actions_enabled"] = actions_enabled
             __props__.__dict__["actions_suppressor"] = actions_suppressor
             __props__.__dict__["actions_suppressor_extension_period"] = actions_suppressor_extension_period
@@ -319,6 +341,7 @@ class CompositeAlarm(pulumi.CustomResource):
 
         __props__ = CompositeAlarmArgs.__new__(CompositeAlarmArgs)
 
+        __props__.__dict__["action_configuration"] = None
         __props__.__dict__["actions_enabled"] = None
         __props__.__dict__["actions_suppressor"] = None
         __props__.__dict__["actions_suppressor_extension_period"] = None
@@ -332,6 +355,14 @@ class CompositeAlarm(pulumi.CustomResource):
         __props__.__dict__["ok_actions"] = None
         __props__.__dict__["tags"] = None
         return CompositeAlarm(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> pulumi.Output[Optional['outputs.CompositeAlarmActionConfiguration']]:
+        """
+        Configuration that applies to the notifications this alarm sends when it performs its actions.
+        """
+        return pulumi.get(self, "action_configuration")
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")

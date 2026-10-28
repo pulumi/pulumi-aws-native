@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.ServiceCatalog
     public static class GetCloudFormationProvisionedProduct
     {
         /// <summary>
-        /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+        /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
         /// </summary>
         public static Task<GetCloudFormationProvisionedProductResult> InvokeAsync(GetCloudFormationProvisionedProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+        /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
         /// </summary>
         public static Output<GetCloudFormationProvisionedProductResult> Invoke(GetCloudFormationProvisionedProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+        /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
         /// </summary>
         public static Output<GetCloudFormationProvisionedProductResult> Invoke(GetCloudFormationProvisionedProductInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductInvokeArgs(), options.WithDefaults());

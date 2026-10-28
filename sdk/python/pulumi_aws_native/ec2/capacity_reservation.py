@@ -488,7 +488,7 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["start_date"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["total_instance_count"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "availabilityZoneId", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tagSpecifications[*]", "tenancy"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "availabilityZoneId", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tenancy"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CapacityReservation, __self__).__init__(
             'aws-native:ec2:CapacityReservation',

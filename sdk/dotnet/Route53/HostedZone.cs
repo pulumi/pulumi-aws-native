@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Route53
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        [Output("delegationSetId")]
+        public Output<string?> DelegationSetId { get; private set; } = null!;
+
         /// <summary>
         /// A complex type that contains an optional comment.
         ///  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
@@ -116,6 +119,7 @@ namespace Pulumi.AwsNative.Route53
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "delegationSetId",
                     "name",
                 },
             };
@@ -140,6 +144,9 @@ namespace Pulumi.AwsNative.Route53
 
     public sealed class HostedZoneArgs : global::Pulumi.ResourceArgs
     {
+        [Input("delegationSetId")]
+        public Input<string>? DelegationSetId { get; set; }
+
         /// <summary>
         /// A complex type that contains an optional comment.
         ///  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.

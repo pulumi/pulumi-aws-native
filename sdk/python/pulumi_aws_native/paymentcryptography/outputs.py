@@ -235,7 +235,11 @@ class KeyReplicationStatusType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "statusMessage":
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "statusMessage":
             suggest = "status_message"
 
         if suggest:
@@ -251,16 +255,24 @@ class KeyReplicationStatusType(dict):
 
     def __init__(__self__, *,
                  status: 'KeyReplicationState',
+                 kms_key_arn: Optional[_builtins.str] = None,
+                 kms_key_id: Optional[_builtins.str] = None,
                  status_message: Optional[_builtins.str] = None):
         """
         :param 'KeyReplicationState' status: The current status of key replication in this AWS Region .
                
                This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
+        :param _builtins.str kms_key_arn: The ARN of the AWS KMS key that protects the replica in this region.
+        :param _builtins.str kms_key_id: The AWS KMS key requested for this region, when replication failed before its ARN was known.
         :param _builtins.str status_message: A message that provides additional information about the current replication status of the key.
                
                This field contains details about any issues or progress updates related to key replication operations. It may include information about replication failures, synchronization status, or other operational details.
         """
         pulumi.set(__self__, "status", status)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if status_message is not None:
             pulumi.set(__self__, "status_message", status_message)
 
@@ -273,6 +285,22 @@ class KeyReplicationStatusType(dict):
         This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the AWS KMS key that protects the replica in this region.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The AWS KMS key requested for this region, when replication failed before its ARN was known.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")

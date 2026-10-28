@@ -481,6 +481,37 @@ namespace Pulumi.AwsNative.Transfer
     }
 
     /// <summary>
+    /// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostKeyStorageType : IEquatable<HostKeyStorageType>
+    {
+        private readonly string _value;
+
+        private HostKeyStorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostKeyStorageType ServiceManaged { get; } = new HostKeyStorageType("SERVICE_MANAGED");
+        public static HostKeyStorageType SecretsManager { get; } = new HostKeyStorageType("SECRETS_MANAGER");
+
+        public static bool operator ==(HostKeyStorageType left, HostKeyStorageType right) => left.Equals(right);
+        public static bool operator !=(HostKeyStorageType left, HostKeyStorageType right) => !left.Equals(right);
+
+        public static explicit operator string(HostKeyStorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostKeyStorageType other && Equals(other);
+        public bool Equals(HostKeyStorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enum specifying whether the profile is local or associated with a trading partner.
     /// </summary>
     [EnumType]

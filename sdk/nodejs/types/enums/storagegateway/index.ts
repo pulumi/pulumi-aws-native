@@ -2,6 +2,68 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const NfsFileShareEncryptionType = {
+    SseS3: "SseS3",
+    SseKms: "SseKms",
+    DsseKms: "DsseKms",
+} as const;
+
+/**
+ * The server-side encryption the gateway applies to objects it writes.
+ */
+export type NfsFileShareEncryptionType = (typeof NfsFileShareEncryptionType)[keyof typeof NfsFileShareEncryptionType];
+
+export const NfsFileShareObjectAcl = {
+    Private: "private",
+    PublicRead: "public-read",
+    PublicReadWrite: "public-read-write",
+    AuthenticatedRead: "authenticated-read",
+    BucketOwnerRead: "bucket-owner-read",
+    BucketOwnerFullControl: "bucket-owner-full-control",
+    AwsExecRead: "aws-exec-read",
+} as const;
+
+/**
+ * The canned S3 ACL applied to objects the gateway writes.
+ */
+export type NfsFileShareObjectAcl = (typeof NfsFileShareObjectAcl)[keyof typeof NfsFileShareObjectAcl];
+
+export const SmbFileShareCaseSensitivity = {
+    ClientSpecified: "ClientSpecified",
+    CaseSensitive: "CaseSensitive",
+} as const;
+
+/**
+ * Whether the SMB share is case sensitive or defers to the client.
+ */
+export type SmbFileShareCaseSensitivity = (typeof SmbFileShareCaseSensitivity)[keyof typeof SmbFileShareCaseSensitivity];
+
+export const SmbFileShareEncryptionType = {
+    SseS3: "SseS3",
+    SseKms: "SseKms",
+    DsseKms: "DsseKms",
+} as const;
+
+/**
+ * The server-side encryption the gateway applies to objects it writes.
+ */
+export type SmbFileShareEncryptionType = (typeof SmbFileShareEncryptionType)[keyof typeof SmbFileShareEncryptionType];
+
+export const SmbFileShareObjectAcl = {
+    Private: "private",
+    PublicRead: "public-read",
+    PublicReadWrite: "public-read-write",
+    AuthenticatedRead: "authenticated-read",
+    BucketOwnerRead: "bucket-owner-read",
+    BucketOwnerFullControl: "bucket-owner-full-control",
+    AwsExecRead: "aws-exec-read",
+} as const;
+
+/**
+ * The canned S3 ACL applied to objects the gateway writes.
+ */
+export type SmbFileShareObjectAcl = (typeof SmbFileShareObjectAcl)[keyof typeof SmbFileShareObjectAcl];
+
 export const TapePoolRetentionLockType = {
     Compliance: "COMPLIANCE",
     Governance: "GOVERNANCE",

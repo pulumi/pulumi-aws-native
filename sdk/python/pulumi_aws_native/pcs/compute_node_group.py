@@ -23,12 +23,12 @@ __all__ = ['ComputeNodeGroupArgs', 'ComputeNodeGroup']
 class ComputeNodeGroupArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[_builtins.str],
-                 custom_launch_template: pulumi.Input['CustomLaunchTemplatePropertiesArgs'],
                  iam_instance_profile_arn: pulumi.Input[_builtins.str],
                  instance_configs: pulumi.Input[Sequence[pulumi.Input['ComputeNodeGroupInstanceConfigArgs']]],
                  scaling_configuration: pulumi.Input['ScalingConfigurationPropertiesArgs'],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_launch_template: pulumi.Input[Optional['CustomLaunchTemplatePropertiesArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_lifecycle_actions: pulumi.Input[Optional['ComputeNodeGroupNodeLifecycleActionsArgs']] = None,
                  purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
@@ -39,12 +39,12 @@ class ComputeNodeGroupArgs:
         The set of arguments for constructing a ComputeNodeGroup resource.
 
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the cluster of the compute node group.
-        :param pulumi.Input['CustomLaunchTemplatePropertiesArgs'] custom_launch_template: An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
         :param pulumi.Input[_builtins.str] iam_instance_profile_arn: The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
         :param pulumi.Input[Sequence[pulumi.Input['ComputeNodeGroupInstanceConfigArgs']]] instance_configs: A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
         :param pulumi.Input['ScalingConfigurationPropertiesArgs'] scaling_configuration: Specifies the boundaries of the compute node group auto scaling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.
         :param pulumi.Input[_builtins.str] ami_id: The ID of the Amazon Machine Image (AMI) that AWS PCS uses to launch instances. If not provided, AWS PCS uses the AMI ID specified in the custom launch template.
+        :param pulumi.Input['CustomLaunchTemplatePropertiesArgs'] custom_launch_template: An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
         :param pulumi.Input[_builtins.str] name: The name that identifies the compute node group.
         :param pulumi.Input['ComputeNodeGroupPurchaseOption'] purchase_option: Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         :param pulumi.Input['SlurmConfigurationPropertiesArgs'] slurm_configuration: Additional options related to the Slurm scheduler.
@@ -52,13 +52,14 @@ class ComputeNodeGroupArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "custom_launch_template", custom_launch_template)
         pulumi.set(__self__, "iam_instance_profile_arn", iam_instance_profile_arn)
         pulumi.set(__self__, "instance_configs", instance_configs)
         pulumi.set(__self__, "scaling_configuration", scaling_configuration)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if ami_id is not None:
             pulumi.set(__self__, "ami_id", ami_id)
+        if custom_launch_template is not None:
+            pulumi.set(__self__, "custom_launch_template", custom_launch_template)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if node_lifecycle_actions is not None:
@@ -83,18 +84,6 @@ class ComputeNodeGroupArgs:
     @cluster_id.setter
     def cluster_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="customLaunchTemplate")
-    def custom_launch_template(self) -> pulumi.Input['CustomLaunchTemplatePropertiesArgs']:
-        """
-        An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
-        """
-        return pulumi.get(self, "custom_launch_template")
-
-    @custom_launch_template.setter
-    def custom_launch_template(self, value: pulumi.Input['CustomLaunchTemplatePropertiesArgs']):
-        pulumi.set(self, "custom_launch_template", value)
 
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfileArn")
@@ -155,6 +144,18 @@ class ComputeNodeGroupArgs:
     @ami_id.setter
     def ami_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ami_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customLaunchTemplate")
+    def custom_launch_template(self) -> pulumi.Input[Optional['CustomLaunchTemplatePropertiesArgs']]:
+        """
+        An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
+        """
+        return pulumi.get(self, "custom_launch_template")
+
+    @custom_launch_template.setter
+    def custom_launch_template(self, value: pulumi.Input[Optional['CustomLaunchTemplatePropertiesArgs']]):
+        pulumi.set(self, "custom_launch_template", value)
 
     @_builtins.property
     @pulumi.getter
@@ -314,8 +315,6 @@ class ComputeNodeGroup(pulumi.CustomResource):
             if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")
             __props__.__dict__["cluster_id"] = cluster_id
-            if custom_launch_template is None and not opts.urn:
-                raise TypeError("Missing required property 'custom_launch_template'")
             __props__.__dict__["custom_launch_template"] = custom_launch_template
             if iam_instance_profile_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'iam_instance_profile_arn'")
@@ -416,7 +415,7 @@ class ComputeNodeGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="customLaunchTemplate")
-    def custom_launch_template(self) -> pulumi.Output['outputs.CustomLaunchTemplateProperties']:
+    def custom_launch_template(self) -> pulumi.Output[Optional['outputs.CustomLaunchTemplateProperties']]:
         """
         An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
         """

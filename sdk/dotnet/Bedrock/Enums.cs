@@ -3727,6 +3727,72 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// The outcome or in-progress state of the most recent create or update. CREATING or UPDATING means the operation is still running. Independent of status. Always has a value from the create 202 onward. On a numbered version this is always CREATE_SUCCESSFUL: a version is created once, from reviewed content, and is immutable.
+    /// </summary>
+    [EnumType]
+    public readonly struct RetrievalInstructionLastTransitionStatus : IEquatable<RetrievalInstructionLastTransitionStatus>
+    {
+        private readonly string _value;
+
+        private RetrievalInstructionLastTransitionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RetrievalInstructionLastTransitionStatus Creating { get; } = new RetrievalInstructionLastTransitionStatus("CREATING");
+        public static RetrievalInstructionLastTransitionStatus Updating { get; } = new RetrievalInstructionLastTransitionStatus("UPDATING");
+        public static RetrievalInstructionLastTransitionStatus CreateSuccessful { get; } = new RetrievalInstructionLastTransitionStatus("CREATE_SUCCESSFUL");
+        public static RetrievalInstructionLastTransitionStatus CreateFailed { get; } = new RetrievalInstructionLastTransitionStatus("CREATE_FAILED");
+        public static RetrievalInstructionLastTransitionStatus UpdateSuccessful { get; } = new RetrievalInstructionLastTransitionStatus("UPDATE_SUCCESSFUL");
+        public static RetrievalInstructionLastTransitionStatus UpdateFailed { get; } = new RetrievalInstructionLastTransitionStatus("UPDATE_FAILED");
+
+        public static bool operator ==(RetrievalInstructionLastTransitionStatus left, RetrievalInstructionLastTransitionStatus right) => left.Equals(right);
+        public static bool operator !=(RetrievalInstructionLastTransitionStatus left, RetrievalInstructionLastTransitionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RetrievalInstructionLastTransitionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RetrievalInstructionLastTransitionStatus other && Equals(other);
+        public bool Equals(RetrievalInstructionLastTransitionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the instruction can be used. Only ACTIVE is resolvable at retrieval time. Monotone: INACTIVE to ACTIVE once, never back. Numbered versions are always ACTIVE.
+    /// </summary>
+    [EnumType]
+    public readonly struct RetrievalInstructionStatus : IEquatable<RetrievalInstructionStatus>
+    {
+        private readonly string _value;
+
+        private RetrievalInstructionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RetrievalInstructionStatus Active { get; } = new RetrievalInstructionStatus("ACTIVE");
+        public static RetrievalInstructionStatus Inactive { get; } = new RetrievalInstructionStatus("INACTIVE");
+
+        public static bool operator ==(RetrievalInstructionStatus left, RetrievalInstructionStatus right) => left.Equals(right);
+        public static bool operator !=(RetrievalInstructionStatus left, RetrievalInstructionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RetrievalInstructionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RetrievalInstructionStatus other && Equals(other);
+        public bool Equals(RetrievalInstructionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The current status of the session.
     /// </summary>
     [EnumType]

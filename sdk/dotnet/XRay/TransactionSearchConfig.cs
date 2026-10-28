@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.XRay
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        [Output("cloudWatchLogsConfiguration")]
+        public Output<Outputs.TransactionSearchConfigCloudWatchLogsConfiguration?> CloudWatchLogsConfiguration { get; private set; } = null!;
+
         [Output("indexingPercentage")]
         public Output<double?> IndexingPercentage { get; private set; } = null!;
 
@@ -44,6 +47,10 @@ namespace Pulumi.AwsNative.XRay
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "cloudWatchLogsConfiguration",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -66,6 +73,9 @@ namespace Pulumi.AwsNative.XRay
 
     public sealed class TransactionSearchConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cloudWatchLogsConfiguration")]
+        public Input<Inputs.TransactionSearchConfigCloudWatchLogsConfigurationArgs>? CloudWatchLogsConfiguration { get; set; }
+
         [Input("indexingPercentage")]
         public Input<double>? IndexingPercentage { get; set; }
 

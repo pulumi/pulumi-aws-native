@@ -79,9 +79,11 @@ type LookupGlobalTableResult struct {
 	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
 	StreamSpecification *GlobalTableStreamSpecification `pulumi:"streamSpecification"`
 	// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
-	TableId *string `pulumi:"tableId"`
+	TableId   *string               `pulumi:"tableId"`
+	TableType *GlobalTableTableType `pulumi:"tableType"`
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
+	VectorIndexes           []GlobalTableVectorIndex            `pulumi:"vectorIndexes"`
 	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
 	WarmThroughput *GlobalTableWarmThroughput `pulumi:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
@@ -219,9 +221,17 @@ func (o LookupGlobalTableResultOutput) TableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.TableId }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupGlobalTableResultOutput) TableType() GlobalTableTableTypePtrOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableTableType { return v.TableType }).(GlobalTableTableTypePtrOutput)
+}
+
 // Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 func (o LookupGlobalTableResultOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableTimeToLiveSpecification { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
+}
+
+func (o LookupGlobalTableResultOutput) VectorIndexes() GlobalTableVectorIndexArrayOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableVectorIndex { return v.VectorIndexes }).(GlobalTableVectorIndexArrayOutput)
 }
 
 // Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.

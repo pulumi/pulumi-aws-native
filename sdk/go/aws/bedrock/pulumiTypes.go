@@ -47801,6 +47801,160 @@ func (o PromptVersionToolSpecificationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PromptVersionToolSpecification) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+type RetrievalInstructionInstruction struct {
+	// How the answer is structured, including how sources are cited.
+	AnswerFormat *string `pulumi:"answerFormat"`
+	// Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+	AnswerPolicy *string `pulumi:"answerPolicy"`
+	// Who the assistant is: identity, tone and language.
+	Persona *string `pulumi:"persona"`
+	// How to interpret and decompose the question, and what to prioritise when searching.
+	RetrievalGuidance *string `pulumi:"retrievalGuidance"`
+}
+
+// RetrievalInstructionInstructionInput is an input type that accepts RetrievalInstructionInstructionArgs and RetrievalInstructionInstructionOutput values.
+// You can construct a concrete instance of `RetrievalInstructionInstructionInput` via:
+//
+//	RetrievalInstructionInstructionArgs{...}
+type RetrievalInstructionInstructionInput interface {
+	pulumi.Input
+
+	ToRetrievalInstructionInstructionOutput() RetrievalInstructionInstructionOutput
+	ToRetrievalInstructionInstructionOutputWithContext(context.Context) RetrievalInstructionInstructionOutput
+}
+
+// The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+type RetrievalInstructionInstructionArgs struct {
+	// How the answer is structured, including how sources are cited.
+	AnswerFormat pulumi.StringPtrInput `pulumi:"answerFormat"`
+	// Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+	AnswerPolicy pulumi.StringPtrInput `pulumi:"answerPolicy"`
+	// Who the assistant is: identity, tone and language.
+	Persona pulumi.StringPtrInput `pulumi:"persona"`
+	// How to interpret and decompose the question, and what to prioritise when searching.
+	RetrievalGuidance pulumi.StringPtrInput `pulumi:"retrievalGuidance"`
+}
+
+func (RetrievalInstructionInstructionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetrievalInstructionInstruction)(nil)).Elem()
+}
+
+func (i RetrievalInstructionInstructionArgs) ToRetrievalInstructionInstructionOutput() RetrievalInstructionInstructionOutput {
+	return i.ToRetrievalInstructionInstructionOutputWithContext(context.Background())
+}
+
+func (i RetrievalInstructionInstructionArgs) ToRetrievalInstructionInstructionOutputWithContext(ctx context.Context) RetrievalInstructionInstructionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetrievalInstructionInstructionOutput)
+}
+
+// The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+type RetrievalInstructionInstructionOutput struct{ *pulumi.OutputState }
+
+func (RetrievalInstructionInstructionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetrievalInstructionInstruction)(nil)).Elem()
+}
+
+func (o RetrievalInstructionInstructionOutput) ToRetrievalInstructionInstructionOutput() RetrievalInstructionInstructionOutput {
+	return o
+}
+
+func (o RetrievalInstructionInstructionOutput) ToRetrievalInstructionInstructionOutputWithContext(ctx context.Context) RetrievalInstructionInstructionOutput {
+	return o
+}
+
+// How the answer is structured, including how sources are cited.
+func (o RetrievalInstructionInstructionOutput) AnswerFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetrievalInstructionInstruction) *string { return v.AnswerFormat }).(pulumi.StringPtrOutput)
+}
+
+// Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+func (o RetrievalInstructionInstructionOutput) AnswerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetrievalInstructionInstruction) *string { return v.AnswerPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Who the assistant is: identity, tone and language.
+func (o RetrievalInstructionInstructionOutput) Persona() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetrievalInstructionInstruction) *string { return v.Persona }).(pulumi.StringPtrOutput)
+}
+
+// How to interpret and decompose the question, and what to prioritise when searching.
+func (o RetrievalInstructionInstructionOutput) RetrievalGuidance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetrievalInstructionInstruction) *string { return v.RetrievalGuidance }).(pulumi.StringPtrOutput)
+}
+
+type RetrievalInstructionInstructionPtrOutput struct{ *pulumi.OutputState }
+
+func (RetrievalInstructionInstructionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetrievalInstructionInstruction)(nil)).Elem()
+}
+
+func (o RetrievalInstructionInstructionPtrOutput) ToRetrievalInstructionInstructionPtrOutput() RetrievalInstructionInstructionPtrOutput {
+	return o
+}
+
+func (o RetrievalInstructionInstructionPtrOutput) ToRetrievalInstructionInstructionPtrOutputWithContext(ctx context.Context) RetrievalInstructionInstructionPtrOutput {
+	return o
+}
+
+func (o RetrievalInstructionInstructionPtrOutput) Elem() RetrievalInstructionInstructionOutput {
+	return o.ApplyT(func(v *RetrievalInstructionInstruction) RetrievalInstructionInstruction {
+		if v != nil {
+			return *v
+		}
+		var ret RetrievalInstructionInstruction
+		return ret
+	}).(RetrievalInstructionInstructionOutput)
+}
+
+// How the answer is structured, including how sources are cited.
+func (o RetrievalInstructionInstructionPtrOutput) AnswerFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetrievalInstructionInstruction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnswerFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.
+func (o RetrievalInstructionInstructionPtrOutput) AnswerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetrievalInstructionInstruction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnswerPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Who the assistant is: identity, tone and language.
+func (o RetrievalInstructionInstructionPtrOutput) Persona() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetrievalInstructionInstruction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Persona
+	}).(pulumi.StringPtrOutput)
+}
+
+// How to interpret and decompose the question, and what to prioritise when searching.
+func (o RetrievalInstructionInstructionPtrOutput) RetrievalGuidance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetrievalInstructionInstruction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetrievalGuidance
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RetrievalInstructionTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // A tag associated with a resource.
 type SessionTag struct {
 	// The key of the tag.
@@ -48357,6 +48511,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolSpecificationInput)(nil)).Elem(), PromptToolSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptVariantInput)(nil)).Elem(), PromptVariantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptVariantArrayInput)(nil)).Elem(), PromptVariantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RetrievalInstructionInstructionInput)(nil)).Elem(), RetrievalInstructionInstructionArgs{})
 	pulumi.RegisterOutputType(AgentActionGroupOutput{})
 	pulumi.RegisterOutputType(AgentActionGroupArrayOutput{})
 	pulumi.RegisterOutputType(AgentActionGroupExecutor0PropertiesOutput{})
@@ -49095,4 +49250,6 @@ func init() {
 	pulumi.RegisterOutputType(PromptVersionToolConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionToolInputSchemaPropertiesOutput{})
 	pulumi.RegisterOutputType(PromptVersionToolSpecificationOutput{})
+	pulumi.RegisterOutputType(RetrievalInstructionInstructionOutput{})
+	pulumi.RegisterOutputType(RetrievalInstructionInstructionPtrOutput{})
 }

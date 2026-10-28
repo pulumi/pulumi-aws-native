@@ -17,7 +17,7 @@ import (
 type VpcPeeringConnection struct {
 	pulumi.CustomResourceState
 
-	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided. You can update this property.
 	AssumeRoleRegion pulumi.StringPtrOutput `pulumi:"assumeRoleRegion"`
 	// The ID of the peering connection.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
@@ -25,7 +25,7 @@ type VpcPeeringConnection struct {
 	PeerOwnerId pulumi.StringPtrOutput `pulumi:"peerOwnerId"`
 	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
 	PeerRegion pulumi.StringPtrOutput `pulumi:"peerRegion"`
-	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account. You can update this property. To manage PeerVpcPeeringConnectionOptions on a peering connection with another AWS account, the role must allow ec2:DescribeVpcPeeringConnections and ec2:ModifyVpcPeeringConnectionOptions.
 	PeerRoleArn pulumi.StringPtrOutput `pulumi:"peerRoleArn"`
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
@@ -49,10 +49,8 @@ func NewVpcPeeringConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"assumeRoleRegion",
 		"peerOwnerId",
 		"peerRegion",
-		"peerRoleArn",
 		"peerVpcId",
 		"vpcId",
 	})
@@ -90,13 +88,13 @@ func (VpcPeeringConnectionState) ElementType() reflect.Type {
 }
 
 type vpcPeeringConnectionArgs struct {
-	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided. You can update this property.
 	AssumeRoleRegion *string `pulumi:"assumeRoleRegion"`
 	// The AWS account ID of the owner of the accepter VPC.
 	PeerOwnerId *string `pulumi:"peerOwnerId"`
 	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
 	PeerRegion *string `pulumi:"peerRegion"`
-	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account. You can update this property. To manage PeerVpcPeeringConnectionOptions on a peering connection with another AWS account, the role must allow ec2:DescribeVpcPeeringConnections and ec2:ModifyVpcPeeringConnectionOptions.
 	PeerRoleArn *string `pulumi:"peerRoleArn"`
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 	PeerVpcId string `pulumi:"peerVpcId"`
@@ -108,13 +106,13 @@ type vpcPeeringConnectionArgs struct {
 
 // The set of arguments for constructing a VpcPeeringConnection resource.
 type VpcPeeringConnectionArgs struct {
-	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided. You can update this property.
 	AssumeRoleRegion pulumi.StringPtrInput
 	// The AWS account ID of the owner of the accepter VPC.
 	PeerOwnerId pulumi.StringPtrInput
 	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
 	PeerRegion pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account. You can update this property. To manage PeerVpcPeeringConnectionOptions on a peering connection with another AWS account, the role must allow ec2:DescribeVpcPeeringConnections and ec2:ModifyVpcPeeringConnectionOptions.
 	PeerRoleArn pulumi.StringPtrInput
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 	PeerVpcId pulumi.StringInput
@@ -161,7 +159,7 @@ func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionOutputWithContext(ctx 
 	return o
 }
 
-// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided. You can update this property.
 func (o VpcPeeringConnectionOutput) AssumeRoleRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringPtrOutput { return v.AssumeRoleRegion }).(pulumi.StringPtrOutput)
 }
@@ -181,7 +179,7 @@ func (o VpcPeeringConnectionOutput) PeerRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringPtrOutput { return v.PeerRegion }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
+// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account. You can update this property. To manage PeerVpcPeeringConnectionOptions on a peering connection with another AWS account, the role must allow ec2:DescribeVpcPeeringConnections and ec2:ModifyVpcPeeringConnectionOptions.
 func (o VpcPeeringConnectionOutput) PeerRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringPtrOutput { return v.PeerRoleArn }).(pulumi.StringPtrOutput)
 }

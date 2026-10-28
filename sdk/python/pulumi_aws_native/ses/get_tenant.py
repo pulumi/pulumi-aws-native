@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetTenantResult',
@@ -25,13 +26,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetTenantResult:
-    def __init__(__self__, arn=None, resource_associations=None, tags=None):
+    def __init__(__self__, arn=None, reputation_entity=None, resource_associations=None, suppression_attributes=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if reputation_entity and not isinstance(reputation_entity, dict):
+            raise TypeError("Expected argument 'reputation_entity' to be a dict")
+        pulumi.set(__self__, "reputation_entity", reputation_entity)
         if resource_associations and not isinstance(resource_associations, list):
             raise TypeError("Expected argument 'resource_associations' to be a list")
         pulumi.set(__self__, "resource_associations", resource_associations)
+        if suppression_attributes and not isinstance(suppression_attributes, dict):
+            raise TypeError("Expected argument 'suppression_attributes' to be a dict")
+        pulumi.set(__self__, "suppression_attributes", suppression_attributes)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -45,12 +52,28 @@ class GetTenantResult:
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter(name="reputationEntity")
+    def reputation_entity(self) -> Optional['outputs.TenantReputationEntity']:
+        """
+        The reputation configuration for the tenant. Sending status remains managed by SES.
+        """
+        return pulumi.get(self, "reputation_entity")
+
+    @_builtins.property
     @pulumi.getter(name="resourceAssociations")
     def resource_associations(self) -> Optional[Sequence['outputs.TenantResourceAssociation']]:
         """
         The list of resources to associate with the tenant.
         """
         return pulumi.get(self, "resource_associations")
+
+    @_builtins.property
+    @pulumi.getter(name="suppressionAttributes")
+    def suppression_attributes(self) -> Optional['outputs.TenantSuppressionAttributes']:
+        """
+        The suppression attributes for the tenant.
+        """
+        return pulumi.get(self, "suppression_attributes")
 
     @_builtins.property
     @pulumi.getter
@@ -68,7 +91,9 @@ class AwaitableGetTenantResult(GetTenantResult):
             yield self
         return GetTenantResult(
             arn=self.arn,
+            reputation_entity=self.reputation_entity,
             resource_associations=self.resource_associations,
+            suppression_attributes=self.suppression_attributes,
             tags=self.tags)
 
 
@@ -86,7 +111,9 @@ def get_tenant(tenant_name: Optional[_builtins.str] = None,
 
     return AwaitableGetTenantResult(
         arn=pulumi.get(__ret__, 'arn'),
+        reputation_entity=pulumi.get(__ret__, 'reputation_entity'),
         resource_associations=pulumi.get(__ret__, 'resource_associations'),
+        suppression_attributes=pulumi.get(__ret__, 'suppression_attributes'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_tenant_output(tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantResult]:
@@ -101,5 +128,7 @@ def get_tenant_output(tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getTenant', __args__, opts=opts, typ=GetTenantResult)
     return __ret__.apply(lambda __response__: GetTenantResult(
         arn=pulumi.get(__response__, 'arn'),
+        reputation_entity=pulumi.get(__response__, 'reputation_entity'),
         resource_associations=pulumi.get(__response__, 'resource_associations'),
+        suppression_attributes=pulumi.get(__response__, 'suppression_attributes'),
         tags=pulumi.get(__response__, 'tags')))

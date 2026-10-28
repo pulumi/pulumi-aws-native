@@ -142,7 +142,6 @@ func NewCapacityReservation(ctx *pulumi.Context,
 		"instanceType",
 		"outPostArn",
 		"placementGroupArn",
-		"tagSpecifications[*]",
 		"tenancy",
 	})
 	opts = append(opts, replaceOnChanges)

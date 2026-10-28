@@ -286,7 +286,7 @@ type Table struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A list of attributes that describe the key schema for the table and indexes.
 	//  This property is required to create a DDB table.
-	//  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+	//  You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
 	AttributeDefinitions TableAttributeDefinitionArrayOutput `pulumi:"attributeDefinitions"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
 	//  Valid values include:
@@ -346,6 +346,7 @@ type Table struct {
 	// Specifies the Time to Live (TTL) settings for the table.
 	//   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification TableTimeToLiveSpecificationPtrOutput `pulumi:"timeToLiveSpecification"`
+	VectorIndexes           TableVectorIndexArrayOutput           `pulumi:"vectorIndexes"`
 	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
 	WarmThroughput TableWarmThroughputPtrOutput `pulumi:"warmThroughput"`
 }
@@ -400,7 +401,7 @@ func (TableState) ElementType() reflect.Type {
 type tableArgs struct {
 	// A list of attributes that describe the key schema for the table and indexes.
 	//  This property is required to create a DDB table.
-	//  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+	//  You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
 	AttributeDefinitions []TableAttributeDefinition `pulumi:"attributeDefinitions"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
 	//  Valid values include:
@@ -456,6 +457,7 @@ type tableArgs struct {
 	// Specifies the Time to Live (TTL) settings for the table.
 	//   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification *TableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
+	VectorIndexes           []TableVectorIndex            `pulumi:"vectorIndexes"`
 	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
 	WarmThroughput *TableWarmThroughput `pulumi:"warmThroughput"`
 }
@@ -464,7 +466,7 @@ type tableArgs struct {
 type TableArgs struct {
 	// A list of attributes that describe the key schema for the table and indexes.
 	//  This property is required to create a DDB table.
-	//  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+	//  You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
 	AttributeDefinitions TableAttributeDefinitionArrayInput
 	// Specify how you are charged for read and write throughput and how you manage capacity.
 	//  Valid values include:
@@ -520,6 +522,7 @@ type TableArgs struct {
 	// Specifies the Time to Live (TTL) settings for the table.
 	//   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification TableTimeToLiveSpecificationPtrInput
+	VectorIndexes           TableVectorIndexArrayInput
 	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
 	WarmThroughput TableWarmThroughputPtrInput
 }
@@ -569,7 +572,7 @@ func (o TableOutput) Arn() pulumi.StringOutput {
 // A list of attributes that describe the key schema for the table and indexes.
 //
 //	This property is required to create a DDB table.
-//	Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+//	You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
 func (o TableOutput) AttributeDefinitions() TableAttributeDefinitionArrayOutput {
 	return o.ApplyT(func(v *Table) TableAttributeDefinitionArrayOutput { return v.AttributeDefinitions }).(TableAttributeDefinitionArrayOutput)
 }
@@ -699,6 +702,10 @@ func (o TableOutput) Tags() aws.TagArrayOutput {
 //	For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 func (o TableOutput) TimeToLiveSpecification() TableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v *Table) TableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(TableTimeToLiveSpecificationPtrOutput)
+}
+
+func (o TableOutput) VectorIndexes() TableVectorIndexArrayOutput {
+	return o.ApplyT(func(v *Table) TableVectorIndexArrayOutput { return v.VectorIndexes }).(TableVectorIndexArrayOutput)
 }
 
 // Represents the warm throughput (in read units per second and write units per second) for creating a table.

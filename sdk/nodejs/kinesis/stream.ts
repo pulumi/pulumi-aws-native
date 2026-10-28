@@ -54,6 +54,10 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string | undefined>;
     /**
+     * The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+     */
+    declare public readonly recordDistributionStrategy: pulumi.Output<enums.kinesis.StreamRecordDistributionStrategy | undefined>;
+    /**
      * The number of hours for the data records that are stored in shards to remain accessible.
      */
     declare public readonly retentionPeriodHours: pulumi.Output<number | undefined>;
@@ -96,6 +100,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["desiredShardLevelMetrics"] = args?.desiredShardLevelMetrics;
             resourceInputs["maxRecordSizeInKiB"] = args?.maxRecordSizeInKiB;
             resourceInputs["name"] = args?.name;
+            resourceInputs["recordDistributionStrategy"] = args?.recordDistributionStrategy;
             resourceInputs["retentionPeriodHours"] = args?.retentionPeriodHours;
             resourceInputs["shardCount"] = args?.shardCount;
             resourceInputs["streamEncryption"] = args?.streamEncryption;
@@ -109,6 +114,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["desiredShardLevelMetrics"] = undefined /*out*/;
             resourceInputs["maxRecordSizeInKiB"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["recordDistributionStrategy"] = undefined /*out*/;
             resourceInputs["retentionPeriodHours"] = undefined /*out*/;
             resourceInputs["shardCount"] = undefined /*out*/;
             resourceInputs["streamEncryption"] = undefined /*out*/;
@@ -140,6 +146,10 @@ export interface StreamArgs {
      * The name of the Kinesis stream.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+     */
+    recordDistributionStrategy?: pulumi.Input<enums.kinesis.StreamRecordDistributionStrategy | undefined>;
     /**
      * The number of hours for the data records that are stored in shards to remain accessible.
      */

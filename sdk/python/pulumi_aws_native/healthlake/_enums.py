@@ -9,10 +9,12 @@ from enum import Enum
 __all__ = [
     'DataTransformationProfileSourceFormat',
     'DataTransformationProfileTargetFormat',
+    'FhirDatastoreAnalyticsConfigurationStatus',
     'FhirDatastoreDatastoreStatus',
     'FhirDatastoreDatastoreTypeVersion',
     'FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy',
     'FhirDatastoreKmsEncryptionConfigCmkType',
+    'FhirDatastoreNlpConfigurationStatus',
     'FhirDatastorePreloadDataConfigPreloadDataType',
 ]
 
@@ -34,13 +36,24 @@ class DataTransformationProfileTargetFormat(_builtins.str, Enum):
     FHIR_R4 = "FHIR_R4"
 
 
+@pulumi.type_token("aws-native:healthlake:FhirDatastoreAnalyticsConfigurationStatus")
+class FhirDatastoreAnalyticsConfigurationStatus(_builtins.str, Enum):
+    """
+    The analytics status for the Data Store.
+    """
+    ENABLED = "ENABLED"
+    PAUSED = "PAUSED"
+
+
 @pulumi.type_token("aws-native:healthlake:FhirDatastoreDatastoreStatus")
 class FhirDatastoreDatastoreStatus(_builtins.str, Enum):
     """
-    The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
+    The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'UPDATING', 'UPDATE_FAILED', 'DELETING', or 'DELETED'.
     """
     CREATING = "CREATING"
     ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
     DELETING = "DELETING"
     DELETED = "DELETED"
 
@@ -70,6 +83,15 @@ class FhirDatastoreKmsEncryptionConfigCmkType(_builtins.str, Enum):
     """
     CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
     AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
+
+
+@pulumi.type_token("aws-native:healthlake:FhirDatastoreNlpConfigurationStatus")
+class FhirDatastoreNlpConfigurationStatus(_builtins.str, Enum):
+    """
+    The NLP status for the Data Store.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:healthlake:FhirDatastorePreloadDataConfigPreloadDataType")

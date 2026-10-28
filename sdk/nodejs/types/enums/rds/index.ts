@@ -14,6 +14,17 @@ export const CustomDbEngineVersionStatus = {
  */
 export type CustomDbEngineVersionStatus = (typeof CustomDbEngineVersionStatus)[keyof typeof CustomDbEngineVersionStatus];
 
+export const DbClusterEndpointCustomEndpointType = {
+    Reader: "READER",
+    Writer: "WRITER",
+    Any: "ANY",
+} as const;
+
+/**
+ * The type of the custom endpoint.
+ */
+export type DbClusterEndpointCustomEndpointType = (typeof DbClusterEndpointCustomEndpointType)[keyof typeof DbClusterEndpointCustomEndpointType];
+
 export const DbInstanceProcessorFeatureName = {
     CoreCount: "coreCount",
     ThreadsPerCore: "threadsPerCore",

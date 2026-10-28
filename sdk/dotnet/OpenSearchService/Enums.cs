@@ -67,6 +67,37 @@ namespace Pulumi.AwsNative.OpenSearchService
     }
 
     /// <summary>
+    /// The type of encryption at rest applied to the domain's data. Valid values are DISK and NATIVE. DISK is the default and uses volume-level encryption. NATIVE uses engine-native, index-level encryption and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After the mode is set to NATIVE, it can't be changed back to DISK.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainEncryptionAtRestOptionsEncryptionMode : IEquatable<DomainEncryptionAtRestOptionsEncryptionMode>
+    {
+        private readonly string _value;
+
+        private DomainEncryptionAtRestOptionsEncryptionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainEncryptionAtRestOptionsEncryptionMode Disk { get; } = new DomainEncryptionAtRestOptionsEncryptionMode("DISK");
+        public static DomainEncryptionAtRestOptionsEncryptionMode Native { get; } = new DomainEncryptionAtRestOptionsEncryptionMode("NATIVE");
+
+        public static bool operator ==(DomainEncryptionAtRestOptionsEncryptionMode left, DomainEncryptionAtRestOptionsEncryptionMode right) => left.Equals(right);
+        public static bool operator !=(DomainEncryptionAtRestOptionsEncryptionMode left, DomainEncryptionAtRestOptionsEncryptionMode right) => !left.Equals(right);
+
+        public static explicit operator string(DomainEncryptionAtRestOptionsEncryptionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainEncryptionAtRestOptionsEncryptionMode other && Equals(other);
+        public bool Equals(DomainEncryptionAtRestOptionsEncryptionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
     /// </summary>
     [EnumType]

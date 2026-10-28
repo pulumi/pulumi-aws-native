@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The audio reference level of the NDI receiver, in dBFS.
+        /// </summary>
+        [Output("ndiAudioReferenceLevel")]
+        public Output<int?> NdiAudioReferenceLevel { get; private set; } = null!;
+
+        /// <summary>
         /// The timecode source for the NDI output.
         /// </summary>
         [Output("ndiOutputTimecodeSource")]
@@ -265,6 +271,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The audio reference level of the NDI receiver, in dBFS.
+        /// </summary>
+        [Input("ndiAudioReferenceLevel")]
+        public Input<int>? NdiAudioReferenceLevel { get; set; }
 
         /// <summary>
         /// The timecode source for the NDI output.

@@ -46,7 +46,7 @@ export class DataMigration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dataMigrationCreateTime: pulumi.Output<string>;
     /**
-     * The property describes an ARN of the data migration.
+     * [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
      */
     declare public readonly dataMigrationIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -130,7 +130,7 @@ export class DataMigration extends pulumi.CustomResource {
  */
 export interface DataMigrationArgs {
     /**
-     * The property describes an ARN of the data migration.
+     * [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
      */
     dataMigrationIdentifier?: pulumi.Input<string | undefined>;
     /**

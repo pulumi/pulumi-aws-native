@@ -57,6 +57,7 @@ export class Service extends pulumi.CustomResource {
      * The description of the service.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly devOpsAgentConfiguration: pulumi.Output<outputs.resiliencehubv2.ServiceDevOpsAgentConfiguration | undefined>;
     declare public /*out*/ readonly effectivePolicyValues: pulumi.Output<outputs.resiliencehubv2.ServiceEffectivePolicyValues>;
     /**
      * Input sources for this service.
@@ -111,6 +112,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["associatedSystems"] = args?.associatedSystems;
             resourceInputs["dependencyDiscovery"] = args?.dependencyDiscovery;
             resourceInputs["description"] = args?.description;
+            resourceInputs["devOpsAgentConfiguration"] = args?.devOpsAgentConfiguration;
             resourceInputs["inputSources"] = args?.inputSources;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["name"] = args?.name;
@@ -129,6 +131,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dependencyDiscovery"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["devOpsAgentConfiguration"] = undefined /*out*/;
             resourceInputs["effectivePolicyValues"] = undefined /*out*/;
             resourceInputs["inputSources"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
@@ -168,6 +171,7 @@ export interface ServiceArgs {
      * The description of the service.
      */
     description?: pulumi.Input<string | undefined>;
+    devOpsAgentConfiguration?: pulumi.Input<inputs.resiliencehubv2.ServiceDevOpsAgentConfigurationArgs | undefined>;
     /**
      * Input sources for this service.
      */

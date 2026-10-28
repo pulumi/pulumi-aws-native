@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetNfsFileShareArgs, GetNfsFileShareResult, GetNfsFileShareOutputArgs } from "./getNfsFileShare";
+export const getNfsFileShare: typeof import("./getNfsFileShare").getNfsFileShare = null as any;
+export const getNfsFileShareOutput: typeof import("./getNfsFileShare").getNfsFileShareOutput = null as any;
+utilities.lazyLoad(exports, ["getNfsFileShare","getNfsFileShareOutput"], () => require("./getNfsFileShare"));
+
+export { GetSmbFileShareArgs, GetSmbFileShareResult, GetSmbFileShareOutputArgs } from "./getSmbFileShare";
+export const getSmbFileShare: typeof import("./getSmbFileShare").getSmbFileShare = null as any;
+export const getSmbFileShareOutput: typeof import("./getSmbFileShare").getSmbFileShareOutput = null as any;
+utilities.lazyLoad(exports, ["getSmbFileShare","getSmbFileShareOutput"], () => require("./getSmbFileShare"));
+
 export { GetTapeArgs, GetTapeResult, GetTapeOutputArgs } from "./getTape";
 export const getTape: typeof import("./getTape").getTape = null as any;
 export const getTapeOutput: typeof import("./getTape").getTapeOutput = null as any;
@@ -19,6 +29,16 @@ export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
+
+export { NfsFileShareArgs } from "./nfsFileShare";
+export type NfsFileShare = import("./nfsFileShare").NfsFileShare;
+export const NfsFileShare: typeof import("./nfsFileShare").NfsFileShare = null as any;
+utilities.lazyLoad(exports, ["NfsFileShare"], () => require("./nfsFileShare"));
+
+export { SmbFileShareArgs } from "./smbFileShare";
+export type SmbFileShare = import("./smbFileShare").SmbFileShare;
+export const SmbFileShare: typeof import("./smbFileShare").SmbFileShare = null as any;
+utilities.lazyLoad(exports, ["SmbFileShare"], () => require("./smbFileShare"));
 
 export { TapeArgs } from "./tape";
 export type Tape = import("./tape").Tape;
@@ -43,6 +63,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:storagegateway:NfsFileShare":
+                return new NfsFileShare(name, <any>undefined, { urn })
+            case "aws-native:storagegateway:SmbFileShare":
+                return new SmbFileShare(name, <any>undefined, { urn })
             case "aws-native:storagegateway:Tape":
                 return new Tape(name, <any>undefined, { urn })
             case "aws-native:storagegateway:TapePool":

@@ -173,9 +173,28 @@ export const CodeInterpreterCustomCodeInterpreterStatus = {
  */
 export type CodeInterpreterCustomCodeInterpreterStatus = (typeof CodeInterpreterCustomCodeInterpreterStatus)[keyof typeof CodeInterpreterCustomCodeInterpreterStatus];
 
+export const ConsentPortalSourceType = {
+    AgentcoreGateway: "agentcore-gateway",
+} as const;
+
+export type ConsentPortalSourceType = (typeof ConsentPortalSourceType)[keyof typeof ConsentPortalSourceType];
+
+export const ConsentPortalStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+export type ConsentPortalStatus = (typeof ConsentPortalStatus)[keyof typeof ConsentPortalStatus];
+
 export const DatasetSchemaType = {
     AgentcoreEvaluationPredefinedV1: "AGENTCORE_EVALUATION_PREDEFINED_V1",
     AgentcoreEvaluationSimulatedV1: "AGENTCORE_EVALUATION_SIMULATED_V1",
+    GenericEvaluationPredefinedV1: "GENERIC_EVALUATION_PREDEFINED_V1",
+    ThirdPartyEvaluationV1: "THIRD_PARTY_EVALUATION_V1",
 } as const;
 
 /**
@@ -206,6 +225,18 @@ export const EvaluatorLevel = {
 
 export type EvaluatorLevel = (typeof EvaluatorLevel)[keyof typeof EvaluatorLevel];
 
+export const EvaluatorProvider = {
+    Aws: "AWS",
+    DeepEval: "DeepEval",
+    AutoEval: "AutoEval",
+    Custom: "Custom",
+} as const;
+
+/**
+ * Where the evaluator's logic comes from: AWS for AWS-authored evaluators, DeepEval or AutoEval for the corresponding third-party libraries, or Custom for an evaluator that you authored.
+ */
+export type EvaluatorProvider = (typeof EvaluatorProvider)[keyof typeof EvaluatorProvider];
+
 export const EvaluatorStatus = {
     Active: "ACTIVE",
     Creating: "CREATING",
@@ -216,6 +247,19 @@ export const EvaluatorStatus = {
 } as const;
 
 export type EvaluatorStatus = (typeof EvaluatorStatus)[keyof typeof EvaluatorStatus];
+
+export const EvaluatorType = {
+    Builtin: "Builtin",
+    ThirdParty: "ThirdParty",
+    Custom: "Custom",
+    CustomCode: "CustomCode",
+    CustomDerived: "CustomDerived",
+} as const;
+
+/**
+ * The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+ */
+export type EvaluatorType = (typeof EvaluatorType)[keyof typeof EvaluatorType];
 
 export const GatewayAuthorizerType = {
     CustomJwt: "CUSTOM_JWT",
@@ -952,6 +996,7 @@ export const OnlineEvaluationConfigStatus = {
     Updating: "UPDATING",
     UpdateFailed: "UPDATE_FAILED",
     Deleting: "DELETING",
+    Error: "ERROR",
 } as const;
 
 export type OnlineEvaluationConfigStatus = (typeof OnlineEvaluationConfigStatus)[keyof typeof OnlineEvaluationConfigStatus];
@@ -1007,13 +1052,23 @@ export const PaymentCredentialProviderVendorType = {
  */
 export type PaymentCredentialProviderVendorType = (typeof PaymentCredentialProviderVendorType)[keyof typeof PaymentCredentialProviderVendorType];
 
-export const PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator = {
+export const PaymentManagerAuthorizerType = {
+    CustomJwt: "CUSTOM_JWT",
+    AwsIam: "AWS_IAM",
+} as const;
+
+/**
+ * The type of authorizer for the payment manager
+ */
+export type PaymentManagerAuthorizerType = (typeof PaymentManagerAuthorizerType)[keyof typeof PaymentManagerAuthorizerType];
+
+export const PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator = {
     Equals: "EQUALS",
     Contains: "CONTAINS",
     ContainsAny: "CONTAINS_ANY",
 } as const;
 
-export type PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator = (typeof PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator)[keyof typeof PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator];
+export type PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator = (typeof PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator)[keyof typeof PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator];
 
 export const PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType = {
     String: "STRING",
@@ -1021,13 +1076,6 @@ export const PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType =
 } as const;
 
 export type PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType = (typeof PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType)[keyof typeof PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType];
-
-export const PaymentManagerPaymentsAuthorizerType = {
-    CustomJwt: "CUSTOM_JWT",
-    AwsIam: "AWS_IAM",
-} as const;
-
-export type PaymentManagerPaymentsAuthorizerType = (typeof PaymentManagerPaymentsAuthorizerType)[keyof typeof PaymentManagerPaymentsAuthorizerType];
 
 export const PaymentManagerStatus = {
     Creating: "CREATING",
@@ -1039,6 +1087,9 @@ export const PaymentManagerStatus = {
     DeleteFailed: "DELETE_FAILED",
 } as const;
 
+/**
+ * The current status of the payment manager
+ */
 export type PaymentManagerStatus = (typeof PaymentManagerStatus)[keyof typeof PaymentManagerStatus];
 
 export const PolicyEnforcementMode = {

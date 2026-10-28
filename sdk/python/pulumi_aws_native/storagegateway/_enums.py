@@ -7,9 +7,71 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'NfsFileShareEncryptionType',
+    'NfsFileShareObjectAcl',
+    'SmbFileShareCaseSensitivity',
+    'SmbFileShareEncryptionType',
+    'SmbFileShareObjectAcl',
     'TapePoolRetentionLockType',
     'TapePoolStorageClass',
 ]
+
+
+@pulumi.type_token("aws-native:storagegateway:NfsFileShareEncryptionType")
+class NfsFileShareEncryptionType(_builtins.str, Enum):
+    """
+    The server-side encryption the gateway applies to objects it writes.
+    """
+    SSE_S3 = "SseS3"
+    SSE_KMS = "SseKms"
+    DSSE_KMS = "DsseKms"
+
+
+@pulumi.type_token("aws-native:storagegateway:NfsFileShareObjectAcl")
+class NfsFileShareObjectAcl(_builtins.str, Enum):
+    """
+    The canned S3 ACL applied to objects the gateway writes.
+    """
+    PRIVATE = "private"
+    PUBLIC_READ = "public-read"
+    PUBLIC_READ_WRITE = "public-read-write"
+    AUTHENTICATED_READ = "authenticated-read"
+    BUCKET_OWNER_READ = "bucket-owner-read"
+    BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control"
+    AWS_EXEC_READ = "aws-exec-read"
+
+
+@pulumi.type_token("aws-native:storagegateway:SmbFileShareCaseSensitivity")
+class SmbFileShareCaseSensitivity(_builtins.str, Enum):
+    """
+    Whether the SMB share is case sensitive or defers to the client.
+    """
+    CLIENT_SPECIFIED = "ClientSpecified"
+    CASE_SENSITIVE = "CaseSensitive"
+
+
+@pulumi.type_token("aws-native:storagegateway:SmbFileShareEncryptionType")
+class SmbFileShareEncryptionType(_builtins.str, Enum):
+    """
+    The server-side encryption the gateway applies to objects it writes.
+    """
+    SSE_S3 = "SseS3"
+    SSE_KMS = "SseKms"
+    DSSE_KMS = "DsseKms"
+
+
+@pulumi.type_token("aws-native:storagegateway:SmbFileShareObjectAcl")
+class SmbFileShareObjectAcl(_builtins.str, Enum):
+    """
+    The canned S3 ACL applied to objects the gateway writes.
+    """
+    PRIVATE = "private"
+    PUBLIC_READ = "public-read"
+    PUBLIC_READ_WRITE = "public-read-write"
+    AUTHENTICATED_READ = "authenticated-read"
+    BUCKET_OWNER_READ = "bucket-owner-read"
+    BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control"
+    AWS_EXEC_READ = "aws-exec-read"
 
 
 @pulumi.type_token("aws-native:storagegateway:TapePoolRetentionLockType")

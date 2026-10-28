@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.CloudWatch
     [AwsNativeResourceType("aws-native:cloudwatch:Alarm")]
     public partial class Alarm : global::Pulumi.CustomResource
     {
+        [Output("actionConfiguration")]
+        public Output<Outputs.AlarmActionConfiguration?> ActionConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         /// </summary>
@@ -243,6 +246,9 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class AlarmArgs : global::Pulumi.ResourceArgs
     {
+        [Input("actionConfiguration")]
+        public Input<Inputs.AlarmActionConfigurationArgs>? ActionConfiguration { get; set; }
+
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         /// </summary>

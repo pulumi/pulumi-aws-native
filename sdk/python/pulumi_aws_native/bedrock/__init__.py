@@ -41,6 +41,7 @@ from .get_knowledge_base_policy import *
 from .get_prompt import *
 from .get_prompt_version import *
 from .get_resource_policy import *
+from .get_retrieval_instruction import *
 from .get_session import *
 from .guardrail import *
 from .guardrail_version import *
@@ -50,6 +51,7 @@ from .knowledge_base_policy import *
 from .prompt import *
 from .prompt_version import *
 from .resource_policy import *
+from .retrieval_instruction import *
 from .session import *
 from ._inputs import *
 from . import outputs

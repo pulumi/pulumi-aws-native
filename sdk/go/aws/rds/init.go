@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomDbEngineVersion{}
 	case "aws-native:rds:DbCluster":
 		r = &DbCluster{}
+	case "aws-native:rds:DbClusterEndpoint":
+		r = &DbClusterEndpoint{}
 	case "aws-native:rds:DbClusterParameterGroup":
 		r = &DbClusterParameterGroup{}
 	case "aws-native:rds:DbInstance":
@@ -45,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DbSnapshot{}
 	case "aws-native:rds:DbSubnetGroup":
 		r = &DbSubnetGroup{}
+	case "aws-native:rds:Deployment":
+		r = &Deployment{}
 	case "aws-native:rds:EventSubscription":
 		r = &EventSubscription{}
 	case "aws-native:rds:GlobalCluster":

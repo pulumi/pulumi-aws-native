@@ -87,6 +87,2394 @@ type ConnectionAliasTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Describes the access type and endpoint for a WorkSpace.
+type DirectoryAccessEndpoint struct {
+	// Indicates the type of access endpoint.
+	AccessEndpointType *DirectoryAccessEndpointAccessEndpointType `pulumi:"accessEndpointType"`
+	// Indicates the VPC endpoint to use for access.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+}
+
+// DirectoryAccessEndpointInput is an input type that accepts DirectoryAccessEndpointArgs and DirectoryAccessEndpointOutput values.
+// You can construct a concrete instance of `DirectoryAccessEndpointInput` via:
+//
+//	DirectoryAccessEndpointArgs{...}
+type DirectoryAccessEndpointInput interface {
+	pulumi.Input
+
+	ToDirectoryAccessEndpointOutput() DirectoryAccessEndpointOutput
+	ToDirectoryAccessEndpointOutputWithContext(context.Context) DirectoryAccessEndpointOutput
+}
+
+// Describes the access type and endpoint for a WorkSpace.
+type DirectoryAccessEndpointArgs struct {
+	// Indicates the type of access endpoint.
+	AccessEndpointType DirectoryAccessEndpointAccessEndpointTypePtrInput `pulumi:"accessEndpointType"`
+	// Indicates the VPC endpoint to use for access.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+}
+
+func (DirectoryAccessEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryAccessEndpoint)(nil)).Elem()
+}
+
+func (i DirectoryAccessEndpointArgs) ToDirectoryAccessEndpointOutput() DirectoryAccessEndpointOutput {
+	return i.ToDirectoryAccessEndpointOutputWithContext(context.Background())
+}
+
+func (i DirectoryAccessEndpointArgs) ToDirectoryAccessEndpointOutputWithContext(ctx context.Context) DirectoryAccessEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryAccessEndpointOutput)
+}
+
+// DirectoryAccessEndpointArrayInput is an input type that accepts DirectoryAccessEndpointArray and DirectoryAccessEndpointArrayOutput values.
+// You can construct a concrete instance of `DirectoryAccessEndpointArrayInput` via:
+//
+//	DirectoryAccessEndpointArray{ DirectoryAccessEndpointArgs{...} }
+type DirectoryAccessEndpointArrayInput interface {
+	pulumi.Input
+
+	ToDirectoryAccessEndpointArrayOutput() DirectoryAccessEndpointArrayOutput
+	ToDirectoryAccessEndpointArrayOutputWithContext(context.Context) DirectoryAccessEndpointArrayOutput
+}
+
+type DirectoryAccessEndpointArray []DirectoryAccessEndpointInput
+
+func (DirectoryAccessEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryAccessEndpoint)(nil)).Elem()
+}
+
+func (i DirectoryAccessEndpointArray) ToDirectoryAccessEndpointArrayOutput() DirectoryAccessEndpointArrayOutput {
+	return i.ToDirectoryAccessEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i DirectoryAccessEndpointArray) ToDirectoryAccessEndpointArrayOutputWithContext(ctx context.Context) DirectoryAccessEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryAccessEndpointArrayOutput)
+}
+
+// Describes the access type and endpoint for a WorkSpace.
+type DirectoryAccessEndpointOutput struct{ *pulumi.OutputState }
+
+func (DirectoryAccessEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryAccessEndpoint)(nil)).Elem()
+}
+
+func (o DirectoryAccessEndpointOutput) ToDirectoryAccessEndpointOutput() DirectoryAccessEndpointOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointOutput) ToDirectoryAccessEndpointOutputWithContext(ctx context.Context) DirectoryAccessEndpointOutput {
+	return o
+}
+
+// Indicates the type of access endpoint.
+func (o DirectoryAccessEndpointOutput) AccessEndpointType() DirectoryAccessEndpointAccessEndpointTypePtrOutput {
+	return o.ApplyT(func(v DirectoryAccessEndpoint) *DirectoryAccessEndpointAccessEndpointType {
+		return v.AccessEndpointType
+	}).(DirectoryAccessEndpointAccessEndpointTypePtrOutput)
+}
+
+// Indicates the VPC endpoint to use for access.
+func (o DirectoryAccessEndpointOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryAccessEndpoint) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+type DirectoryAccessEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectoryAccessEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryAccessEndpoint)(nil)).Elem()
+}
+
+func (o DirectoryAccessEndpointArrayOutput) ToDirectoryAccessEndpointArrayOutput() DirectoryAccessEndpointArrayOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointArrayOutput) ToDirectoryAccessEndpointArrayOutputWithContext(ctx context.Context) DirectoryAccessEndpointArrayOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointArrayOutput) Index(i pulumi.IntInput) DirectoryAccessEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryAccessEndpoint {
+		return vs[0].([]DirectoryAccessEndpoint)[vs[1].(int)]
+	}).(DirectoryAccessEndpointOutput)
+}
+
+// Describes the access endpoint configuration for a WorkSpace.
+type DirectoryAccessEndpointConfig struct {
+	// Indicates a list of access endpoints associated with this directory.
+	AccessEndpoints []DirectoryAccessEndpoint `pulumi:"accessEndpoints"`
+	// Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+	InternetFallbackProtocols []DirectoryAccessEndpointConfigInternetFallbackProtocolsItem `pulumi:"internetFallbackProtocols"`
+}
+
+// DirectoryAccessEndpointConfigInput is an input type that accepts DirectoryAccessEndpointConfigArgs and DirectoryAccessEndpointConfigOutput values.
+// You can construct a concrete instance of `DirectoryAccessEndpointConfigInput` via:
+//
+//	DirectoryAccessEndpointConfigArgs{...}
+type DirectoryAccessEndpointConfigInput interface {
+	pulumi.Input
+
+	ToDirectoryAccessEndpointConfigOutput() DirectoryAccessEndpointConfigOutput
+	ToDirectoryAccessEndpointConfigOutputWithContext(context.Context) DirectoryAccessEndpointConfigOutput
+}
+
+// Describes the access endpoint configuration for a WorkSpace.
+type DirectoryAccessEndpointConfigArgs struct {
+	// Indicates a list of access endpoints associated with this directory.
+	AccessEndpoints DirectoryAccessEndpointArrayInput `pulumi:"accessEndpoints"`
+	// Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+	InternetFallbackProtocols DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayInput `pulumi:"internetFallbackProtocols"`
+}
+
+func (DirectoryAccessEndpointConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryAccessEndpointConfig)(nil)).Elem()
+}
+
+func (i DirectoryAccessEndpointConfigArgs) ToDirectoryAccessEndpointConfigOutput() DirectoryAccessEndpointConfigOutput {
+	return i.ToDirectoryAccessEndpointConfigOutputWithContext(context.Background())
+}
+
+func (i DirectoryAccessEndpointConfigArgs) ToDirectoryAccessEndpointConfigOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryAccessEndpointConfigOutput)
+}
+
+func (i DirectoryAccessEndpointConfigArgs) ToDirectoryAccessEndpointConfigPtrOutput() DirectoryAccessEndpointConfigPtrOutput {
+	return i.ToDirectoryAccessEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryAccessEndpointConfigArgs) ToDirectoryAccessEndpointConfigPtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryAccessEndpointConfigOutput).ToDirectoryAccessEndpointConfigPtrOutputWithContext(ctx)
+}
+
+// DirectoryAccessEndpointConfigPtrInput is an input type that accepts DirectoryAccessEndpointConfigArgs, DirectoryAccessEndpointConfigPtr and DirectoryAccessEndpointConfigPtrOutput values.
+// You can construct a concrete instance of `DirectoryAccessEndpointConfigPtrInput` via:
+//
+//	        DirectoryAccessEndpointConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryAccessEndpointConfigPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryAccessEndpointConfigPtrOutput() DirectoryAccessEndpointConfigPtrOutput
+	ToDirectoryAccessEndpointConfigPtrOutputWithContext(context.Context) DirectoryAccessEndpointConfigPtrOutput
+}
+
+type directoryAccessEndpointConfigPtrType DirectoryAccessEndpointConfigArgs
+
+func DirectoryAccessEndpointConfigPtr(v *DirectoryAccessEndpointConfigArgs) DirectoryAccessEndpointConfigPtrInput {
+	return (*directoryAccessEndpointConfigPtrType)(v)
+}
+
+func (*directoryAccessEndpointConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryAccessEndpointConfig)(nil)).Elem()
+}
+
+func (i *directoryAccessEndpointConfigPtrType) ToDirectoryAccessEndpointConfigPtrOutput() DirectoryAccessEndpointConfigPtrOutput {
+	return i.ToDirectoryAccessEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryAccessEndpointConfigPtrType) ToDirectoryAccessEndpointConfigPtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryAccessEndpointConfigPtrOutput)
+}
+
+// Describes the access endpoint configuration for a WorkSpace.
+type DirectoryAccessEndpointConfigOutput struct{ *pulumi.OutputState }
+
+func (DirectoryAccessEndpointConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryAccessEndpointConfig)(nil)).Elem()
+}
+
+func (o DirectoryAccessEndpointConfigOutput) ToDirectoryAccessEndpointConfigOutput() DirectoryAccessEndpointConfigOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigOutput) ToDirectoryAccessEndpointConfigOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigOutput) ToDirectoryAccessEndpointConfigPtrOutput() DirectoryAccessEndpointConfigPtrOutput {
+	return o.ToDirectoryAccessEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryAccessEndpointConfigOutput) ToDirectoryAccessEndpointConfigPtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryAccessEndpointConfig) *DirectoryAccessEndpointConfig {
+		return &v
+	}).(DirectoryAccessEndpointConfigPtrOutput)
+}
+
+// Indicates a list of access endpoints associated with this directory.
+func (o DirectoryAccessEndpointConfigOutput) AccessEndpoints() DirectoryAccessEndpointArrayOutput {
+	return o.ApplyT(func(v DirectoryAccessEndpointConfig) []DirectoryAccessEndpoint { return v.AccessEndpoints }).(DirectoryAccessEndpointArrayOutput)
+}
+
+// Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+func (o DirectoryAccessEndpointConfigOutput) InternetFallbackProtocols() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput {
+	return o.ApplyT(func(v DirectoryAccessEndpointConfig) []DirectoryAccessEndpointConfigInternetFallbackProtocolsItem {
+		return v.InternetFallbackProtocols
+	}).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput)
+}
+
+type DirectoryAccessEndpointConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryAccessEndpointConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryAccessEndpointConfig)(nil)).Elem()
+}
+
+func (o DirectoryAccessEndpointConfigPtrOutput) ToDirectoryAccessEndpointConfigPtrOutput() DirectoryAccessEndpointConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigPtrOutput) ToDirectoryAccessEndpointConfigPtrOutputWithContext(ctx context.Context) DirectoryAccessEndpointConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryAccessEndpointConfigPtrOutput) Elem() DirectoryAccessEndpointConfigOutput {
+	return o.ApplyT(func(v *DirectoryAccessEndpointConfig) DirectoryAccessEndpointConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryAccessEndpointConfig
+		return ret
+	}).(DirectoryAccessEndpointConfigOutput)
+}
+
+// Indicates a list of access endpoints associated with this directory.
+func (o DirectoryAccessEndpointConfigPtrOutput) AccessEndpoints() DirectoryAccessEndpointArrayOutput {
+	return o.ApplyT(func(v *DirectoryAccessEndpointConfig) []DirectoryAccessEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.AccessEndpoints
+	}).(DirectoryAccessEndpointArrayOutput)
+}
+
+// Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.
+func (o DirectoryAccessEndpointConfigPtrOutput) InternetFallbackProtocols() DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput {
+	return o.ApplyT(func(v *DirectoryAccessEndpointConfig) []DirectoryAccessEndpointConfigInternetFallbackProtocolsItem {
+		if v == nil {
+			return nil
+		}
+		return v.InternetFallbackProtocols
+	}).(DirectoryAccessEndpointConfigInternetFallbackProtocolsItemArrayOutput)
+}
+
+// Information about the Active Directory config.
+type DirectoryActiveDirectoryConfig struct {
+	// The name of the domain.
+	DomainName string `pulumi:"domainName"`
+	// Indicates the secret ARN on the service account.
+	ServiceAccountSecretArn string `pulumi:"serviceAccountSecretArn"`
+}
+
+// DirectoryActiveDirectoryConfigInput is an input type that accepts DirectoryActiveDirectoryConfigArgs and DirectoryActiveDirectoryConfigOutput values.
+// You can construct a concrete instance of `DirectoryActiveDirectoryConfigInput` via:
+//
+//	DirectoryActiveDirectoryConfigArgs{...}
+type DirectoryActiveDirectoryConfigInput interface {
+	pulumi.Input
+
+	ToDirectoryActiveDirectoryConfigOutput() DirectoryActiveDirectoryConfigOutput
+	ToDirectoryActiveDirectoryConfigOutputWithContext(context.Context) DirectoryActiveDirectoryConfigOutput
+}
+
+// Information about the Active Directory config.
+type DirectoryActiveDirectoryConfigArgs struct {
+	// The name of the domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Indicates the secret ARN on the service account.
+	ServiceAccountSecretArn pulumi.StringInput `pulumi:"serviceAccountSecretArn"`
+}
+
+func (DirectoryActiveDirectoryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (i DirectoryActiveDirectoryConfigArgs) ToDirectoryActiveDirectoryConfigOutput() DirectoryActiveDirectoryConfigOutput {
+	return i.ToDirectoryActiveDirectoryConfigOutputWithContext(context.Background())
+}
+
+func (i DirectoryActiveDirectoryConfigArgs) ToDirectoryActiveDirectoryConfigOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryActiveDirectoryConfigOutput)
+}
+
+func (i DirectoryActiveDirectoryConfigArgs) ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput {
+	return i.ToDirectoryActiveDirectoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryActiveDirectoryConfigArgs) ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryActiveDirectoryConfigOutput).ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx)
+}
+
+// DirectoryActiveDirectoryConfigPtrInput is an input type that accepts DirectoryActiveDirectoryConfigArgs, DirectoryActiveDirectoryConfigPtr and DirectoryActiveDirectoryConfigPtrOutput values.
+// You can construct a concrete instance of `DirectoryActiveDirectoryConfigPtrInput` via:
+//
+//	        DirectoryActiveDirectoryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryActiveDirectoryConfigPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput
+	ToDirectoryActiveDirectoryConfigPtrOutputWithContext(context.Context) DirectoryActiveDirectoryConfigPtrOutput
+}
+
+type directoryActiveDirectoryConfigPtrType DirectoryActiveDirectoryConfigArgs
+
+func DirectoryActiveDirectoryConfigPtr(v *DirectoryActiveDirectoryConfigArgs) DirectoryActiveDirectoryConfigPtrInput {
+	return (*directoryActiveDirectoryConfigPtrType)(v)
+}
+
+func (*directoryActiveDirectoryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (i *directoryActiveDirectoryConfigPtrType) ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput {
+	return i.ToDirectoryActiveDirectoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryActiveDirectoryConfigPtrType) ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryActiveDirectoryConfigPtrOutput)
+}
+
+// Information about the Active Directory config.
+type DirectoryActiveDirectoryConfigOutput struct{ *pulumi.OutputState }
+
+func (DirectoryActiveDirectoryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (o DirectoryActiveDirectoryConfigOutput) ToDirectoryActiveDirectoryConfigOutput() DirectoryActiveDirectoryConfigOutput {
+	return o
+}
+
+func (o DirectoryActiveDirectoryConfigOutput) ToDirectoryActiveDirectoryConfigOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigOutput {
+	return o
+}
+
+func (o DirectoryActiveDirectoryConfigOutput) ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput {
+	return o.ToDirectoryActiveDirectoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryActiveDirectoryConfigOutput) ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryActiveDirectoryConfig) *DirectoryActiveDirectoryConfig {
+		return &v
+	}).(DirectoryActiveDirectoryConfigPtrOutput)
+}
+
+// The name of the domain.
+func (o DirectoryActiveDirectoryConfigOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryActiveDirectoryConfig) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Indicates the secret ARN on the service account.
+func (o DirectoryActiveDirectoryConfigOutput) ServiceAccountSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryActiveDirectoryConfig) string { return v.ServiceAccountSecretArn }).(pulumi.StringOutput)
+}
+
+type DirectoryActiveDirectoryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryActiveDirectoryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (o DirectoryActiveDirectoryConfigPtrOutput) ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryActiveDirectoryConfigPtrOutput) ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryActiveDirectoryConfigPtrOutput) Elem() DirectoryActiveDirectoryConfigOutput {
+	return o.ApplyT(func(v *DirectoryActiveDirectoryConfig) DirectoryActiveDirectoryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryActiveDirectoryConfig
+		return ret
+	}).(DirectoryActiveDirectoryConfigOutput)
+}
+
+// The name of the domain.
+func (o DirectoryActiveDirectoryConfigPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryActiveDirectoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates the secret ARN on the service account.
+func (o DirectoryActiveDirectoryConfigPtrOutput) ServiceAccountSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryActiveDirectoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceAccountSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties of the certificate-based authentication you want to use with your WorkSpaces.
+type DirectoryCertificateBasedAuthProperties struct {
+	// The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
+	// The status of the certificate-based authentication properties.
+	Status *DirectoryCertificateBasedAuthPropertiesStatus `pulumi:"status"`
+}
+
+// DirectoryCertificateBasedAuthPropertiesInput is an input type that accepts DirectoryCertificateBasedAuthPropertiesArgs and DirectoryCertificateBasedAuthPropertiesOutput values.
+// You can construct a concrete instance of `DirectoryCertificateBasedAuthPropertiesInput` via:
+//
+//	DirectoryCertificateBasedAuthPropertiesArgs{...}
+type DirectoryCertificateBasedAuthPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectoryCertificateBasedAuthPropertiesOutput() DirectoryCertificateBasedAuthPropertiesOutput
+	ToDirectoryCertificateBasedAuthPropertiesOutputWithContext(context.Context) DirectoryCertificateBasedAuthPropertiesOutput
+}
+
+// Describes the properties of the certificate-based authentication you want to use with your WorkSpaces.
+type DirectoryCertificateBasedAuthPropertiesArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
+	// The status of the certificate-based authentication properties.
+	Status DirectoryCertificateBasedAuthPropertiesStatusPtrInput `pulumi:"status"`
+}
+
+func (DirectoryCertificateBasedAuthPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (i DirectoryCertificateBasedAuthPropertiesArgs) ToDirectoryCertificateBasedAuthPropertiesOutput() DirectoryCertificateBasedAuthPropertiesOutput {
+	return i.ToDirectoryCertificateBasedAuthPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectoryCertificateBasedAuthPropertiesArgs) ToDirectoryCertificateBasedAuthPropertiesOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryCertificateBasedAuthPropertiesOutput)
+}
+
+func (i DirectoryCertificateBasedAuthPropertiesArgs) ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return i.ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryCertificateBasedAuthPropertiesArgs) ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryCertificateBasedAuthPropertiesOutput).ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectoryCertificateBasedAuthPropertiesPtrInput is an input type that accepts DirectoryCertificateBasedAuthPropertiesArgs, DirectoryCertificateBasedAuthPropertiesPtr and DirectoryCertificateBasedAuthPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectoryCertificateBasedAuthPropertiesPtrInput` via:
+//
+//	        DirectoryCertificateBasedAuthPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryCertificateBasedAuthPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput
+	ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput
+}
+
+type directoryCertificateBasedAuthPropertiesPtrType DirectoryCertificateBasedAuthPropertiesArgs
+
+func DirectoryCertificateBasedAuthPropertiesPtr(v *DirectoryCertificateBasedAuthPropertiesArgs) DirectoryCertificateBasedAuthPropertiesPtrInput {
+	return (*directoryCertificateBasedAuthPropertiesPtrType)(v)
+}
+
+func (*directoryCertificateBasedAuthPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (i *directoryCertificateBasedAuthPropertiesPtrType) ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return i.ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryCertificateBasedAuthPropertiesPtrType) ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryCertificateBasedAuthPropertiesPtrOutput)
+}
+
+// Describes the properties of the certificate-based authentication you want to use with your WorkSpaces.
+type DirectoryCertificateBasedAuthPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectoryCertificateBasedAuthPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesOutput) ToDirectoryCertificateBasedAuthPropertiesOutput() DirectoryCertificateBasedAuthPropertiesOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesOutput) ToDirectoryCertificateBasedAuthPropertiesOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesOutput) ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return o.ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesOutput) ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryCertificateBasedAuthProperties) *DirectoryCertificateBasedAuthProperties {
+		return &v
+	}).(DirectoryCertificateBasedAuthPropertiesPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+func (o DirectoryCertificateBasedAuthPropertiesOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryCertificateBasedAuthProperties) *string { return v.CertificateAuthorityArn }).(pulumi.StringPtrOutput)
+}
+
+// The status of the certificate-based authentication properties.
+func (o DirectoryCertificateBasedAuthPropertiesOutput) Status() DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return o.ApplyT(func(v DirectoryCertificateBasedAuthProperties) *DirectoryCertificateBasedAuthPropertiesStatus {
+		return v.Status
+	}).(DirectoryCertificateBasedAuthPropertiesStatusPtrOutput)
+}
+
+type DirectoryCertificateBasedAuthPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryCertificateBasedAuthPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) Elem() DirectoryCertificateBasedAuthPropertiesOutput {
+	return o.ApplyT(func(v *DirectoryCertificateBasedAuthProperties) DirectoryCertificateBasedAuthProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryCertificateBasedAuthProperties
+		return ret
+	}).(DirectoryCertificateBasedAuthPropertiesOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryCertificateBasedAuthProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateAuthorityArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the certificate-based authentication properties.
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) Status() DirectoryCertificateBasedAuthPropertiesStatusPtrOutput {
+	return o.ApplyT(func(v *DirectoryCertificateBasedAuthProperties) *DirectoryCertificateBasedAuthPropertiesStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(DirectoryCertificateBasedAuthPropertiesStatusPtrOutput)
+}
+
+// The default values that are used to create WorkSpaces.
+type DirectoryDefaultWorkspaceCreationProperties struct {
+	// The identifier of the default security group to apply to WorkSpaces when they are created.
+	CustomSecurityGroupId *string `pulumi:"customSecurityGroupId"`
+	// The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+	DefaultOu *string `pulumi:"defaultOu"`
+	// Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+	EnableInternetAccess *bool `pulumi:"enableInternetAccess"`
+	// Specifies whether maintenance mode is enabled for WorkSpaces.
+	EnableMaintenanceMode *bool `pulumi:"enableMaintenanceMode"`
+	// Indicates the IAM role ARN of the instance.
+	InstanceIamRoleArn *string `pulumi:"instanceIamRoleArn"`
+	// Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+	UserEnabledAsLocalAdministrator *bool `pulumi:"userEnabledAsLocalAdministrator"`
+}
+
+// DirectoryDefaultWorkspaceCreationPropertiesInput is an input type that accepts DirectoryDefaultWorkspaceCreationPropertiesArgs and DirectoryDefaultWorkspaceCreationPropertiesOutput values.
+// You can construct a concrete instance of `DirectoryDefaultWorkspaceCreationPropertiesInput` via:
+//
+//	DirectoryDefaultWorkspaceCreationPropertiesArgs{...}
+type DirectoryDefaultWorkspaceCreationPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectoryDefaultWorkspaceCreationPropertiesOutput() DirectoryDefaultWorkspaceCreationPropertiesOutput
+	ToDirectoryDefaultWorkspaceCreationPropertiesOutputWithContext(context.Context) DirectoryDefaultWorkspaceCreationPropertiesOutput
+}
+
+// The default values that are used to create WorkSpaces.
+type DirectoryDefaultWorkspaceCreationPropertiesArgs struct {
+	// The identifier of the default security group to apply to WorkSpaces when they are created.
+	CustomSecurityGroupId pulumi.StringPtrInput `pulumi:"customSecurityGroupId"`
+	// The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+	DefaultOu pulumi.StringPtrInput `pulumi:"defaultOu"`
+	// Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+	EnableInternetAccess pulumi.BoolPtrInput `pulumi:"enableInternetAccess"`
+	// Specifies whether maintenance mode is enabled for WorkSpaces.
+	EnableMaintenanceMode pulumi.BoolPtrInput `pulumi:"enableMaintenanceMode"`
+	// Indicates the IAM role ARN of the instance.
+	InstanceIamRoleArn pulumi.StringPtrInput `pulumi:"instanceIamRoleArn"`
+	// Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+	UserEnabledAsLocalAdministrator pulumi.BoolPtrInput `pulumi:"userEnabledAsLocalAdministrator"`
+}
+
+func (DirectoryDefaultWorkspaceCreationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryDefaultWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (i DirectoryDefaultWorkspaceCreationPropertiesArgs) ToDirectoryDefaultWorkspaceCreationPropertiesOutput() DirectoryDefaultWorkspaceCreationPropertiesOutput {
+	return i.ToDirectoryDefaultWorkspaceCreationPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectoryDefaultWorkspaceCreationPropertiesArgs) ToDirectoryDefaultWorkspaceCreationPropertiesOutputWithContext(ctx context.Context) DirectoryDefaultWorkspaceCreationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryDefaultWorkspaceCreationPropertiesOutput)
+}
+
+func (i DirectoryDefaultWorkspaceCreationPropertiesArgs) ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutput() DirectoryDefaultWorkspaceCreationPropertiesPtrOutput {
+	return i.ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryDefaultWorkspaceCreationPropertiesArgs) ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryDefaultWorkspaceCreationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryDefaultWorkspaceCreationPropertiesOutput).ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectoryDefaultWorkspaceCreationPropertiesPtrInput is an input type that accepts DirectoryDefaultWorkspaceCreationPropertiesArgs, DirectoryDefaultWorkspaceCreationPropertiesPtr and DirectoryDefaultWorkspaceCreationPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectoryDefaultWorkspaceCreationPropertiesPtrInput` via:
+//
+//	        DirectoryDefaultWorkspaceCreationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryDefaultWorkspaceCreationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutput() DirectoryDefaultWorkspaceCreationPropertiesPtrOutput
+	ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutputWithContext(context.Context) DirectoryDefaultWorkspaceCreationPropertiesPtrOutput
+}
+
+type directoryDefaultWorkspaceCreationPropertiesPtrType DirectoryDefaultWorkspaceCreationPropertiesArgs
+
+func DirectoryDefaultWorkspaceCreationPropertiesPtr(v *DirectoryDefaultWorkspaceCreationPropertiesArgs) DirectoryDefaultWorkspaceCreationPropertiesPtrInput {
+	return (*directoryDefaultWorkspaceCreationPropertiesPtrType)(v)
+}
+
+func (*directoryDefaultWorkspaceCreationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryDefaultWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (i *directoryDefaultWorkspaceCreationPropertiesPtrType) ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutput() DirectoryDefaultWorkspaceCreationPropertiesPtrOutput {
+	return i.ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryDefaultWorkspaceCreationPropertiesPtrType) ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryDefaultWorkspaceCreationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryDefaultWorkspaceCreationPropertiesPtrOutput)
+}
+
+// The default values that are used to create WorkSpaces.
+type DirectoryDefaultWorkspaceCreationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectoryDefaultWorkspaceCreationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryDefaultWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) ToDirectoryDefaultWorkspaceCreationPropertiesOutput() DirectoryDefaultWorkspaceCreationPropertiesOutput {
+	return o
+}
+
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) ToDirectoryDefaultWorkspaceCreationPropertiesOutputWithContext(ctx context.Context) DirectoryDefaultWorkspaceCreationPropertiesOutput {
+	return o
+}
+
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutput() DirectoryDefaultWorkspaceCreationPropertiesPtrOutput {
+	return o.ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryDefaultWorkspaceCreationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryDefaultWorkspaceCreationProperties) *DirectoryDefaultWorkspaceCreationProperties {
+		return &v
+	}).(DirectoryDefaultWorkspaceCreationPropertiesPtrOutput)
+}
+
+// The identifier of the default security group to apply to WorkSpaces when they are created.
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) CustomSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryDefaultWorkspaceCreationProperties) *string { return v.CustomSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) DefaultOu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryDefaultWorkspaceCreationProperties) *string { return v.DefaultOu }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) EnableInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DirectoryDefaultWorkspaceCreationProperties) *bool { return v.EnableInternetAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether maintenance mode is enabled for WorkSpaces.
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) EnableMaintenanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DirectoryDefaultWorkspaceCreationProperties) *bool { return v.EnableMaintenanceMode }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the IAM role ARN of the instance.
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) InstanceIamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryDefaultWorkspaceCreationProperties) *string { return v.InstanceIamRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+func (o DirectoryDefaultWorkspaceCreationPropertiesOutput) UserEnabledAsLocalAdministrator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DirectoryDefaultWorkspaceCreationProperties) *bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolPtrOutput)
+}
+
+type DirectoryDefaultWorkspaceCreationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryDefaultWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (o DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutput() DirectoryDefaultWorkspaceCreationPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) ToDirectoryDefaultWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryDefaultWorkspaceCreationPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) Elem() DirectoryDefaultWorkspaceCreationPropertiesOutput {
+	return o.ApplyT(func(v *DirectoryDefaultWorkspaceCreationProperties) DirectoryDefaultWorkspaceCreationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryDefaultWorkspaceCreationProperties
+		return ret
+	}).(DirectoryDefaultWorkspaceCreationPropertiesOutput)
+}
+
+// The identifier of the default security group to apply to WorkSpaces when they are created.
+func (o DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) CustomSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryDefaultWorkspaceCreationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomSecurityGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+func (o DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) DefaultOu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryDefaultWorkspaceCreationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultOu
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default.
+func (o DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) EnableInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DirectoryDefaultWorkspaceCreationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableInternetAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether maintenance mode is enabled for WorkSpaces.
+func (o DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) EnableMaintenanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DirectoryDefaultWorkspaceCreationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMaintenanceMode
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the IAM role ARN of the instance.
+func (o DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) InstanceIamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryDefaultWorkspaceCreationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceIamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+func (o DirectoryDefaultWorkspaceCreationPropertiesPtrOutput) UserEnabledAsLocalAdministrator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DirectoryDefaultWorkspaceCreationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserEnabledAsLocalAdministrator
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Describes the Global Accelerator for directory.
+type DirectoryGlobalAcceleratorForDirectory struct {
+	// Indicates if Global Accelerator for directory is enabled or disabled.
+	Mode DirectoryGlobalAcceleratorForDirectoryMode `pulumi:"mode"`
+	// Indicates the preferred protocol for Global Accelerator.
+	PreferredProtocol *DirectoryGlobalAcceleratorForDirectoryPreferredProtocol `pulumi:"preferredProtocol"`
+}
+
+// DirectoryGlobalAcceleratorForDirectoryInput is an input type that accepts DirectoryGlobalAcceleratorForDirectoryArgs and DirectoryGlobalAcceleratorForDirectoryOutput values.
+// You can construct a concrete instance of `DirectoryGlobalAcceleratorForDirectoryInput` via:
+//
+//	DirectoryGlobalAcceleratorForDirectoryArgs{...}
+type DirectoryGlobalAcceleratorForDirectoryInput interface {
+	pulumi.Input
+
+	ToDirectoryGlobalAcceleratorForDirectoryOutput() DirectoryGlobalAcceleratorForDirectoryOutput
+	ToDirectoryGlobalAcceleratorForDirectoryOutputWithContext(context.Context) DirectoryGlobalAcceleratorForDirectoryOutput
+}
+
+// Describes the Global Accelerator for directory.
+type DirectoryGlobalAcceleratorForDirectoryArgs struct {
+	// Indicates if Global Accelerator for directory is enabled or disabled.
+	Mode DirectoryGlobalAcceleratorForDirectoryModeInput `pulumi:"mode"`
+	// Indicates the preferred protocol for Global Accelerator.
+	PreferredProtocol DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrInput `pulumi:"preferredProtocol"`
+}
+
+func (DirectoryGlobalAcceleratorForDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectory)(nil)).Elem()
+}
+
+func (i DirectoryGlobalAcceleratorForDirectoryArgs) ToDirectoryGlobalAcceleratorForDirectoryOutput() DirectoryGlobalAcceleratorForDirectoryOutput {
+	return i.ToDirectoryGlobalAcceleratorForDirectoryOutputWithContext(context.Background())
+}
+
+func (i DirectoryGlobalAcceleratorForDirectoryArgs) ToDirectoryGlobalAcceleratorForDirectoryOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryGlobalAcceleratorForDirectoryOutput)
+}
+
+func (i DirectoryGlobalAcceleratorForDirectoryArgs) ToDirectoryGlobalAcceleratorForDirectoryPtrOutput() DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return i.ToDirectoryGlobalAcceleratorForDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryGlobalAcceleratorForDirectoryArgs) ToDirectoryGlobalAcceleratorForDirectoryPtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryGlobalAcceleratorForDirectoryOutput).ToDirectoryGlobalAcceleratorForDirectoryPtrOutputWithContext(ctx)
+}
+
+// DirectoryGlobalAcceleratorForDirectoryPtrInput is an input type that accepts DirectoryGlobalAcceleratorForDirectoryArgs, DirectoryGlobalAcceleratorForDirectoryPtr and DirectoryGlobalAcceleratorForDirectoryPtrOutput values.
+// You can construct a concrete instance of `DirectoryGlobalAcceleratorForDirectoryPtrInput` via:
+//
+//	        DirectoryGlobalAcceleratorForDirectoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryGlobalAcceleratorForDirectoryPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryGlobalAcceleratorForDirectoryPtrOutput() DirectoryGlobalAcceleratorForDirectoryPtrOutput
+	ToDirectoryGlobalAcceleratorForDirectoryPtrOutputWithContext(context.Context) DirectoryGlobalAcceleratorForDirectoryPtrOutput
+}
+
+type directoryGlobalAcceleratorForDirectoryPtrType DirectoryGlobalAcceleratorForDirectoryArgs
+
+func DirectoryGlobalAcceleratorForDirectoryPtr(v *DirectoryGlobalAcceleratorForDirectoryArgs) DirectoryGlobalAcceleratorForDirectoryPtrInput {
+	return (*directoryGlobalAcceleratorForDirectoryPtrType)(v)
+}
+
+func (*directoryGlobalAcceleratorForDirectoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryGlobalAcceleratorForDirectory)(nil)).Elem()
+}
+
+func (i *directoryGlobalAcceleratorForDirectoryPtrType) ToDirectoryGlobalAcceleratorForDirectoryPtrOutput() DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return i.ToDirectoryGlobalAcceleratorForDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryGlobalAcceleratorForDirectoryPtrType) ToDirectoryGlobalAcceleratorForDirectoryPtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryGlobalAcceleratorForDirectoryPtrOutput)
+}
+
+// Describes the Global Accelerator for directory.
+type DirectoryGlobalAcceleratorForDirectoryOutput struct{ *pulumi.OutputState }
+
+func (DirectoryGlobalAcceleratorForDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectory)(nil)).Elem()
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryOutput) ToDirectoryGlobalAcceleratorForDirectoryOutput() DirectoryGlobalAcceleratorForDirectoryOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryOutput) ToDirectoryGlobalAcceleratorForDirectoryOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryOutput) ToDirectoryGlobalAcceleratorForDirectoryPtrOutput() DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return o.ToDirectoryGlobalAcceleratorForDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryOutput) ToDirectoryGlobalAcceleratorForDirectoryPtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryGlobalAcceleratorForDirectory) *DirectoryGlobalAcceleratorForDirectory {
+		return &v
+	}).(DirectoryGlobalAcceleratorForDirectoryPtrOutput)
+}
+
+// Indicates if Global Accelerator for directory is enabled or disabled.
+func (o DirectoryGlobalAcceleratorForDirectoryOutput) Mode() DirectoryGlobalAcceleratorForDirectoryModeOutput {
+	return o.ApplyT(func(v DirectoryGlobalAcceleratorForDirectory) DirectoryGlobalAcceleratorForDirectoryMode {
+		return v.Mode
+	}).(DirectoryGlobalAcceleratorForDirectoryModeOutput)
+}
+
+// Indicates the preferred protocol for Global Accelerator.
+func (o DirectoryGlobalAcceleratorForDirectoryOutput) PreferredProtocol() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return o.ApplyT(func(v DirectoryGlobalAcceleratorForDirectory) *DirectoryGlobalAcceleratorForDirectoryPreferredProtocol {
+		return v.PreferredProtocol
+	}).(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput)
+}
+
+type DirectoryGlobalAcceleratorForDirectoryPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryGlobalAcceleratorForDirectoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryGlobalAcceleratorForDirectory)(nil)).Elem()
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPtrOutput) ToDirectoryGlobalAcceleratorForDirectoryPtrOutput() DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPtrOutput) ToDirectoryGlobalAcceleratorForDirectoryPtrOutputWithContext(ctx context.Context) DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return o
+}
+
+func (o DirectoryGlobalAcceleratorForDirectoryPtrOutput) Elem() DirectoryGlobalAcceleratorForDirectoryOutput {
+	return o.ApplyT(func(v *DirectoryGlobalAcceleratorForDirectory) DirectoryGlobalAcceleratorForDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryGlobalAcceleratorForDirectory
+		return ret
+	}).(DirectoryGlobalAcceleratorForDirectoryOutput)
+}
+
+// Indicates if Global Accelerator for directory is enabled or disabled.
+func (o DirectoryGlobalAcceleratorForDirectoryPtrOutput) Mode() DirectoryGlobalAcceleratorForDirectoryModePtrOutput {
+	return o.ApplyT(func(v *DirectoryGlobalAcceleratorForDirectory) *DirectoryGlobalAcceleratorForDirectoryMode {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(DirectoryGlobalAcceleratorForDirectoryModePtrOutput)
+}
+
+// Indicates the preferred protocol for Global Accelerator.
+func (o DirectoryGlobalAcceleratorForDirectoryPtrOutput) PreferredProtocol() DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput {
+	return o.ApplyT(func(v *DirectoryGlobalAcceleratorForDirectory) *DirectoryGlobalAcceleratorForDirectoryPreferredProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredProtocol
+	}).(DirectoryGlobalAcceleratorForDirectoryPreferredProtocolPtrOutput)
+}
+
+// Specifies the configurations of the identity center.
+type DirectoryIdcConfig struct {
+	// The Amazon Resource Name (ARN) of the application.
+	ApplicationArn *string `pulumi:"applicationArn"`
+	// The Amazon Resource Name (ARN) of the identity center instance.
+	InstanceArn *string `pulumi:"instanceArn"`
+}
+
+// Specifies the configurations of the identity center.
+type DirectoryIdcConfigOutput struct{ *pulumi.OutputState }
+
+func (DirectoryIdcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryIdcConfig)(nil)).Elem()
+}
+
+func (o DirectoryIdcConfigOutput) ToDirectoryIdcConfigOutput() DirectoryIdcConfigOutput {
+	return o
+}
+
+func (o DirectoryIdcConfigOutput) ToDirectoryIdcConfigOutputWithContext(ctx context.Context) DirectoryIdcConfigOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the application.
+func (o DirectoryIdcConfigOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryIdcConfig) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the identity center instance.
+func (o DirectoryIdcConfigOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryIdcConfig) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
+}
+
+type DirectoryIdcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryIdcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryIdcConfig)(nil)).Elem()
+}
+
+func (o DirectoryIdcConfigPtrOutput) ToDirectoryIdcConfigPtrOutput() DirectoryIdcConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryIdcConfigPtrOutput) ToDirectoryIdcConfigPtrOutputWithContext(ctx context.Context) DirectoryIdcConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryIdcConfigPtrOutput) Elem() DirectoryIdcConfigOutput {
+	return o.ApplyT(func(v *DirectoryIdcConfig) DirectoryIdcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryIdcConfig
+		return ret
+	}).(DirectoryIdcConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the application.
+func (o DirectoryIdcConfigPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryIdcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the identity center instance.
+func (o DirectoryIdcConfigPtrOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryIdcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configurations of the Microsoft Entra.
+type DirectoryMicrosoftEntraConfig struct {
+	// The Amazon Resource Name (ARN) of the application config.
+	ApplicationConfigSecretArn *string `pulumi:"applicationConfigSecretArn"`
+	// The identifier of the tenant.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// DirectoryMicrosoftEntraConfigInput is an input type that accepts DirectoryMicrosoftEntraConfigArgs and DirectoryMicrosoftEntraConfigOutput values.
+// You can construct a concrete instance of `DirectoryMicrosoftEntraConfigInput` via:
+//
+//	DirectoryMicrosoftEntraConfigArgs{...}
+type DirectoryMicrosoftEntraConfigInput interface {
+	pulumi.Input
+
+	ToDirectoryMicrosoftEntraConfigOutput() DirectoryMicrosoftEntraConfigOutput
+	ToDirectoryMicrosoftEntraConfigOutputWithContext(context.Context) DirectoryMicrosoftEntraConfigOutput
+}
+
+// Specifies the configurations of the Microsoft Entra.
+type DirectoryMicrosoftEntraConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the application config.
+	ApplicationConfigSecretArn pulumi.StringPtrInput `pulumi:"applicationConfigSecretArn"`
+	// The identifier of the tenant.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (DirectoryMicrosoftEntraConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryMicrosoftEntraConfig)(nil)).Elem()
+}
+
+func (i DirectoryMicrosoftEntraConfigArgs) ToDirectoryMicrosoftEntraConfigOutput() DirectoryMicrosoftEntraConfigOutput {
+	return i.ToDirectoryMicrosoftEntraConfigOutputWithContext(context.Background())
+}
+
+func (i DirectoryMicrosoftEntraConfigArgs) ToDirectoryMicrosoftEntraConfigOutputWithContext(ctx context.Context) DirectoryMicrosoftEntraConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryMicrosoftEntraConfigOutput)
+}
+
+func (i DirectoryMicrosoftEntraConfigArgs) ToDirectoryMicrosoftEntraConfigPtrOutput() DirectoryMicrosoftEntraConfigPtrOutput {
+	return i.ToDirectoryMicrosoftEntraConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryMicrosoftEntraConfigArgs) ToDirectoryMicrosoftEntraConfigPtrOutputWithContext(ctx context.Context) DirectoryMicrosoftEntraConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryMicrosoftEntraConfigOutput).ToDirectoryMicrosoftEntraConfigPtrOutputWithContext(ctx)
+}
+
+// DirectoryMicrosoftEntraConfigPtrInput is an input type that accepts DirectoryMicrosoftEntraConfigArgs, DirectoryMicrosoftEntraConfigPtr and DirectoryMicrosoftEntraConfigPtrOutput values.
+// You can construct a concrete instance of `DirectoryMicrosoftEntraConfigPtrInput` via:
+//
+//	        DirectoryMicrosoftEntraConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryMicrosoftEntraConfigPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryMicrosoftEntraConfigPtrOutput() DirectoryMicrosoftEntraConfigPtrOutput
+	ToDirectoryMicrosoftEntraConfigPtrOutputWithContext(context.Context) DirectoryMicrosoftEntraConfigPtrOutput
+}
+
+type directoryMicrosoftEntraConfigPtrType DirectoryMicrosoftEntraConfigArgs
+
+func DirectoryMicrosoftEntraConfigPtr(v *DirectoryMicrosoftEntraConfigArgs) DirectoryMicrosoftEntraConfigPtrInput {
+	return (*directoryMicrosoftEntraConfigPtrType)(v)
+}
+
+func (*directoryMicrosoftEntraConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryMicrosoftEntraConfig)(nil)).Elem()
+}
+
+func (i *directoryMicrosoftEntraConfigPtrType) ToDirectoryMicrosoftEntraConfigPtrOutput() DirectoryMicrosoftEntraConfigPtrOutput {
+	return i.ToDirectoryMicrosoftEntraConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryMicrosoftEntraConfigPtrType) ToDirectoryMicrosoftEntraConfigPtrOutputWithContext(ctx context.Context) DirectoryMicrosoftEntraConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryMicrosoftEntraConfigPtrOutput)
+}
+
+// Specifies the configurations of the Microsoft Entra.
+type DirectoryMicrosoftEntraConfigOutput struct{ *pulumi.OutputState }
+
+func (DirectoryMicrosoftEntraConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryMicrosoftEntraConfig)(nil)).Elem()
+}
+
+func (o DirectoryMicrosoftEntraConfigOutput) ToDirectoryMicrosoftEntraConfigOutput() DirectoryMicrosoftEntraConfigOutput {
+	return o
+}
+
+func (o DirectoryMicrosoftEntraConfigOutput) ToDirectoryMicrosoftEntraConfigOutputWithContext(ctx context.Context) DirectoryMicrosoftEntraConfigOutput {
+	return o
+}
+
+func (o DirectoryMicrosoftEntraConfigOutput) ToDirectoryMicrosoftEntraConfigPtrOutput() DirectoryMicrosoftEntraConfigPtrOutput {
+	return o.ToDirectoryMicrosoftEntraConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryMicrosoftEntraConfigOutput) ToDirectoryMicrosoftEntraConfigPtrOutputWithContext(ctx context.Context) DirectoryMicrosoftEntraConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryMicrosoftEntraConfig) *DirectoryMicrosoftEntraConfig {
+		return &v
+	}).(DirectoryMicrosoftEntraConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the application config.
+func (o DirectoryMicrosoftEntraConfigOutput) ApplicationConfigSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryMicrosoftEntraConfig) *string { return v.ApplicationConfigSecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the tenant.
+func (o DirectoryMicrosoftEntraConfigOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryMicrosoftEntraConfig) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type DirectoryMicrosoftEntraConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryMicrosoftEntraConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryMicrosoftEntraConfig)(nil)).Elem()
+}
+
+func (o DirectoryMicrosoftEntraConfigPtrOutput) ToDirectoryMicrosoftEntraConfigPtrOutput() DirectoryMicrosoftEntraConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryMicrosoftEntraConfigPtrOutput) ToDirectoryMicrosoftEntraConfigPtrOutputWithContext(ctx context.Context) DirectoryMicrosoftEntraConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryMicrosoftEntraConfigPtrOutput) Elem() DirectoryMicrosoftEntraConfigOutput {
+	return o.ApplyT(func(v *DirectoryMicrosoftEntraConfig) DirectoryMicrosoftEntraConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryMicrosoftEntraConfig
+		return ret
+	}).(DirectoryMicrosoftEntraConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the application config.
+func (o DirectoryMicrosoftEntraConfigPtrOutput) ApplicationConfigSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryMicrosoftEntraConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationConfigSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the tenant.
+func (o DirectoryMicrosoftEntraConfigPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryMicrosoftEntraConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.
+type DirectorySamlProperties struct {
+	// The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+	RelayStateParameterName *string `pulumi:"relayStateParameterName"`
+	// Indicates the status of SAML 2.0 authentication.
+	Status *DirectorySamlPropertiesStatus `pulumi:"status"`
+	// The SAML 2.0 identity provider (IdP) user access URL.
+	UserAccessUrl *string `pulumi:"userAccessUrl"`
+}
+
+// DirectorySamlPropertiesInput is an input type that accepts DirectorySamlPropertiesArgs and DirectorySamlPropertiesOutput values.
+// You can construct a concrete instance of `DirectorySamlPropertiesInput` via:
+//
+//	DirectorySamlPropertiesArgs{...}
+type DirectorySamlPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectorySamlPropertiesOutput() DirectorySamlPropertiesOutput
+	ToDirectorySamlPropertiesOutputWithContext(context.Context) DirectorySamlPropertiesOutput
+}
+
+// Describes the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.
+type DirectorySamlPropertiesArgs struct {
+	// The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+	RelayStateParameterName pulumi.StringPtrInput `pulumi:"relayStateParameterName"`
+	// Indicates the status of SAML 2.0 authentication.
+	Status DirectorySamlPropertiesStatusPtrInput `pulumi:"status"`
+	// The SAML 2.0 identity provider (IdP) user access URL.
+	UserAccessUrl pulumi.StringPtrInput `pulumi:"userAccessUrl"`
+}
+
+func (DirectorySamlPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySamlProperties)(nil)).Elem()
+}
+
+func (i DirectorySamlPropertiesArgs) ToDirectorySamlPropertiesOutput() DirectorySamlPropertiesOutput {
+	return i.ToDirectorySamlPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectorySamlPropertiesArgs) ToDirectorySamlPropertiesOutputWithContext(ctx context.Context) DirectorySamlPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySamlPropertiesOutput)
+}
+
+func (i DirectorySamlPropertiesArgs) ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput {
+	return i.ToDirectorySamlPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectorySamlPropertiesArgs) ToDirectorySamlPropertiesPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySamlPropertiesOutput).ToDirectorySamlPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectorySamlPropertiesPtrInput is an input type that accepts DirectorySamlPropertiesArgs, DirectorySamlPropertiesPtr and DirectorySamlPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectorySamlPropertiesPtrInput` via:
+//
+//	        DirectorySamlPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectorySamlPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput
+	ToDirectorySamlPropertiesPtrOutputWithContext(context.Context) DirectorySamlPropertiesPtrOutput
+}
+
+type directorySamlPropertiesPtrType DirectorySamlPropertiesArgs
+
+func DirectorySamlPropertiesPtr(v *DirectorySamlPropertiesArgs) DirectorySamlPropertiesPtrInput {
+	return (*directorySamlPropertiesPtrType)(v)
+}
+
+func (*directorySamlPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySamlProperties)(nil)).Elem()
+}
+
+func (i *directorySamlPropertiesPtrType) ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput {
+	return i.ToDirectorySamlPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directorySamlPropertiesPtrType) ToDirectorySamlPropertiesPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySamlPropertiesPtrOutput)
+}
+
+// Describes the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.
+type DirectorySamlPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectorySamlPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySamlProperties)(nil)).Elem()
+}
+
+func (o DirectorySamlPropertiesOutput) ToDirectorySamlPropertiesOutput() DirectorySamlPropertiesOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesOutput) ToDirectorySamlPropertiesOutputWithContext(ctx context.Context) DirectorySamlPropertiesOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesOutput) ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput {
+	return o.ToDirectorySamlPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySamlPropertiesOutput) ToDirectorySamlPropertiesPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySamlProperties) *DirectorySamlProperties {
+		return &v
+	}).(DirectorySamlPropertiesPtrOutput)
+}
+
+// The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+func (o DirectorySamlPropertiesOutput) RelayStateParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectorySamlProperties) *string { return v.RelayStateParameterName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the status of SAML 2.0 authentication.
+func (o DirectorySamlPropertiesOutput) Status() DirectorySamlPropertiesStatusPtrOutput {
+	return o.ApplyT(func(v DirectorySamlProperties) *DirectorySamlPropertiesStatus { return v.Status }).(DirectorySamlPropertiesStatusPtrOutput)
+}
+
+// The SAML 2.0 identity provider (IdP) user access URL.
+func (o DirectorySamlPropertiesOutput) UserAccessUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectorySamlProperties) *string { return v.UserAccessUrl }).(pulumi.StringPtrOutput)
+}
+
+type DirectorySamlPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySamlPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySamlProperties)(nil)).Elem()
+}
+
+func (o DirectorySamlPropertiesPtrOutput) ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesPtrOutput) ToDirectorySamlPropertiesPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesPtrOutput) Elem() DirectorySamlPropertiesOutput {
+	return o.ApplyT(func(v *DirectorySamlProperties) DirectorySamlProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySamlProperties
+		return ret
+	}).(DirectorySamlPropertiesOutput)
+}
+
+// The relay state parameter name supported by the SAML 2.0 identity provider (IdP).
+func (o DirectorySamlPropertiesPtrOutput) RelayStateParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectorySamlProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RelayStateParameterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates the status of SAML 2.0 authentication.
+func (o DirectorySamlPropertiesPtrOutput) Status() DirectorySamlPropertiesStatusPtrOutput {
+	return o.ApplyT(func(v *DirectorySamlProperties) *DirectorySamlPropertiesStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(DirectorySamlPropertiesStatusPtrOutput)
+}
+
+// The SAML 2.0 identity provider (IdP) user access URL.
+func (o DirectorySamlPropertiesPtrOutput) UserAccessUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectorySamlProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAccessUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the self-service permissions for a directory.
+type DirectorySelfservicePermissions struct {
+	// Specifies whether users can change the compute type (bundle) for their WorkSpace.
+	ChangeComputeType *DirectorySelfservicePermissionsChangeComputeType `pulumi:"changeComputeType"`
+	// Specifies whether users can increase the volume size of the drives on their WorkSpace.
+	IncreaseVolumeSize *DirectorySelfservicePermissionsIncreaseVolumeSize `pulumi:"increaseVolumeSize"`
+	// Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+	RebuildWorkspace *DirectorySelfservicePermissionsRebuildWorkspace `pulumi:"rebuildWorkspace"`
+	// Specifies whether users can restart their WorkSpace.
+	RestartWorkspace *DirectorySelfservicePermissionsRestartWorkspace `pulumi:"restartWorkspace"`
+	// Specifies whether users can switch the running mode of their WorkSpace.
+	SwitchRunningMode *DirectorySelfservicePermissionsSwitchRunningMode `pulumi:"switchRunningMode"`
+}
+
+// DirectorySelfservicePermissionsInput is an input type that accepts DirectorySelfservicePermissionsArgs and DirectorySelfservicePermissionsOutput values.
+// You can construct a concrete instance of `DirectorySelfservicePermissionsInput` via:
+//
+//	DirectorySelfservicePermissionsArgs{...}
+type DirectorySelfservicePermissionsInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsOutput() DirectorySelfservicePermissionsOutput
+	ToDirectorySelfservicePermissionsOutputWithContext(context.Context) DirectorySelfservicePermissionsOutput
+}
+
+// Describes the self-service permissions for a directory.
+type DirectorySelfservicePermissionsArgs struct {
+	// Specifies whether users can change the compute type (bundle) for their WorkSpace.
+	ChangeComputeType DirectorySelfservicePermissionsChangeComputeTypePtrInput `pulumi:"changeComputeType"`
+	// Specifies whether users can increase the volume size of the drives on their WorkSpace.
+	IncreaseVolumeSize DirectorySelfservicePermissionsIncreaseVolumeSizePtrInput `pulumi:"increaseVolumeSize"`
+	// Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+	RebuildWorkspace DirectorySelfservicePermissionsRebuildWorkspacePtrInput `pulumi:"rebuildWorkspace"`
+	// Specifies whether users can restart their WorkSpace.
+	RestartWorkspace DirectorySelfservicePermissionsRestartWorkspacePtrInput `pulumi:"restartWorkspace"`
+	// Specifies whether users can switch the running mode of their WorkSpace.
+	SwitchRunningMode DirectorySelfservicePermissionsSwitchRunningModePtrInput `pulumi:"switchRunningMode"`
+}
+
+func (DirectorySelfservicePermissionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissions)(nil)).Elem()
+}
+
+func (i DirectorySelfservicePermissionsArgs) ToDirectorySelfservicePermissionsOutput() DirectorySelfservicePermissionsOutput {
+	return i.ToDirectorySelfservicePermissionsOutputWithContext(context.Background())
+}
+
+func (i DirectorySelfservicePermissionsArgs) ToDirectorySelfservicePermissionsOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySelfservicePermissionsOutput)
+}
+
+func (i DirectorySelfservicePermissionsArgs) ToDirectorySelfservicePermissionsPtrOutput() DirectorySelfservicePermissionsPtrOutput {
+	return i.ToDirectorySelfservicePermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i DirectorySelfservicePermissionsArgs) ToDirectorySelfservicePermissionsPtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySelfservicePermissionsOutput).ToDirectorySelfservicePermissionsPtrOutputWithContext(ctx)
+}
+
+// DirectorySelfservicePermissionsPtrInput is an input type that accepts DirectorySelfservicePermissionsArgs, DirectorySelfservicePermissionsPtr and DirectorySelfservicePermissionsPtrOutput values.
+// You can construct a concrete instance of `DirectorySelfservicePermissionsPtrInput` via:
+//
+//	        DirectorySelfservicePermissionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectorySelfservicePermissionsPtrInput interface {
+	pulumi.Input
+
+	ToDirectorySelfservicePermissionsPtrOutput() DirectorySelfservicePermissionsPtrOutput
+	ToDirectorySelfservicePermissionsPtrOutputWithContext(context.Context) DirectorySelfservicePermissionsPtrOutput
+}
+
+type directorySelfservicePermissionsPtrType DirectorySelfservicePermissionsArgs
+
+func DirectorySelfservicePermissionsPtr(v *DirectorySelfservicePermissionsArgs) DirectorySelfservicePermissionsPtrInput {
+	return (*directorySelfservicePermissionsPtrType)(v)
+}
+
+func (*directorySelfservicePermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySelfservicePermissions)(nil)).Elem()
+}
+
+func (i *directorySelfservicePermissionsPtrType) ToDirectorySelfservicePermissionsPtrOutput() DirectorySelfservicePermissionsPtrOutput {
+	return i.ToDirectorySelfservicePermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *directorySelfservicePermissionsPtrType) ToDirectorySelfservicePermissionsPtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySelfservicePermissionsPtrOutput)
+}
+
+// Describes the self-service permissions for a directory.
+type DirectorySelfservicePermissionsOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySelfservicePermissions)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsOutput) ToDirectorySelfservicePermissionsOutput() DirectorySelfservicePermissionsOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsOutput) ToDirectorySelfservicePermissionsOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsOutput) ToDirectorySelfservicePermissionsPtrOutput() DirectorySelfservicePermissionsPtrOutput {
+	return o.ToDirectorySelfservicePermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySelfservicePermissionsOutput) ToDirectorySelfservicePermissionsPtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySelfservicePermissions) *DirectorySelfservicePermissions {
+		return &v
+	}).(DirectorySelfservicePermissionsPtrOutput)
+}
+
+// Specifies whether users can change the compute type (bundle) for their WorkSpace.
+func (o DirectorySelfservicePermissionsOutput) ChangeComputeType() DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return o.ApplyT(func(v DirectorySelfservicePermissions) *DirectorySelfservicePermissionsChangeComputeType {
+		return v.ChangeComputeType
+	}).(DirectorySelfservicePermissionsChangeComputeTypePtrOutput)
+}
+
+// Specifies whether users can increase the volume size of the drives on their WorkSpace.
+func (o DirectorySelfservicePermissionsOutput) IncreaseVolumeSize() DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return o.ApplyT(func(v DirectorySelfservicePermissions) *DirectorySelfservicePermissionsIncreaseVolumeSize {
+		return v.IncreaseVolumeSize
+	}).(DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput)
+}
+
+// Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+func (o DirectorySelfservicePermissionsOutput) RebuildWorkspace() DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return o.ApplyT(func(v DirectorySelfservicePermissions) *DirectorySelfservicePermissionsRebuildWorkspace {
+		return v.RebuildWorkspace
+	}).(DirectorySelfservicePermissionsRebuildWorkspacePtrOutput)
+}
+
+// Specifies whether users can restart their WorkSpace.
+func (o DirectorySelfservicePermissionsOutput) RestartWorkspace() DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return o.ApplyT(func(v DirectorySelfservicePermissions) *DirectorySelfservicePermissionsRestartWorkspace {
+		return v.RestartWorkspace
+	}).(DirectorySelfservicePermissionsRestartWorkspacePtrOutput)
+}
+
+// Specifies whether users can switch the running mode of their WorkSpace.
+func (o DirectorySelfservicePermissionsOutput) SwitchRunningMode() DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return o.ApplyT(func(v DirectorySelfservicePermissions) *DirectorySelfservicePermissionsSwitchRunningMode {
+		return v.SwitchRunningMode
+	}).(DirectorySelfservicePermissionsSwitchRunningModePtrOutput)
+}
+
+type DirectorySelfservicePermissionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySelfservicePermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySelfservicePermissions)(nil)).Elem()
+}
+
+func (o DirectorySelfservicePermissionsPtrOutput) ToDirectorySelfservicePermissionsPtrOutput() DirectorySelfservicePermissionsPtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsPtrOutput) ToDirectorySelfservicePermissionsPtrOutputWithContext(ctx context.Context) DirectorySelfservicePermissionsPtrOutput {
+	return o
+}
+
+func (o DirectorySelfservicePermissionsPtrOutput) Elem() DirectorySelfservicePermissionsOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissions) DirectorySelfservicePermissions {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySelfservicePermissions
+		return ret
+	}).(DirectorySelfservicePermissionsOutput)
+}
+
+// Specifies whether users can change the compute type (bundle) for their WorkSpace.
+func (o DirectorySelfservicePermissionsPtrOutput) ChangeComputeType() DirectorySelfservicePermissionsChangeComputeTypePtrOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissions) *DirectorySelfservicePermissionsChangeComputeType {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeComputeType
+	}).(DirectorySelfservicePermissionsChangeComputeTypePtrOutput)
+}
+
+// Specifies whether users can increase the volume size of the drives on their WorkSpace.
+func (o DirectorySelfservicePermissionsPtrOutput) IncreaseVolumeSize() DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissions) *DirectorySelfservicePermissionsIncreaseVolumeSize {
+		if v == nil {
+			return nil
+		}
+		return v.IncreaseVolumeSize
+	}).(DirectorySelfservicePermissionsIncreaseVolumeSizePtrOutput)
+}
+
+// Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+func (o DirectorySelfservicePermissionsPtrOutput) RebuildWorkspace() DirectorySelfservicePermissionsRebuildWorkspacePtrOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissions) *DirectorySelfservicePermissionsRebuildWorkspace {
+		if v == nil {
+			return nil
+		}
+		return v.RebuildWorkspace
+	}).(DirectorySelfservicePermissionsRebuildWorkspacePtrOutput)
+}
+
+// Specifies whether users can restart their WorkSpace.
+func (o DirectorySelfservicePermissionsPtrOutput) RestartWorkspace() DirectorySelfservicePermissionsRestartWorkspacePtrOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissions) *DirectorySelfservicePermissionsRestartWorkspace {
+		if v == nil {
+			return nil
+		}
+		return v.RestartWorkspace
+	}).(DirectorySelfservicePermissionsRestartWorkspacePtrOutput)
+}
+
+// Specifies whether users can switch the running mode of their WorkSpace.
+func (o DirectorySelfservicePermissionsPtrOutput) SwitchRunningMode() DirectorySelfservicePermissionsSwitchRunningModePtrOutput {
+	return o.ApplyT(func(v *DirectorySelfservicePermissions) *DirectorySelfservicePermissionsSwitchRunningMode {
+		if v == nil {
+			return nil
+		}
+		return v.SwitchRunningMode
+	}).(DirectorySelfservicePermissionsSwitchRunningModePtrOutput)
+}
+
+// Describes the storage connector.
+type DirectoryStorageConnector struct {
+	// The type of connector used to save user files.
+	ConnectorType DirectoryStorageConnectorConnectorType `pulumi:"connectorType"`
+	// Indicates if the storage connector is enabled or disabled.
+	Status DirectoryStorageConnectorStatus `pulumi:"status"`
+}
+
+// DirectoryStorageConnectorInput is an input type that accepts DirectoryStorageConnectorArgs and DirectoryStorageConnectorOutput values.
+// You can construct a concrete instance of `DirectoryStorageConnectorInput` via:
+//
+//	DirectoryStorageConnectorArgs{...}
+type DirectoryStorageConnectorInput interface {
+	pulumi.Input
+
+	ToDirectoryStorageConnectorOutput() DirectoryStorageConnectorOutput
+	ToDirectoryStorageConnectorOutputWithContext(context.Context) DirectoryStorageConnectorOutput
+}
+
+// Describes the storage connector.
+type DirectoryStorageConnectorArgs struct {
+	// The type of connector used to save user files.
+	ConnectorType DirectoryStorageConnectorConnectorTypeInput `pulumi:"connectorType"`
+	// Indicates if the storage connector is enabled or disabled.
+	Status DirectoryStorageConnectorStatusInput `pulumi:"status"`
+}
+
+func (DirectoryStorageConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStorageConnector)(nil)).Elem()
+}
+
+func (i DirectoryStorageConnectorArgs) ToDirectoryStorageConnectorOutput() DirectoryStorageConnectorOutput {
+	return i.ToDirectoryStorageConnectorOutputWithContext(context.Background())
+}
+
+func (i DirectoryStorageConnectorArgs) ToDirectoryStorageConnectorOutputWithContext(ctx context.Context) DirectoryStorageConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryStorageConnectorOutput)
+}
+
+// DirectoryStorageConnectorArrayInput is an input type that accepts DirectoryStorageConnectorArray and DirectoryStorageConnectorArrayOutput values.
+// You can construct a concrete instance of `DirectoryStorageConnectorArrayInput` via:
+//
+//	DirectoryStorageConnectorArray{ DirectoryStorageConnectorArgs{...} }
+type DirectoryStorageConnectorArrayInput interface {
+	pulumi.Input
+
+	ToDirectoryStorageConnectorArrayOutput() DirectoryStorageConnectorArrayOutput
+	ToDirectoryStorageConnectorArrayOutputWithContext(context.Context) DirectoryStorageConnectorArrayOutput
+}
+
+type DirectoryStorageConnectorArray []DirectoryStorageConnectorInput
+
+func (DirectoryStorageConnectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryStorageConnector)(nil)).Elem()
+}
+
+func (i DirectoryStorageConnectorArray) ToDirectoryStorageConnectorArrayOutput() DirectoryStorageConnectorArrayOutput {
+	return i.ToDirectoryStorageConnectorArrayOutputWithContext(context.Background())
+}
+
+func (i DirectoryStorageConnectorArray) ToDirectoryStorageConnectorArrayOutputWithContext(ctx context.Context) DirectoryStorageConnectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryStorageConnectorArrayOutput)
+}
+
+// Describes the storage connector.
+type DirectoryStorageConnectorOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStorageConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStorageConnector)(nil)).Elem()
+}
+
+func (o DirectoryStorageConnectorOutput) ToDirectoryStorageConnectorOutput() DirectoryStorageConnectorOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorOutput) ToDirectoryStorageConnectorOutputWithContext(ctx context.Context) DirectoryStorageConnectorOutput {
+	return o
+}
+
+// The type of connector used to save user files.
+func (o DirectoryStorageConnectorOutput) ConnectorType() DirectoryStorageConnectorConnectorTypeOutput {
+	return o.ApplyT(func(v DirectoryStorageConnector) DirectoryStorageConnectorConnectorType { return v.ConnectorType }).(DirectoryStorageConnectorConnectorTypeOutput)
+}
+
+// Indicates if the storage connector is enabled or disabled.
+func (o DirectoryStorageConnectorOutput) Status() DirectoryStorageConnectorStatusOutput {
+	return o.ApplyT(func(v DirectoryStorageConnector) DirectoryStorageConnectorStatus { return v.Status }).(DirectoryStorageConnectorStatusOutput)
+}
+
+type DirectoryStorageConnectorArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStorageConnectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryStorageConnector)(nil)).Elem()
+}
+
+func (o DirectoryStorageConnectorArrayOutput) ToDirectoryStorageConnectorArrayOutput() DirectoryStorageConnectorArrayOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorArrayOutput) ToDirectoryStorageConnectorArrayOutputWithContext(ctx context.Context) DirectoryStorageConnectorArrayOutput {
+	return o
+}
+
+func (o DirectoryStorageConnectorArrayOutput) Index(i pulumi.IntInput) DirectoryStorageConnectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryStorageConnector {
+		return vs[0].([]DirectoryStorageConnector)[vs[1].(int)]
+	}).(DirectoryStorageConnectorOutput)
+}
+
+// Describes the streaming properties.
+type DirectoryStreamingProperties struct {
+	GlobalAccelerator *DirectoryGlobalAcceleratorForDirectory `pulumi:"globalAccelerator"`
+	// Indicates the storage connector used.
+	StorageConnectors []DirectoryStorageConnector `pulumi:"storageConnectors"`
+	// Indicates the type of preferred protocol for the streaming experience.
+	StreamingExperiencePreferredProtocol *DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol `pulumi:"streamingExperiencePreferredProtocol"`
+	// Indicates the permission settings associated with the user.
+	UserSettings []DirectoryUserSetting `pulumi:"userSettings"`
+}
+
+// DirectoryStreamingPropertiesInput is an input type that accepts DirectoryStreamingPropertiesArgs and DirectoryStreamingPropertiesOutput values.
+// You can construct a concrete instance of `DirectoryStreamingPropertiesInput` via:
+//
+//	DirectoryStreamingPropertiesArgs{...}
+type DirectoryStreamingPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectoryStreamingPropertiesOutput() DirectoryStreamingPropertiesOutput
+	ToDirectoryStreamingPropertiesOutputWithContext(context.Context) DirectoryStreamingPropertiesOutput
+}
+
+// Describes the streaming properties.
+type DirectoryStreamingPropertiesArgs struct {
+	GlobalAccelerator DirectoryGlobalAcceleratorForDirectoryPtrInput `pulumi:"globalAccelerator"`
+	// Indicates the storage connector used.
+	StorageConnectors DirectoryStorageConnectorArrayInput `pulumi:"storageConnectors"`
+	// Indicates the type of preferred protocol for the streaming experience.
+	StreamingExperiencePreferredProtocol DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrInput `pulumi:"streamingExperiencePreferredProtocol"`
+	// Indicates the permission settings associated with the user.
+	UserSettings DirectoryUserSettingArrayInput `pulumi:"userSettings"`
+}
+
+func (DirectoryStreamingPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStreamingProperties)(nil)).Elem()
+}
+
+func (i DirectoryStreamingPropertiesArgs) ToDirectoryStreamingPropertiesOutput() DirectoryStreamingPropertiesOutput {
+	return i.ToDirectoryStreamingPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectoryStreamingPropertiesArgs) ToDirectoryStreamingPropertiesOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryStreamingPropertiesOutput)
+}
+
+func (i DirectoryStreamingPropertiesArgs) ToDirectoryStreamingPropertiesPtrOutput() DirectoryStreamingPropertiesPtrOutput {
+	return i.ToDirectoryStreamingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryStreamingPropertiesArgs) ToDirectoryStreamingPropertiesPtrOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryStreamingPropertiesOutput).ToDirectoryStreamingPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectoryStreamingPropertiesPtrInput is an input type that accepts DirectoryStreamingPropertiesArgs, DirectoryStreamingPropertiesPtr and DirectoryStreamingPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectoryStreamingPropertiesPtrInput` via:
+//
+//	        DirectoryStreamingPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryStreamingPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryStreamingPropertiesPtrOutput() DirectoryStreamingPropertiesPtrOutput
+	ToDirectoryStreamingPropertiesPtrOutputWithContext(context.Context) DirectoryStreamingPropertiesPtrOutput
+}
+
+type directoryStreamingPropertiesPtrType DirectoryStreamingPropertiesArgs
+
+func DirectoryStreamingPropertiesPtr(v *DirectoryStreamingPropertiesArgs) DirectoryStreamingPropertiesPtrInput {
+	return (*directoryStreamingPropertiesPtrType)(v)
+}
+
+func (*directoryStreamingPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryStreamingProperties)(nil)).Elem()
+}
+
+func (i *directoryStreamingPropertiesPtrType) ToDirectoryStreamingPropertiesPtrOutput() DirectoryStreamingPropertiesPtrOutput {
+	return i.ToDirectoryStreamingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryStreamingPropertiesPtrType) ToDirectoryStreamingPropertiesPtrOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryStreamingPropertiesPtrOutput)
+}
+
+// Describes the streaming properties.
+type DirectoryStreamingPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStreamingPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryStreamingProperties)(nil)).Elem()
+}
+
+func (o DirectoryStreamingPropertiesOutput) ToDirectoryStreamingPropertiesOutput() DirectoryStreamingPropertiesOutput {
+	return o
+}
+
+func (o DirectoryStreamingPropertiesOutput) ToDirectoryStreamingPropertiesOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesOutput {
+	return o
+}
+
+func (o DirectoryStreamingPropertiesOutput) ToDirectoryStreamingPropertiesPtrOutput() DirectoryStreamingPropertiesPtrOutput {
+	return o.ToDirectoryStreamingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryStreamingPropertiesOutput) ToDirectoryStreamingPropertiesPtrOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryStreamingProperties) *DirectoryStreamingProperties {
+		return &v
+	}).(DirectoryStreamingPropertiesPtrOutput)
+}
+
+func (o DirectoryStreamingPropertiesOutput) GlobalAccelerator() DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return o.ApplyT(func(v DirectoryStreamingProperties) *DirectoryGlobalAcceleratorForDirectory {
+		return v.GlobalAccelerator
+	}).(DirectoryGlobalAcceleratorForDirectoryPtrOutput)
+}
+
+// Indicates the storage connector used.
+func (o DirectoryStreamingPropertiesOutput) StorageConnectors() DirectoryStorageConnectorArrayOutput {
+	return o.ApplyT(func(v DirectoryStreamingProperties) []DirectoryStorageConnector { return v.StorageConnectors }).(DirectoryStorageConnectorArrayOutput)
+}
+
+// Indicates the type of preferred protocol for the streaming experience.
+func (o DirectoryStreamingPropertiesOutput) StreamingExperiencePreferredProtocol() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return o.ApplyT(func(v DirectoryStreamingProperties) *DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol {
+		return v.StreamingExperiencePreferredProtocol
+	}).(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput)
+}
+
+// Indicates the permission settings associated with the user.
+func (o DirectoryStreamingPropertiesOutput) UserSettings() DirectoryUserSettingArrayOutput {
+	return o.ApplyT(func(v DirectoryStreamingProperties) []DirectoryUserSetting { return v.UserSettings }).(DirectoryUserSettingArrayOutput)
+}
+
+type DirectoryStreamingPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryStreamingPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryStreamingProperties)(nil)).Elem()
+}
+
+func (o DirectoryStreamingPropertiesPtrOutput) ToDirectoryStreamingPropertiesPtrOutput() DirectoryStreamingPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryStreamingPropertiesPtrOutput) ToDirectoryStreamingPropertiesPtrOutputWithContext(ctx context.Context) DirectoryStreamingPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryStreamingPropertiesPtrOutput) Elem() DirectoryStreamingPropertiesOutput {
+	return o.ApplyT(func(v *DirectoryStreamingProperties) DirectoryStreamingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryStreamingProperties
+		return ret
+	}).(DirectoryStreamingPropertiesOutput)
+}
+
+func (o DirectoryStreamingPropertiesPtrOutput) GlobalAccelerator() DirectoryGlobalAcceleratorForDirectoryPtrOutput {
+	return o.ApplyT(func(v *DirectoryStreamingProperties) *DirectoryGlobalAcceleratorForDirectory {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalAccelerator
+	}).(DirectoryGlobalAcceleratorForDirectoryPtrOutput)
+}
+
+// Indicates the storage connector used.
+func (o DirectoryStreamingPropertiesPtrOutput) StorageConnectors() DirectoryStorageConnectorArrayOutput {
+	return o.ApplyT(func(v *DirectoryStreamingProperties) []DirectoryStorageConnector {
+		if v == nil {
+			return nil
+		}
+		return v.StorageConnectors
+	}).(DirectoryStorageConnectorArrayOutput)
+}
+
+// Indicates the type of preferred protocol for the streaming experience.
+func (o DirectoryStreamingPropertiesPtrOutput) StreamingExperiencePreferredProtocol() DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput {
+	return o.ApplyT(func(v *DirectoryStreamingProperties) *DirectoryStreamingPropertiesStreamingExperiencePreferredProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.StreamingExperiencePreferredProtocol
+	}).(DirectoryStreamingPropertiesStreamingExperiencePreferredProtocolPtrOutput)
+}
+
+// Indicates the permission settings associated with the user.
+func (o DirectoryStreamingPropertiesPtrOutput) UserSettings() DirectoryUserSettingArrayOutput {
+	return o.ApplyT(func(v *DirectoryStreamingProperties) []DirectoryUserSetting {
+		if v == nil {
+			return nil
+		}
+		return v.UserSettings
+	}).(DirectoryUserSettingArrayOutput)
+}
+
+type DirectoryTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
+// Information about the user's permission settings.
+type DirectoryUserSetting struct {
+	// Indicates the type of action.
+	Action DirectoryUserSettingAction `pulumi:"action"`
+	// Indicates the maximum character length for the specified user setting.
+	MaximumLength *int `pulumi:"maximumLength"`
+	// Indicates if the setting is enabled or disabled.
+	Permission DirectoryUserSettingPermission `pulumi:"permission"`
+}
+
+// DirectoryUserSettingInput is an input type that accepts DirectoryUserSettingArgs and DirectoryUserSettingOutput values.
+// You can construct a concrete instance of `DirectoryUserSettingInput` via:
+//
+//	DirectoryUserSettingArgs{...}
+type DirectoryUserSettingInput interface {
+	pulumi.Input
+
+	ToDirectoryUserSettingOutput() DirectoryUserSettingOutput
+	ToDirectoryUserSettingOutputWithContext(context.Context) DirectoryUserSettingOutput
+}
+
+// Information about the user's permission settings.
+type DirectoryUserSettingArgs struct {
+	// Indicates the type of action.
+	Action DirectoryUserSettingActionInput `pulumi:"action"`
+	// Indicates the maximum character length for the specified user setting.
+	MaximumLength pulumi.IntPtrInput `pulumi:"maximumLength"`
+	// Indicates if the setting is enabled or disabled.
+	Permission DirectoryUserSettingPermissionInput `pulumi:"permission"`
+}
+
+func (DirectoryUserSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryUserSetting)(nil)).Elem()
+}
+
+func (i DirectoryUserSettingArgs) ToDirectoryUserSettingOutput() DirectoryUserSettingOutput {
+	return i.ToDirectoryUserSettingOutputWithContext(context.Background())
+}
+
+func (i DirectoryUserSettingArgs) ToDirectoryUserSettingOutputWithContext(ctx context.Context) DirectoryUserSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryUserSettingOutput)
+}
+
+// DirectoryUserSettingArrayInput is an input type that accepts DirectoryUserSettingArray and DirectoryUserSettingArrayOutput values.
+// You can construct a concrete instance of `DirectoryUserSettingArrayInput` via:
+//
+//	DirectoryUserSettingArray{ DirectoryUserSettingArgs{...} }
+type DirectoryUserSettingArrayInput interface {
+	pulumi.Input
+
+	ToDirectoryUserSettingArrayOutput() DirectoryUserSettingArrayOutput
+	ToDirectoryUserSettingArrayOutputWithContext(context.Context) DirectoryUserSettingArrayOutput
+}
+
+type DirectoryUserSettingArray []DirectoryUserSettingInput
+
+func (DirectoryUserSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryUserSetting)(nil)).Elem()
+}
+
+func (i DirectoryUserSettingArray) ToDirectoryUserSettingArrayOutput() DirectoryUserSettingArrayOutput {
+	return i.ToDirectoryUserSettingArrayOutputWithContext(context.Background())
+}
+
+func (i DirectoryUserSettingArray) ToDirectoryUserSettingArrayOutputWithContext(ctx context.Context) DirectoryUserSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryUserSettingArrayOutput)
+}
+
+// Information about the user's permission settings.
+type DirectoryUserSettingOutput struct{ *pulumi.OutputState }
+
+func (DirectoryUserSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryUserSetting)(nil)).Elem()
+}
+
+func (o DirectoryUserSettingOutput) ToDirectoryUserSettingOutput() DirectoryUserSettingOutput {
+	return o
+}
+
+func (o DirectoryUserSettingOutput) ToDirectoryUserSettingOutputWithContext(ctx context.Context) DirectoryUserSettingOutput {
+	return o
+}
+
+// Indicates the type of action.
+func (o DirectoryUserSettingOutput) Action() DirectoryUserSettingActionOutput {
+	return o.ApplyT(func(v DirectoryUserSetting) DirectoryUserSettingAction { return v.Action }).(DirectoryUserSettingActionOutput)
+}
+
+// Indicates the maximum character length for the specified user setting.
+func (o DirectoryUserSettingOutput) MaximumLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DirectoryUserSetting) *int { return v.MaximumLength }).(pulumi.IntPtrOutput)
+}
+
+// Indicates if the setting is enabled or disabled.
+func (o DirectoryUserSettingOutput) Permission() DirectoryUserSettingPermissionOutput {
+	return o.ApplyT(func(v DirectoryUserSetting) DirectoryUserSettingPermission { return v.Permission }).(DirectoryUserSettingPermissionOutput)
+}
+
+type DirectoryUserSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectoryUserSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryUserSetting)(nil)).Elem()
+}
+
+func (o DirectoryUserSettingArrayOutput) ToDirectoryUserSettingArrayOutput() DirectoryUserSettingArrayOutput {
+	return o
+}
+
+func (o DirectoryUserSettingArrayOutput) ToDirectoryUserSettingArrayOutputWithContext(ctx context.Context) DirectoryUserSettingArrayOutput {
+	return o
+}
+
+func (o DirectoryUserSettingArrayOutput) Index(i pulumi.IntInput) DirectoryUserSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryUserSetting {
+		return vs[0].([]DirectoryUserSetting)[vs[1].(int)]
+	}).(DirectoryUserSettingOutput)
+}
+
+// The device types and operating systems that can be used to access a WorkSpace.
+type DirectoryWorkspaceAccessProperties struct {
+	AccessEndpointConfig *DirectoryAccessEndpointConfig `pulumi:"accessEndpointConfig"`
+	// Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+	DeviceTypeAndroid *DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid `pulumi:"deviceTypeAndroid"`
+	// Indicates whether users can use Chromebooks to access their WorkSpaces.
+	DeviceTypeChromeOs *DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs `pulumi:"deviceTypeChromeOs"`
+	// Indicates whether users can use iOS devices to access their WorkSpaces.
+	DeviceTypeIos *DirectoryWorkspaceAccessPropertiesDeviceTypeIos `pulumi:"deviceTypeIos"`
+	// Indicates whether users can use Linux clients to access their WorkSpaces.
+	DeviceTypeLinux *DirectoryWorkspaceAccessPropertiesDeviceTypeLinux `pulumi:"deviceTypeLinux"`
+	// Indicates whether users can use macOS clients to access their WorkSpaces.
+	DeviceTypeOsx *DirectoryWorkspaceAccessPropertiesDeviceTypeOsx `pulumi:"deviceTypeOsx"`
+	// Indicates whether users can access their WorkSpaces through a web browser.
+	DeviceTypeWeb *DirectoryWorkspaceAccessPropertiesDeviceTypeWeb `pulumi:"deviceTypeWeb"`
+	// Indicates whether users can use Windows clients to access their WorkSpaces.
+	DeviceTypeWindows *DirectoryWorkspaceAccessPropertiesDeviceTypeWindows `pulumi:"deviceTypeWindows"`
+	// Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+	DeviceTypeWorkSpacesThinClient *DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient `pulumi:"deviceTypeWorkSpacesThinClient"`
+	// Indicates whether users can use zero client devices to access their WorkSpaces.
+	DeviceTypeZeroClient *DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient `pulumi:"deviceTypeZeroClient"`
+}
+
+// DirectoryWorkspaceAccessPropertiesInput is an input type that accepts DirectoryWorkspaceAccessPropertiesArgs and DirectoryWorkspaceAccessPropertiesOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesInput` via:
+//
+//	DirectoryWorkspaceAccessPropertiesArgs{...}
+type DirectoryWorkspaceAccessPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesOutput() DirectoryWorkspaceAccessPropertiesOutput
+	ToDirectoryWorkspaceAccessPropertiesOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesOutput
+}
+
+// The device types and operating systems that can be used to access a WorkSpace.
+type DirectoryWorkspaceAccessPropertiesArgs struct {
+	AccessEndpointConfig DirectoryAccessEndpointConfigPtrInput `pulumi:"accessEndpointConfig"`
+	// Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+	DeviceTypeAndroid DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrInput `pulumi:"deviceTypeAndroid"`
+	// Indicates whether users can use Chromebooks to access their WorkSpaces.
+	DeviceTypeChromeOs DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrInput `pulumi:"deviceTypeChromeOs"`
+	// Indicates whether users can use iOS devices to access their WorkSpaces.
+	DeviceTypeIos DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrInput `pulumi:"deviceTypeIos"`
+	// Indicates whether users can use Linux clients to access their WorkSpaces.
+	DeviceTypeLinux DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrInput `pulumi:"deviceTypeLinux"`
+	// Indicates whether users can use macOS clients to access their WorkSpaces.
+	DeviceTypeOsx DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrInput `pulumi:"deviceTypeOsx"`
+	// Indicates whether users can access their WorkSpaces through a web browser.
+	DeviceTypeWeb DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrInput `pulumi:"deviceTypeWeb"`
+	// Indicates whether users can use Windows clients to access their WorkSpaces.
+	DeviceTypeWindows DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrInput `pulumi:"deviceTypeWindows"`
+	// Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+	DeviceTypeWorkSpacesThinClient DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrInput `pulumi:"deviceTypeWorkSpacesThinClient"`
+	// Indicates whether users can use zero client devices to access their WorkSpaces.
+	DeviceTypeZeroClient DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrInput `pulumi:"deviceTypeZeroClient"`
+}
+
+func (DirectoryWorkspaceAccessPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessProperties)(nil)).Elem()
+}
+
+func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessPropertiesOutput() DirectoryWorkspaceAccessPropertiesOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessPropertiesOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesOutput)
+}
+
+func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesOutput).ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectoryWorkspaceAccessPropertiesPtrInput is an input type that accepts DirectoryWorkspaceAccessPropertiesArgs, DirectoryWorkspaceAccessPropertiesPtr and DirectoryWorkspaceAccessPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesPtrInput` via:
+//
+//	        DirectoryWorkspaceAccessPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryWorkspaceAccessPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesPtrType DirectoryWorkspaceAccessPropertiesArgs
+
+func DirectoryWorkspaceAccessPropertiesPtr(v *DirectoryWorkspaceAccessPropertiesArgs) DirectoryWorkspaceAccessPropertiesPtrInput {
+	return (*directoryWorkspaceAccessPropertiesPtrType)(v)
+}
+
+func (*directoryWorkspaceAccessPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessProperties)(nil)).Elem()
+}
+
+func (i *directoryWorkspaceAccessPropertiesPtrType) ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryWorkspaceAccessPropertiesPtrType) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesPtrOutput)
+}
+
+// The device types and operating systems that can be used to access a WorkSpace.
+type DirectoryWorkspaceAccessPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessProperties)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessPropertiesOutput() DirectoryWorkspaceAccessPropertiesOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessPropertiesOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessProperties {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) AccessEndpointConfig() DirectoryAccessEndpointConfigPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryAccessEndpointConfig {
+		return v.AccessEndpointConfig
+	}).(DirectoryAccessEndpointConfigPtrOutput)
+}
+
+// Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeAndroid() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid {
+		return v.DeviceTypeAndroid
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput)
+}
+
+// Indicates whether users can use Chromebooks to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeChromeOs() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs {
+		return v.DeviceTypeChromeOs
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput)
+}
+
+// Indicates whether users can use iOS devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeIos() DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeIos {
+		return v.DeviceTypeIos
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput)
+}
+
+// Indicates whether users can use Linux clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeLinux() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeLinux {
+		return v.DeviceTypeLinux
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput)
+}
+
+// Indicates whether users can use macOS clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeOsx() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeOsx {
+		return v.DeviceTypeOsx
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput)
+}
+
+// Indicates whether users can access their WorkSpaces through a web browser.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeWeb() DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeWeb {
+		return v.DeviceTypeWeb
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput)
+}
+
+// Indicates whether users can use Windows clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeWindows() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeWindows {
+		return v.DeviceTypeWindows
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput)
+}
+
+// Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeWorkSpacesThinClient() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient {
+		return v.DeviceTypeWorkSpacesThinClient
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput)
+}
+
+// Indicates whether users can use zero client devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeZeroClient() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient {
+		return v.DeviceTypeZeroClient
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessProperties)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) DirectoryWorkspaceAccessProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessProperties
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) AccessEndpointConfig() DirectoryAccessEndpointConfigPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryAccessEndpointConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AccessEndpointConfig
+	}).(DirectoryAccessEndpointConfigPtrOutput)
+}
+
+// Indicates whether users can use Android and Android-compatible Chrome OS devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeAndroid() DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeAndroid {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeAndroid
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeAndroidPtrOutput)
+}
+
+// Indicates whether users can use Chromebooks to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeChromeOs() DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOs {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeChromeOs
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeChromeOsPtrOutput)
+}
+
+// Indicates whether users can use iOS devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeIos() DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeIos {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeIos
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeIosPtrOutput)
+}
+
+// Indicates whether users can use Linux clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeLinux() DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeLinux {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeLinux
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeLinuxPtrOutput)
+}
+
+// Indicates whether users can use macOS clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeOsx() DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeOsx {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeOsx
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeOsxPtrOutput)
+}
+
+// Indicates whether users can access their WorkSpaces through a web browser.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeWeb() DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeWeb {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeWeb
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWebPtrOutput)
+}
+
+// Indicates whether users can use Windows clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeWindows() DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeWindows {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeWindows
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWindowsPtrOutput)
+}
+
+// Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeWorkSpacesThinClient() DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClient {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeWorkSpacesThinClient
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeWorkSpacesThinClientPtrOutput)
+}
+
+// Indicates whether users can use zero client devices to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeZeroClient() DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClient {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeZeroClient
+	}).(DirectoryWorkspaceAccessPropertiesDeviceTypeZeroClientPtrOutput)
+}
+
 // Describes a rule for an IP access control group.
 type WorkspaceIpGroupIpRuleItem struct {
 	// The IP address range, in CIDR notation.
@@ -847,6 +3235,32 @@ func (o WorkspacesPoolTimeoutSettingsPtrOutput) MaxUserDurationInSeconds() pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryAccessEndpointInput)(nil)).Elem(), DirectoryAccessEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryAccessEndpointArrayInput)(nil)).Elem(), DirectoryAccessEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryAccessEndpointConfigInput)(nil)).Elem(), DirectoryAccessEndpointConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryAccessEndpointConfigPtrInput)(nil)).Elem(), DirectoryAccessEndpointConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryActiveDirectoryConfigInput)(nil)).Elem(), DirectoryActiveDirectoryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryActiveDirectoryConfigPtrInput)(nil)).Elem(), DirectoryActiveDirectoryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesInput)(nil)).Elem(), DirectoryCertificateBasedAuthPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesPtrInput)(nil)).Elem(), DirectoryCertificateBasedAuthPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryDefaultWorkspaceCreationPropertiesInput)(nil)).Elem(), DirectoryDefaultWorkspaceCreationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryDefaultWorkspaceCreationPropertiesPtrInput)(nil)).Elem(), DirectoryDefaultWorkspaceCreationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryInput)(nil)).Elem(), DirectoryGlobalAcceleratorForDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryGlobalAcceleratorForDirectoryPtrInput)(nil)).Elem(), DirectoryGlobalAcceleratorForDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryMicrosoftEntraConfigInput)(nil)).Elem(), DirectoryMicrosoftEntraConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryMicrosoftEntraConfigPtrInput)(nil)).Elem(), DirectoryMicrosoftEntraConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySamlPropertiesInput)(nil)).Elem(), DirectorySamlPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySamlPropertiesPtrInput)(nil)).Elem(), DirectorySamlPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsInput)(nil)).Elem(), DirectorySelfservicePermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfservicePermissionsPtrInput)(nil)).Elem(), DirectorySelfservicePermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStorageConnectorInput)(nil)).Elem(), DirectoryStorageConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStorageConnectorArrayInput)(nil)).Elem(), DirectoryStorageConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStreamingPropertiesInput)(nil)).Elem(), DirectoryStreamingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryStreamingPropertiesPtrInput)(nil)).Elem(), DirectoryStreamingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryUserSettingInput)(nil)).Elem(), DirectoryUserSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryUserSettingArrayInput)(nil)).Elem(), DirectoryUserSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIpGroupIpRuleItemInput)(nil)).Elem(), WorkspaceIpGroupIpRuleItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIpGroupIpRuleItemArrayInput)(nil)).Elem(), WorkspaceIpGroupIpRuleItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesInput)(nil)).Elem(), WorkspacePropertiesArgs{})
@@ -858,6 +3272,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolTimeoutSettingsPtrInput)(nil)).Elem(), WorkspacesPoolTimeoutSettingsArgs{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationArrayOutput{})
+	pulumi.RegisterOutputType(DirectoryAccessEndpointOutput{})
+	pulumi.RegisterOutputType(DirectoryAccessEndpointArrayOutput{})
+	pulumi.RegisterOutputType(DirectoryAccessEndpointConfigOutput{})
+	pulumi.RegisterOutputType(DirectoryAccessEndpointConfigPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryActiveDirectoryConfigOutput{})
+	pulumi.RegisterOutputType(DirectoryActiveDirectoryConfigPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryCertificateBasedAuthPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectoryCertificateBasedAuthPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryDefaultWorkspaceCreationPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectoryDefaultWorkspaceCreationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryGlobalAcceleratorForDirectoryOutput{})
+	pulumi.RegisterOutputType(DirectoryGlobalAcceleratorForDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryIdcConfigOutput{})
+	pulumi.RegisterOutputType(DirectoryIdcConfigPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryMicrosoftEntraConfigOutput{})
+	pulumi.RegisterOutputType(DirectoryMicrosoftEntraConfigPtrOutput{})
+	pulumi.RegisterOutputType(DirectorySamlPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectorySamlPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsOutput{})
+	pulumi.RegisterOutputType(DirectorySelfservicePermissionsPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryStorageConnectorOutput{})
+	pulumi.RegisterOutputType(DirectoryStorageConnectorArrayOutput{})
+	pulumi.RegisterOutputType(DirectoryStreamingPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectoryStreamingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryUserSettingOutput{})
+	pulumi.RegisterOutputType(DirectoryUserSettingArrayOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIpGroupIpRuleItemOutput{})
 	pulumi.RegisterOutputType(WorkspaceIpGroupIpRuleItemArrayOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})

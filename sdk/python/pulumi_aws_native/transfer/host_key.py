@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['HostKeyArgs', 'HostKey']
 
@@ -24,6 +25,8 @@ class HostKeyArgs:
                  server_id: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  host_key_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional['HostKeyStorageType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a HostKey resource.
@@ -31,6 +34,8 @@ class HostKeyArgs:
         :param pulumi.Input[_builtins.str] server_id: The identifier of the server that contains the host key.
         :param pulumi.Input[_builtins.str] description: The text description for this host key.
         :param pulumi.Input[_builtins.str] host_key_body: The private key portion of an SSH key pair. Transfer Family accepts RSA, ECDSA, and ED25519 keys.
+        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+        :param pulumi.Input['HostKeyStorageType'] storage_type: The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for host keys.
         """
         pulumi.set(__self__, "server_id", server_id)
@@ -38,6 +43,10 @@ class HostKeyArgs:
             pulumi.set(__self__, "description", description)
         if host_key_body is not None:
             pulumi.set(__self__, "host_key_body", host_key_body)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,6 +87,30 @@ class HostKeyArgs:
         pulumi.set(self, "host_key_body", value)
 
     @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> pulumi.Input[Optional['HostKeyStorageType']]:
+        """
+        The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: pulumi.Input[Optional['HostKeyStorageType']]):
+        pulumi.set(self, "storage_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -98,7 +131,9 @@ class HostKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  host_key_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional['HostKeyStorageType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -108,7 +143,9 @@ class HostKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The text description for this host key.
         :param pulumi.Input[_builtins.str] host_key_body: The private key portion of an SSH key pair. Transfer Family accepts RSA, ECDSA, and ED25519 keys.
+        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
         :param pulumi.Input[_builtins.str] server_id: The identifier of the server that contains the host key.
+        :param pulumi.Input['HostKeyStorageType'] storage_type: The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for host keys.
         """
         ...
@@ -137,7 +174,9 @@ class HostKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  host_key_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional['HostKeyStorageType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -150,14 +189,17 @@ class HostKey(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["host_key_body"] = host_key_body
+            __props__.__dict__["kms_key"] = kms_key
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
+            __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["date_imported"] = None
             __props__.__dict__["host_key_fingerprint"] = None
             __props__.__dict__["host_key_id"] = None
+            __props__.__dict__["secret_id"] = None
             __props__.__dict__["type"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["hostKeyBody", "serverId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -189,7 +231,10 @@ class HostKey(pulumi.CustomResource):
         __props__.__dict__["host_key_body"] = None
         __props__.__dict__["host_key_fingerprint"] = None
         __props__.__dict__["host_key_id"] = None
+        __props__.__dict__["kms_key"] = None
+        __props__.__dict__["secret_id"] = None
         __props__.__dict__["server_id"] = None
+        __props__.__dict__["storage_type"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return HostKey(resource_name, opts=opts, __props__=__props__)
@@ -243,12 +288,36 @@ class HostKey(pulumi.CustomResource):
         return pulumi.get(self, "host_key_id")
 
     @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @_builtins.property
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[_builtins.str]:
         """
         The identifier of the server that contains the host key.
         """
         return pulumi.get(self, "server_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> pulumi.Output[Optional['HostKeyStorageType']]:
+        """
+        The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+        """
+        return pulumi.get(self, "storage_type")
 
     @_builtins.property
     @pulumi.getter

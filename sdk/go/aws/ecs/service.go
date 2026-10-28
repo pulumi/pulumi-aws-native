@@ -69,6 +69,7 @@ type Service struct {
 	EnableExecuteCommand pulumi.BoolPtrOutput `pulumi:"enableExecuteCommand"`
 	// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
 	ForceNewDeployment ServiceForceNewDeploymentPtrOutput `pulumi:"forceNewDeployment"`
+	GatewayConnectors  ServiceGatewayConnectorArrayOutput `pulumi:"gatewayConnectors"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
 	//  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriodSeconds"`
@@ -214,6 +215,7 @@ type serviceArgs struct {
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
 	ForceNewDeployment *ServiceForceNewDeployment `pulumi:"forceNewDeployment"`
+	GatewayConnectors  []ServiceGatewayConnector  `pulumi:"gatewayConnectors"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
 	//  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
@@ -310,6 +312,7 @@ type ServiceArgs struct {
 	EnableExecuteCommand pulumi.BoolPtrInput
 	// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
 	ForceNewDeployment ServiceForceNewDeploymentPtrInput
+	GatewayConnectors  ServiceGatewayConnectorArrayInput
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
 	//  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
@@ -470,6 +473,10 @@ func (o ServiceOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 // Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (“my_image:latest“) or to roll Fargate tasks onto a newer platform version.
 func (o ServiceOutput) ForceNewDeployment() ServiceForceNewDeploymentPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceForceNewDeploymentPtrOutput { return v.ForceNewDeployment }).(ServiceForceNewDeploymentPtrOutput)
+}
+
+func (o ServiceOutput) GatewayConnectors() ServiceGatewayConnectorArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceGatewayConnectorArrayOutput { return v.GatewayConnectors }).(ServiceGatewayConnectorArrayOutput)
 }
 
 // The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then “healthCheckGracePeriodSeconds“ is unused.

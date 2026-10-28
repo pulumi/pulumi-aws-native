@@ -7,9 +7,15 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_nfs_file_share import *
+from .get_smb_file_share import *
 from .get_tape import *
 from .get_tape_pool import *
 from .get_volume import *
+from .nfs_file_share import *
+from .smb_file_share import *
 from .tape import *
 from .tape_pool import *
 from .volume import *
+from ._inputs import *
+from . import outputs

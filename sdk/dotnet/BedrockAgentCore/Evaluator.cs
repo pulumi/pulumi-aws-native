@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore
 {
     /// <summary>
-    /// Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+    /// Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations. Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
     /// </summary>
     [AwsNativeResourceType("aws-native:bedrockagentcore:Evaluator")]
     public partial class Evaluator : global::Pulumi.CustomResource
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string> EvaluatorArn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for the evaluator.
+        /// The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
         /// </summary>
         [Output("evaluatorConfig")]
         public Output<Outputs.EvaluatorConfig> EvaluatorConfig { get; private set; } = null!;
@@ -52,16 +52,28 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string> EvaluatorName { get; private set; } = null!;
 
         /// <summary>
+        /// The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+        /// </summary>
+        [Output("evaluatorType")]
+        public Output<Pulumi.AwsNative.BedrockAgentCore.EvaluatorType> EvaluatorType { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the KMS key used to encrypt evaluator data.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The evaluation level that determines the scope of evaluation.
+        /// The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
         /// </summary>
         [Output("level")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.EvaluatorLevel> Level { get; private set; } = null!;
+
+        /// <summary>
+        /// Where the evaluator's logic comes from: AWS, a third-party library (DeepEval or AutoEval), or you. Derived evaluators inherit the provider of their base evaluator.
+        /// </summary>
+        [Output("provider")]
+        public Output<Pulumi.AwsNative.BedrockAgentCore.EvaluatorProvider> Provider { get; private set; } = null!;
 
         /// <summary>
         /// The current status of the evaluator.
@@ -106,6 +118,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "evaluatorConfig.derived.baseEvaluatorId",
                     "evaluatorName",
                 },
             };
@@ -137,7 +150,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The configuration for the evaluator.
+        /// The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
         /// </summary>
         [Input("evaluatorConfig", required: true)]
         public Input<Inputs.EvaluatorConfigArgs> EvaluatorConfig { get; set; } = null!;
@@ -155,7 +168,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// The evaluation level that determines the scope of evaluation.
+        /// The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
         /// </summary>
         [Input("level", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.EvaluatorLevel> Level { get; set; } = null!;

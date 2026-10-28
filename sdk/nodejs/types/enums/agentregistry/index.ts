@@ -98,6 +98,19 @@ export const RegistryRecordStatus = {
  */
 export type RegistryRecordStatus = (typeof RegistryRecordStatus)[keyof typeof RegistryRecordStatus];
 
+export const RegistryRecordTypeSchemaOverrideRecordType = {
+    Mcp: "MCP",
+    Agent: "AGENT",
+    Skill: "SKILL",
+    Gateway: "GATEWAY",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * The record type that this schema override applies to.
+ */
+export type RegistryRecordTypeSchemaOverrideRecordType = (typeof RegistryRecordTypeSchemaOverrideRecordType)[keyof typeof RegistryRecordTypeSchemaOverrideRecordType];
+
 export const RegistryStatus = {
     Creating: "CREATING",
     Ready: "READY",

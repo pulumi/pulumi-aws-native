@@ -4166,6 +4166,96 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct ApprovalPolicyApplicableToType : IEquatable<ApprovalPolicyApplicableToType>
+    {
+        private readonly string _value;
+
+        private ApprovalPolicyApplicableToType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApprovalPolicyApplicableToType Group { get; } = new ApprovalPolicyApplicableToType("GROUP");
+
+        public static bool operator ==(ApprovalPolicyApplicableToType left, ApprovalPolicyApplicableToType right) => left.Equals(right);
+        public static bool operator !=(ApprovalPolicyApplicableToType left, ApprovalPolicyApplicableToType right) => !left.Equals(right);
+
+        public static explicit operator string(ApprovalPolicyApplicableToType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApprovalPolicyApplicableToType other && Equals(other);
+        public bool Equals(ApprovalPolicyApplicableToType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Asset types that can be governed by approval policies.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApprovalPolicyAssetType : IEquatable<ApprovalPolicyAssetType>
+    {
+        private readonly string _value;
+
+        private ApprovalPolicyAssetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApprovalPolicyAssetType Agent { get; } = new ApprovalPolicyAssetType("AGENT");
+        public static ApprovalPolicyAssetType Space { get; } = new ApprovalPolicyAssetType("SPACE");
+        public static ApprovalPolicyAssetType KnowledgeBase { get; } = new ApprovalPolicyAssetType("KNOWLEDGE_BASE");
+        public static ApprovalPolicyAssetType Flow { get; } = new ApprovalPolicyAssetType("FLOW");
+
+        public static bool operator ==(ApprovalPolicyAssetType left, ApprovalPolicyAssetType right) => left.Equals(right);
+        public static bool operator !=(ApprovalPolicyAssetType left, ApprovalPolicyAssetType right) => !left.Equals(right);
+
+        public static explicit operator string(ApprovalPolicyAssetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApprovalPolicyAssetType other && Equals(other);
+        public bool Equals(ApprovalPolicyAssetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Actions that can be governed by approval policies.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApprovalPolicyGovernedAction : IEquatable<ApprovalPolicyGovernedAction>
+    {
+        private readonly string _value;
+
+        private ApprovalPolicyGovernedAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApprovalPolicyGovernedAction Share { get; } = new ApprovalPolicyGovernedAction("SHARE");
+
+        public static bool operator ==(ApprovalPolicyGovernedAction left, ApprovalPolicyGovernedAction right) => left.Equals(right);
+        public static bool operator !=(ApprovalPolicyGovernedAction left, ApprovalPolicyGovernedAction right) => !left.Equals(right);
+
+        public static explicit operator string(ApprovalPolicyGovernedAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApprovalPolicyGovernedAction other && Equals(other);
+        public bool Equals(ApprovalPolicyGovernedAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CustomPermissionsCapabilityState : IEquatable<CustomPermissionsCapabilityState>
     {
         private readonly string _value;

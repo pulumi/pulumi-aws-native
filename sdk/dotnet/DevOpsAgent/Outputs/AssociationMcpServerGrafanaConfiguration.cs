@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
         /// </summary>
         public readonly bool? EnableWebhookUpdates;
         /// <summary>
+        /// The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
+        /// </summary>
+        public readonly ImmutableArray<string> EnabledElevatedTools;
+        /// <summary>
         /// MCP server endpoint URL
         /// </summary>
         public readonly string Endpoint;
@@ -33,11 +37,14 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
         private AssociationMcpServerGrafanaConfiguration(
             bool? enableWebhookUpdates,
 
+            ImmutableArray<string> enabledElevatedTools,
+
             string endpoint,
 
             ImmutableArray<Pulumi.AwsNative.DevOpsAgent.AssociationMcpServerGrafanaConfigurationToolsItem> tools)
         {
             EnableWebhookUpdates = enableWebhookUpdates;
+            EnabledElevatedTools = enabledElevatedTools;
             Endpoint = endpoint;
             Tools = tools;
         }

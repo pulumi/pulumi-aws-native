@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.ResilienceHubV2.Inputs
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
+        [Input("labelSelector")]
+        public Input<Inputs.ServiceEksLabelSelectorArgs>? LabelSelector { get; set; }
+
         [Input("namespaces", required: true)]
         private InputList<string>? _namespaces;
 

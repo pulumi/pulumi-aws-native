@@ -39,11 +39,11 @@ export class Master extends pulumi.CustomResource {
      */
     declare public readonly detectorId: pulumi.Output<string>;
     /**
-     * Value used to validate the master account to the member account.
+     * Value used to validate the administrator account to the member account.
      */
     declare public readonly invitationId: pulumi.Output<string | undefined>;
     /**
-     * ID of the account used as the master account.
+     * ID of the account used as the administrator account.
      */
     declare public readonly masterId: pulumi.Output<string>;
 
@@ -88,11 +88,11 @@ export interface MasterArgs {
      */
     detectorId: pulumi.Input<string>;
     /**
-     * Value used to validate the master account to the member account.
+     * Value used to validate the administrator account to the member account.
      */
     invitationId?: pulumi.Input<string | undefined>;
     /**
-     * ID of the account used as the master account.
+     * ID of the account used as the administrator account.
      */
     masterId: pulumi.Input<string>;
 }

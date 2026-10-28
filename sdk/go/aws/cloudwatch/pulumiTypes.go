@@ -13,6 +13,151 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type AccessProfileTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+type AlarmActionConfiguration struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	AlarmTagsPropagation *AlarmTagsPropagation `pulumi:"alarmTagsPropagation"`
+}
+
+// AlarmActionConfigurationInput is an input type that accepts AlarmActionConfigurationArgs and AlarmActionConfigurationOutput values.
+// You can construct a concrete instance of `AlarmActionConfigurationInput` via:
+//
+//	AlarmActionConfigurationArgs{...}
+type AlarmActionConfigurationInput interface {
+	pulumi.Input
+
+	ToAlarmActionConfigurationOutput() AlarmActionConfigurationOutput
+	ToAlarmActionConfigurationOutputWithContext(context.Context) AlarmActionConfigurationOutput
+}
+
+type AlarmActionConfigurationArgs struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	AlarmTagsPropagation AlarmTagsPropagationPtrInput `pulumi:"alarmTagsPropagation"`
+}
+
+func (AlarmActionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmActionConfiguration)(nil)).Elem()
+}
+
+func (i AlarmActionConfigurationArgs) ToAlarmActionConfigurationOutput() AlarmActionConfigurationOutput {
+	return i.ToAlarmActionConfigurationOutputWithContext(context.Background())
+}
+
+func (i AlarmActionConfigurationArgs) ToAlarmActionConfigurationOutputWithContext(ctx context.Context) AlarmActionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmActionConfigurationOutput)
+}
+
+func (i AlarmActionConfigurationArgs) ToAlarmActionConfigurationPtrOutput() AlarmActionConfigurationPtrOutput {
+	return i.ToAlarmActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmActionConfigurationArgs) ToAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) AlarmActionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmActionConfigurationOutput).ToAlarmActionConfigurationPtrOutputWithContext(ctx)
+}
+
+// AlarmActionConfigurationPtrInput is an input type that accepts AlarmActionConfigurationArgs, AlarmActionConfigurationPtr and AlarmActionConfigurationPtrOutput values.
+// You can construct a concrete instance of `AlarmActionConfigurationPtrInput` via:
+//
+//	        AlarmActionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmActionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAlarmActionConfigurationPtrOutput() AlarmActionConfigurationPtrOutput
+	ToAlarmActionConfigurationPtrOutputWithContext(context.Context) AlarmActionConfigurationPtrOutput
+}
+
+type alarmActionConfigurationPtrType AlarmActionConfigurationArgs
+
+func AlarmActionConfigurationPtr(v *AlarmActionConfigurationArgs) AlarmActionConfigurationPtrInput {
+	return (*alarmActionConfigurationPtrType)(v)
+}
+
+func (*alarmActionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmActionConfiguration)(nil)).Elem()
+}
+
+func (i *alarmActionConfigurationPtrType) ToAlarmActionConfigurationPtrOutput() AlarmActionConfigurationPtrOutput {
+	return i.ToAlarmActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmActionConfigurationPtrType) ToAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) AlarmActionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmActionConfigurationPtrOutput)
+}
+
+type AlarmActionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AlarmActionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmActionConfiguration)(nil)).Elem()
+}
+
+func (o AlarmActionConfigurationOutput) ToAlarmActionConfigurationOutput() AlarmActionConfigurationOutput {
+	return o
+}
+
+func (o AlarmActionConfigurationOutput) ToAlarmActionConfigurationOutputWithContext(ctx context.Context) AlarmActionConfigurationOutput {
+	return o
+}
+
+func (o AlarmActionConfigurationOutput) ToAlarmActionConfigurationPtrOutput() AlarmActionConfigurationPtrOutput {
+	return o.ToAlarmActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmActionConfigurationOutput) ToAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) AlarmActionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmActionConfiguration) *AlarmActionConfiguration {
+		return &v
+	}).(AlarmActionConfigurationPtrOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o AlarmActionConfigurationOutput) AlarmTagsPropagation() AlarmTagsPropagationPtrOutput {
+	return o.ApplyT(func(v AlarmActionConfiguration) *AlarmTagsPropagation { return v.AlarmTagsPropagation }).(AlarmTagsPropagationPtrOutput)
+}
+
+type AlarmActionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmActionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmActionConfiguration)(nil)).Elem()
+}
+
+func (o AlarmActionConfigurationPtrOutput) ToAlarmActionConfigurationPtrOutput() AlarmActionConfigurationPtrOutput {
+	return o
+}
+
+func (o AlarmActionConfigurationPtrOutput) ToAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) AlarmActionConfigurationPtrOutput {
+	return o
+}
+
+func (o AlarmActionConfigurationPtrOutput) Elem() AlarmActionConfigurationOutput {
+	return o.ApplyT(func(v *AlarmActionConfiguration) AlarmActionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmActionConfiguration
+		return ret
+	}).(AlarmActionConfigurationOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o AlarmActionConfigurationPtrOutput) AlarmTagsPropagation() AlarmTagsPropagationPtrOutput {
+	return o.ApplyT(func(v *AlarmActionConfiguration) *AlarmTagsPropagation {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmTagsPropagation
+	}).(AlarmTagsPropagationPtrOutput)
+}
+
 // Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
 type AlarmDimension struct {
 	// The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
@@ -1201,6 +1346,181 @@ type AlarmTag struct {
 	Value string `pulumi:"value"`
 }
 
+type AlarmTagsPropagation struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	Enabled bool `pulumi:"enabled"`
+	// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+	ExcludedTagKeys []string `pulumi:"excludedTagKeys"`
+	// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+	IncludedTagKeys []string `pulumi:"includedTagKeys"`
+}
+
+// AlarmTagsPropagationInput is an input type that accepts AlarmTagsPropagationArgs and AlarmTagsPropagationOutput values.
+// You can construct a concrete instance of `AlarmTagsPropagationInput` via:
+//
+//	AlarmTagsPropagationArgs{...}
+type AlarmTagsPropagationInput interface {
+	pulumi.Input
+
+	ToAlarmTagsPropagationOutput() AlarmTagsPropagationOutput
+	ToAlarmTagsPropagationOutputWithContext(context.Context) AlarmTagsPropagationOutput
+}
+
+type AlarmTagsPropagationArgs struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+	ExcludedTagKeys pulumi.StringArrayInput `pulumi:"excludedTagKeys"`
+	// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+	IncludedTagKeys pulumi.StringArrayInput `pulumi:"includedTagKeys"`
+}
+
+func (AlarmTagsPropagationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmTagsPropagation)(nil)).Elem()
+}
+
+func (i AlarmTagsPropagationArgs) ToAlarmTagsPropagationOutput() AlarmTagsPropagationOutput {
+	return i.ToAlarmTagsPropagationOutputWithContext(context.Background())
+}
+
+func (i AlarmTagsPropagationArgs) ToAlarmTagsPropagationOutputWithContext(ctx context.Context) AlarmTagsPropagationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmTagsPropagationOutput)
+}
+
+func (i AlarmTagsPropagationArgs) ToAlarmTagsPropagationPtrOutput() AlarmTagsPropagationPtrOutput {
+	return i.ToAlarmTagsPropagationPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmTagsPropagationArgs) ToAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) AlarmTagsPropagationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmTagsPropagationOutput).ToAlarmTagsPropagationPtrOutputWithContext(ctx)
+}
+
+// AlarmTagsPropagationPtrInput is an input type that accepts AlarmTagsPropagationArgs, AlarmTagsPropagationPtr and AlarmTagsPropagationPtrOutput values.
+// You can construct a concrete instance of `AlarmTagsPropagationPtrInput` via:
+//
+//	        AlarmTagsPropagationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmTagsPropagationPtrInput interface {
+	pulumi.Input
+
+	ToAlarmTagsPropagationPtrOutput() AlarmTagsPropagationPtrOutput
+	ToAlarmTagsPropagationPtrOutputWithContext(context.Context) AlarmTagsPropagationPtrOutput
+}
+
+type alarmTagsPropagationPtrType AlarmTagsPropagationArgs
+
+func AlarmTagsPropagationPtr(v *AlarmTagsPropagationArgs) AlarmTagsPropagationPtrInput {
+	return (*alarmTagsPropagationPtrType)(v)
+}
+
+func (*alarmTagsPropagationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmTagsPropagation)(nil)).Elem()
+}
+
+func (i *alarmTagsPropagationPtrType) ToAlarmTagsPropagationPtrOutput() AlarmTagsPropagationPtrOutput {
+	return i.ToAlarmTagsPropagationPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmTagsPropagationPtrType) ToAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) AlarmTagsPropagationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmTagsPropagationPtrOutput)
+}
+
+type AlarmTagsPropagationOutput struct{ *pulumi.OutputState }
+
+func (AlarmTagsPropagationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmTagsPropagation)(nil)).Elem()
+}
+
+func (o AlarmTagsPropagationOutput) ToAlarmTagsPropagationOutput() AlarmTagsPropagationOutput {
+	return o
+}
+
+func (o AlarmTagsPropagationOutput) ToAlarmTagsPropagationOutputWithContext(ctx context.Context) AlarmTagsPropagationOutput {
+	return o
+}
+
+func (o AlarmTagsPropagationOutput) ToAlarmTagsPropagationPtrOutput() AlarmTagsPropagationPtrOutput {
+	return o.ToAlarmTagsPropagationPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmTagsPropagationOutput) ToAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) AlarmTagsPropagationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmTagsPropagation) *AlarmTagsPropagation {
+		return &v
+	}).(AlarmTagsPropagationPtrOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o AlarmTagsPropagationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AlarmTagsPropagation) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+func (o AlarmTagsPropagationOutput) ExcludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlarmTagsPropagation) []string { return v.ExcludedTagKeys }).(pulumi.StringArrayOutput)
+}
+
+// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+func (o AlarmTagsPropagationOutput) IncludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlarmTagsPropagation) []string { return v.IncludedTagKeys }).(pulumi.StringArrayOutput)
+}
+
+type AlarmTagsPropagationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmTagsPropagationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmTagsPropagation)(nil)).Elem()
+}
+
+func (o AlarmTagsPropagationPtrOutput) ToAlarmTagsPropagationPtrOutput() AlarmTagsPropagationPtrOutput {
+	return o
+}
+
+func (o AlarmTagsPropagationPtrOutput) ToAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) AlarmTagsPropagationPtrOutput {
+	return o
+}
+
+func (o AlarmTagsPropagationPtrOutput) Elem() AlarmTagsPropagationOutput {
+	return o.ApplyT(func(v *AlarmTagsPropagation) AlarmTagsPropagation {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmTagsPropagation
+		return ret
+	}).(AlarmTagsPropagationOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o AlarmTagsPropagationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlarmTagsPropagation) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+func (o AlarmTagsPropagationPtrOutput) ExcludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlarmTagsPropagation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedTagKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+func (o AlarmTagsPropagationPtrOutput) IncludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlarmTagsPropagation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedTagKeys
+	}).(pulumi.StringArrayOutput)
+}
+
 // An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
 //
 //	When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
@@ -1527,6 +1847,326 @@ func (o AlarmWarmUpConfigurationPtrOutput) WarmUpPeriodDurationInMinutes() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+type CompositeAlarmActionConfiguration struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	AlarmTagsPropagation *CompositeAlarmAlarmTagsPropagation `pulumi:"alarmTagsPropagation"`
+}
+
+// CompositeAlarmActionConfigurationInput is an input type that accepts CompositeAlarmActionConfigurationArgs and CompositeAlarmActionConfigurationOutput values.
+// You can construct a concrete instance of `CompositeAlarmActionConfigurationInput` via:
+//
+//	CompositeAlarmActionConfigurationArgs{...}
+type CompositeAlarmActionConfigurationInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmActionConfigurationOutput() CompositeAlarmActionConfigurationOutput
+	ToCompositeAlarmActionConfigurationOutputWithContext(context.Context) CompositeAlarmActionConfigurationOutput
+}
+
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+type CompositeAlarmActionConfigurationArgs struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	AlarmTagsPropagation CompositeAlarmAlarmTagsPropagationPtrInput `pulumi:"alarmTagsPropagation"`
+}
+
+func (CompositeAlarmActionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarmActionConfiguration)(nil)).Elem()
+}
+
+func (i CompositeAlarmActionConfigurationArgs) ToCompositeAlarmActionConfigurationOutput() CompositeAlarmActionConfigurationOutput {
+	return i.ToCompositeAlarmActionConfigurationOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmActionConfigurationArgs) ToCompositeAlarmActionConfigurationOutputWithContext(ctx context.Context) CompositeAlarmActionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmActionConfigurationOutput)
+}
+
+func (i CompositeAlarmActionConfigurationArgs) ToCompositeAlarmActionConfigurationPtrOutput() CompositeAlarmActionConfigurationPtrOutput {
+	return i.ToCompositeAlarmActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmActionConfigurationArgs) ToCompositeAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) CompositeAlarmActionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmActionConfigurationOutput).ToCompositeAlarmActionConfigurationPtrOutputWithContext(ctx)
+}
+
+// CompositeAlarmActionConfigurationPtrInput is an input type that accepts CompositeAlarmActionConfigurationArgs, CompositeAlarmActionConfigurationPtr and CompositeAlarmActionConfigurationPtrOutput values.
+// You can construct a concrete instance of `CompositeAlarmActionConfigurationPtrInput` via:
+//
+//	        CompositeAlarmActionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CompositeAlarmActionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmActionConfigurationPtrOutput() CompositeAlarmActionConfigurationPtrOutput
+	ToCompositeAlarmActionConfigurationPtrOutputWithContext(context.Context) CompositeAlarmActionConfigurationPtrOutput
+}
+
+type compositeAlarmActionConfigurationPtrType CompositeAlarmActionConfigurationArgs
+
+func CompositeAlarmActionConfigurationPtr(v *CompositeAlarmActionConfigurationArgs) CompositeAlarmActionConfigurationPtrInput {
+	return (*compositeAlarmActionConfigurationPtrType)(v)
+}
+
+func (*compositeAlarmActionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarmActionConfiguration)(nil)).Elem()
+}
+
+func (i *compositeAlarmActionConfigurationPtrType) ToCompositeAlarmActionConfigurationPtrOutput() CompositeAlarmActionConfigurationPtrOutput {
+	return i.ToCompositeAlarmActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *compositeAlarmActionConfigurationPtrType) ToCompositeAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) CompositeAlarmActionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmActionConfigurationPtrOutput)
+}
+
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+type CompositeAlarmActionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmActionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarmActionConfiguration)(nil)).Elem()
+}
+
+func (o CompositeAlarmActionConfigurationOutput) ToCompositeAlarmActionConfigurationOutput() CompositeAlarmActionConfigurationOutput {
+	return o
+}
+
+func (o CompositeAlarmActionConfigurationOutput) ToCompositeAlarmActionConfigurationOutputWithContext(ctx context.Context) CompositeAlarmActionConfigurationOutput {
+	return o
+}
+
+func (o CompositeAlarmActionConfigurationOutput) ToCompositeAlarmActionConfigurationPtrOutput() CompositeAlarmActionConfigurationPtrOutput {
+	return o.ToCompositeAlarmActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CompositeAlarmActionConfigurationOutput) ToCompositeAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) CompositeAlarmActionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompositeAlarmActionConfiguration) *CompositeAlarmActionConfiguration {
+		return &v
+	}).(CompositeAlarmActionConfigurationPtrOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o CompositeAlarmActionConfigurationOutput) AlarmTagsPropagation() CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return o.ApplyT(func(v CompositeAlarmActionConfiguration) *CompositeAlarmAlarmTagsPropagation {
+		return v.AlarmTagsPropagation
+	}).(CompositeAlarmAlarmTagsPropagationPtrOutput)
+}
+
+type CompositeAlarmActionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmActionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarmActionConfiguration)(nil)).Elem()
+}
+
+func (o CompositeAlarmActionConfigurationPtrOutput) ToCompositeAlarmActionConfigurationPtrOutput() CompositeAlarmActionConfigurationPtrOutput {
+	return o
+}
+
+func (o CompositeAlarmActionConfigurationPtrOutput) ToCompositeAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) CompositeAlarmActionConfigurationPtrOutput {
+	return o
+}
+
+func (o CompositeAlarmActionConfigurationPtrOutput) Elem() CompositeAlarmActionConfigurationOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionConfiguration) CompositeAlarmActionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CompositeAlarmActionConfiguration
+		return ret
+	}).(CompositeAlarmActionConfigurationOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o CompositeAlarmActionConfigurationPtrOutput) AlarmTagsPropagation() CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionConfiguration) *CompositeAlarmAlarmTagsPropagation {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmTagsPropagation
+	}).(CompositeAlarmAlarmTagsPropagationPtrOutput)
+}
+
+// Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+type CompositeAlarmAlarmTagsPropagation struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	Enabled bool `pulumi:"enabled"`
+	// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+	ExcludedTagKeys []string `pulumi:"excludedTagKeys"`
+	// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+	IncludedTagKeys []string `pulumi:"includedTagKeys"`
+}
+
+// CompositeAlarmAlarmTagsPropagationInput is an input type that accepts CompositeAlarmAlarmTagsPropagationArgs and CompositeAlarmAlarmTagsPropagationOutput values.
+// You can construct a concrete instance of `CompositeAlarmAlarmTagsPropagationInput` via:
+//
+//	CompositeAlarmAlarmTagsPropagationArgs{...}
+type CompositeAlarmAlarmTagsPropagationInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmAlarmTagsPropagationOutput() CompositeAlarmAlarmTagsPropagationOutput
+	ToCompositeAlarmAlarmTagsPropagationOutputWithContext(context.Context) CompositeAlarmAlarmTagsPropagationOutput
+}
+
+// Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+type CompositeAlarmAlarmTagsPropagationArgs struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+	ExcludedTagKeys pulumi.StringArrayInput `pulumi:"excludedTagKeys"`
+	// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+	IncludedTagKeys pulumi.StringArrayInput `pulumi:"includedTagKeys"`
+}
+
+func (CompositeAlarmAlarmTagsPropagationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarmAlarmTagsPropagation)(nil)).Elem()
+}
+
+func (i CompositeAlarmAlarmTagsPropagationArgs) ToCompositeAlarmAlarmTagsPropagationOutput() CompositeAlarmAlarmTagsPropagationOutput {
+	return i.ToCompositeAlarmAlarmTagsPropagationOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmAlarmTagsPropagationArgs) ToCompositeAlarmAlarmTagsPropagationOutputWithContext(ctx context.Context) CompositeAlarmAlarmTagsPropagationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmAlarmTagsPropagationOutput)
+}
+
+func (i CompositeAlarmAlarmTagsPropagationArgs) ToCompositeAlarmAlarmTagsPropagationPtrOutput() CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return i.ToCompositeAlarmAlarmTagsPropagationPtrOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmAlarmTagsPropagationArgs) ToCompositeAlarmAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmAlarmTagsPropagationOutput).ToCompositeAlarmAlarmTagsPropagationPtrOutputWithContext(ctx)
+}
+
+// CompositeAlarmAlarmTagsPropagationPtrInput is an input type that accepts CompositeAlarmAlarmTagsPropagationArgs, CompositeAlarmAlarmTagsPropagationPtr and CompositeAlarmAlarmTagsPropagationPtrOutput values.
+// You can construct a concrete instance of `CompositeAlarmAlarmTagsPropagationPtrInput` via:
+//
+//	        CompositeAlarmAlarmTagsPropagationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CompositeAlarmAlarmTagsPropagationPtrInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmAlarmTagsPropagationPtrOutput() CompositeAlarmAlarmTagsPropagationPtrOutput
+	ToCompositeAlarmAlarmTagsPropagationPtrOutputWithContext(context.Context) CompositeAlarmAlarmTagsPropagationPtrOutput
+}
+
+type compositeAlarmAlarmTagsPropagationPtrType CompositeAlarmAlarmTagsPropagationArgs
+
+func CompositeAlarmAlarmTagsPropagationPtr(v *CompositeAlarmAlarmTagsPropagationArgs) CompositeAlarmAlarmTagsPropagationPtrInput {
+	return (*compositeAlarmAlarmTagsPropagationPtrType)(v)
+}
+
+func (*compositeAlarmAlarmTagsPropagationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarmAlarmTagsPropagation)(nil)).Elem()
+}
+
+func (i *compositeAlarmAlarmTagsPropagationPtrType) ToCompositeAlarmAlarmTagsPropagationPtrOutput() CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return i.ToCompositeAlarmAlarmTagsPropagationPtrOutputWithContext(context.Background())
+}
+
+func (i *compositeAlarmAlarmTagsPropagationPtrType) ToCompositeAlarmAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmAlarmTagsPropagationPtrOutput)
+}
+
+// Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+type CompositeAlarmAlarmTagsPropagationOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmAlarmTagsPropagationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarmAlarmTagsPropagation)(nil)).Elem()
+}
+
+func (o CompositeAlarmAlarmTagsPropagationOutput) ToCompositeAlarmAlarmTagsPropagationOutput() CompositeAlarmAlarmTagsPropagationOutput {
+	return o
+}
+
+func (o CompositeAlarmAlarmTagsPropagationOutput) ToCompositeAlarmAlarmTagsPropagationOutputWithContext(ctx context.Context) CompositeAlarmAlarmTagsPropagationOutput {
+	return o
+}
+
+func (o CompositeAlarmAlarmTagsPropagationOutput) ToCompositeAlarmAlarmTagsPropagationPtrOutput() CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return o.ToCompositeAlarmAlarmTagsPropagationPtrOutputWithContext(context.Background())
+}
+
+func (o CompositeAlarmAlarmTagsPropagationOutput) ToCompositeAlarmAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompositeAlarmAlarmTagsPropagation) *CompositeAlarmAlarmTagsPropagation {
+		return &v
+	}).(CompositeAlarmAlarmTagsPropagationPtrOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o CompositeAlarmAlarmTagsPropagationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v CompositeAlarmAlarmTagsPropagation) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+func (o CompositeAlarmAlarmTagsPropagationOutput) ExcludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CompositeAlarmAlarmTagsPropagation) []string { return v.ExcludedTagKeys }).(pulumi.StringArrayOutput)
+}
+
+// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+func (o CompositeAlarmAlarmTagsPropagationOutput) IncludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CompositeAlarmAlarmTagsPropagation) []string { return v.IncludedTagKeys }).(pulumi.StringArrayOutput)
+}
+
+type CompositeAlarmAlarmTagsPropagationPtrOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmAlarmTagsPropagationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarmAlarmTagsPropagation)(nil)).Elem()
+}
+
+func (o CompositeAlarmAlarmTagsPropagationPtrOutput) ToCompositeAlarmAlarmTagsPropagationPtrOutput() CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return o
+}
+
+func (o CompositeAlarmAlarmTagsPropagationPtrOutput) ToCompositeAlarmAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) CompositeAlarmAlarmTagsPropagationPtrOutput {
+	return o
+}
+
+func (o CompositeAlarmAlarmTagsPropagationPtrOutput) Elem() CompositeAlarmAlarmTagsPropagationOutput {
+	return o.ApplyT(func(v *CompositeAlarmAlarmTagsPropagation) CompositeAlarmAlarmTagsPropagation {
+		if v != nil {
+			return *v
+		}
+		var ret CompositeAlarmAlarmTagsPropagation
+		return ret
+	}).(CompositeAlarmAlarmTagsPropagationOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o CompositeAlarmAlarmTagsPropagationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarmAlarmTagsPropagation) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+func (o CompositeAlarmAlarmTagsPropagationPtrOutput) ExcludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CompositeAlarmAlarmTagsPropagation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedTagKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+func (o CompositeAlarmAlarmTagsPropagationPtrOutput) IncludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CompositeAlarmAlarmTagsPropagation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedTagKeys
+	}).(pulumi.StringArrayOutput)
+}
+
 // Metadata that you can assign to a composite alarm, Tags can help you organize and categorize your resources.
 type CompositeAlarmTag struct {
 	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
@@ -1543,9 +2183,891 @@ type DashboardTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Identity Center configuration. Required when identityProviders includes IDC.
+type DomainForOrganizationIdentityCenterConfiguration struct {
+	// Identity Center instance ARN
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+}
+
+// DomainForOrganizationIdentityCenterConfigurationInput is an input type that accepts DomainForOrganizationIdentityCenterConfigurationArgs and DomainForOrganizationIdentityCenterConfigurationOutput values.
+// You can construct a concrete instance of `DomainForOrganizationIdentityCenterConfigurationInput` via:
+//
+//	DomainForOrganizationIdentityCenterConfigurationArgs{...}
+type DomainForOrganizationIdentityCenterConfigurationInput interface {
+	pulumi.Input
+
+	ToDomainForOrganizationIdentityCenterConfigurationOutput() DomainForOrganizationIdentityCenterConfigurationOutput
+	ToDomainForOrganizationIdentityCenterConfigurationOutputWithContext(context.Context) DomainForOrganizationIdentityCenterConfigurationOutput
+}
+
+// Identity Center configuration. Required when identityProviders includes IDC.
+type DomainForOrganizationIdentityCenterConfigurationArgs struct {
+	// Identity Center instance ARN
+	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
+}
+
+func (DomainForOrganizationIdentityCenterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainForOrganizationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i DomainForOrganizationIdentityCenterConfigurationArgs) ToDomainForOrganizationIdentityCenterConfigurationOutput() DomainForOrganizationIdentityCenterConfigurationOutput {
+	return i.ToDomainForOrganizationIdentityCenterConfigurationOutputWithContext(context.Background())
+}
+
+func (i DomainForOrganizationIdentityCenterConfigurationArgs) ToDomainForOrganizationIdentityCenterConfigurationOutputWithContext(ctx context.Context) DomainForOrganizationIdentityCenterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainForOrganizationIdentityCenterConfigurationOutput)
+}
+
+func (i DomainForOrganizationIdentityCenterConfigurationArgs) ToDomainForOrganizationIdentityCenterConfigurationPtrOutput() DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return i.ToDomainForOrganizationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainForOrganizationIdentityCenterConfigurationArgs) ToDomainForOrganizationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainForOrganizationIdentityCenterConfigurationOutput).ToDomainForOrganizationIdentityCenterConfigurationPtrOutputWithContext(ctx)
+}
+
+// DomainForOrganizationIdentityCenterConfigurationPtrInput is an input type that accepts DomainForOrganizationIdentityCenterConfigurationArgs, DomainForOrganizationIdentityCenterConfigurationPtr and DomainForOrganizationIdentityCenterConfigurationPtrOutput values.
+// You can construct a concrete instance of `DomainForOrganizationIdentityCenterConfigurationPtrInput` via:
+//
+//	        DomainForOrganizationIdentityCenterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainForOrganizationIdentityCenterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDomainForOrganizationIdentityCenterConfigurationPtrOutput() DomainForOrganizationIdentityCenterConfigurationPtrOutput
+	ToDomainForOrganizationIdentityCenterConfigurationPtrOutputWithContext(context.Context) DomainForOrganizationIdentityCenterConfigurationPtrOutput
+}
+
+type domainForOrganizationIdentityCenterConfigurationPtrType DomainForOrganizationIdentityCenterConfigurationArgs
+
+func DomainForOrganizationIdentityCenterConfigurationPtr(v *DomainForOrganizationIdentityCenterConfigurationArgs) DomainForOrganizationIdentityCenterConfigurationPtrInput {
+	return (*domainForOrganizationIdentityCenterConfigurationPtrType)(v)
+}
+
+func (*domainForOrganizationIdentityCenterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainForOrganizationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i *domainForOrganizationIdentityCenterConfigurationPtrType) ToDomainForOrganizationIdentityCenterConfigurationPtrOutput() DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return i.ToDomainForOrganizationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainForOrganizationIdentityCenterConfigurationPtrType) ToDomainForOrganizationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainForOrganizationIdentityCenterConfigurationPtrOutput)
+}
+
+// Identity Center configuration. Required when identityProviders includes IDC.
+type DomainForOrganizationIdentityCenterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DomainForOrganizationIdentityCenterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainForOrganizationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o DomainForOrganizationIdentityCenterConfigurationOutput) ToDomainForOrganizationIdentityCenterConfigurationOutput() DomainForOrganizationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityCenterConfigurationOutput) ToDomainForOrganizationIdentityCenterConfigurationOutputWithContext(ctx context.Context) DomainForOrganizationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityCenterConfigurationOutput) ToDomainForOrganizationIdentityCenterConfigurationPtrOutput() DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return o.ToDomainForOrganizationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationIdentityCenterConfigurationOutput) ToDomainForOrganizationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainForOrganizationIdentityCenterConfiguration) *DomainForOrganizationIdentityCenterConfiguration {
+		return &v
+	}).(DomainForOrganizationIdentityCenterConfigurationPtrOutput)
+}
+
+// Identity Center instance ARN
+func (o DomainForOrganizationIdentityCenterConfigurationOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainForOrganizationIdentityCenterConfiguration) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+type DomainForOrganizationIdentityCenterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainForOrganizationIdentityCenterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainForOrganizationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o DomainForOrganizationIdentityCenterConfigurationPtrOutput) ToDomainForOrganizationIdentityCenterConfigurationPtrOutput() DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityCenterConfigurationPtrOutput) ToDomainForOrganizationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityCenterConfigurationPtrOutput) Elem() DomainForOrganizationIdentityCenterConfigurationOutput {
+	return o.ApplyT(func(v *DomainForOrganizationIdentityCenterConfiguration) DomainForOrganizationIdentityCenterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainForOrganizationIdentityCenterConfiguration
+		return ret
+	}).(DomainForOrganizationIdentityCenterConfigurationOutput)
+}
+
+// Identity Center instance ARN
+func (o DomainForOrganizationIdentityCenterConfigurationPtrOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainForOrganizationIdentityCenterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity provider configuration for the domain.
+type DomainForOrganizationIdentityProviderConfiguration struct {
+	IdentityCenterConfiguration *DomainForOrganizationIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
+}
+
+// DomainForOrganizationIdentityProviderConfigurationInput is an input type that accepts DomainForOrganizationIdentityProviderConfigurationArgs and DomainForOrganizationIdentityProviderConfigurationOutput values.
+// You can construct a concrete instance of `DomainForOrganizationIdentityProviderConfigurationInput` via:
+//
+//	DomainForOrganizationIdentityProviderConfigurationArgs{...}
+type DomainForOrganizationIdentityProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToDomainForOrganizationIdentityProviderConfigurationOutput() DomainForOrganizationIdentityProviderConfigurationOutput
+	ToDomainForOrganizationIdentityProviderConfigurationOutputWithContext(context.Context) DomainForOrganizationIdentityProviderConfigurationOutput
+}
+
+// Identity provider configuration for the domain.
+type DomainForOrganizationIdentityProviderConfigurationArgs struct {
+	IdentityCenterConfiguration DomainForOrganizationIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
+}
+
+func (DomainForOrganizationIdentityProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainForOrganizationIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (i DomainForOrganizationIdentityProviderConfigurationArgs) ToDomainForOrganizationIdentityProviderConfigurationOutput() DomainForOrganizationIdentityProviderConfigurationOutput {
+	return i.ToDomainForOrganizationIdentityProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i DomainForOrganizationIdentityProviderConfigurationArgs) ToDomainForOrganizationIdentityProviderConfigurationOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainForOrganizationIdentityProviderConfigurationOutput)
+}
+
+func (i DomainForOrganizationIdentityProviderConfigurationArgs) ToDomainForOrganizationIdentityProviderConfigurationPtrOutput() DomainForOrganizationIdentityProviderConfigurationPtrOutput {
+	return i.ToDomainForOrganizationIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainForOrganizationIdentityProviderConfigurationArgs) ToDomainForOrganizationIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainForOrganizationIdentityProviderConfigurationOutput).ToDomainForOrganizationIdentityProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// DomainForOrganizationIdentityProviderConfigurationPtrInput is an input type that accepts DomainForOrganizationIdentityProviderConfigurationArgs, DomainForOrganizationIdentityProviderConfigurationPtr and DomainForOrganizationIdentityProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `DomainForOrganizationIdentityProviderConfigurationPtrInput` via:
+//
+//	        DomainForOrganizationIdentityProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainForOrganizationIdentityProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDomainForOrganizationIdentityProviderConfigurationPtrOutput() DomainForOrganizationIdentityProviderConfigurationPtrOutput
+	ToDomainForOrganizationIdentityProviderConfigurationPtrOutputWithContext(context.Context) DomainForOrganizationIdentityProviderConfigurationPtrOutput
+}
+
+type domainForOrganizationIdentityProviderConfigurationPtrType DomainForOrganizationIdentityProviderConfigurationArgs
+
+func DomainForOrganizationIdentityProviderConfigurationPtr(v *DomainForOrganizationIdentityProviderConfigurationArgs) DomainForOrganizationIdentityProviderConfigurationPtrInput {
+	return (*domainForOrganizationIdentityProviderConfigurationPtrType)(v)
+}
+
+func (*domainForOrganizationIdentityProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainForOrganizationIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (i *domainForOrganizationIdentityProviderConfigurationPtrType) ToDomainForOrganizationIdentityProviderConfigurationPtrOutput() DomainForOrganizationIdentityProviderConfigurationPtrOutput {
+	return i.ToDomainForOrganizationIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainForOrganizationIdentityProviderConfigurationPtrType) ToDomainForOrganizationIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainForOrganizationIdentityProviderConfigurationPtrOutput)
+}
+
+// Identity provider configuration for the domain.
+type DomainForOrganizationIdentityProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DomainForOrganizationIdentityProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainForOrganizationIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (o DomainForOrganizationIdentityProviderConfigurationOutput) ToDomainForOrganizationIdentityProviderConfigurationOutput() DomainForOrganizationIdentityProviderConfigurationOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProviderConfigurationOutput) ToDomainForOrganizationIdentityProviderConfigurationOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProviderConfigurationOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProviderConfigurationOutput) ToDomainForOrganizationIdentityProviderConfigurationPtrOutput() DomainForOrganizationIdentityProviderConfigurationPtrOutput {
+	return o.ToDomainForOrganizationIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainForOrganizationIdentityProviderConfigurationOutput) ToDomainForOrganizationIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainForOrganizationIdentityProviderConfiguration) *DomainForOrganizationIdentityProviderConfiguration {
+		return &v
+	}).(DomainForOrganizationIdentityProviderConfigurationPtrOutput)
+}
+
+func (o DomainForOrganizationIdentityProviderConfigurationOutput) IdentityCenterConfiguration() DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v DomainForOrganizationIdentityProviderConfiguration) *DomainForOrganizationIdentityCenterConfiguration {
+		return v.IdentityCenterConfiguration
+	}).(DomainForOrganizationIdentityCenterConfigurationPtrOutput)
+}
+
+type DomainForOrganizationIdentityProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainForOrganizationIdentityProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainForOrganizationIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (o DomainForOrganizationIdentityProviderConfigurationPtrOutput) ToDomainForOrganizationIdentityProviderConfigurationPtrOutput() DomainForOrganizationIdentityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProviderConfigurationPtrOutput) ToDomainForOrganizationIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) DomainForOrganizationIdentityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainForOrganizationIdentityProviderConfigurationPtrOutput) Elem() DomainForOrganizationIdentityProviderConfigurationOutput {
+	return o.ApplyT(func(v *DomainForOrganizationIdentityProviderConfiguration) DomainForOrganizationIdentityProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainForOrganizationIdentityProviderConfiguration
+		return ret
+	}).(DomainForOrganizationIdentityProviderConfigurationOutput)
+}
+
+func (o DomainForOrganizationIdentityProviderConfigurationPtrOutput) IdentityCenterConfiguration() DomainForOrganizationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v *DomainForOrganizationIdentityProviderConfiguration) *DomainForOrganizationIdentityCenterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterConfiguration
+	}).(DomainForOrganizationIdentityCenterConfigurationPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DomainForOrganizationTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type InsightRuleTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
+}
+
+// Write-only API-key credential material for the integration. Stored encrypted and never returned on read.
+type IntegrationCredential struct {
+	// API-key credential material that can be rotated in place on update.
+	ApiKeyCredential IntegrationCredentialApiKeyCredentialProperties `pulumi:"apiKeyCredential"`
+}
+
+// IntegrationCredentialInput is an input type that accepts IntegrationCredentialArgs and IntegrationCredentialOutput values.
+// You can construct a concrete instance of `IntegrationCredentialInput` via:
+//
+//	IntegrationCredentialArgs{...}
+type IntegrationCredentialInput interface {
+	pulumi.Input
+
+	ToIntegrationCredentialOutput() IntegrationCredentialOutput
+	ToIntegrationCredentialOutputWithContext(context.Context) IntegrationCredentialOutput
+}
+
+// Write-only API-key credential material for the integration. Stored encrypted and never returned on read.
+type IntegrationCredentialArgs struct {
+	// API-key credential material that can be rotated in place on update.
+	ApiKeyCredential IntegrationCredentialApiKeyCredentialPropertiesInput `pulumi:"apiKeyCredential"`
+}
+
+func (IntegrationCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationCredential)(nil)).Elem()
+}
+
+func (i IntegrationCredentialArgs) ToIntegrationCredentialOutput() IntegrationCredentialOutput {
+	return i.ToIntegrationCredentialOutputWithContext(context.Background())
+}
+
+func (i IntegrationCredentialArgs) ToIntegrationCredentialOutputWithContext(ctx context.Context) IntegrationCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationCredentialOutput)
+}
+
+func (i IntegrationCredentialArgs) ToIntegrationCredentialPtrOutput() IntegrationCredentialPtrOutput {
+	return i.ToIntegrationCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationCredentialArgs) ToIntegrationCredentialPtrOutputWithContext(ctx context.Context) IntegrationCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationCredentialOutput).ToIntegrationCredentialPtrOutputWithContext(ctx)
+}
+
+// IntegrationCredentialPtrInput is an input type that accepts IntegrationCredentialArgs, IntegrationCredentialPtr and IntegrationCredentialPtrOutput values.
+// You can construct a concrete instance of `IntegrationCredentialPtrInput` via:
+//
+//	        IntegrationCredentialArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationCredentialPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationCredentialPtrOutput() IntegrationCredentialPtrOutput
+	ToIntegrationCredentialPtrOutputWithContext(context.Context) IntegrationCredentialPtrOutput
+}
+
+type integrationCredentialPtrType IntegrationCredentialArgs
+
+func IntegrationCredentialPtr(v *IntegrationCredentialArgs) IntegrationCredentialPtrInput {
+	return (*integrationCredentialPtrType)(v)
+}
+
+func (*integrationCredentialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationCredential)(nil)).Elem()
+}
+
+func (i *integrationCredentialPtrType) ToIntegrationCredentialPtrOutput() IntegrationCredentialPtrOutput {
+	return i.ToIntegrationCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationCredentialPtrType) ToIntegrationCredentialPtrOutputWithContext(ctx context.Context) IntegrationCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationCredentialPtrOutput)
+}
+
+// Write-only API-key credential material for the integration. Stored encrypted and never returned on read.
+type IntegrationCredentialOutput struct{ *pulumi.OutputState }
+
+func (IntegrationCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationCredential)(nil)).Elem()
+}
+
+func (o IntegrationCredentialOutput) ToIntegrationCredentialOutput() IntegrationCredentialOutput {
+	return o
+}
+
+func (o IntegrationCredentialOutput) ToIntegrationCredentialOutputWithContext(ctx context.Context) IntegrationCredentialOutput {
+	return o
+}
+
+func (o IntegrationCredentialOutput) ToIntegrationCredentialPtrOutput() IntegrationCredentialPtrOutput {
+	return o.ToIntegrationCredentialPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationCredentialOutput) ToIntegrationCredentialPtrOutputWithContext(ctx context.Context) IntegrationCredentialPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationCredential) *IntegrationCredential {
+		return &v
+	}).(IntegrationCredentialPtrOutput)
+}
+
+// API-key credential material that can be rotated in place on update.
+func (o IntegrationCredentialOutput) ApiKeyCredential() IntegrationCredentialApiKeyCredentialPropertiesOutput {
+	return o.ApplyT(func(v IntegrationCredential) IntegrationCredentialApiKeyCredentialProperties {
+		return v.ApiKeyCredential
+	}).(IntegrationCredentialApiKeyCredentialPropertiesOutput)
+}
+
+type IntegrationCredentialPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationCredentialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationCredential)(nil)).Elem()
+}
+
+func (o IntegrationCredentialPtrOutput) ToIntegrationCredentialPtrOutput() IntegrationCredentialPtrOutput {
+	return o
+}
+
+func (o IntegrationCredentialPtrOutput) ToIntegrationCredentialPtrOutputWithContext(ctx context.Context) IntegrationCredentialPtrOutput {
+	return o
+}
+
+func (o IntegrationCredentialPtrOutput) Elem() IntegrationCredentialOutput {
+	return o.ApplyT(func(v *IntegrationCredential) IntegrationCredential {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationCredential
+		return ret
+	}).(IntegrationCredentialOutput)
+}
+
+// API-key credential material that can be rotated in place on update.
+func (o IntegrationCredentialPtrOutput) ApiKeyCredential() IntegrationCredentialApiKeyCredentialPropertiesPtrOutput {
+	return o.ApplyT(func(v *IntegrationCredential) *IntegrationCredentialApiKeyCredentialProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKeyCredential
+	}).(IntegrationCredentialApiKeyCredentialPropertiesPtrOutput)
+}
+
+// API-key credential material that can be rotated in place on update.
+type IntegrationCredentialApiKeyCredentialProperties struct {
+	ApiKeyValue string `pulumi:"apiKeyValue"`
+}
+
+// IntegrationCredentialApiKeyCredentialPropertiesInput is an input type that accepts IntegrationCredentialApiKeyCredentialPropertiesArgs and IntegrationCredentialApiKeyCredentialPropertiesOutput values.
+// You can construct a concrete instance of `IntegrationCredentialApiKeyCredentialPropertiesInput` via:
+//
+//	IntegrationCredentialApiKeyCredentialPropertiesArgs{...}
+type IntegrationCredentialApiKeyCredentialPropertiesInput interface {
+	pulumi.Input
+
+	ToIntegrationCredentialApiKeyCredentialPropertiesOutput() IntegrationCredentialApiKeyCredentialPropertiesOutput
+	ToIntegrationCredentialApiKeyCredentialPropertiesOutputWithContext(context.Context) IntegrationCredentialApiKeyCredentialPropertiesOutput
+}
+
+// API-key credential material that can be rotated in place on update.
+type IntegrationCredentialApiKeyCredentialPropertiesArgs struct {
+	ApiKeyValue pulumi.StringInput `pulumi:"apiKeyValue"`
+}
+
+func (IntegrationCredentialApiKeyCredentialPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationCredentialApiKeyCredentialProperties)(nil)).Elem()
+}
+
+func (i IntegrationCredentialApiKeyCredentialPropertiesArgs) ToIntegrationCredentialApiKeyCredentialPropertiesOutput() IntegrationCredentialApiKeyCredentialPropertiesOutput {
+	return i.ToIntegrationCredentialApiKeyCredentialPropertiesOutputWithContext(context.Background())
+}
+
+func (i IntegrationCredentialApiKeyCredentialPropertiesArgs) ToIntegrationCredentialApiKeyCredentialPropertiesOutputWithContext(ctx context.Context) IntegrationCredentialApiKeyCredentialPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationCredentialApiKeyCredentialPropertiesOutput)
+}
+
+func (i IntegrationCredentialApiKeyCredentialPropertiesArgs) ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutput() IntegrationCredentialApiKeyCredentialPropertiesPtrOutput {
+	return i.ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationCredentialApiKeyCredentialPropertiesArgs) ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutputWithContext(ctx context.Context) IntegrationCredentialApiKeyCredentialPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationCredentialApiKeyCredentialPropertiesOutput).ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutputWithContext(ctx)
+}
+
+// IntegrationCredentialApiKeyCredentialPropertiesPtrInput is an input type that accepts IntegrationCredentialApiKeyCredentialPropertiesArgs, IntegrationCredentialApiKeyCredentialPropertiesPtr and IntegrationCredentialApiKeyCredentialPropertiesPtrOutput values.
+// You can construct a concrete instance of `IntegrationCredentialApiKeyCredentialPropertiesPtrInput` via:
+//
+//	        IntegrationCredentialApiKeyCredentialPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationCredentialApiKeyCredentialPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutput() IntegrationCredentialApiKeyCredentialPropertiesPtrOutput
+	ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutputWithContext(context.Context) IntegrationCredentialApiKeyCredentialPropertiesPtrOutput
+}
+
+type integrationCredentialApiKeyCredentialPropertiesPtrType IntegrationCredentialApiKeyCredentialPropertiesArgs
+
+func IntegrationCredentialApiKeyCredentialPropertiesPtr(v *IntegrationCredentialApiKeyCredentialPropertiesArgs) IntegrationCredentialApiKeyCredentialPropertiesPtrInput {
+	return (*integrationCredentialApiKeyCredentialPropertiesPtrType)(v)
+}
+
+func (*integrationCredentialApiKeyCredentialPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationCredentialApiKeyCredentialProperties)(nil)).Elem()
+}
+
+func (i *integrationCredentialApiKeyCredentialPropertiesPtrType) ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutput() IntegrationCredentialApiKeyCredentialPropertiesPtrOutput {
+	return i.ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationCredentialApiKeyCredentialPropertiesPtrType) ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutputWithContext(ctx context.Context) IntegrationCredentialApiKeyCredentialPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationCredentialApiKeyCredentialPropertiesPtrOutput)
+}
+
+// API-key credential material that can be rotated in place on update.
+type IntegrationCredentialApiKeyCredentialPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IntegrationCredentialApiKeyCredentialPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationCredentialApiKeyCredentialProperties)(nil)).Elem()
+}
+
+func (o IntegrationCredentialApiKeyCredentialPropertiesOutput) ToIntegrationCredentialApiKeyCredentialPropertiesOutput() IntegrationCredentialApiKeyCredentialPropertiesOutput {
+	return o
+}
+
+func (o IntegrationCredentialApiKeyCredentialPropertiesOutput) ToIntegrationCredentialApiKeyCredentialPropertiesOutputWithContext(ctx context.Context) IntegrationCredentialApiKeyCredentialPropertiesOutput {
+	return o
+}
+
+func (o IntegrationCredentialApiKeyCredentialPropertiesOutput) ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutput() IntegrationCredentialApiKeyCredentialPropertiesPtrOutput {
+	return o.ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationCredentialApiKeyCredentialPropertiesOutput) ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutputWithContext(ctx context.Context) IntegrationCredentialApiKeyCredentialPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationCredentialApiKeyCredentialProperties) *IntegrationCredentialApiKeyCredentialProperties {
+		return &v
+	}).(IntegrationCredentialApiKeyCredentialPropertiesPtrOutput)
+}
+
+func (o IntegrationCredentialApiKeyCredentialPropertiesOutput) ApiKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationCredentialApiKeyCredentialProperties) string { return v.ApiKeyValue }).(pulumi.StringOutput)
+}
+
+type IntegrationCredentialApiKeyCredentialPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationCredentialApiKeyCredentialPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationCredentialApiKeyCredentialProperties)(nil)).Elem()
+}
+
+func (o IntegrationCredentialApiKeyCredentialPropertiesPtrOutput) ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutput() IntegrationCredentialApiKeyCredentialPropertiesPtrOutput {
+	return o
+}
+
+func (o IntegrationCredentialApiKeyCredentialPropertiesPtrOutput) ToIntegrationCredentialApiKeyCredentialPropertiesPtrOutputWithContext(ctx context.Context) IntegrationCredentialApiKeyCredentialPropertiesPtrOutput {
+	return o
+}
+
+func (o IntegrationCredentialApiKeyCredentialPropertiesPtrOutput) Elem() IntegrationCredentialApiKeyCredentialPropertiesOutput {
+	return o.ApplyT(func(v *IntegrationCredentialApiKeyCredentialProperties) IntegrationCredentialApiKeyCredentialProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationCredentialApiKeyCredentialProperties
+		return ret
+	}).(IntegrationCredentialApiKeyCredentialPropertiesOutput)
+}
+
+func (o IntegrationCredentialApiKeyCredentialPropertiesPtrOutput) ApiKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationCredentialApiKeyCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+type LogAlarmActionConfiguration struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	AlarmTagsPropagation *LogAlarmAlarmTagsPropagation `pulumi:"alarmTagsPropagation"`
+}
+
+// LogAlarmActionConfigurationInput is an input type that accepts LogAlarmActionConfigurationArgs and LogAlarmActionConfigurationOutput values.
+// You can construct a concrete instance of `LogAlarmActionConfigurationInput` via:
+//
+//	LogAlarmActionConfigurationArgs{...}
+type LogAlarmActionConfigurationInput interface {
+	pulumi.Input
+
+	ToLogAlarmActionConfigurationOutput() LogAlarmActionConfigurationOutput
+	ToLogAlarmActionConfigurationOutputWithContext(context.Context) LogAlarmActionConfigurationOutput
+}
+
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+type LogAlarmActionConfigurationArgs struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	AlarmTagsPropagation LogAlarmAlarmTagsPropagationPtrInput `pulumi:"alarmTagsPropagation"`
+}
+
+func (LogAlarmActionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmActionConfiguration)(nil)).Elem()
+}
+
+func (i LogAlarmActionConfigurationArgs) ToLogAlarmActionConfigurationOutput() LogAlarmActionConfigurationOutput {
+	return i.ToLogAlarmActionConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogAlarmActionConfigurationArgs) ToLogAlarmActionConfigurationOutputWithContext(ctx context.Context) LogAlarmActionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmActionConfigurationOutput)
+}
+
+func (i LogAlarmActionConfigurationArgs) ToLogAlarmActionConfigurationPtrOutput() LogAlarmActionConfigurationPtrOutput {
+	return i.ToLogAlarmActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogAlarmActionConfigurationArgs) ToLogAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmActionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmActionConfigurationOutput).ToLogAlarmActionConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogAlarmActionConfigurationPtrInput is an input type that accepts LogAlarmActionConfigurationArgs, LogAlarmActionConfigurationPtr and LogAlarmActionConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogAlarmActionConfigurationPtrInput` via:
+//
+//	        LogAlarmActionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogAlarmActionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogAlarmActionConfigurationPtrOutput() LogAlarmActionConfigurationPtrOutput
+	ToLogAlarmActionConfigurationPtrOutputWithContext(context.Context) LogAlarmActionConfigurationPtrOutput
+}
+
+type logAlarmActionConfigurationPtrType LogAlarmActionConfigurationArgs
+
+func LogAlarmActionConfigurationPtr(v *LogAlarmActionConfigurationArgs) LogAlarmActionConfigurationPtrInput {
+	return (*logAlarmActionConfigurationPtrType)(v)
+}
+
+func (*logAlarmActionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAlarmActionConfiguration)(nil)).Elem()
+}
+
+func (i *logAlarmActionConfigurationPtrType) ToLogAlarmActionConfigurationPtrOutput() LogAlarmActionConfigurationPtrOutput {
+	return i.ToLogAlarmActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logAlarmActionConfigurationPtrType) ToLogAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmActionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmActionConfigurationPtrOutput)
+}
+
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+type LogAlarmActionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmActionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmActionConfiguration)(nil)).Elem()
+}
+
+func (o LogAlarmActionConfigurationOutput) ToLogAlarmActionConfigurationOutput() LogAlarmActionConfigurationOutput {
+	return o
+}
+
+func (o LogAlarmActionConfigurationOutput) ToLogAlarmActionConfigurationOutputWithContext(ctx context.Context) LogAlarmActionConfigurationOutput {
+	return o
+}
+
+func (o LogAlarmActionConfigurationOutput) ToLogAlarmActionConfigurationPtrOutput() LogAlarmActionConfigurationPtrOutput {
+	return o.ToLogAlarmActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogAlarmActionConfigurationOutput) ToLogAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmActionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAlarmActionConfiguration) *LogAlarmActionConfiguration {
+		return &v
+	}).(LogAlarmActionConfigurationPtrOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o LogAlarmActionConfigurationOutput) AlarmTagsPropagation() LogAlarmAlarmTagsPropagationPtrOutput {
+	return o.ApplyT(func(v LogAlarmActionConfiguration) *LogAlarmAlarmTagsPropagation { return v.AlarmTagsPropagation }).(LogAlarmAlarmTagsPropagationPtrOutput)
+}
+
+type LogAlarmActionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmActionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAlarmActionConfiguration)(nil)).Elem()
+}
+
+func (o LogAlarmActionConfigurationPtrOutput) ToLogAlarmActionConfigurationPtrOutput() LogAlarmActionConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAlarmActionConfigurationPtrOutput) ToLogAlarmActionConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmActionConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAlarmActionConfigurationPtrOutput) Elem() LogAlarmActionConfigurationOutput {
+	return o.ApplyT(func(v *LogAlarmActionConfiguration) LogAlarmActionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LogAlarmActionConfiguration
+		return ret
+	}).(LogAlarmActionConfigurationOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o LogAlarmActionConfigurationPtrOutput) AlarmTagsPropagation() LogAlarmAlarmTagsPropagationPtrOutput {
+	return o.ApplyT(func(v *LogAlarmActionConfiguration) *LogAlarmAlarmTagsPropagation {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmTagsPropagation
+	}).(LogAlarmAlarmTagsPropagationPtrOutput)
+}
+
+// Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+type LogAlarmAlarmTagsPropagation struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	Enabled bool `pulumi:"enabled"`
+	// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+	ExcludedTagKeys []string `pulumi:"excludedTagKeys"`
+	// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+	IncludedTagKeys []string `pulumi:"includedTagKeys"`
+}
+
+// LogAlarmAlarmTagsPropagationInput is an input type that accepts LogAlarmAlarmTagsPropagationArgs and LogAlarmAlarmTagsPropagationOutput values.
+// You can construct a concrete instance of `LogAlarmAlarmTagsPropagationInput` via:
+//
+//	LogAlarmAlarmTagsPropagationArgs{...}
+type LogAlarmAlarmTagsPropagationInput interface {
+	pulumi.Input
+
+	ToLogAlarmAlarmTagsPropagationOutput() LogAlarmAlarmTagsPropagationOutput
+	ToLogAlarmAlarmTagsPropagationOutputWithContext(context.Context) LogAlarmAlarmTagsPropagationOutput
+}
+
+// Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+type LogAlarmAlarmTagsPropagationArgs struct {
+	// Whether the alarm's tags are included in its action notifications and state-change events.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+	ExcludedTagKeys pulumi.StringArrayInput `pulumi:"excludedTagKeys"`
+	// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+	IncludedTagKeys pulumi.StringArrayInput `pulumi:"includedTagKeys"`
+}
+
+func (LogAlarmAlarmTagsPropagationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmAlarmTagsPropagation)(nil)).Elem()
+}
+
+func (i LogAlarmAlarmTagsPropagationArgs) ToLogAlarmAlarmTagsPropagationOutput() LogAlarmAlarmTagsPropagationOutput {
+	return i.ToLogAlarmAlarmTagsPropagationOutputWithContext(context.Background())
+}
+
+func (i LogAlarmAlarmTagsPropagationArgs) ToLogAlarmAlarmTagsPropagationOutputWithContext(ctx context.Context) LogAlarmAlarmTagsPropagationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmAlarmTagsPropagationOutput)
+}
+
+func (i LogAlarmAlarmTagsPropagationArgs) ToLogAlarmAlarmTagsPropagationPtrOutput() LogAlarmAlarmTagsPropagationPtrOutput {
+	return i.ToLogAlarmAlarmTagsPropagationPtrOutputWithContext(context.Background())
+}
+
+func (i LogAlarmAlarmTagsPropagationArgs) ToLogAlarmAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) LogAlarmAlarmTagsPropagationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmAlarmTagsPropagationOutput).ToLogAlarmAlarmTagsPropagationPtrOutputWithContext(ctx)
+}
+
+// LogAlarmAlarmTagsPropagationPtrInput is an input type that accepts LogAlarmAlarmTagsPropagationArgs, LogAlarmAlarmTagsPropagationPtr and LogAlarmAlarmTagsPropagationPtrOutput values.
+// You can construct a concrete instance of `LogAlarmAlarmTagsPropagationPtrInput` via:
+//
+//	        LogAlarmAlarmTagsPropagationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogAlarmAlarmTagsPropagationPtrInput interface {
+	pulumi.Input
+
+	ToLogAlarmAlarmTagsPropagationPtrOutput() LogAlarmAlarmTagsPropagationPtrOutput
+	ToLogAlarmAlarmTagsPropagationPtrOutputWithContext(context.Context) LogAlarmAlarmTagsPropagationPtrOutput
+}
+
+type logAlarmAlarmTagsPropagationPtrType LogAlarmAlarmTagsPropagationArgs
+
+func LogAlarmAlarmTagsPropagationPtr(v *LogAlarmAlarmTagsPropagationArgs) LogAlarmAlarmTagsPropagationPtrInput {
+	return (*logAlarmAlarmTagsPropagationPtrType)(v)
+}
+
+func (*logAlarmAlarmTagsPropagationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAlarmAlarmTagsPropagation)(nil)).Elem()
+}
+
+func (i *logAlarmAlarmTagsPropagationPtrType) ToLogAlarmAlarmTagsPropagationPtrOutput() LogAlarmAlarmTagsPropagationPtrOutput {
+	return i.ToLogAlarmAlarmTagsPropagationPtrOutputWithContext(context.Background())
+}
+
+func (i *logAlarmAlarmTagsPropagationPtrType) ToLogAlarmAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) LogAlarmAlarmTagsPropagationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmAlarmTagsPropagationPtrOutput)
+}
+
+// Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.
+type LogAlarmAlarmTagsPropagationOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmAlarmTagsPropagationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmAlarmTagsPropagation)(nil)).Elem()
+}
+
+func (o LogAlarmAlarmTagsPropagationOutput) ToLogAlarmAlarmTagsPropagationOutput() LogAlarmAlarmTagsPropagationOutput {
+	return o
+}
+
+func (o LogAlarmAlarmTagsPropagationOutput) ToLogAlarmAlarmTagsPropagationOutputWithContext(ctx context.Context) LogAlarmAlarmTagsPropagationOutput {
+	return o
+}
+
+func (o LogAlarmAlarmTagsPropagationOutput) ToLogAlarmAlarmTagsPropagationPtrOutput() LogAlarmAlarmTagsPropagationPtrOutput {
+	return o.ToLogAlarmAlarmTagsPropagationPtrOutputWithContext(context.Background())
+}
+
+func (o LogAlarmAlarmTagsPropagationOutput) ToLogAlarmAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) LogAlarmAlarmTagsPropagationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAlarmAlarmTagsPropagation) *LogAlarmAlarmTagsPropagation {
+		return &v
+	}).(LogAlarmAlarmTagsPropagationPtrOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o LogAlarmAlarmTagsPropagationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LogAlarmAlarmTagsPropagation) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+func (o LogAlarmAlarmTagsPropagationOutput) ExcludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogAlarmAlarmTagsPropagation) []string { return v.ExcludedTagKeys }).(pulumi.StringArrayOutput)
+}
+
+// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+func (o LogAlarmAlarmTagsPropagationOutput) IncludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogAlarmAlarmTagsPropagation) []string { return v.IncludedTagKeys }).(pulumi.StringArrayOutput)
+}
+
+type LogAlarmAlarmTagsPropagationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmAlarmTagsPropagationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAlarmAlarmTagsPropagation)(nil)).Elem()
+}
+
+func (o LogAlarmAlarmTagsPropagationPtrOutput) ToLogAlarmAlarmTagsPropagationPtrOutput() LogAlarmAlarmTagsPropagationPtrOutput {
+	return o
+}
+
+func (o LogAlarmAlarmTagsPropagationPtrOutput) ToLogAlarmAlarmTagsPropagationPtrOutputWithContext(ctx context.Context) LogAlarmAlarmTagsPropagationPtrOutput {
+	return o
+}
+
+func (o LogAlarmAlarmTagsPropagationPtrOutput) Elem() LogAlarmAlarmTagsPropagationOutput {
+	return o.ApplyT(func(v *LogAlarmAlarmTagsPropagation) LogAlarmAlarmTagsPropagation {
+		if v != nil {
+			return *v
+		}
+		var ret LogAlarmAlarmTagsPropagation
+		return ret
+	}).(LogAlarmAlarmTagsPropagationOutput)
+}
+
+// Whether the alarm's tags are included in its action notifications and state-change events.
+func (o LogAlarmAlarmTagsPropagationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogAlarmAlarmTagsPropagation) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The tag keys to leave out. Cannot be specified together with IncludedTagKeys.
+func (o LogAlarmAlarmTagsPropagationPtrOutput) ExcludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogAlarmAlarmTagsPropagation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedTagKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// The only tag keys to include. Cannot be specified together with ExcludedTagKeys.
+func (o LogAlarmAlarmTagsPropagationPtrOutput) IncludedTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogAlarmAlarmTagsPropagation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedTagKeys
+	}).(pulumi.StringArrayOutput)
 }
 
 // The schedule configuration for the scheduled query.
@@ -2713,6 +4235,14 @@ func (o OTelEnrichmentMetricSelectorArrayOutput) Index(i pulumi.IntInput) OTelEn
 	}).(OTelEnrichmentMetricSelectorOutput)
 }
 
+// A key-value pair to associate with a resource.
+type OmniDashboardTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // Defines which metrics are enabled for detailed monitoring on the resource.
 type ResourceMetricsConfigurationResourceMetricSelection struct {
 	// The list of metric names to include in detailed monitoring for the resource.
@@ -3029,6 +4559,11 @@ func (o RulePropertiesSchedulePropertiesPtrOutput) Timezone() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type TagsItemProperties struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with the view.
 type ViewTag struct {
 	// The key of the tag.
@@ -3038,6 +4573,8 @@ type ViewTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmActionConfigurationInput)(nil)).Elem(), AlarmActionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmActionConfigurationPtrInput)(nil)).Elem(), AlarmActionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionInput)(nil)).Elem(), AlarmDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionArrayInput)(nil)).Elem(), AlarmDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmEvaluationCriteriaInput)(nil)).Elem(), AlarmEvaluationCriteriaArgs{})
@@ -3052,10 +4589,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricStatPtrInput)(nil)).Elem(), AlarmMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmPromQlCriteriaInput)(nil)).Elem(), AlarmPromQlCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmPromQlCriteriaPtrInput)(nil)).Elem(), AlarmPromQlCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmTagsPropagationInput)(nil)).Elem(), AlarmTagsPropagationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmTagsPropagationPtrInput)(nil)).Elem(), AlarmTagsPropagationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWallClockWindowInput)(nil)).Elem(), AlarmWallClockWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWallClockWindowPtrInput)(nil)).Elem(), AlarmWallClockWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWarmUpConfigurationInput)(nil)).Elem(), AlarmWarmUpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWarmUpConfigurationPtrInput)(nil)).Elem(), AlarmWarmUpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionConfigurationInput)(nil)).Elem(), CompositeAlarmActionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionConfigurationPtrInput)(nil)).Elem(), CompositeAlarmActionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmAlarmTagsPropagationInput)(nil)).Elem(), CompositeAlarmAlarmTagsPropagationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmAlarmTagsPropagationPtrInput)(nil)).Elem(), CompositeAlarmAlarmTagsPropagationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityCenterConfigurationInput)(nil)).Elem(), DomainForOrganizationIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityCenterConfigurationPtrInput)(nil)).Elem(), DomainForOrganizationIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProviderConfigurationInput)(nil)).Elem(), DomainForOrganizationIdentityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProviderConfigurationPtrInput)(nil)).Elem(), DomainForOrganizationIdentityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationCredentialInput)(nil)).Elem(), IntegrationCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationCredentialPtrInput)(nil)).Elem(), IntegrationCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationCredentialApiKeyCredentialPropertiesInput)(nil)).Elem(), IntegrationCredentialApiKeyCredentialPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationCredentialApiKeyCredentialPropertiesPtrInput)(nil)).Elem(), IntegrationCredentialApiKeyCredentialPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmActionConfigurationInput)(nil)).Elem(), LogAlarmActionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmActionConfigurationPtrInput)(nil)).Elem(), LogAlarmActionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmAlarmTagsPropagationInput)(nil)).Elem(), LogAlarmAlarmTagsPropagationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmAlarmTagsPropagationPtrInput)(nil)).Elem(), LogAlarmAlarmTagsPropagationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmScheduleConfigurationInput)(nil)).Elem(), LogAlarmScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmScheduledQueryConfigurationInput)(nil)).Elem(), LogAlarmScheduledQueryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmTagInput)(nil)).Elem(), LogAlarmTagArgs{})
@@ -3076,6 +4631,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMetricsConfigurationResourceMetricSelectionArrayInput)(nil)).Elem(), ResourceMetricsConfigurationResourceMetricSelectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePropertiesInput)(nil)).Elem(), RulePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePropertiesSchedulePropertiesInput)(nil)).Elem(), RulePropertiesSchedulePropertiesArgs{})
+	pulumi.RegisterOutputType(AlarmActionConfigurationOutput{})
+	pulumi.RegisterOutputType(AlarmActionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AlarmDimensionOutput{})
 	pulumi.RegisterOutputType(AlarmDimensionArrayOutput{})
 	pulumi.RegisterOutputType(AlarmEvaluationCriteriaOutput{})
@@ -3090,10 +4647,28 @@ func init() {
 	pulumi.RegisterOutputType(AlarmMetricStatPtrOutput{})
 	pulumi.RegisterOutputType(AlarmPromQlCriteriaOutput{})
 	pulumi.RegisterOutputType(AlarmPromQlCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(AlarmTagsPropagationOutput{})
+	pulumi.RegisterOutputType(AlarmTagsPropagationPtrOutput{})
 	pulumi.RegisterOutputType(AlarmWallClockWindowOutput{})
 	pulumi.RegisterOutputType(AlarmWallClockWindowPtrOutput{})
 	pulumi.RegisterOutputType(AlarmWarmUpConfigurationOutput{})
 	pulumi.RegisterOutputType(AlarmWarmUpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CompositeAlarmActionConfigurationOutput{})
+	pulumi.RegisterOutputType(CompositeAlarmActionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CompositeAlarmAlarmTagsPropagationOutput{})
+	pulumi.RegisterOutputType(CompositeAlarmAlarmTagsPropagationPtrOutput{})
+	pulumi.RegisterOutputType(DomainForOrganizationIdentityCenterConfigurationOutput{})
+	pulumi.RegisterOutputType(DomainForOrganizationIdentityCenterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DomainForOrganizationIdentityProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(DomainForOrganizationIdentityProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationCredentialOutput{})
+	pulumi.RegisterOutputType(IntegrationCredentialPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationCredentialApiKeyCredentialPropertiesOutput{})
+	pulumi.RegisterOutputType(IntegrationCredentialApiKeyCredentialPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LogAlarmActionConfigurationOutput{})
+	pulumi.RegisterOutputType(LogAlarmActionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LogAlarmAlarmTagsPropagationOutput{})
+	pulumi.RegisterOutputType(LogAlarmAlarmTagsPropagationPtrOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduleConfigurationOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduledQueryConfigurationOutput{})

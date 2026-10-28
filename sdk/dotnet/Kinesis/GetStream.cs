@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Kinesis
         /// </summary>
         public readonly int? MaxRecordSizeInKiB;
         /// <summary>
+        /// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+        /// </summary>
+        public readonly Pulumi.AwsNative.Kinesis.StreamRecordDistributionStrategy? RecordDistributionStrategy;
+        /// <summary>
         /// The number of hours for the data records that are stored in shards to remain accessible.
         /// </summary>
         public readonly int? RetentionPeriodHours;
@@ -108,6 +112,8 @@ namespace Pulumi.AwsNative.Kinesis
 
             int? maxRecordSizeInKiB,
 
+            Pulumi.AwsNative.Kinesis.StreamRecordDistributionStrategy? recordDistributionStrategy,
+
             int? retentionPeriodHours,
 
             int? shardCount,
@@ -123,6 +129,7 @@ namespace Pulumi.AwsNative.Kinesis
             Arn = arn;
             DesiredShardLevelMetrics = desiredShardLevelMetrics;
             MaxRecordSizeInKiB = maxRecordSizeInKiB;
+            RecordDistributionStrategy = recordDistributionStrategy;
             RetentionPeriodHours = retentionPeriodHours;
             ShardCount = shardCount;
             StreamEncryption = streamEncryption;

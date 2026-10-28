@@ -21,10 +21,14 @@ __all__ = [
     'CapacityProviderStatus',
     'CodeInterpreterCustomCodeInterpreterNetworkMode',
     'CodeInterpreterCustomCodeInterpreterStatus',
+    'ConsentPortalSourceType',
+    'ConsentPortalStatus',
     'DatasetSchemaType',
     'DatasetStatus',
     'EvaluatorLevel',
+    'EvaluatorProvider',
     'EvaluatorStatus',
+    'EvaluatorType',
     'GatewayAuthorizerType',
     'GatewayClaimMatchOperatorType',
     'GatewayEndpointIpAddressType',
@@ -105,9 +109,9 @@ __all__ = [
     'PaymentConnectorType',
     'PaymentCredentialProviderSecretSourceType',
     'PaymentCredentialProviderVendorType',
-    'PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator',
+    'PaymentManagerAuthorizerType',
+    'PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator',
     'PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType',
-    'PaymentManagerPaymentsAuthorizerType',
     'PaymentManagerStatus',
     'PolicyEnforcementMode',
     'PolicyEngineStatus',
@@ -281,6 +285,21 @@ class CodeInterpreterCustomCodeInterpreterStatus(_builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:ConsentPortalSourceType")
+class ConsentPortalSourceType(_builtins.str, Enum):
+    AGENTCORE_GATEWAY = "agentcore-gateway"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:ConsentPortalStatus")
+class ConsentPortalStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:DatasetSchemaType")
 class DatasetSchemaType(_builtins.str, Enum):
     """
@@ -288,6 +307,8 @@ class DatasetSchemaType(_builtins.str, Enum):
     """
     AGENTCORE_EVALUATION_PREDEFINED_V1 = "AGENTCORE_EVALUATION_PREDEFINED_V1"
     AGENTCORE_EVALUATION_SIMULATED_V1 = "AGENTCORE_EVALUATION_SIMULATED_V1"
+    GENERIC_EVALUATION_PREDEFINED_V1 = "GENERIC_EVALUATION_PREDEFINED_V1"
+    THIRD_PARTY_EVALUATION_V1 = "THIRD_PARTY_EVALUATION_V1"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:DatasetStatus")
@@ -311,6 +332,17 @@ class EvaluatorLevel(_builtins.str, Enum):
     SESSION = "SESSION"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:EvaluatorProvider")
+class EvaluatorProvider(_builtins.str, Enum):
+    """
+    Where the evaluator's logic comes from: AWS for AWS-authored evaluators, DeepEval or AutoEval for the corresponding third-party libraries, or Custom for an evaluator that you authored.
+    """
+    AWS = "AWS"
+    DEEP_EVAL = "DeepEval"
+    AUTO_EVAL = "AutoEval"
+    CUSTOM = "Custom"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:EvaluatorStatus")
 class EvaluatorStatus(_builtins.str, Enum):
     ACTIVE = "ACTIVE"
@@ -319,6 +351,18 @@ class EvaluatorStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:EvaluatorType")
+class EvaluatorType(_builtins.str, Enum):
+    """
+    The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+    """
+    BUILTIN = "Builtin"
+    THIRD_PARTY = "ThirdParty"
+    CUSTOM = "Custom"
+    CUSTOM_CODE = "CustomCode"
+    CUSTOM_DERIVED = "CustomDerived"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayAuthorizerType")
@@ -983,6 +1027,7 @@ class OnlineEvaluationConfigStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETING = "DELETING"
+    ERROR = "ERROR"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentConnectorProvisionMode")
@@ -1031,8 +1076,17 @@ class PaymentCredentialProviderVendorType(_builtins.str, Enum):
     STRIPE_PRIVY = "StripePrivy"
 
 
-@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator")
-class PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator(_builtins.str, Enum):
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizerType")
+class PaymentManagerAuthorizerType(_builtins.str, Enum):
+    """
+    The type of authorizer for the payment manager
+    """
+    CUSTOM_JWT = "CUSTOM_JWT"
+    AWS_IAM = "AWS_IAM"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator")
+class PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator(_builtins.str, Enum):
     EQUALS = "EQUALS"
     CONTAINS = "CONTAINS"
     CONTAINS_ANY = "CONTAINS_ANY"
@@ -1044,14 +1098,11 @@ class PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType(_builtin
     STRING_ARRAY = "STRING_ARRAY"
 
 
-@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerPaymentsAuthorizerType")
-class PaymentManagerPaymentsAuthorizerType(_builtins.str, Enum):
-    CUSTOM_JWT = "CUSTOM_JWT"
-    AWS_IAM = "AWS_IAM"
-
-
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerStatus")
 class PaymentManagerStatus(_builtins.str, Enum):
+    """
+    The current status of the payment manager
+    """
     CREATING = "CREATING"
     UPDATING = "UPDATING"
     DELETING = "DELETING"

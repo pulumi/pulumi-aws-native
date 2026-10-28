@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetLogAlarmResult:
-    def __init__(__self__, action_log_line_count=None, action_log_line_role_arn=None, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, insufficient_data_actions=None, ok_actions=None, query_results_to_alarm=None, query_results_to_evaluate=None, scheduled_query_configuration=None, tags=None, threshold=None, treat_missing_data=None, warm_up_configuration=None):
+    def __init__(__self__, action_configuration=None, action_log_line_count=None, action_log_line_role_arn=None, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, insufficient_data_actions=None, ok_actions=None, query_results_to_alarm=None, query_results_to_evaluate=None, scheduled_query_configuration=None, tags=None, threshold=None, treat_missing_data=None, warm_up_configuration=None):
+        if action_configuration and not isinstance(action_configuration, dict):
+            raise TypeError("Expected argument 'action_configuration' to be a dict")
+        pulumi.set(__self__, "action_configuration", action_configuration)
         if action_log_line_count and not isinstance(action_log_line_count, int):
             raise TypeError("Expected argument 'action_log_line_count' to be a int")
         pulumi.set(__self__, "action_log_line_count", action_log_line_count)
@@ -74,6 +77,14 @@ class GetLogAlarmResult:
         if warm_up_configuration and not isinstance(warm_up_configuration, dict):
             raise TypeError("Expected argument 'warm_up_configuration' to be a dict")
         pulumi.set(__self__, "warm_up_configuration", warm_up_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional['outputs.LogAlarmActionConfiguration']:
+        """
+        Configuration that applies to the notifications this alarm sends when it performs its actions.
+        """
+        return pulumi.get(self, "action_configuration")
 
     @_builtins.property
     @pulumi.getter(name="actionLogLineCount")
@@ -210,6 +221,7 @@ class AwaitableGetLogAlarmResult(GetLogAlarmResult):
         if False:
             yield self
         return GetLogAlarmResult(
+            action_configuration=self.action_configuration,
             action_log_line_count=self.action_log_line_count,
             action_log_line_role_arn=self.action_log_line_role_arn,
             actions_enabled=self.actions_enabled,
@@ -241,6 +253,7 @@ def get_log_alarm(alarm_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudwatch:getLogAlarm', __args__, opts=opts, typ=GetLogAlarmResult).value
 
     return AwaitableGetLogAlarmResult(
+        action_configuration=pulumi.get(__ret__, 'action_configuration'),
         action_log_line_count=pulumi.get(__ret__, 'action_log_line_count'),
         action_log_line_role_arn=pulumi.get(__ret__, 'action_log_line_role_arn'),
         actions_enabled=pulumi.get(__ret__, 'actions_enabled'),
@@ -269,6 +282,7 @@ def get_log_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getLogAlarm', __args__, opts=opts, typ=GetLogAlarmResult)
     return __ret__.apply(lambda __response__: GetLogAlarmResult(
+        action_configuration=pulumi.get(__response__, 'action_configuration'),
         action_log_line_count=pulumi.get(__response__, 'action_log_line_count'),
         action_log_line_role_arn=pulumi.get(__response__, 'action_log_line_role_arn'),
         actions_enabled=pulumi.get(__response__, 'actions_enabled'),

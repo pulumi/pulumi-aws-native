@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
     /// </summary>
     public sealed class AssociationSlackConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("bidirectional")]
+        public Input<Inputs.AssociationSlackBidirectionalConfigurationArgs>? Bidirectional { get; set; }
+
         [Input("transmissionTarget", required: true)]
         public Input<Inputs.AssociationSlackTransmissionTargetArgs> TransmissionTarget { get; set; } = null!;
 

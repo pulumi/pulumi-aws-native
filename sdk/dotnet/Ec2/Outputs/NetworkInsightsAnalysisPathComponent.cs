@@ -73,6 +73,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The transit gateway.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGateway;
+        public readonly Outputs.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry? TransitGatewayPolicyTableEntry;
         /// <summary>
         /// The route in a transit gateway route table.
         /// </summary>
@@ -114,6 +115,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? transitGateway,
 
+            Outputs.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry? transitGatewayPolicyTableEntry,
+
             Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? transitGatewayRouteTableRoute,
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? vpc)
@@ -133,6 +136,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             SourceVpc = sourceVpc;
             Subnet = subnet;
             TransitGateway = transitGateway;
+            TransitGatewayPolicyTableEntry = transitGatewayPolicyTableEntry;
             TransitGatewayRouteTableRoute = transitGatewayRouteTableRoute;
             Vpc = vpc;
         }

@@ -1251,6 +1251,146 @@ func (o SamplingRuleUpdatePtrOutput) UrlPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for the CloudWatch Logs log group that X-Ray creates when this resource enables Transaction Search. It is used only at that time and is never returned
+type TransactionSearchConfigCloudWatchLogsConfiguration struct {
+	// The ARN of a symmetric customer managed AWS KMS key in the same account and Region, used to encrypt the aws/spans log group. Key IDs and alias ARNs are not supported, so for an AWS::KMS::Key use Fn::GetAtt Arn, not Ref. X-Ray applies the key only when it creates aws/spans while enabling Transaction Search. If aws/spans already exists, for example from an earlier enablement or an earlier create that failed partway, the create fails and X-Ray does not enable Transaction Search or change the log group. Remove this property to use the existing log group with its current encryption, and use the CloudWatch Logs AssociateKmsKey API to change its key. The caller needs kms:DescribeKey on the key, and the key policy must allow CloudWatch Logs to use it. Adding, changing or removing this property replaces the resource, which fails while Transaction Search is enabled
+	SpansLogGroupKmsKeyId *string `pulumi:"spansLogGroupKmsKeyId"`
+}
+
+// TransactionSearchConfigCloudWatchLogsConfigurationInput is an input type that accepts TransactionSearchConfigCloudWatchLogsConfigurationArgs and TransactionSearchConfigCloudWatchLogsConfigurationOutput values.
+// You can construct a concrete instance of `TransactionSearchConfigCloudWatchLogsConfigurationInput` via:
+//
+//	TransactionSearchConfigCloudWatchLogsConfigurationArgs{...}
+type TransactionSearchConfigCloudWatchLogsConfigurationInput interface {
+	pulumi.Input
+
+	ToTransactionSearchConfigCloudWatchLogsConfigurationOutput() TransactionSearchConfigCloudWatchLogsConfigurationOutput
+	ToTransactionSearchConfigCloudWatchLogsConfigurationOutputWithContext(context.Context) TransactionSearchConfigCloudWatchLogsConfigurationOutput
+}
+
+// Configuration for the CloudWatch Logs log group that X-Ray creates when this resource enables Transaction Search. It is used only at that time and is never returned
+type TransactionSearchConfigCloudWatchLogsConfigurationArgs struct {
+	// The ARN of a symmetric customer managed AWS KMS key in the same account and Region, used to encrypt the aws/spans log group. Key IDs and alias ARNs are not supported, so for an AWS::KMS::Key use Fn::GetAtt Arn, not Ref. X-Ray applies the key only when it creates aws/spans while enabling Transaction Search. If aws/spans already exists, for example from an earlier enablement or an earlier create that failed partway, the create fails and X-Ray does not enable Transaction Search or change the log group. Remove this property to use the existing log group with its current encryption, and use the CloudWatch Logs AssociateKmsKey API to change its key. The caller needs kms:DescribeKey on the key, and the key policy must allow CloudWatch Logs to use it. Adding, changing or removing this property replaces the resource, which fails while Transaction Search is enabled
+	SpansLogGroupKmsKeyId pulumi.StringPtrInput `pulumi:"spansLogGroupKmsKeyId"`
+}
+
+func (TransactionSearchConfigCloudWatchLogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransactionSearchConfigCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i TransactionSearchConfigCloudWatchLogsConfigurationArgs) ToTransactionSearchConfigCloudWatchLogsConfigurationOutput() TransactionSearchConfigCloudWatchLogsConfigurationOutput {
+	return i.ToTransactionSearchConfigCloudWatchLogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i TransactionSearchConfigCloudWatchLogsConfigurationArgs) ToTransactionSearchConfigCloudWatchLogsConfigurationOutputWithContext(ctx context.Context) TransactionSearchConfigCloudWatchLogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransactionSearchConfigCloudWatchLogsConfigurationOutput)
+}
+
+func (i TransactionSearchConfigCloudWatchLogsConfigurationArgs) ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutput() TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+	return i.ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TransactionSearchConfigCloudWatchLogsConfigurationArgs) ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransactionSearchConfigCloudWatchLogsConfigurationOutput).ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutputWithContext(ctx)
+}
+
+// TransactionSearchConfigCloudWatchLogsConfigurationPtrInput is an input type that accepts TransactionSearchConfigCloudWatchLogsConfigurationArgs, TransactionSearchConfigCloudWatchLogsConfigurationPtr and TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput values.
+// You can construct a concrete instance of `TransactionSearchConfigCloudWatchLogsConfigurationPtrInput` via:
+//
+//	        TransactionSearchConfigCloudWatchLogsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransactionSearchConfigCloudWatchLogsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutput() TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput
+	ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutputWithContext(context.Context) TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput
+}
+
+type transactionSearchConfigCloudWatchLogsConfigurationPtrType TransactionSearchConfigCloudWatchLogsConfigurationArgs
+
+func TransactionSearchConfigCloudWatchLogsConfigurationPtr(v *TransactionSearchConfigCloudWatchLogsConfigurationArgs) TransactionSearchConfigCloudWatchLogsConfigurationPtrInput {
+	return (*transactionSearchConfigCloudWatchLogsConfigurationPtrType)(v)
+}
+
+func (*transactionSearchConfigCloudWatchLogsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransactionSearchConfigCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i *transactionSearchConfigCloudWatchLogsConfigurationPtrType) ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutput() TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+	return i.ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *transactionSearchConfigCloudWatchLogsConfigurationPtrType) ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput)
+}
+
+// Configuration for the CloudWatch Logs log group that X-Ray creates when this resource enables Transaction Search. It is used only at that time and is never returned
+type TransactionSearchConfigCloudWatchLogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TransactionSearchConfigCloudWatchLogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransactionSearchConfigCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o TransactionSearchConfigCloudWatchLogsConfigurationOutput) ToTransactionSearchConfigCloudWatchLogsConfigurationOutput() TransactionSearchConfigCloudWatchLogsConfigurationOutput {
+	return o
+}
+
+func (o TransactionSearchConfigCloudWatchLogsConfigurationOutput) ToTransactionSearchConfigCloudWatchLogsConfigurationOutputWithContext(ctx context.Context) TransactionSearchConfigCloudWatchLogsConfigurationOutput {
+	return o
+}
+
+func (o TransactionSearchConfigCloudWatchLogsConfigurationOutput) ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutput() TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+	return o.ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TransactionSearchConfigCloudWatchLogsConfigurationOutput) ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransactionSearchConfigCloudWatchLogsConfiguration) *TransactionSearchConfigCloudWatchLogsConfiguration {
+		return &v
+	}).(TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput)
+}
+
+// The ARN of a symmetric customer managed AWS KMS key in the same account and Region, used to encrypt the aws/spans log group. Key IDs and alias ARNs are not supported, so for an AWS::KMS::Key use Fn::GetAtt Arn, not Ref. X-Ray applies the key only when it creates aws/spans while enabling Transaction Search. If aws/spans already exists, for example from an earlier enablement or an earlier create that failed partway, the create fails and X-Ray does not enable Transaction Search or change the log group. Remove this property to use the existing log group with its current encryption, and use the CloudWatch Logs AssociateKmsKey API to change its key. The caller needs kms:DescribeKey on the key, and the key policy must allow CloudWatch Logs to use it. Adding, changing or removing this property replaces the resource, which fails while Transaction Search is enabled
+func (o TransactionSearchConfigCloudWatchLogsConfigurationOutput) SpansLogGroupKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransactionSearchConfigCloudWatchLogsConfiguration) *string { return v.SpansLogGroupKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransactionSearchConfigCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput) ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutput() TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput) ToTransactionSearchConfigCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput) Elem() TransactionSearchConfigCloudWatchLogsConfigurationOutput {
+	return o.ApplyT(func(v *TransactionSearchConfigCloudWatchLogsConfiguration) TransactionSearchConfigCloudWatchLogsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TransactionSearchConfigCloudWatchLogsConfiguration
+		return ret
+	}).(TransactionSearchConfigCloudWatchLogsConfigurationOutput)
+}
+
+// The ARN of a symmetric customer managed AWS KMS key in the same account and Region, used to encrypt the aws/spans log group. Key IDs and alias ARNs are not supported, so for an AWS::KMS::Key use Fn::GetAtt Arn, not Ref. X-Ray applies the key only when it creates aws/spans while enabling Transaction Search. If aws/spans already exists, for example from an earlier enablement or an earlier create that failed partway, the create fails and X-Ray does not enable Transaction Search or change the log group. Remove this property to use the existing log group with its current encryption, and use the CloudWatch Logs AssociateKmsKey API to change its key. The caller needs kms:DescribeKey on the key, and the key policy must allow CloudWatch Logs to use it. Adding, changing or removing this property replaces the resource, which fails while Transaction Search is enabled
+func (o TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput) SpansLogGroupKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransactionSearchConfigCloudWatchLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpansLogGroupKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInsightsConfigurationInput)(nil)).Elem(), GroupInsightsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInsightsConfigurationPtrInput)(nil)).Elem(), GroupInsightsConfigurationArgs{})
@@ -1262,6 +1402,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleSamplingRateBoostPtrInput)(nil)).Elem(), SamplingRuleSamplingRateBoostArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleUpdateInput)(nil)).Elem(), SamplingRuleUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleUpdatePtrInput)(nil)).Elem(), SamplingRuleUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransactionSearchConfigCloudWatchLogsConfigurationInput)(nil)).Elem(), TransactionSearchConfigCloudWatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransactionSearchConfigCloudWatchLogsConfigurationPtrInput)(nil)).Elem(), TransactionSearchConfigCloudWatchLogsConfigurationArgs{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationOutput{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SamplingRuleTypeOutput{})
@@ -1272,4 +1414,6 @@ func init() {
 	pulumi.RegisterOutputType(SamplingRuleSamplingRateBoostPtrOutput{})
 	pulumi.RegisterOutputType(SamplingRuleUpdateOutput{})
 	pulumi.RegisterOutputType(SamplingRuleUpdatePtrOutput{})
+	pulumi.RegisterOutputType(TransactionSearchConfigCloudWatchLogsConfigurationOutput{})
+	pulumi.RegisterOutputType(TransactionSearchConfigCloudWatchLogsConfigurationPtrOutput{})
 }

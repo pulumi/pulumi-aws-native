@@ -13,6 +13,273 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Object specifying a configuration for integration with an AWS Elemental MediaTailor (EMT).
+type AdConfigurationMediaTailorPlaybackConfiguration struct {
+	// ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+	PlaybackConfigurationArn *string `pulumi:"playbackConfigurationArn"`
+}
+
+// AdConfigurationMediaTailorPlaybackConfigurationInput is an input type that accepts AdConfigurationMediaTailorPlaybackConfigurationArgs and AdConfigurationMediaTailorPlaybackConfigurationOutput values.
+// You can construct a concrete instance of `AdConfigurationMediaTailorPlaybackConfigurationInput` via:
+//
+//	AdConfigurationMediaTailorPlaybackConfigurationArgs{...}
+type AdConfigurationMediaTailorPlaybackConfigurationInput interface {
+	pulumi.Input
+
+	ToAdConfigurationMediaTailorPlaybackConfigurationOutput() AdConfigurationMediaTailorPlaybackConfigurationOutput
+	ToAdConfigurationMediaTailorPlaybackConfigurationOutputWithContext(context.Context) AdConfigurationMediaTailorPlaybackConfigurationOutput
+}
+
+// Object specifying a configuration for integration with an AWS Elemental MediaTailor (EMT).
+type AdConfigurationMediaTailorPlaybackConfigurationArgs struct {
+	// ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+	PlaybackConfigurationArn pulumi.StringPtrInput `pulumi:"playbackConfigurationArn"`
+}
+
+func (AdConfigurationMediaTailorPlaybackConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdConfigurationMediaTailorPlaybackConfiguration)(nil)).Elem()
+}
+
+func (i AdConfigurationMediaTailorPlaybackConfigurationArgs) ToAdConfigurationMediaTailorPlaybackConfigurationOutput() AdConfigurationMediaTailorPlaybackConfigurationOutput {
+	return i.ToAdConfigurationMediaTailorPlaybackConfigurationOutputWithContext(context.Background())
+}
+
+func (i AdConfigurationMediaTailorPlaybackConfigurationArgs) ToAdConfigurationMediaTailorPlaybackConfigurationOutputWithContext(ctx context.Context) AdConfigurationMediaTailorPlaybackConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdConfigurationMediaTailorPlaybackConfigurationOutput)
+}
+
+// AdConfigurationMediaTailorPlaybackConfigurationArrayInput is an input type that accepts AdConfigurationMediaTailorPlaybackConfigurationArray and AdConfigurationMediaTailorPlaybackConfigurationArrayOutput values.
+// You can construct a concrete instance of `AdConfigurationMediaTailorPlaybackConfigurationArrayInput` via:
+//
+//	AdConfigurationMediaTailorPlaybackConfigurationArray{ AdConfigurationMediaTailorPlaybackConfigurationArgs{...} }
+type AdConfigurationMediaTailorPlaybackConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAdConfigurationMediaTailorPlaybackConfigurationArrayOutput() AdConfigurationMediaTailorPlaybackConfigurationArrayOutput
+	ToAdConfigurationMediaTailorPlaybackConfigurationArrayOutputWithContext(context.Context) AdConfigurationMediaTailorPlaybackConfigurationArrayOutput
+}
+
+type AdConfigurationMediaTailorPlaybackConfigurationArray []AdConfigurationMediaTailorPlaybackConfigurationInput
+
+func (AdConfigurationMediaTailorPlaybackConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdConfigurationMediaTailorPlaybackConfiguration)(nil)).Elem()
+}
+
+func (i AdConfigurationMediaTailorPlaybackConfigurationArray) ToAdConfigurationMediaTailorPlaybackConfigurationArrayOutput() AdConfigurationMediaTailorPlaybackConfigurationArrayOutput {
+	return i.ToAdConfigurationMediaTailorPlaybackConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AdConfigurationMediaTailorPlaybackConfigurationArray) ToAdConfigurationMediaTailorPlaybackConfigurationArrayOutputWithContext(ctx context.Context) AdConfigurationMediaTailorPlaybackConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdConfigurationMediaTailorPlaybackConfigurationArrayOutput)
+}
+
+// Object specifying a configuration for integration with an AWS Elemental MediaTailor (EMT).
+type AdConfigurationMediaTailorPlaybackConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AdConfigurationMediaTailorPlaybackConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdConfigurationMediaTailorPlaybackConfiguration)(nil)).Elem()
+}
+
+func (o AdConfigurationMediaTailorPlaybackConfigurationOutput) ToAdConfigurationMediaTailorPlaybackConfigurationOutput() AdConfigurationMediaTailorPlaybackConfigurationOutput {
+	return o
+}
+
+func (o AdConfigurationMediaTailorPlaybackConfigurationOutput) ToAdConfigurationMediaTailorPlaybackConfigurationOutputWithContext(ctx context.Context) AdConfigurationMediaTailorPlaybackConfigurationOutput {
+	return o
+}
+
+// ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+func (o AdConfigurationMediaTailorPlaybackConfigurationOutput) PlaybackConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdConfigurationMediaTailorPlaybackConfiguration) *string { return v.PlaybackConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+type AdConfigurationMediaTailorPlaybackConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AdConfigurationMediaTailorPlaybackConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdConfigurationMediaTailorPlaybackConfiguration)(nil)).Elem()
+}
+
+func (o AdConfigurationMediaTailorPlaybackConfigurationArrayOutput) ToAdConfigurationMediaTailorPlaybackConfigurationArrayOutput() AdConfigurationMediaTailorPlaybackConfigurationArrayOutput {
+	return o
+}
+
+func (o AdConfigurationMediaTailorPlaybackConfigurationArrayOutput) ToAdConfigurationMediaTailorPlaybackConfigurationArrayOutputWithContext(ctx context.Context) AdConfigurationMediaTailorPlaybackConfigurationArrayOutput {
+	return o
+}
+
+func (o AdConfigurationMediaTailorPlaybackConfigurationArrayOutput) Index(i pulumi.IntInput) AdConfigurationMediaTailorPlaybackConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdConfigurationMediaTailorPlaybackConfiguration {
+		return vs[0].([]AdConfigurationMediaTailorPlaybackConfiguration)[vs[1].(int)]
+	}).(AdConfigurationMediaTailorPlaybackConfigurationOutput)
+}
+
+// Configuration for the post-roll ad break to use for this ad configuration.
+type AdConfigurationPostRollConfiguration struct {
+	// Duration of the post-roll ad break, in seconds.
+	DurationSeconds int `pulumi:"durationSeconds"`
+	// Whether the post-roll ad configuration is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// AdConfigurationPostRollConfigurationInput is an input type that accepts AdConfigurationPostRollConfigurationArgs and AdConfigurationPostRollConfigurationOutput values.
+// You can construct a concrete instance of `AdConfigurationPostRollConfigurationInput` via:
+//
+//	AdConfigurationPostRollConfigurationArgs{...}
+type AdConfigurationPostRollConfigurationInput interface {
+	pulumi.Input
+
+	ToAdConfigurationPostRollConfigurationOutput() AdConfigurationPostRollConfigurationOutput
+	ToAdConfigurationPostRollConfigurationOutputWithContext(context.Context) AdConfigurationPostRollConfigurationOutput
+}
+
+// Configuration for the post-roll ad break to use for this ad configuration.
+type AdConfigurationPostRollConfigurationArgs struct {
+	// Duration of the post-roll ad break, in seconds.
+	DurationSeconds pulumi.IntInput `pulumi:"durationSeconds"`
+	// Whether the post-roll ad configuration is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (AdConfigurationPostRollConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdConfigurationPostRollConfiguration)(nil)).Elem()
+}
+
+func (i AdConfigurationPostRollConfigurationArgs) ToAdConfigurationPostRollConfigurationOutput() AdConfigurationPostRollConfigurationOutput {
+	return i.ToAdConfigurationPostRollConfigurationOutputWithContext(context.Background())
+}
+
+func (i AdConfigurationPostRollConfigurationArgs) ToAdConfigurationPostRollConfigurationOutputWithContext(ctx context.Context) AdConfigurationPostRollConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdConfigurationPostRollConfigurationOutput)
+}
+
+func (i AdConfigurationPostRollConfigurationArgs) ToAdConfigurationPostRollConfigurationPtrOutput() AdConfigurationPostRollConfigurationPtrOutput {
+	return i.ToAdConfigurationPostRollConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AdConfigurationPostRollConfigurationArgs) ToAdConfigurationPostRollConfigurationPtrOutputWithContext(ctx context.Context) AdConfigurationPostRollConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdConfigurationPostRollConfigurationOutput).ToAdConfigurationPostRollConfigurationPtrOutputWithContext(ctx)
+}
+
+// AdConfigurationPostRollConfigurationPtrInput is an input type that accepts AdConfigurationPostRollConfigurationArgs, AdConfigurationPostRollConfigurationPtr and AdConfigurationPostRollConfigurationPtrOutput values.
+// You can construct a concrete instance of `AdConfigurationPostRollConfigurationPtrInput` via:
+//
+//	        AdConfigurationPostRollConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AdConfigurationPostRollConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAdConfigurationPostRollConfigurationPtrOutput() AdConfigurationPostRollConfigurationPtrOutput
+	ToAdConfigurationPostRollConfigurationPtrOutputWithContext(context.Context) AdConfigurationPostRollConfigurationPtrOutput
+}
+
+type adConfigurationPostRollConfigurationPtrType AdConfigurationPostRollConfigurationArgs
+
+func AdConfigurationPostRollConfigurationPtr(v *AdConfigurationPostRollConfigurationArgs) AdConfigurationPostRollConfigurationPtrInput {
+	return (*adConfigurationPostRollConfigurationPtrType)(v)
+}
+
+func (*adConfigurationPostRollConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdConfigurationPostRollConfiguration)(nil)).Elem()
+}
+
+func (i *adConfigurationPostRollConfigurationPtrType) ToAdConfigurationPostRollConfigurationPtrOutput() AdConfigurationPostRollConfigurationPtrOutput {
+	return i.ToAdConfigurationPostRollConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *adConfigurationPostRollConfigurationPtrType) ToAdConfigurationPostRollConfigurationPtrOutputWithContext(ctx context.Context) AdConfigurationPostRollConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdConfigurationPostRollConfigurationPtrOutput)
+}
+
+// Configuration for the post-roll ad break to use for this ad configuration.
+type AdConfigurationPostRollConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AdConfigurationPostRollConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdConfigurationPostRollConfiguration)(nil)).Elem()
+}
+
+func (o AdConfigurationPostRollConfigurationOutput) ToAdConfigurationPostRollConfigurationOutput() AdConfigurationPostRollConfigurationOutput {
+	return o
+}
+
+func (o AdConfigurationPostRollConfigurationOutput) ToAdConfigurationPostRollConfigurationOutputWithContext(ctx context.Context) AdConfigurationPostRollConfigurationOutput {
+	return o
+}
+
+func (o AdConfigurationPostRollConfigurationOutput) ToAdConfigurationPostRollConfigurationPtrOutput() AdConfigurationPostRollConfigurationPtrOutput {
+	return o.ToAdConfigurationPostRollConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AdConfigurationPostRollConfigurationOutput) ToAdConfigurationPostRollConfigurationPtrOutputWithContext(ctx context.Context) AdConfigurationPostRollConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdConfigurationPostRollConfiguration) *AdConfigurationPostRollConfiguration {
+		return &v
+	}).(AdConfigurationPostRollConfigurationPtrOutput)
+}
+
+// Duration of the post-roll ad break, in seconds.
+func (o AdConfigurationPostRollConfigurationOutput) DurationSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v AdConfigurationPostRollConfiguration) int { return v.DurationSeconds }).(pulumi.IntOutput)
+}
+
+// Whether the post-roll ad configuration is enabled.
+func (o AdConfigurationPostRollConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AdConfigurationPostRollConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type AdConfigurationPostRollConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AdConfigurationPostRollConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdConfigurationPostRollConfiguration)(nil)).Elem()
+}
+
+func (o AdConfigurationPostRollConfigurationPtrOutput) ToAdConfigurationPostRollConfigurationPtrOutput() AdConfigurationPostRollConfigurationPtrOutput {
+	return o
+}
+
+func (o AdConfigurationPostRollConfigurationPtrOutput) ToAdConfigurationPostRollConfigurationPtrOutputWithContext(ctx context.Context) AdConfigurationPostRollConfigurationPtrOutput {
+	return o
+}
+
+func (o AdConfigurationPostRollConfigurationPtrOutput) Elem() AdConfigurationPostRollConfigurationOutput {
+	return o.ApplyT(func(v *AdConfigurationPostRollConfiguration) AdConfigurationPostRollConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AdConfigurationPostRollConfiguration
+		return ret
+	}).(AdConfigurationPostRollConfigurationOutput)
+}
+
+// Duration of the post-roll ad break, in seconds.
+func (o AdConfigurationPostRollConfigurationPtrOutput) DurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AdConfigurationPostRollConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether the post-roll ad configuration is enabled.
+func (o AdConfigurationPostRollConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AdConfigurationPostRollConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AdConfigurationTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type ChannelMultitrackInputConfiguration struct {
 	// Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
 	Enabled *bool `pulumi:"enabled"`
@@ -1908,6 +2175,10 @@ func (o VideoPropertiesPtrOutput) Width() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AdConfigurationMediaTailorPlaybackConfigurationInput)(nil)).Elem(), AdConfigurationMediaTailorPlaybackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdConfigurationMediaTailorPlaybackConfigurationArrayInput)(nil)).Elem(), AdConfigurationMediaTailorPlaybackConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdConfigurationPostRollConfigurationInput)(nil)).Elem(), AdConfigurationPostRollConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdConfigurationPostRollConfigurationPtrInput)(nil)).Elem(), AdConfigurationPostRollConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultitrackInputConfigurationInput)(nil)).Elem(), ChannelMultitrackInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultitrackInputConfigurationPtrInput)(nil)).Elem(), ChannelMultitrackInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationDestinationConfigurationInput)(nil)).Elem(), RecordingConfigurationDestinationConfigurationArgs{})
@@ -1930,6 +2201,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageConfigurationS3StorageConfigurationInput)(nil)).Elem(), StorageConfigurationS3StorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesInput)(nil)).Elem(), VideoPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesPtrInput)(nil)).Elem(), VideoPropertiesArgs{})
+	pulumi.RegisterOutputType(AdConfigurationMediaTailorPlaybackConfigurationOutput{})
+	pulumi.RegisterOutputType(AdConfigurationMediaTailorPlaybackConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AdConfigurationPostRollConfigurationOutput{})
+	pulumi.RegisterOutputType(AdConfigurationPostRollConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelMultitrackInputConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelMultitrackInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationDestinationConfigurationOutput{})

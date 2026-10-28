@@ -19,16 +19,16 @@ type MigrationProject struct {
 	// The optional description of the migration project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The property describes an instance profile arn for the migration project. For read
-	InstanceProfileArn pulumi.StringPtrOutput `pulumi:"instanceProfileArn"`
+	InstanceProfileArn pulumi.StringOutput `pulumi:"instanceProfileArn"`
 	// The property describes an instance profile identifier for the migration project. For create
 	InstanceProfileIdentifier pulumi.StringPtrOutput `pulumi:"instanceProfileIdentifier"`
 	// The property describes an instance profile name for the migration project. For read
-	InstanceProfileName pulumi.StringPtrOutput `pulumi:"instanceProfileName"`
+	InstanceProfileName pulumi.StringOutput `pulumi:"instanceProfileName"`
 	// The property describes an ARN of the migration project.
 	MigrationProjectArn pulumi.StringOutput `pulumi:"migrationProjectArn"`
 	// The property describes a creating time of the migration project.
-	MigrationProjectCreationTime pulumi.StringPtrOutput `pulumi:"migrationProjectCreationTime"`
-	// The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+	MigrationProjectCreationTime pulumi.StringOutput `pulumi:"migrationProjectCreationTime"`
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	MigrationProjectIdentifier pulumi.StringPtrOutput `pulumi:"migrationProjectIdentifier"`
 	// The property describes a name to identify the migration project.
 	MigrationProjectName pulumi.StringPtrOutput `pulumi:"migrationProjectName"`
@@ -86,15 +86,9 @@ func (MigrationProjectState) ElementType() reflect.Type {
 type migrationProjectArgs struct {
 	// The optional description of the migration project.
 	Description *string `pulumi:"description"`
-	// The property describes an instance profile arn for the migration project. For read
-	InstanceProfileArn *string `pulumi:"instanceProfileArn"`
 	// The property describes an instance profile identifier for the migration project. For create
 	InstanceProfileIdentifier *string `pulumi:"instanceProfileIdentifier"`
-	// The property describes an instance profile name for the migration project. For read
-	InstanceProfileName *string `pulumi:"instanceProfileName"`
-	// The property describes a creating time of the migration project.
-	MigrationProjectCreationTime *string `pulumi:"migrationProjectCreationTime"`
-	// The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	MigrationProjectIdentifier *string `pulumi:"migrationProjectIdentifier"`
 	// The property describes a name to identify the migration project.
 	MigrationProjectName *string `pulumi:"migrationProjectName"`
@@ -114,15 +108,9 @@ type migrationProjectArgs struct {
 type MigrationProjectArgs struct {
 	// The optional description of the migration project.
 	Description pulumi.StringPtrInput
-	// The property describes an instance profile arn for the migration project. For read
-	InstanceProfileArn pulumi.StringPtrInput
 	// The property describes an instance profile identifier for the migration project. For create
 	InstanceProfileIdentifier pulumi.StringPtrInput
-	// The property describes an instance profile name for the migration project. For read
-	InstanceProfileName pulumi.StringPtrInput
-	// The property describes a creating time of the migration project.
-	MigrationProjectCreationTime pulumi.StringPtrInput
-	// The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	MigrationProjectIdentifier pulumi.StringPtrInput
 	// The property describes a name to identify the migration project.
 	MigrationProjectName pulumi.StringPtrInput
@@ -181,8 +169,8 @@ func (o MigrationProjectOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The property describes an instance profile arn for the migration project. For read
-func (o MigrationProjectOutput) InstanceProfileArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrationProject) pulumi.StringPtrOutput { return v.InstanceProfileArn }).(pulumi.StringPtrOutput)
+func (o MigrationProjectOutput) InstanceProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrationProject) pulumi.StringOutput { return v.InstanceProfileArn }).(pulumi.StringOutput)
 }
 
 // The property describes an instance profile identifier for the migration project. For create
@@ -191,8 +179,8 @@ func (o MigrationProjectOutput) InstanceProfileIdentifier() pulumi.StringPtrOutp
 }
 
 // The property describes an instance profile name for the migration project. For read
-func (o MigrationProjectOutput) InstanceProfileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrationProject) pulumi.StringPtrOutput { return v.InstanceProfileName }).(pulumi.StringPtrOutput)
+func (o MigrationProjectOutput) InstanceProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrationProject) pulumi.StringOutput { return v.InstanceProfileName }).(pulumi.StringOutput)
 }
 
 // The property describes an ARN of the migration project.
@@ -201,11 +189,11 @@ func (o MigrationProjectOutput) MigrationProjectArn() pulumi.StringOutput {
 }
 
 // The property describes a creating time of the migration project.
-func (o MigrationProjectOutput) MigrationProjectCreationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrationProject) pulumi.StringPtrOutput { return v.MigrationProjectCreationTime }).(pulumi.StringPtrOutput)
+func (o MigrationProjectOutput) MigrationProjectCreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrationProject) pulumi.StringOutput { return v.MigrationProjectCreationTime }).(pulumi.StringOutput)
 }
 
-// The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
+// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 func (o MigrationProjectOutput) MigrationProjectIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationProject) pulumi.StringPtrOutput { return v.MigrationProjectIdentifier }).(pulumi.StringPtrOutput)
 }

@@ -518,25 +518,18 @@ class CustomLaunchTemplateProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 version: _builtins.str,
-                 template_id: Optional[_builtins.str] = None):
+                 template_id: Optional[_builtins.str] = None,
+                 version: Optional[_builtins.str] = None):
         """
         An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
 
-        :param _builtins.str version: The version of the EC2 launch template to use to provision instances.
         :param _builtins.str template_id: The ID of the EC2 launch template to use to provision instances.
+        :param _builtins.str version: The version of the EC2 launch template to use to provision instances.
         """
-        pulumi.set(__self__, "version", version)
         if template_id is not None:
             pulumi.set(__self__, "template_id", template_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> _builtins.str:
-        """
-        The version of the EC2 launch template to use to provision instances.
-        """
-        return pulumi.get(self, "version")
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter(name="templateId")
@@ -545,6 +538,14 @@ class CustomLaunchTemplateProperties(dict):
         The ID of the EC2 launch template to use to provision instances.
         """
         return pulumi.get(self, "template_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        The version of the EC2 launch template to use to provision instances.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

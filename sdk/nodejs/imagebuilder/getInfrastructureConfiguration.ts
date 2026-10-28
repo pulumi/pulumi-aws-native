@@ -54,6 +54,10 @@ export interface GetInfrastructureConfigurationResult {
      */
     readonly logging?: outputs.imagebuilder.InfrastructureConfigurationLogging;
     /**
+     * The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+     */
+    readonly parentInstance?: outputs.imagebuilder.InfrastructureConfigurationParentInstance;
+    /**
      * The placement option settings for the infrastructure configuration.
      */
     readonly placement?: outputs.imagebuilder.InfrastructureConfigurationPlacement;
@@ -77,6 +81,10 @@ export interface GetInfrastructureConfigurationResult {
      * The tags associated with the component.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure. A TerminateInstance step in a workflow runs even when this is false.
+     */
+    readonly terminateInstanceOnCompletion?: boolean;
     /**
      * The terminate instance on failure configuration of the infrastructure configuration.
      */

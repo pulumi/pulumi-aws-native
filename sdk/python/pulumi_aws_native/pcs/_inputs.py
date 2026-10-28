@@ -360,41 +360,30 @@ class CustomLaunchTemplatePropertiesArgsDict(TypedDict):
     """
     An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
     """
-    version: pulumi.Input[_builtins.str]
-    """
-    The version of the EC2 launch template to use to provision instances.
-    """
     template_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the EC2 launch template to use to provision instances.
+    """
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The version of the EC2 launch template to use to provision instances.
     """
 
 @pulumi.input_type
 class CustomLaunchTemplatePropertiesArgs:
     def __init__(__self__, *,
-                 version: pulumi.Input[_builtins.str],
-                 template_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
 
-        :param pulumi.Input[_builtins.str] version: The version of the EC2 launch template to use to provision instances.
         :param pulumi.Input[_builtins.str] template_id: The ID of the EC2 launch template to use to provision instances.
+        :param pulumi.Input[_builtins.str] version: The version of the EC2 launch template to use to provision instances.
         """
-        pulumi.set(__self__, "version", version)
         if template_id is not None:
             pulumi.set(__self__, "template_id", template_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> pulumi.Input[_builtins.str]:
-        """
-        The version of the EC2 launch template to use to provision instances.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "version", value)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter(name="templateId")
@@ -407,6 +396,18 @@ class CustomLaunchTemplatePropertiesArgs:
     @template_id.setter
     def template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The version of the EC2 launch template to use to provision instances.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version", value)
 
 
 class NetworkingPropertiesArgsDict(TypedDict):

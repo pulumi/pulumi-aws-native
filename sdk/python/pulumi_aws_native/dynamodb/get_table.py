@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, deletion_protection_enabled=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, on_demand_throughput=None, point_in_time_recovery_specification=None, provisioned_throughput=None, resource_policy=None, sse_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None, warm_throughput=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, deletion_protection_enabled=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, on_demand_throughput=None, point_in_time_recovery_specification=None, provisioned_throughput=None, resource_policy=None, sse_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None, vector_indexes=None, warm_throughput=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -84,6 +84,9 @@ class GetTableResult:
         if time_to_live_specification and not isinstance(time_to_live_specification, dict):
             raise TypeError("Expected argument 'time_to_live_specification' to be a dict")
         pulumi.set(__self__, "time_to_live_specification", time_to_live_specification)
+        if vector_indexes and not isinstance(vector_indexes, list):
+            raise TypeError("Expected argument 'vector_indexes' to be a list")
+        pulumi.set(__self__, "vector_indexes", vector_indexes)
         if warm_throughput and not isinstance(warm_throughput, dict):
             raise TypeError("Expected argument 'warm_throughput' to be a dict")
         pulumi.set(__self__, "warm_throughput", warm_throughput)
@@ -102,7 +105,7 @@ class GetTableResult:
         """
         A list of attributes that describe the key schema for the table and indexes.
          This property is required to create a DDB table.
-         Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+         You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
         """
         return pulumi.get(self, "attribute_definitions")
 
@@ -261,6 +264,11 @@ class GetTableResult:
         return pulumi.get(self, "time_to_live_specification")
 
     @_builtins.property
+    @pulumi.getter(name="vectorIndexes")
+    def vector_indexes(self) -> Optional[Sequence['outputs.TableVectorIndex']]:
+        return pulumi.get(self, "vector_indexes")
+
+    @_builtins.property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> Optional['outputs.TableWarmThroughput']:
         """
@@ -294,6 +302,7 @@ class AwaitableGetTableResult(GetTableResult):
             table_class=self.table_class,
             tags=self.tags,
             time_to_live_specification=self.time_to_live_specification,
+            vector_indexes=self.vector_indexes,
             warm_throughput=self.warm_throughput)
 
 
@@ -334,6 +343,7 @@ def get_table(table_name: Optional[_builtins.str] = None,
         table_class=pulumi.get(__ret__, 'table_class'),
         tags=pulumi.get(__ret__, 'tags'),
         time_to_live_specification=pulumi.get(__ret__, 'time_to_live_specification'),
+        vector_indexes=pulumi.get(__ret__, 'vector_indexes'),
         warm_throughput=pulumi.get(__ret__, 'warm_throughput'))
 def get_table_output(table_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
@@ -371,4 +381,5 @@ def get_table_output(table_name: pulumi.Input[Optional[_builtins.str]] = None,
         table_class=pulumi.get(__response__, 'table_class'),
         tags=pulumi.get(__response__, 'tags'),
         time_to_live_specification=pulumi.get(__response__, 'time_to_live_specification'),
+        vector_indexes=pulumi.get(__response__, 'vector_indexes'),
         warm_throughput=pulumi.get(__response__, 'warm_throughput')))

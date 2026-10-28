@@ -46,6 +46,101 @@ namespace Pulumi.AwsNative.SecurityAgent
     }
 
     /// <summary>
+    /// The type of GitLab access token.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationGitLabInputTokenType : IEquatable<IntegrationGitLabInputTokenType>
+    {
+        private readonly string _value;
+
+        private IntegrationGitLabInputTokenType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationGitLabInputTokenType Personal { get; } = new IntegrationGitLabInputTokenType("PERSONAL");
+        public static IntegrationGitLabInputTokenType Group { get; } = new IntegrationGitLabInputTokenType("GROUP");
+
+        public static bool operator ==(IntegrationGitLabInputTokenType left, IntegrationGitLabInputTokenType right) => left.Equals(right);
+        public static bool operator !=(IntegrationGitLabInputTokenType left, IntegrationGitLabInputTokenType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationGitLabInputTokenType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationGitLabInputTokenType other && Equals(other);
+        public bool Equals(IntegrationGitLabInputTokenType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The integration provider.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationProviderEnum : IEquatable<IntegrationProviderEnum>
+    {
+        private readonly string _value;
+
+        private IntegrationProviderEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationProviderEnum Github { get; } = new IntegrationProviderEnum("GITHUB");
+        public static IntegrationProviderEnum Gitlab { get; } = new IntegrationProviderEnum("GITLAB");
+        public static IntegrationProviderEnum Bitbucket { get; } = new IntegrationProviderEnum("BITBUCKET");
+        public static IntegrationProviderEnum Confluence { get; } = new IntegrationProviderEnum("CONFLUENCE");
+
+        public static bool operator ==(IntegrationProviderEnum left, IntegrationProviderEnum right) => left.Equals(right);
+        public static bool operator !=(IntegrationProviderEnum left, IntegrationProviderEnum right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationProviderEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationProviderEnum other && Equals(other);
+        public bool Equals(IntegrationProviderEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the integration provider.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationProviderType : IEquatable<IntegrationProviderType>
+    {
+        private readonly string _value;
+
+        private IntegrationProviderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationProviderType SourceCode { get; } = new IntegrationProviderType("SOURCE_CODE");
+        public static IntegrationProviderType Documentation { get; } = new IntegrationProviderType("DOCUMENTATION");
+
+        public static bool operator ==(IntegrationProviderType left, IntegrationProviderType right) => left.Equals(right);
+        public static bool operator !=(IntegrationProviderType left, IntegrationProviderType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationProviderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationProviderType other && Equals(other);
+        public bool Equals(IntegrationProviderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of authentication provider
     /// </summary>
     [EnumType]
@@ -201,6 +296,130 @@ namespace Pulumi.AwsNative.SecurityAgent
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct PentestReportFiltersConfidenceLevelsItem : IEquatable<PentestReportFiltersConfidenceLevelsItem>
+    {
+        private readonly string _value;
+
+        private PentestReportFiltersConfidenceLevelsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PentestReportFiltersConfidenceLevelsItem FalsePositive { get; } = new PentestReportFiltersConfidenceLevelsItem("FALSE_POSITIVE");
+        public static PentestReportFiltersConfidenceLevelsItem Unconfirmed { get; } = new PentestReportFiltersConfidenceLevelsItem("UNCONFIRMED");
+        public static PentestReportFiltersConfidenceLevelsItem Low { get; } = new PentestReportFiltersConfidenceLevelsItem("LOW");
+        public static PentestReportFiltersConfidenceLevelsItem Medium { get; } = new PentestReportFiltersConfidenceLevelsItem("MEDIUM");
+        public static PentestReportFiltersConfidenceLevelsItem High { get; } = new PentestReportFiltersConfidenceLevelsItem("HIGH");
+
+        public static bool operator ==(PentestReportFiltersConfidenceLevelsItem left, PentestReportFiltersConfidenceLevelsItem right) => left.Equals(right);
+        public static bool operator !=(PentestReportFiltersConfidenceLevelsItem left, PentestReportFiltersConfidenceLevelsItem right) => !left.Equals(right);
+
+        public static explicit operator string(PentestReportFiltersConfidenceLevelsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PentestReportFiltersConfidenceLevelsItem other && Equals(other);
+        public bool Equals(PentestReportFiltersConfidenceLevelsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PentestReportFiltersRiskLevelsItem : IEquatable<PentestReportFiltersRiskLevelsItem>
+    {
+        private readonly string _value;
+
+        private PentestReportFiltersRiskLevelsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PentestReportFiltersRiskLevelsItem Unknown { get; } = new PentestReportFiltersRiskLevelsItem("UNKNOWN");
+        public static PentestReportFiltersRiskLevelsItem Informational { get; } = new PentestReportFiltersRiskLevelsItem("INFORMATIONAL");
+        public static PentestReportFiltersRiskLevelsItem Low { get; } = new PentestReportFiltersRiskLevelsItem("LOW");
+        public static PentestReportFiltersRiskLevelsItem Medium { get; } = new PentestReportFiltersRiskLevelsItem("MEDIUM");
+        public static PentestReportFiltersRiskLevelsItem High { get; } = new PentestReportFiltersRiskLevelsItem("HIGH");
+        public static PentestReportFiltersRiskLevelsItem Critical { get; } = new PentestReportFiltersRiskLevelsItem("CRITICAL");
+
+        public static bool operator ==(PentestReportFiltersRiskLevelsItem left, PentestReportFiltersRiskLevelsItem right) => left.Equals(right);
+        public static bool operator !=(PentestReportFiltersRiskLevelsItem left, PentestReportFiltersRiskLevelsItem right) => !left.Equals(right);
+
+        public static explicit operator string(PentestReportFiltersRiskLevelsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PentestReportFiltersRiskLevelsItem other && Equals(other);
+        public bool Equals(PentestReportFiltersRiskLevelsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PentestReportFiltersStatusesItem : IEquatable<PentestReportFiltersStatusesItem>
+    {
+        private readonly string _value;
+
+        private PentestReportFiltersStatusesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PentestReportFiltersStatusesItem Active { get; } = new PentestReportFiltersStatusesItem("ACTIVE");
+        public static PentestReportFiltersStatusesItem Resolved { get; } = new PentestReportFiltersStatusesItem("RESOLVED");
+        public static PentestReportFiltersStatusesItem Accepted { get; } = new PentestReportFiltersStatusesItem("ACCEPTED");
+        public static PentestReportFiltersStatusesItem FalsePositive { get; } = new PentestReportFiltersStatusesItem("FALSE_POSITIVE");
+
+        public static bool operator ==(PentestReportFiltersStatusesItem left, PentestReportFiltersStatusesItem right) => left.Equals(right);
+        public static bool operator !=(PentestReportFiltersStatusesItem left, PentestReportFiltersStatusesItem right) => !left.Equals(right);
+
+        public static explicit operator string(PentestReportFiltersStatusesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PentestReportFiltersStatusesItem other && Equals(other);
+        public bool Equals(PentestReportFiltersStatusesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PentestReportFiltersTaskStatusesItem : IEquatable<PentestReportFiltersTaskStatusesItem>
+    {
+        private readonly string _value;
+
+        private PentestReportFiltersTaskStatusesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PentestReportFiltersTaskStatusesItem InProgress { get; } = new PentestReportFiltersTaskStatusesItem("IN_PROGRESS");
+        public static PentestReportFiltersTaskStatusesItem Aborted { get; } = new PentestReportFiltersTaskStatusesItem("ABORTED");
+        public static PentestReportFiltersTaskStatusesItem Completed { get; } = new PentestReportFiltersTaskStatusesItem("COMPLETED");
+        public static PentestReportFiltersTaskStatusesItem InternalError { get; } = new PentestReportFiltersTaskStatusesItem("INTERNAL_ERROR");
+        public static PentestReportFiltersTaskStatusesItem Failed { get; } = new PentestReportFiltersTaskStatusesItem("FAILED");
+
+        public static bool operator ==(PentestReportFiltersTaskStatusesItem left, PentestReportFiltersTaskStatusesItem right) => left.Equals(right);
+        public static bool operator !=(PentestReportFiltersTaskStatusesItem left, PentestReportFiltersTaskStatusesItem right) => !left.Equals(right);
+
+        public static explicit operator string(PentestReportFiltersTaskStatusesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PentestReportFiltersTaskStatusesItem other && Equals(other);
+        public bool Equals(PentestReportFiltersTaskStatusesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Type of security risk to test for
     /// </summary>
@@ -282,6 +501,196 @@ namespace Pulumi.AwsNative.SecurityAgent
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PentestSkillType other && Equals(other);
         public bool Equals(PentestSkillType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of application a pentest target is tested as
+    /// </summary>
+    [EnumType]
+    public readonly struct PentestTestScopeType : IEquatable<PentestTestScopeType>
+    {
+        private readonly string _value;
+
+        private PentestTestScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PentestTestScopeType WebApp { get; } = new PentestTestScopeType("WEB_APP");
+        public static PentestTestScopeType GenerativeAiApp { get; } = new PentestTestScopeType("GENERATIVE_AI_APP");
+
+        public static bool operator ==(PentestTestScopeType left, PentestTestScopeType right) => left.Equals(right);
+        public static bool operator !=(PentestTestScopeType left, PentestTestScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(PentestTestScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PentestTestScopeType other && Equals(other);
+        public bool Equals(PentestTestScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The DNS resolution mode for the resource gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateConnectionDnsResolution : IEquatable<PrivateConnectionDnsResolution>
+    {
+        private readonly string _value;
+
+        private PrivateConnectionDnsResolution(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateConnectionDnsResolution Public { get; } = new PrivateConnectionDnsResolution("PUBLIC");
+        public static PrivateConnectionDnsResolution InVpc { get; } = new PrivateConnectionDnsResolution("IN_VPC");
+
+        public static bool operator ==(PrivateConnectionDnsResolution left, PrivateConnectionDnsResolution right) => left.Equals(right);
+        public static bool operator !=(PrivateConnectionDnsResolution left, PrivateConnectionDnsResolution right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateConnectionDnsResolution value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateConnectionDnsResolution other && Equals(other);
+        public bool Equals(PrivateConnectionDnsResolution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The DNS resolution mode for the resource gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateConnectionServiceManagedDnsResolution : IEquatable<PrivateConnectionServiceManagedDnsResolution>
+    {
+        private readonly string _value;
+
+        private PrivateConnectionServiceManagedDnsResolution(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateConnectionServiceManagedDnsResolution Public { get; } = new PrivateConnectionServiceManagedDnsResolution("PUBLIC");
+        public static PrivateConnectionServiceManagedDnsResolution InVpc { get; } = new PrivateConnectionServiceManagedDnsResolution("IN_VPC");
+
+        public static bool operator ==(PrivateConnectionServiceManagedDnsResolution left, PrivateConnectionServiceManagedDnsResolution right) => left.Equals(right);
+        public static bool operator !=(PrivateConnectionServiceManagedDnsResolution left, PrivateConnectionServiceManagedDnsResolution right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateConnectionServiceManagedDnsResolution value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateConnectionServiceManagedDnsResolution other && Equals(other);
+        public bool Equals(PrivateConnectionServiceManagedDnsResolution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP address type of the service-managed resource gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateConnectionServiceManagedIpAddressType : IEquatable<PrivateConnectionServiceManagedIpAddressType>
+    {
+        private readonly string _value;
+
+        private PrivateConnectionServiceManagedIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateConnectionServiceManagedIpAddressType Ipv4 { get; } = new PrivateConnectionServiceManagedIpAddressType("IPV4");
+        public static PrivateConnectionServiceManagedIpAddressType Ipv6 { get; } = new PrivateConnectionServiceManagedIpAddressType("IPV6");
+        public static PrivateConnectionServiceManagedIpAddressType DualStack { get; } = new PrivateConnectionServiceManagedIpAddressType("DUAL_STACK");
+
+        public static bool operator ==(PrivateConnectionServiceManagedIpAddressType left, PrivateConnectionServiceManagedIpAddressType right) => left.Equals(right);
+        public static bool operator !=(PrivateConnectionServiceManagedIpAddressType left, PrivateConnectionServiceManagedIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateConnectionServiceManagedIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateConnectionServiceManagedIpAddressType other && Equals(other);
+        public bool Equals(PrivateConnectionServiceManagedIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the private connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateConnectionStatus : IEquatable<PrivateConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateConnectionStatus Active { get; } = new PrivateConnectionStatus("ACTIVE");
+        public static PrivateConnectionStatus CreateInProgress { get; } = new PrivateConnectionStatus("CREATE_IN_PROGRESS");
+        public static PrivateConnectionStatus CreateFailed { get; } = new PrivateConnectionStatus("CREATE_FAILED");
+        public static PrivateConnectionStatus DeleteInProgress { get; } = new PrivateConnectionStatus("DELETE_IN_PROGRESS");
+        public static PrivateConnectionStatus DeleteFailed { get; } = new PrivateConnectionStatus("DELETE_FAILED");
+
+        public static bool operator ==(PrivateConnectionStatus left, PrivateConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateConnectionStatus left, PrivateConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateConnectionStatus other && Equals(other);
+        public bool Equals(PrivateConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the private connection, indicating whether it is service-managed or self-managed.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateConnectionType : IEquatable<PrivateConnectionType>
+    {
+        private readonly string _value;
+
+        private PrivateConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateConnectionType ServiceManaged { get; } = new PrivateConnectionType("SERVICE_MANAGED");
+        public static PrivateConnectionType SelfManaged { get; } = new PrivateConnectionType("SELF_MANAGED");
+
+        public static bool operator ==(PrivateConnectionType left, PrivateConnectionType right) => left.Equals(right);
+        public static bool operator !=(PrivateConnectionType left, PrivateConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateConnectionType other && Equals(other);
+        public bool Equals(PrivateConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

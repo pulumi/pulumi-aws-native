@@ -299,6 +299,67 @@ namespace Pulumi.AwsNative.MediaTailor
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem : IEquatable<PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem>
+    {
+        private readonly string _value;
+
+        private PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem Mute { get; } = new PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("MUTE");
+        public static PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem Unmute { get; } = new PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("UNMUTE");
+        public static PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem Pause { get; } = new PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("PAUSE");
+        public static PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem Skip { get; } = new PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem("SKIP");
+
+        public static bool operator ==(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem left, PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem left, PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem other && Equals(other);
+        public bool Equals(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+    /// </summary>
+    [EnumType]
+    public readonly struct PlaybackConfigurationClientSideBeaconingConfigurationReportingMode : IEquatable<PlaybackConfigurationClientSideBeaconingConfigurationReportingMode>
+    {
+        private readonly string _value;
+
+        private PlaybackConfigurationClientSideBeaconingConfigurationReportingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlaybackConfigurationClientSideBeaconingConfigurationReportingMode Disabled { get; } = new PlaybackConfigurationClientSideBeaconingConfigurationReportingMode("DISABLED");
+        public static PlaybackConfigurationClientSideBeaconingConfigurationReportingMode Insights { get; } = new PlaybackConfigurationClientSideBeaconingConfigurationReportingMode("INSIGHTS");
+
+        public static bool operator ==(PlaybackConfigurationClientSideBeaconingConfigurationReportingMode left, PlaybackConfigurationClientSideBeaconingConfigurationReportingMode right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationClientSideBeaconingConfigurationReportingMode left, PlaybackConfigurationClientSideBeaconingConfigurationReportingMode right) => !left.Equals(right);
+
+        public static explicit operator string(PlaybackConfigurationClientSideBeaconingConfigurationReportingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationClientSideBeaconingConfigurationReportingMode other && Equals(other);
+        public bool Equals(PlaybackConfigurationClientSideBeaconingConfigurationReportingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
     /// </summary>

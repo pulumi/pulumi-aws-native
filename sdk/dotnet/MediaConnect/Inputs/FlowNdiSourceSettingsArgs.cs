@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
 
     public sealed class FlowNdiSourceSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The audio reference level of the NDI sender, in dBFS.
+        /// </summary>
+        [Input("audioReferenceLevel")]
+        public Input<int>? AudioReferenceLevel { get; set; }
+
         [Input("sourceName")]
         public Input<string>? SourceName { get; set; }
 

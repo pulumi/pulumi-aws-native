@@ -793,7 +793,9 @@ class DomainEncryptionAtRestOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "kmsKeyId":
+        if key == "encryptionMode":
+            suggest = "encryption_mode"
+        elif key == "kmsKeyId":
             suggest = "kms_key_id"
 
         if suggest:
@@ -809,11 +811,13 @@ class DomainEncryptionAtRestOptions(dict):
 
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
+                 encryption_mode: Optional['DomainEncryptionAtRestOptionsEncryptionMode'] = None,
                  kms_key_id: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enabled: Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
                
                If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+        :param 'DomainEncryptionAtRestOptionsEncryptionMode' encryption_mode: The type of encryption at rest applied to the domain's data. Valid values are DISK and NATIVE. DISK is the default and uses volume-level encryption. NATIVE uses engine-native, index-level encryption and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After the mode is set to NATIVE, it can't be changed back to DISK.
         :param _builtins.str kms_key_id: The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
                
                You can also use `keyAlias` as a value.
@@ -822,6 +826,8 @@ class DomainEncryptionAtRestOptions(dict):
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
 
@@ -834,6 +840,14 @@ class DomainEncryptionAtRestOptions(dict):
         If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> Optional['DomainEncryptionAtRestOptionsEncryptionMode']:
+        """
+        The type of encryption at rest applied to the domain's data. Valid values are DISK and NATIVE. DISK is the default and uses volume-level encryption. NATIVE uses engine-native, index-level encryption and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After the mode is set to NATIVE, it can't be changed back to DISK.
+        """
+        return pulumi.get(self, "encryption_mode")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")

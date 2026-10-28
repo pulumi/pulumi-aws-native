@@ -33,8 +33,8 @@ class EvaluatorArgs:
         """
         The set of arguments for constructing a Evaluator resource.
 
-        :param pulumi.Input['EvaluatorConfigArgs'] evaluator_config: The configuration for the evaluator.
-        :param pulumi.Input['EvaluatorLevel'] level: The evaluation level that determines the scope of evaluation.
+        :param pulumi.Input['EvaluatorConfigArgs'] evaluator_config: The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
+        :param pulumi.Input['EvaluatorLevel'] level: The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
         :param pulumi.Input[_builtins.str] description: The description of the evaluator.
         :param pulumi.Input[_builtins.str] evaluator_name: The name of the evaluator. Must be unique within your account.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt evaluator data.
@@ -55,7 +55,7 @@ class EvaluatorArgs:
     @pulumi.getter(name="evaluatorConfig")
     def evaluator_config(self) -> pulumi.Input['EvaluatorConfigArgs']:
         """
-        The configuration for the evaluator.
+        The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
         """
         return pulumi.get(self, "evaluator_config")
 
@@ -67,7 +67,7 @@ class EvaluatorArgs:
     @pulumi.getter
     def level(self) -> pulumi.Input['EvaluatorLevel']:
         """
-        The evaluation level that determines the scope of evaluation.
+        The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
         """
         return pulumi.get(self, "level")
 
@@ -138,15 +138,15 @@ class Evaluator(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+        Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations. Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the evaluator.
-        :param pulumi.Input[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict']] evaluator_config: The configuration for the evaluator.
+        :param pulumi.Input[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict']] evaluator_config: The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
         :param pulumi.Input[_builtins.str] evaluator_name: The name of the evaluator. Must be unique within your account.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt evaluator data.
-        :param pulumi.Input['EvaluatorLevel'] level: The evaluation level that determines the scope of evaluation.
+        :param pulumi.Input['EvaluatorLevel'] level: The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to assign to the evaluator.
         """
         ...
@@ -156,7 +156,7 @@ class Evaluator(pulumi.CustomResource):
                  args: EvaluatorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+        Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations. Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
 
         :param str resource_name: The name of the resource.
         :param EvaluatorArgs args: The arguments to use to populate this resource's properties.
@@ -201,9 +201,11 @@ class Evaluator(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["evaluator_arn"] = None
             __props__.__dict__["evaluator_id"] = None
+            __props__.__dict__["evaluator_type"] = None
+            __props__.__dict__["provider"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["evaluatorName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["evaluatorConfig.derived.baseEvaluatorId", "evaluatorName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Evaluator, __self__).__init__(
             'aws-native:bedrockagentcore:Evaluator',
@@ -233,8 +235,10 @@ class Evaluator(pulumi.CustomResource):
         __props__.__dict__["evaluator_config"] = None
         __props__.__dict__["evaluator_id"] = None
         __props__.__dict__["evaluator_name"] = None
+        __props__.__dict__["evaluator_type"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["level"] = None
+        __props__.__dict__["provider"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
@@ -268,7 +272,7 @@ class Evaluator(pulumi.CustomResource):
     @pulumi.getter(name="evaluatorConfig")
     def evaluator_config(self) -> pulumi.Output['outputs.EvaluatorConfig']:
         """
-        The configuration for the evaluator.
+        The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
         """
         return pulumi.get(self, "evaluator_config")
 
@@ -289,6 +293,14 @@ class Evaluator(pulumi.CustomResource):
         return pulumi.get(self, "evaluator_name")
 
     @_builtins.property
+    @pulumi.getter(name="evaluatorType")
+    def evaluator_type(self) -> pulumi.Output['EvaluatorType']:
+        """
+        The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+        """
+        return pulumi.get(self, "evaluator_type")
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -300,9 +312,17 @@ class Evaluator(pulumi.CustomResource):
     @pulumi.getter
     def level(self) -> pulumi.Output['EvaluatorLevel']:
         """
-        The evaluation level that determines the scope of evaluation.
+        The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
         """
         return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> pulumi.Output['EvaluatorProvider']:
+        """
+        Where the evaluator's logic comes from: AWS, a third-party library (DeepEval or AutoEval), or you. Derived evaluators inherit the provider of their base evaluator.
+        """
+        return pulumi.get(self, "provider")
 
     @_builtins.property
     @pulumi.getter

@@ -348,6 +348,12 @@ namespace Pulumi.AwsNative.Transfer
         public Output<string?> Certificate { get; private set; } = null!;
 
         /// <summary>
+        /// When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients. When set to `false`, clients will not be able to establish an SFTP session until you import one or more host keys (see AWS::Transfer::HostKey). This property cannot be changed after resource creation. Default: `true`.
+        /// </summary>
+        [Output("createWithHostKey")]
+        public Output<bool?> CreateWithHostKey { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.
         /// </summary>
         [Output("domain")]
@@ -589,6 +595,12 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
+
+        /// <summary>
+        /// When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients. When set to `false`, clients will not be able to establish an SFTP session until you import one or more host keys (see AWS::Transfer::HostKey). This property cannot be changed after resource creation. Default: `true`.
+        /// </summary>
+        [Input("createWithHostKey")]
+        public Input<bool>? CreateWithHostKey { get; set; }
 
         /// <summary>
         /// Specifies the domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.

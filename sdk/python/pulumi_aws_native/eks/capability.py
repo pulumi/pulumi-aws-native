@@ -225,7 +225,7 @@ class Capability(pulumi.CustomResource):
             __props__.__dict__["modified_at"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["capabilityName", "clusterName", "configuration.argoCd.awsIdc", "configuration.argoCd.namespace", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["capabilityName", "clusterName", "configuration.argoCd.awsIdc", "configuration.argoCd.endpointPrefix", "configuration.argoCd.namespace", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Capability, __self__).__init__(
             'aws-native:eks:Capability',

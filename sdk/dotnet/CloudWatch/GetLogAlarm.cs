@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetLogAlarmResult
     {
         /// <summary>
+        /// Configuration that applies to the notifications this alarm sends when it performs its actions.
+        /// </summary>
+        public readonly Outputs.LogAlarmActionConfiguration? ActionConfiguration;
+        /// <summary>
         /// The number of log lines to include in alarm notifications. Valid values are 0 to 50.
         /// </summary>
         public readonly int? ActionLogLineCount;
@@ -130,6 +134,8 @@ namespace Pulumi.AwsNative.CloudWatch
 
         [OutputConstructor]
         private GetLogAlarmResult(
+            Outputs.LogAlarmActionConfiguration? actionConfiguration,
+
             int? actionLogLineCount,
 
             string? actionLogLineRoleArn,
@@ -162,6 +168,7 @@ namespace Pulumi.AwsNative.CloudWatch
 
             Outputs.LogAlarmWarmUpConfiguration? warmUpConfiguration)
         {
+            ActionConfiguration = actionConfiguration;
             ActionLogLineCount = actionLogLineCount;
             ActionLogLineRoleArn = actionLogLineRoleArn;
             ActionsEnabled = actionsEnabled;

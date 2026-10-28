@@ -52,6 +52,10 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// The version of the server SDK used in this container group
         /// </summary>
         public readonly string ServerSdkVersion;
+        /// <summary>
+        /// The number of virtual CPUs to give to the game server container. This is required when the container group definition doesn't set TotalVcpuLimit.
+        /// </summary>
+        public readonly double? Vcpu;
 
         [OutputConstructor]
         private ContainerGroupDefinitionGameServerContainerDefinition(
@@ -71,7 +75,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
             string? resolvedImageDigest,
 
-            string serverSdkVersion)
+            string serverSdkVersion,
+
+            double? vcpu)
         {
             ContainerName = containerName;
             DependsOn = dependsOn;
@@ -82,6 +88,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
             PortConfiguration = portConfiguration;
             ResolvedImageDigest = resolvedImageDigest;
             ServerSdkVersion = serverSdkVersion;
+            Vcpu = vcpu;
         }
     }
 }

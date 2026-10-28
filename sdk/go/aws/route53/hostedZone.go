@@ -33,7 +33,8 @@ type HostedZone struct {
 	pulumi.CustomResourceState
 
 	// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	AwsId           pulumi.StringOutput    `pulumi:"awsId"`
+	DelegationSetId pulumi.StringPtrOutput `pulumi:"delegationSetId"`
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
 	HostedZoneConfig HostedZoneConfigPtrOutput `pulumi:"hostedZoneConfig"`
@@ -71,6 +72,7 @@ func NewHostedZone(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"delegationSetId",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -107,6 +109,7 @@ func (HostedZoneState) ElementType() reflect.Type {
 }
 
 type hostedZoneArgs struct {
+	DelegationSetId *string `pulumi:"delegationSetId"`
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
 	HostedZoneConfig *HostedZoneConfig `pulumi:"hostedZoneConfig"`
@@ -134,6 +137,7 @@ type hostedZoneArgs struct {
 
 // The set of arguments for constructing a HostedZone resource.
 type HostedZoneArgs struct {
+	DelegationSetId pulumi.StringPtrInput
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
 	HostedZoneConfig HostedZoneConfigPtrInput
@@ -199,6 +203,10 @@ func (o HostedZoneOutput) ToHostedZoneOutputWithContext(ctx context.Context) Hos
 // The ID that Amazon Route 53 assigned to the hosted zone when you created it.
 func (o HostedZoneOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedZone) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+func (o HostedZoneOutput) DelegationSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedZone) pulumi.StringPtrOutput { return v.DelegationSetId }).(pulumi.StringPtrOutput)
 }
 
 // A complex type that contains an optional comment.

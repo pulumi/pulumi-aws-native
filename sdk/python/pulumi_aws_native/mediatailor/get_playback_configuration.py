@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlaybackConfigurationResult:
-    def __init__(__self__, ad_conditioning_configuration=None, ad_decision_server_configuration=None, ad_decision_server_url=None, ads_personalization_concurrency=None, ads_personalization_timeouts=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, function_mapping=None, hls_configuration=None, insertion_mode=None, live_pre_roll_configuration=None, log_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
+    def __init__(__self__, ad_conditioning_configuration=None, ad_decision_server_configuration=None, ad_decision_server_url=None, ads_personalization_concurrency=None, ads_personalization_timeouts=None, avail_suppression=None, beaconing_configuration=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, function_mapping=None, hls_configuration=None, insertion_mode=None, live_pre_roll_configuration=None, log_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
         if ad_conditioning_configuration and not isinstance(ad_conditioning_configuration, dict):
             raise TypeError("Expected argument 'ad_conditioning_configuration' to be a dict")
         pulumi.set(__self__, "ad_conditioning_configuration", ad_conditioning_configuration)
@@ -45,6 +45,9 @@ class GetPlaybackConfigurationResult:
         if avail_suppression and not isinstance(avail_suppression, dict):
             raise TypeError("Expected argument 'avail_suppression' to be a dict")
         pulumi.set(__self__, "avail_suppression", avail_suppression)
+        if beaconing_configuration and not isinstance(beaconing_configuration, dict):
+            raise TypeError("Expected argument 'beaconing_configuration' to be a dict")
+        pulumi.set(__self__, "beaconing_configuration", beaconing_configuration)
         if bumper and not isinstance(bumper, dict):
             raise TypeError("Expected argument 'bumper' to be a dict")
         pulumi.set(__self__, "bumper", bumper)
@@ -144,6 +147,14 @@ class GetPlaybackConfigurationResult:
         The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         """
         return pulumi.get(self, "avail_suppression")
+
+    @_builtins.property
+    @pulumi.getter(name="beaconingConfiguration")
+    def beaconing_configuration(self) -> Optional['outputs.PlaybackConfigurationBeaconingConfiguration']:
+        """
+        The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+        """
+        return pulumi.get(self, "beaconing_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -302,6 +313,7 @@ class AwaitableGetPlaybackConfigurationResult(GetPlaybackConfigurationResult):
             ads_personalization_concurrency=self.ads_personalization_concurrency,
             ads_personalization_timeouts=self.ads_personalization_timeouts,
             avail_suppression=self.avail_suppression,
+            beaconing_configuration=self.beaconing_configuration,
             bumper=self.bumper,
             cdn_configuration=self.cdn_configuration,
             configuration_aliases=self.configuration_aliases,
@@ -341,6 +353,7 @@ def get_playback_configuration(name: Optional[_builtins.str] = None,
         ads_personalization_concurrency=pulumi.get(__ret__, 'ads_personalization_concurrency'),
         ads_personalization_timeouts=pulumi.get(__ret__, 'ads_personalization_timeouts'),
         avail_suppression=pulumi.get(__ret__, 'avail_suppression'),
+        beaconing_configuration=pulumi.get(__ret__, 'beaconing_configuration'),
         bumper=pulumi.get(__ret__, 'bumper'),
         cdn_configuration=pulumi.get(__ret__, 'cdn_configuration'),
         configuration_aliases=pulumi.get(__ret__, 'configuration_aliases'),
@@ -377,6 +390,7 @@ def get_playback_configuration_output(name: pulumi.Input[Optional[_builtins.str]
         ads_personalization_concurrency=pulumi.get(__response__, 'ads_personalization_concurrency'),
         ads_personalization_timeouts=pulumi.get(__response__, 'ads_personalization_timeouts'),
         avail_suppression=pulumi.get(__response__, 'avail_suppression'),
+        beaconing_configuration=pulumi.get(__response__, 'beaconing_configuration'),
         bumper=pulumi.get(__response__, 'bumper'),
         cdn_configuration=pulumi.get(__response__, 'cdn_configuration'),
         configuration_aliases=pulumi.get(__response__, 'configuration_aliases'),

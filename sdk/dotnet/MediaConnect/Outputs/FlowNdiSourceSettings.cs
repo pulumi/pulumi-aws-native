@@ -13,11 +13,19 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
     [OutputType]
     public sealed class FlowNdiSourceSettings
     {
+        /// <summary>
+        /// The audio reference level of the NDI sender, in dBFS.
+        /// </summary>
+        public readonly int? AudioReferenceLevel;
         public readonly string? SourceName;
 
         [OutputConstructor]
-        private FlowNdiSourceSettings(string? sourceName)
+        private FlowNdiSourceSettings(
+            int? audioReferenceLevel,
+
+            string? sourceName)
         {
+            AudioReferenceLevel = audioReferenceLevel;
             SourceName = sourceName;
         }
     }

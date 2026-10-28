@@ -115,6 +115,7 @@ AWS::ApplicationAutoScaling::ScalingPolicy
 AWS::ApplicationInsights::Application
 AWS::ApplicationSignals::Discovery
 AWS::ApplicationSignals::GroupingConfiguration
+AWS::ApplicationSignals::InstrumentationConfig
 AWS::ApplicationSignals::ServiceLevelObjective
 AWS::Athena::CapacityReservation
 AWS::Athena::DataCatalog
@@ -128,6 +129,7 @@ AWS::AutoScaling::LifecycleHook
 AWS::AutoScaling::ScalingPolicy
 AWS::AutoScaling::ScheduledAction
 AWS::AutoScaling::WarmPool
+AWS::AutoScalingPlans::ScalingPlan
 AWS::B2BI::Capability
 AWS::B2BI::Partnership
 AWS::B2BI::Profile
@@ -175,6 +177,7 @@ AWS::Bedrock::KnowledgeBasePolicy
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
 AWS::Bedrock::ResourcePolicy
+AWS::Bedrock::RetrievalInstruction
 AWS::Bedrock::Session
 AWS::BedrockAgentCore::ApiKeyCredentialProvider
 AWS::BedrockAgentCore::BrowserCustom
@@ -182,6 +185,7 @@ AWS::BedrockAgentCore::BrowserProfile
 AWS::BedrockAgentCore::CapacityProvider
 AWS::BedrockAgentCore::CodeInterpreterCustom
 AWS::BedrockAgentCore::ConfigurationBundle
+AWS::BedrockAgentCore::ConsentPortal
 AWS::BedrockAgentCore::Dataset
 AWS::BedrockAgentCore::Evaluator
 AWS::BedrockAgentCore::Gateway
@@ -205,6 +209,7 @@ AWS::BedrockAgentCore::WorkloadIdentity
 AWS::BedrockMantle::Project
 AWS::Billing::BillingView
 AWS::Braket::SpendingLimit
+AWS::Budgets::Budget
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
 AWS::CE::AnomalySubscription
@@ -282,20 +287,25 @@ AWS::CloudTrail::Dashboard
 AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::ResourcePolicy
 AWS::CloudTrail::Trail
+AWS::CloudWatch::AccessProfile
 AWS::CloudWatch::Alarm
 AWS::CloudWatch::AlarmMuteRule
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::Dashboard
+AWS::CloudWatch::DomainForOrganization
 AWS::CloudWatch::InsightRule
+AWS::CloudWatch::Integration
 AWS::CloudWatch::LogAlarm
 AWS::CloudWatch::MetricStream
 AWS::CloudWatch::OTelEnrichment
+AWS::CloudWatch::OmniDashboard
 AWS::CloudWatch::ResourceMetricsConfiguration
 AWS::CloudWatch::View
 AWS::CodeArtifact::Domain
 AWS::CodeArtifact::PackageGroup
 AWS::CodeArtifact::Repository
 AWS::CodeBuild::Fleet
+AWS::CodeBuild::Project
 AWS::CodeBuild::ReportGroup
 AWS::CodeBuild::SourceCredential
 AWS::CodeCommit::Repository
@@ -416,6 +426,7 @@ AWS::DMS::ReplicationConfig
 AWS::DMS::ReplicationSubnetGroup
 AWS::DMS::ReplicationTask
 AWS::DRS::LaunchConfigurationTemplate
+AWS::DRS::RecoveryPlan
 AWS::DRS::ReplicationConfigurationTemplate
 AWS::DRS::SourceNetwork
 AWS::DSQL::Cluster
@@ -515,6 +526,7 @@ AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
 AWS::EC2::ClientVpnAuthorizationRule
+AWS::EC2::ClientVpnRoute
 AWS::EC2::CustomerGateway
 AWS::EC2::DHCPOptions
 AWS::EC2::EC2Fleet
@@ -542,6 +554,7 @@ AWS::EC2::InstanceEventWindow
 AWS::EC2::InternetGateway
 AWS::EC2::IpPoolRouteTableAssociation
 AWS::EC2::IpamExternalResourceVerificationToken
+AWS::EC2::IpamInternetRegistryAssociation
 AWS::EC2::KeyPair
 AWS::EC2::LaunchTemplate
 AWS::EC2::LocalGatewayRoute
@@ -587,6 +600,7 @@ AWS::EC2::TrafficMirrorSession
 AWS::EC2::TrafficMirrorTarget
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayAttachment
+AWS::EC2::TransitGatewayAttachmentNatConfiguration
 AWS::EC2::TransitGatewayConnect
 AWS::EC2::TransitGatewayConnectPeer
 AWS::EC2::TransitGatewayMeteringPolicy
@@ -640,6 +654,8 @@ AWS::ECS::ClusterCapacityProviderAssociations
 AWS::ECS::Daemon
 AWS::ECS::DaemonTaskDefinition
 AWS::ECS::ExpressGatewayService
+AWS::ECS::Gateway
+AWS::ECS::GatewayClusterAssociations
 AWS::ECS::PrimaryTaskSet
 AWS::ECS::Service
 AWS::ECS::TaskDefinition
@@ -656,6 +672,7 @@ AWS::EKS::FargateProfile
 AWS::EKS::IdentityProviderConfig
 AWS::EKS::Nodegroup
 AWS::EKS::PodIdentityAssociation
+AWS::EMR::InstanceFleetConfig
 AWS::EMR::InstanceGroupConfig
 AWS::EMR::SecurityConfiguration
 AWS::EMR::Step
@@ -727,6 +744,8 @@ AWS::FSx::Backup
 AWS::FSx::DataRepositoryAssociation
 AWS::FSx::FileCache
 AWS::FSx::S3AccessPointAttachment
+AWS::FSx::Snapshot
+AWS::FSx::StorageVirtualMachine
 AWS::FSx::Volume
 AWS::FinSpace::Environment
 AWS::Forecast::Dataset
@@ -779,6 +798,7 @@ AWS::Glue::SchemaVersion
 AWS::Glue::SchemaVersionMetadata
 AWS::Glue::SecurityConfiguration
 AWS::Glue::Session
+AWS::Glue::Table
 AWS::Glue::TableOptimizer
 AWS::Glue::Trigger
 AWS::Glue::UsageProfile
@@ -819,6 +839,7 @@ AWS::IAM::ServiceLinkedRole
 AWS::IAM::User
 AWS::IAM::UserPolicy
 AWS::IAM::VirtualMFADevice
+AWS::IVS::AdConfiguration
 AWS::IVS::Channel
 AWS::IVS::EncoderConfiguration
 AWS::IVS::IngestConfiguration
@@ -870,6 +891,7 @@ AWS::IoT::Job
 AWS::IoT::JobTemplate
 AWS::IoT::Logging
 AWS::IoT::MitigationAction
+AWS::IoT::OTAUpdate
 AWS::IoT::Policy
 AWS::IoT::PolicyPrincipalAttachment
 AWS::IoT::ProvisioningTemplate
@@ -969,6 +991,9 @@ AWS::LicenseManager::Grant
 AWS::LicenseManager::License
 AWS::LicenseManager::LicenseAssetGroup
 AWS::LicenseManager::LicenseAssetRuleSet
+AWS::LicenseManager::LicenseConfiguration
+AWS::LicenseManagerLinuxSubscriptions::SubscriptionProvider
+AWS::LicenseManagerUserSubscriptions::LicenseServerEndpoint
 AWS::Lightsail::Alarm
 AWS::Lightsail::Bucket
 AWS::Lightsail::Certificate
@@ -1045,6 +1070,7 @@ AWS::MediaConnect::Gateway
 AWS::MediaConnect::RouterInput
 AWS::MediaConnect::RouterNetworkInterface
 AWS::MediaConnect::RouterOutput
+AWS::MediaConvert::CertificateAssociation
 AWS::MediaConvert::JobTemplate
 AWS::MediaConvert::Preset
 AWS::MediaConvert::Queue
@@ -1054,6 +1080,8 @@ AWS::MediaLive::CloudWatchAlarmTemplateGroup
 AWS::MediaLive::Cluster
 AWS::MediaLive::EventBridgeRuleTemplate
 AWS::MediaLive::EventBridgeRuleTemplateGroup
+AWS::MediaLive::Input
+AWS::MediaLive::InputSecurityGroup
 AWS::MediaLive::Multiplex
 AWS::MediaLive::Multiplexprogram
 AWS::MediaLive::Network
@@ -1123,6 +1151,7 @@ AWS::NetworkManager::TransitGatewayRegistration
 AWS::NetworkManager::TransitGatewayRouteTableAttachment
 AWS::NetworkManager::VpcAttachment
 AWS::NetworkMonitor::Monitor
+AWS::NetworkMonitor::Probe
 AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio
@@ -1197,6 +1226,7 @@ AWS::Personalize::Schema
 AWS::Personalize::Solution
 AWS::Pinpoint::InAppTemplate
 AWS::Pipes::Pipe
+AWS::Polly::Lexicon
 AWS::PricingPlanManager::Subscription
 AWS::Proton::EnvironmentAccountConnection
 AWS::Proton::EnvironmentTemplate
@@ -1240,6 +1270,7 @@ AWS::RAM::SourceAssociation
 AWS::RDS::ClusterSnapshot
 AWS::RDS::CustomDBEngineVersion
 AWS::RDS::DBCluster
+AWS::RDS::DBClusterEndpoint
 AWS::RDS::DBClusterParameterGroup
 AWS::RDS::DBInstance
 AWS::RDS::DBParameterGroup
@@ -1249,6 +1280,7 @@ AWS::RDS::DBProxyTargetGroup
 AWS::RDS::DBShardGroup
 AWS::RDS::DBSnapshot
 AWS::RDS::DBSubnetGroup
+AWS::RDS::Deployment
 AWS::RDS::EventSubscription
 AWS::RDS::GlobalCluster
 AWS::RDS::Integration
@@ -1331,6 +1363,7 @@ AWS::Route53RecoveryReadiness::Cell
 AWS::Route53RecoveryReadiness::ReadinessCheck
 AWS::Route53RecoveryReadiness::RecoveryGroup
 AWS::Route53RecoveryReadiness::ResourceSet
+AWS::Route53Resolver::FirewallConfig
 AWS::Route53Resolver::FirewallDomainList
 AWS::Route53Resolver::FirewallRuleGroup
 AWS::Route53Resolver::FirewallRuleGroupAssociation
@@ -1397,10 +1430,12 @@ AWS::SES::Template
 AWS::SES::Tenant
 AWS::SES::VdmAttributes
 AWS::SMSVOICE::ConfigurationSet
+AWS::SMSVOICE::NotifyConfiguration
 AWS::SMSVOICE::OptOutList
 AWS::SMSVOICE::PhoneNumber
 AWS::SMSVOICE::Pool
 AWS::SMSVOICE::ProtectConfiguration
+AWS::SMSVOICE::RcsAgent
 AWS::SMSVOICE::Registration
 AWS::SMSVOICE::RegistrationAttachment
 AWS::SMSVOICE::ResourcePolicy
@@ -1447,6 +1482,7 @@ AWS::SageMaker::AppImageConfig
 AWS::SageMaker::Artifact
 AWS::SageMaker::Cluster
 AWS::SageMaker::CodeRepository
+AWS::SageMaker::ComputeQuota
 AWS::SageMaker::Context
 AWS::SageMaker::DataQualityJobDefinition
 AWS::SageMaker::Device
@@ -1494,9 +1530,12 @@ AWS::SecretsManager::SecretTargetAttachment
 AWS::SecurityAgent::AgentSpace
 AWS::SecurityAgent::Application
 AWS::SecurityAgent::Artifact
+AWS::SecurityAgent::Integration
 AWS::SecurityAgent::Pentest
+AWS::SecurityAgent::PrivateConnection
 AWS::SecurityAgent::SecurityRequirementPack
 AWS::SecurityAgent::TargetDomain
+AWS::SecurityHub::ActionTarget
 AWS::SecurityHub::AggregatorV2
 AWS::SecurityHub::AutomationRule
 AWS::SecurityHub::AutomationRuleV2
@@ -1553,6 +1592,8 @@ AWS::StepFunctions::Activity
 AWS::StepFunctions::StateMachine
 AWS::StepFunctions::StateMachineAlias
 AWS::StepFunctions::StateMachineVersion
+AWS::StorageGateway::NFSFileShare
+AWS::StorageGateway::SMBFileShare
 AWS::StorageGateway::Tape
 AWS::StorageGateway::TapePool
 AWS::StorageGateway::Volume
@@ -1633,6 +1674,7 @@ AWS::Wisdom::MessageTemplate
 AWS::Wisdom::MessageTemplateVersion
 AWS::Wisdom::QuickResponse
 AWS::WorkSpaces::ConnectionAlias
+AWS::WorkSpaces::Directory
 AWS::WorkSpaces::Workspace
 AWS::WorkSpaces::WorkspaceIpGroup
 AWS::WorkSpaces::WorkspacesPool

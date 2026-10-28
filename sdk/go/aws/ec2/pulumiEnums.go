@@ -8510,6 +8510,274 @@ func (o IpamExternalResourceVerificationTokenStatusPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Regional Internet Registry to associate with. The service returns these values in upper case, so the enum uses the round-tripping form.
+type IpamInternetRegistryAssociationRir string
+
+const (
+	IpamInternetRegistryAssociationRirRipe   = IpamInternetRegistryAssociationRir("RIPE")
+	IpamInternetRegistryAssociationRirApnic  = IpamInternetRegistryAssociationRir("APNIC")
+	IpamInternetRegistryAssociationRirArin   = IpamInternetRegistryAssociationRir("ARIN")
+	IpamInternetRegistryAssociationRirLacnic = IpamInternetRegistryAssociationRir("LACNIC")
+)
+
+func (IpamInternetRegistryAssociationRir) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamInternetRegistryAssociationRir)(nil)).Elem()
+}
+
+func (e IpamInternetRegistryAssociationRir) ToIpamInternetRegistryAssociationRirOutput() IpamInternetRegistryAssociationRirOutput {
+	return pulumi.ToOutput(e).(IpamInternetRegistryAssociationRirOutput)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToIpamInternetRegistryAssociationRirOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpamInternetRegistryAssociationRirOutput)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput {
+	return e.ToIpamInternetRegistryAssociationRirPtrOutputWithContext(context.Background())
+}
+
+func (e IpamInternetRegistryAssociationRir) ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirPtrOutput {
+	return IpamInternetRegistryAssociationRir(e).ToIpamInternetRegistryAssociationRirOutputWithContext(ctx).ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IpamInternetRegistryAssociationRir) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IpamInternetRegistryAssociationRirOutput struct{ *pulumi.OutputState }
+
+func (IpamInternetRegistryAssociationRirOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamInternetRegistryAssociationRir)(nil)).Elem()
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToIpamInternetRegistryAssociationRirOutput() IpamInternetRegistryAssociationRirOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToIpamInternetRegistryAssociationRirOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput {
+	return o.ToIpamInternetRegistryAssociationRirPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamInternetRegistryAssociationRir) *IpamInternetRegistryAssociationRir {
+		return &v
+	}).(IpamInternetRegistryAssociationRirPtrOutput)
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamInternetRegistryAssociationRir) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamInternetRegistryAssociationRir) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamInternetRegistryAssociationRirPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamInternetRegistryAssociationRirPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamInternetRegistryAssociationRir)(nil)).Elem()
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirPtrOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) Elem() IpamInternetRegistryAssociationRirOutput {
+	return o.ApplyT(func(v *IpamInternetRegistryAssociationRir) IpamInternetRegistryAssociationRir {
+		if v != nil {
+			return *v
+		}
+		var ret IpamInternetRegistryAssociationRir
+		return ret
+	}).(IpamInternetRegistryAssociationRirOutput)
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamInternetRegistryAssociationRir) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IpamInternetRegistryAssociationRirInput is an input type that accepts values of the IpamInternetRegistryAssociationRir enum
+// A concrete instance of `IpamInternetRegistryAssociationRirInput` can be one of the following:
+//
+//	IpamInternetRegistryAssociationRirRipe
+//	IpamInternetRegistryAssociationRirApnic
+//	IpamInternetRegistryAssociationRirArin
+//	IpamInternetRegistryAssociationRirLacnic
+type IpamInternetRegistryAssociationRirInput interface {
+	pulumi.Input
+
+	ToIpamInternetRegistryAssociationRirOutput() IpamInternetRegistryAssociationRirOutput
+	ToIpamInternetRegistryAssociationRirOutputWithContext(context.Context) IpamInternetRegistryAssociationRirOutput
+}
+
+var ipamInternetRegistryAssociationRirPtrType = reflect.TypeOf((**IpamInternetRegistryAssociationRir)(nil)).Elem()
+
+type IpamInternetRegistryAssociationRirPtrInput interface {
+	pulumi.Input
+
+	ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput
+	ToIpamInternetRegistryAssociationRirPtrOutputWithContext(context.Context) IpamInternetRegistryAssociationRirPtrOutput
+}
+
+type ipamInternetRegistryAssociationRirPtr string
+
+func IpamInternetRegistryAssociationRirPtr(v string) IpamInternetRegistryAssociationRirPtrInput {
+	return (*ipamInternetRegistryAssociationRirPtr)(&v)
+}
+
+func (*ipamInternetRegistryAssociationRirPtr) ElementType() reflect.Type {
+	return ipamInternetRegistryAssociationRirPtrType
+}
+
+func (in *ipamInternetRegistryAssociationRirPtr) ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput {
+	return pulumi.ToOutput(in).(IpamInternetRegistryAssociationRirPtrOutput)
+}
+
+func (in *ipamInternetRegistryAssociationRirPtr) ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpamInternetRegistryAssociationRirPtrOutput)
+}
+
+// The state of the internet registry association.
+type IpamInternetRegistryAssociationStateEnum string
+
+const (
+	IpamInternetRegistryAssociationStateEnumPendingEnable    = IpamInternetRegistryAssociationStateEnum("pending-enable")
+	IpamInternetRegistryAssociationStateEnumCreateInProgress = IpamInternetRegistryAssociationStateEnum("create-in-progress")
+	IpamInternetRegistryAssociationStateEnumCreateFailed     = IpamInternetRegistryAssociationStateEnum("create-failed")
+	IpamInternetRegistryAssociationStateEnumEnableInProgress = IpamInternetRegistryAssociationStateEnum("enable-in-progress")
+	IpamInternetRegistryAssociationStateEnumEnableComplete   = IpamInternetRegistryAssociationStateEnum("enable-complete")
+	IpamInternetRegistryAssociationStateEnumEnableFailed     = IpamInternetRegistryAssociationStateEnum("enable-failed")
+	IpamInternetRegistryAssociationStateEnumDeleteInProgress = IpamInternetRegistryAssociationStateEnum("delete-in-progress")
+	IpamInternetRegistryAssociationStateEnumDeleteComplete   = IpamInternetRegistryAssociationStateEnum("delete-complete")
+	IpamInternetRegistryAssociationStateEnumDeleteFailed     = IpamInternetRegistryAssociationStateEnum("delete-failed")
+)
+
+type IpamInternetRegistryAssociationStateEnumOutput struct{ *pulumi.OutputState }
+
+func (IpamInternetRegistryAssociationStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamInternetRegistryAssociationStateEnum)(nil)).Elem()
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToIpamInternetRegistryAssociationStateEnumOutput() IpamInternetRegistryAssociationStateEnumOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToIpamInternetRegistryAssociationStateEnumOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationStateEnumOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToIpamInternetRegistryAssociationStateEnumPtrOutput() IpamInternetRegistryAssociationStateEnumPtrOutput {
+	return o.ToIpamInternetRegistryAssociationStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToIpamInternetRegistryAssociationStateEnumPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamInternetRegistryAssociationStateEnum) *IpamInternetRegistryAssociationStateEnum {
+		return &v
+	}).(IpamInternetRegistryAssociationStateEnumPtrOutput)
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamInternetRegistryAssociationStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamInternetRegistryAssociationStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamInternetRegistryAssociationStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamInternetRegistryAssociationStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamInternetRegistryAssociationStateEnum)(nil)).Elem()
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) ToIpamInternetRegistryAssociationStateEnumPtrOutput() IpamInternetRegistryAssociationStateEnumPtrOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) ToIpamInternetRegistryAssociationStateEnumPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationStateEnumPtrOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) Elem() IpamInternetRegistryAssociationStateEnumOutput {
+	return o.ApplyT(func(v *IpamInternetRegistryAssociationStateEnum) IpamInternetRegistryAssociationStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret IpamInternetRegistryAssociationStateEnum
+		return ret
+	}).(IpamInternetRegistryAssociationStateEnumOutput)
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamInternetRegistryAssociationStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // A metered account is an account that is charged for active IP addresses managed in IPAM
 type IpamMeteredAccount string
 
@@ -16462,6 +16730,338 @@ func (o TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput) Index(i pulum
 	}).(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput)
 }
 
+// Whether NAT gateway support is enabled on the attachment. Set to disable to stage NAT rules without activating them; the rules are retained and become active when this is later set to enable.
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupport string
+
+const (
+	TransitGatewayAttachmentNatConfigurationNatGatewaySupportEnable  = TransitGatewayAttachmentNatConfigurationNatGatewaySupport("enable")
+	TransitGatewayAttachmentNatConfigurationNatGatewaySupportDisable = TransitGatewayAttachmentNatConfigurationNatGatewaySupport("disable")
+)
+
+func (TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatGatewaySupport)(nil)).Elem()
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return pulumi.ToOutput(e).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return e.ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return TransitGatewayAttachmentNatConfigurationNatGatewaySupport(e).ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutputWithContext(ctx).ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatGatewaySupport)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return o.ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayAttachmentNatConfigurationNatGatewaySupport) *TransitGatewayAttachmentNatConfigurationNatGatewaySupport {
+		return &v
+	}).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayAttachmentNatConfigurationNatGatewaySupport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentNatConfigurationNatGatewaySupport)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) Elem() TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentNatConfigurationNatGatewaySupport) TransitGatewayAttachmentNatConfigurationNatGatewaySupport {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayAttachmentNatConfigurationNatGatewaySupport
+		return ret
+	}).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransitGatewayAttachmentNatConfigurationNatGatewaySupport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransitGatewayAttachmentNatConfigurationNatGatewaySupportInput is an input type that accepts values of the TransitGatewayAttachmentNatConfigurationNatGatewaySupport enum
+// A concrete instance of `TransitGatewayAttachmentNatConfigurationNatGatewaySupportInput` can be one of the following:
+//
+//	TransitGatewayAttachmentNatConfigurationNatGatewaySupportEnable
+//	TransitGatewayAttachmentNatConfigurationNatGatewaySupportDisable
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupportInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput
+	ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput
+}
+
+var transitGatewayAttachmentNatConfigurationNatGatewaySupportPtrType = reflect.TypeOf((**TransitGatewayAttachmentNatConfigurationNatGatewaySupport)(nil)).Elem()
+
+type TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput
+	ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput
+}
+
+type transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr string
+
+func TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtr(v string) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrInput {
+	return (*transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr)(&v)
+}
+
+func (*transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr) ElementType() reflect.Type {
+	return transitGatewayAttachmentNatConfigurationNatGatewaySupportPtrType
+}
+
+func (in *transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return pulumi.ToOutput(in).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput)
+}
+
+func (in *transitGatewayAttachmentNatConfigurationNatGatewaySupportPtr) ToTransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput)
+}
+
+// Whether routes for the NAT CIDRs are installed into the transit gateway route tables associated with the attachment. Whether this is configurable depends on the attachment; where the value is forced, supplying the opposite value is rejected. Omitting this property leaves the setting to the service: on a new configuration the service applies the attachment's default, but on an attachment where the value is configurable it keeps the value already in effect rather than reverting to that default. Removing this property from a template, or deleting this resource, therefore leaves the setting at its last value rather than restoring the default, and a resource later created on the same attachment without this property inherits that value.
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport string
+
+const (
+	TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportEnable  = TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("enable")
+	TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportDisable = TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("disable")
+)
+
+func (TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport)(nil)).Elem()
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return pulumi.ToOutput(e).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return e.ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport(e).ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutputWithContext(ctx).ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return o.ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) *TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport {
+		return &v
+	}).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) Elem() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport
+		return ret
+	}).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput)
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportInput is an input type that accepts values of the TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport enum
+// A concrete instance of `TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportInput` can be one of the following:
+//
+//	TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportEnable
+//	TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportDisable
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput
+	ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput
+}
+
+var transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrType = reflect.TypeOf((**TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport)(nil)).Elem()
+
+type TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput
+	ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput
+}
+
+type transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr string
+
+func TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr(v string) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrInput {
+	return (*transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr)(&v)
+}
+
+func (*transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr) ElementType() reflect.Type {
+	return transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrType
+}
+
+func (in *transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput() TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return pulumi.ToOutput(in).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput)
+}
+
+func (in *transitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtr) ToTransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput)
+}
+
 // Enable or disable encryption support. Disabled by default.
 type TransitGatewayEncryptionSupport string
 
@@ -23235,6 +23835,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsInstanceMetadataTagsPtrInput)(nil)).Elem(), InstanceMetadataOptionsInstanceMetadataTags("disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypeInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypePtrInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamInternetRegistryAssociationRirInput)(nil)).Elem(), IpamInternetRegistryAssociationRir("RIPE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamInternetRegistryAssociationRirPtrInput)(nil)).Elem(), IpamInternetRegistryAssociationRir("RIPE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamMeteredAccountInput)(nil)).Elem(), IpamMeteredAccount("ipam-owner"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamMeteredAccountPtrInput)(nil)).Elem(), IpamMeteredAccount("ipam-owner"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolAwsServiceInput)(nil)).Elem(), IpamPoolAwsService("ec2"))
@@ -23321,6 +23923,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServicePtrInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceArrayInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatGatewaySupportInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatGatewaySupport("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatGatewaySupport("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrInput)(nil)).Elem(), TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport("enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayEncryptionSupportInput)(nil)).Elem(), TransitGatewayEncryptionSupport("disable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayEncryptionSupportPtrInput)(nil)).Elem(), TransitGatewayEncryptionSupport("disable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeInput)(nil)).Elem(), TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpc"))
@@ -23506,6 +24112,10 @@ func init() {
 	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStatusOutput{})
 	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStatusPtrOutput{})
+	pulumi.RegisterOutputType(IpamInternetRegistryAssociationRirOutput{})
+	pulumi.RegisterOutputType(IpamInternetRegistryAssociationRirPtrOutput{})
+	pulumi.RegisterOutputType(IpamInternetRegistryAssociationStateEnumOutput{})
+	pulumi.RegisterOutputType(IpamInternetRegistryAssociationStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(IpamMeteredAccountOutput{})
 	pulumi.RegisterOutputType(IpamMeteredAccountPtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolAwsServiceOutput{})
@@ -23612,6 +24222,10 @@ func init() {
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatGatewaySupportOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatGatewaySupportPtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNatConfigurationNatSystemRouteSupportPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayEncryptionSupportOutput{})
 	pulumi.RegisterOutputType(TransitGatewayEncryptionSupportPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput{})

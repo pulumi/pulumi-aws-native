@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? ImageRecipeArn;
         /// <summary>
-        /// Contains settings for vulnerability scans.
+        /// Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
         /// </summary>
         public readonly Outputs.ImagePipelineImageScanningConfiguration? ImageScanningConfiguration;
         /// <summary>

@@ -2031,8 +2031,13 @@ func (o BucketDataExportPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket, unless an object's upload request specifies its own Object Lock settings. New object versions are placed under an event hold and remain protected while the hold is active. When the event hold is released, Amazon S3 retains the object version for this duration, measured from the time the hold is released.
+//
+//	The ``DefaultEventHold`` duration can be specified in either ``Days`` or ``Years``, but you must select one. You can't specify ``Days`` and ``Years`` at the same time.
 type BucketDefaultEventHold struct {
-	Days  *int `pulumi:"days"`
+	// The number of days that you want to specify for the default event hold duration. Valid values are ``1`` to ``36500`` days. You must specify either ``Days`` or ``Years``, but not both.
+	Days *int `pulumi:"days"`
+	// The number of years that you want to specify for the default event hold duration. Valid values are ``1`` to ``100`` years. You must specify either ``Days`` or ``Years``, but not both.
 	Years *int `pulumi:"years"`
 }
 
@@ -2047,8 +2052,13 @@ type BucketDefaultEventHoldInput interface {
 	ToBucketDefaultEventHoldOutputWithContext(context.Context) BucketDefaultEventHoldOutput
 }
 
+// The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket, unless an object's upload request specifies its own Object Lock settings. New object versions are placed under an event hold and remain protected while the hold is active. When the event hold is released, Amazon S3 retains the object version for this duration, measured from the time the hold is released.
+//
+//	The ``DefaultEventHold`` duration can be specified in either ``Days`` or ``Years``, but you must select one. You can't specify ``Days`` and ``Years`` at the same time.
 type BucketDefaultEventHoldArgs struct {
-	Days  pulumi.IntPtrInput `pulumi:"days"`
+	// The number of days that you want to specify for the default event hold duration. Valid values are ``1`` to ``36500`` days. You must specify either ``Days`` or ``Years``, but not both.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// The number of years that you want to specify for the default event hold duration. Valid values are ``1`` to ``100`` years. You must specify either ``Days`` or ``Years``, but not both.
 	Years pulumi.IntPtrInput `pulumi:"years"`
 }
 
@@ -2105,6 +2115,9 @@ func (i *bucketDefaultEventHoldPtrType) ToBucketDefaultEventHoldPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultEventHoldPtrOutput)
 }
 
+// The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket, unless an object's upload request specifies its own Object Lock settings. New object versions are placed under an event hold and remain protected while the hold is active. When the event hold is released, Amazon S3 retains the object version for this duration, measured from the time the hold is released.
+//
+//	The ``DefaultEventHold`` duration can be specified in either ``Days`` or ``Years``, but you must select one. You can't specify ``Days`` and ``Years`` at the same time.
 type BucketDefaultEventHoldOutput struct{ *pulumi.OutputState }
 
 func (BucketDefaultEventHoldOutput) ElementType() reflect.Type {
@@ -2129,10 +2142,12 @@ func (o BucketDefaultEventHoldOutput) ToBucketDefaultEventHoldPtrOutputWithConte
 	}).(BucketDefaultEventHoldPtrOutput)
 }
 
+// The number of days that you want to specify for the default event hold duration. Valid values are “1“ to “36500“ days. You must specify either “Days“ or “Years“, but not both.
 func (o BucketDefaultEventHoldOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketDefaultEventHold) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
+// The number of years that you want to specify for the default event hold duration. Valid values are “1“ to “100“ years. You must specify either “Days“ or “Years“, but not both.
 func (o BucketDefaultEventHoldOutput) Years() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketDefaultEventHold) *int { return v.Years }).(pulumi.IntPtrOutput)
 }
@@ -2161,6 +2176,7 @@ func (o BucketDefaultEventHoldPtrOutput) Elem() BucketDefaultEventHoldOutput {
 	}).(BucketDefaultEventHoldOutput)
 }
 
+// The number of days that you want to specify for the default event hold duration. Valid values are “1“ to “36500“ days. You must specify either “Days“ or “Years“, but not both.
 func (o BucketDefaultEventHoldPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketDefaultEventHold) *int {
 		if v == nil {
@@ -2170,6 +2186,7 @@ func (o BucketDefaultEventHoldPtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of years that you want to specify for the default event hold duration. Valid values are “1“ to “100“ years. You must specify either “Days“ or “Years“, but not both.
 func (o BucketDefaultEventHoldPtrOutput) Years() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketDefaultEventHold) *int {
 		if v == nil {
@@ -2184,7 +2201,9 @@ func (o BucketDefaultEventHoldPtrOutput) Years() pulumi.IntPtrOutput {
 //   - The “DefaultRetention“ period can be either “Days“ or “Years“ but you must select one. You cannot specify “Days“ and “Years“ at the same time.
 type BucketDefaultRetention struct {
 	// The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
-	Days             *int                    `pulumi:"days"`
+	Days *int `pulumi:"days"`
+	// The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+	//   If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
 	DefaultEventHold *BucketDefaultEventHold `pulumi:"defaultEventHold"`
 	// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
 	Mode *BucketDefaultRetentionMode `pulumi:"mode"`
@@ -2208,7 +2227,9 @@ type BucketDefaultRetentionInput interface {
 //   - The “DefaultRetention“ period can be either “Days“ or “Years“ but you must select one. You cannot specify “Days“ and “Years“ at the same time.
 type BucketDefaultRetentionArgs struct {
 	// The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
-	Days             pulumi.IntPtrInput             `pulumi:"days"`
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+	//   If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
 	DefaultEventHold BucketDefaultEventHoldPtrInput `pulumi:"defaultEventHold"`
 	// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
 	Mode BucketDefaultRetentionModePtrInput `pulumi:"mode"`
@@ -2301,6 +2322,9 @@ func (o BucketDefaultRetentionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketDefaultRetention) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
+// The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+//
+//	If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
 func (o BucketDefaultRetentionOutput) DefaultEventHold() BucketDefaultEventHoldPtrOutput {
 	return o.ApplyT(func(v BucketDefaultRetention) *BucketDefaultEventHold { return v.DefaultEventHold }).(BucketDefaultEventHoldPtrOutput)
 }
@@ -2349,6 +2373,9 @@ func (o BucketDefaultRetentionPtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+//
+//	If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
 func (o BucketDefaultRetentionPtrOutput) DefaultEventHold() BucketDefaultEventHoldPtrOutput {
 	return o.ApplyT(func(v *BucketDefaultRetention) *BucketDefaultEventHold {
 		if v == nil {

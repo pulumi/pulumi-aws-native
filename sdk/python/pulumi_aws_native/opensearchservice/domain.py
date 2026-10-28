@@ -24,6 +24,7 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
+                 accepted_warnings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  access_policies: Optional[Any] = None,
                  advanced_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: pulumi.Input[Optional['DomainAdvancedSecurityOptionsInputArgs']] = None,
@@ -52,6 +53,7 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accepted_warnings: Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
         :param Any access_policies: An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
@@ -89,6 +91,8 @@ class DomainArgs:
                
                If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
         """
+        if accepted_warnings is not None:
+            pulumi.set(__self__, "accepted_warnings", accepted_warnings)
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
         if advanced_options is not None:
@@ -139,6 +143,18 @@ class DomainArgs:
             pulumi.set(__self__, "use_case", use_case)
         if vpc_options is not None:
             pulumi.set(__self__, "vpc_options", vpc_options)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptedWarnings")
+    def accepted_warnings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+        """
+        return pulumi.get(self, "accepted_warnings")
+
+    @accepted_warnings.setter
+    def accepted_warnings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "accepted_warnings", value)
 
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
@@ -452,6 +468,7 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accepted_warnings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  access_policies: Optional[Any] = None,
                  advanced_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']]] = None,
@@ -483,6 +500,7 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accepted_warnings: Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
         :param Any access_policies: An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
@@ -544,6 +562,7 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accepted_warnings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  access_policies: Optional[Any] = None,
                  advanced_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']]] = None,
@@ -578,6 +597,7 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
+            __props__.__dict__["accepted_warnings"] = accepted_warnings
             __props__.__dict__["access_policies"] = access_policies
             __props__.__dict__["advanced_options"] = advanced_options
             __props__.__dict__["advanced_security_options"] = advanced_security_options
@@ -634,6 +654,7 @@ class Domain(pulumi.CustomResource):
 
         __props__ = DomainArgs.__new__(DomainArgs)
 
+        __props__.__dict__["accepted_warnings"] = None
         __props__.__dict__["access_policies"] = None
         __props__.__dict__["advanced_options"] = None
         __props__.__dict__["advanced_security_options"] = None
@@ -667,6 +688,14 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["use_case"] = None
         __props__.__dict__["vpc_options"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptedWarnings")
+    def accepted_warnings(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+        """
+        return pulumi.get(self, "accepted_warnings")
 
     @_builtins.property
     @pulumi.getter(name="accessPolicies")

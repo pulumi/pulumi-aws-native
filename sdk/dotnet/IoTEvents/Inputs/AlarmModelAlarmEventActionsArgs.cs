@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
-    /// <summary>
-    /// Contains information about one or more alarm actions.
-    /// </summary>
     public sealed class AlarmModelAlarmEventActionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarmActions")]

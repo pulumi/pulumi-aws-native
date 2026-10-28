@@ -148,6 +148,9 @@ __all__ = [
     'AnalysisWordCloudWordOrientation',
     'AnalysisWordCloudWordPadding',
     'AnalysisWordCloudWordScaling',
+    'ApprovalPolicyApplicableToType',
+    'ApprovalPolicyAssetType',
+    'ApprovalPolicyGovernedAction',
     'CustomPermissionsCapabilityState',
     'DashboardAnchorOption',
     'DashboardArcThickness',
@@ -1553,6 +1556,30 @@ class AnalysisWordCloudWordPadding(_builtins.str, Enum):
 class AnalysisWordCloudWordScaling(_builtins.str, Enum):
     EMPHASIZE = "EMPHASIZE"
     NORMAL = "NORMAL"
+
+
+@pulumi.type_token("aws-native:quicksight:ApprovalPolicyApplicableToType")
+class ApprovalPolicyApplicableToType(_builtins.str, Enum):
+    GROUP = "GROUP"
+
+
+@pulumi.type_token("aws-native:quicksight:ApprovalPolicyAssetType")
+class ApprovalPolicyAssetType(_builtins.str, Enum):
+    """
+    Asset types that can be governed by approval policies.
+    """
+    AGENT = "AGENT"
+    SPACE = "SPACE"
+    KNOWLEDGE_BASE = "KNOWLEDGE_BASE"
+    FLOW = "FLOW"
+
+
+@pulumi.type_token("aws-native:quicksight:ApprovalPolicyGovernedAction")
+class ApprovalPolicyGovernedAction(_builtins.str, Enum):
+    """
+    Actions that can be governed by approval policies.
+    """
+    SHARE = "SHARE"
 
 
 @pulumi.type_token("aws-native:quicksight:CustomPermissionsCapabilityState")

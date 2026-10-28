@@ -1,104 +1,124 @@
 {
+  "typeName" : "AWS::QuickSight::ApprovalPolicy",
+  "description" : "Definition of the AWS::QuickSight::ApprovalPolicy Resource Type.",
+  "definitions" : {
+    "ApplicableTo" : {
+      "type" : "object",
+      "description" : "Scoping: who the policy applies to.",
+      "properties" : {
+        "Type" : {
+          "$ref" : "#/definitions/ApplicableToType"
+        },
+        "GroupArns" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "minItems" : 1,
+          "description" : "Required when type = GROUP. One or more group ARNs."
+        }
+      },
+      "required" : [ "Type" ],
+      "additionalProperties" : false
+    },
+    "ApplicableToType" : {
+      "type" : "string",
+      "enum" : [ "GROUP" ]
+    },
+    "AssetType" : {
+      "type" : "string",
+      "description" : "Asset types that can be governed by approval policies.",
+      "enum" : [ "AGENT", "SPACE", "KNOWLEDGE_BASE", "FLOW" ]
+    },
+    "GovernedAction" : {
+      "type" : "string",
+      "description" : "Actions that can be governed by approval policies.",
+      "enum" : [ "SHARE" ]
+    }
+  },
+  "properties" : {
+    "Actions" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/GovernedAction"
+      },
+      "maxItems" : 10,
+      "minItems" : 1,
+      "description" : "List of governed actions a policy applies to."
+    },
+    "ApplicableTo" : {
+      "$ref" : "#/definitions/ApplicableTo"
+    },
+    "ApprovalGroups" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      },
+      "minItems" : 1,
+      "description" : "List of approval group ARNs (e.g. QuickSight group ARNs).\nAt least one approval group is required."
+    },
+    "AssetTypes" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/AssetType"
+      },
+      "minItems" : 1,
+      "description" : "List of asset types a policy applies to.\nAt least one asset type is required."
+    },
+    "CreatedAt" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "Description" : {
+      "type" : "string",
+      "maxLength" : 1024,
+      "minLength" : 0
+    },
+    "Name" : {
+      "type" : "string",
+      "maxLength" : 256,
+      "minLength" : 1
+    },
+    "PolicyArn" : {
+      "type" : "string"
+    },
+    "PolicyId" : {
+      "type" : "string",
+      "maxLength" : 64,
+      "minLength" : 1,
+      "pattern" : "^[a-zA-Z0-9\\-_]+$"
+    },
+    "UpdatedAt" : {
+      "type" : "string",
+      "format" : "date-time"
+    }
+  },
+  "required" : [ "PolicyId", "Name", "Actions", "AssetTypes", "ApplicableTo", "ApprovalGroups" ],
+  "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/PolicyArn", "/properties/UpdatedAt" ],
+  "createOnlyProperties" : [ "/properties/PolicyId" ],
+  "primaryIdentifier" : [ "/properties/PolicyId" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "quicksight:CreateApprovalPolicy", "quicksight:DescribeApprovalPolicy" ]
+    },
+    "read" : {
+      "permissions" : [ "quicksight:DescribeApprovalPolicy" ]
+    },
+    "update" : {
+      "permissions" : [ "quicksight:UpdateApprovalPolicy", "quicksight:DescribeApprovalPolicy" ]
+    },
+    "delete" : {
+      "permissions" : [ "quicksight:DeleteApprovalPolicy", "quicksight:DescribeApprovalPolicy" ]
+    },
+    "list" : {
+      "permissions" : [ "quicksight:ListApprovalPolicies" ]
+    }
+  },
+  "additionalProperties" : false,
   "tagging" : {
     "taggable" : false,
     "tagOnCreate" : false,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false
-  },
-  "handlers" : {
-    "read" : {
-      "permissions" : [ "quicksight:DescribeApprovalPolicy" ]
-    },
-    "create" : {
-      "permissions" : [ "quicksight:CreateApprovalPolicy", "quicksight:DescribeApprovalPolicy" ]
-    },
-    "update" : {
-      "permissions" : [ "quicksight:UpdateApprovalPolicy", "quicksight:DescribeApprovalPolicy" ]
-    },
-    "list" : {
-      "permissions" : [ "quicksight:ListApprovalPolicies" ]
-    },
-    "delete" : {
-      "permissions" : [ "quicksight:DeleteApprovalPolicy", "quicksight:DescribeApprovalPolicy" ]
-    }
-  },
-  "typeName" : "AWS::QuickSight::ApprovalPolicy",
-  "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/PolicyArn", "/properties/UpdatedAt" ],
-  "description" : "Definition of the AWS::QuickSight::ApprovalPolicy Resource Type.",
-  "createOnlyProperties" : [ "/properties/PolicyId" ],
-  "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/PolicyId" ],
-  "definitions" : {
-    "ApplicableTo" : {
-      "description" : "Scoping: who the policy applies to.\nGROUP: `groupArns` required (one or more group ARNs).",
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "GroupArns" : {
-          "minItems" : 1,
-          "description" : "Required when type = GROUP. One or more group ARNs.",
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Type" : { }
-      },
-      "required" : [ "Type" ]
-    }
-  },
-  "properties" : {
-    "ApplicableTo" : {
-      "$ref" : "#/definitions/ApplicableTo"
-    },
-    "AssetTypes" : {
-      "minItems" : 1,
-      "description" : "List of asset types a policy applies to.\nAt least one asset type is required.",
-      "type" : "array",
-      "items" : { }
-    },
-    "Description" : {
-      "minLength" : 0,
-      "type" : "string",
-      "maxLength" : 1024
-    },
-    "Actions" : {
-      "minItems" : 1,
-      "maxItems" : 10,
-      "description" : "List of governed actions a policy applies to.",
-      "type" : "array",
-      "items" : { }
-    },
-    "PolicyArn" : {
-      "type" : "string"
-    },
-    "CreatedAt" : {
-      "format" : "date-time",
-      "type" : "string"
-    },
-    "ApprovalGroups" : {
-      "minItems" : 1,
-      "description" : "List of approval group ARNs (e.g. QuickSight group ARNs).\nAt least one approval group is required; the upper bound is enforced\nper-account at the service layer via the configurable approver-group limit.",
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "UpdatedAt" : {
-      "format" : "date-time",
-      "type" : "string"
-    },
-    "PolicyId" : {
-      "minLength" : 1,
-      "pattern" : "^[a-zA-Z0-9\\-_]+$",
-      "type" : "string",
-      "maxLength" : 64
-    },
-    "Name" : {
-      "minLength" : 1,
-      "type" : "string",
-      "maxLength" : 256
-    }
-  },
-  "required" : [ "PolicyId", "Name", "Actions", "AssetTypes", "ApplicableTo", "ApprovalGroups" ]
+  }
 }

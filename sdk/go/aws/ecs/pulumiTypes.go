@@ -10718,6 +10718,1234 @@ type ExpressGatewayServiceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The test traffic rules for the gateway ALB.
+type GatewayAlbTestTrafficRules struct {
+	Header *GatewayTestTrafficHeader `pulumi:"header"`
+}
+
+// GatewayAlbTestTrafficRulesInput is an input type that accepts GatewayAlbTestTrafficRulesArgs and GatewayAlbTestTrafficRulesOutput values.
+// You can construct a concrete instance of `GatewayAlbTestTrafficRulesInput` via:
+//
+//	GatewayAlbTestTrafficRulesArgs{...}
+type GatewayAlbTestTrafficRulesInput interface {
+	pulumi.Input
+
+	ToGatewayAlbTestTrafficRulesOutput() GatewayAlbTestTrafficRulesOutput
+	ToGatewayAlbTestTrafficRulesOutputWithContext(context.Context) GatewayAlbTestTrafficRulesOutput
+}
+
+// The test traffic rules for the gateway ALB.
+type GatewayAlbTestTrafficRulesArgs struct {
+	Header GatewayTestTrafficHeaderPtrInput `pulumi:"header"`
+}
+
+func (GatewayAlbTestTrafficRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAlbTestTrafficRules)(nil)).Elem()
+}
+
+func (i GatewayAlbTestTrafficRulesArgs) ToGatewayAlbTestTrafficRulesOutput() GatewayAlbTestTrafficRulesOutput {
+	return i.ToGatewayAlbTestTrafficRulesOutputWithContext(context.Background())
+}
+
+func (i GatewayAlbTestTrafficRulesArgs) ToGatewayAlbTestTrafficRulesOutputWithContext(ctx context.Context) GatewayAlbTestTrafficRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAlbTestTrafficRulesOutput)
+}
+
+func (i GatewayAlbTestTrafficRulesArgs) ToGatewayAlbTestTrafficRulesPtrOutput() GatewayAlbTestTrafficRulesPtrOutput {
+	return i.ToGatewayAlbTestTrafficRulesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayAlbTestTrafficRulesArgs) ToGatewayAlbTestTrafficRulesPtrOutputWithContext(ctx context.Context) GatewayAlbTestTrafficRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAlbTestTrafficRulesOutput).ToGatewayAlbTestTrafficRulesPtrOutputWithContext(ctx)
+}
+
+// GatewayAlbTestTrafficRulesPtrInput is an input type that accepts GatewayAlbTestTrafficRulesArgs, GatewayAlbTestTrafficRulesPtr and GatewayAlbTestTrafficRulesPtrOutput values.
+// You can construct a concrete instance of `GatewayAlbTestTrafficRulesPtrInput` via:
+//
+//	        GatewayAlbTestTrafficRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayAlbTestTrafficRulesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayAlbTestTrafficRulesPtrOutput() GatewayAlbTestTrafficRulesPtrOutput
+	ToGatewayAlbTestTrafficRulesPtrOutputWithContext(context.Context) GatewayAlbTestTrafficRulesPtrOutput
+}
+
+type gatewayAlbTestTrafficRulesPtrType GatewayAlbTestTrafficRulesArgs
+
+func GatewayAlbTestTrafficRulesPtr(v *GatewayAlbTestTrafficRulesArgs) GatewayAlbTestTrafficRulesPtrInput {
+	return (*gatewayAlbTestTrafficRulesPtrType)(v)
+}
+
+func (*gatewayAlbTestTrafficRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAlbTestTrafficRules)(nil)).Elem()
+}
+
+func (i *gatewayAlbTestTrafficRulesPtrType) ToGatewayAlbTestTrafficRulesPtrOutput() GatewayAlbTestTrafficRulesPtrOutput {
+	return i.ToGatewayAlbTestTrafficRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayAlbTestTrafficRulesPtrType) ToGatewayAlbTestTrafficRulesPtrOutputWithContext(ctx context.Context) GatewayAlbTestTrafficRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAlbTestTrafficRulesPtrOutput)
+}
+
+// The test traffic rules for the gateway ALB.
+type GatewayAlbTestTrafficRulesOutput struct{ *pulumi.OutputState }
+
+func (GatewayAlbTestTrafficRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAlbTestTrafficRules)(nil)).Elem()
+}
+
+func (o GatewayAlbTestTrafficRulesOutput) ToGatewayAlbTestTrafficRulesOutput() GatewayAlbTestTrafficRulesOutput {
+	return o
+}
+
+func (o GatewayAlbTestTrafficRulesOutput) ToGatewayAlbTestTrafficRulesOutputWithContext(ctx context.Context) GatewayAlbTestTrafficRulesOutput {
+	return o
+}
+
+func (o GatewayAlbTestTrafficRulesOutput) ToGatewayAlbTestTrafficRulesPtrOutput() GatewayAlbTestTrafficRulesPtrOutput {
+	return o.ToGatewayAlbTestTrafficRulesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayAlbTestTrafficRulesOutput) ToGatewayAlbTestTrafficRulesPtrOutputWithContext(ctx context.Context) GatewayAlbTestTrafficRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayAlbTestTrafficRules) *GatewayAlbTestTrafficRules {
+		return &v
+	}).(GatewayAlbTestTrafficRulesPtrOutput)
+}
+
+func (o GatewayAlbTestTrafficRulesOutput) Header() GatewayTestTrafficHeaderPtrOutput {
+	return o.ApplyT(func(v GatewayAlbTestTrafficRules) *GatewayTestTrafficHeader { return v.Header }).(GatewayTestTrafficHeaderPtrOutput)
+}
+
+type GatewayAlbTestTrafficRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayAlbTestTrafficRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAlbTestTrafficRules)(nil)).Elem()
+}
+
+func (o GatewayAlbTestTrafficRulesPtrOutput) ToGatewayAlbTestTrafficRulesPtrOutput() GatewayAlbTestTrafficRulesPtrOutput {
+	return o
+}
+
+func (o GatewayAlbTestTrafficRulesPtrOutput) ToGatewayAlbTestTrafficRulesPtrOutputWithContext(ctx context.Context) GatewayAlbTestTrafficRulesPtrOutput {
+	return o
+}
+
+func (o GatewayAlbTestTrafficRulesPtrOutput) Elem() GatewayAlbTestTrafficRulesOutput {
+	return o.ApplyT(func(v *GatewayAlbTestTrafficRules) GatewayAlbTestTrafficRules {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayAlbTestTrafficRules
+		return ret
+	}).(GatewayAlbTestTrafficRulesOutput)
+}
+
+func (o GatewayAlbTestTrafficRulesPtrOutput) Header() GatewayTestTrafficHeaderPtrOutput {
+	return o.ApplyT(func(v *GatewayAlbTestTrafficRules) *GatewayTestTrafficHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(GatewayTestTrafficHeaderPtrOutput)
+}
+
+// The configuration for the gateway. Currently only supports hostSharedAlb.
+type GatewayConfiguration struct {
+	HostSharedAlb GatewayHostSharedAlbConfiguration `pulumi:"hostSharedAlb"`
+}
+
+// GatewayConfigurationInput is an input type that accepts GatewayConfigurationArgs and GatewayConfigurationOutput values.
+// You can construct a concrete instance of `GatewayConfigurationInput` via:
+//
+//	GatewayConfigurationArgs{...}
+type GatewayConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayConfigurationOutput() GatewayConfigurationOutput
+	ToGatewayConfigurationOutputWithContext(context.Context) GatewayConfigurationOutput
+}
+
+// The configuration for the gateway. Currently only supports hostSharedAlb.
+type GatewayConfigurationArgs struct {
+	HostSharedAlb GatewayHostSharedAlbConfigurationInput `pulumi:"hostSharedAlb"`
+}
+
+func (GatewayConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayConfiguration)(nil)).Elem()
+}
+
+func (i GatewayConfigurationArgs) ToGatewayConfigurationOutput() GatewayConfigurationOutput {
+	return i.ToGatewayConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayConfigurationArgs) ToGatewayConfigurationOutputWithContext(ctx context.Context) GatewayConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayConfigurationOutput)
+}
+
+// The configuration for the gateway. Currently only supports hostSharedAlb.
+type GatewayConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayConfiguration)(nil)).Elem()
+}
+
+func (o GatewayConfigurationOutput) ToGatewayConfigurationOutput() GatewayConfigurationOutput {
+	return o
+}
+
+func (o GatewayConfigurationOutput) ToGatewayConfigurationOutputWithContext(ctx context.Context) GatewayConfigurationOutput {
+	return o
+}
+
+func (o GatewayConfigurationOutput) HostSharedAlb() GatewayHostSharedAlbConfigurationOutput {
+	return o.ApplyT(func(v GatewayConfiguration) GatewayHostSharedAlbConfiguration { return v.HostSharedAlb }).(GatewayHostSharedAlbConfigurationOutput)
+}
+
+type GatewayConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayConfiguration)(nil)).Elem()
+}
+
+func (o GatewayConfigurationPtrOutput) ToGatewayConfigurationPtrOutput() GatewayConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayConfigurationPtrOutput) ToGatewayConfigurationPtrOutputWithContext(ctx context.Context) GatewayConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayConfigurationPtrOutput) Elem() GatewayConfigurationOutput {
+	return o.ApplyT(func(v *GatewayConfiguration) GatewayConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayConfiguration
+		return ret
+	}).(GatewayConfigurationOutput)
+}
+
+func (o GatewayConfigurationPtrOutput) HostSharedAlb() GatewayHostSharedAlbConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayConfiguration) *GatewayHostSharedAlbConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.HostSharedAlb
+	}).(GatewayHostSharedAlbConfigurationPtrOutput)
+}
+
+// The access log configuration for the gateway ALB. Access logging is enabled by the presence of a destination.
+type GatewayElbAccessLogConfiguration struct {
+	Destination *GatewayElbAccessLogDestination `pulumi:"destination"`
+}
+
+// GatewayElbAccessLogConfigurationInput is an input type that accepts GatewayElbAccessLogConfigurationArgs and GatewayElbAccessLogConfigurationOutput values.
+// You can construct a concrete instance of `GatewayElbAccessLogConfigurationInput` via:
+//
+//	GatewayElbAccessLogConfigurationArgs{...}
+type GatewayElbAccessLogConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayElbAccessLogConfigurationOutput() GatewayElbAccessLogConfigurationOutput
+	ToGatewayElbAccessLogConfigurationOutputWithContext(context.Context) GatewayElbAccessLogConfigurationOutput
+}
+
+// The access log configuration for the gateway ALB. Access logging is enabled by the presence of a destination.
+type GatewayElbAccessLogConfigurationArgs struct {
+	Destination GatewayElbAccessLogDestinationPtrInput `pulumi:"destination"`
+}
+
+func (GatewayElbAccessLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayElbAccessLogConfiguration)(nil)).Elem()
+}
+
+func (i GatewayElbAccessLogConfigurationArgs) ToGatewayElbAccessLogConfigurationOutput() GatewayElbAccessLogConfigurationOutput {
+	return i.ToGatewayElbAccessLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayElbAccessLogConfigurationArgs) ToGatewayElbAccessLogConfigurationOutputWithContext(ctx context.Context) GatewayElbAccessLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbAccessLogConfigurationOutput)
+}
+
+func (i GatewayElbAccessLogConfigurationArgs) ToGatewayElbAccessLogConfigurationPtrOutput() GatewayElbAccessLogConfigurationPtrOutput {
+	return i.ToGatewayElbAccessLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayElbAccessLogConfigurationArgs) ToGatewayElbAccessLogConfigurationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbAccessLogConfigurationOutput).ToGatewayElbAccessLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayElbAccessLogConfigurationPtrInput is an input type that accepts GatewayElbAccessLogConfigurationArgs, GatewayElbAccessLogConfigurationPtr and GatewayElbAccessLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayElbAccessLogConfigurationPtrInput` via:
+//
+//	        GatewayElbAccessLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayElbAccessLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayElbAccessLogConfigurationPtrOutput() GatewayElbAccessLogConfigurationPtrOutput
+	ToGatewayElbAccessLogConfigurationPtrOutputWithContext(context.Context) GatewayElbAccessLogConfigurationPtrOutput
+}
+
+type gatewayElbAccessLogConfigurationPtrType GatewayElbAccessLogConfigurationArgs
+
+func GatewayElbAccessLogConfigurationPtr(v *GatewayElbAccessLogConfigurationArgs) GatewayElbAccessLogConfigurationPtrInput {
+	return (*gatewayElbAccessLogConfigurationPtrType)(v)
+}
+
+func (*gatewayElbAccessLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayElbAccessLogConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayElbAccessLogConfigurationPtrType) ToGatewayElbAccessLogConfigurationPtrOutput() GatewayElbAccessLogConfigurationPtrOutput {
+	return i.ToGatewayElbAccessLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayElbAccessLogConfigurationPtrType) ToGatewayElbAccessLogConfigurationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbAccessLogConfigurationPtrOutput)
+}
+
+// The access log configuration for the gateway ALB. Access logging is enabled by the presence of a destination.
+type GatewayElbAccessLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayElbAccessLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayElbAccessLogConfiguration)(nil)).Elem()
+}
+
+func (o GatewayElbAccessLogConfigurationOutput) ToGatewayElbAccessLogConfigurationOutput() GatewayElbAccessLogConfigurationOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogConfigurationOutput) ToGatewayElbAccessLogConfigurationOutputWithContext(ctx context.Context) GatewayElbAccessLogConfigurationOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogConfigurationOutput) ToGatewayElbAccessLogConfigurationPtrOutput() GatewayElbAccessLogConfigurationPtrOutput {
+	return o.ToGatewayElbAccessLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayElbAccessLogConfigurationOutput) ToGatewayElbAccessLogConfigurationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayElbAccessLogConfiguration) *GatewayElbAccessLogConfiguration {
+		return &v
+	}).(GatewayElbAccessLogConfigurationPtrOutput)
+}
+
+func (o GatewayElbAccessLogConfigurationOutput) Destination() GatewayElbAccessLogDestinationPtrOutput {
+	return o.ApplyT(func(v GatewayElbAccessLogConfiguration) *GatewayElbAccessLogDestination { return v.Destination }).(GatewayElbAccessLogDestinationPtrOutput)
+}
+
+type GatewayElbAccessLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayElbAccessLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayElbAccessLogConfiguration)(nil)).Elem()
+}
+
+func (o GatewayElbAccessLogConfigurationPtrOutput) ToGatewayElbAccessLogConfigurationPtrOutput() GatewayElbAccessLogConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogConfigurationPtrOutput) ToGatewayElbAccessLogConfigurationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogConfigurationPtrOutput) Elem() GatewayElbAccessLogConfigurationOutput {
+	return o.ApplyT(func(v *GatewayElbAccessLogConfiguration) GatewayElbAccessLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayElbAccessLogConfiguration
+		return ret
+	}).(GatewayElbAccessLogConfigurationOutput)
+}
+
+func (o GatewayElbAccessLogConfigurationPtrOutput) Destination() GatewayElbAccessLogDestinationPtrOutput {
+	return o.ApplyT(func(v *GatewayElbAccessLogConfiguration) *GatewayElbAccessLogDestination {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(GatewayElbAccessLogDestinationPtrOutput)
+}
+
+// The destination for gateway ALB access logs. Exactly one destination type must be specified.
+type GatewayElbAccessLogDestination struct {
+	S3 *GatewayElbAccessLogS3Destination `pulumi:"s3"`
+}
+
+// GatewayElbAccessLogDestinationInput is an input type that accepts GatewayElbAccessLogDestinationArgs and GatewayElbAccessLogDestinationOutput values.
+// You can construct a concrete instance of `GatewayElbAccessLogDestinationInput` via:
+//
+//	GatewayElbAccessLogDestinationArgs{...}
+type GatewayElbAccessLogDestinationInput interface {
+	pulumi.Input
+
+	ToGatewayElbAccessLogDestinationOutput() GatewayElbAccessLogDestinationOutput
+	ToGatewayElbAccessLogDestinationOutputWithContext(context.Context) GatewayElbAccessLogDestinationOutput
+}
+
+// The destination for gateway ALB access logs. Exactly one destination type must be specified.
+type GatewayElbAccessLogDestinationArgs struct {
+	S3 GatewayElbAccessLogS3DestinationPtrInput `pulumi:"s3"`
+}
+
+func (GatewayElbAccessLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayElbAccessLogDestination)(nil)).Elem()
+}
+
+func (i GatewayElbAccessLogDestinationArgs) ToGatewayElbAccessLogDestinationOutput() GatewayElbAccessLogDestinationOutput {
+	return i.ToGatewayElbAccessLogDestinationOutputWithContext(context.Background())
+}
+
+func (i GatewayElbAccessLogDestinationArgs) ToGatewayElbAccessLogDestinationOutputWithContext(ctx context.Context) GatewayElbAccessLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbAccessLogDestinationOutput)
+}
+
+func (i GatewayElbAccessLogDestinationArgs) ToGatewayElbAccessLogDestinationPtrOutput() GatewayElbAccessLogDestinationPtrOutput {
+	return i.ToGatewayElbAccessLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayElbAccessLogDestinationArgs) ToGatewayElbAccessLogDestinationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbAccessLogDestinationOutput).ToGatewayElbAccessLogDestinationPtrOutputWithContext(ctx)
+}
+
+// GatewayElbAccessLogDestinationPtrInput is an input type that accepts GatewayElbAccessLogDestinationArgs, GatewayElbAccessLogDestinationPtr and GatewayElbAccessLogDestinationPtrOutput values.
+// You can construct a concrete instance of `GatewayElbAccessLogDestinationPtrInput` via:
+//
+//	        GatewayElbAccessLogDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayElbAccessLogDestinationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayElbAccessLogDestinationPtrOutput() GatewayElbAccessLogDestinationPtrOutput
+	ToGatewayElbAccessLogDestinationPtrOutputWithContext(context.Context) GatewayElbAccessLogDestinationPtrOutput
+}
+
+type gatewayElbAccessLogDestinationPtrType GatewayElbAccessLogDestinationArgs
+
+func GatewayElbAccessLogDestinationPtr(v *GatewayElbAccessLogDestinationArgs) GatewayElbAccessLogDestinationPtrInput {
+	return (*gatewayElbAccessLogDestinationPtrType)(v)
+}
+
+func (*gatewayElbAccessLogDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayElbAccessLogDestination)(nil)).Elem()
+}
+
+func (i *gatewayElbAccessLogDestinationPtrType) ToGatewayElbAccessLogDestinationPtrOutput() GatewayElbAccessLogDestinationPtrOutput {
+	return i.ToGatewayElbAccessLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayElbAccessLogDestinationPtrType) ToGatewayElbAccessLogDestinationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbAccessLogDestinationPtrOutput)
+}
+
+// The destination for gateway ALB access logs. Exactly one destination type must be specified.
+type GatewayElbAccessLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (GatewayElbAccessLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayElbAccessLogDestination)(nil)).Elem()
+}
+
+func (o GatewayElbAccessLogDestinationOutput) ToGatewayElbAccessLogDestinationOutput() GatewayElbAccessLogDestinationOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogDestinationOutput) ToGatewayElbAccessLogDestinationOutputWithContext(ctx context.Context) GatewayElbAccessLogDestinationOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogDestinationOutput) ToGatewayElbAccessLogDestinationPtrOutput() GatewayElbAccessLogDestinationPtrOutput {
+	return o.ToGatewayElbAccessLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayElbAccessLogDestinationOutput) ToGatewayElbAccessLogDestinationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayElbAccessLogDestination) *GatewayElbAccessLogDestination {
+		return &v
+	}).(GatewayElbAccessLogDestinationPtrOutput)
+}
+
+func (o GatewayElbAccessLogDestinationOutput) S3() GatewayElbAccessLogS3DestinationPtrOutput {
+	return o.ApplyT(func(v GatewayElbAccessLogDestination) *GatewayElbAccessLogS3Destination { return v.S3 }).(GatewayElbAccessLogS3DestinationPtrOutput)
+}
+
+type GatewayElbAccessLogDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayElbAccessLogDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayElbAccessLogDestination)(nil)).Elem()
+}
+
+func (o GatewayElbAccessLogDestinationPtrOutput) ToGatewayElbAccessLogDestinationPtrOutput() GatewayElbAccessLogDestinationPtrOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogDestinationPtrOutput) ToGatewayElbAccessLogDestinationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogDestinationPtrOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogDestinationPtrOutput) Elem() GatewayElbAccessLogDestinationOutput {
+	return o.ApplyT(func(v *GatewayElbAccessLogDestination) GatewayElbAccessLogDestination {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayElbAccessLogDestination
+		return ret
+	}).(GatewayElbAccessLogDestinationOutput)
+}
+
+func (o GatewayElbAccessLogDestinationPtrOutput) S3() GatewayElbAccessLogS3DestinationPtrOutput {
+	return o.ApplyT(func(v *GatewayElbAccessLogDestination) *GatewayElbAccessLogS3Destination {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(GatewayElbAccessLogS3DestinationPtrOutput)
+}
+
+// The S3 destination for gateway ALB access logs.
+type GatewayElbAccessLogS3Destination struct {
+	// The S3 bucket for access logs.
+	Bucket string `pulumi:"bucket"`
+	// The S3 prefix for access logs.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// GatewayElbAccessLogS3DestinationInput is an input type that accepts GatewayElbAccessLogS3DestinationArgs and GatewayElbAccessLogS3DestinationOutput values.
+// You can construct a concrete instance of `GatewayElbAccessLogS3DestinationInput` via:
+//
+//	GatewayElbAccessLogS3DestinationArgs{...}
+type GatewayElbAccessLogS3DestinationInput interface {
+	pulumi.Input
+
+	ToGatewayElbAccessLogS3DestinationOutput() GatewayElbAccessLogS3DestinationOutput
+	ToGatewayElbAccessLogS3DestinationOutputWithContext(context.Context) GatewayElbAccessLogS3DestinationOutput
+}
+
+// The S3 destination for gateway ALB access logs.
+type GatewayElbAccessLogS3DestinationArgs struct {
+	// The S3 bucket for access logs.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The S3 prefix for access logs.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (GatewayElbAccessLogS3DestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayElbAccessLogS3Destination)(nil)).Elem()
+}
+
+func (i GatewayElbAccessLogS3DestinationArgs) ToGatewayElbAccessLogS3DestinationOutput() GatewayElbAccessLogS3DestinationOutput {
+	return i.ToGatewayElbAccessLogS3DestinationOutputWithContext(context.Background())
+}
+
+func (i GatewayElbAccessLogS3DestinationArgs) ToGatewayElbAccessLogS3DestinationOutputWithContext(ctx context.Context) GatewayElbAccessLogS3DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbAccessLogS3DestinationOutput)
+}
+
+func (i GatewayElbAccessLogS3DestinationArgs) ToGatewayElbAccessLogS3DestinationPtrOutput() GatewayElbAccessLogS3DestinationPtrOutput {
+	return i.ToGatewayElbAccessLogS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayElbAccessLogS3DestinationArgs) ToGatewayElbAccessLogS3DestinationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbAccessLogS3DestinationOutput).ToGatewayElbAccessLogS3DestinationPtrOutputWithContext(ctx)
+}
+
+// GatewayElbAccessLogS3DestinationPtrInput is an input type that accepts GatewayElbAccessLogS3DestinationArgs, GatewayElbAccessLogS3DestinationPtr and GatewayElbAccessLogS3DestinationPtrOutput values.
+// You can construct a concrete instance of `GatewayElbAccessLogS3DestinationPtrInput` via:
+//
+//	        GatewayElbAccessLogS3DestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayElbAccessLogS3DestinationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayElbAccessLogS3DestinationPtrOutput() GatewayElbAccessLogS3DestinationPtrOutput
+	ToGatewayElbAccessLogS3DestinationPtrOutputWithContext(context.Context) GatewayElbAccessLogS3DestinationPtrOutput
+}
+
+type gatewayElbAccessLogS3DestinationPtrType GatewayElbAccessLogS3DestinationArgs
+
+func GatewayElbAccessLogS3DestinationPtr(v *GatewayElbAccessLogS3DestinationArgs) GatewayElbAccessLogS3DestinationPtrInput {
+	return (*gatewayElbAccessLogS3DestinationPtrType)(v)
+}
+
+func (*gatewayElbAccessLogS3DestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayElbAccessLogS3Destination)(nil)).Elem()
+}
+
+func (i *gatewayElbAccessLogS3DestinationPtrType) ToGatewayElbAccessLogS3DestinationPtrOutput() GatewayElbAccessLogS3DestinationPtrOutput {
+	return i.ToGatewayElbAccessLogS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayElbAccessLogS3DestinationPtrType) ToGatewayElbAccessLogS3DestinationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbAccessLogS3DestinationPtrOutput)
+}
+
+// The S3 destination for gateway ALB access logs.
+type GatewayElbAccessLogS3DestinationOutput struct{ *pulumi.OutputState }
+
+func (GatewayElbAccessLogS3DestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayElbAccessLogS3Destination)(nil)).Elem()
+}
+
+func (o GatewayElbAccessLogS3DestinationOutput) ToGatewayElbAccessLogS3DestinationOutput() GatewayElbAccessLogS3DestinationOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogS3DestinationOutput) ToGatewayElbAccessLogS3DestinationOutputWithContext(ctx context.Context) GatewayElbAccessLogS3DestinationOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogS3DestinationOutput) ToGatewayElbAccessLogS3DestinationPtrOutput() GatewayElbAccessLogS3DestinationPtrOutput {
+	return o.ToGatewayElbAccessLogS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayElbAccessLogS3DestinationOutput) ToGatewayElbAccessLogS3DestinationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogS3DestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayElbAccessLogS3Destination) *GatewayElbAccessLogS3Destination {
+		return &v
+	}).(GatewayElbAccessLogS3DestinationPtrOutput)
+}
+
+// The S3 bucket for access logs.
+func (o GatewayElbAccessLogS3DestinationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayElbAccessLogS3Destination) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The S3 prefix for access logs.
+func (o GatewayElbAccessLogS3DestinationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayElbAccessLogS3Destination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type GatewayElbAccessLogS3DestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayElbAccessLogS3DestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayElbAccessLogS3Destination)(nil)).Elem()
+}
+
+func (o GatewayElbAccessLogS3DestinationPtrOutput) ToGatewayElbAccessLogS3DestinationPtrOutput() GatewayElbAccessLogS3DestinationPtrOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogS3DestinationPtrOutput) ToGatewayElbAccessLogS3DestinationPtrOutputWithContext(ctx context.Context) GatewayElbAccessLogS3DestinationPtrOutput {
+	return o
+}
+
+func (o GatewayElbAccessLogS3DestinationPtrOutput) Elem() GatewayElbAccessLogS3DestinationOutput {
+	return o.ApplyT(func(v *GatewayElbAccessLogS3Destination) GatewayElbAccessLogS3Destination {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayElbAccessLogS3Destination
+		return ret
+	}).(GatewayElbAccessLogS3DestinationOutput)
+}
+
+// The S3 bucket for access logs.
+func (o GatewayElbAccessLogS3DestinationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayElbAccessLogS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 prefix for access logs.
+func (o GatewayElbAccessLogS3DestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayElbAccessLogS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network configuration for the gateway ALB.
+type GatewayElbNetworkConfiguration struct {
+	// The inbound security group for the ALB.
+	InboundSecurityGroup *string                  `pulumi:"inboundSecurityGroup"`
+	IpAddressType        *GatewayElbIpAddressType `pulumi:"ipAddressType"`
+	// The subnets for the ALB.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// GatewayElbNetworkConfigurationInput is an input type that accepts GatewayElbNetworkConfigurationArgs and GatewayElbNetworkConfigurationOutput values.
+// You can construct a concrete instance of `GatewayElbNetworkConfigurationInput` via:
+//
+//	GatewayElbNetworkConfigurationArgs{...}
+type GatewayElbNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayElbNetworkConfigurationOutput() GatewayElbNetworkConfigurationOutput
+	ToGatewayElbNetworkConfigurationOutputWithContext(context.Context) GatewayElbNetworkConfigurationOutput
+}
+
+// The network configuration for the gateway ALB.
+type GatewayElbNetworkConfigurationArgs struct {
+	// The inbound security group for the ALB.
+	InboundSecurityGroup pulumi.StringPtrInput           `pulumi:"inboundSecurityGroup"`
+	IpAddressType        GatewayElbIpAddressTypePtrInput `pulumi:"ipAddressType"`
+	// The subnets for the ALB.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (GatewayElbNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayElbNetworkConfiguration)(nil)).Elem()
+}
+
+func (i GatewayElbNetworkConfigurationArgs) ToGatewayElbNetworkConfigurationOutput() GatewayElbNetworkConfigurationOutput {
+	return i.ToGatewayElbNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayElbNetworkConfigurationArgs) ToGatewayElbNetworkConfigurationOutputWithContext(ctx context.Context) GatewayElbNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbNetworkConfigurationOutput)
+}
+
+func (i GatewayElbNetworkConfigurationArgs) ToGatewayElbNetworkConfigurationPtrOutput() GatewayElbNetworkConfigurationPtrOutput {
+	return i.ToGatewayElbNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayElbNetworkConfigurationArgs) ToGatewayElbNetworkConfigurationPtrOutputWithContext(ctx context.Context) GatewayElbNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbNetworkConfigurationOutput).ToGatewayElbNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayElbNetworkConfigurationPtrInput is an input type that accepts GatewayElbNetworkConfigurationArgs, GatewayElbNetworkConfigurationPtr and GatewayElbNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayElbNetworkConfigurationPtrInput` via:
+//
+//	        GatewayElbNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayElbNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayElbNetworkConfigurationPtrOutput() GatewayElbNetworkConfigurationPtrOutput
+	ToGatewayElbNetworkConfigurationPtrOutputWithContext(context.Context) GatewayElbNetworkConfigurationPtrOutput
+}
+
+type gatewayElbNetworkConfigurationPtrType GatewayElbNetworkConfigurationArgs
+
+func GatewayElbNetworkConfigurationPtr(v *GatewayElbNetworkConfigurationArgs) GatewayElbNetworkConfigurationPtrInput {
+	return (*gatewayElbNetworkConfigurationPtrType)(v)
+}
+
+func (*gatewayElbNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayElbNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayElbNetworkConfigurationPtrType) ToGatewayElbNetworkConfigurationPtrOutput() GatewayElbNetworkConfigurationPtrOutput {
+	return i.ToGatewayElbNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayElbNetworkConfigurationPtrType) ToGatewayElbNetworkConfigurationPtrOutputWithContext(ctx context.Context) GatewayElbNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayElbNetworkConfigurationPtrOutput)
+}
+
+// The network configuration for the gateway ALB.
+type GatewayElbNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayElbNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayElbNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GatewayElbNetworkConfigurationOutput) ToGatewayElbNetworkConfigurationOutput() GatewayElbNetworkConfigurationOutput {
+	return o
+}
+
+func (o GatewayElbNetworkConfigurationOutput) ToGatewayElbNetworkConfigurationOutputWithContext(ctx context.Context) GatewayElbNetworkConfigurationOutput {
+	return o
+}
+
+func (o GatewayElbNetworkConfigurationOutput) ToGatewayElbNetworkConfigurationPtrOutput() GatewayElbNetworkConfigurationPtrOutput {
+	return o.ToGatewayElbNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayElbNetworkConfigurationOutput) ToGatewayElbNetworkConfigurationPtrOutputWithContext(ctx context.Context) GatewayElbNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayElbNetworkConfiguration) *GatewayElbNetworkConfiguration {
+		return &v
+	}).(GatewayElbNetworkConfigurationPtrOutput)
+}
+
+// The inbound security group for the ALB.
+func (o GatewayElbNetworkConfigurationOutput) InboundSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayElbNetworkConfiguration) *string { return v.InboundSecurityGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayElbNetworkConfigurationOutput) IpAddressType() GatewayElbIpAddressTypePtrOutput {
+	return o.ApplyT(func(v GatewayElbNetworkConfiguration) *GatewayElbIpAddressType { return v.IpAddressType }).(GatewayElbIpAddressTypePtrOutput)
+}
+
+// The subnets for the ALB.
+func (o GatewayElbNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayElbNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type GatewayElbNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayElbNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayElbNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GatewayElbNetworkConfigurationPtrOutput) ToGatewayElbNetworkConfigurationPtrOutput() GatewayElbNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayElbNetworkConfigurationPtrOutput) ToGatewayElbNetworkConfigurationPtrOutputWithContext(ctx context.Context) GatewayElbNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayElbNetworkConfigurationPtrOutput) Elem() GatewayElbNetworkConfigurationOutput {
+	return o.ApplyT(func(v *GatewayElbNetworkConfiguration) GatewayElbNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayElbNetworkConfiguration
+		return ret
+	}).(GatewayElbNetworkConfigurationOutput)
+}
+
+// The inbound security group for the ALB.
+func (o GatewayElbNetworkConfigurationPtrOutput) InboundSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayElbNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InboundSecurityGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayElbNetworkConfigurationPtrOutput) IpAddressType() GatewayElbIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *GatewayElbNetworkConfiguration) *GatewayElbIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(GatewayElbIpAddressTypePtrOutput)
+}
+
+// The subnets for the ALB.
+func (o GatewayElbNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayElbNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+// The host shared ALB configuration for the gateway.
+type GatewayHostSharedAlbConfiguration struct {
+	AccessLogs *GatewayElbAccessLogConfiguration `pulumi:"accessLogs"`
+	// The current number of ALBs provisioned for the gateway.
+	CurrentAlbCount *int                            `pulumi:"currentAlbCount"`
+	HttpDesync      *GatewayAlbDesyncMitigationMode `pulumi:"httpDesync"`
+	// The maximum number of ALBs to provision for the gateway.
+	MaxAlbCount          *int                            `pulumi:"maxAlbCount"`
+	NetworkConfiguration *GatewayElbNetworkConfiguration `pulumi:"networkConfiguration"`
+	// The port on which the ALB listens.
+	Port             *int                        `pulumi:"port"`
+	Protocol         *GatewayAlbProtocol         `pulumi:"protocol"`
+	Scheme           *GatewayElbScheme           `pulumi:"scheme"`
+	TestTrafficRules *GatewayAlbTestTrafficRules `pulumi:"testTrafficRules"`
+	// The ARN of the WAFv2 web ACL to associate with the ALB.
+	WebAclArn *string `pulumi:"webAclArn"`
+}
+
+// GatewayHostSharedAlbConfigurationInput is an input type that accepts GatewayHostSharedAlbConfigurationArgs and GatewayHostSharedAlbConfigurationOutput values.
+// You can construct a concrete instance of `GatewayHostSharedAlbConfigurationInput` via:
+//
+//	GatewayHostSharedAlbConfigurationArgs{...}
+type GatewayHostSharedAlbConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayHostSharedAlbConfigurationOutput() GatewayHostSharedAlbConfigurationOutput
+	ToGatewayHostSharedAlbConfigurationOutputWithContext(context.Context) GatewayHostSharedAlbConfigurationOutput
+}
+
+// The host shared ALB configuration for the gateway.
+type GatewayHostSharedAlbConfigurationArgs struct {
+	AccessLogs GatewayElbAccessLogConfigurationPtrInput `pulumi:"accessLogs"`
+	// The current number of ALBs provisioned for the gateway.
+	CurrentAlbCount pulumi.IntPtrInput                     `pulumi:"currentAlbCount"`
+	HttpDesync      GatewayAlbDesyncMitigationModePtrInput `pulumi:"httpDesync"`
+	// The maximum number of ALBs to provision for the gateway.
+	MaxAlbCount          pulumi.IntPtrInput                     `pulumi:"maxAlbCount"`
+	NetworkConfiguration GatewayElbNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
+	// The port on which the ALB listens.
+	Port             pulumi.IntPtrInput                 `pulumi:"port"`
+	Protocol         GatewayAlbProtocolPtrInput         `pulumi:"protocol"`
+	Scheme           GatewayElbSchemePtrInput           `pulumi:"scheme"`
+	TestTrafficRules GatewayAlbTestTrafficRulesPtrInput `pulumi:"testTrafficRules"`
+	// The ARN of the WAFv2 web ACL to associate with the ALB.
+	WebAclArn pulumi.StringPtrInput `pulumi:"webAclArn"`
+}
+
+func (GatewayHostSharedAlbConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayHostSharedAlbConfiguration)(nil)).Elem()
+}
+
+func (i GatewayHostSharedAlbConfigurationArgs) ToGatewayHostSharedAlbConfigurationOutput() GatewayHostSharedAlbConfigurationOutput {
+	return i.ToGatewayHostSharedAlbConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayHostSharedAlbConfigurationArgs) ToGatewayHostSharedAlbConfigurationOutputWithContext(ctx context.Context) GatewayHostSharedAlbConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayHostSharedAlbConfigurationOutput)
+}
+
+// The host shared ALB configuration for the gateway.
+type GatewayHostSharedAlbConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayHostSharedAlbConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayHostSharedAlbConfiguration)(nil)).Elem()
+}
+
+func (o GatewayHostSharedAlbConfigurationOutput) ToGatewayHostSharedAlbConfigurationOutput() GatewayHostSharedAlbConfigurationOutput {
+	return o
+}
+
+func (o GatewayHostSharedAlbConfigurationOutput) ToGatewayHostSharedAlbConfigurationOutputWithContext(ctx context.Context) GatewayHostSharedAlbConfigurationOutput {
+	return o
+}
+
+func (o GatewayHostSharedAlbConfigurationOutput) AccessLogs() GatewayElbAccessLogConfigurationPtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *GatewayElbAccessLogConfiguration { return v.AccessLogs }).(GatewayElbAccessLogConfigurationPtrOutput)
+}
+
+// The current number of ALBs provisioned for the gateway.
+func (o GatewayHostSharedAlbConfigurationOutput) CurrentAlbCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *int { return v.CurrentAlbCount }).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationOutput) HttpDesync() GatewayAlbDesyncMitigationModePtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *GatewayAlbDesyncMitigationMode { return v.HttpDesync }).(GatewayAlbDesyncMitigationModePtrOutput)
+}
+
+// The maximum number of ALBs to provision for the gateway.
+func (o GatewayHostSharedAlbConfigurationOutput) MaxAlbCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *int { return v.MaxAlbCount }).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationOutput) NetworkConfiguration() GatewayElbNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *GatewayElbNetworkConfiguration {
+		return v.NetworkConfiguration
+	}).(GatewayElbNetworkConfigurationPtrOutput)
+}
+
+// The port on which the ALB listens.
+func (o GatewayHostSharedAlbConfigurationOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationOutput) Protocol() GatewayAlbProtocolPtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *GatewayAlbProtocol { return v.Protocol }).(GatewayAlbProtocolPtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationOutput) Scheme() GatewayElbSchemePtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *GatewayElbScheme { return v.Scheme }).(GatewayElbSchemePtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationOutput) TestTrafficRules() GatewayAlbTestTrafficRulesPtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *GatewayAlbTestTrafficRules { return v.TestTrafficRules }).(GatewayAlbTestTrafficRulesPtrOutput)
+}
+
+// The ARN of the WAFv2 web ACL to associate with the ALB.
+func (o GatewayHostSharedAlbConfigurationOutput) WebAclArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayHostSharedAlbConfiguration) *string { return v.WebAclArn }).(pulumi.StringPtrOutput)
+}
+
+type GatewayHostSharedAlbConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayHostSharedAlbConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayHostSharedAlbConfiguration)(nil)).Elem()
+}
+
+func (o GatewayHostSharedAlbConfigurationPtrOutput) ToGatewayHostSharedAlbConfigurationPtrOutput() GatewayHostSharedAlbConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayHostSharedAlbConfigurationPtrOutput) ToGatewayHostSharedAlbConfigurationPtrOutputWithContext(ctx context.Context) GatewayHostSharedAlbConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayHostSharedAlbConfigurationPtrOutput) Elem() GatewayHostSharedAlbConfigurationOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) GatewayHostSharedAlbConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayHostSharedAlbConfiguration
+		return ret
+	}).(GatewayHostSharedAlbConfigurationOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationPtrOutput) AccessLogs() GatewayElbAccessLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *GatewayElbAccessLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AccessLogs
+	}).(GatewayElbAccessLogConfigurationPtrOutput)
+}
+
+// The current number of ALBs provisioned for the gateway.
+func (o GatewayHostSharedAlbConfigurationPtrOutput) CurrentAlbCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentAlbCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationPtrOutput) HttpDesync() GatewayAlbDesyncMitigationModePtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *GatewayAlbDesyncMitigationMode {
+		if v == nil {
+			return nil
+		}
+		return v.HttpDesync
+	}).(GatewayAlbDesyncMitigationModePtrOutput)
+}
+
+// The maximum number of ALBs to provision for the gateway.
+func (o GatewayHostSharedAlbConfigurationPtrOutput) MaxAlbCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAlbCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationPtrOutput) NetworkConfiguration() GatewayElbNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *GatewayElbNetworkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkConfiguration
+	}).(GatewayElbNetworkConfigurationPtrOutput)
+}
+
+// The port on which the ALB listens.
+func (o GatewayHostSharedAlbConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationPtrOutput) Protocol() GatewayAlbProtocolPtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *GatewayAlbProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(GatewayAlbProtocolPtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationPtrOutput) Scheme() GatewayElbSchemePtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *GatewayElbScheme {
+		if v == nil {
+			return nil
+		}
+		return v.Scheme
+	}).(GatewayElbSchemePtrOutput)
+}
+
+func (o GatewayHostSharedAlbConfigurationPtrOutput) TestTrafficRules() GatewayAlbTestTrafficRulesPtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *GatewayAlbTestTrafficRules {
+		if v == nil {
+			return nil
+		}
+		return v.TestTrafficRules
+	}).(GatewayAlbTestTrafficRulesPtrOutput)
+}
+
+// The ARN of the WAFv2 web ACL to associate with the ALB.
+func (o GatewayHostSharedAlbConfigurationPtrOutput) WebAclArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayHostSharedAlbConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebAclArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayTag struct {
+	Key   string  `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// The header configuration for test traffic routing.
+type GatewayTestTrafficHeader struct {
+	// The name of the header.
+	Name string `pulumi:"name"`
+	// The values for the header.
+	Values []string `pulumi:"values"`
+}
+
+// GatewayTestTrafficHeaderInput is an input type that accepts GatewayTestTrafficHeaderArgs and GatewayTestTrafficHeaderOutput values.
+// You can construct a concrete instance of `GatewayTestTrafficHeaderInput` via:
+//
+//	GatewayTestTrafficHeaderArgs{...}
+type GatewayTestTrafficHeaderInput interface {
+	pulumi.Input
+
+	ToGatewayTestTrafficHeaderOutput() GatewayTestTrafficHeaderOutput
+	ToGatewayTestTrafficHeaderOutputWithContext(context.Context) GatewayTestTrafficHeaderOutput
+}
+
+// The header configuration for test traffic routing.
+type GatewayTestTrafficHeaderArgs struct {
+	// The name of the header.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The values for the header.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GatewayTestTrafficHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTestTrafficHeader)(nil)).Elem()
+}
+
+func (i GatewayTestTrafficHeaderArgs) ToGatewayTestTrafficHeaderOutput() GatewayTestTrafficHeaderOutput {
+	return i.ToGatewayTestTrafficHeaderOutputWithContext(context.Background())
+}
+
+func (i GatewayTestTrafficHeaderArgs) ToGatewayTestTrafficHeaderOutputWithContext(ctx context.Context) GatewayTestTrafficHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTestTrafficHeaderOutput)
+}
+
+func (i GatewayTestTrafficHeaderArgs) ToGatewayTestTrafficHeaderPtrOutput() GatewayTestTrafficHeaderPtrOutput {
+	return i.ToGatewayTestTrafficHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTestTrafficHeaderArgs) ToGatewayTestTrafficHeaderPtrOutputWithContext(ctx context.Context) GatewayTestTrafficHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTestTrafficHeaderOutput).ToGatewayTestTrafficHeaderPtrOutputWithContext(ctx)
+}
+
+// GatewayTestTrafficHeaderPtrInput is an input type that accepts GatewayTestTrafficHeaderArgs, GatewayTestTrafficHeaderPtr and GatewayTestTrafficHeaderPtrOutput values.
+// You can construct a concrete instance of `GatewayTestTrafficHeaderPtrInput` via:
+//
+//	        GatewayTestTrafficHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTestTrafficHeaderPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTestTrafficHeaderPtrOutput() GatewayTestTrafficHeaderPtrOutput
+	ToGatewayTestTrafficHeaderPtrOutputWithContext(context.Context) GatewayTestTrafficHeaderPtrOutput
+}
+
+type gatewayTestTrafficHeaderPtrType GatewayTestTrafficHeaderArgs
+
+func GatewayTestTrafficHeaderPtr(v *GatewayTestTrafficHeaderArgs) GatewayTestTrafficHeaderPtrInput {
+	return (*gatewayTestTrafficHeaderPtrType)(v)
+}
+
+func (*gatewayTestTrafficHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTestTrafficHeader)(nil)).Elem()
+}
+
+func (i *gatewayTestTrafficHeaderPtrType) ToGatewayTestTrafficHeaderPtrOutput() GatewayTestTrafficHeaderPtrOutput {
+	return i.ToGatewayTestTrafficHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTestTrafficHeaderPtrType) ToGatewayTestTrafficHeaderPtrOutputWithContext(ctx context.Context) GatewayTestTrafficHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTestTrafficHeaderPtrOutput)
+}
+
+// The header configuration for test traffic routing.
+type GatewayTestTrafficHeaderOutput struct{ *pulumi.OutputState }
+
+func (GatewayTestTrafficHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTestTrafficHeader)(nil)).Elem()
+}
+
+func (o GatewayTestTrafficHeaderOutput) ToGatewayTestTrafficHeaderOutput() GatewayTestTrafficHeaderOutput {
+	return o
+}
+
+func (o GatewayTestTrafficHeaderOutput) ToGatewayTestTrafficHeaderOutputWithContext(ctx context.Context) GatewayTestTrafficHeaderOutput {
+	return o
+}
+
+func (o GatewayTestTrafficHeaderOutput) ToGatewayTestTrafficHeaderPtrOutput() GatewayTestTrafficHeaderPtrOutput {
+	return o.ToGatewayTestTrafficHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTestTrafficHeaderOutput) ToGatewayTestTrafficHeaderPtrOutputWithContext(ctx context.Context) GatewayTestTrafficHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTestTrafficHeader) *GatewayTestTrafficHeader {
+		return &v
+	}).(GatewayTestTrafficHeaderPtrOutput)
+}
+
+// The name of the header.
+func (o GatewayTestTrafficHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTestTrafficHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The values for the header.
+func (o GatewayTestTrafficHeaderOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayTestTrafficHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GatewayTestTrafficHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTestTrafficHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTestTrafficHeader)(nil)).Elem()
+}
+
+func (o GatewayTestTrafficHeaderPtrOutput) ToGatewayTestTrafficHeaderPtrOutput() GatewayTestTrafficHeaderPtrOutput {
+	return o
+}
+
+func (o GatewayTestTrafficHeaderPtrOutput) ToGatewayTestTrafficHeaderPtrOutputWithContext(ctx context.Context) GatewayTestTrafficHeaderPtrOutput {
+	return o
+}
+
+func (o GatewayTestTrafficHeaderPtrOutput) Elem() GatewayTestTrafficHeaderOutput {
+	return o.ApplyT(func(v *GatewayTestTrafficHeader) GatewayTestTrafficHeader {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTestTrafficHeader
+		return ret
+	}).(GatewayTestTrafficHeaderOutput)
+}
+
+// The name of the header.
+func (o GatewayTestTrafficHeaderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTestTrafficHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The values for the header.
+func (o GatewayTestTrafficHeaderPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayTestTrafficHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
 // The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceAdvancedConfiguration struct {
 	// The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments.
@@ -11801,7 +13029,8 @@ func (o ServiceConnectClientAliasArrayOutput) Index(i pulumi.IntInput) ServiceCo
 type ServiceConnectConfiguration struct {
 	// The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
 	//   To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
-	AccessLogConfiguration *ServiceConnectAccessLogConfiguration `pulumi:"accessLogConfiguration"`
+	AccessLogConfiguration  *ServiceConnectAccessLogConfiguration  `pulumi:"accessLogConfiguration"`
+	ContainerConfigurations []ServiceConnectContainerConfiguration `pulumi:"containerConfigurations"`
 	// Specifies whether to use Service Connect with this service.
 	Enabled bool `pulumi:"enabled"`
 	// The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
@@ -11839,7 +13068,8 @@ type ServiceConnectConfigurationInput interface {
 type ServiceConnectConfigurationArgs struct {
 	// The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
 	//   To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
-	AccessLogConfiguration ServiceConnectAccessLogConfigurationPtrInput `pulumi:"accessLogConfiguration"`
+	AccessLogConfiguration  ServiceConnectAccessLogConfigurationPtrInput   `pulumi:"accessLogConfiguration"`
+	ContainerConfigurations ServiceConnectContainerConfigurationArrayInput `pulumi:"containerConfigurations"`
 	// Specifies whether to use Service Connect with this service.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
@@ -11949,6 +13179,12 @@ func (o ServiceConnectConfigurationOutput) AccessLogConfiguration() ServiceConne
 	}).(ServiceConnectAccessLogConfigurationPtrOutput)
 }
 
+func (o ServiceConnectConfigurationOutput) ContainerConfigurations() ServiceConnectContainerConfigurationArrayOutput {
+	return o.ApplyT(func(v ServiceConnectConfiguration) []ServiceConnectContainerConfiguration {
+		return v.ContainerConfigurations
+	}).(ServiceConnectContainerConfigurationArrayOutput)
+}
+
 // Specifies whether to use Service Connect with this service.
 func (o ServiceConnectConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceConnectConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -12017,6 +13253,15 @@ func (o ServiceConnectConfigurationPtrOutput) AccessLogConfiguration() ServiceCo
 	}).(ServiceConnectAccessLogConfigurationPtrOutput)
 }
 
+func (o ServiceConnectConfigurationPtrOutput) ContainerConfigurations() ServiceConnectContainerConfigurationArrayOutput {
+	return o.ApplyT(func(v *ServiceConnectConfiguration) []ServiceConnectContainerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerConfigurations
+	}).(ServiceConnectContainerConfigurationArrayOutput)
+}
+
 // Specifies whether to use Service Connect with this service.
 func (o ServiceConnectConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectConfiguration) *bool {
@@ -12067,6 +13312,102 @@ func (o ServiceConnectConfigurationPtrOutput) Services() ServiceConnectServiceAr
 		}
 		return v.Services
 	}).(ServiceConnectServiceArrayOutput)
+}
+
+type ServiceConnectContainerConfiguration struct {
+	LogLevel *ServiceConnectContainerConfigurationLogLevel `pulumi:"logLevel"`
+}
+
+// ServiceConnectContainerConfigurationInput is an input type that accepts ServiceConnectContainerConfigurationArgs and ServiceConnectContainerConfigurationOutput values.
+// You can construct a concrete instance of `ServiceConnectContainerConfigurationInput` via:
+//
+//	ServiceConnectContainerConfigurationArgs{...}
+type ServiceConnectContainerConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceConnectContainerConfigurationOutput() ServiceConnectContainerConfigurationOutput
+	ToServiceConnectContainerConfigurationOutputWithContext(context.Context) ServiceConnectContainerConfigurationOutput
+}
+
+type ServiceConnectContainerConfigurationArgs struct {
+	LogLevel ServiceConnectContainerConfigurationLogLevelPtrInput `pulumi:"logLevel"`
+}
+
+func (ServiceConnectContainerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectContainerConfiguration)(nil)).Elem()
+}
+
+func (i ServiceConnectContainerConfigurationArgs) ToServiceConnectContainerConfigurationOutput() ServiceConnectContainerConfigurationOutput {
+	return i.ToServiceConnectContainerConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectContainerConfigurationArgs) ToServiceConnectContainerConfigurationOutputWithContext(ctx context.Context) ServiceConnectContainerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectContainerConfigurationOutput)
+}
+
+// ServiceConnectContainerConfigurationArrayInput is an input type that accepts ServiceConnectContainerConfigurationArray and ServiceConnectContainerConfigurationArrayOutput values.
+// You can construct a concrete instance of `ServiceConnectContainerConfigurationArrayInput` via:
+//
+//	ServiceConnectContainerConfigurationArray{ ServiceConnectContainerConfigurationArgs{...} }
+type ServiceConnectContainerConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToServiceConnectContainerConfigurationArrayOutput() ServiceConnectContainerConfigurationArrayOutput
+	ToServiceConnectContainerConfigurationArrayOutputWithContext(context.Context) ServiceConnectContainerConfigurationArrayOutput
+}
+
+type ServiceConnectContainerConfigurationArray []ServiceConnectContainerConfigurationInput
+
+func (ServiceConnectContainerConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceConnectContainerConfiguration)(nil)).Elem()
+}
+
+func (i ServiceConnectContainerConfigurationArray) ToServiceConnectContainerConfigurationArrayOutput() ServiceConnectContainerConfigurationArrayOutput {
+	return i.ToServiceConnectContainerConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectContainerConfigurationArray) ToServiceConnectContainerConfigurationArrayOutputWithContext(ctx context.Context) ServiceConnectContainerConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectContainerConfigurationArrayOutput)
+}
+
+type ServiceConnectContainerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectContainerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectContainerConfiguration)(nil)).Elem()
+}
+
+func (o ServiceConnectContainerConfigurationOutput) ToServiceConnectContainerConfigurationOutput() ServiceConnectContainerConfigurationOutput {
+	return o
+}
+
+func (o ServiceConnectContainerConfigurationOutput) ToServiceConnectContainerConfigurationOutputWithContext(ctx context.Context) ServiceConnectContainerConfigurationOutput {
+	return o
+}
+
+func (o ServiceConnectContainerConfigurationOutput) LogLevel() ServiceConnectContainerConfigurationLogLevelPtrOutput {
+	return o.ApplyT(func(v ServiceConnectContainerConfiguration) *ServiceConnectContainerConfigurationLogLevel {
+		return v.LogLevel
+	}).(ServiceConnectContainerConfigurationLogLevelPtrOutput)
+}
+
+type ServiceConnectContainerConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectContainerConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceConnectContainerConfiguration)(nil)).Elem()
+}
+
+func (o ServiceConnectContainerConfigurationArrayOutput) ToServiceConnectContainerConfigurationArrayOutput() ServiceConnectContainerConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceConnectContainerConfigurationArrayOutput) ToServiceConnectContainerConfigurationArrayOutputWithContext(ctx context.Context) ServiceConnectContainerConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceConnectContainerConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceConnectContainerConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceConnectContainerConfiguration {
+		return vs[0].([]ServiceConnectContainerConfiguration)[vs[1].(int)]
+	}).(ServiceConnectContainerConfigurationOutput)
 }
 
 // The Service Connect service object configuration. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -13398,8 +14739,9 @@ type ServiceDeploymentConfiguration struct {
 	CanaryConfiguration *ServiceCanaryConfiguration `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
-	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker       `pulumi:"deploymentCircuitBreaker"`
-	EarlySuccessCriteria     *ServiceDeploymentEarlySuccessCriteria `pulumi:"earlySuccessCriteria"`
+	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
+	// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
+	EarlySuccessCriteria *ServiceDeploymentEarlySuccessCriteria `pulumi:"earlySuccessCriteria"`
 	// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 	LifecycleHooks []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
 	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
@@ -13462,8 +14804,9 @@ type ServiceDeploymentConfigurationArgs struct {
 	CanaryConfiguration ServiceCanaryConfigurationPtrInput `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
-	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput       `pulumi:"deploymentCircuitBreaker"`
-	EarlySuccessCriteria     ServiceDeploymentEarlySuccessCriteriaPtrInput `pulumi:"earlySuccessCriteria"`
+	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
+	// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
+	EarlySuccessCriteria ServiceDeploymentEarlySuccessCriteriaPtrInput `pulumi:"earlySuccessCriteria"`
 	// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 	LifecycleHooks ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
 	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
@@ -13608,6 +14951,7 @@ func (o ServiceDeploymentConfigurationOutput) DeploymentCircuitBreaker() Service
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
+// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
 func (o ServiceDeploymentConfigurationOutput) EarlySuccessCriteria() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentEarlySuccessCriteria {
 		return v.EarlySuccessCriteria
@@ -13737,6 +15081,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() Serv
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
+// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
 func (o ServiceDeploymentConfigurationPtrOutput) EarlySuccessCriteria() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentEarlySuccessCriteria {
 		if v == nil {
@@ -14091,9 +15436,19 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 	}).(ServiceDeploymentControllerTypePtrOutput)
 }
 
+// You can use early success criteria only with rolling deployment strategy.
+//
+//	The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
 type ServiceDeploymentEarlySuccessCriteria struct {
-	Enable                       *bool                                                              `pulumi:"enable"`
-	HealthyPercent               *int                                                               `pulumi:"healthyPercent"`
+	// Specifies whether to use the early success criteria for the service deployment. When set to ``false``, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is ``false``.
+	//  When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
+	Enable *bool `pulumi:"enable"`
+	// The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's ``desiredCount`` and must be an integer between ``0`` and ``100``. This value must be greater than or equal to the ``minimumHealthyPercent`` value.
+	//  After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
+	HealthyPercent *int `pulumi:"healthyPercent"`
+	// The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+	//   +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+	//   +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
 	SourceServiceRevisionCleanup *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup `pulumi:"sourceServiceRevisionCleanup"`
 }
 
@@ -14108,9 +15463,19 @@ type ServiceDeploymentEarlySuccessCriteriaInput interface {
 	ToServiceDeploymentEarlySuccessCriteriaOutputWithContext(context.Context) ServiceDeploymentEarlySuccessCriteriaOutput
 }
 
+// You can use early success criteria only with rolling deployment strategy.
+//
+//	The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
 type ServiceDeploymentEarlySuccessCriteriaArgs struct {
-	Enable                       pulumi.BoolPtrInput                                                       `pulumi:"enable"`
-	HealthyPercent               pulumi.IntPtrInput                                                        `pulumi:"healthyPercent"`
+	// Specifies whether to use the early success criteria for the service deployment. When set to ``false``, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is ``false``.
+	//  When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
+	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+	// The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's ``desiredCount`` and must be an integer between ``0`` and ``100``. This value must be greater than or equal to the ``minimumHealthyPercent`` value.
+	//  After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
+	HealthyPercent pulumi.IntPtrInput `pulumi:"healthyPercent"`
+	// The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+	//   +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+	//   +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
 	SourceServiceRevisionCleanup ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrInput `pulumi:"sourceServiceRevisionCleanup"`
 }
 
@@ -14167,6 +15532,9 @@ func (i *serviceDeploymentEarlySuccessCriteriaPtrType) ToServiceDeploymentEarlyS
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentEarlySuccessCriteriaPtrOutput)
 }
 
+// You can use early success criteria only with rolling deployment strategy.
+//
+//	The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
 type ServiceDeploymentEarlySuccessCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentEarlySuccessCriteriaOutput) ElementType() reflect.Type {
@@ -14191,14 +15559,23 @@ func (o ServiceDeploymentEarlySuccessCriteriaOutput) ToServiceDeploymentEarlySuc
 	}).(ServiceDeploymentEarlySuccessCriteriaPtrOutput)
 }
 
+// Specifies whether to use the early success criteria for the service deployment. When set to “false“, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is “false“.
+//
+//	When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
 func (o ServiceDeploymentEarlySuccessCriteriaOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentEarlySuccessCriteria) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
+// The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's “desiredCount“ and must be an integer between “0“ and “100“. This value must be greater than or equal to the “minimumHealthyPercent“ value.
+//
+//	After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
 func (o ServiceDeploymentEarlySuccessCriteriaOutput) HealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentEarlySuccessCriteria) *int { return v.HealthyPercent }).(pulumi.IntPtrOutput)
 }
 
+// The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+//   - “BLOCKING“—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+//   - “DEFERRED“—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
 func (o ServiceDeploymentEarlySuccessCriteriaOutput) SourceServiceRevisionCleanup() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentEarlySuccessCriteria) *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup {
 		return v.SourceServiceRevisionCleanup
@@ -14229,6 +15606,9 @@ func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) Elem() ServiceDeployment
 	}).(ServiceDeploymentEarlySuccessCriteriaOutput)
 }
 
+// Specifies whether to use the early success criteria for the service deployment. When set to “false“, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is “false“.
+//
+//	When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
 func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) *bool {
 		if v == nil {
@@ -14238,6 +15618,9 @@ func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) Enable() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's “desiredCount“ and must be an integer between “0“ and “100“. This value must be greater than or equal to the “minimumHealthyPercent“ value.
+//
+//	After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
 func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) HealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) *int {
 		if v == nil {
@@ -14247,6 +15630,9 @@ func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) HealthyPercent() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+//   - “BLOCKING“—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+//   - “DEFERRED“—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
 func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) SourceServiceRevisionCleanup() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup {
 		if v == nil {
@@ -14798,6 +16184,637 @@ func (o ServiceForceNewDeploymentPtrOutput) ForceNewDeploymentNonce() pulumi.Str
 			return nil
 		}
 		return v.ForceNewDeploymentNonce
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceGatewayConnector struct {
+	Filters     *ServiceGatewayConnectorFilters     `pulumi:"filters"`
+	HealthCheck *ServiceGatewayConnectorHealthCheck `pulumi:"healthCheck"`
+	PortName    string                              `pulumi:"portName"`
+}
+
+// ServiceGatewayConnectorInput is an input type that accepts ServiceGatewayConnectorArgs and ServiceGatewayConnectorOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorInput` via:
+//
+//	ServiceGatewayConnectorArgs{...}
+type ServiceGatewayConnectorInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorOutput() ServiceGatewayConnectorOutput
+	ToServiceGatewayConnectorOutputWithContext(context.Context) ServiceGatewayConnectorOutput
+}
+
+type ServiceGatewayConnectorArgs struct {
+	Filters     ServiceGatewayConnectorFiltersPtrInput     `pulumi:"filters"`
+	HealthCheck ServiceGatewayConnectorHealthCheckPtrInput `pulumi:"healthCheck"`
+	PortName    pulumi.StringInput                         `pulumi:"portName"`
+}
+
+func (ServiceGatewayConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnector)(nil)).Elem()
+}
+
+func (i ServiceGatewayConnectorArgs) ToServiceGatewayConnectorOutput() ServiceGatewayConnectorOutput {
+	return i.ToServiceGatewayConnectorOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorArgs) ToServiceGatewayConnectorOutputWithContext(ctx context.Context) ServiceGatewayConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorOutput)
+}
+
+// ServiceGatewayConnectorArrayInput is an input type that accepts ServiceGatewayConnectorArray and ServiceGatewayConnectorArrayOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorArrayInput` via:
+//
+//	ServiceGatewayConnectorArray{ ServiceGatewayConnectorArgs{...} }
+type ServiceGatewayConnectorArrayInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorArrayOutput() ServiceGatewayConnectorArrayOutput
+	ToServiceGatewayConnectorArrayOutputWithContext(context.Context) ServiceGatewayConnectorArrayOutput
+}
+
+type ServiceGatewayConnectorArray []ServiceGatewayConnectorInput
+
+func (ServiceGatewayConnectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceGatewayConnector)(nil)).Elem()
+}
+
+func (i ServiceGatewayConnectorArray) ToServiceGatewayConnectorArrayOutput() ServiceGatewayConnectorArrayOutput {
+	return i.ToServiceGatewayConnectorArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorArray) ToServiceGatewayConnectorArrayOutputWithContext(ctx context.Context) ServiceGatewayConnectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorArrayOutput)
+}
+
+type ServiceGatewayConnectorOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnector)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorOutput) ToServiceGatewayConnectorOutput() ServiceGatewayConnectorOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorOutput) ToServiceGatewayConnectorOutputWithContext(ctx context.Context) ServiceGatewayConnectorOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorOutput) Filters() ServiceGatewayConnectorFiltersPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnector) *ServiceGatewayConnectorFilters { return v.Filters }).(ServiceGatewayConnectorFiltersPtrOutput)
+}
+
+func (o ServiceGatewayConnectorOutput) HealthCheck() ServiceGatewayConnectorHealthCheckPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnector) *ServiceGatewayConnectorHealthCheck { return v.HealthCheck }).(ServiceGatewayConnectorHealthCheckPtrOutput)
+}
+
+func (o ServiceGatewayConnectorOutput) PortName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceGatewayConnector) string { return v.PortName }).(pulumi.StringOutput)
+}
+
+type ServiceGatewayConnectorArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceGatewayConnector)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorArrayOutput) ToServiceGatewayConnectorArrayOutput() ServiceGatewayConnectorArrayOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorArrayOutput) ToServiceGatewayConnectorArrayOutputWithContext(ctx context.Context) ServiceGatewayConnectorArrayOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorArrayOutput) Index(i pulumi.IntInput) ServiceGatewayConnectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceGatewayConnector {
+		return vs[0].([]ServiceGatewayConnector)[vs[1].(int)]
+	}).(ServiceGatewayConnectorOutput)
+}
+
+type ServiceGatewayConnectorFilters struct {
+	AccessTypes []ServiceGatewayConnectorFiltersAccessTypesItem `pulumi:"accessTypes"`
+}
+
+// ServiceGatewayConnectorFiltersInput is an input type that accepts ServiceGatewayConnectorFiltersArgs and ServiceGatewayConnectorFiltersOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorFiltersInput` via:
+//
+//	ServiceGatewayConnectorFiltersArgs{...}
+type ServiceGatewayConnectorFiltersInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorFiltersOutput() ServiceGatewayConnectorFiltersOutput
+	ToServiceGatewayConnectorFiltersOutputWithContext(context.Context) ServiceGatewayConnectorFiltersOutput
+}
+
+type ServiceGatewayConnectorFiltersArgs struct {
+	AccessTypes ServiceGatewayConnectorFiltersAccessTypesItemArrayInput `pulumi:"accessTypes"`
+}
+
+func (ServiceGatewayConnectorFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnectorFilters)(nil)).Elem()
+}
+
+func (i ServiceGatewayConnectorFiltersArgs) ToServiceGatewayConnectorFiltersOutput() ServiceGatewayConnectorFiltersOutput {
+	return i.ToServiceGatewayConnectorFiltersOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorFiltersArgs) ToServiceGatewayConnectorFiltersOutputWithContext(ctx context.Context) ServiceGatewayConnectorFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorFiltersOutput)
+}
+
+func (i ServiceGatewayConnectorFiltersArgs) ToServiceGatewayConnectorFiltersPtrOutput() ServiceGatewayConnectorFiltersPtrOutput {
+	return i.ToServiceGatewayConnectorFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorFiltersArgs) ToServiceGatewayConnectorFiltersPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorFiltersOutput).ToServiceGatewayConnectorFiltersPtrOutputWithContext(ctx)
+}
+
+// ServiceGatewayConnectorFiltersPtrInput is an input type that accepts ServiceGatewayConnectorFiltersArgs, ServiceGatewayConnectorFiltersPtr and ServiceGatewayConnectorFiltersPtrOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorFiltersPtrInput` via:
+//
+//	        ServiceGatewayConnectorFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceGatewayConnectorFiltersPtrInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorFiltersPtrOutput() ServiceGatewayConnectorFiltersPtrOutput
+	ToServiceGatewayConnectorFiltersPtrOutputWithContext(context.Context) ServiceGatewayConnectorFiltersPtrOutput
+}
+
+type serviceGatewayConnectorFiltersPtrType ServiceGatewayConnectorFiltersArgs
+
+func ServiceGatewayConnectorFiltersPtr(v *ServiceGatewayConnectorFiltersArgs) ServiceGatewayConnectorFiltersPtrInput {
+	return (*serviceGatewayConnectorFiltersPtrType)(v)
+}
+
+func (*serviceGatewayConnectorFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGatewayConnectorFilters)(nil)).Elem()
+}
+
+func (i *serviceGatewayConnectorFiltersPtrType) ToServiceGatewayConnectorFiltersPtrOutput() ServiceGatewayConnectorFiltersPtrOutput {
+	return i.ToServiceGatewayConnectorFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceGatewayConnectorFiltersPtrType) ToServiceGatewayConnectorFiltersPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorFiltersPtrOutput)
+}
+
+type ServiceGatewayConnectorFiltersOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnectorFilters)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorFiltersOutput) ToServiceGatewayConnectorFiltersOutput() ServiceGatewayConnectorFiltersOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorFiltersOutput) ToServiceGatewayConnectorFiltersOutputWithContext(ctx context.Context) ServiceGatewayConnectorFiltersOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorFiltersOutput) ToServiceGatewayConnectorFiltersPtrOutput() ServiceGatewayConnectorFiltersPtrOutput {
+	return o.ToServiceGatewayConnectorFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGatewayConnectorFiltersOutput) ToServiceGatewayConnectorFiltersPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGatewayConnectorFilters) *ServiceGatewayConnectorFilters {
+		return &v
+	}).(ServiceGatewayConnectorFiltersPtrOutput)
+}
+
+func (o ServiceGatewayConnectorFiltersOutput) AccessTypes() ServiceGatewayConnectorFiltersAccessTypesItemArrayOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorFilters) []ServiceGatewayConnectorFiltersAccessTypesItem {
+		return v.AccessTypes
+	}).(ServiceGatewayConnectorFiltersAccessTypesItemArrayOutput)
+}
+
+type ServiceGatewayConnectorFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGatewayConnectorFilters)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorFiltersPtrOutput) ToServiceGatewayConnectorFiltersPtrOutput() ServiceGatewayConnectorFiltersPtrOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorFiltersPtrOutput) ToServiceGatewayConnectorFiltersPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorFiltersPtrOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorFiltersPtrOutput) Elem() ServiceGatewayConnectorFiltersOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorFilters) ServiceGatewayConnectorFilters {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGatewayConnectorFilters
+		return ret
+	}).(ServiceGatewayConnectorFiltersOutput)
+}
+
+func (o ServiceGatewayConnectorFiltersPtrOutput) AccessTypes() ServiceGatewayConnectorFiltersAccessTypesItemArrayOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorFilters) []ServiceGatewayConnectorFiltersAccessTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.AccessTypes
+	}).(ServiceGatewayConnectorFiltersAccessTypesItemArrayOutput)
+}
+
+type ServiceGatewayConnectorHealthCheck struct {
+	HealthCheckIntervalSeconds *int                                                   `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckPath            *string                                                `pulumi:"healthCheckPath"`
+	HealthCheckPort            *int                                                   `pulumi:"healthCheckPort"`
+	HealthCheckProtocol        *ServiceGatewayConnectorHealthCheckHealthCheckProtocol `pulumi:"healthCheckProtocol"`
+	HealthCheckTimeoutSeconds  *int                                                   `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      *int                                                   `pulumi:"healthyThresholdCount"`
+	Matcher                    *ServiceGatewayConnectorHealthCheckMatcher             `pulumi:"matcher"`
+	UnhealthyThresholdCount    *int                                                   `pulumi:"unhealthyThresholdCount"`
+}
+
+// ServiceGatewayConnectorHealthCheckInput is an input type that accepts ServiceGatewayConnectorHealthCheckArgs and ServiceGatewayConnectorHealthCheckOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorHealthCheckInput` via:
+//
+//	ServiceGatewayConnectorHealthCheckArgs{...}
+type ServiceGatewayConnectorHealthCheckInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorHealthCheckOutput() ServiceGatewayConnectorHealthCheckOutput
+	ToServiceGatewayConnectorHealthCheckOutputWithContext(context.Context) ServiceGatewayConnectorHealthCheckOutput
+}
+
+type ServiceGatewayConnectorHealthCheckArgs struct {
+	HealthCheckIntervalSeconds pulumi.IntPtrInput                                            `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckPath            pulumi.StringPtrInput                                         `pulumi:"healthCheckPath"`
+	HealthCheckPort            pulumi.IntPtrInput                                            `pulumi:"healthCheckPort"`
+	HealthCheckProtocol        ServiceGatewayConnectorHealthCheckHealthCheckProtocolPtrInput `pulumi:"healthCheckProtocol"`
+	HealthCheckTimeoutSeconds  pulumi.IntPtrInput                                            `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      pulumi.IntPtrInput                                            `pulumi:"healthyThresholdCount"`
+	Matcher                    ServiceGatewayConnectorHealthCheckMatcherPtrInput             `pulumi:"matcher"`
+	UnhealthyThresholdCount    pulumi.IntPtrInput                                            `pulumi:"unhealthyThresholdCount"`
+}
+
+func (ServiceGatewayConnectorHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnectorHealthCheck)(nil)).Elem()
+}
+
+func (i ServiceGatewayConnectorHealthCheckArgs) ToServiceGatewayConnectorHealthCheckOutput() ServiceGatewayConnectorHealthCheckOutput {
+	return i.ToServiceGatewayConnectorHealthCheckOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorHealthCheckArgs) ToServiceGatewayConnectorHealthCheckOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorHealthCheckOutput)
+}
+
+func (i ServiceGatewayConnectorHealthCheckArgs) ToServiceGatewayConnectorHealthCheckPtrOutput() ServiceGatewayConnectorHealthCheckPtrOutput {
+	return i.ToServiceGatewayConnectorHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorHealthCheckArgs) ToServiceGatewayConnectorHealthCheckPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorHealthCheckOutput).ToServiceGatewayConnectorHealthCheckPtrOutputWithContext(ctx)
+}
+
+// ServiceGatewayConnectorHealthCheckPtrInput is an input type that accepts ServiceGatewayConnectorHealthCheckArgs, ServiceGatewayConnectorHealthCheckPtr and ServiceGatewayConnectorHealthCheckPtrOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorHealthCheckPtrInput` via:
+//
+//	        ServiceGatewayConnectorHealthCheckArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceGatewayConnectorHealthCheckPtrInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorHealthCheckPtrOutput() ServiceGatewayConnectorHealthCheckPtrOutput
+	ToServiceGatewayConnectorHealthCheckPtrOutputWithContext(context.Context) ServiceGatewayConnectorHealthCheckPtrOutput
+}
+
+type serviceGatewayConnectorHealthCheckPtrType ServiceGatewayConnectorHealthCheckArgs
+
+func ServiceGatewayConnectorHealthCheckPtr(v *ServiceGatewayConnectorHealthCheckArgs) ServiceGatewayConnectorHealthCheckPtrInput {
+	return (*serviceGatewayConnectorHealthCheckPtrType)(v)
+}
+
+func (*serviceGatewayConnectorHealthCheckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGatewayConnectorHealthCheck)(nil)).Elem()
+}
+
+func (i *serviceGatewayConnectorHealthCheckPtrType) ToServiceGatewayConnectorHealthCheckPtrOutput() ServiceGatewayConnectorHealthCheckPtrOutput {
+	return i.ToServiceGatewayConnectorHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceGatewayConnectorHealthCheckPtrType) ToServiceGatewayConnectorHealthCheckPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorHealthCheckPtrOutput)
+}
+
+type ServiceGatewayConnectorHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnectorHealthCheck)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) ToServiceGatewayConnectorHealthCheckOutput() ServiceGatewayConnectorHealthCheckOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) ToServiceGatewayConnectorHealthCheckOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) ToServiceGatewayConnectorHealthCheckPtrOutput() ServiceGatewayConnectorHealthCheckPtrOutput {
+	return o.ToServiceGatewayConnectorHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) ToServiceGatewayConnectorHealthCheckPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGatewayConnectorHealthCheck) *ServiceGatewayConnectorHealthCheck {
+		return &v
+	}).(ServiceGatewayConnectorHealthCheckPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheck) *int { return v.HealthCheckIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheck) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) HealthCheckPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheck) *int { return v.HealthCheckPort }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) HealthCheckProtocol() ServiceGatewayConnectorHealthCheckHealthCheckProtocolPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheck) *ServiceGatewayConnectorHealthCheckHealthCheckProtocol {
+		return v.HealthCheckProtocol
+	}).(ServiceGatewayConnectorHealthCheckHealthCheckProtocolPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheck) *int { return v.HealthCheckTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) HealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheck) *int { return v.HealthyThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) Matcher() ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheck) *ServiceGatewayConnectorHealthCheckMatcher {
+		return v.Matcher
+	}).(ServiceGatewayConnectorHealthCheckMatcherPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheck) *int { return v.UnhealthyThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+type ServiceGatewayConnectorHealthCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorHealthCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGatewayConnectorHealthCheck)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) ToServiceGatewayConnectorHealthCheckPtrOutput() ServiceGatewayConnectorHealthCheckPtrOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) ToServiceGatewayConnectorHealthCheckPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckPtrOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) Elem() ServiceGatewayConnectorHealthCheckOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheck) ServiceGatewayConnectorHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGatewayConnectorHealthCheck
+		return ret
+	}).(ServiceGatewayConnectorHealthCheckOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckIntervalSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) HealthCheckPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) HealthCheckProtocol() ServiceGatewayConnectorHealthCheckHealthCheckProtocolPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheck) *ServiceGatewayConnectorHealthCheckHealthCheckProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckProtocol
+	}).(ServiceGatewayConnectorHealthCheckHealthCheckProtocolPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) HealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthyThresholdCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) Matcher() ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheck) *ServiceGatewayConnectorHealthCheckMatcher {
+		if v == nil {
+			return nil
+		}
+		return v.Matcher
+	}).(ServiceGatewayConnectorHealthCheckMatcherPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckPtrOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyThresholdCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type ServiceGatewayConnectorHealthCheckMatcher struct {
+	GrpcCode *string `pulumi:"grpcCode"`
+	HttpCode *string `pulumi:"httpCode"`
+}
+
+// ServiceGatewayConnectorHealthCheckMatcherInput is an input type that accepts ServiceGatewayConnectorHealthCheckMatcherArgs and ServiceGatewayConnectorHealthCheckMatcherOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorHealthCheckMatcherInput` via:
+//
+//	ServiceGatewayConnectorHealthCheckMatcherArgs{...}
+type ServiceGatewayConnectorHealthCheckMatcherInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorHealthCheckMatcherOutput() ServiceGatewayConnectorHealthCheckMatcherOutput
+	ToServiceGatewayConnectorHealthCheckMatcherOutputWithContext(context.Context) ServiceGatewayConnectorHealthCheckMatcherOutput
+}
+
+type ServiceGatewayConnectorHealthCheckMatcherArgs struct {
+	GrpcCode pulumi.StringPtrInput `pulumi:"grpcCode"`
+	HttpCode pulumi.StringPtrInput `pulumi:"httpCode"`
+}
+
+func (ServiceGatewayConnectorHealthCheckMatcherArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnectorHealthCheckMatcher)(nil)).Elem()
+}
+
+func (i ServiceGatewayConnectorHealthCheckMatcherArgs) ToServiceGatewayConnectorHealthCheckMatcherOutput() ServiceGatewayConnectorHealthCheckMatcherOutput {
+	return i.ToServiceGatewayConnectorHealthCheckMatcherOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorHealthCheckMatcherArgs) ToServiceGatewayConnectorHealthCheckMatcherOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckMatcherOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorHealthCheckMatcherOutput)
+}
+
+func (i ServiceGatewayConnectorHealthCheckMatcherArgs) ToServiceGatewayConnectorHealthCheckMatcherPtrOutput() ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return i.ToServiceGatewayConnectorHealthCheckMatcherPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorHealthCheckMatcherArgs) ToServiceGatewayConnectorHealthCheckMatcherPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorHealthCheckMatcherOutput).ToServiceGatewayConnectorHealthCheckMatcherPtrOutputWithContext(ctx)
+}
+
+// ServiceGatewayConnectorHealthCheckMatcherPtrInput is an input type that accepts ServiceGatewayConnectorHealthCheckMatcherArgs, ServiceGatewayConnectorHealthCheckMatcherPtr and ServiceGatewayConnectorHealthCheckMatcherPtrOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorHealthCheckMatcherPtrInput` via:
+//
+//	        ServiceGatewayConnectorHealthCheckMatcherArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceGatewayConnectorHealthCheckMatcherPtrInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorHealthCheckMatcherPtrOutput() ServiceGatewayConnectorHealthCheckMatcherPtrOutput
+	ToServiceGatewayConnectorHealthCheckMatcherPtrOutputWithContext(context.Context) ServiceGatewayConnectorHealthCheckMatcherPtrOutput
+}
+
+type serviceGatewayConnectorHealthCheckMatcherPtrType ServiceGatewayConnectorHealthCheckMatcherArgs
+
+func ServiceGatewayConnectorHealthCheckMatcherPtr(v *ServiceGatewayConnectorHealthCheckMatcherArgs) ServiceGatewayConnectorHealthCheckMatcherPtrInput {
+	return (*serviceGatewayConnectorHealthCheckMatcherPtrType)(v)
+}
+
+func (*serviceGatewayConnectorHealthCheckMatcherPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGatewayConnectorHealthCheckMatcher)(nil)).Elem()
+}
+
+func (i *serviceGatewayConnectorHealthCheckMatcherPtrType) ToServiceGatewayConnectorHealthCheckMatcherPtrOutput() ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return i.ToServiceGatewayConnectorHealthCheckMatcherPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceGatewayConnectorHealthCheckMatcherPtrType) ToServiceGatewayConnectorHealthCheckMatcherPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorHealthCheckMatcherPtrOutput)
+}
+
+type ServiceGatewayConnectorHealthCheckMatcherOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorHealthCheckMatcherOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnectorHealthCheckMatcher)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherOutput) ToServiceGatewayConnectorHealthCheckMatcherOutput() ServiceGatewayConnectorHealthCheckMatcherOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherOutput) ToServiceGatewayConnectorHealthCheckMatcherOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckMatcherOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherOutput) ToServiceGatewayConnectorHealthCheckMatcherPtrOutput() ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return o.ToServiceGatewayConnectorHealthCheckMatcherPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherOutput) ToServiceGatewayConnectorHealthCheckMatcherPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGatewayConnectorHealthCheckMatcher) *ServiceGatewayConnectorHealthCheckMatcher {
+		return &v
+	}).(ServiceGatewayConnectorHealthCheckMatcherPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherOutput) GrpcCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheckMatcher) *string { return v.GrpcCode }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherOutput) HttpCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorHealthCheckMatcher) *string { return v.HttpCode }).(pulumi.StringPtrOutput)
+}
+
+type ServiceGatewayConnectorHealthCheckMatcherPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorHealthCheckMatcherPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGatewayConnectorHealthCheckMatcher)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherPtrOutput) ToServiceGatewayConnectorHealthCheckMatcherPtrOutput() ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherPtrOutput) ToServiceGatewayConnectorHealthCheckMatcherPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorHealthCheckMatcherPtrOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherPtrOutput) Elem() ServiceGatewayConnectorHealthCheckMatcherOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheckMatcher) ServiceGatewayConnectorHealthCheckMatcher {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGatewayConnectorHealthCheckMatcher
+		return ret
+	}).(ServiceGatewayConnectorHealthCheckMatcherOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherPtrOutput) GrpcCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheckMatcher) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GrpcCode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceGatewayConnectorHealthCheckMatcherPtrOutput) HttpCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorHealthCheckMatcher) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpCode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17509,10 +19526,14 @@ func (o ServiceVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceV
 	}).(ServiceVolumeConfigurationOutput)
 }
 
+// The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceVpcLatticeAdvancedConfiguration struct {
+	// The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
 	AlternateTargetGroupArn *string `pulumi:"alternateTargetGroupArn"`
-	ProductionListenerRule  *string `pulumi:"productionListenerRule"`
-	TestListenerRule        *string `pulumi:"testListenerRule"`
+	// The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
+	ProductionListenerRule *string `pulumi:"productionListenerRule"`
+	// The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
+	TestListenerRule *string `pulumi:"testListenerRule"`
 }
 
 // ServiceVpcLatticeAdvancedConfigurationInput is an input type that accepts ServiceVpcLatticeAdvancedConfigurationArgs and ServiceVpcLatticeAdvancedConfigurationOutput values.
@@ -17526,10 +19547,14 @@ type ServiceVpcLatticeAdvancedConfigurationInput interface {
 	ToServiceVpcLatticeAdvancedConfigurationOutputWithContext(context.Context) ServiceVpcLatticeAdvancedConfigurationOutput
 }
 
+// The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceVpcLatticeAdvancedConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
 	AlternateTargetGroupArn pulumi.StringPtrInput `pulumi:"alternateTargetGroupArn"`
-	ProductionListenerRule  pulumi.StringPtrInput `pulumi:"productionListenerRule"`
-	TestListenerRule        pulumi.StringPtrInput `pulumi:"testListenerRule"`
+	// The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
+	ProductionListenerRule pulumi.StringPtrInput `pulumi:"productionListenerRule"`
+	// The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
+	TestListenerRule pulumi.StringPtrInput `pulumi:"testListenerRule"`
 }
 
 func (ServiceVpcLatticeAdvancedConfigurationArgs) ElementType() reflect.Type {
@@ -17585,6 +19610,7 @@ func (i *serviceVpcLatticeAdvancedConfigurationPtrType) ToServiceVpcLatticeAdvan
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceVpcLatticeAdvancedConfigurationPtrOutput)
 }
 
+// The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceVpcLatticeAdvancedConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceVpcLatticeAdvancedConfigurationOutput) ElementType() reflect.Type {
@@ -17609,14 +19635,17 @@ func (o ServiceVpcLatticeAdvancedConfigurationOutput) ToServiceVpcLatticeAdvance
 	}).(ServiceVpcLatticeAdvancedConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
 func (o ServiceVpcLatticeAdvancedConfigurationOutput) AlternateTargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceVpcLatticeAdvancedConfiguration) *string { return v.AlternateTargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
 func (o ServiceVpcLatticeAdvancedConfigurationOutput) ProductionListenerRule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceVpcLatticeAdvancedConfiguration) *string { return v.ProductionListenerRule }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
 func (o ServiceVpcLatticeAdvancedConfigurationOutput) TestListenerRule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceVpcLatticeAdvancedConfiguration) *string { return v.TestListenerRule }).(pulumi.StringPtrOutput)
 }
@@ -17645,6 +19674,7 @@ func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) Elem() ServiceVpcLattic
 	}).(ServiceVpcLatticeAdvancedConfigurationOutput)
 }
 
+// The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.
 func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) AlternateTargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceVpcLatticeAdvancedConfiguration) *string {
 		if v == nil {
@@ -17654,6 +19684,7 @@ func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) AlternateTargetGroupArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.
 func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) ProductionListenerRule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceVpcLatticeAdvancedConfiguration) *string {
 		if v == nil {
@@ -17663,6 +19694,7 @@ func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) ProductionListenerRule(
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.
 func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) TestListenerRule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceVpcLatticeAdvancedConfiguration) *string {
 		if v == nil {
@@ -21824,6 +23856,162 @@ func (o TaskDefinitionMountPointArrayOutput) Index(i pulumi.IntInput) TaskDefini
 	}).(TaskDefinitionMountPointOutput)
 }
 
+type TaskDefinitionNvidiaMpsAllocation struct {
+	// The maximum percentage of the GPU's compute capacity that the container can use.
+	MaxComputePercent *int `pulumi:"maxComputePercent"`
+	// The amount of GPU memory, in MiB, allocated to the container.
+	Memory int `pulumi:"memory"`
+}
+
+// TaskDefinitionNvidiaMpsAllocationInput is an input type that accepts TaskDefinitionNvidiaMpsAllocationArgs and TaskDefinitionNvidiaMpsAllocationOutput values.
+// You can construct a concrete instance of `TaskDefinitionNvidiaMpsAllocationInput` via:
+//
+//	TaskDefinitionNvidiaMpsAllocationArgs{...}
+type TaskDefinitionNvidiaMpsAllocationInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionNvidiaMpsAllocationOutput() TaskDefinitionNvidiaMpsAllocationOutput
+	ToTaskDefinitionNvidiaMpsAllocationOutputWithContext(context.Context) TaskDefinitionNvidiaMpsAllocationOutput
+}
+
+type TaskDefinitionNvidiaMpsAllocationArgs struct {
+	// The maximum percentage of the GPU's compute capacity that the container can use.
+	MaxComputePercent pulumi.IntPtrInput `pulumi:"maxComputePercent"`
+	// The amount of GPU memory, in MiB, allocated to the container.
+	Memory pulumi.IntInput `pulumi:"memory"`
+}
+
+func (TaskDefinitionNvidiaMpsAllocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionNvidiaMpsAllocation)(nil)).Elem()
+}
+
+func (i TaskDefinitionNvidiaMpsAllocationArgs) ToTaskDefinitionNvidiaMpsAllocationOutput() TaskDefinitionNvidiaMpsAllocationOutput {
+	return i.ToTaskDefinitionNvidiaMpsAllocationOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionNvidiaMpsAllocationArgs) ToTaskDefinitionNvidiaMpsAllocationOutputWithContext(ctx context.Context) TaskDefinitionNvidiaMpsAllocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionNvidiaMpsAllocationOutput)
+}
+
+func (i TaskDefinitionNvidiaMpsAllocationArgs) ToTaskDefinitionNvidiaMpsAllocationPtrOutput() TaskDefinitionNvidiaMpsAllocationPtrOutput {
+	return i.ToTaskDefinitionNvidiaMpsAllocationPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionNvidiaMpsAllocationArgs) ToTaskDefinitionNvidiaMpsAllocationPtrOutputWithContext(ctx context.Context) TaskDefinitionNvidiaMpsAllocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionNvidiaMpsAllocationOutput).ToTaskDefinitionNvidiaMpsAllocationPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionNvidiaMpsAllocationPtrInput is an input type that accepts TaskDefinitionNvidiaMpsAllocationArgs, TaskDefinitionNvidiaMpsAllocationPtr and TaskDefinitionNvidiaMpsAllocationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionNvidiaMpsAllocationPtrInput` via:
+//
+//	        TaskDefinitionNvidiaMpsAllocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskDefinitionNvidiaMpsAllocationPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionNvidiaMpsAllocationPtrOutput() TaskDefinitionNvidiaMpsAllocationPtrOutput
+	ToTaskDefinitionNvidiaMpsAllocationPtrOutputWithContext(context.Context) TaskDefinitionNvidiaMpsAllocationPtrOutput
+}
+
+type taskDefinitionNvidiaMpsAllocationPtrType TaskDefinitionNvidiaMpsAllocationArgs
+
+func TaskDefinitionNvidiaMpsAllocationPtr(v *TaskDefinitionNvidiaMpsAllocationArgs) TaskDefinitionNvidiaMpsAllocationPtrInput {
+	return (*taskDefinitionNvidiaMpsAllocationPtrType)(v)
+}
+
+func (*taskDefinitionNvidiaMpsAllocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionNvidiaMpsAllocation)(nil)).Elem()
+}
+
+func (i *taskDefinitionNvidiaMpsAllocationPtrType) ToTaskDefinitionNvidiaMpsAllocationPtrOutput() TaskDefinitionNvidiaMpsAllocationPtrOutput {
+	return i.ToTaskDefinitionNvidiaMpsAllocationPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionNvidiaMpsAllocationPtrType) ToTaskDefinitionNvidiaMpsAllocationPtrOutputWithContext(ctx context.Context) TaskDefinitionNvidiaMpsAllocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionNvidiaMpsAllocationPtrOutput)
+}
+
+type TaskDefinitionNvidiaMpsAllocationOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionNvidiaMpsAllocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionNvidiaMpsAllocation)(nil)).Elem()
+}
+
+func (o TaskDefinitionNvidiaMpsAllocationOutput) ToTaskDefinitionNvidiaMpsAllocationOutput() TaskDefinitionNvidiaMpsAllocationOutput {
+	return o
+}
+
+func (o TaskDefinitionNvidiaMpsAllocationOutput) ToTaskDefinitionNvidiaMpsAllocationOutputWithContext(ctx context.Context) TaskDefinitionNvidiaMpsAllocationOutput {
+	return o
+}
+
+func (o TaskDefinitionNvidiaMpsAllocationOutput) ToTaskDefinitionNvidiaMpsAllocationPtrOutput() TaskDefinitionNvidiaMpsAllocationPtrOutput {
+	return o.ToTaskDefinitionNvidiaMpsAllocationPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionNvidiaMpsAllocationOutput) ToTaskDefinitionNvidiaMpsAllocationPtrOutputWithContext(ctx context.Context) TaskDefinitionNvidiaMpsAllocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionNvidiaMpsAllocation) *TaskDefinitionNvidiaMpsAllocation {
+		return &v
+	}).(TaskDefinitionNvidiaMpsAllocationPtrOutput)
+}
+
+// The maximum percentage of the GPU's compute capacity that the container can use.
+func (o TaskDefinitionNvidiaMpsAllocationOutput) MaxComputePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionNvidiaMpsAllocation) *int { return v.MaxComputePercent }).(pulumi.IntPtrOutput)
+}
+
+// The amount of GPU memory, in MiB, allocated to the container.
+func (o TaskDefinitionNvidiaMpsAllocationOutput) Memory() pulumi.IntOutput {
+	return o.ApplyT(func(v TaskDefinitionNvidiaMpsAllocation) int { return v.Memory }).(pulumi.IntOutput)
+}
+
+type TaskDefinitionNvidiaMpsAllocationPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionNvidiaMpsAllocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionNvidiaMpsAllocation)(nil)).Elem()
+}
+
+func (o TaskDefinitionNvidiaMpsAllocationPtrOutput) ToTaskDefinitionNvidiaMpsAllocationPtrOutput() TaskDefinitionNvidiaMpsAllocationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionNvidiaMpsAllocationPtrOutput) ToTaskDefinitionNvidiaMpsAllocationPtrOutputWithContext(ctx context.Context) TaskDefinitionNvidiaMpsAllocationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionNvidiaMpsAllocationPtrOutput) Elem() TaskDefinitionNvidiaMpsAllocationOutput {
+	return o.ApplyT(func(v *TaskDefinitionNvidiaMpsAllocation) TaskDefinitionNvidiaMpsAllocation {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionNvidiaMpsAllocation
+		return ret
+	}).(TaskDefinitionNvidiaMpsAllocationOutput)
+}
+
+// The maximum percentage of the GPU's compute capacity that the container can use.
+func (o TaskDefinitionNvidiaMpsAllocationPtrOutput) MaxComputePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionNvidiaMpsAllocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxComputePercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of GPU memory, in MiB, allocated to the container.
+func (o TaskDefinitionNvidiaMpsAllocationPtrOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionNvidiaMpsAllocation) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Memory
+	}).(pulumi.IntPtrOutput)
+}
+
 // The constraint on task placement in the task definition. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
 //
 //	Task placement constraints aren't supported for tasks run on FARGATElong.
@@ -22555,13 +24743,14 @@ func (o TaskDefinitionRepositoryCredentialsPtrOutput) CredentialsParameter() pul
 
 // The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
 type TaskDefinitionResourceRequirement struct {
+	SharingStrategy *TaskDefinitionSharingStrategy `pulumi:"sharingStrategy"`
 	// The type of resource to assign to a container.
 	Type string `pulumi:"type"`
 	// The value for the specified resource type.
 	//  When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
 	//  When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
 	//  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // TaskDefinitionResourceRequirementInput is an input type that accepts TaskDefinitionResourceRequirementArgs and TaskDefinitionResourceRequirementOutput values.
@@ -22577,13 +24766,14 @@ type TaskDefinitionResourceRequirementInput interface {
 
 // The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
 type TaskDefinitionResourceRequirementArgs struct {
+	SharingStrategy TaskDefinitionSharingStrategyPtrInput `pulumi:"sharingStrategy"`
 	// The type of resource to assign to a container.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The value for the specified resource type.
 	//  When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
 	//  When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
 	//  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (TaskDefinitionResourceRequirementArgs) ElementType() reflect.Type {
@@ -22638,6 +24828,10 @@ func (o TaskDefinitionResourceRequirementOutput) ToTaskDefinitionResourceRequire
 	return o
 }
 
+func (o TaskDefinitionResourceRequirementOutput) SharingStrategy() TaskDefinitionSharingStrategyPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionResourceRequirement) *TaskDefinitionSharingStrategy { return v.SharingStrategy }).(TaskDefinitionSharingStrategyPtrOutput)
+}
+
 // The type of resource to assign to a container.
 func (o TaskDefinitionResourceRequirementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionResourceRequirement) string { return v.Type }).(pulumi.StringOutput)
@@ -22648,8 +24842,8 @@ func (o TaskDefinitionResourceRequirementOutput) Type() pulumi.StringOutput {
 //	When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
 //	When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
 //	When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
-func (o TaskDefinitionResourceRequirementOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskDefinitionResourceRequirement) string { return v.Value }).(pulumi.StringOutput)
+func (o TaskDefinitionResourceRequirementOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionResourceRequirement) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type TaskDefinitionResourceRequirementArrayOutput struct{ *pulumi.OutputState }
@@ -23362,6 +25556,139 @@ func (o TaskDefinitionSecretArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionSecret {
 		return vs[0].([]TaskDefinitionSecret)[vs[1].(int)]
 	}).(TaskDefinitionSecretOutput)
+}
+
+type TaskDefinitionSharingStrategy struct {
+	NvidiaMps TaskDefinitionNvidiaMpsAllocation `pulumi:"nvidiaMps"`
+}
+
+// TaskDefinitionSharingStrategyInput is an input type that accepts TaskDefinitionSharingStrategyArgs and TaskDefinitionSharingStrategyOutput values.
+// You can construct a concrete instance of `TaskDefinitionSharingStrategyInput` via:
+//
+//	TaskDefinitionSharingStrategyArgs{...}
+type TaskDefinitionSharingStrategyInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionSharingStrategyOutput() TaskDefinitionSharingStrategyOutput
+	ToTaskDefinitionSharingStrategyOutputWithContext(context.Context) TaskDefinitionSharingStrategyOutput
+}
+
+type TaskDefinitionSharingStrategyArgs struct {
+	NvidiaMps TaskDefinitionNvidiaMpsAllocationInput `pulumi:"nvidiaMps"`
+}
+
+func (TaskDefinitionSharingStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionSharingStrategy)(nil)).Elem()
+}
+
+func (i TaskDefinitionSharingStrategyArgs) ToTaskDefinitionSharingStrategyOutput() TaskDefinitionSharingStrategyOutput {
+	return i.ToTaskDefinitionSharingStrategyOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionSharingStrategyArgs) ToTaskDefinitionSharingStrategyOutputWithContext(ctx context.Context) TaskDefinitionSharingStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionSharingStrategyOutput)
+}
+
+func (i TaskDefinitionSharingStrategyArgs) ToTaskDefinitionSharingStrategyPtrOutput() TaskDefinitionSharingStrategyPtrOutput {
+	return i.ToTaskDefinitionSharingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionSharingStrategyArgs) ToTaskDefinitionSharingStrategyPtrOutputWithContext(ctx context.Context) TaskDefinitionSharingStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionSharingStrategyOutput).ToTaskDefinitionSharingStrategyPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionSharingStrategyPtrInput is an input type that accepts TaskDefinitionSharingStrategyArgs, TaskDefinitionSharingStrategyPtr and TaskDefinitionSharingStrategyPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionSharingStrategyPtrInput` via:
+//
+//	        TaskDefinitionSharingStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskDefinitionSharingStrategyPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionSharingStrategyPtrOutput() TaskDefinitionSharingStrategyPtrOutput
+	ToTaskDefinitionSharingStrategyPtrOutputWithContext(context.Context) TaskDefinitionSharingStrategyPtrOutput
+}
+
+type taskDefinitionSharingStrategyPtrType TaskDefinitionSharingStrategyArgs
+
+func TaskDefinitionSharingStrategyPtr(v *TaskDefinitionSharingStrategyArgs) TaskDefinitionSharingStrategyPtrInput {
+	return (*taskDefinitionSharingStrategyPtrType)(v)
+}
+
+func (*taskDefinitionSharingStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionSharingStrategy)(nil)).Elem()
+}
+
+func (i *taskDefinitionSharingStrategyPtrType) ToTaskDefinitionSharingStrategyPtrOutput() TaskDefinitionSharingStrategyPtrOutput {
+	return i.ToTaskDefinitionSharingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionSharingStrategyPtrType) ToTaskDefinitionSharingStrategyPtrOutputWithContext(ctx context.Context) TaskDefinitionSharingStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionSharingStrategyPtrOutput)
+}
+
+type TaskDefinitionSharingStrategyOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionSharingStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionSharingStrategy)(nil)).Elem()
+}
+
+func (o TaskDefinitionSharingStrategyOutput) ToTaskDefinitionSharingStrategyOutput() TaskDefinitionSharingStrategyOutput {
+	return o
+}
+
+func (o TaskDefinitionSharingStrategyOutput) ToTaskDefinitionSharingStrategyOutputWithContext(ctx context.Context) TaskDefinitionSharingStrategyOutput {
+	return o
+}
+
+func (o TaskDefinitionSharingStrategyOutput) ToTaskDefinitionSharingStrategyPtrOutput() TaskDefinitionSharingStrategyPtrOutput {
+	return o.ToTaskDefinitionSharingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionSharingStrategyOutput) ToTaskDefinitionSharingStrategyPtrOutputWithContext(ctx context.Context) TaskDefinitionSharingStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionSharingStrategy) *TaskDefinitionSharingStrategy {
+		return &v
+	}).(TaskDefinitionSharingStrategyPtrOutput)
+}
+
+func (o TaskDefinitionSharingStrategyOutput) NvidiaMps() TaskDefinitionNvidiaMpsAllocationOutput {
+	return o.ApplyT(func(v TaskDefinitionSharingStrategy) TaskDefinitionNvidiaMpsAllocation { return v.NvidiaMps }).(TaskDefinitionNvidiaMpsAllocationOutput)
+}
+
+type TaskDefinitionSharingStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionSharingStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionSharingStrategy)(nil)).Elem()
+}
+
+func (o TaskDefinitionSharingStrategyPtrOutput) ToTaskDefinitionSharingStrategyPtrOutput() TaskDefinitionSharingStrategyPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionSharingStrategyPtrOutput) ToTaskDefinitionSharingStrategyPtrOutputWithContext(ctx context.Context) TaskDefinitionSharingStrategyPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionSharingStrategyPtrOutput) Elem() TaskDefinitionSharingStrategyOutput {
+	return o.ApplyT(func(v *TaskDefinitionSharingStrategy) TaskDefinitionSharingStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionSharingStrategy
+		return ret
+	}).(TaskDefinitionSharingStrategyOutput)
+}
+
+func (o TaskDefinitionSharingStrategyPtrOutput) NvidiaMps() TaskDefinitionNvidiaMpsAllocationPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionSharingStrategy) *TaskDefinitionNvidiaMpsAllocation {
+		if v == nil {
+			return nil
+		}
+		return &v.NvidiaMps
+	}).(TaskDefinitionNvidiaMpsAllocationPtrOutput)
 }
 
 // A list of namespaced kernel parameters to set in the container. This parameter maps to “Sysctls“ in the docker container create command and the “--sysctl“ option to docker run. For example, you can configure “net.ipv4.tcp_keepalive_time“ setting to maintain longer lived connections.
@@ -25122,6 +27449,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceNetworkConfigurationPtrInput)(nil)).Elem(), ExpressGatewayServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceSecretInput)(nil)).Elem(), ExpressGatewayServiceSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceSecretArrayInput)(nil)).Elem(), ExpressGatewayServiceSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAlbTestTrafficRulesInput)(nil)).Elem(), GatewayAlbTestTrafficRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAlbTestTrafficRulesPtrInput)(nil)).Elem(), GatewayAlbTestTrafficRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayConfigurationInput)(nil)).Elem(), GatewayConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayElbAccessLogConfigurationInput)(nil)).Elem(), GatewayElbAccessLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayElbAccessLogConfigurationPtrInput)(nil)).Elem(), GatewayElbAccessLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayElbAccessLogDestinationInput)(nil)).Elem(), GatewayElbAccessLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayElbAccessLogDestinationPtrInput)(nil)).Elem(), GatewayElbAccessLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayElbAccessLogS3DestinationInput)(nil)).Elem(), GatewayElbAccessLogS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayElbAccessLogS3DestinationPtrInput)(nil)).Elem(), GatewayElbAccessLogS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayElbNetworkConfigurationInput)(nil)).Elem(), GatewayElbNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayElbNetworkConfigurationPtrInput)(nil)).Elem(), GatewayElbNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayHostSharedAlbConfigurationInput)(nil)).Elem(), GatewayHostSharedAlbConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTestTrafficHeaderInput)(nil)).Elem(), GatewayTestTrafficHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTestTrafficHeaderPtrInput)(nil)).Elem(), GatewayTestTrafficHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAdvancedConfigurationInput)(nil)).Elem(), ServiceAdvancedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAdvancedConfigurationPtrInput)(nil)).Elem(), ServiceAdvancedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationInput)(nil)).Elem(), ServiceAwsVpcConfigurationArgs{})
@@ -25136,6 +27477,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectClientAliasArrayInput)(nil)).Elem(), ServiceConnectClientAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectConfigurationInput)(nil)).Elem(), ServiceConnectConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectConfigurationPtrInput)(nil)).Elem(), ServiceConnectConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectContainerConfigurationInput)(nil)).Elem(), ServiceConnectContainerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectContainerConfigurationArrayInput)(nil)).Elem(), ServiceConnectContainerConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceInput)(nil)).Elem(), ServiceConnectServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceArrayInput)(nil)).Elem(), ServiceConnectServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTestTrafficRulesInput)(nil)).Elem(), ServiceConnectTestTrafficRulesArgs{})
@@ -25164,6 +27507,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationArrayInput)(nil)).Elem(), ServiceEbsTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceForceNewDeploymentInput)(nil)).Elem(), ServiceForceNewDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceForceNewDeploymentPtrInput)(nil)).Elem(), ServiceForceNewDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorInput)(nil)).Elem(), ServiceGatewayConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorArrayInput)(nil)).Elem(), ServiceGatewayConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorFiltersInput)(nil)).Elem(), ServiceGatewayConnectorFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorFiltersPtrInput)(nil)).Elem(), ServiceGatewayConnectorFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorHealthCheckInput)(nil)).Elem(), ServiceGatewayConnectorHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorHealthCheckPtrInput)(nil)).Elem(), ServiceGatewayConnectorHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorHealthCheckMatcherInput)(nil)).Elem(), ServiceGatewayConnectorHealthCheckMatcherArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorHealthCheckMatcherPtrInput)(nil)).Elem(), ServiceGatewayConnectorHealthCheckMatcherArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHookTimeoutConfigInput)(nil)).Elem(), ServiceHookTimeoutConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHookTimeoutConfigPtrInput)(nil)).Elem(), ServiceHookTimeoutConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinearConfigurationInput)(nil)).Elem(), ServiceLinearConfigurationArgs{})
@@ -25240,6 +27591,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLogConfigurationPtrInput)(nil)).Elem(), TaskDefinitionLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionMountPointInput)(nil)).Elem(), TaskDefinitionMountPointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionMountPointArrayInput)(nil)).Elem(), TaskDefinitionMountPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionNvidiaMpsAllocationInput)(nil)).Elem(), TaskDefinitionNvidiaMpsAllocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionNvidiaMpsAllocationPtrInput)(nil)).Elem(), TaskDefinitionNvidiaMpsAllocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPlacementConstraintInput)(nil)).Elem(), TaskDefinitionPlacementConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPlacementConstraintArrayInput)(nil)).Elem(), TaskDefinitionPlacementConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPortMappingInput)(nil)).Elem(), TaskDefinitionPortMappingArgs{})
@@ -25258,6 +27611,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionS3FilesVolumeConfigurationPtrInput)(nil)).Elem(), TaskDefinitionS3FilesVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSecretInput)(nil)).Elem(), TaskDefinitionSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSecretArrayInput)(nil)).Elem(), TaskDefinitionSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSharingStrategyInput)(nil)).Elem(), TaskDefinitionSharingStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSharingStrategyPtrInput)(nil)).Elem(), TaskDefinitionSharingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSystemControlInput)(nil)).Elem(), TaskDefinitionSystemControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSystemControlArrayInput)(nil)).Elem(), TaskDefinitionSystemControlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTmpfsInput)(nil)).Elem(), TaskDefinitionTmpfsArgs{})
@@ -25404,6 +27759,22 @@ func init() {
 	pulumi.RegisterOutputType(ExpressGatewayServiceSecretArrayOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceStatusOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceStatusPtrOutput{})
+	pulumi.RegisterOutputType(GatewayAlbTestTrafficRulesOutput{})
+	pulumi.RegisterOutputType(GatewayAlbTestTrafficRulesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayElbAccessLogConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayElbAccessLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayElbAccessLogDestinationOutput{})
+	pulumi.RegisterOutputType(GatewayElbAccessLogDestinationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayElbAccessLogS3DestinationOutput{})
+	pulumi.RegisterOutputType(GatewayElbAccessLogS3DestinationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayElbNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayElbNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayHostSharedAlbConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayHostSharedAlbConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTestTrafficHeaderOutput{})
+	pulumi.RegisterOutputType(GatewayTestTrafficHeaderPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAdvancedConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAdvancedConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationOutput{})
@@ -25418,6 +27789,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceConnectClientAliasArrayOutput{})
 	pulumi.RegisterOutputType(ServiceConnectConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceConnectConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceConnectContainerConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceConnectContainerConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceConnectServiceOutput{})
 	pulumi.RegisterOutputType(ServiceConnectServiceArrayOutput{})
 	pulumi.RegisterOutputType(ServiceConnectTestTrafficRulesOutput{})
@@ -25446,6 +27819,14 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceForceNewDeploymentOutput{})
 	pulumi.RegisterOutputType(ServiceForceNewDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorArrayOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorFiltersOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorFiltersPtrOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorHealthCheckOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorHealthCheckMatcherOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorHealthCheckMatcherPtrOutput{})
 	pulumi.RegisterOutputType(ServiceHookTimeoutConfigOutput{})
 	pulumi.RegisterOutputType(ServiceHookTimeoutConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLinearConfigurationOutput{})
@@ -25522,6 +27903,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionMountPointOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionMountPointArrayOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionNvidiaMpsAllocationOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionNvidiaMpsAllocationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPortMappingOutput{})
@@ -25540,6 +27923,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionS3FilesVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSecretOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSecretArrayOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionSharingStrategyOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionSharingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTmpfsOutput{})

@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.ResilienceHubV2.Outputs
         /// ARN of the EKS cluster.
         /// </summary>
         public readonly string ClusterArn;
+        public readonly Outputs.ServiceEksLabelSelector? LabelSelector;
         /// <summary>
         /// EKS namespaces.
         /// </summary>
@@ -26,9 +27,12 @@ namespace Pulumi.AwsNative.ResilienceHubV2.Outputs
         private ServiceEksSource(
             string clusterArn,
 
+            Outputs.ServiceEksLabelSelector? labelSelector,
+
             ImmutableArray<string> namespaces)
         {
             ClusterArn = clusterArn;
+            LabelSelector = labelSelector;
             Namespaces = namespaces;
         }
     }

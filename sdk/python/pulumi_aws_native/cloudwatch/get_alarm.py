@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetAlarmResult:
-    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_criteria=None, evaluation_interval=None, evaluation_periods=None, evaluation_window=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None, warm_up_configuration=None):
+    def __init__(__self__, action_configuration=None, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_criteria=None, evaluation_interval=None, evaluation_periods=None, evaluation_window=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None, warm_up_configuration=None):
+        if action_configuration and not isinstance(action_configuration, dict):
+            raise TypeError("Expected argument 'action_configuration' to be a dict")
+        pulumi.set(__self__, "action_configuration", action_configuration)
         if actions_enabled and not isinstance(actions_enabled, bool):
             raise TypeError("Expected argument 'actions_enabled' to be a bool")
         pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -104,6 +107,11 @@ class GetAlarmResult:
         if warm_up_configuration and not isinstance(warm_up_configuration, dict):
             raise TypeError("Expected argument 'warm_up_configuration' to be a dict")
         pulumi.set(__self__, "warm_up_configuration", warm_up_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional['outputs.AlarmActionConfiguration']:
+        return pulumi.get(self, "action_configuration")
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -334,6 +342,7 @@ class AwaitableGetAlarmResult(GetAlarmResult):
         if False:
             yield self
         return GetAlarmResult(
+            action_configuration=self.action_configuration,
             actions_enabled=self.actions_enabled,
             alarm_actions=self.alarm_actions,
             alarm_description=self.alarm_description,
@@ -378,6 +387,7 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudwatch:getAlarm', __args__, opts=opts, typ=GetAlarmResult).value
 
     return AwaitableGetAlarmResult(
+        action_configuration=pulumi.get(__ret__, 'action_configuration'),
         actions_enabled=pulumi.get(__ret__, 'actions_enabled'),
         alarm_actions=pulumi.get(__ret__, 'alarm_actions'),
         alarm_description=pulumi.get(__ret__, 'alarm_description'),
@@ -419,6 +429,7 @@ def get_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getAlarm', __args__, opts=opts, typ=GetAlarmResult)
     return __ret__.apply(lambda __response__: GetAlarmResult(
+        action_configuration=pulumi.get(__response__, 'action_configuration'),
         actions_enabled=pulumi.get(__response__, 'actions_enabled'),
         alarm_actions=pulumi.get(__response__, 'alarm_actions'),
         alarm_description=pulumi.get(__response__, 'alarm_description'),

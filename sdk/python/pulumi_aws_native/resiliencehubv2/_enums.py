@@ -10,6 +10,7 @@ __all__ = [
     'PolicyMultiAzTargetsDisasterRecoveryApproach',
     'PolicyMultiRegionTargetsDisasterRecoveryApproach',
     'ServiceDependencyDiscovery',
+    'ServiceEksLabelSelectorRequirementOperator',
     'ServiceFunctionCriticality',
     'ServiceFunctionSource',
 ]
@@ -47,6 +48,17 @@ class ServiceDependencyDiscovery(_builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
     INITIALIZING = "INITIALIZING"
+
+
+@pulumi.type_token("aws-native:resiliencehubv2:ServiceEksLabelSelectorRequirementOperator")
+class ServiceEksLabelSelectorRequirementOperator(_builtins.str, Enum):
+    """
+    Operator applied to the label key.
+    """
+    IN_ = "IN"
+    NOT_IN = "NOT_IN"
+    EXISTS = "EXISTS"
+    DOES_NOT_EXIST = "DOES_NOT_EXIST"
 
 
 @pulumi.type_token("aws-native:resiliencehubv2:ServiceFunctionCriticality")

@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetFhirDatastoreResult:
-    def __init__(__self__, created_at=None, datastore_arn=None, datastore_endpoint=None, datastore_id=None, datastore_status=None, tags=None):
+    def __init__(__self__, analytics_configuration=None, created_at=None, datastore_arn=None, datastore_endpoint=None, datastore_id=None, datastore_name=None, datastore_status=None, identity_provider_configuration=None, nlp_configuration=None, profile_configuration=None, tags=None):
+        if analytics_configuration and not isinstance(analytics_configuration, dict):
+            raise TypeError("Expected argument 'analytics_configuration' to be a dict")
+        pulumi.set(__self__, "analytics_configuration", analytics_configuration)
         if created_at and not isinstance(created_at, dict):
             raise TypeError("Expected argument 'created_at' to be a dict")
         pulumi.set(__self__, "created_at", created_at)
@@ -39,12 +42,29 @@ class GetFhirDatastoreResult:
         if datastore_id and not isinstance(datastore_id, str):
             raise TypeError("Expected argument 'datastore_id' to be a str")
         pulumi.set(__self__, "datastore_id", datastore_id)
+        if datastore_name and not isinstance(datastore_name, str):
+            raise TypeError("Expected argument 'datastore_name' to be a str")
+        pulumi.set(__self__, "datastore_name", datastore_name)
         if datastore_status and not isinstance(datastore_status, str):
             raise TypeError("Expected argument 'datastore_status' to be a str")
         pulumi.set(__self__, "datastore_status", datastore_status)
+        if identity_provider_configuration and not isinstance(identity_provider_configuration, dict):
+            raise TypeError("Expected argument 'identity_provider_configuration' to be a dict")
+        pulumi.set(__self__, "identity_provider_configuration", identity_provider_configuration)
+        if nlp_configuration and not isinstance(nlp_configuration, dict):
+            raise TypeError("Expected argument 'nlp_configuration' to be a dict")
+        pulumi.set(__self__, "nlp_configuration", nlp_configuration)
+        if profile_configuration and not isinstance(profile_configuration, dict):
+            raise TypeError("Expected argument 'profile_configuration' to be a dict")
+        pulumi.set(__self__, "profile_configuration", profile_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="analyticsConfiguration")
+    def analytics_configuration(self) -> Optional['outputs.FhirDatastoreAnalyticsConfiguration']:
+        return pulumi.get(self, "analytics_configuration")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -76,12 +96,38 @@ class GetFhirDatastoreResult:
         return pulumi.get(self, "datastore_id")
 
     @_builtins.property
+    @pulumi.getter(name="datastoreName")
+    def datastore_name(self) -> Optional[_builtins.str]:
+        """
+        The data store name (user-generated).
+        """
+        return pulumi.get(self, "datastore_name")
+
+    @_builtins.property
     @pulumi.getter(name="datastoreStatus")
     def datastore_status(self) -> Optional['FhirDatastoreDatastoreStatus']:
         """
         The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
         """
         return pulumi.get(self, "datastore_status")
+
+    @_builtins.property
+    @pulumi.getter(name="identityProviderConfiguration")
+    def identity_provider_configuration(self) -> Optional['outputs.FhirDatastoreIdentityProviderConfiguration']:
+        """
+        The identity provider configuration selected when the data store was created.
+        """
+        return pulumi.get(self, "identity_provider_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="nlpConfiguration")
+    def nlp_configuration(self) -> Optional['outputs.FhirDatastoreNlpConfiguration']:
+        return pulumi.get(self, "nlp_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="profileConfiguration")
+    def profile_configuration(self) -> Optional['outputs.FhirDatastoreProfileConfiguration']:
+        return pulumi.get(self, "profile_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -100,11 +146,16 @@ class AwaitableGetFhirDatastoreResult(GetFhirDatastoreResult):
         if False:
             yield self
         return GetFhirDatastoreResult(
+            analytics_configuration=self.analytics_configuration,
             created_at=self.created_at,
             datastore_arn=self.datastore_arn,
             datastore_endpoint=self.datastore_endpoint,
             datastore_id=self.datastore_id,
+            datastore_name=self.datastore_name,
             datastore_status=self.datastore_status,
+            identity_provider_configuration=self.identity_provider_configuration,
+            nlp_configuration=self.nlp_configuration,
+            profile_configuration=self.profile_configuration,
             tags=self.tags)
 
 
@@ -121,11 +172,16 @@ def get_fhir_datastore(datastore_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:healthlake:getFhirDatastore', __args__, opts=opts, typ=GetFhirDatastoreResult).value
 
     return AwaitableGetFhirDatastoreResult(
+        analytics_configuration=pulumi.get(__ret__, 'analytics_configuration'),
         created_at=pulumi.get(__ret__, 'created_at'),
         datastore_arn=pulumi.get(__ret__, 'datastore_arn'),
         datastore_endpoint=pulumi.get(__ret__, 'datastore_endpoint'),
         datastore_id=pulumi.get(__ret__, 'datastore_id'),
+        datastore_name=pulumi.get(__ret__, 'datastore_name'),
         datastore_status=pulumi.get(__ret__, 'datastore_status'),
+        identity_provider_configuration=pulumi.get(__ret__, 'identity_provider_configuration'),
+        nlp_configuration=pulumi.get(__ret__, 'nlp_configuration'),
+        profile_configuration=pulumi.get(__ret__, 'profile_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_fhir_datastore_output(datastore_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFhirDatastoreResult]:
@@ -139,9 +195,14 @@ def get_fhir_datastore_output(datastore_id: pulumi.Input[Optional[_builtins.str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:healthlake:getFhirDatastore', __args__, opts=opts, typ=GetFhirDatastoreResult)
     return __ret__.apply(lambda __response__: GetFhirDatastoreResult(
+        analytics_configuration=pulumi.get(__response__, 'analytics_configuration'),
         created_at=pulumi.get(__response__, 'created_at'),
         datastore_arn=pulumi.get(__response__, 'datastore_arn'),
         datastore_endpoint=pulumi.get(__response__, 'datastore_endpoint'),
         datastore_id=pulumi.get(__response__, 'datastore_id'),
+        datastore_name=pulumi.get(__response__, 'datastore_name'),
         datastore_status=pulumi.get(__response__, 'datastore_status'),
+        identity_provider_configuration=pulumi.get(__response__, 'identity_provider_configuration'),
+        nlp_configuration=pulumi.get(__response__, 'nlp_configuration'),
+        profile_configuration=pulumi.get(__response__, 'profile_configuration'),
         tags=pulumi.get(__response__, 'tags')))

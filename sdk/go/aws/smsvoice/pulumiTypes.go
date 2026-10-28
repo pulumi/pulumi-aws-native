@@ -727,6 +727,13 @@ func (o MandatoryKeywordsPropertiesPtrOutput) Stop() PoolMandatoryKeywordPtrOutp
 	}).(PoolMandatoryKeywordPtrOutput)
 }
 
+type NotifyConfigurationTag struct {
+	// The key identifier, or name, of the tag.
+	Key string `pulumi:"key"`
+	// The string value associated with the key of the tag.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type OptOutListTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1373,6 +1380,110 @@ type ProtectConfigurationTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with a resource.
+type RcsAgentTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
+// Information about the testing agent (RCS for Business ID) associated with the RCS agent. A testing agent is created by submitting a testing registration, and allows sending to registered test devices without carrier approval.
+type RcsAgentTestingAgentInformation struct {
+	// The unique identifier of the testing registration that created the testing agent.
+	RegistrationId string `pulumi:"registrationId"`
+	// The identifier of the testing agent assigned by the RCS infrastructure provider.
+	TestingAgentId *string `pulumi:"testingAgentId"`
+	// The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+	TestingAgentStatus RcsAgentTestingAgentInformationTestingAgentStatus `pulumi:"testingAgentStatus"`
+}
+
+// Information about the testing agent (RCS for Business ID) associated with the RCS agent. A testing agent is created by submitting a testing registration, and allows sending to registered test devices without carrier approval.
+type RcsAgentTestingAgentInformationOutput struct{ *pulumi.OutputState }
+
+func (RcsAgentTestingAgentInformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RcsAgentTestingAgentInformation)(nil)).Elem()
+}
+
+func (o RcsAgentTestingAgentInformationOutput) ToRcsAgentTestingAgentInformationOutput() RcsAgentTestingAgentInformationOutput {
+	return o
+}
+
+func (o RcsAgentTestingAgentInformationOutput) ToRcsAgentTestingAgentInformationOutputWithContext(ctx context.Context) RcsAgentTestingAgentInformationOutput {
+	return o
+}
+
+// The unique identifier of the testing registration that created the testing agent.
+func (o RcsAgentTestingAgentInformationOutput) RegistrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v RcsAgentTestingAgentInformation) string { return v.RegistrationId }).(pulumi.StringOutput)
+}
+
+// The identifier of the testing agent assigned by the RCS infrastructure provider.
+func (o RcsAgentTestingAgentInformationOutput) TestingAgentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RcsAgentTestingAgentInformation) *string { return v.TestingAgentId }).(pulumi.StringPtrOutput)
+}
+
+// The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+func (o RcsAgentTestingAgentInformationOutput) TestingAgentStatus() RcsAgentTestingAgentInformationTestingAgentStatusOutput {
+	return o.ApplyT(func(v RcsAgentTestingAgentInformation) RcsAgentTestingAgentInformationTestingAgentStatus {
+		return v.TestingAgentStatus
+	}).(RcsAgentTestingAgentInformationTestingAgentStatusOutput)
+}
+
+type RcsAgentTestingAgentInformationPtrOutput struct{ *pulumi.OutputState }
+
+func (RcsAgentTestingAgentInformationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RcsAgentTestingAgentInformation)(nil)).Elem()
+}
+
+func (o RcsAgentTestingAgentInformationPtrOutput) ToRcsAgentTestingAgentInformationPtrOutput() RcsAgentTestingAgentInformationPtrOutput {
+	return o
+}
+
+func (o RcsAgentTestingAgentInformationPtrOutput) ToRcsAgentTestingAgentInformationPtrOutputWithContext(ctx context.Context) RcsAgentTestingAgentInformationPtrOutput {
+	return o
+}
+
+func (o RcsAgentTestingAgentInformationPtrOutput) Elem() RcsAgentTestingAgentInformationOutput {
+	return o.ApplyT(func(v *RcsAgentTestingAgentInformation) RcsAgentTestingAgentInformation {
+		if v != nil {
+			return *v
+		}
+		var ret RcsAgentTestingAgentInformation
+		return ret
+	}).(RcsAgentTestingAgentInformationOutput)
+}
+
+// The unique identifier of the testing registration that created the testing agent.
+func (o RcsAgentTestingAgentInformationPtrOutput) RegistrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RcsAgentTestingAgentInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RegistrationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the testing agent assigned by the RCS infrastructure provider.
+func (o RcsAgentTestingAgentInformationPtrOutput) TestingAgentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RcsAgentTestingAgentInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TestingAgentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+func (o RcsAgentTestingAgentInformationPtrOutput) TestingAgentStatus() RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput {
+	return o.ApplyT(func(v *RcsAgentTestingAgentInformation) *RcsAgentTestingAgentInformationTestingAgentStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.TestingAgentStatus
+	}).(RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput)
+}
+
 type RegistrationAttachmentTag struct {
 	// The key identifier, or name, of the tag.
 	Key string `pulumi:"key"`
@@ -1622,6 +1733,8 @@ func init() {
 	pulumi.RegisterOutputType(ProtectConfigurationCountryRuleArrayOutput{})
 	pulumi.RegisterOutputType(ProtectConfigurationCountryRuleSetOutput{})
 	pulumi.RegisterOutputType(ProtectConfigurationCountryRuleSetPtrOutput{})
+	pulumi.RegisterOutputType(RcsAgentTestingAgentInformationOutput{})
+	pulumi.RegisterOutputType(RcsAgentTestingAgentInformationPtrOutput{})
 	pulumi.RegisterOutputType(TwoWayPropertiesOutput{})
 	pulumi.RegisterOutputType(TwoWayPropertiesPtrOutput{})
 }

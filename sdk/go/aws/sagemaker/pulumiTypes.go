@@ -5979,6 +5979,8 @@ type ClusterInstanceGroup struct {
 	CurrentCount  *int    `pulumi:"currentCount"`
 	ExecutionRole string  `pulumi:"executionRole"`
 	ImageId       *string `pulumi:"imageId"`
+	// The version of the HyperPod-managed AMI for the instance group, in semantic version format MAJOR.MINOR.PATCH (for example, 1.2.3). Supported only for EKS-orchestrated clusters. If omitted at creation, the latest available version is used (or the version of an existing same-architecture instance group when adding a group). Changing this value on an existing instance group triggers a software update via UpdateClusterSoftware. Automatic patching (AutoPatchConfig) and out-of-band software updates can advance the running version past this value; CloudFormation does not revert such changes and may report the property as drifted. Only an explicit change to this value in the template triggers an update.
+	ImageReleaseVersion *string `pulumi:"imageReleaseVersion"`
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
 	InstanceCount          int                            `pulumi:"instanceCount"`
 	InstanceGroupName      string                         `pulumi:"instanceGroupName"`
@@ -6019,6 +6021,8 @@ type ClusterInstanceGroupArgs struct {
 	CurrentCount  pulumi.IntPtrInput    `pulumi:"currentCount"`
 	ExecutionRole pulumi.StringInput    `pulumi:"executionRole"`
 	ImageId       pulumi.StringPtrInput `pulumi:"imageId"`
+	// The version of the HyperPod-managed AMI for the instance group, in semantic version format MAJOR.MINOR.PATCH (for example, 1.2.3). Supported only for EKS-orchestrated clusters. If omitted at creation, the latest available version is used (or the version of an existing same-architecture instance group when adding a group). Changing this value on an existing instance group triggers a software update via UpdateClusterSoftware. Automatic patching (AutoPatchConfig) and out-of-band software updates can advance the running version past this value; CloudFormation does not revert such changes and may report the property as drifted. Only an explicit change to this value in the template triggers an update.
+	ImageReleaseVersion pulumi.StringPtrInput `pulumi:"imageReleaseVersion"`
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
 	InstanceCount          pulumi.IntInput                        `pulumi:"instanceCount"`
 	InstanceGroupName      pulumi.StringInput                     `pulumi:"instanceGroupName"`
@@ -6111,6 +6115,11 @@ func (o ClusterInstanceGroupOutput) ExecutionRole() pulumi.StringOutput {
 
 func (o ClusterInstanceGroupOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.ImageId }).(pulumi.StringPtrOutput)
+}
+
+// The version of the HyperPod-managed AMI for the instance group, in semantic version format MAJOR.MINOR.PATCH (for example, 1.2.3). Supported only for EKS-orchestrated clusters. If omitted at creation, the latest available version is used (or the version of an existing same-architecture instance group when adding a group). Changing this value on an existing instance group triggers a software update via UpdateClusterSoftware. Automatic patching (AutoPatchConfig) and out-of-band software updates can advance the running version past this value; CloudFormation does not revert such changes and may report the property as drifted. Only an explicit change to this value in the template triggers an update.
+func (o ClusterInstanceGroupOutput) ImageReleaseVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.ImageReleaseVersion }).(pulumi.StringPtrOutput)
 }
 
 // The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
@@ -9425,6 +9434,732 @@ type CodeRepositoryTag struct {
 	Key string `pulumi:"key"`
 	// The value of the tag.
 	Value string `pulumi:"value"`
+}
+
+// Multi-instance GPU (MIG) partition profile and count for fractional accelerator allocation.
+type ComputeQuotaAcceleratorPartitionConfig struct {
+	// The number of MIG partitions of the specified Type allocated to the team.
+	Count int `pulumi:"count"`
+	// MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+	Type ComputeQuotaAcceleratorPartitionConfigType `pulumi:"type"`
+}
+
+// ComputeQuotaAcceleratorPartitionConfigInput is an input type that accepts ComputeQuotaAcceleratorPartitionConfigArgs and ComputeQuotaAcceleratorPartitionConfigOutput values.
+// You can construct a concrete instance of `ComputeQuotaAcceleratorPartitionConfigInput` via:
+//
+//	ComputeQuotaAcceleratorPartitionConfigArgs{...}
+type ComputeQuotaAcceleratorPartitionConfigInput interface {
+	pulumi.Input
+
+	ToComputeQuotaAcceleratorPartitionConfigOutput() ComputeQuotaAcceleratorPartitionConfigOutput
+	ToComputeQuotaAcceleratorPartitionConfigOutputWithContext(context.Context) ComputeQuotaAcceleratorPartitionConfigOutput
+}
+
+// Multi-instance GPU (MIG) partition profile and count for fractional accelerator allocation.
+type ComputeQuotaAcceleratorPartitionConfigArgs struct {
+	// The number of MIG partitions of the specified Type allocated to the team.
+	Count pulumi.IntInput `pulumi:"count"`
+	// MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+	Type ComputeQuotaAcceleratorPartitionConfigTypeInput `pulumi:"type"`
+}
+
+func (ComputeQuotaAcceleratorPartitionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaAcceleratorPartitionConfig)(nil)).Elem()
+}
+
+func (i ComputeQuotaAcceleratorPartitionConfigArgs) ToComputeQuotaAcceleratorPartitionConfigOutput() ComputeQuotaAcceleratorPartitionConfigOutput {
+	return i.ToComputeQuotaAcceleratorPartitionConfigOutputWithContext(context.Background())
+}
+
+func (i ComputeQuotaAcceleratorPartitionConfigArgs) ToComputeQuotaAcceleratorPartitionConfigOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaAcceleratorPartitionConfigOutput)
+}
+
+func (i ComputeQuotaAcceleratorPartitionConfigArgs) ToComputeQuotaAcceleratorPartitionConfigPtrOutput() ComputeQuotaAcceleratorPartitionConfigPtrOutput {
+	return i.ToComputeQuotaAcceleratorPartitionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeQuotaAcceleratorPartitionConfigArgs) ToComputeQuotaAcceleratorPartitionConfigPtrOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaAcceleratorPartitionConfigOutput).ToComputeQuotaAcceleratorPartitionConfigPtrOutputWithContext(ctx)
+}
+
+// ComputeQuotaAcceleratorPartitionConfigPtrInput is an input type that accepts ComputeQuotaAcceleratorPartitionConfigArgs, ComputeQuotaAcceleratorPartitionConfigPtr and ComputeQuotaAcceleratorPartitionConfigPtrOutput values.
+// You can construct a concrete instance of `ComputeQuotaAcceleratorPartitionConfigPtrInput` via:
+//
+//	        ComputeQuotaAcceleratorPartitionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ComputeQuotaAcceleratorPartitionConfigPtrInput interface {
+	pulumi.Input
+
+	ToComputeQuotaAcceleratorPartitionConfigPtrOutput() ComputeQuotaAcceleratorPartitionConfigPtrOutput
+	ToComputeQuotaAcceleratorPartitionConfigPtrOutputWithContext(context.Context) ComputeQuotaAcceleratorPartitionConfigPtrOutput
+}
+
+type computeQuotaAcceleratorPartitionConfigPtrType ComputeQuotaAcceleratorPartitionConfigArgs
+
+func ComputeQuotaAcceleratorPartitionConfigPtr(v *ComputeQuotaAcceleratorPartitionConfigArgs) ComputeQuotaAcceleratorPartitionConfigPtrInput {
+	return (*computeQuotaAcceleratorPartitionConfigPtrType)(v)
+}
+
+func (*computeQuotaAcceleratorPartitionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaAcceleratorPartitionConfig)(nil)).Elem()
+}
+
+func (i *computeQuotaAcceleratorPartitionConfigPtrType) ToComputeQuotaAcceleratorPartitionConfigPtrOutput() ComputeQuotaAcceleratorPartitionConfigPtrOutput {
+	return i.ToComputeQuotaAcceleratorPartitionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *computeQuotaAcceleratorPartitionConfigPtrType) ToComputeQuotaAcceleratorPartitionConfigPtrOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaAcceleratorPartitionConfigPtrOutput)
+}
+
+// Multi-instance GPU (MIG) partition profile and count for fractional accelerator allocation.
+type ComputeQuotaAcceleratorPartitionConfigOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaAcceleratorPartitionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaAcceleratorPartitionConfig)(nil)).Elem()
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigOutput) ToComputeQuotaAcceleratorPartitionConfigOutput() ComputeQuotaAcceleratorPartitionConfigOutput {
+	return o
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigOutput) ToComputeQuotaAcceleratorPartitionConfigOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigOutput {
+	return o
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigOutput) ToComputeQuotaAcceleratorPartitionConfigPtrOutput() ComputeQuotaAcceleratorPartitionConfigPtrOutput {
+	return o.ToComputeQuotaAcceleratorPartitionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigOutput) ToComputeQuotaAcceleratorPartitionConfigPtrOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeQuotaAcceleratorPartitionConfig) *ComputeQuotaAcceleratorPartitionConfig {
+		return &v
+	}).(ComputeQuotaAcceleratorPartitionConfigPtrOutput)
+}
+
+// The number of MIG partitions of the specified Type allocated to the team.
+func (o ComputeQuotaAcceleratorPartitionConfigOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ComputeQuotaAcceleratorPartitionConfig) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+func (o ComputeQuotaAcceleratorPartitionConfigOutput) Type() ComputeQuotaAcceleratorPartitionConfigTypeOutput {
+	return o.ApplyT(func(v ComputeQuotaAcceleratorPartitionConfig) ComputeQuotaAcceleratorPartitionConfigType {
+		return v.Type
+	}).(ComputeQuotaAcceleratorPartitionConfigTypeOutput)
+}
+
+type ComputeQuotaAcceleratorPartitionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaAcceleratorPartitionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaAcceleratorPartitionConfig)(nil)).Elem()
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigPtrOutput) ToComputeQuotaAcceleratorPartitionConfigPtrOutput() ComputeQuotaAcceleratorPartitionConfigPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigPtrOutput) ToComputeQuotaAcceleratorPartitionConfigPtrOutputWithContext(ctx context.Context) ComputeQuotaAcceleratorPartitionConfigPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaAcceleratorPartitionConfigPtrOutput) Elem() ComputeQuotaAcceleratorPartitionConfigOutput {
+	return o.ApplyT(func(v *ComputeQuotaAcceleratorPartitionConfig) ComputeQuotaAcceleratorPartitionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeQuotaAcceleratorPartitionConfig
+		return ret
+	}).(ComputeQuotaAcceleratorPartitionConfigOutput)
+}
+
+// The number of MIG partitions of the specified Type allocated to the team.
+func (o ComputeQuotaAcceleratorPartitionConfigPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeQuotaAcceleratorPartitionConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+func (o ComputeQuotaAcceleratorPartitionConfigPtrOutput) Type() ComputeQuotaAcceleratorPartitionConfigTypePtrOutput {
+	return o.ApplyT(func(v *ComputeQuotaAcceleratorPartitionConfig) *ComputeQuotaAcceleratorPartitionConfigType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(ComputeQuotaAcceleratorPartitionConfigTypePtrOutput)
+}
+
+// Compute allocation rules: per-resource quotas, idle-borrowing strategy, and team-task preemption policy.
+type ComputeQuotaConfig struct {
+	// Per-instance-type compute quotas for the team. When VCpu / MemoryInGiB / Accelerators are partially specified, SageMaker auto-fills the remaining fields ratio-proportionally to the underlying instance — Read may return values the customer did not supply (drift may flag this).
+	ComputeQuotaResources []ComputeQuotaResourceConfig `pulumi:"computeQuotaResources"`
+	// Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+	PreemptTeamTasks *ComputeQuotaConfigPreemptTeamTasks `pulumi:"preemptTeamTasks"`
+	// Idle-resource-sharing strategy for this team's quota. When omitted, the service applies defaults (Strategy=LendAndBorrow, BorrowLimit=50).
+	ResourceSharingConfig *ComputeQuotaResourceSharingConfig `pulumi:"resourceSharingConfig"`
+}
+
+// ComputeQuotaConfigInput is an input type that accepts ComputeQuotaConfigArgs and ComputeQuotaConfigOutput values.
+// You can construct a concrete instance of `ComputeQuotaConfigInput` via:
+//
+//	ComputeQuotaConfigArgs{...}
+type ComputeQuotaConfigInput interface {
+	pulumi.Input
+
+	ToComputeQuotaConfigOutput() ComputeQuotaConfigOutput
+	ToComputeQuotaConfigOutputWithContext(context.Context) ComputeQuotaConfigOutput
+}
+
+// Compute allocation rules: per-resource quotas, idle-borrowing strategy, and team-task preemption policy.
+type ComputeQuotaConfigArgs struct {
+	// Per-instance-type compute quotas for the team. When VCpu / MemoryInGiB / Accelerators are partially specified, SageMaker auto-fills the remaining fields ratio-proportionally to the underlying instance — Read may return values the customer did not supply (drift may flag this).
+	ComputeQuotaResources ComputeQuotaResourceConfigArrayInput `pulumi:"computeQuotaResources"`
+	// Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+	PreemptTeamTasks ComputeQuotaConfigPreemptTeamTasksPtrInput `pulumi:"preemptTeamTasks"`
+	// Idle-resource-sharing strategy for this team's quota. When omitted, the service applies defaults (Strategy=LendAndBorrow, BorrowLimit=50).
+	ResourceSharingConfig ComputeQuotaResourceSharingConfigPtrInput `pulumi:"resourceSharingConfig"`
+}
+
+func (ComputeQuotaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaConfig)(nil)).Elem()
+}
+
+func (i ComputeQuotaConfigArgs) ToComputeQuotaConfigOutput() ComputeQuotaConfigOutput {
+	return i.ToComputeQuotaConfigOutputWithContext(context.Background())
+}
+
+func (i ComputeQuotaConfigArgs) ToComputeQuotaConfigOutputWithContext(ctx context.Context) ComputeQuotaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaConfigOutput)
+}
+
+// Compute allocation rules: per-resource quotas, idle-borrowing strategy, and team-task preemption policy.
+type ComputeQuotaConfigOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaConfig)(nil)).Elem()
+}
+
+func (o ComputeQuotaConfigOutput) ToComputeQuotaConfigOutput() ComputeQuotaConfigOutput {
+	return o
+}
+
+func (o ComputeQuotaConfigOutput) ToComputeQuotaConfigOutputWithContext(ctx context.Context) ComputeQuotaConfigOutput {
+	return o
+}
+
+// Per-instance-type compute quotas for the team. When VCpu / MemoryInGiB / Accelerators are partially specified, SageMaker auto-fills the remaining fields ratio-proportionally to the underlying instance — Read may return values the customer did not supply (drift may flag this).
+func (o ComputeQuotaConfigOutput) ComputeQuotaResources() ComputeQuotaResourceConfigArrayOutput {
+	return o.ApplyT(func(v ComputeQuotaConfig) []ComputeQuotaResourceConfig { return v.ComputeQuotaResources }).(ComputeQuotaResourceConfigArrayOutput)
+}
+
+// Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+func (o ComputeQuotaConfigOutput) PreemptTeamTasks() ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return o.ApplyT(func(v ComputeQuotaConfig) *ComputeQuotaConfigPreemptTeamTasks { return v.PreemptTeamTasks }).(ComputeQuotaConfigPreemptTeamTasksPtrOutput)
+}
+
+// Idle-resource-sharing strategy for this team's quota. When omitted, the service applies defaults (Strategy=LendAndBorrow, BorrowLimit=50).
+func (o ComputeQuotaConfigOutput) ResourceSharingConfig() ComputeQuotaResourceSharingConfigPtrOutput {
+	return o.ApplyT(func(v ComputeQuotaConfig) *ComputeQuotaResourceSharingConfig { return v.ResourceSharingConfig }).(ComputeQuotaResourceSharingConfigPtrOutput)
+}
+
+type ComputeQuotaConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaConfig)(nil)).Elem()
+}
+
+func (o ComputeQuotaConfigPtrOutput) ToComputeQuotaConfigPtrOutput() ComputeQuotaConfigPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaConfigPtrOutput) ToComputeQuotaConfigPtrOutputWithContext(ctx context.Context) ComputeQuotaConfigPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaConfigPtrOutput) Elem() ComputeQuotaConfigOutput {
+	return o.ApplyT(func(v *ComputeQuotaConfig) ComputeQuotaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeQuotaConfig
+		return ret
+	}).(ComputeQuotaConfigOutput)
+}
+
+// Per-instance-type compute quotas for the team. When VCpu / MemoryInGiB / Accelerators are partially specified, SageMaker auto-fills the remaining fields ratio-proportionally to the underlying instance — Read may return values the customer did not supply (drift may flag this).
+func (o ComputeQuotaConfigPtrOutput) ComputeQuotaResources() ComputeQuotaResourceConfigArrayOutput {
+	return o.ApplyT(func(v *ComputeQuotaConfig) []ComputeQuotaResourceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuotaResources
+	}).(ComputeQuotaResourceConfigArrayOutput)
+}
+
+// Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+func (o ComputeQuotaConfigPtrOutput) PreemptTeamTasks() ComputeQuotaConfigPreemptTeamTasksPtrOutput {
+	return o.ApplyT(func(v *ComputeQuotaConfig) *ComputeQuotaConfigPreemptTeamTasks {
+		if v == nil {
+			return nil
+		}
+		return v.PreemptTeamTasks
+	}).(ComputeQuotaConfigPreemptTeamTasksPtrOutput)
+}
+
+// Idle-resource-sharing strategy for this team's quota. When omitted, the service applies defaults (Strategy=LendAndBorrow, BorrowLimit=50).
+func (o ComputeQuotaConfigPtrOutput) ResourceSharingConfig() ComputeQuotaResourceSharingConfigPtrOutput {
+	return o.ApplyT(func(v *ComputeQuotaConfig) *ComputeQuotaResourceSharingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceSharingConfig
+	}).(ComputeQuotaResourceSharingConfigPtrOutput)
+}
+
+// Per-instance-type compute quota element. Reused under ComputeQuotaConfig.ComputeQuotaResources and ResourceSharingConfig.AbsoluteBorrowLimits.
+type ComputeQuotaResourceConfig struct {
+	// Multi-instance GPU (MIG) partition profile and count, for fractional accelerator allocation. Service rejects MIG profiles that the chosen InstanceType does not support.
+	AcceleratorPartition *ComputeQuotaAcceleratorPartitionConfig `pulumi:"acceleratorPartition"`
+	// The number of accelerators (e.g., GPUs) of this type allocated to the team. SageMaker auto-fills VCpu / MemoryInGiB ratio-proportionally if only this is set.
+	Accelerators *int `pulumi:"accelerators"`
+	// The number of instances of this type allocated to the team.
+	Count *int `pulumi:"count"`
+	// The cluster instance type the quota applies to (e.g., 'ml.m5.xlarge', 'ml.p5.48xlarge'). Validated by the service against the supported HyperPod instance types.
+	InstanceType string `pulumi:"instanceType"`
+	// The memory in GiB allocated to the team. Floating-point. SageMaker auto-fills Accelerators / VCpu ratio-proportionally if only this is set.
+	MemoryInGiB *float64 `pulumi:"memoryInGiB"`
+	// The number of vCPUs allocated to the team. Floating-point. SageMaker auto-fills Accelerators / MemoryInGiB ratio-proportionally if only this is set.
+	VCpu *float64 `pulumi:"vCpu"`
+}
+
+// ComputeQuotaResourceConfigInput is an input type that accepts ComputeQuotaResourceConfigArgs and ComputeQuotaResourceConfigOutput values.
+// You can construct a concrete instance of `ComputeQuotaResourceConfigInput` via:
+//
+//	ComputeQuotaResourceConfigArgs{...}
+type ComputeQuotaResourceConfigInput interface {
+	pulumi.Input
+
+	ToComputeQuotaResourceConfigOutput() ComputeQuotaResourceConfigOutput
+	ToComputeQuotaResourceConfigOutputWithContext(context.Context) ComputeQuotaResourceConfigOutput
+}
+
+// Per-instance-type compute quota element. Reused under ComputeQuotaConfig.ComputeQuotaResources and ResourceSharingConfig.AbsoluteBorrowLimits.
+type ComputeQuotaResourceConfigArgs struct {
+	// Multi-instance GPU (MIG) partition profile and count, for fractional accelerator allocation. Service rejects MIG profiles that the chosen InstanceType does not support.
+	AcceleratorPartition ComputeQuotaAcceleratorPartitionConfigPtrInput `pulumi:"acceleratorPartition"`
+	// The number of accelerators (e.g., GPUs) of this type allocated to the team. SageMaker auto-fills VCpu / MemoryInGiB ratio-proportionally if only this is set.
+	Accelerators pulumi.IntPtrInput `pulumi:"accelerators"`
+	// The number of instances of this type allocated to the team.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The cluster instance type the quota applies to (e.g., 'ml.m5.xlarge', 'ml.p5.48xlarge'). Validated by the service against the supported HyperPod instance types.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The memory in GiB allocated to the team. Floating-point. SageMaker auto-fills Accelerators / VCpu ratio-proportionally if only this is set.
+	MemoryInGiB pulumi.Float64PtrInput `pulumi:"memoryInGiB"`
+	// The number of vCPUs allocated to the team. Floating-point. SageMaker auto-fills Accelerators / MemoryInGiB ratio-proportionally if only this is set.
+	VCpu pulumi.Float64PtrInput `pulumi:"vCpu"`
+}
+
+func (ComputeQuotaResourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaResourceConfig)(nil)).Elem()
+}
+
+func (i ComputeQuotaResourceConfigArgs) ToComputeQuotaResourceConfigOutput() ComputeQuotaResourceConfigOutput {
+	return i.ToComputeQuotaResourceConfigOutputWithContext(context.Background())
+}
+
+func (i ComputeQuotaResourceConfigArgs) ToComputeQuotaResourceConfigOutputWithContext(ctx context.Context) ComputeQuotaResourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaResourceConfigOutput)
+}
+
+// ComputeQuotaResourceConfigArrayInput is an input type that accepts ComputeQuotaResourceConfigArray and ComputeQuotaResourceConfigArrayOutput values.
+// You can construct a concrete instance of `ComputeQuotaResourceConfigArrayInput` via:
+//
+//	ComputeQuotaResourceConfigArray{ ComputeQuotaResourceConfigArgs{...} }
+type ComputeQuotaResourceConfigArrayInput interface {
+	pulumi.Input
+
+	ToComputeQuotaResourceConfigArrayOutput() ComputeQuotaResourceConfigArrayOutput
+	ToComputeQuotaResourceConfigArrayOutputWithContext(context.Context) ComputeQuotaResourceConfigArrayOutput
+}
+
+type ComputeQuotaResourceConfigArray []ComputeQuotaResourceConfigInput
+
+func (ComputeQuotaResourceConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeQuotaResourceConfig)(nil)).Elem()
+}
+
+func (i ComputeQuotaResourceConfigArray) ToComputeQuotaResourceConfigArrayOutput() ComputeQuotaResourceConfigArrayOutput {
+	return i.ToComputeQuotaResourceConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ComputeQuotaResourceConfigArray) ToComputeQuotaResourceConfigArrayOutputWithContext(ctx context.Context) ComputeQuotaResourceConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaResourceConfigArrayOutput)
+}
+
+// Per-instance-type compute quota element. Reused under ComputeQuotaConfig.ComputeQuotaResources and ResourceSharingConfig.AbsoluteBorrowLimits.
+type ComputeQuotaResourceConfigOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaResourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaResourceConfig)(nil)).Elem()
+}
+
+func (o ComputeQuotaResourceConfigOutput) ToComputeQuotaResourceConfigOutput() ComputeQuotaResourceConfigOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceConfigOutput) ToComputeQuotaResourceConfigOutputWithContext(ctx context.Context) ComputeQuotaResourceConfigOutput {
+	return o
+}
+
+// Multi-instance GPU (MIG) partition profile and count, for fractional accelerator allocation. Service rejects MIG profiles that the chosen InstanceType does not support.
+func (o ComputeQuotaResourceConfigOutput) AcceleratorPartition() ComputeQuotaAcceleratorPartitionConfigPtrOutput {
+	return o.ApplyT(func(v ComputeQuotaResourceConfig) *ComputeQuotaAcceleratorPartitionConfig {
+		return v.AcceleratorPartition
+	}).(ComputeQuotaAcceleratorPartitionConfigPtrOutput)
+}
+
+// The number of accelerators (e.g., GPUs) of this type allocated to the team. SageMaker auto-fills VCpu / MemoryInGiB ratio-proportionally if only this is set.
+func (o ComputeQuotaResourceConfigOutput) Accelerators() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeQuotaResourceConfig) *int { return v.Accelerators }).(pulumi.IntPtrOutput)
+}
+
+// The number of instances of this type allocated to the team.
+func (o ComputeQuotaResourceConfigOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeQuotaResourceConfig) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The cluster instance type the quota applies to (e.g., 'ml.m5.xlarge', 'ml.p5.48xlarge'). Validated by the service against the supported HyperPod instance types.
+func (o ComputeQuotaResourceConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeQuotaResourceConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The memory in GiB allocated to the team. Floating-point. SageMaker auto-fills Accelerators / VCpu ratio-proportionally if only this is set.
+func (o ComputeQuotaResourceConfigOutput) MemoryInGiB() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ComputeQuotaResourceConfig) *float64 { return v.MemoryInGiB }).(pulumi.Float64PtrOutput)
+}
+
+// The number of vCPUs allocated to the team. Floating-point. SageMaker auto-fills Accelerators / MemoryInGiB ratio-proportionally if only this is set.
+func (o ComputeQuotaResourceConfigOutput) VCpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ComputeQuotaResourceConfig) *float64 { return v.VCpu }).(pulumi.Float64PtrOutput)
+}
+
+type ComputeQuotaResourceConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaResourceConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeQuotaResourceConfig)(nil)).Elem()
+}
+
+func (o ComputeQuotaResourceConfigArrayOutput) ToComputeQuotaResourceConfigArrayOutput() ComputeQuotaResourceConfigArrayOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceConfigArrayOutput) ToComputeQuotaResourceConfigArrayOutputWithContext(ctx context.Context) ComputeQuotaResourceConfigArrayOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceConfigArrayOutput) Index(i pulumi.IntInput) ComputeQuotaResourceConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeQuotaResourceConfig {
+		return vs[0].([]ComputeQuotaResourceConfig)[vs[1].(int)]
+	}).(ComputeQuotaResourceConfigOutput)
+}
+
+// Idle-resource-sharing strategy for this team's quota.
+type ComputeQuotaResourceSharingConfig struct {
+	// Per-instance-type absolute caps on resources this team can borrow.
+	AbsoluteBorrowLimits []ComputeQuotaResourceConfig `pulumi:"absoluteBorrowLimits"`
+	// Maximum percentage of the team's idle quota that can be borrowed by other teams. Smithy admits 0..10000; in practice the service-documented operational range is 1..500. Defaults service-side to 50 when omitted on Create.
+	BorrowLimit *int `pulumi:"borrowLimit"`
+	// How this team participates in idle-resource sharing.
+	Strategy ComputeQuotaResourceSharingConfigStrategy `pulumi:"strategy"`
+}
+
+// ComputeQuotaResourceSharingConfigInput is an input type that accepts ComputeQuotaResourceSharingConfigArgs and ComputeQuotaResourceSharingConfigOutput values.
+// You can construct a concrete instance of `ComputeQuotaResourceSharingConfigInput` via:
+//
+//	ComputeQuotaResourceSharingConfigArgs{...}
+type ComputeQuotaResourceSharingConfigInput interface {
+	pulumi.Input
+
+	ToComputeQuotaResourceSharingConfigOutput() ComputeQuotaResourceSharingConfigOutput
+	ToComputeQuotaResourceSharingConfigOutputWithContext(context.Context) ComputeQuotaResourceSharingConfigOutput
+}
+
+// Idle-resource-sharing strategy for this team's quota.
+type ComputeQuotaResourceSharingConfigArgs struct {
+	// Per-instance-type absolute caps on resources this team can borrow.
+	AbsoluteBorrowLimits ComputeQuotaResourceConfigArrayInput `pulumi:"absoluteBorrowLimits"`
+	// Maximum percentage of the team's idle quota that can be borrowed by other teams. Smithy admits 0..10000; in practice the service-documented operational range is 1..500. Defaults service-side to 50 when omitted on Create.
+	BorrowLimit pulumi.IntPtrInput `pulumi:"borrowLimit"`
+	// How this team participates in idle-resource sharing.
+	Strategy ComputeQuotaResourceSharingConfigStrategyInput `pulumi:"strategy"`
+}
+
+func (ComputeQuotaResourceSharingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaResourceSharingConfig)(nil)).Elem()
+}
+
+func (i ComputeQuotaResourceSharingConfigArgs) ToComputeQuotaResourceSharingConfigOutput() ComputeQuotaResourceSharingConfigOutput {
+	return i.ToComputeQuotaResourceSharingConfigOutputWithContext(context.Background())
+}
+
+func (i ComputeQuotaResourceSharingConfigArgs) ToComputeQuotaResourceSharingConfigOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaResourceSharingConfigOutput)
+}
+
+func (i ComputeQuotaResourceSharingConfigArgs) ToComputeQuotaResourceSharingConfigPtrOutput() ComputeQuotaResourceSharingConfigPtrOutput {
+	return i.ToComputeQuotaResourceSharingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeQuotaResourceSharingConfigArgs) ToComputeQuotaResourceSharingConfigPtrOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaResourceSharingConfigOutput).ToComputeQuotaResourceSharingConfigPtrOutputWithContext(ctx)
+}
+
+// ComputeQuotaResourceSharingConfigPtrInput is an input type that accepts ComputeQuotaResourceSharingConfigArgs, ComputeQuotaResourceSharingConfigPtr and ComputeQuotaResourceSharingConfigPtrOutput values.
+// You can construct a concrete instance of `ComputeQuotaResourceSharingConfigPtrInput` via:
+//
+//	        ComputeQuotaResourceSharingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ComputeQuotaResourceSharingConfigPtrInput interface {
+	pulumi.Input
+
+	ToComputeQuotaResourceSharingConfigPtrOutput() ComputeQuotaResourceSharingConfigPtrOutput
+	ToComputeQuotaResourceSharingConfigPtrOutputWithContext(context.Context) ComputeQuotaResourceSharingConfigPtrOutput
+}
+
+type computeQuotaResourceSharingConfigPtrType ComputeQuotaResourceSharingConfigArgs
+
+func ComputeQuotaResourceSharingConfigPtr(v *ComputeQuotaResourceSharingConfigArgs) ComputeQuotaResourceSharingConfigPtrInput {
+	return (*computeQuotaResourceSharingConfigPtrType)(v)
+}
+
+func (*computeQuotaResourceSharingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaResourceSharingConfig)(nil)).Elem()
+}
+
+func (i *computeQuotaResourceSharingConfigPtrType) ToComputeQuotaResourceSharingConfigPtrOutput() ComputeQuotaResourceSharingConfigPtrOutput {
+	return i.ToComputeQuotaResourceSharingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *computeQuotaResourceSharingConfigPtrType) ToComputeQuotaResourceSharingConfigPtrOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaResourceSharingConfigPtrOutput)
+}
+
+// Idle-resource-sharing strategy for this team's quota.
+type ComputeQuotaResourceSharingConfigOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaResourceSharingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaResourceSharingConfig)(nil)).Elem()
+}
+
+func (o ComputeQuotaResourceSharingConfigOutput) ToComputeQuotaResourceSharingConfigOutput() ComputeQuotaResourceSharingConfigOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceSharingConfigOutput) ToComputeQuotaResourceSharingConfigOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceSharingConfigOutput) ToComputeQuotaResourceSharingConfigPtrOutput() ComputeQuotaResourceSharingConfigPtrOutput {
+	return o.ToComputeQuotaResourceSharingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeQuotaResourceSharingConfigOutput) ToComputeQuotaResourceSharingConfigPtrOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeQuotaResourceSharingConfig) *ComputeQuotaResourceSharingConfig {
+		return &v
+	}).(ComputeQuotaResourceSharingConfigPtrOutput)
+}
+
+// Per-instance-type absolute caps on resources this team can borrow.
+func (o ComputeQuotaResourceSharingConfigOutput) AbsoluteBorrowLimits() ComputeQuotaResourceConfigArrayOutput {
+	return o.ApplyT(func(v ComputeQuotaResourceSharingConfig) []ComputeQuotaResourceConfig { return v.AbsoluteBorrowLimits }).(ComputeQuotaResourceConfigArrayOutput)
+}
+
+// Maximum percentage of the team's idle quota that can be borrowed by other teams. Smithy admits 0..10000; in practice the service-documented operational range is 1..500. Defaults service-side to 50 when omitted on Create.
+func (o ComputeQuotaResourceSharingConfigOutput) BorrowLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeQuotaResourceSharingConfig) *int { return v.BorrowLimit }).(pulumi.IntPtrOutput)
+}
+
+// How this team participates in idle-resource sharing.
+func (o ComputeQuotaResourceSharingConfigOutput) Strategy() ComputeQuotaResourceSharingConfigStrategyOutput {
+	return o.ApplyT(func(v ComputeQuotaResourceSharingConfig) ComputeQuotaResourceSharingConfigStrategy { return v.Strategy }).(ComputeQuotaResourceSharingConfigStrategyOutput)
+}
+
+type ComputeQuotaResourceSharingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaResourceSharingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaResourceSharingConfig)(nil)).Elem()
+}
+
+func (o ComputeQuotaResourceSharingConfigPtrOutput) ToComputeQuotaResourceSharingConfigPtrOutput() ComputeQuotaResourceSharingConfigPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceSharingConfigPtrOutput) ToComputeQuotaResourceSharingConfigPtrOutputWithContext(ctx context.Context) ComputeQuotaResourceSharingConfigPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaResourceSharingConfigPtrOutput) Elem() ComputeQuotaResourceSharingConfigOutput {
+	return o.ApplyT(func(v *ComputeQuotaResourceSharingConfig) ComputeQuotaResourceSharingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeQuotaResourceSharingConfig
+		return ret
+	}).(ComputeQuotaResourceSharingConfigOutput)
+}
+
+// Per-instance-type absolute caps on resources this team can borrow.
+func (o ComputeQuotaResourceSharingConfigPtrOutput) AbsoluteBorrowLimits() ComputeQuotaResourceConfigArrayOutput {
+	return o.ApplyT(func(v *ComputeQuotaResourceSharingConfig) []ComputeQuotaResourceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AbsoluteBorrowLimits
+	}).(ComputeQuotaResourceConfigArrayOutput)
+}
+
+// Maximum percentage of the team's idle quota that can be borrowed by other teams. Smithy admits 0..10000; in practice the service-documented operational range is 1..500. Defaults service-side to 50 when omitted on Create.
+func (o ComputeQuotaResourceSharingConfigPtrOutput) BorrowLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeQuotaResourceSharingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BorrowLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// How this team participates in idle-resource sharing.
+func (o ComputeQuotaResourceSharingConfigPtrOutput) Strategy() ComputeQuotaResourceSharingConfigStrategyPtrOutput {
+	return o.ApplyT(func(v *ComputeQuotaResourceSharingConfig) *ComputeQuotaResourceSharingConfigStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.Strategy
+	}).(ComputeQuotaResourceSharingConfigStrategyPtrOutput)
+}
+
+type ComputeQuotaTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// The team this compute allocation rule applies to.
+type ComputeQuotaTarget struct {
+	// Relative fair-share weight when fair-share scheduling is enabled on the parent ClusterSchedulerConfig. Defaults service-side to 0 when omitted.
+	FairShareWeight *int `pulumi:"fairShareWeight"`
+	// The name of the team. Materialized as Kubernetes namespace 'hyperpod-ns-<TeamName>' on the EKS cluster, so the value must satisfy RFC 1123 namespace constraints. Reassignment is not supported (createOnly).
+	TeamName string `pulumi:"teamName"`
+}
+
+// ComputeQuotaTargetInput is an input type that accepts ComputeQuotaTargetArgs and ComputeQuotaTargetOutput values.
+// You can construct a concrete instance of `ComputeQuotaTargetInput` via:
+//
+//	ComputeQuotaTargetArgs{...}
+type ComputeQuotaTargetInput interface {
+	pulumi.Input
+
+	ToComputeQuotaTargetOutput() ComputeQuotaTargetOutput
+	ToComputeQuotaTargetOutputWithContext(context.Context) ComputeQuotaTargetOutput
+}
+
+// The team this compute allocation rule applies to.
+type ComputeQuotaTargetArgs struct {
+	// Relative fair-share weight when fair-share scheduling is enabled on the parent ClusterSchedulerConfig. Defaults service-side to 0 when omitted.
+	FairShareWeight pulumi.IntPtrInput `pulumi:"fairShareWeight"`
+	// The name of the team. Materialized as Kubernetes namespace 'hyperpod-ns-<TeamName>' on the EKS cluster, so the value must satisfy RFC 1123 namespace constraints. Reassignment is not supported (createOnly).
+	TeamName pulumi.StringInput `pulumi:"teamName"`
+}
+
+func (ComputeQuotaTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaTarget)(nil)).Elem()
+}
+
+func (i ComputeQuotaTargetArgs) ToComputeQuotaTargetOutput() ComputeQuotaTargetOutput {
+	return i.ToComputeQuotaTargetOutputWithContext(context.Background())
+}
+
+func (i ComputeQuotaTargetArgs) ToComputeQuotaTargetOutputWithContext(ctx context.Context) ComputeQuotaTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeQuotaTargetOutput)
+}
+
+// The team this compute allocation rule applies to.
+type ComputeQuotaTargetOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeQuotaTarget)(nil)).Elem()
+}
+
+func (o ComputeQuotaTargetOutput) ToComputeQuotaTargetOutput() ComputeQuotaTargetOutput {
+	return o
+}
+
+func (o ComputeQuotaTargetOutput) ToComputeQuotaTargetOutputWithContext(ctx context.Context) ComputeQuotaTargetOutput {
+	return o
+}
+
+// Relative fair-share weight when fair-share scheduling is enabled on the parent ClusterSchedulerConfig. Defaults service-side to 0 when omitted.
+func (o ComputeQuotaTargetOutput) FairShareWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeQuotaTarget) *int { return v.FairShareWeight }).(pulumi.IntPtrOutput)
+}
+
+// The name of the team. Materialized as Kubernetes namespace 'hyperpod-ns-<TeamName>' on the EKS cluster, so the value must satisfy RFC 1123 namespace constraints. Reassignment is not supported (createOnly).
+func (o ComputeQuotaTargetOutput) TeamName() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeQuotaTarget) string { return v.TeamName }).(pulumi.StringOutput)
+}
+
+type ComputeQuotaTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeQuotaTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeQuotaTarget)(nil)).Elem()
+}
+
+func (o ComputeQuotaTargetPtrOutput) ToComputeQuotaTargetPtrOutput() ComputeQuotaTargetPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaTargetPtrOutput) ToComputeQuotaTargetPtrOutputWithContext(ctx context.Context) ComputeQuotaTargetPtrOutput {
+	return o
+}
+
+func (o ComputeQuotaTargetPtrOutput) Elem() ComputeQuotaTargetOutput {
+	return o.ApplyT(func(v *ComputeQuotaTarget) ComputeQuotaTarget {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeQuotaTarget
+		return ret
+	}).(ComputeQuotaTargetOutput)
+}
+
+// Relative fair-share weight when fair-share scheduling is enabled on the parent ClusterSchedulerConfig. Defaults service-side to 0 when omitted.
+func (o ComputeQuotaTargetPtrOutput) FairShareWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeQuotaTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FairShareWeight
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the team. Materialized as Kubernetes namespace 'hyperpod-ns-<TeamName>' on the EKS cluster, so the value must satisfy RFC 1123 namespace constraints. Reassignment is not supported (createOnly).
+func (o ComputeQuotaTargetPtrOutput) TeamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeQuotaTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TeamName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The batch transform input for a monitoring job.
@@ -31206,7 +31941,7 @@ type ModelCardBarChartMetric struct {
 	Name      string                      `pulumi:"name"`
 	Notes     *string                     `pulumi:"notes"`
 	Type      ModelCardBarChartMetricType `pulumi:"type"`
-	Value     []float64                   `pulumi:"value"`
+	Value     []interface{}               `pulumi:"value"`
 	XAxisName []string                    `pulumi:"xAxisName"`
 	YAxisName *string                     `pulumi:"yAxisName"`
 }
@@ -31226,7 +31961,7 @@ type ModelCardBarChartMetricArgs struct {
 	Name      pulumi.StringInput               `pulumi:"name"`
 	Notes     pulumi.StringPtrInput            `pulumi:"notes"`
 	Type      ModelCardBarChartMetricTypeInput `pulumi:"type"`
-	Value     pulumi.Float64ArrayInput         `pulumi:"value"`
+	Value     pulumi.ArrayInput                `pulumi:"value"`
 	XAxisName pulumi.StringArrayInput          `pulumi:"xAxisName"`
 	YAxisName pulumi.StringPtrInput            `pulumi:"yAxisName"`
 }
@@ -31269,8 +32004,8 @@ func (o ModelCardBarChartMetricOutput) Type() ModelCardBarChartMetricTypeOutput 
 	return o.ApplyT(func(v ModelCardBarChartMetric) ModelCardBarChartMetricType { return v.Type }).(ModelCardBarChartMetricTypeOutput)
 }
 
-func (o ModelCardBarChartMetricOutput) Value() pulumi.Float64ArrayOutput {
-	return o.ApplyT(func(v ModelCardBarChartMetric) []float64 { return v.Value }).(pulumi.Float64ArrayOutput)
+func (o ModelCardBarChartMetricOutput) Value() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ModelCardBarChartMetric) []interface{} { return v.Value }).(pulumi.ArrayOutput)
 }
 
 func (o ModelCardBarChartMetricOutput) XAxisName() pulumi.StringArrayOutput {
@@ -32281,7 +33016,7 @@ type ModelCardLinearGraphMetric struct {
 	Name      string                         `pulumi:"name"`
 	Notes     *string                        `pulumi:"notes"`
 	Type      ModelCardLinearGraphMetricType `pulumi:"type"`
-	Value     [][]float64                    `pulumi:"value"`
+	Value     [][]interface{}                `pulumi:"value"`
 	XAxisName *string                        `pulumi:"xAxisName"`
 	YAxisName *string                        `pulumi:"yAxisName"`
 }
@@ -32302,7 +33037,7 @@ type ModelCardLinearGraphMetricArgs struct {
 	Name      pulumi.StringInput                  `pulumi:"name"`
 	Notes     pulumi.StringPtrInput               `pulumi:"notes"`
 	Type      ModelCardLinearGraphMetricTypeInput `pulumi:"type"`
-	Value     pulumi.Float64ArrayArrayInput       `pulumi:"value"`
+	Value     pulumi.ArrayArrayInput              `pulumi:"value"`
 	XAxisName pulumi.StringPtrInput               `pulumi:"xAxisName"`
 	YAxisName pulumi.StringPtrInput               `pulumi:"yAxisName"`
 }
@@ -32346,8 +33081,8 @@ func (o ModelCardLinearGraphMetricOutput) Type() ModelCardLinearGraphMetricTypeO
 	return o.ApplyT(func(v ModelCardLinearGraphMetric) ModelCardLinearGraphMetricType { return v.Type }).(ModelCardLinearGraphMetricTypeOutput)
 }
 
-func (o ModelCardLinearGraphMetricOutput) Value() pulumi.Float64ArrayArrayOutput {
-	return o.ApplyT(func(v ModelCardLinearGraphMetric) [][]float64 { return v.Value }).(pulumi.Float64ArrayArrayOutput)
+func (o ModelCardLinearGraphMetricOutput) Value() pulumi.ArrayArrayOutput {
+	return o.ApplyT(func(v ModelCardLinearGraphMetric) [][]interface{} { return v.Value }).(pulumi.ArrayArrayOutput)
 }
 
 func (o ModelCardLinearGraphMetricOutput) XAxisName() pulumi.StringPtrOutput {
@@ -32362,7 +33097,7 @@ type ModelCardMatrixMetric struct {
 	Name      string                    `pulumi:"name"`
 	Notes     *string                   `pulumi:"notes"`
 	Type      ModelCardMatrixMetricType `pulumi:"type"`
-	Value     [][]float64               `pulumi:"value"`
+	Value     [][]interface{}           `pulumi:"value"`
 	XAxisName []string                  `pulumi:"xAxisName"`
 	YAxisName []string                  `pulumi:"yAxisName"`
 }
@@ -32382,7 +33117,7 @@ type ModelCardMatrixMetricArgs struct {
 	Name      pulumi.StringInput             `pulumi:"name"`
 	Notes     pulumi.StringPtrInput          `pulumi:"notes"`
 	Type      ModelCardMatrixMetricTypeInput `pulumi:"type"`
-	Value     pulumi.Float64ArrayArrayInput  `pulumi:"value"`
+	Value     pulumi.ArrayArrayInput         `pulumi:"value"`
 	XAxisName pulumi.StringArrayInput        `pulumi:"xAxisName"`
 	YAxisName pulumi.StringArrayInput        `pulumi:"yAxisName"`
 }
@@ -32425,8 +33160,8 @@ func (o ModelCardMatrixMetricOutput) Type() ModelCardMatrixMetricTypeOutput {
 	return o.ApplyT(func(v ModelCardMatrixMetric) ModelCardMatrixMetricType { return v.Type }).(ModelCardMatrixMetricTypeOutput)
 }
 
-func (o ModelCardMatrixMetricOutput) Value() pulumi.Float64ArrayArrayOutput {
-	return o.ApplyT(func(v ModelCardMatrixMetric) [][]float64 { return v.Value }).(pulumi.Float64ArrayArrayOutput)
+func (o ModelCardMatrixMetricOutput) Value() pulumi.ArrayArrayOutput {
+	return o.ApplyT(func(v ModelCardMatrixMetric) [][]interface{} { return v.Value }).(pulumi.ArrayArrayOutput)
 }
 
 func (o ModelCardMatrixMetricOutput) XAxisName() pulumi.StringArrayOutput {
@@ -64429,6 +65164,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryGitConfigInput)(nil)).Elem(), CodeRepositoryGitConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaAcceleratorPartitionConfigInput)(nil)).Elem(), ComputeQuotaAcceleratorPartitionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaAcceleratorPartitionConfigPtrInput)(nil)).Elem(), ComputeQuotaAcceleratorPartitionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaConfigInput)(nil)).Elem(), ComputeQuotaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaResourceConfigInput)(nil)).Elem(), ComputeQuotaResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaResourceConfigArrayInput)(nil)).Elem(), ComputeQuotaResourceConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaResourceSharingConfigInput)(nil)).Elem(), ComputeQuotaResourceSharingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaResourceSharingConfigPtrInput)(nil)).Elem(), ComputeQuotaResourceSharingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeQuotaTargetInput)(nil)).Elem(), ComputeQuotaTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionClusterConfigInput)(nil)).Elem(), DataQualityJobDefinitionClusterConfigArgs{})
@@ -65202,6 +65945,16 @@ func init() {
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaAcceleratorPartitionConfigOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaAcceleratorPartitionConfigPtrOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaConfigOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaConfigPtrOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaResourceConfigOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaResourceConfigArrayOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaResourceSharingConfigOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaResourceSharingConfigPtrOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaTargetOutput{})
+	pulumi.RegisterOutputType(ComputeQuotaTargetPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigOutput{})

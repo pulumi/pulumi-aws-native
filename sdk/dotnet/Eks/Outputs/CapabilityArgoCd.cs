@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.Eks.Outputs
     {
         public readonly Outputs.CapabilityAwsIdc AwsIdc;
         /// <summary>
+        /// An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+        /// </summary>
+        public readonly string? EndpointPrefix;
+        /// <summary>
         /// The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
         /// </summary>
         public readonly string? Namespace;
@@ -35,6 +39,8 @@ namespace Pulumi.AwsNative.Eks.Outputs
         private CapabilityArgoCd(
             Outputs.CapabilityAwsIdc awsIdc,
 
+            string? endpointPrefix,
+
             string? @namespace,
 
             Outputs.CapabilityNetworkAccess? networkAccess,
@@ -44,6 +50,7 @@ namespace Pulumi.AwsNative.Eks.Outputs
             string? serverUrl)
         {
             AwsIdc = awsIdc;
+            EndpointPrefix = endpointPrefix;
             Namespace = @namespace;
             NetworkAccess = networkAccess;
             RbacRoleMappings = rbacRoleMappings;

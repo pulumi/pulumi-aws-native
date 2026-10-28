@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceResult:
-    def __init__(__self__, assertions=None, associated_systems=None, created_at=None, dependency_discovery=None, description=None, effective_policy_values=None, input_sources=None, permission_model=None, policy_arn=None, report_configuration=None, service_arn=None, tags=None, updated_at=None):
+    def __init__(__self__, assertions=None, associated_systems=None, created_at=None, dependency_discovery=None, description=None, dev_ops_agent_configuration=None, effective_policy_values=None, input_sources=None, permission_model=None, policy_arn=None, report_configuration=None, service_arn=None, tags=None, updated_at=None):
         if assertions and not isinstance(assertions, list):
             raise TypeError("Expected argument 'assertions' to be a list")
         pulumi.set(__self__, "assertions", assertions)
@@ -42,6 +42,9 @@ class GetServiceResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if dev_ops_agent_configuration and not isinstance(dev_ops_agent_configuration, dict):
+            raise TypeError("Expected argument 'dev_ops_agent_configuration' to be a dict")
+        pulumi.set(__self__, "dev_ops_agent_configuration", dev_ops_agent_configuration)
         if effective_policy_values and not isinstance(effective_policy_values, dict):
             raise TypeError("Expected argument 'effective_policy_values' to be a dict")
         pulumi.set(__self__, "effective_policy_values", effective_policy_values)
@@ -106,6 +109,11 @@ class GetServiceResult:
         The description of the service.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="devOpsAgentConfiguration")
+    def dev_ops_agent_configuration(self) -> Optional['outputs.ServiceDevOpsAgentConfiguration']:
+        return pulumi.get(self, "dev_ops_agent_configuration")
 
     @_builtins.property
     @pulumi.getter(name="effectivePolicyValues")
@@ -174,6 +182,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             created_at=self.created_at,
             dependency_discovery=self.dependency_discovery,
             description=self.description,
+            dev_ops_agent_configuration=self.dev_ops_agent_configuration,
             effective_policy_values=self.effective_policy_values,
             input_sources=self.input_sources,
             permission_model=self.permission_model,
@@ -202,6 +211,7 @@ def get_service(service_arn: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         dependency_discovery=pulumi.get(__ret__, 'dependency_discovery'),
         description=pulumi.get(__ret__, 'description'),
+        dev_ops_agent_configuration=pulumi.get(__ret__, 'dev_ops_agent_configuration'),
         effective_policy_values=pulumi.get(__ret__, 'effective_policy_values'),
         input_sources=pulumi.get(__ret__, 'input_sources'),
         permission_model=pulumi.get(__ret__, 'permission_model'),
@@ -227,6 +237,7 @@ def get_service_output(service_arn: pulumi.Input[Optional[_builtins.str]] = None
         created_at=pulumi.get(__response__, 'created_at'),
         dependency_discovery=pulumi.get(__response__, 'dependency_discovery'),
         description=pulumi.get(__response__, 'description'),
+        dev_ops_agent_configuration=pulumi.get(__response__, 'dev_ops_agent_configuration'),
         effective_policy_values=pulumi.get(__response__, 'effective_policy_values'),
         input_sources=pulumi.get(__response__, 'input_sources'),
         permission_model=pulumi.get(__response__, 'permission_model'),

@@ -38,6 +38,10 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
+     * Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+     */
+    declare public readonly acceptedWarnings: pulumi.Output<string[] | undefined>;
+    /**
      * An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
@@ -176,6 +180,7 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["acceptedWarnings"] = args?.acceptedWarnings;
             resourceInputs["accessPolicies"] = args?.accessPolicies;
             resourceInputs["advancedOptions"] = args?.advancedOptions;
             resourceInputs["advancedSecurityOptions"] = args?.advancedSecurityOptions;
@@ -209,6 +214,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainEndpoints"] = undefined /*out*/;
             resourceInputs["serviceSoftwareOptions"] = undefined /*out*/;
         } else {
+            resourceInputs["acceptedWarnings"] = undefined /*out*/;
             resourceInputs["accessPolicies"] = undefined /*out*/;
             resourceInputs["advancedOptions"] = undefined /*out*/;
             resourceInputs["advancedSecurityOptions"] = undefined /*out*/;
@@ -253,6 +259,10 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
+    /**
+     * Warning codes to accept for this domain configuration update. Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+     */
+    acceptedWarnings?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions. For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
      *

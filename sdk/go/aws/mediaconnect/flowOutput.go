@@ -35,6 +35,8 @@ type FlowOutputResource struct {
 	MinLatency pulumi.IntPtrOutput `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The audio reference level of the NDI receiver, in dBFS.
+	NdiAudioReferenceLevel pulumi.IntPtrOutput `pulumi:"ndiAudioReferenceLevel"`
 	// The timecode source for the NDI output.
 	NdiOutputTimecodeSource FlowOutputNdiOutputTimecodeSourcePtrOutput `pulumi:"ndiOutputTimecodeSource"`
 	// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
@@ -130,6 +132,8 @@ type flowOutputResourceArgs struct {
 	MinLatency *int `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
 	Name *string `pulumi:"name"`
+	// The audio reference level of the NDI receiver, in dBFS.
+	NdiAudioReferenceLevel *int `pulumi:"ndiAudioReferenceLevel"`
 	// The timecode source for the NDI output.
 	NdiOutputTimecodeSource *FlowOutputNdiOutputTimecodeSource `pulumi:"ndiOutputTimecodeSource"`
 	// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
@@ -177,6 +181,8 @@ type FlowOutputResourceArgs struct {
 	MinLatency pulumi.IntPtrInput
 	// The name of the output. This value must be unique within the current flow.
 	Name pulumi.StringPtrInput
+	// The audio reference level of the NDI receiver, in dBFS.
+	NdiAudioReferenceLevel pulumi.IntPtrInput
 	// The timecode source for the NDI output.
 	NdiOutputTimecodeSource FlowOutputNdiOutputTimecodeSourcePtrInput
 	// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
@@ -286,6 +292,11 @@ func (o FlowOutputResourceOutput) MinLatency() pulumi.IntPtrOutput {
 // The name of the output. This value must be unique within the current flow.
 func (o FlowOutputResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The audio reference level of the NDI receiver, in dBFS.
+func (o FlowOutputResourceOutput) NdiAudioReferenceLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.IntPtrOutput { return v.NdiAudioReferenceLevel }).(pulumi.IntPtrOutput)
 }
 
 // The timecode source for the NDI output.

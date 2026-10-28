@@ -15,6 +15,7 @@ from .app_image_config import *
 from .artifact import *
 from .cluster import *
 from .code_repository import *
+from .compute_quota import *
 from .context import *
 from .data_quality_job_definition import *
 from .device import *
@@ -33,6 +34,7 @@ from .get_app_image_config import *
 from .get_artifact import *
 from .get_cluster import *
 from .get_code_repository import *
+from .get_compute_quota import *
 from .get_context import *
 from .get_data_quality_job_definition import *
 from .get_device_fleet import *

@@ -26,6 +26,7 @@ __all__ = [
     'FunctionAwsServiceRequestConfiguration',
     'FunctionConcurrentExecutorConfiguration',
     'FunctionCustomOutputConfiguration',
+    'FunctionHttpRequestCacheConfiguration',
     'FunctionHttpRequestConfiguration',
     'FunctionRef',
     'FunctionSequentialExecutorConfiguration',
@@ -38,8 +39,10 @@ __all__ = [
     'PlaybackConfigurationAdsPersonalizationConcurrency',
     'PlaybackConfigurationAdsPersonalizationTimeouts',
     'PlaybackConfigurationAvailSuppression',
+    'PlaybackConfigurationBeaconingConfiguration',
     'PlaybackConfigurationBumper',
     'PlaybackConfigurationCdnConfiguration',
+    'PlaybackConfigurationClientSideBeaconingConfiguration',
     'PlaybackConfigurationDashConfiguration',
     'PlaybackConfigurationHlsConfiguration',
     'PlaybackConfigurationHttpRequest',
@@ -468,6 +471,7 @@ class FunctionAwsServiceRequestConfiguration(dict):
                  target_service: _builtins.str,
                  url: _builtins.str,
                  body: Optional[_builtins.str] = None,
+                 cache: Optional['outputs.FunctionHttpRequestCacheConfiguration'] = None,
                  headers: Optional[Mapping[str, _builtins.str]] = None,
                  output: Optional[Mapping[str, _builtins.str]] = None):
         """
@@ -478,6 +482,7 @@ class FunctionAwsServiceRequestConfiguration(dict):
         :param _builtins.str target_service: The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
         :param _builtins.str url: An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
         :param _builtins.str body: An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+        :param 'FunctionHttpRequestCacheConfiguration' cache: The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
         :param Mapping[str, _builtins.str] headers: A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
         :param Mapping[str, _builtins.str] output: A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
         """
@@ -489,6 +494,8 @@ class FunctionAwsServiceRequestConfiguration(dict):
         pulumi.set(__self__, "url", url)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if cache is not None:
+            pulumi.set(__self__, "cache", cache)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if output is not None:
@@ -543,6 +550,14 @@ class FunctionAwsServiceRequestConfiguration(dict):
         An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
         """
         return pulumi.get(self, "body")
+
+    @_builtins.property
+    @pulumi.getter
+    def cache(self) -> Optional['outputs.FunctionHttpRequestCacheConfiguration']:
+        """
+        The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+        """
+        return pulumi.get(self, "cache")
 
     @_builtins.property
     @pulumi.getter
@@ -681,6 +696,71 @@ class FunctionCustomOutputConfiguration(dict):
 
 
 @pulumi.output_type
+class FunctionHttpRequestCacheConfiguration(dict):
+    """
+    The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST). When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ttlMaximumSeconds":
+            suggest = "ttl_maximum_seconds"
+        elif key == "ttlMinimumSeconds":
+            suggest = "ttl_minimum_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionHttpRequestCacheConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionHttpRequestCacheConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionHttpRequestCacheConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ttl_maximum_seconds: _builtins.int,
+                 ttl_minimum_seconds: _builtins.int,
+                 key: Optional[_builtins.str] = None):
+        """
+        The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST). When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+
+        :param _builtins.int ttl_maximum_seconds: The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to TtlMinimumSeconds.
+        :param _builtins.int ttl_minimum_seconds: The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no Cache-Control max-age directive.
+        :param _builtins.str key: A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, request body, and HTTP method; request headers are not included. The evaluated key must be smaller than 1 KB.
+        """
+        pulumi.set(__self__, "ttl_maximum_seconds", ttl_maximum_seconds)
+        pulumi.set(__self__, "ttl_minimum_seconds", ttl_minimum_seconds)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @_builtins.property
+    @pulumi.getter(name="ttlMaximumSeconds")
+    def ttl_maximum_seconds(self) -> _builtins.int:
+        """
+        The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to TtlMinimumSeconds.
+        """
+        return pulumi.get(self, "ttl_maximum_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="ttlMinimumSeconds")
+    def ttl_minimum_seconds(self) -> _builtins.int:
+        """
+        The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no Cache-Control max-age directive.
+        """
+        return pulumi.get(self, "ttl_minimum_seconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, request body, and HTTP method; request headers are not included. The evaluated key must be smaller than 1 KB.
+        """
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
 class FunctionHttpRequestConfiguration(dict):
     """
     Configuration for HTTP request functions.
@@ -710,6 +790,7 @@ class FunctionHttpRequestConfiguration(dict):
                  runtime: 'FunctionRuntimeType',
                  url: _builtins.str,
                  body: Optional[_builtins.str] = None,
+                 cache: Optional['outputs.FunctionHttpRequestCacheConfiguration'] = None,
                  headers: Optional[Mapping[str, _builtins.str]] = None,
                  output: Optional[Mapping[str, _builtins.str]] = None):
         """
@@ -720,6 +801,7 @@ class FunctionHttpRequestConfiguration(dict):
         :param 'FunctionRuntimeType' runtime: The runtime environment for the function expression language.
         :param _builtins.str url: The URL endpoint for the HTTP request.
         :param _builtins.str body: The body of the HTTP request.
+        :param 'FunctionHttpRequestCacheConfiguration' cache: The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
         :param Mapping[str, _builtins.str] headers: A map of HTTP headers to include in the request.
         :param Mapping[str, _builtins.str] output: A map of output key-value pairs. Keys must start with session., temp., avail., scte., or be a valid adsRequest directive.
         """
@@ -729,6 +811,8 @@ class FunctionHttpRequestConfiguration(dict):
         pulumi.set(__self__, "url", url)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if cache is not None:
+            pulumi.set(__self__, "cache", cache)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if output is not None:
@@ -773,6 +857,14 @@ class FunctionHttpRequestConfiguration(dict):
         The body of the HTTP request.
         """
         return pulumi.get(self, "body")
+
+    @_builtins.property
+    @pulumi.getter
+    def cache(self) -> Optional['outputs.FunctionHttpRequestCacheConfiguration']:
+        """
+        The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+        """
+        return pulumi.get(self, "cache")
 
     @_builtins.property
     @pulumi.getter
@@ -960,6 +1052,7 @@ class FunctionVastRequestConfiguration(dict):
                  runtime: 'FunctionRuntimeType',
                  url: _builtins.str,
                  body: Optional[_builtins.str] = None,
+                 cache: Optional['outputs.FunctionHttpRequestCacheConfiguration'] = None,
                  headers: Optional[Mapping[str, _builtins.str]] = None,
                  output: Optional[Mapping[str, _builtins.str]] = None):
         """
@@ -968,6 +1061,7 @@ class FunctionVastRequestConfiguration(dict):
         :param _builtins.int request_timeout_milliseconds: The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
         :param _builtins.str url: An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
         :param _builtins.str body: An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+        :param 'FunctionHttpRequestCacheConfiguration' cache: The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
         :param Mapping[str, _builtins.str] headers: A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
         :param Mapping[str, _builtins.str] output: A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
         """
@@ -977,6 +1071,8 @@ class FunctionVastRequestConfiguration(dict):
         pulumi.set(__self__, "url", url)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if cache is not None:
+            pulumi.set(__self__, "cache", cache)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if output is not None:
@@ -1015,6 +1111,14 @@ class FunctionVastRequestConfiguration(dict):
         An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
         """
         return pulumi.get(self, "body")
+
+    @_builtins.property
+    @pulumi.getter
+    def cache(self) -> Optional['outputs.FunctionHttpRequestCacheConfiguration']:
+        """
+        The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.
+        """
+        return pulumi.get(self, "cache")
 
     @_builtins.property
     @pulumi.getter
@@ -1473,6 +1577,47 @@ class PlaybackConfigurationAvailSuppression(dict):
 
 
 @pulumi.output_type
+class PlaybackConfigurationBeaconingConfiguration(dict):
+    """
+    The beaconing configuration for a playback configuration. Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientSide":
+            suggest = "client_side"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationBeaconingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationBeaconingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationBeaconingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_side: Optional['outputs.PlaybackConfigurationClientSideBeaconingConfiguration'] = None):
+        """
+        The beaconing configuration for a playback configuration. Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+
+        :param 'PlaybackConfigurationClientSideBeaconingConfiguration' client_side: The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+        """
+        if client_side is not None:
+            pulumi.set(__self__, "client_side", client_side)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSide")
+    def client_side(self) -> Optional['outputs.PlaybackConfigurationClientSideBeaconingConfiguration']:
+        """
+        The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+        """
+        return pulumi.get(self, "client_side")
+
+
+@pulumi.output_type
 class PlaybackConfigurationBumper(dict):
     """
     The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
@@ -1580,6 +1725,60 @@ class PlaybackConfigurationCdnConfiguration(dict):
         A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
         """
         return pulumi.get(self, "content_segment_url_prefix")
+
+
+@pulumi.output_type
+class PlaybackConfigurationClientSideBeaconingConfiguration(dict):
+    """
+    The beaconing settings that apply to client-side reporting sessions: whether AWS Elemental MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportingMode":
+            suggest = "reporting_mode"
+        elif key == "additionalEventTypes":
+            suggest = "additional_event_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationClientSideBeaconingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationClientSideBeaconingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationClientSideBeaconingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reporting_mode: 'PlaybackConfigurationClientSideBeaconingConfigurationReportingMode',
+                 additional_event_types: Optional[Sequence['PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem']] = None):
+        """
+        The beaconing settings that apply to client-side reporting sessions: whether AWS Elemental MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+
+        :param 'PlaybackConfigurationClientSideBeaconingConfigurationReportingMode' reporting_mode: Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+        :param Sequence['PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem'] additional_event_types: The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+        """
+        pulumi.set(__self__, "reporting_mode", reporting_mode)
+        if additional_event_types is not None:
+            pulumi.set(__self__, "additional_event_types", additional_event_types)
+
+    @_builtins.property
+    @pulumi.getter(name="reportingMode")
+    def reporting_mode(self) -> 'PlaybackConfigurationClientSideBeaconingConfigurationReportingMode':
+        """
+        Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+        """
+        return pulumi.get(self, "reporting_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalEventTypes")
+    def additional_event_types(self) -> Optional[Sequence['PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem']]:
+        """
+        The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+        """
+        return pulumi.get(self, "additional_event_types")
 
 
 @pulumi.output_type

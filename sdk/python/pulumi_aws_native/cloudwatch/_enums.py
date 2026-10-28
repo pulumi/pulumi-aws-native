@@ -7,11 +7,35 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AccessProfileAssumeStatus',
+    'AccessProfileProfileType',
     'AlarmMuteRuleStatus',
+    'DomainForOrganizationIdentityProvidersItem',
+    'DomainForOrganizationStatus',
     'InsightRuleRuleState',
+    'IntegrationStatus',
+    'IntegrationType',
     'OTelEnrichmentStatus',
     'ViewType',
 ]
+
+
+@pulumi.type_token("aws-native:cloudwatch:AccessProfileAssumeStatus")
+class AccessProfileAssumeStatus(_builtins.str, Enum):
+    """
+    Whether the calling principal is authorized to assume the access profile.
+    """
+    ALLOWED = "ALLOWED"
+    DENIED = "DENIED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AccessProfileProfileType")
+class AccessProfileProfileType(_builtins.str, Enum):
+    """
+    Whether the access profile is managed by the service or by the customer.
+    """
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
 
 
 @pulumi.type_token("aws-native:cloudwatch:AlarmMuteRuleStatus")
@@ -24,6 +48,20 @@ class AlarmMuteRuleStatus(_builtins.str, Enum):
     EXPIRED = "EXPIRED"
 
 
+@pulumi.type_token("aws-native:cloudwatch:DomainForOrganizationIdentityProvidersItem")
+class DomainForOrganizationIdentityProvidersItem(_builtins.str, Enum):
+    IAM = "IAM"
+    IDC = "IDC"
+
+
+@pulumi.type_token("aws-native:cloudwatch:DomainForOrganizationStatus")
+class DomainForOrganizationStatus(_builtins.str, Enum):
+    """
+    Current status of the domain.
+    """
+    ACTIVE = "ACTIVE"
+
+
 @pulumi.type_token("aws-native:cloudwatch:InsightRuleRuleState")
 class InsightRuleRuleState(_builtins.str, Enum):
     """
@@ -31,6 +69,29 @@ class InsightRuleRuleState(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:IntegrationStatus")
+class IntegrationStatus(_builtins.str, Enum):
+    """
+    Lifecycle status of the integration.
+    """
+    PENDING = "PENDING"
+    PENDING_OAUTH = "PENDING_OAUTH"
+    ACTIVE = "ACTIVE"
+    ERROR = "ERROR"
+    FAILED = "FAILED"
+    DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:IntegrationType")
+class IntegrationType(_builtins.str, Enum):
+    """
+    The type of integration. Immutable after creation.
+    """
+    AWS_CONFIG_SLREC = "AWS_CONFIG_SLREC"
+    AWS_INTEGRATION = "AWS_INTEGRATION"
+    EXTERNAL_AGENT = "EXTERNAL_AGENT"
 
 
 @pulumi.type_token("aws-native:cloudwatch:OTelEnrichmentStatus")

@@ -39,6 +39,18 @@ export const ServiceDependencyDiscovery = {
  */
 export type ServiceDependencyDiscovery = (typeof ServiceDependencyDiscovery)[keyof typeof ServiceDependencyDiscovery];
 
+export const ServiceEksLabelSelectorRequirementOperator = {
+    In: "IN",
+    NotIn: "NOT_IN",
+    Exists: "EXISTS",
+    DoesNotExist: "DOES_NOT_EXIST",
+} as const;
+
+/**
+ * Operator applied to the label key.
+ */
+export type ServiceEksLabelSelectorRequirementOperator = (typeof ServiceEksLabelSelectorRequirementOperator)[keyof typeof ServiceEksLabelSelectorRequirementOperator];
+
 export const ServiceFunctionCriticality = {
     Primary: "PRIMARY",
     Supplemental: "SUPPLEMENTAL",

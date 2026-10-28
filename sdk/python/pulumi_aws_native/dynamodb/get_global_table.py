@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, global_table_witnesses=None, key_schema=None, local_secondary_indexes=None, multi_region_consistency=None, read_on_demand_throughput_settings=None, read_provisioned_throughput_settings=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, global_table_witnesses=None, key_schema=None, local_secondary_indexes=None, multi_region_consistency=None, read_on_demand_throughput_settings=None, read_provisioned_throughput_settings=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, table_type=None, time_to_live_specification=None, vector_indexes=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -71,9 +71,15 @@ class GetGlobalTableResult:
         if table_id and not isinstance(table_id, str):
             raise TypeError("Expected argument 'table_id' to be a str")
         pulumi.set(__self__, "table_id", table_id)
+        if table_type and not isinstance(table_type, str):
+            raise TypeError("Expected argument 'table_type' to be a str")
+        pulumi.set(__self__, "table_type", table_type)
         if time_to_live_specification and not isinstance(time_to_live_specification, dict):
             raise TypeError("Expected argument 'time_to_live_specification' to be a dict")
         pulumi.set(__self__, "time_to_live_specification", time_to_live_specification)
+        if vector_indexes and not isinstance(vector_indexes, list):
+            raise TypeError("Expected argument 'vector_indexes' to be a list")
+        pulumi.set(__self__, "vector_indexes", vector_indexes)
         if warm_throughput and not isinstance(warm_throughput, dict):
             raise TypeError("Expected argument 'warm_throughput' to be a dict")
         pulumi.set(__self__, "warm_throughput", warm_throughput)
@@ -221,12 +227,22 @@ class GetGlobalTableResult:
         return pulumi.get(self, "table_id")
 
     @_builtins.property
+    @pulumi.getter(name="tableType")
+    def table_type(self) -> Optional['GlobalTableTableType']:
+        return pulumi.get(self, "table_type")
+
+    @_builtins.property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> Optional['outputs.GlobalTableTimeToLiveSpecification']:
         """
         Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         """
         return pulumi.get(self, "time_to_live_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorIndexes")
+    def vector_indexes(self) -> Optional[Sequence['outputs.GlobalTableVectorIndex']]:
+        return pulumi.get(self, "vector_indexes")
 
     @_builtins.property
     @pulumi.getter(name="warmThroughput")
@@ -274,7 +290,9 @@ class AwaitableGetGlobalTableResult(GetGlobalTableResult):
             stream_arn=self.stream_arn,
             stream_specification=self.stream_specification,
             table_id=self.table_id,
+            table_type=self.table_type,
             time_to_live_specification=self.time_to_live_specification,
+            vector_indexes=self.vector_indexes,
             warm_throughput=self.warm_throughput,
             write_on_demand_throughput_settings=self.write_on_demand_throughput_settings,
             write_provisioned_throughput_settings=self.write_provisioned_throughput_settings)
@@ -310,7 +328,9 @@ def get_global_table(table_name: Optional[_builtins.str] = None,
         stream_arn=pulumi.get(__ret__, 'stream_arn'),
         stream_specification=pulumi.get(__ret__, 'stream_specification'),
         table_id=pulumi.get(__ret__, 'table_id'),
+        table_type=pulumi.get(__ret__, 'table_type'),
         time_to_live_specification=pulumi.get(__ret__, 'time_to_live_specification'),
+        vector_indexes=pulumi.get(__ret__, 'vector_indexes'),
         warm_throughput=pulumi.get(__ret__, 'warm_throughput'),
         write_on_demand_throughput_settings=pulumi.get(__ret__, 'write_on_demand_throughput_settings'),
         write_provisioned_throughput_settings=pulumi.get(__ret__, 'write_provisioned_throughput_settings'))
@@ -343,7 +363,9 @@ def get_global_table_output(table_name: pulumi.Input[Optional[_builtins.str]] = 
         stream_arn=pulumi.get(__response__, 'stream_arn'),
         stream_specification=pulumi.get(__response__, 'stream_specification'),
         table_id=pulumi.get(__response__, 'table_id'),
+        table_type=pulumi.get(__response__, 'table_type'),
         time_to_live_specification=pulumi.get(__response__, 'time_to_live_specification'),
+        vector_indexes=pulumi.get(__response__, 'vector_indexes'),
         warm_throughput=pulumi.get(__response__, 'warm_throughput'),
         write_on_demand_throughput_settings=pulumi.get(__response__, 'write_on_demand_throughput_settings'),
         write_provisioned_throughput_settings=pulumi.get(__response__, 'write_provisioned_throughput_settings')))

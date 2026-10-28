@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AgentSpaceIdpAuthConfigurationProvider',
     'AssociationAwsConfigurationAccountType',
     'AssociationAwsResourceResourceType',
     'AssociationGitHubConfigurationOwnerType',
@@ -15,8 +16,13 @@ __all__ = [
     'PrivateConnectionServiceManagedModeDnsResolution',
     'PrivateConnectionServiceManagedModeIpAddressType',
     'PrivateConnectionStatus',
+    'ServiceGitHubAppVerificationDetailsAppVariant',
     'ServiceGitLabDetailsTokenType',
     'ServiceNewRelicApiKeyConfigRegion',
+    'ServiceRegisteredGitHubServiceDetailsAppVariant',
+    'ServiceRegisteredGitHubServiceDetailsAuthMode',
+    'ServiceRegisteredGitHubServiceDetailsHostingType',
+    'ServiceRegisteredGitHubServiceDetailsOwnerType',
     'ServiceRegisteredGitLabServiceDetailsTokenType',
     'ServiceRegisteredMcpServerDetailsAuthorizationMethod',
     'ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod',
@@ -25,6 +31,15 @@ __all__ = [
     'TriggerStatus',
     'TriggerType',
 ]
+
+
+@pulumi.type_token("aws-native:devopsagent:AgentSpaceIdpAuthConfigurationProvider")
+class AgentSpaceIdpAuthConfigurationProvider(_builtins.str, Enum):
+    """
+    The external identity provider type.
+    """
+    OKTA = "okta"
+    ENTRA = "entra"
 
 
 @pulumi.type_token("aws-native:devopsagent:AssociationAwsConfigurationAccountType")
@@ -117,6 +132,16 @@ class PrivateConnectionStatus(_builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:devopsagent:ServiceGitHubAppVerificationDetailsAppVariant")
+class ServiceGitHubAppVerificationDetailsAppVariant(_builtins.str, Enum):
+    """
+    Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+    """
+    READ_ONLY = "READ_ONLY"
+    READ_WRITE = "READ_WRITE"
+    CUSTOM_APP = "CUSTOM_APP"
+
+
 @pulumi.type_token("aws-native:devopsagent:ServiceGitLabDetailsTokenType")
 class ServiceGitLabDetailsTokenType(_builtins.str, Enum):
     """
@@ -133,6 +158,44 @@ class ServiceNewRelicApiKeyConfigRegion(_builtins.str, Enum):
     """
     US = "US"
     EU = "EU"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceRegisteredGitHubServiceDetailsAppVariant")
+class ServiceRegisteredGitHubServiceDetailsAppVariant(_builtins.str, Enum):
+    """
+    The GitHub App variant the service was registered with
+    """
+    READ_ONLY = "READ_ONLY"
+    READ_WRITE = "READ_WRITE"
+    CUSTOM_APP = "CUSTOM_APP"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceRegisteredGitHubServiceDetailsAuthMode")
+class ServiceRegisteredGitHubServiceDetailsAuthMode(_builtins.str, Enum):
+    """
+    How the service authenticates against the GitHub API: app after AppVerification, pat after DirectAccess
+    """
+    APP = "app"
+    PAT = "pat"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceRegisteredGitHubServiceDetailsHostingType")
+class ServiceRegisteredGitHubServiceDetailsHostingType(_builtins.str, Enum):
+    """
+    The GitHub hosting type the service was registered with
+    """
+    SAAS = "SAAS"
+    SELF_MANAGED = "SELF_MANAGED"
+    DEDICATED = "DEDICATED"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceRegisteredGitHubServiceDetailsOwnerType")
+class ServiceRegisteredGitHubServiceDetailsOwnerType(_builtins.str, Enum):
+    """
+    Type of repository owner
+    """
+    ORGANIZATION = "organization"
+    USER = "user"
 
 
 @pulumi.type_token("aws-native:devopsagent:ServiceRegisteredGitLabServiceDetailsTokenType")
@@ -181,6 +244,7 @@ class ServiceType(_builtins.str, Enum):
     MCPSERVERSPLUNK = "mcpserversplunk"
     MCPSERVERNEWRELIC = "mcpservernewrelic"
     GITLAB = "gitlab"
+    GITHUB = "github"
     SERVICENOW = "servicenow"
     PAGERDUTY = "pagerduty"
     AZUREIDENTITY = "azureidentity"

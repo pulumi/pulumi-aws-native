@@ -6,13 +6,16 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .get_grant import *
 from .get_license import *
 from .get_license_asset_group import *
 from .get_license_asset_rule_set import *
+from .get_license_configuration import *
 from .grant import *
 from .license import *
 from .license_asset_group import *
 from .license_asset_rule_set import *
+from .license_configuration import *
 from ._inputs import *
 from . import outputs

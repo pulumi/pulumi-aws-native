@@ -16,6 +16,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AdConfigurationMediaTailorPlaybackConfigurationArgs',
+    'AdConfigurationMediaTailorPlaybackConfigurationArgsDict',
+    'AdConfigurationPostRollConfigurationArgs',
+    'AdConfigurationPostRollConfigurationArgsDict',
     'ChannelMultitrackInputConfigurationArgs',
     'ChannelMultitrackInputConfigurationArgsDict',
     'RecordingConfigurationDestinationConfigurationArgs',
@@ -41,6 +45,92 @@ __all__ = [
     'VideoPropertiesArgs',
     'VideoPropertiesArgsDict',
 ]
+
+class AdConfigurationMediaTailorPlaybackConfigurationArgsDict(TypedDict):
+    """
+    Object specifying a configuration for integration with an AWS Elemental MediaTailor (EMT).
+    """
+    playback_configuration_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+    """
+
+@pulumi.input_type
+class AdConfigurationMediaTailorPlaybackConfigurationArgs:
+    def __init__(__self__, *,
+                 playback_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Object specifying a configuration for integration with an AWS Elemental MediaTailor (EMT).
+
+        :param pulumi.Input[_builtins.str] playback_configuration_arn: ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+        """
+        if playback_configuration_arn is not None:
+            pulumi.set(__self__, "playback_configuration_arn", playback_configuration_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="playbackConfigurationArn")
+    def playback_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+        """
+        return pulumi.get(self, "playback_configuration_arn")
+
+    @playback_configuration_arn.setter
+    def playback_configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "playback_configuration_arn", value)
+
+
+class AdConfigurationPostRollConfigurationArgsDict(TypedDict):
+    """
+    Configuration for the post-roll ad break to use for this ad configuration.
+    """
+    duration_seconds: pulumi.Input[_builtins.int]
+    """
+    Duration of the post-roll ad break, in seconds.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the post-roll ad configuration is enabled.
+    """
+
+@pulumi.input_type
+class AdConfigurationPostRollConfigurationArgs:
+    def __init__(__self__, *,
+                 duration_seconds: pulumi.Input[_builtins.int],
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        Configuration for the post-roll ad break to use for this ad configuration.
+
+        :param pulumi.Input[_builtins.int] duration_seconds: Duration of the post-roll ad break, in seconds.
+        :param pulumi.Input[_builtins.bool] enabled: Whether the post-roll ad configuration is enabled.
+        """
+        pulumi.set(__self__, "duration_seconds", duration_seconds)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="durationSeconds")
+    def duration_seconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        Duration of the post-roll ad break, in seconds.
+        """
+        return pulumi.get(self, "duration_seconds")
+
+    @duration_seconds.setter
+    def duration_seconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "duration_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the post-roll ad configuration is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
 
 class ChannelMultitrackInputConfigurationArgsDict(TypedDict):
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]

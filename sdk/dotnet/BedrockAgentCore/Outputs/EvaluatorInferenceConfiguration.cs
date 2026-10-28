@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// </summary>
         public readonly int? MaxTokens;
         /// <summary>
+        /// The sequences that make the model stop generating further tokens.
+        /// </summary>
+        public readonly ImmutableArray<string> StopSequences;
+        /// <summary>
         /// The temperature value that controls randomness in the model's responses.
         /// </summary>
         public readonly double? Temperature;
@@ -33,11 +37,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         private EvaluatorInferenceConfiguration(
             int? maxTokens,
 
+            ImmutableArray<string> stopSequences,
+
             double? temperature,
 
             double? topP)
         {
             MaxTokens = maxTokens;
+            StopSequences = stopSequences;
             Temperature = temperature;
             TopP = topP;
         }

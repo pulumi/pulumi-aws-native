@@ -14,6 +14,7 @@ __all__ = [
     'OriginEndpointAdMarkerHls',
     'OriginEndpointCmafEncryptionMethod',
     'OriginEndpointContainerType',
+    'OriginEndpointContentKeyPeriodTiming',
     'OriginEndpointCustomAdType',
     'OriginEndpointDashAudioTimelinePattern',
     'OriginEndpointDashCompactness',
@@ -27,12 +28,14 @@ __all__ = [
     'OriginEndpointEndpointErrorCondition',
     'OriginEndpointIsmEncryptionMethod',
     'OriginEndpointMssManifestLayout',
+    'OriginEndpointMultiviewLayoutType',
     'OriginEndpointOutputTimestampMode',
     'OriginEndpointPresetSpeke20Audio',
     'OriginEndpointPresetSpeke20Video',
     'OriginEndpointScteFilter',
     'OriginEndpointScteInManifests',
     'OriginEndpointScteInSegments',
+    'OriginEndpointSpekeVersion',
     'OriginEndpointStreamNameOutputMode',
     'OriginEndpointTsEncryptionMethod',
     'OriginEndpointUriPathType',
@@ -50,7 +53,7 @@ class ChannelInputType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:mediapackagev2:ChannelMultiviewLayoutType")
 class ChannelMultiviewLayoutType(_builtins.str, Enum):
     """
-    <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_SINGLE</code> – One tile at full resolution. Use this to serve a single source as a standard stream.</p> </li> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EB</code> – Three tiles of equal size, with two on top and one below.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
+    <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
     """
     LAYOUT2EH = "LAYOUT_2EH"
     LAYOUT2PL = "LAYOUT_2PL"
@@ -89,6 +92,13 @@ class OriginEndpointContainerType(_builtins.str, Enum):
     TS = "TS"
     CMAF = "CMAF"
     ISM = "ISM"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointContentKeyPeriodTiming")
+class OriginEndpointContentKeyPeriodTiming(_builtins.str, Enum):
+    INDEX_ONLY = "INDEX_ONLY"
+    START_END_ONLY = "START_END_ONLY"
+    INDEX_WITH_START_END = "INDEX_WITH_START_END"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointCustomAdType")
@@ -179,6 +189,19 @@ class OriginEndpointMssManifestLayout(_builtins.str, Enum):
     COMPACT = "COMPACT"
 
 
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointMultiviewLayoutType")
+class OriginEndpointMultiviewLayoutType(_builtins.str, Enum):
+    """
+    <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
+    """
+    LAYOUT2EH = "LAYOUT_2EH"
+    LAYOUT2PL = "LAYOUT_2PL"
+    LAYOUT3EL = "LAYOUT_3EL"
+    LAYOUT3PL = "LAYOUT_3PL"
+    LAYOUT4E = "LAYOUT_4E"
+    LAYOUT4PL = "LAYOUT_4PL"
+
+
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointOutputTimestampMode")
 class OriginEndpointOutputTimestampMode(_builtins.str, Enum):
     PASSTHROUGH = "PASSTHROUGH"
@@ -242,6 +265,12 @@ class OriginEndpointScteInSegments(_builtins.str, Enum):
     NONE = "NONE"
     ALL = "ALL"
     MATCHES_FILTER = "MATCHES_FILTER"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointSpekeVersion")
+class OriginEndpointSpekeVersion(_builtins.str, Enum):
+    V20 = "V2_0"
+    V21 = "V2_1"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointStreamNameOutputMode")
