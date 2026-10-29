@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Redshift
     public sealed class GetClusterSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+        /// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
         /// </summary>
         [Input("clusterSubnetGroupName", required: true)]
         public string ClusterSubnetGroupName { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Redshift
     public sealed class GetClusterSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+        /// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
         /// </summary>
         [Input("clusterSubnetGroupName", required: true)]
         public Input<string> ClusterSubnetGroupName { get; set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Redshift
     public sealed class GetClusterSubnetGroupResult
     {
         /// <summary>
-        /// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+        /// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
         /// </summary>
         public readonly string? ClusterSubnetGroupName;
         /// <summary>

@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         /// <summary>
         /// The type of build environment to use for related builds.
         /// 
-        /// &gt; If you're using compute fleets during project creation, `type` will be ignored. 
+        /// &gt; If you're using compute fleets during project creation, `type` will be ignored.
         /// 
         /// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         /// </summary>

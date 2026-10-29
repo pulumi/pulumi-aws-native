@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     ///   +  #{port}
     ///   +  #{path} (the leading "/" is removed)
     ///   +  #{query}
-    ///   
+    /// 
     ///  For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&amp;value=xyz".
     /// </summary>
     public sealed class ListenerRuleRedirectConfigArgs : global::Pulumi.ResourceArgs

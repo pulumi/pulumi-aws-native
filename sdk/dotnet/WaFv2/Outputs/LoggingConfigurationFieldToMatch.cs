@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     public sealed class LoggingConfigurationFieldToMatch
     {
         /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
+        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         public readonly object? Method;
         /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
+        /// Inspect the query string. This is the part of a URL that appears after a ? character, if any.
         /// </summary>
         public readonly object? QueryString;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly Outputs.LoggingConfigurationFieldToMatchSingleHeaderProperties? SingleHeader;
         /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
+        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         /// </summary>
         public readonly object? UriPath;
 

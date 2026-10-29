@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Budgets
     ///             BudgetType = "COST",
     ///             CostFilters = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["az"] = new[]
+    ///                 ["az"] = new object?[]
     ///                 {
     ///                     "us-east-1",
     ///                     "us-west-1",
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.Budgets
     ///             BudgetType = "COST",
     ///             CostFilters = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["az"] = new[]
+    ///                 ["az"] = new object?[]
     ///                 {
     ///                     "us-east-1",
     ///                     "us-west-1",

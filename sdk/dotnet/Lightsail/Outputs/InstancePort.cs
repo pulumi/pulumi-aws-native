@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
         /// <summary>
         /// The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
         /// 
-        /// &gt; The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+        /// &gt; The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
         /// 
         /// Examples:
         /// 

@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.NeptuneGraph
         public Output<string> GraphId { get; private set; } = null!;
 
         /// <summary>
-        /// Contains a user-supplied name for the Graph. 
+        /// Contains a user-supplied name for the Graph.
         /// 
         /// If you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.
         /// 
@@ -165,7 +165,7 @@ namespace Pulumi.AwsNative.NeptuneGraph
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// Contains a user-supplied name for the Graph. 
+        /// Contains a user-supplied name for the Graph.
         /// 
         /// If you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.
         /// 

@@ -59,11 +59,11 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// 
         /// Route 53 sends a DNS request to the domain that you specify for `FullyQualifiedDomainName` at the interval that you specify for `RequestInterval` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
         /// 
-        /// &gt; If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error. 
+        /// &gt; If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error.
         /// 
         /// If you want to check the health of multiple records that have the same name and type, such as multiple weighted records, and if you choose to specify the endpoint only by `FullyQualifiedDomainName` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of `FullyQualifiedDomainName` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the records (www.example.com).
         /// 
-        /// &gt; In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable. 
+        /// &gt; In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable.
         /// 
         /// In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
         /// </summary>
@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// 
         /// `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
         /// 
-        /// &gt; You can't change the value of `RequestInterval` after you create a health check. 
+        /// &gt; You can't change the value of `RequestInterval` after you create a health check.
         /// 
         /// If you don't specify a value for `RequestInterval` , the default value is `30` seconds.
         /// </summary>
@@ -161,7 +161,7 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// <summary>
         /// The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
         /// 
-        /// &gt; You can't change the value of `Type` after you create a health check. 
+        /// &gt; You can't change the value of `Type` after you create a health check.
         /// 
         /// You can create the following types of health checks:
         /// 
@@ -175,7 +175,6 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// - *CLOUDWATCH_METRIC* : The health check is associated with a CloudWatch alarm. If the state of the alarm is `OK` , the health check is considered healthy. If the state is `ALARM` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is `OK` or `ALARM` , the health check status depends on the setting for `InsufficientDataHealthStatus` : `Healthy` , `Unhealthy` , or `LastKnownStatus` .
         /// 
         /// &gt; Route 53 supports CloudWatch alarms with the following features:
-        /// &gt; 
         /// &gt; - Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see [High-Resolution Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics) in the *Amazon CloudWatch User Guide* .
         /// &gt; - Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.
         /// - *CALCULATED* : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of `HealthThreshold` .

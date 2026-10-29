@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     public sealed class LoggingConfigurationFilter
     {
         /// <summary>
-        /// How to handle logs that satisfy the filter's conditions and requirement. 
+        /// How to handle logs that satisfy the filter's conditions and requirement.
         /// </summary>
         public readonly Pulumi.AwsNative.WaFv2.LoggingConfigurationFilterBehavior Behavior;
         /// <summary>

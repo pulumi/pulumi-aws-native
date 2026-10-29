@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Efs
         ///   +  ARN - An Amazon Resource Name (ARN) for the key, for example ``arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``.
         ///   +  Key alias - A previously created display name for a key, for example ``alias/projectKey1``.
         ///   +  Key alias ARN - An ARN for a key alias, for example ``arn:aws:kms:us-west-2:444455556666:alias/projectKey1``.
-        ///   
+        /// 
         ///  If ``KmsKeyId`` is specified, the ``Encrypted`` parameter must be set to true.
         /// </summary>
         [Output("kmsKeyId")]
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Efs
         ///   +  When to move files in the file system from primary storage to IA storage.
         ///   +  When to move files in the file system from primary storage or IA storage to Archive storage.
         ///   +  When to move files that are in IA or Archive storage to primary storage.
-        ///   
+        /// 
         ///   EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive````TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
         /// </summary>
         [Output("lifecyclePolicies")]
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Efs
         public Output<Outputs.FileSystemReplicationConfiguration?> ReplicationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the throughput mode for the file system. The mode can be ``bursting``, ``provisioned``, or ``elastic``. If you set ``ThroughputMode`` to ``provisioned``, you must also set a value for ``ProvisionedThroughputInMibps``. After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide*. 
+        /// Specifies the throughput mode for the file system. The mode can be ``bursting``, ``provisioned``, or ``elastic``. If you set ``ThroughputMode`` to ``provisioned``, you must also set a value for ``ProvisionedThroughputInMibps``. After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide*.
         ///  Default is ``bursting``.
         /// </summary>
         [Output("throughputMode")]
@@ -233,7 +233,7 @@ namespace Pulumi.AwsNative.Efs
         ///   +  ARN - An Amazon Resource Name (ARN) for the key, for example ``arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``.
         ///   +  Key alias - A previously created display name for a key, for example ``alias/projectKey1``.
         ///   +  Key alias ARN - An ARN for a key alias, for example ``arn:aws:kms:us-west-2:444455556666:alias/projectKey1``.
-        ///   
+        /// 
         ///  If ``KmsKeyId`` is specified, the ``Encrypted`` parameter must be set to true.
         /// </summary>
         [Input("kmsKeyId")]
@@ -247,7 +247,7 @@ namespace Pulumi.AwsNative.Efs
         ///   +  When to move files in the file system from primary storage to IA storage.
         ///   +  When to move files in the file system from primary storage or IA storage to Archive storage.
         ///   +  When to move files that are in IA or Archive storage to primary storage.
-        ///   
+        /// 
         ///   EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive````TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
         /// </summary>
         public InputList<Inputs.FileSystemLifecyclePolicyArgs> LifecyclePolicies
@@ -277,7 +277,7 @@ namespace Pulumi.AwsNative.Efs
         public Input<Inputs.FileSystemReplicationConfigurationArgs>? ReplicationConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the throughput mode for the file system. The mode can be ``bursting``, ``provisioned``, or ``elastic``. If you set ``ThroughputMode`` to ``provisioned``, you must also set a value for ``ProvisionedThroughputInMibps``. After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide*. 
+        /// Specifies the throughput mode for the file system. The mode can be ``bursting``, ``provisioned``, or ``elastic``. If you set ``ThroughputMode`` to ``provisioned``, you must also set a value for ``ProvisionedThroughputInMibps``. After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide*.
         ///  Default is ``bursting``.
         /// </summary>
         [Input("throughputMode")]

@@ -23,11 +23,11 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     public sealed class TaskDefinitionHealthCheck
     {
         /// <summary>
-        /// A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. 
+        /// A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell.
         ///   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.
-        ///   ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
+        ///   ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``
         ///  You don't include the double quotes and brackets when you use the AWS Management Console.
-        ///   ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
+        ///   ``CMD-SHELL, curl -f http://localhost/ || exit 1``
         ///  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
         /// </summary>
         public readonly ImmutableArray<string> Command;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly int? Retries;
         /// <summary>
-        /// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``. 
+        /// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``.
         ///   If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
         /// </summary>
         public readonly int? StartPeriod;

@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<Outputs.MuteTargetsProperties?> MuteTargets { get; private set; } = null!;
 
         /// <summary>
-        /// The mute type of the alarm mute 
+        /// The mute type of the alarm mute
         /// </summary>
         [Output("muteType")]
         public Output<string> MuteType { get; private set; } = null!;

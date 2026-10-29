@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Ssm.Inputs
         /// <summary>
         /// JSON to provide to your AWS Lambda function as input.
         /// 
-        /// &gt; Although `Type` is listed as "String" for this property, the payload content must be formatted as a Base64-encoded binary data object. 
+        /// &gt; Although `Type` is listed as "String" for this property, the payload content must be formatted as a Base64-encoded binary data object.
         /// 
         /// *Length Constraint:* 4096
         /// </summary>

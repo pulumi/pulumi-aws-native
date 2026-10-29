@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class BucketReplicationRuleFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example: 
+        /// A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
         ///   +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
         ///   +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// A container for specifying a tag key and value. 
+        /// A container for specifying a tag key and value.
         ///  The rule applies only to objects that have the tag in their tag set.
         /// </summary>
         [Input("tagFilter")]

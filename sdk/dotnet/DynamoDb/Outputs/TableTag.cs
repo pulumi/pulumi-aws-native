@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
 {
 
     /// <summary>
-    /// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table. 
+    /// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
     ///  AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
     ///  For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
     /// </summary>

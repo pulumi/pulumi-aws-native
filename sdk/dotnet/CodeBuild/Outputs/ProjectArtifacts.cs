@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
         /// * If `type` is set to `CODEPIPELINE`, AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output locations instead of CodeBuild.
         /// * If `type` is set to `NO_ARTIFACTS`, this value is ignored if specified, because no build output is produced.
         /// * If `type` is set to `S3`, this is the name of the output bucket.
-        /// If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
+        ///   If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
         /// </summary>
         public readonly string? Location;
         /// <summary>

@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Iam
     ///                     ["effect"] = "Allow",
     ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = new[]
+    ///                         ["service"] = new object?[]
     ///                         {
     ///                             "cloudformation.amazonaws.com",
     ///                             "gamelift.amazonaws.com",
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Iam
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["effect"] = "Allow",
-    ///                             ["action"] = new[]
+    ///                             ["action"] = new object?[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:GetObjectVersion",
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Iam
     ///                     ["effect"] = "Allow",
     ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = new[]
+    ///                         ["service"] = new object?[]
     ///                         {
     ///                             "cloudformation.amazonaws.com",
     ///                             "gamelift.amazonaws.com",
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.Iam
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["effect"] = "Allow",
-    ///                             ["action"] = new[]
+    ///                             ["action"] = new object?[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:GetObjectVersion",

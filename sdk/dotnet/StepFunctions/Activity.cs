@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// - white space
         /// - brackets `&lt; &gt; { } [ ]`
         /// - wildcard characters `? *`
-        /// - special characters `" # % \ ^ | ~ ` $ &amp; , ; : /`
+        /// - special characters ` " # % \ ^ | ~  ` $ &amp; , ; : /`
         /// - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
         /// - surrogates ( `U+D800-DFFF` )
         /// - invalid characters ( `U+10FFFF` )
@@ -189,7 +189,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// - white space
         /// - brackets `&lt; &gt; { } [ ]`
         /// - wildcard characters `? *`
-        /// - special characters `" # % \ ^ | ~ ` $ &amp; , ; : /`
+        /// - special characters ` " # % \ ^ | ~  ` $ &amp; , ; : /`
         /// - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
         /// - surrogates ( `U+D800-DFFF` )
         /// - invalid characters ( `U+10FFFF` )

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     public sealed class LaunchConfigurationBlockDeviceMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
+        /// The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh).
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;

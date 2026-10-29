@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Configuration.Outputs
         /// </summary>
         public readonly string RecordingFrequency;
         /// <summary>
-        /// An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode. 
+        /// An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationRecorderRecordingModeOverride> RecordingModeOverrides;
 

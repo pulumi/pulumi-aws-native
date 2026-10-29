@@ -17,15 +17,15 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     public sealed class LaunchConfigurationBlockDevice
     {
         /// <summary>
-        /// Indicates whether the volume is deleted on instance termination. 
+        /// Indicates whether the volume is deleted on instance termination.
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>
-        /// Specifies whether the volume should be encrypted. 
+        /// Specifies whether the volume should be encrypted.
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
-        /// The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
+        /// The number of input/output (I/O) operations per second (IOPS) to provision for the volume.
         /// </summary>
         public readonly int? Iops;
         /// <summary>

@@ -59,12 +59,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<bool?> Encrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
+        /// The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types.
         ///  Valid ranges:
         ///   +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
         ///   +  io1: ``100 - 64,000`` IOPS
         ///   +  io2: ``100 - 256,000`` IOPS
-        ///   
+        /// 
         ///   [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
         /// </summary>
         [Output("iops")]
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Ec2
         ///   +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
         ///   +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
         ///   +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
-        ///   
+        /// 
         ///  If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         /// </summary>
         [Output("kmsKeyId")]
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The size of the volume, in GiBs.
         ///   +  Required for new empty volumes.
         ///   +  Optional for volumes created from snapshots and volume copies. In this case, the size defaults to the size of the snapshot or source volume. You can optionally specify a size that is equal to or larger than the size of the source snapshot or volume.
-        ///   
+        /// 
         ///  Supported volume sizes:
         ///   +  gp2: ``1 - 16,384`` GiB
         ///   +  gp3: ``1 - 65,536`` GiB
@@ -151,9 +151,9 @@ namespace Pulumi.AwsNative.Ec2
         /// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
         ///  This parameter is supported only for volumes created from snapshots. Omit this parameter if:
         ///   +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
-        ///   If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+        ///        If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
         ///    +  You want to create a volume that is initialized at the default rate.
-        ///   
+        /// 
         ///  For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.
         ///  Valid range: 100 - 300 MiB/s
         /// </summary>
@@ -167,7 +167,7 @@ namespace Pulumi.AwsNative.Ec2
         ///   +  Throughput Optimized HDD: ``st1``
         ///   +  Cold HDD: ``sc1``
         ///   +  Magnetic: ``standard``
-        ///   
+        /// 
         ///   Throughput Optimized HDD (``st1``) and Cold HDD (``sc1``) volumes can't be used as boot volumes.
         ///   For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
         ///  Default: ``gp2``
@@ -250,12 +250,12 @@ namespace Pulumi.AwsNative.Ec2
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
+        /// The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types.
         ///  Valid ranges:
         ///   +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
         ///   +  io1: ``100 - 64,000`` IOPS
         ///   +  io2: ``100 - 256,000`` IOPS
-        ///   
+        /// 
         ///   [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
         /// </summary>
         [Input("iops")]
@@ -269,7 +269,7 @@ namespace Pulumi.AwsNative.Ec2
         ///   +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
         ///   +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
         ///   +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
-        ///   
+        /// 
         ///  If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         /// </summary>
         [Input("kmsKeyId")]
@@ -293,7 +293,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The size of the volume, in GiBs.
         ///   +  Required for new empty volumes.
         ///   +  Optional for volumes created from snapshots and volume copies. In this case, the size defaults to the size of the snapshot or source volume. You can optionally specify a size that is equal to or larger than the size of the source snapshot or volume.
-        ///   
+        /// 
         ///  Supported volume sizes:
         ///   +  gp2: ``1 - 16,384`` GiB
         ///   +  gp3: ``1 - 65,536`` GiB
@@ -342,9 +342,9 @@ namespace Pulumi.AwsNative.Ec2
         /// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
         ///  This parameter is supported only for volumes created from snapshots. Omit this parameter if:
         ///   +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
-        ///   If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+        ///        If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
         ///    +  You want to create a volume that is initialized at the default rate.
-        ///   
+        /// 
         ///  For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.
         ///  Valid range: 100 - 300 MiB/s
         /// </summary>
@@ -358,7 +358,7 @@ namespace Pulumi.AwsNative.Ec2
         ///   +  Throughput Optimized HDD: ``st1``
         ///   +  Cold HDD: ``sc1``
         ///   +  Magnetic: ``standard``
-        ///   
+        /// 
         ///   Throughput Optimized HDD (``st1``) and Cold HDD (``sc1``) volumes can't be used as boot volumes.
         ///   For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
         ///  Default: ``gp2``

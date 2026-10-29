@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Logs
         ///   +  A logical destination that belongs to a different account, for cross-account delivery.
         ///   +  An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.
         ///   +  An LAMlong function that belongs to the same account as the subscription filter, for same-account delivery.
-        ///   
+        /// 
         ///  There can be as many as two subscription filters associated with a log group.
         /// </summary>
         public static Task<GetSubscriptionFilterResult> InvokeAsync(GetSubscriptionFilterArgs args, InvokeOptions? options = null)
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Logs
         ///   +  A logical destination that belongs to a different account, for cross-account delivery.
         ///   +  An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.
         ///   +  An LAMlong function that belongs to the same account as the subscription filter, for same-account delivery.
-        ///   
+        /// 
         ///  There can be as many as two subscription filters associated with a log group.
         /// </summary>
         public static Output<GetSubscriptionFilterResult> Invoke(GetSubscriptionFilterInvokeArgs args, InvokeOptions? options = null)
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.Logs
         ///   +  A logical destination that belongs to a different account, for cross-account delivery.
         ///   +  An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.
         ///   +  An LAMlong function that belongs to the same account as the subscription filter, for same-account delivery.
-        ///   
+        /// 
         ///  There can be as many as two subscription filters associated with a log group.
         /// </summary>
         public static Output<GetSubscriptionFilterResult> Invoke(GetSubscriptionFilterInvokeArgs args, InvokeOutputOptions options)

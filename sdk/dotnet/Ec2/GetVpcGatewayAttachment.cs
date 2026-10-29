@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVpcGatewayAttachmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
         /// </summary>
         [Input("attachmentType", required: true)]
         public string AttachmentType { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVpcGatewayAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
         /// </summary>
         [Input("attachmentType", required: true)]
         public Input<string> AttachmentType { get; set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVpcGatewayAttachmentResult
     {
         /// <summary>
-        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
         /// </summary>
         public readonly string? AttachmentType;
         /// <summary>

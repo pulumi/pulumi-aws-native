@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         ///   +  - .
         ///   +  * (matches 0 or more characters)
         ///   +  ? (matches exactly 1 character)
-        ///   
+        /// 
         ///  If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
         ///   +  A-Z, a-z, 0-9
         ///   +  _ - . $ / ~ " ' @ : +

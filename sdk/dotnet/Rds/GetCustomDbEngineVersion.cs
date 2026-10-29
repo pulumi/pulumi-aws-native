@@ -36,10 +36,10 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The database engine to use for your custom engine version (CEV).
         ///  Valid values:
-        ///   +   ``custom-oracle-ee`` 
-        ///   +   ``custom-oracle-ee-cdb`` 
-        ///   +   ``sqlserver-dev-ee`` 
-        ///   +   ``sqlserver-ee`` 
+        ///   +   ``custom-oracle-ee``
+        ///   +   ``custom-oracle-ee-cdb``
+        ///   +   ``sqlserver-dev-ee``
+        ///   +   ``sqlserver-ee``
         ///   +   ``sqlserver-se``
         /// </summary>
         [Input("engine", required: true)]
@@ -64,10 +64,10 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The database engine to use for your custom engine version (CEV).
         ///  Valid values:
-        ///   +   ``custom-oracle-ee`` 
-        ///   +   ``custom-oracle-ee-cdb`` 
-        ///   +   ``sqlserver-dev-ee`` 
-        ///   +   ``sqlserver-ee`` 
+        ///   +   ``custom-oracle-ee``
+        ///   +   ``custom-oracle-ee-cdb``
+        ///   +   ``sqlserver-dev-ee``
+        ///   +   ``sqlserver-ee``
         ///   +   ``sqlserver-se``
         /// </summary>
         [Input("engine", required: true)]

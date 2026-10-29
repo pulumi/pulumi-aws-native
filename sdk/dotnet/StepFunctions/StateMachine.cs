@@ -229,7 +229,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// - white space
         /// - brackets `&lt; &gt; { } [ ]`
         /// - wildcard characters `? *`
-        /// - special characters `" # % \ ^ | ~ ` $ &amp; , ; : /`
+        /// - special characters ` " # % \ ^ | ~  ` $ &amp; , ; : /`
         /// - control characters ( `U+0000-001F` , `U+007F-009F` )
         /// 
         /// &gt; If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -373,7 +373,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// - white space
         /// - brackets `&lt; &gt; { } [ ]`
         /// - wildcard characters `? *`
-        /// - special characters `" # % \ ^ | ~ ` $ &amp; , ; : /`
+        /// - special characters ` " # % \ ^ | ~  ` $ &amp; , ; : /`
         /// - control characters ( `U+0000-001F` , `U+007F-009F` )
         /// 
         /// &gt; If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.

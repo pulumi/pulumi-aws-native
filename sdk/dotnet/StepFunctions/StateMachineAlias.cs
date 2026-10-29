@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// 
         /// CloudFormation automatically shifts traffic from the version an alias currently points to, to a new state machine version that you specify.
         /// 
-        /// &gt; `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties. 
+        /// &gt; `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
         /// 
         /// Based on the type of deployment you want to perform, you can specify one of the following settings:
         /// 
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// 
         /// CloudFormation automatically shifts traffic from the version an alias currently points to, to a new state machine version that you specify.
         /// 
-        /// &gt; `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties. 
+        /// &gt; `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
         /// 
         /// Based on the type of deployment you want to perform, you can specify one of the following settings:
         /// 

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Kinesis.Inputs
     public sealed class StreamEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The encryption type to use. The only valid value is KMS. 
+        /// The encryption type to use. The only valid value is KMS.
         /// </summary>
         [Input("encryptionType", required: true)]
         public Input<Pulumi.AwsNative.Kinesis.StreamEncryptionEncryptionType> EncryptionType { get; set; } = null!;

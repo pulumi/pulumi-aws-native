@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Athena
         public Output<string?> ConnectionType { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the data catalog to be created. 
+        /// A description of the data catalog to be created.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -110,13 +110,13 @@ namespace Pulumi.AwsNative.Athena
         public Output<string?> Error { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
+        /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.Athena
         public Output<Pulumi.AwsNative.Athena.DataCatalogStatus?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A list of comma separated tags to add to the data catalog that is created. 
+        /// A list of comma separated tags to add to the data catalog that is created.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.AwsNative.Athena
         public Input<string>? ConnectionType { get; set; }
 
         /// <summary>
-        /// A description of the data catalog to be created. 
+        /// A description of the data catalog to be created.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.AwsNative.Athena
         public Input<string>? Error { get; set; }
 
         /// <summary>
-        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.AwsNative.Athena
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
+        /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -234,7 +234,7 @@ namespace Pulumi.AwsNative.Athena
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A list of comma separated tags to add to the data catalog that is created. 
+        /// A list of comma separated tags to add to the data catalog that is created.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

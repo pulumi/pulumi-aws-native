@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
         /// </summary>
         public readonly Outputs.CacheClusterDestinationDetails DestinationDetails;
         /// <summary>
-        /// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        /// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
         /// </summary>
         public readonly string DestinationType;
         /// <summary>

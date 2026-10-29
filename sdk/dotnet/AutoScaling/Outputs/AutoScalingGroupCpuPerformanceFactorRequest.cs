@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     public sealed class AutoScalingGroupCpuPerformanceFactorRequest
     {
         /// <summary>
-        /// Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences. 
+        /// Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
         ///   Currently only one instance family can be specified in the list.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutoScalingGroupPerformanceFactorReferenceRequest> References;

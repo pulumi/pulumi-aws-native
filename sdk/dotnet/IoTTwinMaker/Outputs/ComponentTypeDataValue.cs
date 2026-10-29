@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
         /// </summary>
         public readonly double? LongValue;
         /// <summary>
-        /// An object that maps strings to multiple DataValue objects. 
+        /// An object that maps strings to multiple DataValue objects.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentTypeDataValue>? MapValue;
         /// <summary>

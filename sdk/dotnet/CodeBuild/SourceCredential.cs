@@ -298,7 +298,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER. 
+        /// The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER.
         /// </summary>
         [Output("authType")]
         public Output<string> AuthType { get; private set; } = null!;
@@ -371,7 +371,7 @@ namespace Pulumi.AwsNative.CodeBuild
     public sealed class SourceCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER. 
+        /// The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER.
         /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;

@@ -198,7 +198,7 @@ namespace Pulumi.AwsNative.Ce
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency at which anomaly reports are sent over email. 
+        /// The frequency at which anomaly reports are sent over email.
         /// </summary>
         [Output("frequency")]
         public Output<Pulumi.AwsNative.Ce.AnomalySubscriptionFrequency> Frequency { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.AwsNative.Ce
         public Output<string> SubscriptionName { get; private set; } = null!;
 
         /// <summary>
-        /// The dollar value that triggers a notification if the threshold is exceeded. 
+        /// The dollar value that triggers a notification if the threshold is exceeded.
         /// </summary>
         [Output("threshold")]
         public Output<double?> Threshold { get; private set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.AwsNative.Ce
     public sealed class AnomalySubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The frequency at which anomaly reports are sent over email. 
+        /// The frequency at which anomaly reports are sent over email.
         /// </summary>
         [Input("frequency", required: true)]
         public Input<Pulumi.AwsNative.Ce.AnomalySubscriptionFrequency> Frequency { get; set; } = null!;
@@ -343,7 +343,7 @@ namespace Pulumi.AwsNative.Ce
         public Input<string>? SubscriptionName { get; set; }
 
         /// <summary>
-        /// The dollar value that triggers a notification if the threshold is exceeded. 
+        /// The dollar value that triggers a notification if the threshold is exceeded.
         /// </summary>
         [Input("threshold")]
         public Input<double>? Threshold { get; set; }

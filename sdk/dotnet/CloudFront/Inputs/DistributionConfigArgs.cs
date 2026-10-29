@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// A complex type that controls the following:
         ///   +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
         ///   +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
-        ///   
+        /// 
         ///  For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public InputList<Inputs.DistributionCustomErrorResponseArgs> CustomErrorResponses
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         ///  If you're using an R53AWSIntlong alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         ///   +  You enable IPv6 for the distribution
         ///   +  You're using alternate domain names in the URLs for your objects
-        ///   
+        /// 
         ///  For more information, see [Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html) in the *Developer Guide*.
         ///  If you created a CNAME resource record set, either with R53AWSIntlong or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
         /// </summary>

@@ -76,11 +76,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
-        /// The port the load balancer uses when performing health checks on targets. 
+        /// The port the load balancer uses when performing health checks on targets.
         /// </summary>
         public readonly string? HealthCheckPort;
         /// <summary>
-        /// The protocol the load balancer uses when performing health checks on targets. 
+        /// The protocol the load balancer uses when performing health checks on targets.
         /// </summary>
         public readonly string? HealthCheckProtocol;
         /// <summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         public readonly int? HealthCheckTimeoutSeconds;
         /// <summary>
-        /// The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+        /// The number of consecutive health checks successes required before considering an unhealthy target healthy.
         /// </summary>
         public readonly int? HealthyThresholdCount;
         /// <summary>

@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.AuditManager
     }
 
     /// <summary>
-    /// The status of the specified assessment. 
+    /// The status of the specified assessment.
     /// </summary>
     [EnumType]
     public readonly struct AssessmentStatus : IEquatable<AssessmentStatus>

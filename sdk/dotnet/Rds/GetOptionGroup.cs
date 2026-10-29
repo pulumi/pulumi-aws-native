@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must be 1 to 255 letters, numbers, or hyphens
         ///   +  First character must be a letter
         ///   +  Can't end with a hyphen or contain two consecutive hyphens
-        ///   
+        /// 
         ///  Example: ``myoptiongroup``
         ///  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
         ///   This value is stored as a lowercase string.
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must be 1 to 255 letters, numbers, or hyphens
         ///   +  First character must be a letter
         ///   +  Can't end with a hyphen or contain two consecutive hyphens
-        ///   
+        /// 
         ///  Example: ``myoptiongroup``
         ///  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
         ///   This value is stored as a lowercase string.

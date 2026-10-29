@@ -17,8 +17,8 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     public sealed class AutoScalingGroupRetentionTriggers
     {
         /// <summary>
-        /// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). 
-        ///   Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior. 
+        /// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
+        ///   Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior.
         ///   Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
         /// </summary>
         public readonly string? TerminateHookAbandon;

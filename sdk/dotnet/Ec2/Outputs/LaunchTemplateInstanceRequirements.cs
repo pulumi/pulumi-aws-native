@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     ///  To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
     ///   +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
     ///   +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
-    ///   
+    /// 
     ///   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
     ///  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
     ///   For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///   +  For instance types with Habana devices, specify ``habana``.
         ///   +  For instance types with NVIDIA devices, specify ``nvidia``.
         ///   +  For instance types with Xilinx devices, specify ``xilinx``.
-        ///   
+        /// 
         ///  Default: Any manufacturer
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorManufacturers;
@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///   +  For instance types with Xilinx U30 cards, specify ``u30``.
         ///   +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
         ///   +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
-        ///   
+        /// 
         ///  Default: Any accelerator
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorNames;
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///   +  For instance types with GPU accelerators, specify ``gpu``.
         ///   +  For instance types with Inference accelerators, specify ``inference``.
         ///   +  For instance types with Media accelerators, specify ``media``.
-        ///   
+        /// 
         ///  Default: Any accelerator type
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorTypes;
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///   +  To include bare metal instance types, specify ``included``.
         ///   +  To require only bare metal instance types, specify ``required``.
         ///   +  To exclude bare metal instance types, specify ``excluded``.
-        ///   
+        /// 
         ///  Default: ``excluded``
         /// </summary>
         public readonly string? BareMetal;
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///   +  To include burstable performance instance types, specify ``included``.
         ///   +  To require only burstable performance instance types, specify ``required``.
         ///   +  To exclude burstable performance instance types, specify ``excluded``.
-        ///   
+        /// 
         ///  Default: ``excluded``
         /// </summary>
         public readonly string? BurstablePerformance;
@@ -123,7 +123,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///   +  For instance types with AMD CPUs, specify ``amd``.
         ///   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
         ///   +  For instance types with Apple CPUs, specify ``apple``.
-        ///   
+        /// 
         ///   Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
         ///   Default: Any manufacturer
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///   +  To include instance types with instance store volumes, specify ``included``.
         ///   +  To require only instance types with instance store volumes, specify ``required``.
         ///   +  To exclude instance types with instance store volumes, specify ``excluded``.
-        ///   
+        /// 
         ///  Default: ``included``
         /// </summary>
         public readonly string? LocalStorage;
@@ -156,7 +156,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The type of local storage that is required.
         ///   +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
         ///   +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
-        ///   
+        /// 
         ///  Default: ``hdd`` and ``ssd``
         /// </summary>
         public readonly ImmutableArray<string> LocalStorageTypes;

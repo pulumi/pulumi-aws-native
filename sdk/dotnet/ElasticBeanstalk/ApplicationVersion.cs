@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     public partial class ApplicationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the Elastic Beanstalk application that is associated with this application version. 
+        /// The name of the Elastic Beanstalk application that is associated with this application version.
         /// </summary>
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public Output<bool?> Process { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        /// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         /// </summary>
         [Output("sourceBundle")]
         public Output<Outputs.ApplicationVersionSourceBundle?> SourceBundle { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     public sealed class ApplicationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Elastic Beanstalk application that is associated with this application version. 
+        /// The name of the Elastic Beanstalk application that is associated with this application version.
         /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public Input<bool>? Process { get; set; }
 
         /// <summary>
-        /// The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        /// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         /// </summary>
         [Input("sourceBundle")]
         public Input<Inputs.ApplicationVersionSourceBundleArgs>? SourceBundle { get; set; }

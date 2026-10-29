@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         ///   +  CloudFront forwards only ``GET`` and ``HEAD`` requests.
         ///   +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.
         ///   +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.
-        ///   
+        /// 
         ///  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
         /// </summary>
         public InputList<string> AllowedMethods
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
         ///   +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.
         ///   +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.
-        ///   
+        /// 
         ///  If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
         /// </summary>
         public InputList<string> CachedMethods
@@ -197,7 +197,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         ///   +  ``allow-all``: Viewers can use HTTP or HTTPS.
         ///   +  ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
         ///   +  ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
-        ///   
+        /// 
         ///  For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
         ///   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
         /// </summary>

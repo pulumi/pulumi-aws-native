@@ -45,10 +45,10 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The database engine to use for your custom engine version (CEV).
         ///  Valid values:
-        ///   +   ``custom-oracle-ee`` 
-        ///   +   ``custom-oracle-ee-cdb`` 
-        ///   +   ``sqlserver-dev-ee`` 
-        ///   +   ``sqlserver-ee`` 
+        ///   +   ``custom-oracle-ee``
+        ///   +   ``custom-oracle-ee-cdb``
+        ///   +   ``sqlserver-dev-ee``
+        ///   +   ``sqlserver-ee``
         ///   +   ``sqlserver-se``
         /// </summary>
         [Output("engine")]
@@ -79,8 +79,8 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
         ///  The following JSON fields are valid:
-        ///   + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches. 
-        ///  For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
+        ///   + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.
+        ///      For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
         /// </summary>
         [Output("manifest")]
         public Output<string?> Manifest { get; private set; } = null!;
@@ -196,10 +196,10 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The database engine to use for your custom engine version (CEV).
         ///  Valid values:
-        ///   +   ``custom-oracle-ee`` 
-        ///   +   ``custom-oracle-ee-cdb`` 
-        ///   +   ``sqlserver-dev-ee`` 
-        ///   +   ``sqlserver-ee`` 
+        ///   +   ``custom-oracle-ee``
+        ///   +   ``custom-oracle-ee-cdb``
+        ///   +   ``sqlserver-dev-ee``
+        ///   +   ``sqlserver-ee``
         ///   +   ``sqlserver-se``
         /// </summary>
         [Input("engine", required: true)]
@@ -230,8 +230,8 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
         ///  The following JSON fields are valid:
-        ///   + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches. 
-        ///  For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
+        ///   + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.
+        ///      For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
         /// </summary>
         [Input("manifest")]
         public Input<string>? Manifest { get; set; }

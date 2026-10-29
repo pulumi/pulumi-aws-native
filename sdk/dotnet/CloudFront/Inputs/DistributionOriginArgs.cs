@@ -21,8 +21,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     ///   +  An EMPlong endpoint
     ///   +  An EMSlong container
     ///   +  Any other HTTP server, running on an Amazon EC2 instance or any other kind of host
-    ///   
-    ///   
+    /// 
     ///  For the current maximum number of origins that you can specify per distribution, see [General Quotas on Web Distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-web-distributions) in the *Amazon CloudFront Developer Guide* (quotas were formerly referred to as limits).
     /// </summary>
     public sealed class DistributionOriginArgs : global::Pulumi.ResourceArgs

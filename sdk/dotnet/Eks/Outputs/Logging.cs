@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Eks.Outputs
     public sealed class Logging
     {
         /// <summary>
-        /// The cluster control plane logging configuration for your cluster. 
+        /// The cluster control plane logging configuration for your cluster.
         /// </summary>
         public readonly Outputs.ClusterLoggingEnabledTypes? ClusterLoggingValue;
 

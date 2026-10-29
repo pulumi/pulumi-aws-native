@@ -36,13 +36,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the attribute group. 
+        /// The description of the attribute group.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the attribute group. 
+        /// The name of the attribute group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -107,13 +107,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public Input<object> Attributes { get; set; } = null!;
 
         /// <summary>
-        /// The description of the attribute group. 
+        /// The description of the attribute group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the attribute group. 
+        /// The name of the attribute group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

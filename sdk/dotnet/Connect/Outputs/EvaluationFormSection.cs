@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly string Title;
         /// <summary>
         /// The scoring weight of the section.
-        ///  *Minimum*: 0 
+        ///  *Minimum*: 0
         ///  *Maximum*: 100
         /// </summary>
         public readonly double? Weight;

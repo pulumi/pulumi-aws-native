@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.MemoryDb.Inputs
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// The port number that the engine is listening on. 
+        /// The port number that the engine is listening on.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

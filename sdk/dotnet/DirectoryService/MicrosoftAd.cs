@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.DirectoryService
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The NetBIOS name for your domain, such as CORP. If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, CORP for the directory DNS corp.example.com. 
+        /// The NetBIOS name for your domain, such as CORP. If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, CORP for the directory DNS corp.example.com.
         /// </summary>
         [Output("shortName")]
         public Output<string?> ShortName { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.AwsNative.DirectoryService
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The NetBIOS name for your domain, such as CORP. If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, CORP for the directory DNS corp.example.com. 
+        /// The NetBIOS name for your domain, such as CORP. If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, CORP for the directory DNS corp.example.com.
         /// </summary>
         [Input("shortName")]
         public Input<string>? ShortName { get; set; }

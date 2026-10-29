@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
         /// </summary>
         public readonly string Stat;
         /// <summary>
-        /// The unit to use for the returned data points. 
+        /// The unit to use for the returned data points.
         ///  Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         /// </summary>
         public readonly string? Unit;

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ses.Inputs
         public Input<Inputs.ConfigurationSetEventDestinationCloudWatchDestinationArgs>? CloudWatchDestination { get; set; }
 
         /// <summary>
-        /// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+        /// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

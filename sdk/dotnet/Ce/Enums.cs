@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Ce
     }
 
     /// <summary>
-    /// The frequency at which anomaly reports are sent over email. 
+    /// The frequency at which anomaly reports are sent over email.
     /// </summary>
     [EnumType]
     public readonly struct AnomalySubscriptionFrequency : IEquatable<AnomalySubscriptionFrequency>

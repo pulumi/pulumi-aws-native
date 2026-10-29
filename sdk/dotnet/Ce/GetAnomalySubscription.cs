@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Ce
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
-        /// The frequency at which anomaly reports are sent over email. 
+        /// The frequency at which anomaly reports are sent over email.
         /// </summary>
         public readonly Pulumi.AwsNative.Ce.AnomalySubscriptionFrequency? Frequency;
         /// <summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Ce
         /// </summary>
         public readonly string? SubscriptionName;
         /// <summary>
-        /// The dollar value that triggers a notification if the threshold is exceeded. 
+        /// The dollar value that triggers a notification if the threshold is exceeded.
         /// </summary>
         public readonly double? Threshold;
         /// <summary>
