@@ -233,7 +233,7 @@ import (
 //				},
 //				MaxRetries: pulumi.Float64(0),
 //				Name:       pulumi.String("cf-job1"),
-//				Role:       myJobRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:       myJobRole.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -308,7 +308,7 @@ import (
 //				},
 //				MaxRetries: pulumi.Float64(0),
 //				Name:       pulumi.String("cf-job1"),
-//				Role:       myJobRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:       myJobRole.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -373,7 +373,7 @@ import (
 //			myJob, err := glue.NewJob(ctx, "myJob", &glue.JobArgs{
 //				Name:   pulumi.String("MyJobTriggerJob"),
 //				LogUri: pulumi.String("wikiData"),
-//				Role:   myJobTriggerRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   myJobTriggerRole.ID(),
 //				Command: &glue.JobCommandArgs{
 //					Name:           pulumi.String("glueetl"),
 //					ScriptLocation: pulumi.String("s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py"),
@@ -392,7 +392,7 @@ import (
 //				Description: pulumi.String("Description for a conditional job trigger"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
-//						JobName: myJob.ID().ToIDOutput().ToStringOutput(),
+//						JobName: myJob.ID(),
 //						Arguments: pulumi.Any(map[string]interface{}{
 //							"--job-bookmark-option": "job-bookmark-enable",
 //						}),
@@ -402,7 +402,7 @@ import (
 //					Conditions: glue.TriggerConditionArray{
 //						&glue.TriggerConditionArgs{
 //							LogicalOperator: pulumi.String("EQUALS"),
-//							JobName:         myJob.ID().ToIDOutput().ToStringOutput(),
+//							JobName:         myJob.ID(),
 //							State:           pulumi.String("SUCCEEDED"),
 //						},
 //					},
@@ -471,7 +471,7 @@ import (
 //			myJob, err := glue.NewJob(ctx, "myJob", &glue.JobArgs{
 //				Name:   pulumi.String("MyJobTriggerJob"),
 //				LogUri: pulumi.String("wikiData"),
-//				Role:   myJobTriggerRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   myJobTriggerRole.ID(),
 //				Command: &glue.JobCommandArgs{
 //					Name:           pulumi.String("glueetl"),
 //					ScriptLocation: pulumi.String("s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py"),
@@ -490,7 +490,7 @@ import (
 //				Description: pulumi.String("Description for a conditional job trigger"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
-//						JobName: myJob.ID().ToIDOutput().ToStringOutput(),
+//						JobName: myJob.ID(),
 //						Arguments: pulumi.Any(map[string]interface{}{
 //							"--job-bookmark-option": "job-bookmark-enable",
 //						}),
@@ -500,7 +500,7 @@ import (
 //					Conditions: glue.TriggerConditionArray{
 //						&glue.TriggerConditionArgs{
 //							LogicalOperator: pulumi.String("EQUALS"),
-//							JobName:         myJob.ID().ToIDOutput().ToStringOutput(),
+//							JobName:         myJob.ID(),
 //							State:           pulumi.String("SUCCEEDED"),
 //						},
 //					},
@@ -742,7 +742,7 @@ import (
 //			_, err = iam.NewInstanceProfile(ctx, "rootInstanceProfile", &iam.InstanceProfileArgs{
 //				Path: pulumi.String("/"),
 //				Roles: pulumi.StringArray{
-//					rootRole.ID().ToIDOutput().ToStringOutput(),
+//					rootRole.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -807,7 +807,7 @@ import (
 //			_, err = iam.NewInstanceProfile(ctx, "rootInstanceProfile", &iam.InstanceProfileArgs{
 //				Path: pulumi.String("/"),
 //				Roles: pulumi.StringArray{
-//					rootRole.ID().ToIDOutput().ToStringOutput(),
+//					rootRole.ID(),
 //				},
 //			})
 //			if err != nil {

@@ -105,7 +105,7 @@ import (
 //				return err
 //			}
 //			_, err = ses.NewConfigurationSetEventDestination(ctx, "cwEventDestination", &ses.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: configSet.ID().ToIDOutput().ToStringOutput(),
+//				ConfigurationSetName: configSet.ID(),
 //				EventDestination: &ses.ConfigurationSetEventDestinationEventDestinationArgs{
 //					Name:    pulumi.String(eventDestinationName),
 //					Enabled: pulumi.Bool(true),
@@ -172,7 +172,7 @@ import (
 //				return err
 //			}
 //			_, err = ses.NewConfigurationSetEventDestination(ctx, "cwEventDestination", &ses.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: configSet.ID().ToIDOutput().ToStringOutput(),
+//				ConfigurationSetName: configSet.ID(),
 //				EventDestination: &ses.ConfigurationSetEventDestinationEventDestinationArgs{
 //					Name:    pulumi.String(eventDestinationName),
 //					Enabled: pulumi.Bool(true),

@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = ses.NewReceiptRule(ctx, "receiptRule2", &ses.ReceiptRuleArgs{
 //				RuleSetName: pulumi.String(ruleSetName),
-//				After:       receiptRule1.ID().ToIDOutput().ToStringOutput(),
+//				After:       receiptRule1.ID(),
 //				Rule: &ses.ReceiptRuleRuleArgs{
 //					Name: pulumi.String(receiptRuleName2),
 //				},
@@ -116,7 +116,7 @@ import (
 //			}
 //			_, err = ses.NewReceiptRule(ctx, "receiptRule2", &ses.ReceiptRuleArgs{
 //				RuleSetName: pulumi.String(ruleSetName),
-//				After:       receiptRule1.ID().ToIDOutput().ToStringOutput(),
+//				After:       receiptRule1.ID(),
 //				Rule: &ses.ReceiptRuleRuleArgs{
 //					Name: pulumi.String(receiptRuleName2),
 //				},

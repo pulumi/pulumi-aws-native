@@ -61,7 +61,7 @@ import (
 //				return err
 //			}
 //			rootCACertificate, err := acmpca.NewCertificate(ctx, "rootCACertificate", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   rootCA.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn:   rootCA.ID(),
 //				CertificateSigningRequest: rootCA.CertificateSigningRequest,
 //				SigningAlgorithm:          pulumi.String("SHA256WITHRSA"),
 //				TemplateArn:               pulumi.String("arn:aws:acm-pca:::template/RootCACertificate/V1"),
@@ -74,7 +74,7 @@ import (
 //				return err
 //			}
 //			rootCAActivation, err := acmpca.NewCertificateAuthorityActivation(ctx, "rootCAActivation", &acmpca.CertificateAuthorityActivationArgs{
-//				CertificateAuthorityArn: rootCA.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn: rootCA.ID(),
 //				Certificate:             rootCACertificate.Certificate,
 //				Status:                  pulumi.String("ACTIVE"),
 //			})
@@ -87,7 +87,7 @@ import (
 //					pulumi.String("GetCertificate"),
 //					pulumi.String("ListPermissions"),
 //				},
-//				CertificateAuthorityArn: rootCA.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn: rootCA.ID(),
 //				Principal:               pulumi.String("acm.amazonaws.com"),
 //			})
 //			if err != nil {
@@ -120,7 +120,7 @@ import (
 //				return err
 //			}
 //			subordinateCAOneCACertificate, err := acmpca.NewCertificate(ctx, "subordinateCAOneCACertificate", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   rootCA.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn:   rootCA.ID(),
 //				CertificateSigningRequest: subordinateCAOne.CertificateSigningRequest,
 //				SigningAlgorithm:          pulumi.String("SHA256WITHRSA"),
 //				TemplateArn:               pulumi.String("arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1"),
@@ -135,7 +135,7 @@ import (
 //				return err
 //			}
 //			subordinateCAOneActivation, err := acmpca.NewCertificateAuthorityActivation(ctx, "subordinateCAOneActivation", &acmpca.CertificateAuthorityActivationArgs{
-//				CertificateAuthorityArn: subordinateCAOne.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn: subordinateCAOne.ID(),
 //				Certificate:             subordinateCAOneCACertificate.Certificate,
 //				CertificateChain:        rootCAActivation.CompleteCertificateChain,
 //				Status:                  pulumi.String("ACTIVE"),
@@ -149,7 +149,7 @@ import (
 //					pulumi.String("GetCertificate"),
 //					pulumi.String("ListPermissions"),
 //				},
-//				CertificateAuthorityArn: subordinateCAOne.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn: subordinateCAOne.ID(),
 //				Principal:               pulumi.String("acm.amazonaws.com"),
 //			})
 //			if err != nil {
@@ -189,7 +189,7 @@ import (
 //				return err
 //			}
 //			subordinateCATwoCACertificate, err := acmpca.NewCertificate(ctx, "subordinateCATwoCACertificate", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   subordinateCAOne.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn:   subordinateCAOne.ID(),
 //				CertificateSigningRequest: subordinateCATwo.CertificateSigningRequest,
 //				SigningAlgorithm:          pulumi.String("SHA256WITHRSA"),
 //				TemplateArn:               pulumi.String("arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1"),
@@ -204,7 +204,7 @@ import (
 //				return err
 //			}
 //			subordinateCATwoActivation, err := acmpca.NewCertificateAuthorityActivation(ctx, "subordinateCATwoActivation", &acmpca.CertificateAuthorityActivationArgs{
-//				CertificateAuthorityArn: subordinateCATwo.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn: subordinateCATwo.ID(),
 //				Certificate:             subordinateCATwoCACertificate.Certificate,
 //				CertificateChain:        subordinateCAOneActivation.CompleteCertificateChain,
 //			})
@@ -217,14 +217,14 @@ import (
 //					pulumi.String("GetCertificate"),
 //					pulumi.String("ListPermissions"),
 //				},
-//				CertificateAuthorityArn: subordinateCATwo.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn: subordinateCATwo.ID(),
 //				Principal:               pulumi.String("acm.amazonaws.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			endEntityCertificate, err := acmpca.NewCertificate(ctx, "endEntityCertificate", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn: subordinateCATwo.ID().ToIDOutput().ToStringOutput(),
+//				CertificateAuthorityArn: subordinateCATwo.ID(),
 //				CertificateSigningRequest: pulumi.String(`-----BEGIN CERTIFICATE REQUEST-----
 //
 // MIICvDCCAaQCAQAwdzELMAkGA1UEBhMCVVMxDTALBgNVBAgMBFV0YWgxDzANBgNV

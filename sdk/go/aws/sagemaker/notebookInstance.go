@@ -36,7 +36,7 @@ import (
 //			basicNotebookInstanceLifecycleConfig, err := sagemaker.NewNotebookInstanceLifecycleConfig(ctx, "basicNotebookInstanceLifecycleConfig", &sagemaker.NotebookInstanceLifecycleConfigArgs{
 //				OnStart: sagemaker.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray{
 //					&sagemaker.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs{
-//						Content: pulumi.String(base64.StdEncoding.EncodeToString([]byte("echo 'hello'"))),
+//						Content: base64.StdEncoding.EncodeToString([]byte("echo 'hello'")),
 //					},
 //				},
 //			})
