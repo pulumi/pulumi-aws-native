@@ -196,14 +196,14 @@ class FleetMetric(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregation_field: pulumi.Input[Optional[_builtins.str]] = None,
-                 aggregation_type: pulumi.Input[Optional[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']]] = None,
+                 aggregation_type: pulumi.Input[Optional[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict', 'outputs.FleetMetricAggregationType']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  index_name: pulumi.Input[Optional[_builtins.str]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  period: pulumi.Input[Optional[_builtins.int]] = None,
                  query_string: pulumi.Input[Optional[_builtins.str]] = None,
                  query_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -212,14 +212,14 @@ class FleetMetric(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aggregation_field: The aggregation field to perform aggregation and metric emission
-        :param pulumi.Input[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']] aggregation_type: The type of the aggregation query.
+        :param pulumi.Input[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict', 'outputs.FleetMetricAggregationType']] aggregation_type: The type of the aggregation query.
         :param pulumi.Input[_builtins.str] description: The description of a fleet metric
         :param pulumi.Input[_builtins.str] index_name: The index name of a fleet metric
         :param pulumi.Input[_builtins.str] metric_name: The name of the fleet metric
         :param pulumi.Input[_builtins.int] period: The period of metric emission in seconds
         :param pulumi.Input[_builtins.str] query_string: The Fleet Indexing query used by a fleet metric
         :param pulumi.Input[_builtins.str] query_version: The version of a Fleet Indexing query used by a fleet metric
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource
         :param pulumi.Input[_builtins.str] unit: The unit of data points emitted by a fleet metric
         """
         ...
@@ -247,14 +247,14 @@ class FleetMetric(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregation_field: pulumi.Input[Optional[_builtins.str]] = None,
-                 aggregation_type: pulumi.Input[Optional[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict']]] = None,
+                 aggregation_type: pulumi.Input[Optional[Union['FleetMetricAggregationTypeArgs', 'FleetMetricAggregationTypeArgsDict', 'outputs.FleetMetricAggregationType']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  index_name: pulumi.Input[Optional[_builtins.str]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  period: pulumi.Input[Optional[_builtins.int]] = None,
                  query_string: pulumi.Input[Optional[_builtins.str]] = None,
                  query_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

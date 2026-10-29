@@ -129,7 +129,7 @@ class IpamPrefixListResolverTarget(pulumi.CustomResource):
                  ipam_prefix_list_resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix_list_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  track_latest_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -141,7 +141,7 @@ class IpamPrefixListResolverTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ipam_prefix_list_resolver_id: The Id of the IPAM Prefix List Resolver associated with this Target.
         :param pulumi.Input[_builtins.str] prefix_list_id: The Id of the Managed Prefix List.
         :param pulumi.Input[_builtins.str] prefix_list_region: The region that the Managed Prefix List is located in.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.bool] track_latest_version: Indicates whether this Target automatically tracks the latest version of the Prefix List Resolver.
         """
         ...
@@ -172,7 +172,7 @@ class IpamPrefixListResolverTarget(pulumi.CustomResource):
                  ipam_prefix_list_resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix_list_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  track_latest_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

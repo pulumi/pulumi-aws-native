@@ -180,11 +180,11 @@ class RoutingProfile(pulumi.CustomResource):
                  default_outbound_queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 manual_assignment_queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]]] = None,
-                 media_concurrencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
+                 manual_assignment_queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict', 'outputs.RoutingProfileManualAssignmentQueueConfig']]]]] = None,
+                 media_concurrencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict', 'outputs.RoutingProfileMediaConcurrency']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict', 'outputs.RoutingProfileQueueConfig']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::RoutingProfile
@@ -195,11 +195,11 @@ class RoutingProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_outbound_queue_arn: The identifier of the default outbound queue for this routing profile.
         :param pulumi.Input[_builtins.str] description: The description of the routing profile.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]] manual_assignment_queue_configs: The manual assignment queues to associate with this routing profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]] media_concurrencies: The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict', 'outputs.RoutingProfileManualAssignmentQueueConfig']]]] manual_assignment_queue_configs: The manual assignment queues to associate with this routing profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict', 'outputs.RoutingProfileMediaConcurrency']]]] media_concurrencies: The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
         :param pulumi.Input[_builtins.str] name: The name of the routing profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]] queue_configs: The queues to associate with this routing profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict', 'outputs.RoutingProfileQueueConfig']]]] queue_configs: The queues to associate with this routing profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -229,11 +229,11 @@ class RoutingProfile(pulumi.CustomResource):
                  default_outbound_queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 manual_assignment_queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]]] = None,
-                 media_concurrencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
+                 manual_assignment_queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict', 'outputs.RoutingProfileManualAssignmentQueueConfig']]]]] = None,
+                 media_concurrencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict', 'outputs.RoutingProfileMediaConcurrency']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict', 'outputs.RoutingProfileQueueConfig']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

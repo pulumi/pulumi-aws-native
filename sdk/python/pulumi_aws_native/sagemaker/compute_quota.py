@@ -147,11 +147,11 @@ class ComputeQuota(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activation_state: pulumi.Input[Optional['ComputeQuotaActivationState']] = None,
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 compute_quota_config: pulumi.Input[Optional[Union['ComputeQuotaConfigArgs', 'ComputeQuotaConfigArgsDict']]] = None,
-                 compute_quota_target: pulumi.Input[Optional[Union['ComputeQuotaTargetArgs', 'ComputeQuotaTargetArgsDict']]] = None,
+                 compute_quota_config: pulumi.Input[Optional[Union['ComputeQuotaConfigArgs', 'ComputeQuotaConfigArgsDict', 'outputs.ComputeQuotaConfig']]] = None,
+                 compute_quota_target: pulumi.Input[Optional[Union['ComputeQuotaTargetArgs', 'ComputeQuotaTargetArgsDict', 'outputs.ComputeQuotaTarget']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ComputeQuota. Defines a compute allocation rule for an EKS-orchestrated SageMaker HyperPod cluster's task governance. Available in 15 regions (us-east-1, us-east-2, us-west-1, us-west-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-northeast-1, eu-central-1, eu-west-1, eu-west-2, eu-north-1, eu-south-2, sa-east-1).
@@ -160,11 +160,11 @@ class ComputeQuota(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ComputeQuotaActivationState'] activation_state: Whether the compute allocation rule is active. Defaults service-side to 'Enabled' when omitted on Create.
         :param pulumi.Input[_builtins.str] cluster_arn: The ARN of the EKS-orchestrated SageMaker HyperPod cluster the compute allocation definition is bound to. Slurm-orchestrated clusters are rejected by the service.
-        :param pulumi.Input[Union['ComputeQuotaConfigArgs', 'ComputeQuotaConfigArgsDict']] compute_quota_config: Compute allocation rules: per-resource quotas, idle-borrowing strategy, and team-task preemption policy.
-        :param pulumi.Input[Union['ComputeQuotaTargetArgs', 'ComputeQuotaTargetArgsDict']] compute_quota_target: The team this compute allocation rule applies to.
+        :param pulumi.Input[Union['ComputeQuotaConfigArgs', 'ComputeQuotaConfigArgsDict', 'outputs.ComputeQuotaConfig']] compute_quota_config: Compute allocation rules: per-resource quotas, idle-borrowing strategy, and team-task preemption policy.
+        :param pulumi.Input[Union['ComputeQuotaTargetArgs', 'ComputeQuotaTargetArgsDict', 'outputs.ComputeQuotaTarget']] compute_quota_target: The team this compute allocation rule applies to.
         :param pulumi.Input[_builtins.str] description: A free-form description of the compute allocation definition.
         :param pulumi.Input[_builtins.str] name: The name of the compute allocation definition.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to associate with the compute allocation definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to associate with the compute allocation definition.
         """
         ...
     @overload
@@ -192,11 +192,11 @@ class ComputeQuota(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activation_state: pulumi.Input[Optional['ComputeQuotaActivationState']] = None,
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 compute_quota_config: pulumi.Input[Optional[Union['ComputeQuotaConfigArgs', 'ComputeQuotaConfigArgsDict']]] = None,
-                 compute_quota_target: pulumi.Input[Optional[Union['ComputeQuotaTargetArgs', 'ComputeQuotaTargetArgsDict']]] = None,
+                 compute_quota_config: pulumi.Input[Optional[Union['ComputeQuotaConfigArgs', 'ComputeQuotaConfigArgsDict', 'outputs.ComputeQuotaConfig']]] = None,
+                 compute_quota_target: pulumi.Input[Optional[Union['ComputeQuotaTargetArgs', 'ComputeQuotaTargetArgsDict', 'outputs.ComputeQuotaTarget']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

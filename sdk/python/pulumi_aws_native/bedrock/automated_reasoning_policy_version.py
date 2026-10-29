@@ -82,7 +82,7 @@ class AutomatedReasoningPolicyVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  last_updated_definition_hash: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::AutomatedReasoningPolicyVersion Resource Type
@@ -91,7 +91,7 @@ class AutomatedReasoningPolicyVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] last_updated_definition_hash: The hash of the policy definition that was last updated.
         :param pulumi.Input[_builtins.str] policy_arn: The Amazon Resource Name (ARN) of the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags associated with the Automated Reasoning policy version.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: The tags associated with the Automated Reasoning policy version.
         """
         ...
     @overload
@@ -119,7 +119,7 @@ class AutomatedReasoningPolicyVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  last_updated_definition_hash: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

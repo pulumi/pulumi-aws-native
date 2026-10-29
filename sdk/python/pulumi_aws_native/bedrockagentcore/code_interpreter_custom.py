@@ -129,11 +129,11 @@ class CodeInterpreterCustom(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CodeInterpreterCustomCertificateArgs', 'CodeInterpreterCustomCertificateArgsDict']]]]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CodeInterpreterCustomCertificateArgs', 'CodeInterpreterCustomCertificateArgsDict', 'outputs.CodeInterpreterCustomCertificate']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs', 'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs', 'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict', 'outputs.CodeInterpreterCustomCodeInterpreterNetworkConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -141,11 +141,11 @@ class CodeInterpreterCustom(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CodeInterpreterCustomCertificateArgs', 'CodeInterpreterCustomCertificateArgsDict']]]] certificates: List of root CA certificates in PEM format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CodeInterpreterCustomCertificateArgs', 'CodeInterpreterCustomCertificateArgsDict', 'outputs.CodeInterpreterCustomCertificate']]]] certificates: List of root CA certificates in PEM format.
         :param pulumi.Input[_builtins.str] description: The description of the code interpreter.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the IAM role that the code interpreter uses to access resources.
         :param pulumi.Input[_builtins.str] name: The name of the code interpreter.
-        :param pulumi.Input[Union['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs', 'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict']] network_configuration: Network configuration for code interpreter.
+        :param pulumi.Input[Union['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs', 'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict', 'outputs.CodeInterpreterCustomCodeInterpreterNetworkConfiguration']] network_configuration: Network configuration for code interpreter.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the code interpreter.
         """
         ...
@@ -172,11 +172,11 @@ class CodeInterpreterCustom(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CodeInterpreterCustomCertificateArgs', 'CodeInterpreterCustomCertificateArgsDict']]]]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CodeInterpreterCustomCertificateArgs', 'CodeInterpreterCustomCertificateArgsDict', 'outputs.CodeInterpreterCustomCertificate']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs', 'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs', 'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict', 'outputs.CodeInterpreterCustomCodeInterpreterNetworkConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

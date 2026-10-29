@@ -145,26 +145,26 @@ class AccessGrant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict']]] = None,
+                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict', 'outputs.AccessGrantsLocationConfiguration']]] = None,
                  access_grants_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']]] = None,
+                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict', 'outputs.AccessGrantGrantee']]] = None,
                  permission: pulumi.Input[Optional['AccessGrantPermission']] = None,
                  s3_prefix_type: pulumi.Input[Optional['AccessGrantS3PrefixType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: The configuration options of the grant location, which is the S3 path to the data to which you are granting access.
+        :param pulumi.Input[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict', 'outputs.AccessGrantsLocationConfiguration']] access_grants_location_configuration: The configuration options of the grant location, which is the S3 path to the data to which you are granting access.
         :param pulumi.Input[_builtins.str] access_grants_location_id: The custom S3 location to be accessed by the grantee
         :param pulumi.Input[_builtins.str] application_arn: The ARN of the application grantees will use to access the location
-        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: The principal who will be granted permission to access S3.
+        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict', 'outputs.AccessGrantGrantee']] grantee: The principal who will be granted permission to access S3.
         :param pulumi.Input['AccessGrantPermission'] permission: The level of access to be afforded to the grantee
         :param pulumi.Input['AccessGrantS3PrefixType'] s3_prefix_type: The type of S3SubPrefix.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
         ...
     @overload
@@ -190,13 +190,13 @@ class AccessGrant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict']]] = None,
+                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict', 'outputs.AccessGrantsLocationConfiguration']]] = None,
                  access_grants_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']]] = None,
+                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict', 'outputs.AccessGrantGrantee']]] = None,
                  permission: pulumi.Input[Optional['AccessGrantPermission']] = None,
                  s3_prefix_type: pulumi.Input[Optional['AccessGrantS3PrefixType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

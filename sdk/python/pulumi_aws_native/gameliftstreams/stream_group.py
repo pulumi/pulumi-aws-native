@@ -272,9 +272,9 @@ class StreamGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_application: pulumi.Input[Optional[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict']]] = None,
+                 default_application: pulumi.Input[Optional[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict', 'outputs.StreamGroupDefaultApplication']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 location_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict']]]]] = None,
+                 location_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict', 'outputs.StreamGroupLocationConfiguration']]]]] = None,
                  stream_class: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -283,9 +283,9 @@ class StreamGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict']] default_application: Object that identifies the Amazon GameLift Streams application to stream with this stream group.
+        :param pulumi.Input[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict', 'outputs.StreamGroupDefaultApplication']] default_application: Object that identifies the Amazon GameLift Streams application to stream with this stream group.
         :param pulumi.Input[_builtins.str] description: A descriptive label for the stream group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict']]]] location_configurations: A set of one or more locations and the streaming capacity for each location. One of the locations MUST be your primary location, which is the AWS Region where you are specifying this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict', 'outputs.StreamGroupLocationConfiguration']]]] location_configurations: A set of one or more locations and the streaming capacity for each location. One of the locations MUST be your primary location, which is the AWS Region where you are specifying this resource.
         :param pulumi.Input[_builtins.str] stream_class: The target stream quality for sessions that are hosted in this stream group. Set a stream class that is appropriate to the type of content that you're streaming. Stream class determines the type of computing resources Amazon GameLift Streams uses and impacts the cost of streaming. The following options are available:
                
                A stream class can be one of the following:
@@ -394,9 +394,9 @@ class StreamGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_application: pulumi.Input[Optional[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict']]] = None,
+                 default_application: pulumi.Input[Optional[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict', 'outputs.StreamGroupDefaultApplication']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 location_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict']]]]] = None,
+                 location_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict', 'outputs.StreamGroupLocationConfiguration']]]]] = None,
                  stream_class: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

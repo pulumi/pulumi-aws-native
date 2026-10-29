@@ -176,12 +176,12 @@ class Feature(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_variation: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 entity_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict']]]]] = None,
+                 entity_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict', 'outputs.FeatureEntityOverride']]]]] = None,
                  evaluation_strategy: pulumi.Input[Optional['FeatureEvaluationStrategy']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict', 'outputs.FeatureVariationObject']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Evidently::Feature.
@@ -194,12 +194,12 @@ class Feature(pulumi.CustomResource):
                
                If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
         :param pulumi.Input[_builtins.str] description: An optional description of the feature.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict']]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict', 'outputs.FeatureEntityOverride']]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
         :param pulumi.Input['FeatureEvaluationStrategy'] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         :param pulumi.Input[_builtins.str] name: The name for the feature. It can include up to 127 characters.
         :param pulumi.Input[_builtins.str] project: The name or ARN of the project that is to contain the new feature.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict']]]] variations: An array of structures that contain the configuration of the feature's different variations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict', 'outputs.FeatureVariationObject']]]] variations: An array of structures that contain the configuration of the feature's different variations.
                
                Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
         """
@@ -229,12 +229,12 @@ class Feature(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_variation: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 entity_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict']]]]] = None,
+                 entity_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict', 'outputs.FeatureEntityOverride']]]]] = None,
                  evaluation_strategy: pulumi.Input[Optional['FeatureEvaluationStrategy']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict', 'outputs.FeatureVariationObject']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

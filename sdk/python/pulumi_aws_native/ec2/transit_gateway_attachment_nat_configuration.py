@@ -95,7 +95,7 @@ class TransitGatewayAttachmentNatConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransitGatewayAttachmentNatConfigurationNatRuleArgs', 'TransitGatewayAttachmentNatConfigurationNatRuleArgsDict']]]]] = None,
+                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransitGatewayAttachmentNatConfigurationNatRuleArgs', 'TransitGatewayAttachmentNatConfigurationNatRuleArgsDict', 'outputs.TransitGatewayAttachmentNatConfigurationNatRule']]]]] = None,
                  nat_gateway_support: pulumi.Input[Optional['TransitGatewayAttachmentNatConfigurationNatGatewaySupport']] = None,
                  nat_system_route_support: pulumi.Input[Optional['TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport']] = None,
                  transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -105,7 +105,7 @@ class TransitGatewayAttachmentNatConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TransitGatewayAttachmentNatConfigurationNatRuleArgs', 'TransitGatewayAttachmentNatConfigurationNatRuleArgsDict']]]] nat_gateway_rules: The complete set of NAT rules for the attachment. Updating this property replaces the entire rule set: rules omitted from the new value are removed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TransitGatewayAttachmentNatConfigurationNatRuleArgs', 'TransitGatewayAttachmentNatConfigurationNatRuleArgsDict', 'outputs.TransitGatewayAttachmentNatConfigurationNatRule']]]] nat_gateway_rules: The complete set of NAT rules for the attachment. Updating this property replaces the entire rule set: rules omitted from the new value are removed.
         :param pulumi.Input['TransitGatewayAttachmentNatConfigurationNatGatewaySupport'] nat_gateway_support: Whether NAT gateway support is enabled on the attachment. Set to disable to stage NAT rules without activating them; the rules are retained and become active when this is later set to enable.
         :param pulumi.Input['TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport'] nat_system_route_support: Whether routes for the NAT CIDRs are installed into the transit gateway route tables associated with the attachment. Whether this is configurable depends on the attachment; where the value is forced, supplying the opposite value is rejected. Omitting this property leaves the setting to the service: on a new configuration the service applies the attachment's default, but on an attachment where the value is configurable it keeps the value already in effect rather than reverting to that default. Removing this property from a template, or deleting this resource, therefore leaves the setting at its last value rather than restoring the default, and a resource later created on the same attachment without this property inherits that value.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The ID of the transit gateway attachment to configure NAT on.
@@ -134,7 +134,7 @@ class TransitGatewayAttachmentNatConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransitGatewayAttachmentNatConfigurationNatRuleArgs', 'TransitGatewayAttachmentNatConfigurationNatRuleArgsDict']]]]] = None,
+                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransitGatewayAttachmentNatConfigurationNatRuleArgs', 'TransitGatewayAttachmentNatConfigurationNatRuleArgsDict', 'outputs.TransitGatewayAttachmentNatConfigurationNatRule']]]]] = None,
                  nat_gateway_support: pulumi.Input[Optional['TransitGatewayAttachmentNatConfigurationNatGatewaySupport']] = None,
                  nat_system_route_support: pulumi.Input[Optional['TransitGatewayAttachmentNatConfigurationNatSystemRouteSupport']] = None,
                  transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,

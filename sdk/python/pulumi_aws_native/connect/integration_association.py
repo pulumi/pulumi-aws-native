@@ -157,7 +157,7 @@ class IntegrationAssociation(pulumi.CustomResource):
                  source_application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_application_url: pulumi.Input[Optional[_builtins.str]] = None,
                  source_type: pulumi.Input[Optional['IntegrationAssociationSourceType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::IntegrationAssociation
@@ -216,7 +216,7 @@ class IntegrationAssociation(pulumi.CustomResource):
         :param pulumi.Input['IntegrationAssociationIntegrationType'] integration_type: Specifies the integration type to be associated with the instance.
                
                *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -287,7 +287,7 @@ class IntegrationAssociation(pulumi.CustomResource):
                  source_application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_application_url: pulumi.Input[Optional[_builtins.str]] = None,
                  source_type: pulumi.Input[Optional['IntegrationAssociationSourceType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -79,7 +79,7 @@ class TieringConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict']]]]] = None,
+                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict', 'outputs.TieringConfigurationResourceSelection']]]]] = None,
                  tiering_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tiering_configuration_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -114,7 +114,7 @@ class TieringConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict']]]]] = None,
+                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict', 'outputs.TieringConfigurationResourceSelection']]]]] = None,
                  tiering_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tiering_configuration_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

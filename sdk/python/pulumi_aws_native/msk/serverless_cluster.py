@@ -95,20 +95,20 @@ class ServerlessCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_authentication: pulumi.Input[Optional[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
+                 client_authentication: pulumi.Input[Optional[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict', 'outputs.ServerlessClusterClientAuthentication']]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict', 'outputs.ServerlessClusterVpcConfig']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MSK::ServerlessCluster
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']] client_authentication: Includes all client authentication related information.
+        :param pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict', 'outputs.ServerlessClusterClientAuthentication']] client_authentication: Includes all client authentication related information.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A key-value pair to associate with a resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]] vpc_configs: VPC configuration information for the serverless cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict', 'outputs.ServerlessClusterVpcConfig']]]] vpc_configs: VPC configuration information for the serverless cluster.
         """
         ...
     @overload
@@ -134,10 +134,10 @@ class ServerlessCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_authentication: pulumi.Input[Optional[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
+                 client_authentication: pulumi.Input[Optional[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict', 'outputs.ServerlessClusterClientAuthentication']]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict', 'outputs.ServerlessClusterVpcConfig']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

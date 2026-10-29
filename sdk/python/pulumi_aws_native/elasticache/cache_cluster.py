@@ -442,7 +442,7 @@ class CacheCluster(pulumi.CustomResource):
                  engine: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict']]]]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict', 'outputs.CacheClusterLogDeliveryConfigurationRequest']]]]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  num_cache_nodes: pulumi.Input[Optional[_builtins.int]] = None,
@@ -454,7 +454,7 @@ class CacheCluster(pulumi.CustomResource):
                  snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -473,7 +473,7 @@ class CacheCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine: The name of the cache engine to be used for this cluster.
         :param pulumi.Input[_builtins.str] engine_version: The version number of the cache engine to be used for this cluster
         :param pulumi.Input[_builtins.str] ip_discovery: The Ip Discovery parameter for cachecluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict']]]] log_delivery_configurations: Specifies the destination, format and type of the logs
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict', 'outputs.CacheClusterLogDeliveryConfigurationRequest']]]] log_delivery_configurations: Specifies the destination, format and type of the logs
         :param pulumi.Input[_builtins.str] network_type: The network type parameter for cachecluster.
         :param pulumi.Input[_builtins.str] notification_topic_arn: The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         :param pulumi.Input[_builtins.int] num_cache_nodes: The number of cache nodes that the cache cluster should have.
@@ -485,7 +485,7 @@ class CacheCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] snapshot_name: The name of a Redis snapshot from which to restore data into the new node group (shard).
         :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of days for which ElastiCache retains automatic snapshots before deleting them.
         :param pulumi.Input[_builtins.str] snapshot_window: The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to be added to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to be added to this resource.
         :param pulumi.Input[_builtins.bool] transit_encryption_enabled: A flag that enables in-transit encryption when set to true. You cannot modify the value of TransitEncryptionEnabled after the cluster is created
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: One or more VPC security groups associated with the cluster.
         """
@@ -523,7 +523,7 @@ class CacheCluster(pulumi.CustomResource):
                  engine: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict']]]]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CacheClusterLogDeliveryConfigurationRequestArgs', 'CacheClusterLogDeliveryConfigurationRequestArgsDict', 'outputs.CacheClusterLogDeliveryConfigurationRequest']]]]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  num_cache_nodes: pulumi.Input[Optional[_builtins.int]] = None,
@@ -535,7 +535,7 @@ class CacheCluster(pulumi.CustomResource):
                  snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

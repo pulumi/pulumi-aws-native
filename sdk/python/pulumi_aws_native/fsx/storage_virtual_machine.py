@@ -130,24 +130,24 @@ class StorageVirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_configuration: pulumi.Input[Optional[Union['StorageVirtualMachineActiveDirectoryConfigurationArgs', 'StorageVirtualMachineActiveDirectoryConfigurationArgsDict']]] = None,
+                 active_directory_configuration: pulumi.Input[Optional[Union['StorageVirtualMachineActiveDirectoryConfigurationArgs', 'StorageVirtualMachineActiveDirectoryConfigurationArgsDict', 'outputs.StorageVirtualMachineActiveDirectoryConfiguration']]] = None,
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  root_volume_security_style: pulumi.Input[Optional[_builtins.str]] = None,
                  svm_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::FSx::StorageVirtualMachine
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StorageVirtualMachineActiveDirectoryConfigurationArgs', 'StorageVirtualMachineActiveDirectoryConfigurationArgsDict']] active_directory_configuration: Describes the Microsoft Active Directory configuration to which the SVM is joined, if applicable.
+        :param pulumi.Input[Union['StorageVirtualMachineActiveDirectoryConfigurationArgs', 'StorageVirtualMachineActiveDirectoryConfigurationArgsDict', 'outputs.StorageVirtualMachineActiveDirectoryConfiguration']] active_directory_configuration: Describes the Microsoft Active Directory configuration to which the SVM is joined, if applicable.
         :param pulumi.Input[_builtins.str] file_system_id: Specifies the FSx for ONTAP file system on which to create the SVM.
         :param pulumi.Input[_builtins.str] name: The name of the SVM. Pattern: `^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,47}$`
         :param pulumi.Input[_builtins.str] root_volume_security_style: The security style of the root volume of the SVM. Allowed values: UNIX | NTFS | MIXED.
         :param pulumi.Input[_builtins.str] svm_admin_password: Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of Tag values, with a maximum of 50 elements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of Tag values, with a maximum of 50 elements.
         """
         ...
     @overload
@@ -173,12 +173,12 @@ class StorageVirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_configuration: pulumi.Input[Optional[Union['StorageVirtualMachineActiveDirectoryConfigurationArgs', 'StorageVirtualMachineActiveDirectoryConfigurationArgsDict']]] = None,
+                 active_directory_configuration: pulumi.Input[Optional[Union['StorageVirtualMachineActiveDirectoryConfigurationArgs', 'StorageVirtualMachineActiveDirectoryConfigurationArgsDict', 'outputs.StorageVirtualMachineActiveDirectoryConfiguration']]] = None,
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  root_volume_security_style: pulumi.Input[Optional[_builtins.str]] = None,
                  svm_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -111,10 +111,10 @@ class DomainForOrganization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity_provider_configuration: pulumi.Input[Optional[Union['DomainForOrganizationIdentityProviderConfigurationArgs', 'DomainForOrganizationIdentityProviderConfigurationArgsDict']]] = None,
+                 identity_provider_configuration: pulumi.Input[Optional[Union['DomainForOrganizationIdentityProviderConfigurationArgs', 'DomainForOrganizationIdentityProviderConfigurationArgsDict', 'outputs.DomainForOrganizationIdentityProviderConfiguration']]] = None,
                  identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input['DomainForOrganizationIdentityProvidersItem']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
@@ -124,7 +124,7 @@ class DomainForOrganization(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_access_role_arn: The ARN of an IAM role in the management account that CloudWatch Omni assumes for domain-scoped credential vending.
         :param pulumi.Input[Sequence[pulumi.Input['DomainForOrganizationIdentityProvidersItem']]] identity_providers: The identity providers configured for the domain.
         :param pulumi.Input[_builtins.str] name: A name that identifies the domain.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -151,10 +151,10 @@ class DomainForOrganization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity_provider_configuration: pulumi.Input[Optional[Union['DomainForOrganizationIdentityProviderConfigurationArgs', 'DomainForOrganizationIdentityProviderConfigurationArgsDict']]] = None,
+                 identity_provider_configuration: pulumi.Input[Optional[Union['DomainForOrganizationIdentityProviderConfigurationArgs', 'DomainForOrganizationIdentityProviderConfigurationArgsDict', 'outputs.DomainForOrganizationIdentityProviderConfiguration']]] = None,
                  identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input['DomainForOrganizationIdentityProvidersItem']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

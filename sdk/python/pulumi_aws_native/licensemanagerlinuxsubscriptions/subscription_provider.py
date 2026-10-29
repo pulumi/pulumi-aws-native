@@ -82,7 +82,7 @@ class SubscriptionProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription_provider_source: pulumi.Input[Optional['SubscriptionProviderSource']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::LicenseManagerLinuxSubscriptions::SubscriptionProvider. Registers a third-party Linux subscription provider so that License Manager can retrieve subscription details for the discovered Linux instances in an account.
@@ -91,7 +91,7 @@ class SubscriptionProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the Secrets Manager secret that contains the access token for the third-party Linux subscription provider.
         :param pulumi.Input['SubscriptionProviderSource'] subscription_provider_source: The Linux subscription provider that the registration is for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata tags assigned to the registered subscription provider.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The metadata tags assigned to the registered subscription provider.
         """
         ...
     @overload
@@ -119,7 +119,7 @@ class SubscriptionProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription_provider_source: pulumi.Input[Optional['SubscriptionProviderSource']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

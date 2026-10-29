@@ -116,7 +116,7 @@ class OutpostResolver(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53Resolver::OutpostResolver.
@@ -127,7 +127,7 @@ class OutpostResolver(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The OutpostResolver name.
         :param pulumi.Input[_builtins.str] outpost_arn: The Outpost ARN.
         :param pulumi.Input[_builtins.str] preferred_instance_type: The OutpostResolver instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -157,7 +157,7 @@ class OutpostResolver(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

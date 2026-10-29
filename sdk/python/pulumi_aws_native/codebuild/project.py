@@ -465,41 +465,41 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: pulumi.Input[Optional[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
+                 artifacts: pulumi.Input[Optional[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict', 'outputs.ProjectArtifacts']]] = None,
                  auto_retry_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  badge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 build_batch_config: pulumi.Input[Optional[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
-                 cache: pulumi.Input[Optional[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
+                 build_batch_config: pulumi.Input[Optional[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict', 'outputs.ProjectBuildBatchConfig']]] = None,
+                 cache: pulumi.Input[Optional[Union['ProjectCacheArgs', 'ProjectCacheArgsDict', 'outputs.ProjectCache']]] = None,
                  concurrent_build_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
-                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
-                 logs_config: pulumi.Input[Optional[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict', 'outputs.ProjectEnvironment']]] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict', 'outputs.ProjectFileSystemLocation']]]]] = None,
+                 logs_config: pulumi.Input[Optional[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict', 'outputs.ProjectLogsConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  queued_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  resource_access_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]]]] = None,
-                 secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSourceVersionArgs', 'ProjectSourceVersionArgsDict']]]]] = None,
-                 secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]]]] = None,
+                 secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict', 'outputs.ProjectArtifacts']]]]] = None,
+                 secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSourceVersionArgs', 'ProjectSourceVersionArgsDict', 'outputs.ProjectSourceVersion']]]]] = None,
+                 secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict', 'outputs.ProjectSource']]]]] = None,
                  service_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['ProjectSourceArgs', 'ProjectSourceArgsDict', 'outputs.ProjectSource']]] = None,
                  source_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 triggers: pulumi.Input[Optional[Union['ProjectTriggersArgs', 'ProjectTriggersArgsDict']]] = None,
+                 triggers: pulumi.Input[Optional[Union['ProjectTriggersArgs', 'ProjectTriggersArgsDict', 'outputs.ProjectTriggers']]] = None,
                  visibility: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict', 'outputs.ProjectVpcConfig']]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::CodeBuild::Project
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']] artifacts: Specifies output settings for artifacts generated by an AWS CodeBuild build.
+        :param pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict', 'outputs.ProjectArtifacts']] artifacts: Specifies output settings for artifacts generated by an AWS CodeBuild build.
         :param pulumi.Input[_builtins.bool] badge_enabled: Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge.
-        :param pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']] build_batch_config: Defines the batch build options for the project.
-        :param pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']] cache: Settings that AWS CodeBuild uses to store and reuse build dependencies.
+        :param pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict', 'outputs.ProjectBuildBatchConfig']] build_batch_config: Defines the batch build options for the project.
+        :param pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict', 'outputs.ProjectCache']] cache: Settings that AWS CodeBuild uses to store and reuse build dependencies.
         :param pulumi.Input[_builtins.int] concurrent_build_limit: The maximum number of concurrent builds that are allowed for this project.
         :param pulumi.Input[_builtins.str] description: A description that makes the build project easy to identify.
         :param pulumi.Input[_builtins.str] encryption_key: The AWS Key Management Service customer master key (CMK) to be used for encrypting the build output artifacts.
@@ -507,17 +507,17 @@ class Project(pulumi.CustomResource):
                > You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key.
                
                You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format `alias/<alias-name>` ). If you don't specify a value, CodeBuild uses the managed CMK for Amazon Simple Storage Service (Amazon S3).
-        :param pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']] environment: The build environment settings for the project, such as the environment type or the environment variables to use for the build environment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]] file_system_locations: An array of `ProjectFileSystemLocation` objects for a CodeBuild build project. A `ProjectFileSystemLocation` object specifies the `identifier` , `location` , `mountOptions` , `mountPoint` , and `type` of a file system created using Amazon Elastic File System.
-        :param pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']] logs_config: Information about logs for the build project. A project can create logs in CloudWatch Logs, an S3 bucket, or both.
+        :param pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict', 'outputs.ProjectEnvironment']] environment: The build environment settings for the project, such as the environment type or the environment variables to use for the build environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict', 'outputs.ProjectFileSystemLocation']]]] file_system_locations: An array of `ProjectFileSystemLocation` objects for a CodeBuild build project. A `ProjectFileSystemLocation` object specifies the `identifier` , `location` , `mountOptions` , `mountPoint` , and `type` of a file system created using Amazon Elastic File System.
+        :param pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict', 'outputs.ProjectLogsConfig']] logs_config: Information about logs for the build project. A project can create logs in CloudWatch Logs, an S3 bucket, or both.
         :param pulumi.Input[_builtins.str] name: The name of the build project. The name must be unique across all of the projects in your AWS account .
         :param pulumi.Input[_builtins.int] queued_timeout_in_minutes: The number of minutes a build is allowed to be queued before it times out.
         :param pulumi.Input[_builtins.str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]]] secondary_artifacts: A list of `Artifacts` objects. Each artifacts object specifies output settings that the project generates during a build.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSourceVersionArgs', 'ProjectSourceVersionArgsDict']]]] secondary_source_versions: An array of `ProjectSourceVersion` objects. If `secondarySourceVersions` is specified at the build level, then they take over these `secondarySourceVersions` (at the project level).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]]] secondary_sources: An array of `ProjectSource` objects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict', 'outputs.ProjectArtifacts']]]] secondary_artifacts: A list of `Artifacts` objects. Each artifacts object specifies output settings that the project generates during a build.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSourceVersionArgs', 'ProjectSourceVersionArgsDict', 'outputs.ProjectSourceVersion']]]] secondary_source_versions: An array of `ProjectSourceVersion` objects. If `secondarySourceVersions` is specified at the build level, then they take over these `secondarySourceVersions` (at the project level).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict', 'outputs.ProjectSource']]]] secondary_sources: An array of `ProjectSource` objects.
         :param pulumi.Input[_builtins.str] service_role: The ARN of the IAM role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-        :param pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']] source: The source code settings for the project, such as the source code's repository type and location.
+        :param pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict', 'outputs.ProjectSource']] source: The source code settings for the project, such as the source code's repository type and location.
         :param pulumi.Input[_builtins.str] source_version: A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:
                
                - For CodeCommit: the commit ID, branch, or Git tag to use.
@@ -529,16 +529,16 @@ class Project(pulumi.CustomResource):
                If `sourceVersion` is specified at the build level, then that version takes precedence over this `sourceVersion` (at the project level).
                
                For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for the AWS CodeBuild project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for the AWS CodeBuild project.
                
                These tags are available for use by AWS services that support AWS CodeBuild build project tags.
         :param pulumi.Input[_builtins.int] timeout_in_minutes: How long, in minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed. The default is 60 minutes.
-        :param pulumi.Input[Union['ProjectTriggersArgs', 'ProjectTriggersArgsDict']] triggers: For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+        :param pulumi.Input[Union['ProjectTriggersArgs', 'ProjectTriggersArgsDict', 'outputs.ProjectTriggers']] triggers: For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.
         :param pulumi.Input[_builtins.str] visibility: Specifies the visibility of the project's builds. Possible values are:
                
                - **PUBLIC_READ** - The project builds are visible to the public.
                - **PRIVATE** - The project builds are not visible to the public.
-        :param pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']] vpc_config: `VpcConfig` specifies settings that enable AWS CodeBuild to access resources in an Amazon VPC. For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html) in the *AWS CodeBuild User Guide* .
+        :param pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict', 'outputs.ProjectVpcConfig']] vpc_config: `VpcConfig` specifies settings that enable AWS CodeBuild to access resources in an Amazon VPC. For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html) in the *AWS CodeBuild User Guide* .
         """
         ...
     @overload
@@ -564,31 +564,31 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: pulumi.Input[Optional[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
+                 artifacts: pulumi.Input[Optional[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict', 'outputs.ProjectArtifacts']]] = None,
                  auto_retry_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  badge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 build_batch_config: pulumi.Input[Optional[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
-                 cache: pulumi.Input[Optional[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
+                 build_batch_config: pulumi.Input[Optional[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict', 'outputs.ProjectBuildBatchConfig']]] = None,
+                 cache: pulumi.Input[Optional[Union['ProjectCacheArgs', 'ProjectCacheArgsDict', 'outputs.ProjectCache']]] = None,
                  concurrent_build_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment: pulumi.Input[Optional[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
-                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
-                 logs_config: pulumi.Input[Optional[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
+                 environment: pulumi.Input[Optional[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict', 'outputs.ProjectEnvironment']]] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict', 'outputs.ProjectFileSystemLocation']]]]] = None,
+                 logs_config: pulumi.Input[Optional[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict', 'outputs.ProjectLogsConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  queued_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  resource_access_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]]]] = None,
-                 secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSourceVersionArgs', 'ProjectSourceVersionArgsDict']]]]] = None,
-                 secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]]]] = None,
+                 secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict', 'outputs.ProjectArtifacts']]]]] = None,
+                 secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSourceVersionArgs', 'ProjectSourceVersionArgsDict', 'outputs.ProjectSourceVersion']]]]] = None,
+                 secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict', 'outputs.ProjectSource']]]]] = None,
                  service_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['ProjectSourceArgs', 'ProjectSourceArgsDict', 'outputs.ProjectSource']]] = None,
                  source_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 triggers: pulumi.Input[Optional[Union['ProjectTriggersArgs', 'ProjectTriggersArgsDict']]] = None,
+                 triggers: pulumi.Input[Optional[Union['ProjectTriggersArgs', 'ProjectTriggersArgsDict', 'outputs.ProjectTriggers']]] = None,
                  visibility: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict', 'outputs.ProjectVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

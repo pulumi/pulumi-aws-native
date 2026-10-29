@@ -83,7 +83,7 @@ class ReadinessCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  readiness_check_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Aws Route53 Recovery Readiness Check Schema and API specification.
@@ -92,7 +92,7 @@ class ReadinessCheck(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] readiness_check_name: Name of the ReadinessCheck to create.
         :param pulumi.Input[_builtins.str] resource_set_name: The name of the resource set to check.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A collection of tags associated with a resource.
         """
         ...
     @overload
@@ -120,7 +120,7 @@ class ReadinessCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  readiness_check_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

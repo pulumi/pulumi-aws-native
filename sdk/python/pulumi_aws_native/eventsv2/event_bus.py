@@ -117,10 +117,10 @@ class EventBus(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['EventBusEncryptionConfigurationArgs', 'EventBusEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['EventBusEncryptionConfigurationArgs', 'EventBusEncryptionConfigurationArgsDict', 'outputs.EventBusEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_configuration: pulumi.Input[Optional[Union['EventBusStorageConfigurationArgs', 'EventBusStorageConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['EventBusStorageConfigurationArgs', 'EventBusStorageConfigurationArgsDict', 'outputs.EventBusStorageConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::EventsV2::EventBus, an Amazon EventBridge custom event bus that receives events and delivers them to matching subscribers.
@@ -128,10 +128,10 @@ class EventBus(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the event bus. Control characters and Unicode line separators are not allowed.
-        :param pulumi.Input[Union['EventBusEncryptionConfigurationArgs', 'EventBusEncryptionConfigurationArgsDict']] encryption_configuration: Encryption configuration for the event bus. The service stores and returns the customer managed key as its key ARN. The key ARN is recommended so that drift detection stays accurate. A key ID is also accepted and is matched to the returned key ARN when CloudFormation checks for drift; a key alias is accepted but can be reported as a value difference, because an alias cannot be matched to the key ARN it points to.
+        :param pulumi.Input[Union['EventBusEncryptionConfigurationArgs', 'EventBusEncryptionConfigurationArgsDict', 'outputs.EventBusEncryptionConfiguration']] encryption_configuration: Encryption configuration for the event bus. The service stores and returns the customer managed key as its key ARN. The key ARN is recommended so that drift detection stays accurate. A key ID is also accepted and is matched to the returned key ARN when CloudFormation checks for drift; a key alias is accepted but can be reported as a value difference, because an alias cannot be matched to the key ARN it points to.
         :param pulumi.Input[_builtins.str] name: The name of the event bus. The first character must be alphanumeric; the remaining characters may also include '.', '-', and '_'.
-        :param pulumi.Input[Union['EventBusStorageConfigurationArgs', 'EventBusStorageConfigurationArgsDict']] storage_configuration: The event storage configuration for the event bus, which controls the number of days events are retained on the bus.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the event bus.
+        :param pulumi.Input[Union['EventBusStorageConfigurationArgs', 'EventBusStorageConfigurationArgsDict', 'outputs.EventBusStorageConfiguration']] storage_configuration: The event storage configuration for the event bus, which controls the number of days events are retained on the bus.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the event bus.
         """
         ...
     @overload
@@ -158,10 +158,10 @@ class EventBus(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['EventBusEncryptionConfigurationArgs', 'EventBusEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['EventBusEncryptionConfigurationArgs', 'EventBusEncryptionConfigurationArgsDict', 'outputs.EventBusEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_configuration: pulumi.Input[Optional[Union['EventBusStorageConfigurationArgs', 'EventBusStorageConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['EventBusStorageConfigurationArgs', 'EventBusStorageConfigurationArgsDict', 'outputs.EventBusStorageConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

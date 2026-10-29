@@ -212,33 +212,33 @@ class AppMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict']]] = None,
-                 custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']]] = None,
+                 app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict', 'outputs.AppMonitorConfiguration']]] = None,
+                 custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict', 'outputs.AppMonitorCustomEvents']]] = None,
                  cw_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 deobfuscation_configuration: pulumi.Input[Optional[Union['AppMonitorDeobfuscationConfigurationArgs', 'AppMonitorDeobfuscationConfigurationArgsDict']]] = None,
+                 deobfuscation_configuration: pulumi.Input[Optional[Union['AppMonitorDeobfuscationConfigurationArgs', 'AppMonitorDeobfuscationConfigurationArgsDict', 'outputs.AppMonitorDeobfuscationConfiguration']]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  platform: pulumi.Input[Optional['AppMonitorPlatform']] = None,
-                 resource_policy: pulumi.Input[Optional[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict', 'outputs.AppMonitorResourcePolicy']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RUM::AppMonitor
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict']] app_monitor_configuration: A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+        :param pulumi.Input[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict', 'outputs.AppMonitorConfiguration']] app_monitor_configuration: A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
                
                If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
-        :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
+        :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict', 'outputs.AppMonitorCustomEvents']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
-        :param pulumi.Input[Union['AppMonitorDeobfuscationConfigurationArgs', 'AppMonitorDeobfuscationConfigurationArgsDict']] deobfuscation_configuration: A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+        :param pulumi.Input[Union['AppMonitorDeobfuscationConfigurationArgs', 'AppMonitorDeobfuscationConfigurationArgsDict', 'outputs.AppMonitorDeobfuscationConfiguration']] deobfuscation_configuration: A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
         :param pulumi.Input[_builtins.str] domain: The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_list: The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
         :param pulumi.Input[_builtins.str] name: A name for the app monitor
-        :param pulumi.Input[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict']] resource_policy: Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Assigns one or more tags (key-value pairs) to the app monitor.
+        :param pulumi.Input[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict', 'outputs.AppMonitorResourcePolicy']] resource_policy: Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Assigns one or more tags (key-value pairs) to the app monitor.
                
                Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
                
@@ -272,16 +272,16 @@ class AppMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict']]] = None,
-                 custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']]] = None,
+                 app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict', 'outputs.AppMonitorConfiguration']]] = None,
+                 custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict', 'outputs.AppMonitorCustomEvents']]] = None,
                  cw_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 deobfuscation_configuration: pulumi.Input[Optional[Union['AppMonitorDeobfuscationConfigurationArgs', 'AppMonitorDeobfuscationConfigurationArgsDict']]] = None,
+                 deobfuscation_configuration: pulumi.Input[Optional[Union['AppMonitorDeobfuscationConfigurationArgs', 'AppMonitorDeobfuscationConfigurationArgsDict', 'outputs.AppMonitorDeobfuscationConfiguration']]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  platform: pulumi.Input[Optional['AppMonitorPlatform']] = None,
-                 resource_policy: pulumi.Input[Optional[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict', 'outputs.AppMonitorResourcePolicy']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

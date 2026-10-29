@@ -135,8 +135,8 @@ class Hub(pulumi.CustomResource):
                  hub_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hub_search_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_storage_config: pulumi.Input[Optional[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3_storage_config: pulumi.Input[Optional[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict', 'outputs.S3StorageConfigProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SageMaker::Hub
@@ -147,8 +147,8 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] hub_display_name: The display name of the hub.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hub_search_keywords: The searchable keywords for the hub.
-        :param pulumi.Input[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict']] s3_storage_config: The Amazon S3 storage configuration for the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to associate with the hub.
+        :param pulumi.Input[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict', 'outputs.S3StorageConfigProperties']] s3_storage_config: The Amazon S3 storage configuration for the hub.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to associate with the hub.
         """
         ...
     @overload
@@ -178,8 +178,8 @@ class Hub(pulumi.CustomResource):
                  hub_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hub_search_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_storage_config: pulumi.Input[Optional[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3_storage_config: pulumi.Input[Optional[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict', 'outputs.S3StorageConfigProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

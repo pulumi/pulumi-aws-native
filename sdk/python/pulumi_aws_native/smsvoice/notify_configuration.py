@@ -165,7 +165,7 @@ class NotifyConfiguration(pulumi.CustomResource):
                  enabled_channels: pulumi.Input[Optional[Sequence[pulumi.Input['NotifyConfigurationEnabledChannelsItem']]]] = None,
                  enabled_countries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  pool_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_case: pulumi.Input[Optional['NotifyConfigurationUseCase']] = None,
                  __props__=None):
         """
@@ -179,7 +179,7 @@ class NotifyConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['NotifyConfigurationEnabledChannelsItem']]] enabled_channels: An array of channels to enable for the notify configuration. Supported values include SMS and VOICE.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_countries: An array of two-character ISO country codes, in ISO 3166-1 alpha-2 format, that are enabled for the notify configuration.
         :param pulumi.Input[_builtins.str] pool_id: The identifier of the pool to associate with the notify configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of tags (key and value pairs) associated with the notify configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of tags (key and value pairs) associated with the notify configuration.
         :param pulumi.Input['NotifyConfigurationUseCase'] use_case: The use case for the notify configuration.
         """
         ...
@@ -212,7 +212,7 @@ class NotifyConfiguration(pulumi.CustomResource):
                  enabled_channels: pulumi.Input[Optional[Sequence[pulumi.Input['NotifyConfigurationEnabledChannelsItem']]]] = None,
                  enabled_countries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  pool_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_case: pulumi.Input[Optional['NotifyConfigurationUseCase']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

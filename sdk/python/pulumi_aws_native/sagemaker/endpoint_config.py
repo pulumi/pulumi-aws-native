@@ -226,36 +226,36 @@ class EndpointConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 async_inference_config: pulumi.Input[Optional[Union['EndpointConfigAsyncInferenceConfigArgs', 'EndpointConfigAsyncInferenceConfigArgsDict']]] = None,
-                 data_capture_config: pulumi.Input[Optional[Union['EndpointConfigDataCaptureConfigArgs', 'EndpointConfigDataCaptureConfigArgsDict']]] = None,
+                 async_inference_config: pulumi.Input[Optional[Union['EndpointConfigAsyncInferenceConfigArgs', 'EndpointConfigAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigAsyncInferenceConfig']]] = None,
+                 data_capture_config: pulumi.Input[Optional[Union['EndpointConfigDataCaptureConfigArgs', 'EndpointConfigDataCaptureConfigArgsDict', 'outputs.EndpointConfigDataCaptureConfig']]] = None,
                  enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
                  endpoint_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 explainer_config: pulumi.Input[Optional[Union['EndpointConfigExplainerConfigArgs', 'EndpointConfigExplainerConfigArgsDict']]] = None,
+                 explainer_config: pulumi.Input[Optional[Union['EndpointConfigExplainerConfigArgs', 'EndpointConfigExplainerConfigArgsDict', 'outputs.EndpointConfigExplainerConfig']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics_config: pulumi.Input[Optional[Union['EndpointConfigMetricsConfigArgs', 'EndpointConfigMetricsConfigArgsDict']]] = None,
-                 production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict']]]]] = None,
-                 shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['EndpointConfigVpcConfigArgs', 'EndpointConfigVpcConfigArgsDict']]] = None,
+                 metrics_config: pulumi.Input[Optional[Union['EndpointConfigMetricsConfigArgs', 'EndpointConfigMetricsConfigArgsDict', 'outputs.EndpointConfigMetricsConfig']]] = None,
+                 production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict', 'outputs.EndpointConfigProductionVariant']]]]] = None,
+                 shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict', 'outputs.EndpointConfigProductionVariant']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['EndpointConfigVpcConfigArgs', 'EndpointConfigVpcConfigArgsDict', 'outputs.EndpointConfigVpcConfig']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::EndpointConfig
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EndpointConfigAsyncInferenceConfigArgs', 'EndpointConfigAsyncInferenceConfigArgsDict']] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param pulumi.Input[Union['EndpointConfigDataCaptureConfigArgs', 'EndpointConfigDataCaptureConfigArgsDict']] data_capture_config: Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
+        :param pulumi.Input[Union['EndpointConfigAsyncInferenceConfigArgs', 'EndpointConfigAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigAsyncInferenceConfig']] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
+        :param pulumi.Input[Union['EndpointConfigDataCaptureConfigArgs', 'EndpointConfigDataCaptureConfigArgsDict', 'outputs.EndpointConfigDataCaptureConfig']] data_capture_config: Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Sets whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.
         :param pulumi.Input[_builtins.str] endpoint_config_name: The name of the endpoint configuration.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform actions on your behalf.
-        :param pulumi.Input[Union['EndpointConfigExplainerConfigArgs', 'EndpointConfigExplainerConfigArgsDict']] explainer_config: A parameter to activate explainers.
+        :param pulumi.Input[Union['EndpointConfigExplainerConfigArgs', 'EndpointConfigExplainerConfigArgsDict', 'outputs.EndpointConfigExplainerConfig']] explainer_config: A parameter to activate explainers.
         :param pulumi.Input[_builtins.str] kms_key_id: The Amazon Resource Name (ARN) of an AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        :param pulumi.Input[Union['EndpointConfigMetricsConfigArgs', 'EndpointConfigMetricsConfigArgsDict']] metrics_config: Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict']]]] production_variants: A list of ProductionVariant objects, one for each model that you want to host at this endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict']]]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to apply to this resource.
-        :param pulumi.Input[Union['EndpointConfigVpcConfigArgs', 'EndpointConfigVpcConfigArgsDict']] vpc_config: Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+        :param pulumi.Input[Union['EndpointConfigMetricsConfigArgs', 'EndpointConfigMetricsConfigArgsDict', 'outputs.EndpointConfigMetricsConfig']] metrics_config: Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict', 'outputs.EndpointConfigProductionVariant']]]] production_variants: A list of ProductionVariant objects, one for each model that you want to host at this endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict', 'outputs.EndpointConfigProductionVariant']]]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['EndpointConfigVpcConfigArgs', 'EndpointConfigVpcConfigArgsDict', 'outputs.EndpointConfigVpcConfig']] vpc_config: Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
         """
         ...
     @overload
@@ -281,18 +281,18 @@ class EndpointConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 async_inference_config: pulumi.Input[Optional[Union['EndpointConfigAsyncInferenceConfigArgs', 'EndpointConfigAsyncInferenceConfigArgsDict']]] = None,
-                 data_capture_config: pulumi.Input[Optional[Union['EndpointConfigDataCaptureConfigArgs', 'EndpointConfigDataCaptureConfigArgsDict']]] = None,
+                 async_inference_config: pulumi.Input[Optional[Union['EndpointConfigAsyncInferenceConfigArgs', 'EndpointConfigAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigAsyncInferenceConfig']]] = None,
+                 data_capture_config: pulumi.Input[Optional[Union['EndpointConfigDataCaptureConfigArgs', 'EndpointConfigDataCaptureConfigArgsDict', 'outputs.EndpointConfigDataCaptureConfig']]] = None,
                  enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
                  endpoint_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 explainer_config: pulumi.Input[Optional[Union['EndpointConfigExplainerConfigArgs', 'EndpointConfigExplainerConfigArgsDict']]] = None,
+                 explainer_config: pulumi.Input[Optional[Union['EndpointConfigExplainerConfigArgs', 'EndpointConfigExplainerConfigArgsDict', 'outputs.EndpointConfigExplainerConfig']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics_config: pulumi.Input[Optional[Union['EndpointConfigMetricsConfigArgs', 'EndpointConfigMetricsConfigArgsDict']]] = None,
-                 production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict']]]]] = None,
-                 shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['EndpointConfigVpcConfigArgs', 'EndpointConfigVpcConfigArgsDict']]] = None,
+                 metrics_config: pulumi.Input[Optional[Union['EndpointConfigMetricsConfigArgs', 'EndpointConfigMetricsConfigArgsDict', 'outputs.EndpointConfigMetricsConfig']]] = None,
+                 production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict', 'outputs.EndpointConfigProductionVariant']]]]] = None,
+                 shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigProductionVariantArgs', 'EndpointConfigProductionVariantArgsDict', 'outputs.EndpointConfigProductionVariant']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['EndpointConfigVpcConfigArgs', 'EndpointConfigVpcConfigArgsDict', 'outputs.EndpointConfigVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -82,9 +82,9 @@ class Budget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 budget: pulumi.Input[Optional[Union['BudgetDataArgs', 'BudgetDataArgsDict']]] = None,
-                 notifications_with_subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetNotificationWithSubscribersArgs', 'BudgetNotificationWithSubscribersArgsDict']]]]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 budget: pulumi.Input[Optional[Union['BudgetDataArgs', 'BudgetDataArgsDict', 'outputs.BudgetData']]] = None,
+                 notifications_with_subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetNotificationWithSubscribersArgs', 'BudgetNotificationWithSubscribersArgsDict', 'outputs.BudgetNotificationWithSubscribers']]]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Budgets::Budget
@@ -212,9 +212,9 @@ class Budget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BudgetDataArgs', 'BudgetDataArgsDict']] budget: The budget object that you want to create.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationWithSubscribersArgs', 'BudgetNotificationWithSubscribersArgsDict']]]] notifications_with_subscribers: A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your `CreateBudget` call, AWS creates the notifications and subscribers for you.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] resource_tags: An optional list of tags to associate with the specified budget. Each tag consists of a key and a value, and each key must be unique for the resource.
+        :param pulumi.Input[Union['BudgetDataArgs', 'BudgetDataArgsDict', 'outputs.BudgetData']] budget: The budget object that you want to create.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationWithSubscribersArgs', 'BudgetNotificationWithSubscribersArgsDict', 'outputs.BudgetNotificationWithSubscribers']]]] notifications_with_subscribers: A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your `CreateBudget` call, AWS creates the notifications and subscribers for you.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] resource_tags: An optional list of tags to associate with the specified budget. Each tag consists of a key and a value, and each key must be unique for the resource.
         """
         ...
     @overload
@@ -361,9 +361,9 @@ class Budget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 budget: pulumi.Input[Optional[Union['BudgetDataArgs', 'BudgetDataArgsDict']]] = None,
-                 notifications_with_subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetNotificationWithSubscribersArgs', 'BudgetNotificationWithSubscribersArgsDict']]]]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 budget: pulumi.Input[Optional[Union['BudgetDataArgs', 'BudgetDataArgsDict', 'outputs.BudgetData']]] = None,
+                 notifications_with_subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetNotificationWithSubscribersArgs', 'BudgetNotificationWithSubscribersArgsDict', 'outputs.BudgetNotificationWithSubscribers']]]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

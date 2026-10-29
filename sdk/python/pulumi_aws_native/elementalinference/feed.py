@@ -82,7 +82,7 @@ class Feed(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedGetOutputArgs', 'FeedGetOutputArgsDict']]]]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedGetOutputArgs', 'FeedGetOutputArgsDict', 'outputs.FeedGetOutput']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -117,7 +117,7 @@ class Feed(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedGetOutputArgs', 'FeedGetOutputArgsDict']]]]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedGetOutputArgs', 'FeedGetOutputArgsDict', 'outputs.FeedGetOutput']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

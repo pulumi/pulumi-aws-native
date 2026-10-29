@@ -100,7 +100,7 @@ class DatasetGroup(pulumi.CustomResource):
                  dataset_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dataset_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain: pulumi.Input[Optional['DatasetGroupDomain']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Represents a dataset group that holds a collection of related datasets
@@ -110,7 +110,7 @@ class DatasetGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dataset_arns: An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
         :param pulumi.Input[_builtins.str] dataset_group_name: A name for the dataset group.
         :param pulumi.Input['DatasetGroupDomain'] domain: The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of Application Insights application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags of Application Insights application.
         """
         ...
     @overload
@@ -139,7 +139,7 @@ class DatasetGroup(pulumi.CustomResource):
                  dataset_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dataset_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain: pulumi.Input[Optional['DatasetGroupDomain']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -163,7 +163,7 @@ class Tape(pulumi.CustomResource):
                  kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None,
                  pool_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tape_barcode: pulumi.Input[Optional[_builtins.str]] = None,
                  tape_size_in_bytes: pulumi.Input[Optional[_builtins.float]] = None,
                  worm: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -177,7 +177,7 @@ class Tape(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] kms_encrypted: Set to true to use Amazon S3 server-side encryption with your own KMS key, or false to use a key managed by Amazon S3. Optional.
         :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. This value must be set if KMSEncrypted is true.
         :param pulumi.Input[_builtins.str] pool_id: The ID of the pool that you want to add your tape to for archiving. Tapes in this pool are archived in the S3 storage class that is associated with the pool.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of up to 50 tags to assign to the virtual tape.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of up to 50 tags to assign to the virtual tape.
         :param pulumi.Input[_builtins.str] tape_barcode: The barcode that you want to assign to the virtual tape. Barcodes cannot be reused, even after a tape is deleted.
         :param pulumi.Input[_builtins.float] tape_size_in_bytes: The size, in bytes, of the virtual tape that you want to create.
         :param pulumi.Input[_builtins.bool] worm: Set to true to create a write-once-read-many (WORM) virtual tape.
@@ -210,7 +210,7 @@ class Tape(pulumi.CustomResource):
                  kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None,
                  pool_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tape_barcode: pulumi.Input[Optional[_builtins.str]] = None,
                  tape_size_in_bytes: pulumi.Input[Optional[_builtins.float]] = None,
                  worm: pulumi.Input[Optional[_builtins.bool]] = None,

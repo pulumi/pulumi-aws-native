@@ -130,9 +130,9 @@ class DataTransformationProfile(pulumi.CustomResource):
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_description: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['DataTransformationProfileSourceArgs', 'DataTransformationProfileSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['DataTransformationProfileSourceArgs', 'DataTransformationProfileSourceArgsDict', 'outputs.DataTransformationProfileSource']]] = None,
                  source_format: pulumi.Input[Optional['DataTransformationProfileSourceFormat']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates a Data Transformation Profile in AWS HealthLake that converts healthcare data from a source format (such as C-CDA or CSV) into FHIR R4. A profile is immutable once created; to change its template content, replace the resource. Only its tags can be updated in place.
@@ -143,7 +143,7 @@ class DataTransformationProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] profile_description: A human-readable description of the profile's purpose.
         :param pulumi.Input[_builtins.str] profile_name: The human-readable name of the profile.
         :param pulumi.Input['DataTransformationProfileSourceFormat'] source_format: The source format that this profile converts from.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this profile.
         """
         ...
     @overload
@@ -172,9 +172,9 @@ class DataTransformationProfile(pulumi.CustomResource):
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_description: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['DataTransformationProfileSourceArgs', 'DataTransformationProfileSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['DataTransformationProfileSourceArgs', 'DataTransformationProfileSourceArgsDict', 'outputs.DataTransformationProfileSource']]] = None,
                  source_format: pulumi.Input[Optional['DataTransformationProfileSourceFormat']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

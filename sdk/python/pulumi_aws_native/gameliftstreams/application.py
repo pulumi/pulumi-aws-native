@@ -154,7 +154,7 @@ class Application(pulumi.CustomResource):
                  application_source_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  executable_path: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime_environment: pulumi.Input[Optional[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict']]] = None,
+                 runtime_environment: pulumi.Input[Optional[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict', 'outputs.ApplicationRuntimeEnvironment']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -171,7 +171,7 @@ class Application(pulumi.CustomResource):
                > The Amazon S3 bucket and the Amazon GameLift Streams application must be in the same AWS Region.
         :param pulumi.Input[_builtins.str] description: A human-readable label for the application. You can update this value later.
         :param pulumi.Input[_builtins.str] executable_path: The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
-        :param pulumi.Input[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict']] runtime_environment: A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
+        :param pulumi.Input[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict', 'outputs.ApplicationRuntimeEnvironment']] runtime_environment: A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of labels to assign to the new application resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* .
         """
         ...
@@ -203,7 +203,7 @@ class Application(pulumi.CustomResource):
                  application_source_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  executable_path: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime_environment: pulumi.Input[Optional[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict']]] = None,
+                 runtime_environment: pulumi.Input[Optional[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict', 'outputs.ApplicationRuntimeEnvironment']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

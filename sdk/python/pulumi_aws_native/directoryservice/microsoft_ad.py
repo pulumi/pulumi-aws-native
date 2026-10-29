@@ -151,7 +151,7 @@ class MicrosoftAd(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  short_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_settings: pulumi.Input[Optional[Union['MicrosoftAdVpcSettingsArgs', 'MicrosoftAdVpcSettingsArgsDict']]] = None,
+                 vpc_settings: pulumi.Input[Optional[Union['MicrosoftAdVpcSettingsArgs', 'MicrosoftAdVpcSettingsArgsDict', 'outputs.MicrosoftAdVpcSettings']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectoryService::MicrosoftAD
@@ -164,7 +164,7 @@ class MicrosoftAd(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The fully qualified domain name for the AWS Managed Microsoft AD directory, such as corp.example.com. This name will resolve inside your VPC only. It does not need to be publicly resolvable.
         :param pulumi.Input[_builtins.str] password: The password for the default administrative user named Admin. If you need to change the password for the administrator account, see the ResetUserPassword API call in the AWS Directory Service API Reference.
         :param pulumi.Input[_builtins.str] short_name: The NetBIOS name for your domain, such as CORP. If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, CORP for the directory DNS corp.example.com.
-        :param pulumi.Input[Union['MicrosoftAdVpcSettingsArgs', 'MicrosoftAdVpcSettingsArgsDict']] vpc_settings: Specifies the VPC settings of the Microsoft AD directory server in AWS.
+        :param pulumi.Input[Union['MicrosoftAdVpcSettingsArgs', 'MicrosoftAdVpcSettingsArgsDict', 'outputs.MicrosoftAdVpcSettings']] vpc_settings: Specifies the VPC settings of the Microsoft AD directory server in AWS.
         """
         ...
     @overload
@@ -196,7 +196,7 @@ class MicrosoftAd(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  short_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_settings: pulumi.Input[Optional[Union['MicrosoftAdVpcSettingsArgs', 'MicrosoftAdVpcSettingsArgsDict']]] = None,
+                 vpc_settings: pulumi.Input[Optional[Union['MicrosoftAdVpcSettingsArgs', 'MicrosoftAdVpcSettingsArgsDict', 'outputs.MicrosoftAdVpcSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

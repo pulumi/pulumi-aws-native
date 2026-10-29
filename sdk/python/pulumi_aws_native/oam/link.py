@@ -129,7 +129,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: pulumi.Input[Optional[_builtins.str]] = None,
-                 link_configuration: pulumi.Input[Optional[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']]] = None,
+                 link_configuration: pulumi.Input[Optional[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict', 'outputs.LinkConfiguration']]] = None,
                  resource_types: pulumi.Input[Optional[Sequence[pulumi.Input['LinkResourceType']]]] = None,
                  sink_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -148,7 +148,7 @@ class Link(pulumi.CustomResource):
                - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
                
                > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
-        :param pulumi.Input[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']] link_configuration: Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+        :param pulumi.Input[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict', 'outputs.LinkConfiguration']] link_configuration: Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
         :param pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]] resource_types: An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
         :param pulumi.Input[_builtins.str] sink_identifier: The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the link
@@ -178,7 +178,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: pulumi.Input[Optional[_builtins.str]] = None,
-                 link_configuration: pulumi.Input[Optional[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']]] = None,
+                 link_configuration: pulumi.Input[Optional[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict', 'outputs.LinkConfiguration']]] = None,
                  resource_types: pulumi.Input[Optional[Sequence[pulumi.Input['LinkResourceType']]]] = None,
                  sink_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,

@@ -246,26 +246,26 @@ class JobTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 abort_config: pulumi.Input[Optional[Union['AbortConfigPropertiesArgs', 'AbortConfigPropertiesArgsDict']]] = None,
+                 abort_config: pulumi.Input[Optional[Union['AbortConfigPropertiesArgs', 'AbortConfigPropertiesArgsDict', 'outputs.AbortConfigProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_package_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  document: pulumi.Input[Optional[_builtins.str]] = None,
                  document_source: pulumi.Input[Optional[_builtins.str]] = None,
                  job_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_executions_retry_config: pulumi.Input[Optional[Union['JobExecutionsRetryConfigPropertiesArgs', 'JobExecutionsRetryConfigPropertiesArgsDict']]] = None,
-                 job_executions_rollout_config: pulumi.Input[Optional[Union['JobExecutionsRolloutConfigPropertiesArgs', 'JobExecutionsRolloutConfigPropertiesArgsDict']]] = None,
+                 job_executions_retry_config: pulumi.Input[Optional[Union['JobExecutionsRetryConfigPropertiesArgs', 'JobExecutionsRetryConfigPropertiesArgsDict', 'outputs.JobExecutionsRetryConfigProperties']]] = None,
+                 job_executions_rollout_config: pulumi.Input[Optional[Union['JobExecutionsRolloutConfigPropertiesArgs', 'JobExecutionsRolloutConfigPropertiesArgsDict', 'outputs.JobExecutionsRolloutConfigProperties']]] = None,
                  job_template_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTemplateMaintenanceWindowArgs', 'JobTemplateMaintenanceWindowArgsDict']]]]] = None,
-                 presigned_url_config: pulumi.Input[Optional[Union['PresignedUrlConfigPropertiesArgs', 'PresignedUrlConfigPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 timeout_config: pulumi.Input[Optional[Union['TimeoutConfigPropertiesArgs', 'TimeoutConfigPropertiesArgsDict']]] = None,
+                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTemplateMaintenanceWindowArgs', 'JobTemplateMaintenanceWindowArgsDict', 'outputs.JobTemplateMaintenanceWindow']]]]] = None,
+                 presigned_url_config: pulumi.Input[Optional[Union['PresignedUrlConfigPropertiesArgs', 'PresignedUrlConfigPropertiesArgsDict', 'outputs.PresignedUrlConfigProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 timeout_config: pulumi.Input[Optional[Union['TimeoutConfigPropertiesArgs', 'TimeoutConfigPropertiesArgsDict', 'outputs.TimeoutConfigProperties']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AbortConfigPropertiesArgs', 'AbortConfigPropertiesArgsDict']] abort_config: The criteria that determine when and how a job abort takes place.
+        :param pulumi.Input[Union['AbortConfigPropertiesArgs', 'AbortConfigPropertiesArgsDict', 'outputs.AbortConfigProperties']] abort_config: The criteria that determine when and how a job abort takes place.
         :param pulumi.Input[_builtins.str] description: A description of the Job Template.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_package_versions: The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
                
@@ -273,13 +273,13 @@ class JobTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] document: The job document. Required if you don't specify a value for documentSource.
         :param pulumi.Input[_builtins.str] document_source: An S3 link to the job document to use in the template. Required if you don't specify a value for document.
         :param pulumi.Input[_builtins.str] job_arn: Optional for copying a JobTemplate from a pre-existing Job configuration.
-        :param pulumi.Input[Union['JobExecutionsRetryConfigPropertiesArgs', 'JobExecutionsRetryConfigPropertiesArgsDict']] job_executions_retry_config: Allows you to create the criteria to retry a job.
-        :param pulumi.Input[Union['JobExecutionsRolloutConfigPropertiesArgs', 'JobExecutionsRolloutConfigPropertiesArgsDict']] job_executions_rollout_config: Allows you to create a staged rollout of a job.
+        :param pulumi.Input[Union['JobExecutionsRetryConfigPropertiesArgs', 'JobExecutionsRetryConfigPropertiesArgsDict', 'outputs.JobExecutionsRetryConfigProperties']] job_executions_retry_config: Allows you to create the criteria to retry a job.
+        :param pulumi.Input[Union['JobExecutionsRolloutConfigPropertiesArgs', 'JobExecutionsRolloutConfigPropertiesArgsDict', 'outputs.JobExecutionsRolloutConfigProperties']] job_executions_rollout_config: Allows you to create a staged rollout of a job.
         :param pulumi.Input[_builtins.str] job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobTemplateMaintenanceWindowArgs', 'JobTemplateMaintenanceWindowArgsDict']]]] maintenance_windows: An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
-        :param pulumi.Input[Union['PresignedUrlConfigPropertiesArgs', 'PresignedUrlConfigPropertiesArgsDict']] presigned_url_config: Configuration for pre-signed S3 URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Metadata that can be used to manage the JobTemplate.
-        :param pulumi.Input[Union['TimeoutConfigPropertiesArgs', 'TimeoutConfigPropertiesArgsDict']] timeout_config: Specifies the amount of time each device has to finish its execution of the job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobTemplateMaintenanceWindowArgs', 'JobTemplateMaintenanceWindowArgsDict', 'outputs.JobTemplateMaintenanceWindow']]]] maintenance_windows: An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        :param pulumi.Input[Union['PresignedUrlConfigPropertiesArgs', 'PresignedUrlConfigPropertiesArgsDict', 'outputs.PresignedUrlConfigProperties']] presigned_url_config: Configuration for pre-signed S3 URLs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: Metadata that can be used to manage the JobTemplate.
+        :param pulumi.Input[Union['TimeoutConfigPropertiesArgs', 'TimeoutConfigPropertiesArgsDict', 'outputs.TimeoutConfigProperties']] timeout_config: Specifies the amount of time each device has to finish its execution of the job.
         """
         ...
     @overload
@@ -305,19 +305,19 @@ class JobTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 abort_config: pulumi.Input[Optional[Union['AbortConfigPropertiesArgs', 'AbortConfigPropertiesArgsDict']]] = None,
+                 abort_config: pulumi.Input[Optional[Union['AbortConfigPropertiesArgs', 'AbortConfigPropertiesArgsDict', 'outputs.AbortConfigProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_package_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  document: pulumi.Input[Optional[_builtins.str]] = None,
                  document_source: pulumi.Input[Optional[_builtins.str]] = None,
                  job_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_executions_retry_config: pulumi.Input[Optional[Union['JobExecutionsRetryConfigPropertiesArgs', 'JobExecutionsRetryConfigPropertiesArgsDict']]] = None,
-                 job_executions_rollout_config: pulumi.Input[Optional[Union['JobExecutionsRolloutConfigPropertiesArgs', 'JobExecutionsRolloutConfigPropertiesArgsDict']]] = None,
+                 job_executions_retry_config: pulumi.Input[Optional[Union['JobExecutionsRetryConfigPropertiesArgs', 'JobExecutionsRetryConfigPropertiesArgsDict', 'outputs.JobExecutionsRetryConfigProperties']]] = None,
+                 job_executions_rollout_config: pulumi.Input[Optional[Union['JobExecutionsRolloutConfigPropertiesArgs', 'JobExecutionsRolloutConfigPropertiesArgsDict', 'outputs.JobExecutionsRolloutConfigProperties']]] = None,
                  job_template_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTemplateMaintenanceWindowArgs', 'JobTemplateMaintenanceWindowArgsDict']]]]] = None,
-                 presigned_url_config: pulumi.Input[Optional[Union['PresignedUrlConfigPropertiesArgs', 'PresignedUrlConfigPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 timeout_config: pulumi.Input[Optional[Union['TimeoutConfigPropertiesArgs', 'TimeoutConfigPropertiesArgsDict']]] = None,
+                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTemplateMaintenanceWindowArgs', 'JobTemplateMaintenanceWindowArgsDict', 'outputs.JobTemplateMaintenanceWindow']]]]] = None,
+                 presigned_url_config: pulumi.Input[Optional[Union['PresignedUrlConfigPropertiesArgs', 'PresignedUrlConfigPropertiesArgsDict', 'outputs.PresignedUrlConfigProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 timeout_config: pulumi.Input[Optional[Union['TimeoutConfigPropertiesArgs', 'TimeoutConfigPropertiesArgsDict', 'outputs.TimeoutConfigProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -84,7 +84,7 @@ class Session(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  session_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::Session Resource Type
@@ -93,7 +93,7 @@ class Session(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The Amazon Resource Name (ARN) of the KMS key to use to encrypt the session data.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] session_metadata: A map of key-value pairs containing attributes to be persisted across the session.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags associated with the session.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags associated with the session.
         """
         ...
     @overload
@@ -121,7 +121,7 @@ class Session(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  session_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

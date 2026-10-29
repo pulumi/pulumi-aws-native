@@ -226,16 +226,16 @@ class OtaUpdate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 aws_job_abort_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobAbortConfigArgs', 'OtaUpdateAwsJobAbortConfigArgsDict']]] = None,
-                 aws_job_executions_rollout_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobExecutionsRolloutConfigArgs', 'OtaUpdateAwsJobExecutionsRolloutConfigArgsDict']]] = None,
-                 aws_job_presigned_url_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobPresignedUrlConfigArgs', 'OtaUpdateAwsJobPresignedUrlConfigArgsDict']]] = None,
-                 aws_job_timeout_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobTimeoutConfigArgs', 'OtaUpdateAwsJobTimeoutConfigArgsDict']]] = None,
+                 aws_job_abort_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobAbortConfigArgs', 'OtaUpdateAwsJobAbortConfigArgsDict', 'outputs.OtaUpdateAwsJobAbortConfig']]] = None,
+                 aws_job_executions_rollout_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobExecutionsRolloutConfigArgs', 'OtaUpdateAwsJobExecutionsRolloutConfigArgsDict', 'outputs.OtaUpdateAwsJobExecutionsRolloutConfig']]] = None,
+                 aws_job_presigned_url_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobPresignedUrlConfigArgs', 'OtaUpdateAwsJobPresignedUrlConfigArgsDict', 'outputs.OtaUpdateAwsJobPresignedUrlConfig']]] = None,
+                 aws_job_timeout_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobTimeoutConfigArgs', 'OtaUpdateAwsJobTimeoutConfigArgsDict', 'outputs.OtaUpdateAwsJobTimeoutConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtaUpdateOtaUpdateFileArgs', 'OtaUpdateOtaUpdateFileArgsDict']]]]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtaUpdateOtaUpdateFileArgs', 'OtaUpdateOtaUpdateFileArgsDict', 'outputs.OtaUpdateOtaUpdateFile']]]]] = None,
                  ota_update_id: pulumi.Input[Optional[_builtins.str]] = None,
                  protocols: pulumi.Input[Optional[Sequence[pulumi.Input['OtaUpdateProtocolsItem']]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_selection: pulumi.Input[Optional['OtaUpdateTargetSelection']] = None,
                  targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -246,11 +246,11 @@ class OtaUpdate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_parameters: A list of additional OTA update parameters, which are name-value pairs.
         :param pulumi.Input[_builtins.str] description: The description of the OTA update.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OtaUpdateOtaUpdateFileArgs', 'OtaUpdateOtaUpdateFileArgsDict']]]] files: The files to be streamed by the OTA update.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OtaUpdateOtaUpdateFileArgs', 'OtaUpdateOtaUpdateFileArgsDict', 'outputs.OtaUpdateOtaUpdateFile']]]] files: The files to be streamed by the OTA update.
         :param pulumi.Input[_builtins.str] ota_update_id: The ID of the OTA update to be created.
         :param pulumi.Input[Sequence[pulumi.Input['OtaUpdateProtocolsItem']]] protocols: The protocol used to transfer the OTA update image.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role that grants AWS IoT Core access to the Amazon S3, IoT jobs and AWS Code Signing resources to create an OTA update job.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage updates.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata which can be used to manage updates.
         :param pulumi.Input['OtaUpdateTargetSelection'] target_selection: Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all things specified as targets have completed the update (SNAPSHOT).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] targets: The devices targeted to receive OTA updates.
         """
@@ -279,16 +279,16 @@ class OtaUpdate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 aws_job_abort_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobAbortConfigArgs', 'OtaUpdateAwsJobAbortConfigArgsDict']]] = None,
-                 aws_job_executions_rollout_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobExecutionsRolloutConfigArgs', 'OtaUpdateAwsJobExecutionsRolloutConfigArgsDict']]] = None,
-                 aws_job_presigned_url_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobPresignedUrlConfigArgs', 'OtaUpdateAwsJobPresignedUrlConfigArgsDict']]] = None,
-                 aws_job_timeout_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobTimeoutConfigArgs', 'OtaUpdateAwsJobTimeoutConfigArgsDict']]] = None,
+                 aws_job_abort_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobAbortConfigArgs', 'OtaUpdateAwsJobAbortConfigArgsDict', 'outputs.OtaUpdateAwsJobAbortConfig']]] = None,
+                 aws_job_executions_rollout_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobExecutionsRolloutConfigArgs', 'OtaUpdateAwsJobExecutionsRolloutConfigArgsDict', 'outputs.OtaUpdateAwsJobExecutionsRolloutConfig']]] = None,
+                 aws_job_presigned_url_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobPresignedUrlConfigArgs', 'OtaUpdateAwsJobPresignedUrlConfigArgsDict', 'outputs.OtaUpdateAwsJobPresignedUrlConfig']]] = None,
+                 aws_job_timeout_config: pulumi.Input[Optional[Union['OtaUpdateAwsJobTimeoutConfigArgs', 'OtaUpdateAwsJobTimeoutConfigArgsDict', 'outputs.OtaUpdateAwsJobTimeoutConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtaUpdateOtaUpdateFileArgs', 'OtaUpdateOtaUpdateFileArgsDict']]]]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtaUpdateOtaUpdateFileArgs', 'OtaUpdateOtaUpdateFileArgsDict', 'outputs.OtaUpdateOtaUpdateFile']]]]] = None,
                  ota_update_id: pulumi.Input[Optional[_builtins.str]] = None,
                  protocols: pulumi.Input[Optional[Sequence[pulumi.Input['OtaUpdateProtocolsItem']]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_selection: pulumi.Input[Optional['OtaUpdateTargetSelection']] = None,
                  targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

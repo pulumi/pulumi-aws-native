@@ -571,7 +571,7 @@ class UserPoolClient(pulumi.CustomResource):
                  allowed_o_auth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_o_auth_flows_user_pool_client: pulumi.Input[Optional[_builtins.bool]] = None,
                  allowed_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 analytics_configuration: pulumi.Input[Optional[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']]] = None,
+                 analytics_configuration: pulumi.Input[Optional[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict', 'outputs.UserPoolClientAnalyticsConfiguration']]] = None,
                  auth_session_validity: pulumi.Input[Optional[_builtins.int]] = None,
                  callback_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  client_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -584,10 +584,10 @@ class UserPoolClient(pulumi.CustomResource):
                  logout_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  prevent_user_existence_errors: pulumi.Input[Optional[_builtins.str]] = None,
                  read_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_rotation: pulumi.Input[Optional[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict', 'outputs.UserPoolClientRefreshTokenRotation']]] = None,
                  refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
                  supported_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 token_validity_units: pulumi.Input[Optional[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
+                 token_validity_units: pulumi.Input[Optional[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict', 'outputs.UserPoolClientTokenValidityUnits']]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  write_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -621,7 +621,7 @@ class UserPoolClient(pulumi.CustomResource):
                
                To use authorization server features, configure one of these features in the Amazon Cognito console or set `AllowedOAuthFlowsUserPoolClient` to `true` in a `CreateUserPoolClient` or `UpdateUserPoolClient` API request. If you don't set a value for `AllowedOAuthFlowsUserPoolClient` in a request with the AWS CLI or SDKs, it defaults to `false` . When `false` , only SDK-based API sign-in is permitted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_o_auth_scopes: The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Scope values include `phone` , `email` , `openid` , and `profile` . The `aws.cognito.signin.user.admin` scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.
-        :param pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
+        :param pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict', 'outputs.UserPoolClientAnalyticsConfiguration']] analytics_configuration: The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
                
                In AWS Regions where Amazon Pinpoint isn't available, user pools might not have access to analytics or might be configurable with campaigns in the US East (N. Virginia) Region. For more information, see [Using Amazon Pinpoint analytics](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html) .
         :param pulumi.Input[_builtins.int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. `AuthSessionValidity` is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.
@@ -682,7 +682,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_attributes: The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
                
                When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
-        :param pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']] refresh_token_rotation: The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+        :param pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict', 'outputs.UserPoolClientRefreshTokenRotation']] refresh_token_rotation: The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
         :param pulumi.Input[_builtins.int] refresh_token_validity: The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
                
                For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
@@ -695,7 +695,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_identity_providers: A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
                
                This parameter sets the IdPs that [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) will display on the login page for your app client. The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent SDK-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
-        :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
+        :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict', 'outputs.UserPoolClientTokenValidityUnits']] token_validity_units: The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool where you want to create an app client.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] write_attributes: The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
                
@@ -731,7 +731,7 @@ class UserPoolClient(pulumi.CustomResource):
                  allowed_o_auth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_o_auth_flows_user_pool_client: pulumi.Input[Optional[_builtins.bool]] = None,
                  allowed_o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 analytics_configuration: pulumi.Input[Optional[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']]] = None,
+                 analytics_configuration: pulumi.Input[Optional[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict', 'outputs.UserPoolClientAnalyticsConfiguration']]] = None,
                  auth_session_validity: pulumi.Input[Optional[_builtins.int]] = None,
                  callback_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  client_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -744,10 +744,10 @@ class UserPoolClient(pulumi.CustomResource):
                  logout_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  prevent_user_existence_errors: pulumi.Input[Optional[_builtins.str]] = None,
                  read_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_rotation: pulumi.Input[Optional[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict', 'outputs.UserPoolClientRefreshTokenRotation']]] = None,
                  refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
                  supported_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 token_validity_units: pulumi.Input[Optional[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
+                 token_validity_units: pulumi.Input[Optional[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict', 'outputs.UserPoolClientTokenValidityUnits']]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  write_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

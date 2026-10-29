@@ -115,10 +115,10 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fsx_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 protocol: pulumi.Input[Optional[Union['LocationFSxOpenZfsProtocolArgs', 'LocationFSxOpenZfsProtocolArgsDict']]] = None,
+                 protocol: pulumi.Input[Optional[Union['LocationFSxOpenZfsProtocolArgs', 'LocationFSxOpenZfsProtocolArgsDict', 'outputs.LocationFSxOpenZfsProtocol']]] = None,
                  security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationFSxOpenZFS.
@@ -126,10 +126,10 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
-        :param pulumi.Input[Union['LocationFSxOpenZfsProtocolArgs', 'LocationFSxOpenZfsProtocolArgsDict']] protocol: The type of protocol that AWS DataSync uses to access your file system.
+        :param pulumi.Input[Union['LocationFSxOpenZfsProtocolArgs', 'LocationFSxOpenZfsProtocolArgsDict', 'outputs.LocationFSxOpenZfsProtocol']] protocol: The type of protocol that AWS DataSync uses to access your file system.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
         :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -156,10 +156,10 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fsx_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 protocol: pulumi.Input[Optional[Union['LocationFSxOpenZfsProtocolArgs', 'LocationFSxOpenZfsProtocolArgsDict']]] = None,
+                 protocol: pulumi.Input[Optional[Union['LocationFSxOpenZfsProtocolArgs', 'LocationFSxOpenZfsProtocolArgsDict', 'outputs.LocationFSxOpenZfsProtocol']]] = None,
                  security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

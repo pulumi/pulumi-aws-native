@@ -130,24 +130,24 @@ class Gateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['GatewayConfigurationArgs', 'GatewayConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['GatewayConfigurationArgs', 'GatewayConfigurationArgsDict', 'outputs.GatewayConfiguration']]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  propagate_tags: pulumi.Input[Optional['GatewayPropagateGatewayTags']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS ECS Gateway
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['GatewayConfigurationArgs', 'GatewayConfigurationArgsDict']] configuration: The configuration for the gateway.
+        :param pulumi.Input[Union['GatewayConfigurationArgs', 'GatewayConfigurationArgsDict', 'outputs.GatewayConfiguration']] configuration: The configuration for the gateway.
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether deletion protection is enabled for the gateway.
         :param pulumi.Input[_builtins.str] gateway_name: The name of the gateway. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: The ARN of the IAM role that ECS uses to manage infrastructure for the gateway.
         :param pulumi.Input['GatewayPropagateGatewayTags'] propagate_tags: Specifies whether to propagate the tags from the gateway to other resources.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the gateway to help you categorize and organize them.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The metadata that you apply to the gateway to help you categorize and organize them.
         """
         ...
     @overload
@@ -173,12 +173,12 @@ class Gateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['GatewayConfigurationArgs', 'GatewayConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['GatewayConfigurationArgs', 'GatewayConfigurationArgsDict', 'outputs.GatewayConfiguration']]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  propagate_tags: pulumi.Input[Optional['GatewayPropagateGatewayTags']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -151,7 +151,7 @@ class GlobalCluster(pulumi.CustomResource):
                  global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::DocDB::GlobalCluster resource represents an Amazon DocumentDB Global Cluster.
@@ -164,7 +164,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] global_cluster_identifier: The cluster identifier of the global cluster.
         :param pulumi.Input[_builtins.str] source_db_cluster_identifier: The Amazon Resource Name (ARN) to use as the primary cluster of the global cluster. You may also choose to instead specify the DBClusterIdentifier. If you provide a value for this parameter, don't specify values for the following settings because Amazon DocumentDB uses the values from the specified source DB cluster: Engine, EngineVersion, StorageEncrypted
         :param pulumi.Input[_builtins.bool] storage_encrypted: Indicates whether the global cluster has storage encryption enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be assigned to the Amazon DocumentDB resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to be assigned to the Amazon DocumentDB resource.
         """
         ...
     @overload
@@ -196,7 +196,7 @@ class GlobalCluster(pulumi.CustomResource):
                  global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

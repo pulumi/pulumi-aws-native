@@ -94,19 +94,19 @@ class AdConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 media_tailor_playback_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AdConfigurationMediaTailorPlaybackConfigurationArgs', 'AdConfigurationMediaTailorPlaybackConfigurationArgsDict']]]]] = None,
+                 media_tailor_playback_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AdConfigurationMediaTailorPlaybackConfigurationArgs', 'AdConfigurationMediaTailorPlaybackConfigurationArgsDict', 'outputs.AdConfigurationMediaTailorPlaybackConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 post_roll_configuration: pulumi.Input[Optional[Union['AdConfigurationPostRollConfigurationArgs', 'AdConfigurationPostRollConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 post_roll_configuration: pulumi.Input[Optional[Union['AdConfigurationPostRollConfigurationArgs', 'AdConfigurationPostRollConfigurationArgsDict', 'outputs.AdConfigurationPostRollConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::IVS::AdConfiguration. An ad configuration links Amazon IVS resources to AWS Elemental MediaTailor playback configurations, enabling server-side ad insertion for a channel.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AdConfigurationMediaTailorPlaybackConfigurationArgs', 'AdConfigurationMediaTailorPlaybackConfigurationArgsDict']]]] media_tailor_playback_configurations: List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AdConfigurationMediaTailorPlaybackConfigurationArgs', 'AdConfigurationMediaTailorPlaybackConfigurationArgsDict', 'outputs.AdConfigurationMediaTailorPlaybackConfiguration']]]] media_tailor_playback_configurations: List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration.
         :param pulumi.Input[_builtins.str] name: Ad configuration name. The value does not need to be unique.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags attached to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags attached to the resource.
         """
         ...
     @overload
@@ -132,10 +132,10 @@ class AdConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 media_tailor_playback_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AdConfigurationMediaTailorPlaybackConfigurationArgs', 'AdConfigurationMediaTailorPlaybackConfigurationArgsDict']]]]] = None,
+                 media_tailor_playback_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AdConfigurationMediaTailorPlaybackConfigurationArgs', 'AdConfigurationMediaTailorPlaybackConfigurationArgsDict', 'outputs.AdConfigurationMediaTailorPlaybackConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 post_roll_configuration: pulumi.Input[Optional[Union['AdConfigurationPostRollConfigurationArgs', 'AdConfigurationPostRollConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 post_roll_configuration: pulumi.Input[Optional[Union['AdConfigurationPostRollConfigurationArgs', 'AdConfigurationPostRollConfigurationArgsDict', 'outputs.AdConfigurationPostRollConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

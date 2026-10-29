@@ -149,7 +149,7 @@ class Connection(pulumi.CustomResource):
                  device_id: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  link_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::NetworkManager::Connection. Describes a connection between two devices in a global network.
@@ -162,7 +162,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] device_id: The ID of the first device in the connection.
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network that the connection belongs to.
         :param pulumi.Input[_builtins.str] link_id: The ID of the link for the first device.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the connection.
         """
         ...
     @overload
@@ -194,7 +194,7 @@ class Connection(pulumi.CustomResource):
                  device_id: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  link_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
