@@ -23,6 +23,16 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
         return new MultiRegionAccessPointPolicy(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing MultiRegionAccessPointPolicy resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:s3:MultiRegionAccessPointPolicy", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:s3:MultiRegionAccessPointPolicy';
 

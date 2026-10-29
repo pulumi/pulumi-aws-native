@@ -23,6 +23,16 @@ export class RelatedItem extends pulumi.CustomResource {
         return new RelatedItem(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing RelatedItem resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:cases:RelatedItem", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:cases:RelatedItem';
 

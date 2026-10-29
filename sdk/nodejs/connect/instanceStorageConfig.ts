@@ -23,6 +23,16 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
         return new InstanceStorageConfig(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing InstanceStorageConfig resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:connect:InstanceStorageConfig", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:connect:InstanceStorageConfig';
 

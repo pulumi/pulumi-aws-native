@@ -23,6 +23,16 @@ export class StackSet extends pulumi.CustomResource {
         return new StackSet(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing StackSet resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:cloudformation:StackSet", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:cloudformation:StackSet';
 

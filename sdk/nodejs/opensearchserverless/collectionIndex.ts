@@ -20,6 +20,16 @@ export class CollectionIndex extends pulumi.CustomResource {
         return new CollectionIndex(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing CollectionIndex resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:opensearchserverless:CollectionIndex", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:opensearchserverless:CollectionIndex';
 

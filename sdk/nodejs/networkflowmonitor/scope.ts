@@ -23,6 +23,16 @@ export class Scope extends pulumi.CustomResource {
         return new Scope(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Scope resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:networkflowmonitor:Scope", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:networkflowmonitor:Scope';
 
