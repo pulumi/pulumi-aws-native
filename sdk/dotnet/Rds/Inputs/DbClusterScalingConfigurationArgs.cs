@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Rds.Inputs
 {
 
     /// <summary>
-    /// The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster. 
+    /// The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster.
     ///  For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
     ///  This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
     ///  Valid for: Aurora Serverless v1 DB clusters only

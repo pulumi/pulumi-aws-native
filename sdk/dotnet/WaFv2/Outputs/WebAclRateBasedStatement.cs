@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// <summary>
         /// Setting that indicates how to aggregate the request counts.
         /// 
-        /// &gt; Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+        /// &gt; Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
         /// 
         /// - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
         /// 
@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// <summary>
         /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
         /// 
-        /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
         /// 
         /// This is required if you specify a forwarded IP in the rule's aggregate key settings.
         /// </summary>

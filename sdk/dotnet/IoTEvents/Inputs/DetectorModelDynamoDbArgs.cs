@@ -17,12 +17,12 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     ///  +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
     ///   +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
     ///   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-    ///  In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
-    ///   ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+    ///       In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+    ///        ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
     ///   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-    ///  In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-    ///   ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-    ///   
+    ///       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+    ///        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+    /// 
     ///  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
     ///  If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``&lt;payload-field&gt;_raw``.
     /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// The data type for the hash key (also called the partition key). You can specify the following values:
         ///   +  ``'STRING'`` - The hash key is a string.
         ///   +  ``'NUMBER'`` - The hash key is a number.
-        ///   
+        /// 
         ///  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
         /// </summary>
         [Input("hashKeyType")]
@@ -51,11 +51,11 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public Input<string> HashKeyValue { get; set; } = null!;
 
         /// <summary>
-        /// The type of operation to perform. You can specify the following values: 
+        /// The type of operation to perform. You can specify the following values:
         ///   +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
         ///   +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
         ///   +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-        ///   
+        /// 
         ///  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         /// </summary>
         [Input("operation")]
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// The data type for the range key (also called the sort key), You can specify the following values:
         ///   +  ``'STRING'`` - The range key is a string.
         ///   +  ``'NUMBER'`` - The range key is number.
-        ///   
+        /// 
         ///  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         /// </summary>
         [Input("rangeKeyType")]

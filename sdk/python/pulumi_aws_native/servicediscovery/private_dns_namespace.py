@@ -117,8 +117,8 @@ class PrivateDnsNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['PrivateDnsNamespacePropertiesArgs', 'PrivateDnsNamespacePropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Union['PrivateDnsNamespacePropertiesArgs', 'PrivateDnsNamespacePropertiesArgsDict', 'outputs.PrivateDnsNamespaceProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -128,8 +128,8 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the namespace.
         :param pulumi.Input[_builtins.str] name: The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
-        :param pulumi.Input[Union['PrivateDnsNamespacePropertiesArgs', 'PrivateDnsNamespacePropertiesArgsDict']] properties: Properties of the private DNS namespace.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[Union['PrivateDnsNamespacePropertiesArgs', 'PrivateDnsNamespacePropertiesArgsDict', 'outputs.PrivateDnsNamespaceProperties']] properties: Properties of the private DNS namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         :param pulumi.Input[_builtins.str] vpc: The ID of the Amazon VPC that you want to associate the namespace with.
         """
         ...
@@ -158,8 +158,8 @@ class PrivateDnsNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['PrivateDnsNamespacePropertiesArgs', 'PrivateDnsNamespacePropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Union['PrivateDnsNamespacePropertiesArgs', 'PrivateDnsNamespacePropertiesArgsDict', 'outputs.PrivateDnsNamespaceProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

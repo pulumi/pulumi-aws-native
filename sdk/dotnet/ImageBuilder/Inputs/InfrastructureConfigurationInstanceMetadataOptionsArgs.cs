@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public Input<int>? HttpPutResponseHopLimit { get; set; }
 
         /// <summary>
-        /// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+        /// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
         /// </summary>
         [Input("httpTokens")]
         public Input<Pulumi.AwsNative.ImageBuilder.InfrastructureConfigurationInstanceMetadataOptionsHttpTokens>? HttpTokens { get; set; }

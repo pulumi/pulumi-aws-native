@@ -295,12 +295,12 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  ebs_encryption: pulumi.Input[Optional['ReplicationConfigurationTemplateEbsEncryption']] = None,
                  ebs_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  internet_protocol: pulumi.Input[Optional['ReplicationConfigurationTemplateInternetProtocol']] = None,
-                 pit_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyRuleArgs', 'ReplicationConfigurationTemplatePitPolicyRuleArgsDict']]]]] = None,
+                 pit_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyRuleArgs', 'ReplicationConfigurationTemplatePitPolicyRuleArgsDict', 'outputs.ReplicationConfigurationTemplatePitPolicyRule']]]]] = None,
                  replication_server_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_servers_security_groups_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  staging_area_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  staging_area_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_dedicated_replication_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -317,12 +317,12 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input['ReplicationConfigurationTemplateEbsEncryption'] ebs_encryption: The type of EBS encryption to be used during replication.
         :param pulumi.Input[_builtins.str] ebs_encryption_key_arn: The ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input['ReplicationConfigurationTemplateInternetProtocol'] internet_protocol: Which version of the Internet Protocol to use for replication of data.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyRuleArgs', 'ReplicationConfigurationTemplatePitPolicyRuleArgsDict']]]] pit_policy: The Point in time (PIT) policy to manage snapshots taken during replication.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyRuleArgs', 'ReplicationConfigurationTemplatePitPolicyRuleArgsDict', 'outputs.ReplicationConfigurationTemplatePitPolicyRule']]]] pit_policy: The Point in time (PIT) policy to manage snapshots taken during replication.
         :param pulumi.Input[_builtins.str] replication_server_instance_type: The instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_servers_security_groups_ids: The security group IDs that will be used by the replication server.
         :param pulumi.Input[_builtins.str] staging_area_subnet_id: The subnet to be used by the replication staging area.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] staging_area_tags: A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags to be associated with the Replication Configuration Template resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A set of tags to be associated with the Replication Configuration Template resource.
         :param pulumi.Input[_builtins.bool] use_dedicated_replication_server: Whether to use a dedicated Replication Server in the replication staging area.
         """
         ...
@@ -358,12 +358,12 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  ebs_encryption: pulumi.Input[Optional['ReplicationConfigurationTemplateEbsEncryption']] = None,
                  ebs_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  internet_protocol: pulumi.Input[Optional['ReplicationConfigurationTemplateInternetProtocol']] = None,
-                 pit_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyRuleArgs', 'ReplicationConfigurationTemplatePitPolicyRuleArgsDict']]]]] = None,
+                 pit_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyRuleArgs', 'ReplicationConfigurationTemplatePitPolicyRuleArgsDict', 'outputs.ReplicationConfigurationTemplatePitPolicyRule']]]]] = None,
                  replication_server_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_servers_security_groups_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  staging_area_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  staging_area_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_dedicated_replication_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

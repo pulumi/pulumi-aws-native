@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _companyName;
 
         /// <summary>
-        /// The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
+        /// The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> CompanyName
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _complianceStatus;
 
         /// <summary>
-        /// The result of a security check. This field is only used for findings generated from controls. 
+        /// The result of a security check. This field is only used for findings generated from controls.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ComplianceStatus
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _createdAt;
 
         /// <summary>
-        /// A timestamp that indicates when this finding record was created. 
+        /// A timestamp that indicates when this finding record was created.
         ///  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _description;
 
         /// <summary>
-        /// A finding's description. 
+        /// A finding's description.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> Description
@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _firstObservedAt;
 
         /// <summary>
-        /// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. 
+        /// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
         ///  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
@@ -151,7 +151,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _generatorId;
 
         /// <summary>
-        /// The identifier for the solution-specific component that generated a finding. 
+        /// The identifier for the solution-specific component that generated a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> GeneratorId
@@ -164,7 +164,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _id;
 
         /// <summary>
-        /// The product-specific identifier for a finding. 
+        /// The product-specific identifier for a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> Id
@@ -177,7 +177,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _lastObservedAt;
 
         /// <summary>
-        /// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding. 
+        /// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
         ///  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
@@ -191,7 +191,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _noteText;
 
         /// <summary>
-        /// The text of a user-defined note that's added to a finding. 
+        /// The text of a user-defined note that's added to a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> NoteText
@@ -218,7 +218,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _noteUpdatedBy;
 
         /// <summary>
-        /// The principal that created a note. 
+        /// The principal that created a note.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> NoteUpdatedBy
@@ -231,7 +231,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _productArn;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM. 
+        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ProductArn
@@ -244,7 +244,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _productName;
 
         /// <summary>
-        /// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM. 
+        /// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ProductName
@@ -257,7 +257,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _recordState;
 
         /// <summary>
-        /// Provides the current state of a finding. 
+        /// Provides the current state of a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> RecordState
@@ -270,7 +270,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _relatedFindingsId;
 
         /// <summary>
-        /// The product-generated identifier for a related finding. 
+        /// The product-generated identifier for a related finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> RelatedFindingsId
@@ -283,7 +283,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _relatedFindingsProductArn;
 
         /// <summary>
-        /// The ARN for the product that generated a related finding. 
+        /// The ARN for the product that generated a related finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> RelatedFindingsProductArn
@@ -296,7 +296,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleMapFilterArgs>? _resourceDetailsOther;
 
         /// <summary>
-        /// Custom fields and values about the resource that a finding pertains to. 
+        /// Custom fields and values about the resource that a finding pertains to.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleMapFilterArgs> ResourceDetailsOther
@@ -309,7 +309,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _resourceId;
 
         /// <summary>
-        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. 
+        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource.
         ///   Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ResourceId
@@ -322,7 +322,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _resourcePartition;
 
         /// <summary>
-        /// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition. 
+        /// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ResourcePartition
@@ -335,7 +335,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _resourceRegion;
 
         /// <summary>
-        /// The AWS-Region where the resource that a finding pertains to is located. 
+        /// The AWS-Region where the resource that a finding pertains to is located.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ResourceRegion
@@ -348,7 +348,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleMapFilterArgs>? _resourceTags;
 
         /// <summary>
-        /// A list of AWS tags associated with a resource at the time the finding was processed. 
+        /// A list of AWS tags associated with a resource at the time the finding was processed.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleMapFilterArgs> ResourceTags
@@ -361,7 +361,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _resourceType;
 
         /// <summary>
-        /// A finding's title. 
+        /// A finding's title.
         ///   Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> ResourceType
@@ -374,7 +374,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _severityLabel;
 
         /// <summary>
-        /// The severity value of the finding. 
+        /// The severity value of the finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> SeverityLabel
@@ -387,7 +387,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _sourceUrl;
 
         /// <summary>
-        /// Provides a URL that links to a page about the current finding in the finding product. 
+        /// Provides a URL that links to a page about the current finding in the finding product.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> SourceUrl
@@ -400,7 +400,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _title;
 
         /// <summary>
-        /// A finding's title. 
+        /// A finding's title.
         ///   Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> Title
@@ -426,7 +426,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _updatedAt;
 
         /// <summary>
-        /// A timestamp that indicates when the finding record was most recently updated. 
+        /// A timestamp that indicates when the finding record was most recently updated.
         ///  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
@@ -440,7 +440,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleMapFilterArgs>? _userDefinedFields;
 
         /// <summary>
-        /// A list of user-defined name and value string pairs added to a finding. 
+        /// A list of user-defined name and value string pairs added to a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleMapFilterArgs> UserDefinedFields
@@ -453,7 +453,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _verificationState;
 
         /// <summary>
-        /// Provides the veracity of a finding. 
+        /// Provides the veracity of a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> VerificationState
@@ -466,7 +466,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _workflowStatus;
 
         /// <summary>
-        /// Provides information about the status of the investigation into a finding. 
+        /// Provides information about the status of the investigation into a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> WorkflowStatus

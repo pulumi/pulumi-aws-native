@@ -181,13 +181,13 @@ class GameSessionQueue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict']]]]] = None,
-                 filter_configuration: pulumi.Input[Optional[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict']]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict', 'outputs.GameSessionQueueDestination']]]]] = None,
+                 filter_configuration: pulumi.Input[Optional[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict', 'outputs.GameSessionQueueFilterConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_target: pulumi.Input[Optional[_builtins.str]] = None,
-                 player_latency_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict']]]]] = None,
-                 priority_configuration: pulumi.Input[Optional[Union['GameSessionQueuePriorityConfigurationArgs', 'GameSessionQueuePriorityConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 player_latency_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict', 'outputs.GameSessionQueuePlayerLatencyPolicy']]]]] = None,
+                 priority_configuration: pulumi.Input[Optional[Union['GameSessionQueuePriorityConfigurationArgs', 'GameSessionQueuePriorityConfigurationArgsDict', 'outputs.GameSessionQueuePriorityConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -280,13 +280,13 @@ class GameSessionQueue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_event_data: Information that is added to all events that are related to this game session queue.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict']]]] destinations: A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
-        :param pulumi.Input[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict']] filter_configuration: A list of locations where a queue is allowed to place new game sessions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict', 'outputs.GameSessionQueueDestination']]]] destinations: A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+        :param pulumi.Input[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict', 'outputs.GameSessionQueueFilterConfiguration']] filter_configuration: A list of locations where a queue is allowed to place new game sessions.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
         :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict']]]] player_latency_policies: A set of policies that act as a sliding cap on player latency.
-        :param pulumi.Input[Union['GameSessionQueuePriorityConfigurationArgs', 'GameSessionQueuePriorityConfigurationArgsDict']] priority_configuration: Custom settings to use when prioritizing destinations and locations for game session placements.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict', 'outputs.GameSessionQueuePlayerLatencyPolicy']]]] player_latency_policies: A set of policies that act as a sliding cap on player latency.
+        :param pulumi.Input[Union['GameSessionQueuePriorityConfigurationArgs', 'GameSessionQueuePriorityConfigurationArgsDict', 'outputs.GameSessionQueuePriorityConfiguration']] priority_configuration: Custom settings to use when prioritizing destinations and locations for game session placements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.int] timeout_in_seconds: The maximum time, in seconds, that a new game session placement request remains in the queue.
         """
         ...
@@ -398,13 +398,13 @@ class GameSessionQueue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict']]]]] = None,
-                 filter_configuration: pulumi.Input[Optional[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict']]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict', 'outputs.GameSessionQueueDestination']]]]] = None,
+                 filter_configuration: pulumi.Input[Optional[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict', 'outputs.GameSessionQueueFilterConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_target: pulumi.Input[Optional[_builtins.str]] = None,
-                 player_latency_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict']]]]] = None,
-                 priority_configuration: pulumi.Input[Optional[Union['GameSessionQueuePriorityConfigurationArgs', 'GameSessionQueuePriorityConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 player_latency_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict', 'outputs.GameSessionQueuePlayerLatencyPolicy']]]]] = None,
+                 priority_configuration: pulumi.Input[Optional[Union['GameSessionQueuePriorityConfigurationArgs', 'GameSessionQueuePriorityConfigurationArgsDict', 'outputs.GameSessionQueuePriorityConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

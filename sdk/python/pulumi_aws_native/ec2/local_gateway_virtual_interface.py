@@ -162,7 +162,7 @@ class LocalGatewayVirtualInterface(pulumi.CustomResource):
                  peer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
                  peer_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -176,7 +176,7 @@ class LocalGatewayVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] peer_address: The peer address.
         :param pulumi.Input[_builtins.int] peer_bgp_asn: The peer BGP ASN.
         :param pulumi.Input[_builtins.int] peer_bgp_asn_extended: The extended 32-bit ASN of the BGP peer for use with larger ASN values.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.int] vlan: The ID of the VLAN.
         """
         ...
@@ -209,7 +209,7 @@ class LocalGatewayVirtualInterface(pulumi.CustomResource):
                  peer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
                  peer_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

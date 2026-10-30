@@ -40,7 +40,6 @@ namespace Pulumi.AwsNative.Configuration.Outputs
         /// &gt; Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
         /// &gt; 
         /// &gt; IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
-        /// &gt; 
         /// &gt; - Asia Pacific (Hyderabad)
         /// &gt; - Asia Pacific (Melbourne)
         /// &gt; - Canada West (Calgary)

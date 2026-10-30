@@ -162,28 +162,28 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 checkpoint_version: pulumi.Input[Optional[Union['SchemaVersionArgs', 'SchemaVersionArgsDict']]] = None,
+                 checkpoint_version: pulumi.Input[Optional[Union['SchemaVersionArgs', 'SchemaVersionArgsDict', 'outputs.SchemaVersion']]] = None,
                  compatibility: pulumi.Input[Optional['SchemaCompatibility']] = None,
                  data_format: pulumi.Input[Optional['SchemaDataFormat']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 registry: pulumi.Input[Optional[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict']]] = None,
+                 registry: pulumi.Input[Optional[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict', 'outputs.SchemaRegistry']]] = None,
                  schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         This resource represents a schema of Glue Schema Registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SchemaVersionArgs', 'SchemaVersionArgsDict']] checkpoint_version: Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
+        :param pulumi.Input[Union['SchemaVersionArgs', 'SchemaVersionArgsDict', 'outputs.SchemaVersion']] checkpoint_version: Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
         :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
         :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
         :param pulumi.Input[_builtins.str] description: A description of the schema. If description is not provided, there will not be any default value for this.
         :param pulumi.Input[_builtins.str] name: Name of the schema.
-        :param pulumi.Input[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict']] registry: The registry where a schema is stored.
+        :param pulumi.Input[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict', 'outputs.SchemaRegistry']] registry: The registry where a schema is stored.
         :param pulumi.Input[_builtins.str] schema_definition: Definition for the initial schema version in plain-text.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: List of tags to tag the schema
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: List of tags to tag the schema
         """
         ...
     @overload
@@ -209,14 +209,14 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 checkpoint_version: pulumi.Input[Optional[Union['SchemaVersionArgs', 'SchemaVersionArgsDict']]] = None,
+                 checkpoint_version: pulumi.Input[Optional[Union['SchemaVersionArgs', 'SchemaVersionArgsDict', 'outputs.SchemaVersion']]] = None,
                  compatibility: pulumi.Input[Optional['SchemaCompatibility']] = None,
                  data_format: pulumi.Input[Optional['SchemaDataFormat']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 registry: pulumi.Input[Optional[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict']]] = None,
+                 registry: pulumi.Input[Optional[Union['SchemaRegistryArgs', 'SchemaRegistryArgsDict', 'outputs.SchemaRegistry']]] = None,
                  schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -452,7 +452,7 @@ class Server(pulumi.CustomResource):
                  custom_private_key: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_automated_backup: pulumi.Input[Optional[_builtins.bool]] = None,
                  engine: pulumi.Input[Optional[_builtins.str]] = None,
-                 engine_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]]] = None,
+                 engine_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict', 'outputs.ServerEngineAttribute']]]]] = None,
                  engine_model: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -464,7 +464,7 @@ class Server(pulumi.CustomResource):
                  server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::OpsWorksCM::Server
@@ -534,7 +534,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_private_key: Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` .
         :param pulumi.Input[_builtins.bool] disable_automated_backup: Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
         :param pulumi.Input[_builtins.str] engine: The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]] engine_attributes: Optional engine attributes on a specified server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict', 'outputs.ServerEngineAttribute']]]] engine_attributes: Optional engine attributes on a specified server.
                
                **Attributes accepted in a Chef createServer request:** - `CHEF_AUTOMATE_PIVOTAL_KEY` : A base64-encoded RSA public key. The corresponding private key is required to access the Chef API. When no CHEF_AUTOMATE_PIVOTAL_KEY is set, a private key is generated and returned in the response. When you are specifying the value of CHEF_AUTOMATE_PIVOTAL_KEY as a parameter in the CloudFormation console, you must add newline ( `\\n` ) characters at the end of each line of the pivotal key value.
                - `CHEF_AUTOMATE_ADMIN_PASSWORD` : The password for the administrative user in the Chef Automate web-based dashboard. The password length is a minimum of eight characters, and a maximum of 32. The password can contain letters, numbers, and special characters (!/@#$%^&+=_). The password must contain at least one lower case letter, one upper case letter, one number, and one special character. When no CHEF_AUTOMATE_ADMIN_PASSWORD is set, one is generated and returned in the response.
@@ -572,7 +572,7 @@ class Server(pulumi.CustomResource):
                EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.
                
                For more information about supported Amazon EC2 platforms, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
                
                - The key cannot be empty.
                - The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : / @`
@@ -661,7 +661,7 @@ class Server(pulumi.CustomResource):
                  custom_private_key: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_automated_backup: pulumi.Input[Optional[_builtins.bool]] = None,
                  engine: pulumi.Input[Optional[_builtins.str]] = None,
-                 engine_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict']]]]] = None,
+                 engine_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerEngineAttributeArgs', 'ServerEngineAttributeArgsDict', 'outputs.ServerEngineAttribute']]]]] = None,
                  engine_model: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -673,7 +673,7 @@ class Server(pulumi.CustomResource):
                  server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

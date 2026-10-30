@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         private InputList<string>? _fieldNames;
 
         /// <summary>
-        /// The reference for the key name of the fields map. 
+        /// The reference for the key name of the fields map.
         /// </summary>
         public InputList<string> FieldNames
         {

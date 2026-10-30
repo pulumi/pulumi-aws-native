@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.AppSync.Outputs
         /// </summary>
         public readonly double? IatTtl;
         /// <summary>
-        /// The issuer for the OIDC configuration. 
+        /// The issuer for the OIDC configuration.
         /// </summary>
         public readonly string? Issuer;
 

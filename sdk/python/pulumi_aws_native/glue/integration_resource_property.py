@@ -99,9 +99,9 @@ class IntegrationResourceProperty(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_processing_properties: pulumi.Input[Optional[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_processing_properties: pulumi.Input[Optional[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict']]] = None,
+                 source_processing_properties: pulumi.Input[Optional[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict', 'outputs.SourceProcessingPropertiesProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 target_processing_properties: pulumi.Input[Optional[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict', 'outputs.TargetProcessingPropertiesProperties']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::IntegrationResourceProperty
@@ -109,9 +109,9 @@ class IntegrationResourceProperty(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_arn: The connection ARN of the source, or the database ARN of the target.
-        :param pulumi.Input[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict']] source_processing_properties: The resource properties associated with the integration source.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict']] target_processing_properties: The resource properties associated with the integration target.
+        :param pulumi.Input[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict', 'outputs.SourceProcessingPropertiesProperties']] source_processing_properties: The resource properties associated with the integration source.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict', 'outputs.TargetProcessingPropertiesProperties']] target_processing_properties: The resource properties associated with the integration target.
         """
         ...
     @overload
@@ -138,9 +138,9 @@ class IntegrationResourceProperty(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_processing_properties: pulumi.Input[Optional[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_processing_properties: pulumi.Input[Optional[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict']]] = None,
+                 source_processing_properties: pulumi.Input[Optional[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict', 'outputs.SourceProcessingPropertiesProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 target_processing_properties: pulumi.Input[Optional[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict', 'outputs.TargetProcessingPropertiesProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

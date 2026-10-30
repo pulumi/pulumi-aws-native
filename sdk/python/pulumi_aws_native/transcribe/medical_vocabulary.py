@@ -98,7 +98,7 @@ class MedicalVocabulary(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  language_code: pulumi.Input[Optional['MedicalVocabularyLanguageCode']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vocabulary_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  vocabulary_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -108,7 +108,7 @@ class MedicalVocabulary(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['MedicalVocabularyLanguageCode'] language_code: The language code of the vocabulary entries.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the medical vocabulary.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the medical vocabulary.
         :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location of the text file that contains the medical vocabulary.
         :param pulumi.Input[_builtins.str] vocabulary_name: The name of the medical vocabulary.
         """
@@ -137,7 +137,7 @@ class MedicalVocabulary(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  language_code: pulumi.Input[Optional['MedicalVocabularyLanguageCode']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vocabulary_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  vocabulary_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

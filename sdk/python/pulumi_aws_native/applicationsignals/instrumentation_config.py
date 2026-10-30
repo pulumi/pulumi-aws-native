@@ -191,15 +191,15 @@ class InstrumentationConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attribute_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-                 capture_configuration: pulumi.Input[Optional[Union['CaptureConfigurationPropertiesArgs', 'CaptureConfigurationPropertiesArgsDict']]] = None,
+                 capture_configuration: pulumi.Input[Optional[Union['CaptureConfigurationPropertiesArgs', 'CaptureConfigurationPropertiesArgsDict', 'outputs.CaptureConfigurationProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  instrumentation_type: pulumi.Input[Optional['InstrumentationConfigInstrumentationType']] = None,
-                 location: pulumi.Input[Optional[Union['LocationPropertiesArgs', 'LocationPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['LocationPropertiesArgs', 'LocationPropertiesArgsDict', 'outputs.LocationProperties']]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
                  signal_type: pulumi.Input[Optional['InstrumentationConfigSignalType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates a dynamic instrumentation configuration for a specific code or endpoint location within a service and environment.
@@ -207,15 +207,15 @@ class InstrumentationConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] attribute_filters: Client-side filters that target specific instances. Each object is AND-matched on keys, multiple objects are OR-matched.
-        :param pulumi.Input[Union['CaptureConfigurationPropertiesArgs', 'CaptureConfigurationPropertiesArgsDict']] capture_configuration: Specifies what to capture when the instrumentation point is hit.
+        :param pulumi.Input[Union['CaptureConfigurationPropertiesArgs', 'CaptureConfigurationPropertiesArgsDict', 'outputs.CaptureConfigurationProperties']] capture_configuration: Specifies what to capture when the instrumentation point is hit.
         :param pulumi.Input[_builtins.str] description: An optional short description that explains the purpose of this instrumentation.
         :param pulumi.Input[_builtins.str] environment: The environment that the service is running in.
         :param pulumi.Input[_builtins.str] expires_at: The timestamp after which this configuration is no longer served. For BREAKPOINT only; defaults to 24 hours.
         :param pulumi.Input['InstrumentationConfigInstrumentationType'] instrumentation_type: Type of instrumentation: BREAKPOINT (temporary, expires after 24 hours) or PROBE (permanent, persists until deleted).
-        :param pulumi.Input[Union['LocationPropertiesArgs', 'LocationPropertiesArgsDict']] location: The location where instrumentation should be applied.
+        :param pulumi.Input[Union['LocationPropertiesArgs', 'LocationPropertiesArgsDict', 'outputs.LocationProperties']] location: The location where instrumentation should be applied.
         :param pulumi.Input[_builtins.str] service: The name of the service to instrument. This should match the service.name resource attribute reported by the application.
         :param pulumi.Input['InstrumentationConfigSignalType'] signal_type: The telemetry signal type to emit for this instrumentation. The supported value is SNAPSHOT.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional list of key-value pairs to associate with the instrumentation configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An optional list of key-value pairs to associate with the instrumentation configuration.
         """
         ...
     @overload
@@ -242,15 +242,15 @@ class InstrumentationConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attribute_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-                 capture_configuration: pulumi.Input[Optional[Union['CaptureConfigurationPropertiesArgs', 'CaptureConfigurationPropertiesArgsDict']]] = None,
+                 capture_configuration: pulumi.Input[Optional[Union['CaptureConfigurationPropertiesArgs', 'CaptureConfigurationPropertiesArgsDict', 'outputs.CaptureConfigurationProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  instrumentation_type: pulumi.Input[Optional['InstrumentationConfigInstrumentationType']] = None,
-                 location: pulumi.Input[Optional[Union['LocationPropertiesArgs', 'LocationPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['LocationPropertiesArgs', 'LocationPropertiesArgsDict', 'outputs.LocationProperties']]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
                  signal_type: pulumi.Input[Optional['InstrumentationConfigSignalType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

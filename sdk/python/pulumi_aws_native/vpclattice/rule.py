@@ -149,28 +149,28 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['RuleActionArgs', 'RuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['RuleActionArgs', 'RuleActionArgsDict', 'outputs.RuleAction']]] = None,
                  listener_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 match: pulumi.Input[Optional[Union['RuleMatchArgs', 'RuleMatchArgsDict']]] = None,
+                 match: pulumi.Input[Optional[Union['RuleMatchArgs', 'RuleMatchArgsDict', 'outputs.RuleMatch']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RuleActionArgs', 'RuleActionArgsDict']] action: Describes the action for a rule.
+        :param pulumi.Input[Union['RuleActionArgs', 'RuleActionArgsDict', 'outputs.RuleAction']] action: Describes the action for a rule.
         :param pulumi.Input[_builtins.str] listener_identifier: The ID or ARN of the listener.
-        :param pulumi.Input[Union['RuleMatchArgs', 'RuleMatchArgsDict']] match: The rule match.
+        :param pulumi.Input[Union['RuleMatchArgs', 'RuleMatchArgsDict', 'outputs.RuleMatch']] match: The rule match.
         :param pulumi.Input[_builtins.str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
         :param pulumi.Input[_builtins.int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         :param pulumi.Input[_builtins.str] service_identifier: The ID or ARN of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the rule.
         """
         ...
     @overload
@@ -196,13 +196,13 @@ class Rule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['RuleActionArgs', 'RuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['RuleActionArgs', 'RuleActionArgsDict', 'outputs.RuleAction']]] = None,
                  listener_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 match: pulumi.Input[Optional[Union['RuleMatchArgs', 'RuleMatchArgsDict']]] = None,
+                 match: pulumi.Input[Optional[Union['RuleMatchArgs', 'RuleMatchArgsDict', 'outputs.RuleMatch']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

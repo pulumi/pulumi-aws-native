@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// 
         /// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
         /// 
-        /// &gt; If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` . 
+        /// &gt; If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
         /// 
         /// Default: All instance types
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// - For instance types with AWS CPUs, specify `amazon-web-services` .
         /// - For instance types with Apple CPUs, specify `apple` .
         /// 
-        /// &gt; Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+        /// &gt; Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
         /// 
         /// Default: Any manufacturer
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// 
         /// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
         /// 
-        /// &gt; If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` . 
+        /// &gt; If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
         /// 
         /// Default: No excluded instance types
         /// </summary>
@@ -213,7 +213,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// 
         /// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
         /// 
-        /// &gt; If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
+        /// &gt; If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
         /// 
         /// Default: `20`
         /// </summary>
@@ -241,7 +241,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// 
         /// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
         /// 
-        /// &gt; Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` . 
+        /// &gt; Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
         /// 
         /// Default: `100`
         /// </summary>

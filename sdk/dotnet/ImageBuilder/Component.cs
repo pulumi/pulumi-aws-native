@@ -270,7 +270,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the component denotes whether the component is used to build the image or only to test it. 
+        /// The type of the component denotes whether the component is used to build the image or only to test it.
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.ImageBuilder.ComponentType> Type { get; private set; } = null!;

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AmazonMq.Inputs
     public sealed class BrokerEncryptionOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The customer master key (CMK) to use for the A KMS (KMS). 
+        /// The customer master key (CMK) to use for the A KMS (KMS).
         /// This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
         /// The Key ARN is recommended so that drift can be detected,
         /// but a key ID or key alias will also be accepted for API compatibility reasons.

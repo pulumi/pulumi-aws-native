@@ -181,9 +181,9 @@ class WebFunctionEndpoint(pulumi.CustomResource):
                  endpoint_type: pulumi.Input[Optional['WebFunctionEndpointEndpointType']] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 revision_weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebFunctionEndpointRevisionWeightArgs', 'WebFunctionEndpointRevisionWeightArgsDict']]]]] = None,
-                 scaling_config: pulumi.Input[Optional[Union['WebFunctionEndpointScalingConfigArgs', 'WebFunctionEndpointScalingConfigArgsDict']]] = None,
-                 throttle_config: pulumi.Input[Optional[Union['WebFunctionEndpointThrottleConfigArgs', 'WebFunctionEndpointThrottleConfigArgsDict']]] = None,
+                 revision_weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebFunctionEndpointRevisionWeightArgs', 'WebFunctionEndpointRevisionWeightArgsDict', 'outputs.WebFunctionEndpointRevisionWeight']]]]] = None,
+                 scaling_config: pulumi.Input[Optional[Union['WebFunctionEndpointScalingConfigArgs', 'WebFunctionEndpointScalingConfigArgsDict', 'outputs.WebFunctionEndpointScalingConfig']]] = None,
+                 throttle_config: pulumi.Input[Optional[Union['WebFunctionEndpointThrottleConfigArgs', 'WebFunctionEndpointThrottleConfigArgsDict', 'outputs.WebFunctionEndpointThrottleConfig']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::WebFunctionEndpoint. An endpoint exposes a Lambda web function over HTTPS and routes traffic to one or more revisions. The endpoint type determines how traffic is served and routed across Regions.
@@ -196,9 +196,9 @@ class WebFunctionEndpoint(pulumi.CustomResource):
         :param pulumi.Input['WebFunctionEndpointEndpointType'] endpoint_type: The type of the endpoint.
         :param pulumi.Input[_builtins.str] function_name: The name of the web function this endpoint belongs to. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of AWS Regions for the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebFunctionEndpointRevisionWeightArgs', 'WebFunctionEndpointRevisionWeightArgsDict']]]] revision_weights: List of revision routing entries. 1 or 2 entries. With 1 entry, weight must be 100. With 2 entries, weights must sum to 100.
-        :param pulumi.Input[Union['WebFunctionEndpointScalingConfigArgs', 'WebFunctionEndpointScalingConfigArgsDict']] scaling_config: The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
-        :param pulumi.Input[Union['WebFunctionEndpointThrottleConfigArgs', 'WebFunctionEndpointThrottleConfigArgsDict']] throttle_config: The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebFunctionEndpointRevisionWeightArgs', 'WebFunctionEndpointRevisionWeightArgsDict', 'outputs.WebFunctionEndpointRevisionWeight']]]] revision_weights: List of revision routing entries. 1 or 2 entries. With 1 entry, weight must be 100. With 2 entries, weights must sum to 100.
+        :param pulumi.Input[Union['WebFunctionEndpointScalingConfigArgs', 'WebFunctionEndpointScalingConfigArgsDict', 'outputs.WebFunctionEndpointScalingConfig']] scaling_config: The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+        :param pulumi.Input[Union['WebFunctionEndpointThrottleConfigArgs', 'WebFunctionEndpointThrottleConfigArgsDict', 'outputs.WebFunctionEndpointThrottleConfig']] throttle_config: The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
         """
         ...
     @overload
@@ -230,9 +230,9 @@ class WebFunctionEndpoint(pulumi.CustomResource):
                  endpoint_type: pulumi.Input[Optional['WebFunctionEndpointEndpointType']] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 revision_weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebFunctionEndpointRevisionWeightArgs', 'WebFunctionEndpointRevisionWeightArgsDict']]]]] = None,
-                 scaling_config: pulumi.Input[Optional[Union['WebFunctionEndpointScalingConfigArgs', 'WebFunctionEndpointScalingConfigArgsDict']]] = None,
-                 throttle_config: pulumi.Input[Optional[Union['WebFunctionEndpointThrottleConfigArgs', 'WebFunctionEndpointThrottleConfigArgsDict']]] = None,
+                 revision_weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebFunctionEndpointRevisionWeightArgs', 'WebFunctionEndpointRevisionWeightArgsDict', 'outputs.WebFunctionEndpointRevisionWeight']]]]] = None,
+                 scaling_config: pulumi.Input[Optional[Union['WebFunctionEndpointScalingConfigArgs', 'WebFunctionEndpointScalingConfigArgsDict', 'outputs.WebFunctionEndpointScalingConfig']]] = None,
+                 throttle_config: pulumi.Input[Optional[Union['WebFunctionEndpointThrottleConfigArgs', 'WebFunctionEndpointThrottleConfigArgsDict', 'outputs.WebFunctionEndpointThrottleConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

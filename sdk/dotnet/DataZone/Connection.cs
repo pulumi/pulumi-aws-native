@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the project in which the connection should be created. If 
+        /// The identifier of the project in which the connection should be created. If
         /// </summary>
         [Output("projectIdentifier")]
         public Output<string?> ProjectIdentifier { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.AwsNative.DataZone
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The identifier of the project in which the connection should be created. If 
+        /// The identifier of the project in which the connection should be created. If
         /// </summary>
         [Input("projectIdentifier")]
         public Input<string>? ProjectIdentifier { get; set; }

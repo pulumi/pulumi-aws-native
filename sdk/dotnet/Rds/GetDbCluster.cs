@@ -16,18 +16,18 @@ namespace Pulumi.AwsNative.Rds
         ///  For more information about creating an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
         ///  For more information about creating a Multi-AZ DB cluster, see [Creating a Multi-AZ DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html) in the *Amazon RDS User Guide*.
         ///   You can only create this resource in AWS Regions where Amazon Aurora or Multi-AZ DB clusters are supported.
-        ///    *Updating DB clusters* 
+        ///    *Updating DB clusters*
         ///  When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster.
         ///   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB cluster. To preserve your data, perform the following procedure:
         ///   1.  Deactivate any applications that are using the DB cluster so that there's no activity on the DB instance.
-        ///   1.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
-        ///   1.  If you want to restore your DB cluster using a DB cluster snapshot, modify the updated template with your DB cluster changes and add the ``SnapshotIdentifier`` property with the ID of the DB cluster snapshot that you want to use.
-        ///  After you restore a DB cluster with a ``SnapshotIdentifier`` property, you must specify the same ``SnapshotIdentifier`` property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the DB cluster snapshot again, and the data in the database is not changed. However, if you don't specify the ``SnapshotIdentifier`` property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified ``SnapshotIdentifier`` property, and the original DB cluster is deleted.
-        ///   1.  Update the stack.
-        ///   
+        ///   2.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
+        ///   3.  If you want to restore your DB cluster using a DB cluster snapshot, modify the updated template with your DB cluster changes and add the ``SnapshotIdentifier`` property with the ID of the DB cluster snapshot that you want to use.
+        ///        After you restore a DB cluster with a ``SnapshotIdentifier`` property, you must specify the same ``SnapshotIdentifier`` property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the DB cluster snapshot again, and the data in the database is not changed. However, if you don't specify the ``SnapshotIdentifier`` property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified ``SnapshotIdentifier`` property, and the original DB cluster is deleted.
+        ///   4.  Update the stack.
+        /// 
         ///   Currently, when you are updating the stack for an Aurora Serverless DB cluster, you can't include changes to any other properties when you specify one of the following properties: ``PreferredBackupWindow``, ``PreferredMaintenanceWindow``, and ``Port``. This limitation doesn't apply to provisioned DB clusters.
         ///  For more information about updating other properties of this resource, see ``ModifyDBCluster``. For more information about updating stacks, see [CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
-        ///   *Deleting DB clusters* 
+        ///   *Deleting DB clusters*
         ///  The default ``DeletionPolicy`` for ``AWS::RDS::DBCluster`` resources is ``Snapshot``. For more information about how AWS CloudFormation deletes resources, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
         /// </summary>
         public static Task<GetDbClusterResult> InvokeAsync(GetDbClusterArgs args, InvokeOptions? options = null)
@@ -38,18 +38,18 @@ namespace Pulumi.AwsNative.Rds
         ///  For more information about creating an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
         ///  For more information about creating a Multi-AZ DB cluster, see [Creating a Multi-AZ DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html) in the *Amazon RDS User Guide*.
         ///   You can only create this resource in AWS Regions where Amazon Aurora or Multi-AZ DB clusters are supported.
-        ///    *Updating DB clusters* 
+        ///    *Updating DB clusters*
         ///  When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster.
         ///   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB cluster. To preserve your data, perform the following procedure:
         ///   1.  Deactivate any applications that are using the DB cluster so that there's no activity on the DB instance.
-        ///   1.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
-        ///   1.  If you want to restore your DB cluster using a DB cluster snapshot, modify the updated template with your DB cluster changes and add the ``SnapshotIdentifier`` property with the ID of the DB cluster snapshot that you want to use.
-        ///  After you restore a DB cluster with a ``SnapshotIdentifier`` property, you must specify the same ``SnapshotIdentifier`` property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the DB cluster snapshot again, and the data in the database is not changed. However, if you don't specify the ``SnapshotIdentifier`` property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified ``SnapshotIdentifier`` property, and the original DB cluster is deleted.
-        ///   1.  Update the stack.
-        ///   
+        ///   2.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
+        ///   3.  If you want to restore your DB cluster using a DB cluster snapshot, modify the updated template with your DB cluster changes and add the ``SnapshotIdentifier`` property with the ID of the DB cluster snapshot that you want to use.
+        ///        After you restore a DB cluster with a ``SnapshotIdentifier`` property, you must specify the same ``SnapshotIdentifier`` property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the DB cluster snapshot again, and the data in the database is not changed. However, if you don't specify the ``SnapshotIdentifier`` property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified ``SnapshotIdentifier`` property, and the original DB cluster is deleted.
+        ///   4.  Update the stack.
+        /// 
         ///   Currently, when you are updating the stack for an Aurora Serverless DB cluster, you can't include changes to any other properties when you specify one of the following properties: ``PreferredBackupWindow``, ``PreferredMaintenanceWindow``, and ``Port``. This limitation doesn't apply to provisioned DB clusters.
         ///  For more information about updating other properties of this resource, see ``ModifyDBCluster``. For more information about updating stacks, see [CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
-        ///   *Deleting DB clusters* 
+        ///   *Deleting DB clusters*
         ///  The default ``DeletionPolicy`` for ``AWS::RDS::DBCluster`` resources is ``Snapshot``. For more information about how AWS CloudFormation deletes resources, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
         /// </summary>
         public static Output<GetDbClusterResult> Invoke(GetDbClusterInvokeArgs args, InvokeOptions? options = null)
@@ -60,18 +60,18 @@ namespace Pulumi.AwsNative.Rds
         ///  For more information about creating an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
         ///  For more information about creating a Multi-AZ DB cluster, see [Creating a Multi-AZ DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html) in the *Amazon RDS User Guide*.
         ///   You can only create this resource in AWS Regions where Amazon Aurora or Multi-AZ DB clusters are supported.
-        ///    *Updating DB clusters* 
+        ///    *Updating DB clusters*
         ///  When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster.
         ///   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB cluster. To preserve your data, perform the following procedure:
         ///   1.  Deactivate any applications that are using the DB cluster so that there's no activity on the DB instance.
-        ///   1.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
-        ///   1.  If you want to restore your DB cluster using a DB cluster snapshot, modify the updated template with your DB cluster changes and add the ``SnapshotIdentifier`` property with the ID of the DB cluster snapshot that you want to use.
-        ///  After you restore a DB cluster with a ``SnapshotIdentifier`` property, you must specify the same ``SnapshotIdentifier`` property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the DB cluster snapshot again, and the data in the database is not changed. However, if you don't specify the ``SnapshotIdentifier`` property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified ``SnapshotIdentifier`` property, and the original DB cluster is deleted.
-        ///   1.  Update the stack.
-        ///   
+        ///   2.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
+        ///   3.  If you want to restore your DB cluster using a DB cluster snapshot, modify the updated template with your DB cluster changes and add the ``SnapshotIdentifier`` property with the ID of the DB cluster snapshot that you want to use.
+        ///        After you restore a DB cluster with a ``SnapshotIdentifier`` property, you must specify the same ``SnapshotIdentifier`` property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the DB cluster snapshot again, and the data in the database is not changed. However, if you don't specify the ``SnapshotIdentifier`` property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified ``SnapshotIdentifier`` property, and the original DB cluster is deleted.
+        ///   4.  Update the stack.
+        /// 
         ///   Currently, when you are updating the stack for an Aurora Serverless DB cluster, you can't include changes to any other properties when you specify one of the following properties: ``PreferredBackupWindow``, ``PreferredMaintenanceWindow``, and ``Port``. This limitation doesn't apply to provisioned DB clusters.
         ///  For more information about updating other properties of this resource, see ``ModifyDBCluster``. For more information about updating stacks, see [CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
-        ///   *Deleting DB clusters* 
+        ///   *Deleting DB clusters*
         ///  The default ``DeletionPolicy`` for ``AWS::RDS::DBCluster`` resources is ``Snapshot``. For more information about how AWS CloudFormation deletes resources, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
         /// </summary>
         public static Output<GetDbClusterResult> Invoke(GetDbClusterInvokeArgs args, InvokeOutputOptions options)
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must contain from 1 to 63 letters, numbers, or hyphens.
         ///   +  First character must be a letter.
         ///   +  Can't end with a hyphen or contain two consecutive hyphens.
-        ///   
+        /// 
         ///  Example: ``my-cluster1``
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must contain from 1 to 63 letters, numbers, or hyphens.
         ///   +  First character must be a letter.
         ///   +  Can't end with a hyphen or contain two consecutive hyphens.
-        ///   
+        /// 
         ///  Example: ``my-cluster1``
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? AutoMinorVersionUpgrade;
         /// <summary>
-        /// A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*. 
+        /// A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*.
         ///  Valid for: Aurora DB clusters only
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
@@ -160,7 +160,7 @@ namespace Pulumi.AwsNative.Rds
         ///  Default: 1
         ///  Constraints:
         ///   +  Must be a value from 1 to 35
-        ///   
+        /// 
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
         public readonly int? BackupRetentionPeriod;
@@ -191,7 +191,7 @@ namespace Pulumi.AwsNative.Rds
         ///   If you apply a parameter group to an existing DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
         ///  If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
         ///   To list all of the available DB cluster parameter group names, use the following command:
-        ///   ``aws rds describe-db-cluster-parameter-groups --query "DBClusterParameterGroups[].DBClusterParameterGroupName" --output text`` 
+        ///   ``aws rds describe-db-cluster-parameter-groups --query "DBClusterParameterGroups[].DBClusterParameterGroupName" --output text``
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
         public readonly string? DbClusterParameterGroupName;
@@ -218,9 +218,9 @@ namespace Pulumi.AwsNative.Rds
         public readonly string? DomainIamRoleName;
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Aurora User Guide*.
-        ///   *Aurora MySQL* 
+        ///   *Aurora MySQL*
         ///  Valid values: ``audit``, ``error``, ``general``, ``slowquery``
-        ///   *Aurora PostgreSQL* 
+        ///   *Aurora PostgreSQL*
         ///  Valid values: ``postgresql``
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
@@ -253,11 +253,11 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The name of the database engine to be used for this DB cluster.
         ///  Valid Values:
-        ///   +   ``aurora-mysql`` 
-        ///   +   ``aurora-postgresql`` 
-        ///   +   ``mysql`` 
-        ///   +   ``postgres`` 
-        ///   
+        ///   +   ``aurora-mysql``
+        ///   +   ``aurora-postgresql``
+        ///   +   ``mysql``
+        ///   +   ``postgres``
+        /// 
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
         public readonly string? Engine;
@@ -267,7 +267,7 @@ namespace Pulumi.AwsNative.Rds
         ///   You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
         ///   +  Amazon Aurora - [Amazon RDS Extended Support with Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*
         ///   +  Amazon RDS - [Amazon RDS Extended Support with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*
-        ///   
+        /// 
         ///  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         ///  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
         ///  Default: ``open-source-rds-extended-support``
@@ -277,28 +277,28 @@ namespace Pulumi.AwsNative.Rds
         /// The version number of the database engine to use.
         ///   Don't use this property if your DB cluster is a member of a global database cluster. Instead, specify the ``EngineVersion`` property on the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. Major version upgrades aren't supported for individual members of a global cluster. Use ``ModifyGlobalCluster`` to upgrade all members of the global cluster.
         ///   To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
-        ///   ``aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"`` 
+        ///   ``aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"``
         ///  You can supply either ``5.7`` or ``8.0`` to use the default engine version for Aurora MySQL version 2 or version 3, respectively.
         ///  To list all of the available engine versions for Aurora PostgreSQL, use the following command:
-        ///   ``aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"`` 
+        ///   ``aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"``
         ///  To list all of the available engine versions for RDS for MySQL, use the following command:
-        ///   ``aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"`` 
+        ///   ``aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"``
         ///  To list all of the available engine versions for RDS for PostgreSQL, use the following command:
-        ///   ``aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"`` 
-        ///   *Aurora MySQL* 
+        ///   ``aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"``
+        ///   *Aurora MySQL*
         ///  For information, see [Database engine updates for Amazon Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) in the *Amazon Aurora User Guide*.
-        ///   *Aurora PostgreSQL* 
+        ///   *Aurora PostgreSQL*
         ///  For information, see [Amazon Aurora PostgreSQL releases and engine versions](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html) in the *Amazon Aurora User Guide*.
-        ///   *MySQL* 
+        ///   *MySQL*
         ///  For information, see [Amazon RDS for MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide*.
-        ///   *PostgreSQL* 
+        ///   *PostgreSQL*
         ///  For information, see [Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts) in the *Amazon RDS User Guide*.
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
         public readonly string? EngineVersion;
         /// <summary>
-        /// If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. 
-        ///   If you aren't configuring a global database cluster, don't specify this property. 
+        /// If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource.
+        ///   If you aren't configuring a global database cluster, don't specify this property.
         ///   To remove the DB cluster from a global database cluster, specify an empty value for the ``GlobalClusterIdentifier`` property.
         ///   For information about Aurora global databases, see [Working with Amazon Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) in the *Amazon Aurora User Guide*.
         ///  Valid for: Aurora DB clusters only
@@ -350,9 +350,9 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The network type of the DB cluster.
         ///  Valid values:
-        ///   +   ``IPV4`` 
-        ///   +   ``DUAL`` 
-        ///   
+        ///   +   ``IPV4``
+        ///   +   ``DUAL``
+        /// 
         ///  The network type is determined by the ``DBSubnetGroup`` specified for the DB cluster. A ``DBSubnetGroup`` can support only the IPv4 protocol or the IPv4 and IPv6 protocols (``DUAL``).
         ///  For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon Aurora User Guide.*
         ///  Valid for: Aurora DB clusters only
@@ -375,10 +375,10 @@ namespace Pulumi.AwsNative.Rds
         /// The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
         ///  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         ///  Valid Values:
-        ///   +   ``7`` 
+        ///   +   ``7``
         ///   +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
-        ///   +   ``731`` 
-        ///   
+        ///   +   ``731``
+        /// 
         ///  Default: ``7`` days
         ///  If you specify a retention period that isn't valid, such as ``94``, Amazon RDS issues an error.
         /// </summary>
@@ -388,7 +388,7 @@ namespace Pulumi.AwsNative.Rds
         ///  Default:
         ///   +  RDS for MySQL and Aurora MySQL - ``3306``
         ///   +  RDS for PostgreSQL and Aurora PostgreSQL - ``5432``
-        ///   
+        /// 
         ///   The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
         ///   Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
@@ -400,7 +400,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must be in Universal Coordinated Time (UTC).
         ///   +  Must not conflict with the preferred maintenance window.
         ///   +  Must be at least 30 minutes.
-        ///   
+        /// 
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
         public readonly string? PreferredBackupWindow;
@@ -426,7 +426,7 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly Outputs.DbClusterScalingConfiguration? ScalingConfiguration;
         /// <summary>
-        /// The scaling configuration of an Aurora Serverless V2 DB cluster. 
+        /// The scaling configuration of an Aurora Serverless V2 DB cluster.
         ///  This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, Use the ``ScalingConfiguration`` property.
         ///  Valid for: Aurora Serverless v2 DB clusters only
         /// </summary>
@@ -447,11 +447,11 @@ namespace Pulumi.AwsNative.Rds
         ///  Valid Values:
         ///   +  Aurora DB clusters - ``aurora | aurora-iopt1``
         ///   +  Multi-AZ DB clusters - ``io1 | io2 | gp3``
-        ///   
+        /// 
         ///  Default:
         ///   +  Aurora DB clusters - ``aurora``
         ///   +  Multi-AZ DB clusters - ``io1``
-        ///   
+        /// 
         ///   When you create an Aurora DB cluster with the storage type set to ``aurora-iopt1``, the storage type is returned in the response. The storage type isn't returned when you set it to ``aurora``.
         /// </summary>
         public readonly string? StorageType;

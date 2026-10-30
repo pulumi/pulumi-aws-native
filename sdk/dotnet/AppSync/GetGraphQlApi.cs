@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         public readonly Outputs.GraphQlApiLogConfig? LogConfig;
         /// <summary>
-        /// The AWS Identity and Access Management service role ARN for a merged API. 
+        /// The AWS Identity and Access Management service role ARN for a merged API.
         /// </summary>
         public readonly string? MergedApiExecutionRoleArn;
         /// <summary>

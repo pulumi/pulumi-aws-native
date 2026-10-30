@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Sns
         public Output<object?> DeliveryPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The subscription's endpoint. The endpoint value depends on the protocol that you specify. 
+        /// The subscription's endpoint. The endpoint value depends on the protocol that you specify.
         /// </summary>
         [Output("endpoint")]
         public Output<string?> Endpoint { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.AwsNative.Sns
         public Input<object>? DeliveryPolicy { get; set; }
 
         /// <summary>
-        /// The subscription's endpoint. The endpoint value depends on the protocol that you specify. 
+        /// The subscription's endpoint. The endpoint value depends on the protocol that you specify.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }

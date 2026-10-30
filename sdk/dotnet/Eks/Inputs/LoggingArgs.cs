@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Eks.Inputs
     public sealed class LoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cluster control plane logging configuration for your cluster. 
+        /// The cluster control plane logging configuration for your cluster.
         /// </summary>
         [Input("clusterLogging")]
         public Input<Inputs.ClusterLoggingEnabledTypesArgs>? ClusterLoggingValue { get; set; }

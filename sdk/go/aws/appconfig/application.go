@@ -79,7 +79,7 @@ import (
 //				return err
 //			}
 //			dependentConfigurationProfile, err := appconfig.NewConfigurationProfile(ctx, "dependentConfigurationProfile", &appconfig.ConfigurationProfileArgs{
-//				ApplicationId: dependentApplication.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationId: dependentApplication.ID(),
 //				Name:          pulumi.String("MyTestProfile"),
 //				LocationUri:   pulumi.String("hosted"),
 //			})
@@ -87,8 +87,8 @@ import (
 //				return err
 //			}
 //			_, err = appconfig.NewHostedConfigurationVersion(ctx, "basicHostedConfigurationVersion", &appconfig.HostedConfigurationVersionArgs{
-//				ApplicationId:          dependentApplication.ID().ToIDOutput().ToStringOutput(),
-//				ConfigurationProfileId: dependentConfigurationProfile.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationId:          dependentApplication.ID(),
+//				ConfigurationProfileId: dependentConfigurationProfile.ID(),
 //				Description:            pulumi.String("A sample hosted configuration version"),
 //				Content:                pulumi.String("My hosted configuration content"),
 //				ContentType:            pulumi.String("text/plain"),

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// <summary>
         /// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
         /// 
-        /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
         /// 
         /// You can specify the following fallback behaviors:
         /// 

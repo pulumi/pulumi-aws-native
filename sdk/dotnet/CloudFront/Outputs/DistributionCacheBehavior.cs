@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     /// A complex type that describes how CloudFront processes requests.
     ///  You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.
     ///  For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.
-    ///  If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't specify an empty individual ``CacheBehavior`` element, because this is invalid. For more information, see [CacheBehaviors](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html). 
+    ///  If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't specify an empty individual ``CacheBehavior`` element, because this is invalid. For more information, see [CacheBehaviors](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html).
     ///  To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
     ///  To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
     ///   If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///   +  CloudFront forwards only ``GET`` and ``HEAD`` requests.
         ///   +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.
         ///   +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.
-        ///   
+        /// 
         ///  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
         ///   +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.
         ///   +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.
-        ///   
+        /// 
         ///  If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
         /// </summary>
         public readonly ImmutableArray<string> CachedMethods;
@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///   +  ``allow-all``: Viewers can use HTTP or HTTPS.
         ///   +  ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
         ///   +  ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
-        ///   
+        /// 
         ///  For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
         ///   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
         /// </summary>

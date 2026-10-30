@@ -290,14 +290,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
+                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict', 'outputs.InfrastructureConfigurationInstanceMetadataOptions']]] = None,
                  instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict', 'outputs.InfrastructureConfigurationLogging']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parent_instance: pulumi.Input[Optional[Union['InfrastructureConfigurationParentInstanceArgs', 'InfrastructureConfigurationParentInstanceArgsDict']]] = None,
-                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+                 parent_instance: pulumi.Input[Optional[Union['InfrastructureConfigurationParentInstanceArgs', 'InfrastructureConfigurationParentInstanceArgsDict', 'outputs.InfrastructureConfigurationParentInstance']]] = None,
+                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict', 'outputs.InfrastructureConfigurationPlacement']]] = None,
                  resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -312,14 +312,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the infrastructure configuration.
-        :param pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']] instance_metadata_options: The instance metadata option settings for the infrastructure configuration.
+        :param pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict', 'outputs.InfrastructureConfigurationInstanceMetadataOptions']] instance_metadata_options: The instance metadata option settings for the infrastructure configuration.
         :param pulumi.Input[_builtins.str] instance_profile_name: The instance profile of the infrastructure configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_types: The instance types of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] key_pair: The EC2 key pair of the infrastructure configuration..
-        :param pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']] logging: The logging configuration of the infrastructure configuration.
+        :param pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict', 'outputs.InfrastructureConfigurationLogging']] logging: The logging configuration of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] name: The name of the infrastructure configuration.
-        :param pulumi.Input[Union['InfrastructureConfigurationParentInstanceArgs', 'InfrastructureConfigurationParentInstanceArgsDict']] parent_instance: The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
-        :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']] placement: The placement option settings for the infrastructure configuration.
+        :param pulumi.Input[Union['InfrastructureConfigurationParentInstanceArgs', 'InfrastructureConfigurationParentInstanceArgsDict', 'outputs.InfrastructureConfigurationParentInstance']] parent_instance: The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of launching a new instance. This applies only to the build phase.
+        :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict', 'outputs.InfrastructureConfigurationPlacement']] placement: The placement option settings for the infrastructure configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: The tags attached to the resource created by Image Builder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security group IDs of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -353,14 +353,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
+                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict', 'outputs.InfrastructureConfigurationInstanceMetadataOptions']]] = None,
                  instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict', 'outputs.InfrastructureConfigurationLogging']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parent_instance: pulumi.Input[Optional[Union['InfrastructureConfigurationParentInstanceArgs', 'InfrastructureConfigurationParentInstanceArgsDict']]] = None,
-                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+                 parent_instance: pulumi.Input[Optional[Union['InfrastructureConfigurationParentInstanceArgs', 'InfrastructureConfigurationParentInstanceArgsDict', 'outputs.InfrastructureConfigurationParentInstance']]] = None,
+                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict', 'outputs.InfrastructureConfigurationPlacement']]] = None,
                  resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,

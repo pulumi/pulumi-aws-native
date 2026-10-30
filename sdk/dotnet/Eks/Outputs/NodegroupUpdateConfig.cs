@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Eks.Outputs
     public sealed class NodegroupUpdateConfig
     {
         /// <summary>
-        /// The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
+        /// The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100.
         /// </summary>
         public readonly double? MaxUnavailable;
         /// <summary>

@@ -108,9 +108,9 @@ class DomainObjectType(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DomainObjectTypeFieldArgs', 'DomainObjectTypeFieldArgsDict']]]]] = None,
+                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DomainObjectTypeFieldArgs', 'DomainObjectTypeFieldArgsDict', 'outputs.DomainObjectTypeField']]]]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CustomerProfiles::DomainObjectType
@@ -145,9 +145,9 @@ class DomainObjectType(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DomainObjectTypeFieldArgs', 'DomainObjectTypeFieldArgsDict']]]]] = None,
+                 fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DomainObjectTypeFieldArgs', 'DomainObjectTypeFieldArgsDict', 'outputs.DomainObjectTypeField']]]]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

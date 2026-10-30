@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketReplicationTime? ReplicationTime;
         /// <summary>
-        /// The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
+        /// The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         ///  For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
         ///  ``FSX_OPENZFS`` is not an accepted value when replicating objects.
         /// </summary>

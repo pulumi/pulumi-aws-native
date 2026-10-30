@@ -41,7 +41,7 @@ import (
 //				Name: pulumi.String("MyRecordingConfiguration"),
 //				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
 //					S3: &ivs.RecordingConfigurationS3DestinationConfigurationArgs{
-//						BucketName: s3Bucket.ID().ToIDOutput().ToStringOutput(),
+//						BucketName: s3Bucket.ID(),
 //					},
 //				},
 //				ThumbnailConfiguration: &ivs.RecordingConfigurationThumbnailConfigurationArgs{
@@ -68,7 +68,7 @@ import (
 //			}
 //			_, err = ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
 //				Name:                      pulumi.String("MyRecordedChannel"),
-//				RecordingConfigurationArn: recordingConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				RecordingConfigurationArn: recordingConfiguration.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				recordingConfiguration,
 //			}))
@@ -103,7 +103,7 @@ import (
 //				Name: pulumi.String("MyRecordingConfiguration"),
 //				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
 //					S3: &ivs.RecordingConfigurationS3DestinationConfigurationArgs{
-//						BucketName: s3Bucket.ID().ToIDOutput().ToStringOutput(),
+//						BucketName: s3Bucket.ID(),
 //					},
 //				},
 //				ThumbnailConfiguration: &ivs.RecordingConfigurationThumbnailConfigurationArgs{
@@ -130,7 +130,7 @@ import (
 //			}
 //			_, err = ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
 //				Name:                      pulumi.String("MyRecordedChannel"),
-//				RecordingConfigurationArn: recordingConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				RecordingConfigurationArn: recordingConfiguration.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				recordingConfiguration,
 //			}))

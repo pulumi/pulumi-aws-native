@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     public sealed class GetApplicationVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Elastic Beanstalk application that is associated with this application version. 
+        /// The name of the Elastic Beanstalk application that is associated with this application version.
         /// </summary>
         [Input("applicationName", required: true)]
         public string ApplicationName { get; set; } = null!;
@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     public sealed class GetApplicationVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Elastic Beanstalk application that is associated with this application version. 
+        /// The name of the Elastic Beanstalk application that is associated with this application version.
         /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rds.Inputs
     public sealed class DbProxyAuthFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+        /// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
         /// </summary>
         [Input("authScheme")]
         public Input<Pulumi.AwsNative.Rds.DbProxyAuthFormatAuthScheme>? AuthScheme { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Rds.Inputs
         public Input<Pulumi.AwsNative.Rds.DbProxyAuthFormatClientPasswordAuthType>? ClientPasswordAuthType { get; set; }
 
         /// <summary>
-        /// A user-specified description about the authentication used by a proxy to log in as a specific database user. 
+        /// A user-specified description about the authentication used by a proxy to log in as a specific database user.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Rds.Inputs
         public Input<Pulumi.AwsNative.Rds.DbProxyAuthFormatIamAuth>? IamAuth { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
+        /// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

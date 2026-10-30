@@ -450,7 +450,7 @@ class SmbFileShare(pulumi.CustomResource):
                  audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  authentication: pulumi.Input[Optional[_builtins.str]] = None,
                  bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_attributes: pulumi.Input[Optional[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict', 'outputs.SmbFileShareCacheAttributes']]] = None,
                  case_sensitivity: pulumi.Input[Optional['SmbFileShareCaseSensitivity']] = None,
                  default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_type: pulumi.Input[Optional['SmbFileShareEncryptionType']] = None,
@@ -468,7 +468,7 @@ class SmbFileShare(pulumi.CustomResource):
                  requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  smbacl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  valid_user_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -499,7 +499,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] requester_pays: Whether the bucket is a Requester Pays bucket.
         :param pulumi.Input[_builtins.str] role: The ARN of the IAM role the gateway assumes when it accesses the S3 location.
         :param pulumi.Input[_builtins.bool] smbacl_enabled: Whether the SMB share uses Windows ACLs rather than POSIX permissions.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to the file share.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags assigned to the file share.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] valid_user_list: Users and groups permitted to access the SMB share.
         :param pulumi.Input[_builtins.str] vpc_endpoint_dns_name: The DNS name of the S3 VPC endpoint the gateway uses to reach the bucket.
         """
@@ -532,7 +532,7 @@ class SmbFileShare(pulumi.CustomResource):
                  audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  authentication: pulumi.Input[Optional[_builtins.str]] = None,
                  bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_attributes: pulumi.Input[Optional[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict', 'outputs.SmbFileShareCacheAttributes']]] = None,
                  case_sensitivity: pulumi.Input[Optional['SmbFileShareCaseSensitivity']] = None,
                  default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_type: pulumi.Input[Optional['SmbFileShareEncryptionType']] = None,
@@ -550,7 +550,7 @@ class SmbFileShare(pulumi.CustomResource):
                  requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  smbacl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  valid_user_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

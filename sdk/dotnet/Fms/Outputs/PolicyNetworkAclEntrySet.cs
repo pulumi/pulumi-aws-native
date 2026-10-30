@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Fms.Outputs
         /// <summary>
         /// The rules that you want to run first in the Firewall Manager managed network ACLs.
         /// 
-        /// &gt; Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
+        /// &gt; Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates.
         /// 
         /// You must specify at least one first entry or one last entry in any network ACL policy.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Fms.Outputs
         /// <summary>
         /// The rules that you want to run last in the Firewall Manager managed network ACLs.
         /// 
-        /// &gt; Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
+        /// &gt; Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates.
         /// 
         /// You must specify at least one first entry or one last entry in any network ACL policy.
         /// </summary>

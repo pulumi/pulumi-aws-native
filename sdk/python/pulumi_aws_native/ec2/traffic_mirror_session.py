@@ -178,7 +178,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
                  owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  packet_length: pulumi.Input[Optional[_builtins.int]] = None,
                  session_number: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  traffic_mirror_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
                  traffic_mirror_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_id: pulumi.Input[Optional[_builtins.int]] = None,
@@ -193,7 +193,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] owner_id: The ID of the account that owns the Traffic Mirror session.
         :param pulumi.Input[_builtins.int] packet_length: The number of bytes in each packet to mirror.
         :param pulumi.Input[_builtins.int] session_number: The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the Traffic Mirror session.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the Traffic Mirror session.
         :param pulumi.Input[_builtins.str] traffic_mirror_filter_id: The ID of a Traffic Mirror filter.
         :param pulumi.Input[_builtins.str] traffic_mirror_target_id: The ID of a Traffic Mirror target.
         :param pulumi.Input[_builtins.int] virtual_network_id: The VXLAN ID for the Traffic Mirror session.
@@ -227,7 +227,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
                  owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  packet_length: pulumi.Input[Optional[_builtins.int]] = None,
                  session_number: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  traffic_mirror_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
                  traffic_mirror_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_id: pulumi.Input[Optional[_builtins.int]] = None,

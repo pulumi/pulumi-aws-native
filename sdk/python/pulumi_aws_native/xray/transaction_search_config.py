@@ -56,7 +56,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict']]] = None,
+                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict', 'outputs.TransactionSearchConfigCloudWatchLogsConfiguration']]] = None,
                  indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
@@ -89,7 +89,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict']]] = None,
+                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict', 'outputs.TransactionSearchConfigCloudWatchLogsConfiguration']]] = None,
                  indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

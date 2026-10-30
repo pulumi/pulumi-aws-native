@@ -15,11 +15,11 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     ///  We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
     ///   +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
     ///   +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.
-    ///   
+    /// 
     ///  If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode).
     ///   +  For tasks that use the ``host`` IPC mode, IPC namespace ``systemControls`` aren't supported.
     ///   +  For tasks that use the ``task`` IPC mode, IPC namespace ``systemControls`` values apply to all containers within a task.
-    ///   
+    /// 
     ///   This parameter is not supported for Windows containers.
     ///    This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
     /// </summary>

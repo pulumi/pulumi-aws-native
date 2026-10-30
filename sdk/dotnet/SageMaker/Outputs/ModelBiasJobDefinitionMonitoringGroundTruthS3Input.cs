@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// Ground truth input provided in S3 
+    /// Ground truth input provided in S3
     /// </summary>
     [OutputType]
     public sealed class ModelBiasJobDefinitionMonitoringGroundTruthS3Input

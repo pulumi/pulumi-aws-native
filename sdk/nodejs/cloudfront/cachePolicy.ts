@@ -28,6 +28,16 @@ export class CachePolicy extends pulumi.CustomResource {
         return new CachePolicy(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing CachePolicy resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:cloudfront:CachePolicy", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:cloudfront:CachePolicy';
 

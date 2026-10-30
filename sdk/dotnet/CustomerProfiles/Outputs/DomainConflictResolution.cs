@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
 {
 
     /// <summary>
-    /// How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+    /// How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
     /// </summary>
     [OutputType]
     public sealed class DomainConflictResolution

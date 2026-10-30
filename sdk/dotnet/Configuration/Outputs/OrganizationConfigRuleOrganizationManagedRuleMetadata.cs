@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Configuration.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ResourceTypesScope;
         /// <summary>
-        /// Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule. 
+        /// Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
         /// </summary>
         public readonly string RuleIdentifier;
         /// <summary>

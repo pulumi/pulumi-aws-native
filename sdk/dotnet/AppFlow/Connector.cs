@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.AppFlow
         public Output<Outputs.ConnectorProvisioningConfig> ConnectorProvisioningConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+        /// The provisioning type of the connector. Currently the only supported value is LAMBDA.
         /// </summary>
         [Output("connectorProvisioningType")]
         public Output<string> ConnectorProvisioningType { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.AppFlow
         public Input<Inputs.ConnectorProvisioningConfigArgs> ConnectorProvisioningConfig { get; set; } = null!;
 
         /// <summary>
-        /// The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+        /// The provisioning type of the connector. Currently the only supported value is LAMBDA.
         /// </summary>
         [Input("connectorProvisioningType", required: true)]
         public Input<string> ConnectorProvisioningType { get; set; } = null!;

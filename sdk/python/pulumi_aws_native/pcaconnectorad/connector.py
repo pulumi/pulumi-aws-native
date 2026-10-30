@@ -98,7 +98,7 @@ class Connector(pulumi.CustomResource):
                  certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_information: pulumi.Input[Optional[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict']]] = None,
+                 vpc_information: pulumi.Input[Optional[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict', 'outputs.ConnectorVpcInformation']]] = None,
                  __props__=None):
         """
         Represents a Connector that connects AWS PrivateCA and your directory
@@ -108,7 +108,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority being used.
         :param pulumi.Input[_builtins.str] directory_id: The identifier of the Active Directory.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata assigned to a connector consisting of a key-value pair.
-        :param pulumi.Input[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict']] vpc_information: Information of the VPC and security group(s) used with the connector.
+        :param pulumi.Input[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict', 'outputs.ConnectorVpcInformation']] vpc_information: Information of the VPC and security group(s) used with the connector.
         """
         ...
     @overload
@@ -137,7 +137,7 @@ class Connector(pulumi.CustomResource):
                  certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_information: pulumi.Input[Optional[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict']]] = None,
+                 vpc_information: pulumi.Input[Optional[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict', 'outputs.ConnectorVpcInformation']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

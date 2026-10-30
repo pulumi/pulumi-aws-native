@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class LoggingConfigurationFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// How to handle logs that satisfy the filter's conditions and requirement. 
+        /// How to handle logs that satisfy the filter's conditions and requirement.
         /// </summary>
         [Input("behavior", required: true)]
         public Input<Pulumi.AwsNative.WaFv2.LoggingConfigurationFilterBehavior> Behavior { get; set; } = null!;

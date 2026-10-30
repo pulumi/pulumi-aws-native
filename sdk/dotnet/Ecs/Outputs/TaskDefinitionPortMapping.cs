@@ -32,17 +32,17 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly int? ContainerPort;
         /// <summary>
-        /// The port number range on the container that's bound to the dynamically mapped host port range. 
+        /// The port number range on the container that's bound to the dynamically mapped host port range.
         ///  The following rules apply when you specify a ``containerPortRange``:
         ///   +  You must use either the ``bridge`` network mode or the ``awsvpc`` network mode.
         ///   +  This parameter is available for both the EC2 and FARGATElong launch types.
         ///   +  This parameter is available for both the Linux and Windows operating systems.
-        ///   +  The container instance must have at least version 1.67.0 of the container agent and at least version 1.67.0-1 of the ``ecs-init`` package 
+        ///   +  The container instance must have at least version 1.67.0 of the container agent and at least version 1.67.0-1 of the ``ecs-init`` package
         ///   +  You can specify a maximum of 100 port ranges per container.
         ///   +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:
         ///   +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.
         ///   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.
-        ///   
+        /// 
         ///   +  The ``containerPortRange`` valid values are between 1 and 65535.
         ///   +  A port can only be included in one port mapping per container.
         ///   +  You cannot specify overlapping port ranges.
@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports.
         ///  For more information, see [Issue #11185](https://docs.aws.amazon.com/https://github.com/moby/moby/issues/11185) on the Github website.
         ///  For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.
-        ///   
+        /// 
         ///  You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
         /// </summary>
         public readonly string? ContainerPortRange;
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///  If you specify a ``containerPortRange``, leave this field empty and the value of the ``hostPort`` is set as follows:
         ///   +  For containers in a task with the ``awsvpc`` network mode, the ``hostPort`` is set to the same value as the ``containerPort``. This is a static mapping strategy.
         ///   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open ports on the host and automatically binds them to the container ports. This is a dynamic mapping strategy.
-        ///   
+        /// 
         ///  If you use containers in a task with the ``awsvpc`` or ``host`` network mode, the ``hostPort`` can either be left blank or set to the same value as the ``containerPort``.
         ///  If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically receives a port in the ephemeral port range for your container instance operating system and Docker version.
         ///  The default ephemeral port range for Docker version 1.6.0 and later is listed on the instance under ``/proc/sys/net/ipv4/ip_local_port_range``. If this kernel parameter is unavailable, the default ephemeral port range from 49153 through 65535 (Linux) or 49152 through 65535 (Windows) is used. Do not attempt to specify a host port in the ephemeral port range as these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range.

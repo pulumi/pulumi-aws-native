@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class BucketReplicationTimeValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains an integer specifying time in minutes. 
+        /// Contains an integer specifying time in minutes.
         ///   Valid value: 15
         /// </summary>
         [Input("minutes", required: true)]

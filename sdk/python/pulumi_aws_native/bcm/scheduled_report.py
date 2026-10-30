@@ -164,10 +164,10 @@ class ScheduledReport(pulumi.CustomResource):
                  dashboard_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule_config: pulumi.Input[Optional[Union['ScheduledReportScheduleConfigArgs', 'ScheduledReportScheduleConfigArgsDict']]] = None,
+                 schedule_config: pulumi.Input[Optional[Union['ScheduledReportScheduleConfigArgs', 'ScheduledReportScheduleConfigArgsDict', 'outputs.ScheduledReportScheduleConfig']]] = None,
                  scheduled_report_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 widget_date_range_override: pulumi.Input[Optional[Union['ScheduledReportDateTimeRangeArgs', 'ScheduledReportDateTimeRangeArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 widget_date_range_override: pulumi.Input[Optional[Union['ScheduledReportDateTimeRangeArgs', 'ScheduledReportDateTimeRangeArgsDict', 'outputs.ScheduledReportDateTimeRange']]] = None,
                  widget_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -178,10 +178,10 @@ class ScheduledReport(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dashboard_arn: The ARN of the dashboard associated with the scheduled report. Managed dashboards cannot be used.
         :param pulumi.Input[_builtins.str] description: A description of the scheduled report's purpose or contents.
         :param pulumi.Input[_builtins.str] name: The name of the scheduled report.
-        :param pulumi.Input[Union['ScheduledReportScheduleConfigArgs', 'ScheduledReportScheduleConfigArgsDict']] schedule_config: The schedule configuration that defines when and how often the report is generated.
+        :param pulumi.Input[Union['ScheduledReportScheduleConfigArgs', 'ScheduledReportScheduleConfigArgsDict', 'outputs.ScheduledReportScheduleConfig']] schedule_config: The schedule configuration that defines when and how often the report is generated.
         :param pulumi.Input[_builtins.str] scheduled_report_execution_role_arn: The ARN of the IAM role that the scheduled report uses to execute. AWS Billing and Cost Management Dashboards assumes this IAM role while executing the scheduled report.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags applied to the scheduled report.
-        :param pulumi.Input[Union['ScheduledReportDateTimeRangeArgs', 'ScheduledReportDateTimeRangeArgsDict']] widget_date_range_override: The date range override applied to widgets in the scheduled report.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags applied to the scheduled report.
+        :param pulumi.Input[Union['ScheduledReportDateTimeRangeArgs', 'ScheduledReportDateTimeRangeArgsDict', 'outputs.ScheduledReportDateTimeRange']] widget_date_range_override: The date range override applied to widgets in the scheduled report.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] widget_ids: The list of widget identifiers included in the scheduled report. If not specified, all widgets in the dashboard are included.
         """
         ...
@@ -211,10 +211,10 @@ class ScheduledReport(pulumi.CustomResource):
                  dashboard_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule_config: pulumi.Input[Optional[Union['ScheduledReportScheduleConfigArgs', 'ScheduledReportScheduleConfigArgsDict']]] = None,
+                 schedule_config: pulumi.Input[Optional[Union['ScheduledReportScheduleConfigArgs', 'ScheduledReportScheduleConfigArgsDict', 'outputs.ScheduledReportScheduleConfig']]] = None,
                  scheduled_report_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 widget_date_range_override: pulumi.Input[Optional[Union['ScheduledReportDateTimeRangeArgs', 'ScheduledReportDateTimeRangeArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 widget_date_range_override: pulumi.Input[Optional[Union['ScheduledReportDateTimeRangeArgs', 'ScheduledReportDateTimeRangeArgsDict', 'outputs.ScheduledReportDateTimeRange']]] = None,
                  widget_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

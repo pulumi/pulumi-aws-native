@@ -41,11 +41,11 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         ///   +  The valid range is 0 to 1,000
         ///   +  At least one capacity provider must have a weight greater than zero
         ///   +  Capacity providers with weight of ``0`` cannot place tasks
-        ///   
+        /// 
         ///  Task distribution logic:
         ///   1.  Base satisfaction: The minimum number of tasks specified by the base value are placed on that capacity provider
-        ///   1.  Weight distribution: After base requirements are met, additional tasks are distributed according to weight ratios
-        ///   
+        ///   2.  Weight distribution: After base requirements are met, additional tasks are distributed according to weight ratios
+        /// 
         ///  Examples:
         ///  Equal Distribution: Two capacity providers both with weight ``1`` will split tasks evenly after base requirements are met.
         ///  Weighted Distribution: If capacityProviderA has weight ``1`` and capacityProviderB has weight ``4``, then for every 1 task on A, 4 tasks will run on B.

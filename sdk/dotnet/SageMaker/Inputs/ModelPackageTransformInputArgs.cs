@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.ModelPackageDataSourceArgs> DataSource { get; set; } = null!;
 
         /// <summary>
-        /// The method to use to split the transform job's data files into smaller batches. 
+        /// The method to use to split the transform job's data files into smaller batches.
         /// </summary>
         [Input("splitType")]
         public Input<Pulumi.AwsNative.SageMaker.ModelPackageTransformInputSplitType>? SplitType { get; set; }

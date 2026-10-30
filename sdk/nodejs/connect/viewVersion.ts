@@ -20,6 +20,16 @@ export class ViewVersion extends pulumi.CustomResource {
         return new ViewVersion(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing ViewVersion resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:connect:ViewVersion", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:connect:ViewVersion';
 

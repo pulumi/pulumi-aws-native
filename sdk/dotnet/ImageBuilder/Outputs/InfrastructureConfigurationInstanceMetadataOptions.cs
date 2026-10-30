@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// </summary>
         public readonly int? HttpPutResponseHopLimit;
         /// <summary>
-        /// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+        /// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
         /// </summary>
         public readonly Pulumi.AwsNative.ImageBuilder.InfrastructureConfigurationInstanceMetadataOptionsHttpTokens? HttpTokens;
 

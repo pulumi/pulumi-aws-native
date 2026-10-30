@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ssm
     public sealed class GetResourcePolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// An unique identifier within the policies of a resource. 
+        /// An unique identifier within the policies of a resource.
         /// </summary>
         [Input("policyId", required: true)]
         public string PolicyId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Ssm
     public sealed class GetResourcePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// An unique identifier within the policies of a resource. 
+        /// An unique identifier within the policies of a resource.
         /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public readonly string? PolicyHash;
         /// <summary>
-        /// An unique identifier within the policies of a resource. 
+        /// An unique identifier within the policies of a resource.
         /// </summary>
         public readonly string? PolicyId;
 

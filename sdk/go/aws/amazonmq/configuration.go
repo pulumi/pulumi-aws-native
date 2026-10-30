@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amazonmq.NewConfiguration(ctx, "configuration", &amazonmq.ConfigurationArgs{
-//				Data: pulumi.String(base64.StdEncoding.EncodeToString([]byte(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+//				Data: base64.StdEncoding.EncodeToString([]byte(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 //
 // <broker xmlns="http://activemq.apache.org/schema/core" start="false">
 //
@@ -52,7 +52,7 @@ import (
 //	</plugins>
 //
 // </broker>
-// `))),
+// `)),
 //
 //				EngineType:    pulumi.String("ACTIVEMQ"),
 //				EngineVersion: pulumi.String("5.15.0"),

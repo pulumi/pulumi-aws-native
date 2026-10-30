@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.ModelPackageDataSource DataSource;
         /// <summary>
-        /// The method to use to split the transform job's data files into smaller batches. 
+        /// The method to use to split the transform job's data files into smaller batches.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageTransformInputSplitType? SplitType;
 

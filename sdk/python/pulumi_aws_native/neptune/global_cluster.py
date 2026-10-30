@@ -152,7 +152,7 @@ class GlobalCluster(pulumi.CustomResource):
                  global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Neptune::GlobalCluster
@@ -165,7 +165,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] global_cluster_identifier: The cluster identifier of the global database cluster.
         :param pulumi.Input[_builtins.str] source_db_cluster_identifier: The Amazon Resource Name (ARN) of an existing Neptune DB cluster to use as the primary cluster of the new global database.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the global database cluster is storage encrypted.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -197,7 +197,7 @@ class GlobalCluster(pulumi.CustomResource):
                  global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

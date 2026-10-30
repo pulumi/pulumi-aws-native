@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.IoTEvents
         public Output<Pulumi.AwsNative.IoTEvents.DetectorModelEvaluationMethod?> EvaluationMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. ITE can continue to route input to its corresponding detector instance based on this identifying information. 
+        /// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. ITE can continue to route input to its corresponding detector instance based on this identifying information.
         ///  This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
         /// </summary>
         [Output("key")]
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.IoTEvents
         public Input<Pulumi.AwsNative.IoTEvents.DetectorModelEvaluationMethod>? EvaluationMethod { get; set; }
 
         /// <summary>
-        /// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. ITE can continue to route input to its corresponding detector instance based on this identifying information. 
+        /// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. ITE can continue to route input to its corresponding detector instance based on this identifying information.
         ///  This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
         /// </summary>
         [Input("key")]

@@ -19,15 +19,15 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     {
         /// <summary>
         /// The list of HTTP methods. Valid values are:
-        ///   +   ``GET`` 
-        ///   +   ``DELETE`` 
-        ///   +   ``HEAD`` 
-        ///   +   ``OPTIONS`` 
-        ///   +   ``PATCH`` 
-        ///   +   ``POST`` 
-        ///   +   ``PUT`` 
-        ///   +   ``ALL`` 
-        ///   
+        ///   +   ``GET``
+        ///   +   ``DELETE``
+        ///   +   ``HEAD``
+        ///   +   ``OPTIONS``
+        ///   +   ``PATCH``
+        ///   +   ``POST``
+        ///   +   ``PUT``
+        ///   +   ``ALL``
+        /// 
         ///  ``ALL`` is a special value that includes all of the listed HTTP methods.
         /// </summary>
         public readonly ImmutableArray<string> Items;

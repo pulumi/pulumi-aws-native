@@ -125,7 +125,7 @@ import (
 //					queueResource.Arn,
 //				},
 //				RequestTimeoutSeconds: pulumi.Int(100),
-//				RuleSetName:           matchmakingRuleSetResource.ID().ToIDOutput().ToStringOutput(),
+//				RuleSetName:           matchmakingRuleSetResource.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				queueResource,
 //				matchmakingRuleSetResource,

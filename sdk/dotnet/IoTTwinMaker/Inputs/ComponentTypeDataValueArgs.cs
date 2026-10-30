@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Inputs
         private InputMap<Inputs.ComponentTypeDataValueArgs>? _mapValue;
 
         /// <summary>
-        /// An object that maps strings to multiple DataValue objects. 
+        /// An object that maps strings to multiple DataValue objects.
         /// </summary>
         public InputMap<Inputs.ComponentTypeDataValueArgs> MapValue
         {

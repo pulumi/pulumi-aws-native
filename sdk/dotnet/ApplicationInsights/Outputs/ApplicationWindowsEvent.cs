@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
     public sealed class ApplicationWindowsEvent
     {
         /// <summary>
-        /// The levels of event to log. 
+        /// The levels of event to log.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.ApplicationInsights.ApplicationEventLevel> EventLevels;
         /// <summary>

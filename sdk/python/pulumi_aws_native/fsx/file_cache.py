@@ -193,15 +193,15 @@ class FileCache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
-                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
+                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict', 'outputs.FileCacheDataRepositoryAssociation']]]]] = None,
                  file_cache_type: pulumi.Input[Optional['FileCacheType']] = None,
                  file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 lustre_configuration: pulumi.Input[Optional[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]] = None,
+                 lustre_configuration: pulumi.Input[Optional[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict', 'outputs.FileCacheLustreConfiguration']]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::FSx::FileCache
@@ -209,15 +209,15 @@ class FileCache(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags_to_data_repository_associations: Whether tags should be copied to data repository associations
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]] data_repository_associations: Data repository associations for the cache
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict', 'outputs.FileCacheDataRepositoryAssociation']]]] data_repository_associations: Data repository associations for the cache
         :param pulumi.Input['FileCacheType'] file_cache_type: The type of cache, which must be LUSTRE
         :param pulumi.Input[_builtins.str] file_cache_type_version: The Lustre version of the cache, which must be 2.12
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key ID for encrypting data
-        :param pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']] lustre_configuration: The Lustre configuration for the file cache
+        :param pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict', 'outputs.FileCacheLustreConfiguration']] lustre_configuration: The Lustre configuration for the file cache
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs for the cache
         :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity of the cache in gibibytes (GiB)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs for the cache
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to associate with the file cache
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to associate with the file cache
         """
         ...
     @overload
@@ -244,15 +244,15 @@ class FileCache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
-                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
+                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict', 'outputs.FileCacheDataRepositoryAssociation']]]]] = None,
                  file_cache_type: pulumi.Input[Optional['FileCacheType']] = None,
                  file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 lustre_configuration: pulumi.Input[Optional[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]] = None,
+                 lustre_configuration: pulumi.Input[Optional[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict', 'outputs.FileCacheLustreConfiguration']]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

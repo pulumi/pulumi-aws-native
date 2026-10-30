@@ -164,12 +164,12 @@ class TestCase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 entry_point: pulumi.Input[Optional[Union['TestCaseEntryPointArgs', 'TestCaseEntryPointArgsDict']]] = None,
+                 entry_point: pulumi.Input[Optional[Union['TestCaseEntryPointArgs', 'TestCaseEntryPointArgsDict', 'outputs.TestCaseEntryPoint']]] = None,
                  initialization_data: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['TestCaseStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::TestCase
@@ -178,12 +178,12 @@ class TestCase(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content of the test case.
         :param pulumi.Input[_builtins.str] description: The description of the test case.
-        :param pulumi.Input[Union['TestCaseEntryPointArgs', 'TestCaseEntryPointArgsDict']] entry_point: Entry point for Testcase.
+        :param pulumi.Input[Union['TestCaseEntryPointArgs', 'TestCaseEntryPointArgsDict', 'outputs.TestCaseEntryPoint']] entry_point: Entry point for Testcase.
         :param pulumi.Input[_builtins.str] initialization_data: The initialization data of the test case.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] name: The name of the test case.
         :param pulumi.Input['TestCaseStatus'] status: The status of the test case.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -211,12 +211,12 @@ class TestCase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 entry_point: pulumi.Input[Optional[Union['TestCaseEntryPointArgs', 'TestCaseEntryPointArgsDict']]] = None,
+                 entry_point: pulumi.Input[Optional[Union['TestCaseEntryPointArgs', 'TestCaseEntryPointArgsDict', 'outputs.TestCaseEntryPoint']]] = None,
                  initialization_data: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['TestCaseStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

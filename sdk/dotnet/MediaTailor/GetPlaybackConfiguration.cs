@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public readonly Outputs.PlaybackConfigurationCdnConfiguration? CdnConfiguration;
         /// <summary>
-        /// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+        /// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? ConfigurationAliases;
         /// <summary>

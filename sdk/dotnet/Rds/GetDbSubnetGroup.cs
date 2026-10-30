@@ -12,21 +12,21 @@ namespace Pulumi.AwsNative.Rds
     public static class GetDbSubnetGroup
     {
         /// <summary>
-        /// The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region. 
+        /// The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
         ///  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
         /// </summary>
         public static Task<GetDbSubnetGroupResult> InvokeAsync(GetDbSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbSubnetGroupResult>("aws-native:rds:getDbSubnetGroup", args ?? new GetDbSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region. 
+        /// The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
         ///  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
         /// </summary>
         public static Output<GetDbSubnetGroupResult> Invoke(GetDbSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbSubnetGroupResult>("aws-native:rds:getDbSubnetGroup", args ?? new GetDbSubnetGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region. 
+        /// The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
         ///  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
         /// </summary>
         public static Output<GetDbSubnetGroupResult> Invoke(GetDbSubnetGroupInvokeArgs args, InvokeOutputOptions options)
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
         ///   +  Must not be default.
         ///   +  First character must be a letter.
-        ///   
+        /// 
         ///  Example: ``mydbsubnetgroup``
         /// </summary>
         [Input("dbSubnetGroupName", required: true)]
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
         ///   +  Must not be default.
         ///   +  First character must be a letter.
-        ///   
+        /// 
         ///  Example: ``mydbsubnetgroup``
         /// </summary>
         [Input("dbSubnetGroupName", required: true)]

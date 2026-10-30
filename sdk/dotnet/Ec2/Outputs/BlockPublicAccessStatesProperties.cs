@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class BlockPublicAccessStatesProperties
     {
         /// <summary>
-        /// The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress 
+        /// The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress
         /// </summary>
         public readonly string? InternetGatewayBlockMode;
 

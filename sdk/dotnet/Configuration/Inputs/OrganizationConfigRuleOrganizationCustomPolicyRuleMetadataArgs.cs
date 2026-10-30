@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         private InputList<string>? _debugLogDeliveryAccounts;
 
         /// <summary>
-        /// A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule. 
+        /// A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
         /// </summary>
         public InputList<string> DebugLogDeliveryAccounts
         {

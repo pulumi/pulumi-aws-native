@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class LoggingConfigurationFieldToMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
+        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         [Input("method")]
         public Input<object>? Method { get; set; }
 
         /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
+        /// Inspect the query string. This is the part of a URL that appears after a ? character, if any.
         /// </summary>
         [Input("queryString")]
         public Input<object>? QueryString { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         public Input<Inputs.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs>? SingleHeader { get; set; }
 
         /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
+        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         /// </summary>
         [Input("uriPath")]
         public Input<object>? UriPath { get; set; }

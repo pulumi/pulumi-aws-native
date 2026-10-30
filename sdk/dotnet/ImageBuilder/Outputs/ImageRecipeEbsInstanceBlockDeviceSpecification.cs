@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 {
 
     /// <summary>
-    /// Amazon EBS-specific block device mapping specifications. 
+    /// Amazon EBS-specific block device mapping specifications.
     /// </summary>
     [OutputType]
     public sealed class ImageRecipeEbsInstanceBlockDeviceSpecification

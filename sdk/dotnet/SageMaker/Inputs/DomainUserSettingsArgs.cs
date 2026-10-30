@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class DomainUserSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        /// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
         /// </summary>
         [Input("autoMountHomeEfs")]
         public Input<Pulumi.AwsNative.SageMaker.DomainUserSettingsAutoMountHomeEfs>? AutoMountHomeEfs { get; set; }

@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER. 
+        /// The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER.
         /// </summary>
         public readonly string? AuthType;
 

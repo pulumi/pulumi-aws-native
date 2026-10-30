@@ -25,7 +25,6 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// The ephemeral storage setting override for the task.
         /// 
         /// &gt; This parameter is only supported for tasks hosted on Fargate that use the following platform versions:
-        /// &gt; 
         /// &gt; - Linux platform version `1.4.0` or later.
         /// &gt; - Windows platform version `1.0.0` or later.
         /// </summary>

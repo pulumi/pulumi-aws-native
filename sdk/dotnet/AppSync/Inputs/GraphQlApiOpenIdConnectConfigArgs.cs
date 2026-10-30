@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public Input<double>? IatTtl { get; set; }
 
         /// <summary>
-        /// The issuer for the OIDC configuration. 
+        /// The issuer for the OIDC configuration.
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }

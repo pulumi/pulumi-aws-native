@@ -101,8 +101,8 @@ class OAuth2CredentialProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credential_provider_vendor: pulumi.Input[Optional['OAuth2CredentialProviderCredentialProviderVendor']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 oauth2_provider_config_input: pulumi.Input[Optional[Union['OAuth2CredentialProviderOauth2ProviderConfigInputArgs', 'OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 oauth2_provider_config_input: pulumi.Input[Optional[Union['OAuth2CredentialProviderOauth2ProviderConfigInputArgs', 'OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict', 'outputs.OAuth2CredentialProviderOauth2ProviderConfigInput']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::OAuth2CredentialProvider
@@ -111,8 +111,8 @@ class OAuth2CredentialProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['OAuth2CredentialProviderCredentialProviderVendor'] credential_provider_vendor: The vendor of the OAuth2 credential provider
         :param pulumi.Input[_builtins.str] name: The name of the OAuth2 credential provider
-        :param pulumi.Input[Union['OAuth2CredentialProviderOauth2ProviderConfigInputArgs', 'OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict']] oauth2_provider_config_input: The configuration settings for the OAuth2 provider
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the OAuth2 credential provider
+        :param pulumi.Input[Union['OAuth2CredentialProviderOauth2ProviderConfigInputArgs', 'OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict', 'outputs.OAuth2CredentialProviderOauth2ProviderConfigInput']] oauth2_provider_config_input: The configuration settings for the OAuth2 provider
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the OAuth2 credential provider
         """
         ...
     @overload
@@ -140,8 +140,8 @@ class OAuth2CredentialProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credential_provider_vendor: pulumi.Input[Optional['OAuth2CredentialProviderCredentialProviderVendor']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 oauth2_provider_config_input: pulumi.Input[Optional[Union['OAuth2CredentialProviderOauth2ProviderConfigInputArgs', 'OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 oauth2_provider_config_input: pulumi.Input[Optional[Union['OAuth2CredentialProviderOauth2ProviderConfigInputArgs', 'OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict', 'outputs.OAuth2CredentialProviderOauth2ProviderConfigInput']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

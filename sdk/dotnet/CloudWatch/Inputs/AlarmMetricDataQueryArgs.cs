@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
     /// <summary>
-    /// The ``MetricDataQuery`` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. 
+    /// The ``MetricDataQuery`` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
     ///  Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
     /// </summary>
     public sealed class AlarmMetricDataQueryArgs : global::Pulumi.ResourceArgs

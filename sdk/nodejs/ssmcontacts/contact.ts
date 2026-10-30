@@ -23,6 +23,16 @@ export class Contact extends pulumi.CustomResource {
         return new Contact(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Contact resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:ssmcontacts:Contact", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:ssmcontacts:Contact';
 

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 {
 
     /// <summary>
-    /// Defines block device mappings for the instance used to configure your image. 
+    /// Defines block device mappings for the instance used to configure your image.
     /// </summary>
     [OutputType]
     public sealed class ContainerRecipeInstanceBlockDeviceMapping

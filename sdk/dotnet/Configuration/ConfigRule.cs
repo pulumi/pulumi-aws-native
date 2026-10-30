@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Configuration
         /// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
         ///   +  You are using an AWS managed rule that is triggered at a periodic frequency.
         ///   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
-        ///   
+        /// 
         ///   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
         /// </summary>
         [Output("maximumExecutionFrequency")]
@@ -180,7 +180,7 @@ namespace Pulumi.AwsNative.Configuration
         /// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
         ///   +  You are using an AWS managed rule that is triggered at a periodic frequency.
         ///   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
-        ///   
+        /// 
         ///   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
         /// </summary>
         [Input("maximumExecutionFrequency")]

@@ -128,11 +128,11 @@ class CloudConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['CloudConnectorConfigurationArgs', 'CloudConnectorConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CloudConnectorConfigurationArgs', 'CloudConnectorConfigurationArgsDict', 'outputs.CloudConnectorConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SSM::CloudConnector. Enables AWS Systems Manager to manage resources in external cloud providers.
@@ -140,11 +140,11 @@ class CloudConnector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] config_connector_arn: The ARN of the AWS Config connector.
-        :param pulumi.Input[Union['CloudConnectorConfigurationArgs', 'CloudConnectorConfigurationArgsDict']] configuration: The configuration for the cloud connector.
+        :param pulumi.Input[Union['CloudConnectorConfigurationArgs', 'CloudConnectorConfigurationArgsDict', 'outputs.CloudConnectorConfiguration']] configuration: The configuration for the cloud connector.
         :param pulumi.Input[_builtins.str] description: The description of the cloud connector.
         :param pulumi.Input[_builtins.str] display_name: The display name of the cloud connector.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN used by the cloud connector.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to apply to the cloud connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to apply to the cloud connector.
         """
         ...
     @overload
@@ -171,11 +171,11 @@ class CloudConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['CloudConnectorConfigurationArgs', 'CloudConnectorConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CloudConnectorConfigurationArgs', 'CloudConnectorConfigurationArgsDict', 'outputs.CloudConnectorConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -131,9 +131,9 @@ class ReportGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_reports: pulumi.Input[Optional[_builtins.bool]] = None,
-                 export_config: pulumi.Input[Optional[Union['ReportGroupReportExportConfigArgs', 'ReportGroupReportExportConfigArgsDict']]] = None,
+                 export_config: pulumi.Input[Optional[Union['ReportGroupReportExportConfigArgs', 'ReportGroupReportExportConfigArgsDict', 'outputs.ReportGroupReportExportConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ReportGroupType']] = None,
                  __props__=None):
         """
@@ -145,9 +145,9 @@ class ReportGroup(pulumi.CustomResource):
                
                - **true** - Deletes any reports that belong to the report group before deleting the report group.
                - **false** - You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown.
-        :param pulumi.Input[Union['ReportGroupReportExportConfigArgs', 'ReportGroupReportExportConfigArgsDict']] export_config: Information about the destination where the raw data of this `ReportGroup` is exported.
+        :param pulumi.Input[Union['ReportGroupReportExportConfigArgs', 'ReportGroupReportExportConfigArgsDict', 'outputs.ReportGroupReportExportConfig']] export_config: Information about the destination where the raw data of this `ReportGroup` is exported.
         :param pulumi.Input[_builtins.str] name: The name of the `ReportGroup` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tag key and value pairs associated with this report group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tag key and value pairs associated with this report group.
                
                These tags are available for use by AWS services that support AWS CodeBuild report group tags.
         :param pulumi.Input['ReportGroupType'] type: The type of the `ReportGroup` . This can be one of the following values:
@@ -180,9 +180,9 @@ class ReportGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_reports: pulumi.Input[Optional[_builtins.bool]] = None,
-                 export_config: pulumi.Input[Optional[Union['ReportGroupReportExportConfigArgs', 'ReportGroupReportExportConfigArgsDict']]] = None,
+                 export_config: pulumi.Input[Optional[Union['ReportGroupReportExportConfigArgs', 'ReportGroupReportExportConfigArgsDict', 'outputs.ReportGroupReportExportConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ReportGroupType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

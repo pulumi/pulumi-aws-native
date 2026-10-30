@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     public sealed class ObjectTypeKey
     {
         /// <summary>
-        /// The reference for the key name of the fields map. 
+        /// The reference for the key name of the fields map.
         /// </summary>
         public readonly ImmutableArray<string> FieldNames;
         /// <summary>

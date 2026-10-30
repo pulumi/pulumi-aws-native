@@ -21,12 +21,12 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         private InputList<string>? _notificationTypes;
 
         /// <summary>
-        /// A list of event types that send a notification. Event types can include any of the following types. 
+        /// A list of event types that send a notification. Event types can include any of the following types.
         ///  *Allowed values*:
-        ///   +   ``autoscaling:EC2_INSTANCE_LAUNCH`` 
-        ///   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR`` 
-        ///   +   ``autoscaling:EC2_INSTANCE_TERMINATE`` 
-        ///   +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR`` 
+        ///   +   ``autoscaling:EC2_INSTANCE_LAUNCH``
+        ///   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``
+        ///   +   ``autoscaling:EC2_INSTANCE_TERMINATE``
+        ///   +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR``
         ///   +   ``autoscaling:TEST_NOTIFICATION``
         /// </summary>
         public InputList<string> NotificationTypes

@@ -163,28 +163,28 @@ class ResponsePlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict']]]]] = None,
-                 chat_channel: pulumi.Input[Optional[Union['ResponsePlanChatChannelArgs', 'ResponsePlanChatChannelArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict', 'outputs.ResponsePlanAction']]]]] = None,
+                 chat_channel: pulumi.Input[Optional[Union['ResponsePlanChatChannelArgs', 'ResponsePlanChatChannelArgsDict', 'outputs.ResponsePlanChatChannel']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  engagements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_template: pulumi.Input[Optional[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict']]] = None,
-                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict']]]]] = None,
+                 incident_template: pulumi.Input[Optional[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict', 'outputs.ResponsePlanIncidentTemplate']]] = None,
+                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict', 'outputs.ResponsePlanIntegration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SSMIncidents::ResponsePlan
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict']]]] actions: The list of actions.
-        :param pulumi.Input[Union['ResponsePlanChatChannelArgs', 'ResponsePlanChatChannelArgsDict']] chat_channel: The  chat channel used for collaboration during an incident.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict', 'outputs.ResponsePlanAction']]]] actions: The list of actions.
+        :param pulumi.Input[Union['ResponsePlanChatChannelArgs', 'ResponsePlanChatChannelArgsDict', 'outputs.ResponsePlanChatChannel']] chat_channel: The  chat channel used for collaboration during an incident.
         :param pulumi.Input[_builtins.str] display_name: The display name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] engagements: The list of engagements to use.
-        :param pulumi.Input[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict']] incident_template: Details used to create an incident when using this response plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict']]]] integrations: The list of integrations.
+        :param pulumi.Input[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict', 'outputs.ResponsePlanIncidentTemplate']] incident_template: Details used to create an incident when using this response plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict', 'outputs.ResponsePlanIntegration']]]] integrations: The list of integrations.
         :param pulumi.Input[_builtins.str] name: The name of the response plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the response plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to apply to the response plan.
         """
         ...
     @overload
@@ -210,14 +210,14 @@ class ResponsePlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict']]]]] = None,
-                 chat_channel: pulumi.Input[Optional[Union['ResponsePlanChatChannelArgs', 'ResponsePlanChatChannelArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict', 'outputs.ResponsePlanAction']]]]] = None,
+                 chat_channel: pulumi.Input[Optional[Union['ResponsePlanChatChannelArgs', 'ResponsePlanChatChannelArgsDict', 'outputs.ResponsePlanChatChannel']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  engagements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_template: pulumi.Input[Optional[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict']]] = None,
-                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict']]]]] = None,
+                 incident_template: pulumi.Input[Optional[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict', 'outputs.ResponsePlanIncidentTemplate']]] = None,
+                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict', 'outputs.ResponsePlanIntegration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

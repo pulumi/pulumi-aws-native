@@ -646,7 +646,7 @@ class DataAccessorAuthenticationDetail(dict):
 class DataAccessorDocumentAttribute(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
-                 value: Any):
+                 value: Union['outputs.DataAccessorDocumentAttributeValue0Properties', 'outputs.DataAccessorDocumentAttributeValue1Properties', 'outputs.DataAccessorDocumentAttributeValue2Properties', 'outputs.DataAccessorDocumentAttributeValue3Properties']):
         """
         :param _builtins.str name: The identifier for the attribute.
         :param Union['DataAccessorDocumentAttributeValue0Properties', 'DataAccessorDocumentAttributeValue1Properties', 'DataAccessorDocumentAttributeValue2Properties', 'DataAccessorDocumentAttributeValue3Properties'] value: The value of the attribute.
@@ -664,7 +664,7 @@ class DataAccessorDocumentAttribute(dict):
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Any:
+    def value(self) -> Union['outputs.DataAccessorDocumentAttributeValue0Properties', 'outputs.DataAccessorDocumentAttributeValue1Properties', 'outputs.DataAccessorDocumentAttributeValue2Properties', 'outputs.DataAccessorDocumentAttributeValue3Properties']:
         """
         The value of the attribute.
         """
@@ -856,7 +856,7 @@ class DataSourceDocumentAttributeCondition(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  operator: 'DataSourceDocumentEnrichmentConditionOperator',
-                 value: Optional[Any] = None):
+                 value: Optional[Union['outputs.DataSourceDocumentAttributeValue0Properties', 'outputs.DataSourceDocumentAttributeValue1Properties', 'outputs.DataSourceDocumentAttributeValue2Properties', 'outputs.DataSourceDocumentAttributeValue3Properties']] = None):
         """
         :param _builtins.str key: The identifier of the document attribute used for the condition.
                
@@ -901,7 +901,7 @@ class DataSourceDocumentAttributeCondition(dict):
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[Any]:
+    def value(self) -> Optional[Union['outputs.DataSourceDocumentAttributeValue0Properties', 'outputs.DataSourceDocumentAttributeValue1Properties', 'outputs.DataSourceDocumentAttributeValue2Properties', 'outputs.DataSourceDocumentAttributeValue3Properties']]:
         """
         The value of a document attribute. You can only provide one value for a document attribute.
         """
@@ -930,7 +930,7 @@ class DataSourceDocumentAttributeTarget(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  attribute_value_operator: Optional['DataSourceAttributeValueOperator'] = None,
-                 value: Optional[Any] = None):
+                 value: Optional[Union['outputs.DataSourceDocumentAttributeValue0Properties', 'outputs.DataSourceDocumentAttributeValue1Properties', 'outputs.DataSourceDocumentAttributeValue2Properties', 'outputs.DataSourceDocumentAttributeValue3Properties']] = None):
         """
         :param _builtins.str key: The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
         :param 'DataSourceAttributeValueOperator' attribute_value_operator: `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
@@ -960,7 +960,7 @@ class DataSourceDocumentAttributeTarget(dict):
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[Any]:
+    def value(self) -> Optional[Union['outputs.DataSourceDocumentAttributeValue0Properties', 'outputs.DataSourceDocumentAttributeValue1Properties', 'outputs.DataSourceDocumentAttributeValue2Properties', 'outputs.DataSourceDocumentAttributeValue3Properties']]:
         """
         The value of a document attribute. You can only provide one value for a document attribute.
         """
@@ -1837,7 +1837,7 @@ class PluginCustomPluginConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 api_schema: Any,
+                 api_schema: Union['outputs.PluginApiSchema0Properties', 'outputs.PluginApiSchema1Properties'],
                  api_schema_type: 'PluginApiSchemaType',
                  description: _builtins.str):
         """
@@ -1851,7 +1851,7 @@ class PluginCustomPluginConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="apiSchema")
-    def api_schema(self) -> Any:
+    def api_schema(self) -> Union['outputs.PluginApiSchema0Properties', 'outputs.PluginApiSchema1Properties']:
         """
         Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
         """

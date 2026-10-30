@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Fis
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["effect"] = "Allow",
-    ///                             ["action"] = new[]
+    ///                             ["action"] = new object?[]
     ///                             {
     ///                                 "ec2:RebootInstances",
     ///                                 "ec2:StopInstances",

@@ -20,8 +20,8 @@ namespace Pulumi.AwsNative.Kms
         ///   +  The alias and its associated KMS key must be in the same AWS-account and Region.
         ///   +  The alias name must be unique in the AWS-account and Region. However, you can create aliases with the same name in different AWS-Regions. For example, you can have an ``alias/projectKey`` in multiple Regions, each of which is associated with a KMS key in its Region.
         ///   +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
-        ///   
-        ///   *Regions* 
+        /// 
+        ///   *Regions*
         ///  KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.Kms
         ///   +  The alias and its associated KMS key must be in the same AWS-account and Region.
         ///   +  The alias name must be unique in the AWS-account and Region. However, you can create aliases with the same name in different AWS-Regions. For example, you can have an ``alias/projectKey`` in multiple Regions, each of which is associated with a KMS key in its Region.
         ///   +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
-        ///   
-        ///   *Regions* 
+        /// 
+        ///   *Regions*
         ///  KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
@@ -52,8 +52,8 @@ namespace Pulumi.AwsNative.Kms
         ///   +  The alias and its associated KMS key must be in the same AWS-account and Region.
         ///   +  The alias name must be unique in the AWS-account and Region. However, you can create aliases with the same name in different AWS-Regions. For example, you can have an ``alias/projectKey`` in multiple Regions, each of which is associated with a KMS key in its Region.
         ///   +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
-        ///   
-        ///   *Regions* 
+        /// 
+        ///   *Regions*
         ///  KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOutputOptions options)
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Kms
     public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the alias name. This value must begin with ``alias/`` followed by a name, such as ``alias/ExampleAlias``. 
+        /// Specifies the alias name. This value must begin with ``alias/`` followed by a name, such as ``alias/ExampleAlias``.
         ///   If you change the value of the ``AliasName`` property, the existing alias is deleted and a new alias is created for the specified KMS key. This change can disrupt applications that use the alias. It can also allow or deny access to a KMS key affected by attribute-based access control (ABAC).
         ///   The alias must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with ``alias/aws/``. The ``alias/aws/`` prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Kms
     public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the alias name. This value must begin with ``alias/`` followed by a name, such as ``alias/ExampleAlias``. 
+        /// Specifies the alias name. This value must begin with ``alias/`` followed by a name, such as ``alias/ExampleAlias``.
         ///   If you change the value of the ``AliasName`` property, the existing alias is deleted and a new alias is created for the specified KMS key. This change can disrupt applications that use the alias. It can also allow or deny access to a KMS key affected by attribute-based access control (ABAC).
         ///   The alias must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with ``alias/aws/``. The ``alias/aws/`` prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         /// </summary>
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.Kms
         ///  For example:
         ///   +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
         ///   +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
-        ///   
+        /// 
         ///  To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html).
         /// </summary>
         public readonly string? TargetKeyId;

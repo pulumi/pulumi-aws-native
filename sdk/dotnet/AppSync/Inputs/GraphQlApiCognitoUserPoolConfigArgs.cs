@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppSync.Inputs
     public sealed class GraphQlApiCognitoUserPoolConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A regular expression for validating the incoming Amazon Cognito user pool app client ID. 
+        /// A regular expression for validating the incoming Amazon Cognito user pool app client ID.
         /// </summary>
         [Input("appIdClientRegex")]
         public Input<string>? AppIdClientRegex { get; set; }

@@ -145,26 +145,26 @@ class ConnectPeer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
+                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict', 'outputs.ConnectPeerBgpOptions']]] = None,
                  connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
                  inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  peer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         AWS::NetworkManager::ConnectPeer Resource Type Definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']] bgp_options: Bgp options for connect peer.
+        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict', 'outputs.ConnectPeerBgpOptions']] bgp_options: Bgp options for connect peer.
         :param pulumi.Input[_builtins.str] connect_attachment_id: The ID of the attachment to connect.
         :param pulumi.Input[_builtins.str] core_network_address: The IP address of a core network.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inside_cidr_blocks: The inside IP addresses used for a Connect peer configuration.
         :param pulumi.Input[_builtins.str] peer_address: The IP address of the Connect peer.
         :param pulumi.Input[_builtins.str] subnet_arn: The subnet ARN for the connect peer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -190,13 +190,13 @@ class ConnectPeer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
+                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict', 'outputs.ConnectPeerBgpOptions']]] = None,
                  connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
                  inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  peer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -213,11 +213,11 @@ class InstanceGroupConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_policy: pulumi.Input[Optional[Union['InstanceGroupConfigAutoScalingPolicyArgs', 'InstanceGroupConfigAutoScalingPolicyArgsDict']]] = None,
+                 auto_scaling_policy: pulumi.Input[Optional[Union['InstanceGroupConfigAutoScalingPolicyArgs', 'InstanceGroupConfigAutoScalingPolicyArgsDict', 'outputs.InstanceGroupConfigAutoScalingPolicy']]] = None,
                  bid_price: pulumi.Input[Optional[_builtins.str]] = None,
-                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupConfigAppConfigurationArgs', 'InstanceGroupConfigAppConfigurationArgsDict']]]]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupConfigAppConfigurationArgs', 'InstanceGroupConfigAppConfigurationArgsDict', 'outputs.InstanceGroupConfigAppConfiguration']]]]] = None,
                  custom_ami_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_configuration: pulumi.Input[Optional[Union['InstanceGroupConfigEbsConfigurationArgs', 'InstanceGroupConfigEbsConfigurationArgsDict']]] = None,
+                 ebs_configuration: pulumi.Input[Optional[Union['InstanceGroupConfigEbsConfigurationArgs', 'InstanceGroupConfigEbsConfigurationArgsDict', 'outputs.InstanceGroupConfigEbsConfiguration']]] = None,
                  instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  instance_role: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -230,13 +230,13 @@ class InstanceGroupConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceGroupConfigAutoScalingPolicyArgs', 'InstanceGroupConfigAutoScalingPolicyArgsDict']] auto_scaling_policy: `AutoScalingPolicy` is a subproperty of `InstanceGroupConfig` . `AutoScalingPolicy` defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) in the *Amazon EMR Management Guide* .
+        :param pulumi.Input[Union['InstanceGroupConfigAutoScalingPolicyArgs', 'InstanceGroupConfigAutoScalingPolicyArgsDict', 'outputs.InstanceGroupConfigAutoScalingPolicy']] auto_scaling_policy: `AutoScalingPolicy` is a subproperty of `InstanceGroupConfig` . `AutoScalingPolicy` defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) in the *Amazon EMR Management Guide* .
         :param pulumi.Input[_builtins.str] bid_price: If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify `OnDemandPrice` to set the amount equal to the On-Demand price, or specify an amount in USD.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupConfigAppConfigurationArgs', 'InstanceGroupConfigAppConfigurationArgsDict']]]] configurations: > Amazon EMR releases 4.x or later.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupConfigAppConfigurationArgs', 'InstanceGroupConfigAppConfigurationArgsDict', 'outputs.InstanceGroupConfigAppConfiguration']]]] configurations: > Amazon EMR releases 4.x or later.
                
                The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
         :param pulumi.Input[_builtins.str] custom_ami_id: The custom AMI ID to use for the provisioned instance group.
-        :param pulumi.Input[Union['InstanceGroupConfigEbsConfigurationArgs', 'InstanceGroupConfigEbsConfigurationArgsDict']] ebs_configuration: `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
+        :param pulumi.Input[Union['InstanceGroupConfigEbsConfigurationArgs', 'InstanceGroupConfigEbsConfigurationArgsDict', 'outputs.InstanceGroupConfigEbsConfiguration']] ebs_configuration: `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
         :param pulumi.Input[_builtins.int] instance_count: Target number of instances for the instance group.
         :param pulumi.Input[_builtins.str] instance_role: The role of the instance group in the cluster.
                
@@ -270,11 +270,11 @@ class InstanceGroupConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_policy: pulumi.Input[Optional[Union['InstanceGroupConfigAutoScalingPolicyArgs', 'InstanceGroupConfigAutoScalingPolicyArgsDict']]] = None,
+                 auto_scaling_policy: pulumi.Input[Optional[Union['InstanceGroupConfigAutoScalingPolicyArgs', 'InstanceGroupConfigAutoScalingPolicyArgsDict', 'outputs.InstanceGroupConfigAutoScalingPolicy']]] = None,
                  bid_price: pulumi.Input[Optional[_builtins.str]] = None,
-                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupConfigAppConfigurationArgs', 'InstanceGroupConfigAppConfigurationArgsDict']]]]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupConfigAppConfigurationArgs', 'InstanceGroupConfigAppConfigurationArgsDict', 'outputs.InstanceGroupConfigAppConfiguration']]]]] = None,
                  custom_ami_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_configuration: pulumi.Input[Optional[Union['InstanceGroupConfigEbsConfigurationArgs', 'InstanceGroupConfigEbsConfigurationArgsDict']]] = None,
+                 ebs_configuration: pulumi.Input[Optional[Union['InstanceGroupConfigEbsConfigurationArgs', 'InstanceGroupConfigEbsConfigurationArgsDict', 'outputs.InstanceGroupConfigEbsConfiguration']]] = None,
                  instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  instance_role: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,

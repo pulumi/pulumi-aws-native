@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         }
 
         /// <summary>
-        /// Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule. 
+        /// Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
         /// </summary>
         [Input("ruleIdentifier", required: true)]
         public Input<string> RuleIdentifier { get; set; } = null!;

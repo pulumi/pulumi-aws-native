@@ -65,8 +65,8 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewSecretTargetAttachment(ctx, "secretRedshiftAttachment", &secretsmanager.SecretTargetAttachmentArgs{
-//				SecretId:   myRedshiftSecret.ID().ToIDOutput().ToStringOutput(),
-//				TargetId:   myRedshiftCluster.ID().ToIDOutput().ToStringOutput(),
+//				SecretId:   myRedshiftSecret.ID(),
+//				TargetId:   myRedshiftCluster.ID(),
 //				TargetType: pulumi.String("AWS::Redshift::Cluster"),
 //			})
 //			if err != nil {
@@ -121,8 +121,8 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewSecretTargetAttachment(ctx, "secretRedshiftAttachment", &secretsmanager.SecretTargetAttachmentArgs{
-//				SecretId:   myRedshiftSecret.ID().ToIDOutput().ToStringOutput(),
-//				TargetId:   myRedshiftCluster.ID().ToIDOutput().ToStringOutput(),
+//				SecretId:   myRedshiftSecret.ID(),
+//				TargetId:   myRedshiftCluster.ID(),
 //				TargetType: pulumi.String("AWS::Redshift::Cluster"),
 //			})
 //			if err != nil {

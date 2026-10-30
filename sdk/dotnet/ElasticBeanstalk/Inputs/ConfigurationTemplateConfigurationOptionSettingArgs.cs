@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
         public Input<string> OptionName { get; set; } = null!;
 
         /// <summary>
-        /// A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+        /// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }

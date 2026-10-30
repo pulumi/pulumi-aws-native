@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Ec2
     public partial class VpcGatewayAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
         /// </summary>
         [Output("attachmentType")]
         public Output<string> AttachmentType { get; private set; } = null!;

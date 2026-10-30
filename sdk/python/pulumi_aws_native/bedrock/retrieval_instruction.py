@@ -117,9 +117,9 @@ class RetrievalInstruction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instruction: pulumi.Input[Optional[Union['RetrievalInstructionInstructionArgs', 'RetrievalInstructionInstructionArgsDict']]] = None,
+                 instruction: pulumi.Input[Optional[Union['RetrievalInstructionInstructionArgs', 'RetrievalInstructionInstructionArgsDict', 'outputs.RetrievalInstructionInstruction']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Bedrock::RetrievalInstruction
@@ -128,9 +128,9 @@ class RetrievalInstruction(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: The ARN of the customer managed KMS key protecting this content, when one was supplied at create.
         :param pulumi.Input[_builtins.str] description: A description of the retrieval instruction. On a numbered version, the description of that version.
-        :param pulumi.Input[Union['RetrievalInstructionInstructionArgs', 'RetrievalInstructionInstructionArgsDict']] instruction: The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
+        :param pulumi.Input[Union['RetrievalInstructionInstructionArgs', 'RetrievalInstructionInstructionArgsDict', 'outputs.RetrievalInstructionInstruction']] instruction: The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.
         :param pulumi.Input[_builtins.str] name: The name of the retrieval instruction.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -158,9 +158,9 @@ class RetrievalInstruction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instruction: pulumi.Input[Optional[Union['RetrievalInstructionInstructionArgs', 'RetrievalInstructionInstructionArgsDict']]] = None,
+                 instruction: pulumi.Input[Optional[Union['RetrievalInstructionInstructionArgs', 'RetrievalInstructionInstructionArgsDict', 'outputs.RetrievalInstructionInstruction']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

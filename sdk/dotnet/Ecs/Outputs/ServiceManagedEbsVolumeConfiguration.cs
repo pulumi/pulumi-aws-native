@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   +  ``gp3``: 3,000 - 16,000 IOPS
         ///   +  ``io1``: 100 - 64,000 IOPS
         ///   +  ``io2``: 100 - 256,000 IOPS
-        ///   
+        /// 
         ///  This parameter is required for ``io1`` and ``io2`` volume types. The default for ``gp3`` volumes is ``3,000 IOPS``. This parameter is not supported for ``st1``, ``sc1``, or ``standard`` volume types.
         ///  This parameter maps 1:1 with the ``Iops`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   +  Throughput Optimized HDD: ``st1``
         ///   +  Cold HDD: ``sc1``
         ///   +  Magnetic: ``standard``
-        ///   The magnetic volume type is not supported on Fargate.
+        ///        The magnetic volume type is not supported on Fargate.
         /// </summary>
         public readonly string? VolumeType;
 
