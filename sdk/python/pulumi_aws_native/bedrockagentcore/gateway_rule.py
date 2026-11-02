@@ -24,7 +24,7 @@ class GatewayRuleArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[Union['GatewayRuleAction0PropertiesArgs', 'GatewayRuleAction1PropertiesArgs']]]],
                  priority: pulumi.Input[_builtins.float],
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition1PropertiesArgs']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition2PropertiesArgs']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -59,11 +59,11 @@ class GatewayRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition1PropertiesArgs']]]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition2PropertiesArgs']]]]]:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition1PropertiesArgs']]]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition2PropertiesArgs']]]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
@@ -92,7 +92,7 @@ class GatewayRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleAction0PropertiesArgs', 'GatewayRuleAction0PropertiesArgsDict'], Union['GatewayRuleAction1PropertiesArgs', 'GatewayRuleAction1PropertiesArgsDict']]]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition0PropertiesArgsDict'], Union['GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition1PropertiesArgsDict']]]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition0PropertiesArgsDict'], Union['GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition1PropertiesArgsDict'], Union['GatewayRuleCondition2PropertiesArgs', 'GatewayRuleCondition2PropertiesArgsDict']]]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.float]] = None,
@@ -128,7 +128,7 @@ class GatewayRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleAction0PropertiesArgs', 'GatewayRuleAction0PropertiesArgsDict'], Union['GatewayRuleAction1PropertiesArgs', 'GatewayRuleAction1PropertiesArgsDict']]]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition0PropertiesArgsDict'], Union['GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition1PropertiesArgsDict']]]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition0PropertiesArgsDict'], Union['GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition1PropertiesArgsDict'], Union['GatewayRuleCondition2PropertiesArgs', 'GatewayRuleCondition2PropertiesArgsDict']]]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.float]] = None,

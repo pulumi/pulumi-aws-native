@@ -19,6 +19,8 @@ type RouterOutputResource struct {
 
 	// The Amazon Resource Name (ARN) of the router output.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+	AssociatedSourceEndpointArns pulumi.StringArrayOutput `pulumi:"associatedSourceEndpointArns"`
 	// The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The unique identifier of the router output.
@@ -194,6 +196,11 @@ func (o RouterOutputResourceOutput) ToRouterOutputResourceOutputWithContext(ctx 
 // The Amazon Resource Name (ARN) of the router output.
 func (o RouterOutputResourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouterOutputResource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+func (o RouterOutputResourceOutput) AssociatedSourceEndpointArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouterOutputResource) pulumi.StringArrayOutput { return v.AssociatedSourceEndpointArns }).(pulumi.StringArrayOutput)
 }
 
 // The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS::CloudWatch::OmniDashboard
+ * Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
  */
 export class OmniDashboard extends pulumi.CustomResource {
     /**
@@ -42,11 +42,11 @@ export class OmniDashboard extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The dashboard body, a JSON document describing the dashboard's widgets and layout.
+     * The dashboard definition.
      */
     declare public readonly body: pulumi.Output<string>;
     /**
-     * The time the dashboard was created.
+     * The timestamp when the dashboard was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
@@ -54,19 +54,19 @@ export class OmniDashboard extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
-     * The unique identifier of the dashboard.
+     * The unique ID of the dashboard.
      */
     declare public /*out*/ readonly dashboardId: pulumi.Output<string>;
     /**
-     * The description of the dashboard.
+     * An optional description of the dashboard.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The name of the dashboard.
+     * A name that identifies the dashboard.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The unique identifier of the space the dashboard belongs to.
+     * The unique ID of the space to create the dashboard in.
      */
     declare public readonly spaceId: pulumi.Output<string>;
     /**
@@ -74,7 +74,7 @@ export class OmniDashboard extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The time the dashboard was last updated.
+     * The timestamp when the dashboard was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
@@ -129,19 +129,19 @@ export class OmniDashboard extends pulumi.CustomResource {
  */
 export interface OmniDashboardArgs {
     /**
-     * The dashboard body, a JSON document describing the dashboard's widgets and layout.
+     * The dashboard definition.
      */
     body: pulumi.Input<string>;
     /**
-     * The description of the dashboard.
+     * An optional description of the dashboard.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The name of the dashboard.
+     * A name that identifies the dashboard.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier of the space the dashboard belongs to.
+     * The unique ID of the space to create the dashboard in.
      */
     spaceId: pulumi.Input<string>;
     /**

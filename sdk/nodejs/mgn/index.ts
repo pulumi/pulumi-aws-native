@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+
 export { ConnectorArgs } from "./connector";
 export type Connector = import("./connector").Connector;
 export const Connector: typeof import("./connector").Connector = null as any;
 utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
 export const getConnector: typeof import("./getConnector").getConnector = null as any;
@@ -25,6 +35,16 @@ export const getNetworkMigrationDefinition: typeof import("./getNetworkMigration
 export const getNetworkMigrationDefinitionOutput: typeof import("./getNetworkMigrationDefinition").getNetworkMigrationDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkMigrationDefinition","getNetworkMigrationDefinitionOutput"], () => require("./getNetworkMigrationDefinition"));
 
+export { GetReplicationConfigurationTemplateArgs, GetReplicationConfigurationTemplateResult, GetReplicationConfigurationTemplateOutputArgs } from "./getReplicationConfigurationTemplate";
+export const getReplicationConfigurationTemplate: typeof import("./getReplicationConfigurationTemplate").getReplicationConfigurationTemplate = null as any;
+export const getReplicationConfigurationTemplateOutput: typeof import("./getReplicationConfigurationTemplate").getReplicationConfigurationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationConfigurationTemplate","getReplicationConfigurationTemplateOutput"], () => require("./getReplicationConfigurationTemplate"));
+
+export { GetWaveArgs, GetWaveResult, GetWaveOutputArgs } from "./getWave";
+export const getWave: typeof import("./getWave").getWave = null as any;
+export const getWaveOutput: typeof import("./getWave").getWaveOutput = null as any;
+utilities.lazyLoad(exports, ["getWave","getWaveOutput"], () => require("./getWave"));
+
 export { LaunchConfigurationTemplateArgs } from "./launchConfigurationTemplate";
 export type LaunchConfigurationTemplate = import("./launchConfigurationTemplate").LaunchConfigurationTemplate;
 export const LaunchConfigurationTemplate: typeof import("./launchConfigurationTemplate").LaunchConfigurationTemplate = null as any;
@@ -35,6 +55,16 @@ export type NetworkMigrationDefinition = import("./networkMigrationDefinition").
 export const NetworkMigrationDefinition: typeof import("./networkMigrationDefinition").NetworkMigrationDefinition = null as any;
 utilities.lazyLoad(exports, ["NetworkMigrationDefinition"], () => require("./networkMigrationDefinition"));
 
+export { ReplicationConfigurationTemplateArgs } from "./replicationConfigurationTemplate";
+export type ReplicationConfigurationTemplate = import("./replicationConfigurationTemplate").ReplicationConfigurationTemplate;
+export const ReplicationConfigurationTemplate: typeof import("./replicationConfigurationTemplate").ReplicationConfigurationTemplate = null as any;
+utilities.lazyLoad(exports, ["ReplicationConfigurationTemplate"], () => require("./replicationConfigurationTemplate"));
+
+export { WaveArgs } from "./wave";
+export type Wave = import("./wave").Wave;
+export const Wave: typeof import("./wave").Wave = null as any;
+utilities.lazyLoad(exports, ["Wave"], () => require("./wave"));
+
 
 // Export enums:
 export * from "../types/enums/mgn";
@@ -43,12 +73,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:mgn:Application":
+                return new Application(name, <any>undefined, { urn })
             case "aws-native:mgn:Connector":
                 return new Connector(name, <any>undefined, { urn })
             case "aws-native:mgn:LaunchConfigurationTemplate":
                 return new LaunchConfigurationTemplate(name, <any>undefined, { urn })
             case "aws-native:mgn:NetworkMigrationDefinition":
                 return new NetworkMigrationDefinition(name, <any>undefined, { urn })
+            case "aws-native:mgn:ReplicationConfigurationTemplate":
+                return new ReplicationConfigurationTemplate(name, <any>undefined, { urn })
+            case "aws-native:mgn:Wave":
+                return new Wave(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

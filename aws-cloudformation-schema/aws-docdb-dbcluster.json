@@ -15,6 +15,9 @@
     "Port" : {
       "type" : "integer"
     },
+    "ServerlessV2PlatformVersion" : {
+      "type" : "string"
+    },
     "DBClusterIdentifier" : {
       "type" : "string"
     },
@@ -152,5 +155,5 @@
   },
   "createOnlyProperties" : [ "/properties/SnapshotIdentifier", "/properties/KmsKeyId", "/properties/MasterUsername", "/properties/SourceDBClusterIdentifier", "/properties/DBClusterIdentifier", "/properties/AvailabilityZones", "/properties/DBSubnetGroupName", "/properties/StorageEncrypted" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/ReadEndpoint", "/properties/Id", "/properties/Endpoint", "/properties/ClusterResourceId" ]
+  "readOnlyProperties" : [ "/properties/ReadEndpoint", "/properties/Id", "/properties/ServerlessV2PlatformVersion", "/properties/Endpoint", "/properties/ClusterResourceId" ]
 }

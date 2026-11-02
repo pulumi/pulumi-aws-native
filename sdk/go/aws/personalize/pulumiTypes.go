@@ -983,6 +983,347 @@ func (o MetricAttributionS3DataDestinationPtrOutput) Path() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration details of the recommender.
+type RecommenderConfig struct {
+	// Whether metadata with recommendations is enabled for the recommender.
+	EnableMetadataWithRecommendations *bool `pulumi:"enableMetadataWithRecommendations"`
+	// Specifies the exploration configuration hyperparameters.
+	ItemExplorationConfig map[string]string `pulumi:"itemExplorationConfig"`
+	// Specifies the requested minimum provisioned recommendation requests per second.
+	MinRecommendationRequestsPerSecond *int                           `pulumi:"minRecommendationRequestsPerSecond"`
+	TrainingDataConfig                 *RecommenderTrainingDataConfig `pulumi:"trainingDataConfig"`
+}
+
+// RecommenderConfigInput is an input type that accepts RecommenderConfigArgs and RecommenderConfigOutput values.
+// You can construct a concrete instance of `RecommenderConfigInput` via:
+//
+//	RecommenderConfigArgs{...}
+type RecommenderConfigInput interface {
+	pulumi.Input
+
+	ToRecommenderConfigOutput() RecommenderConfigOutput
+	ToRecommenderConfigOutputWithContext(context.Context) RecommenderConfigOutput
+}
+
+// The configuration details of the recommender.
+type RecommenderConfigArgs struct {
+	// Whether metadata with recommendations is enabled for the recommender.
+	EnableMetadataWithRecommendations pulumi.BoolPtrInput `pulumi:"enableMetadataWithRecommendations"`
+	// Specifies the exploration configuration hyperparameters.
+	ItemExplorationConfig pulumi.StringMapInput `pulumi:"itemExplorationConfig"`
+	// Specifies the requested minimum provisioned recommendation requests per second.
+	MinRecommendationRequestsPerSecond pulumi.IntPtrInput                    `pulumi:"minRecommendationRequestsPerSecond"`
+	TrainingDataConfig                 RecommenderTrainingDataConfigPtrInput `pulumi:"trainingDataConfig"`
+}
+
+func (RecommenderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderConfig)(nil)).Elem()
+}
+
+func (i RecommenderConfigArgs) ToRecommenderConfigOutput() RecommenderConfigOutput {
+	return i.ToRecommenderConfigOutputWithContext(context.Background())
+}
+
+func (i RecommenderConfigArgs) ToRecommenderConfigOutputWithContext(ctx context.Context) RecommenderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderConfigOutput)
+}
+
+func (i RecommenderConfigArgs) ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput {
+	return i.ToRecommenderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RecommenderConfigArgs) ToRecommenderConfigPtrOutputWithContext(ctx context.Context) RecommenderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderConfigOutput).ToRecommenderConfigPtrOutputWithContext(ctx)
+}
+
+// RecommenderConfigPtrInput is an input type that accepts RecommenderConfigArgs, RecommenderConfigPtr and RecommenderConfigPtrOutput values.
+// You can construct a concrete instance of `RecommenderConfigPtrInput` via:
+//
+//	        RecommenderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecommenderConfigPtrInput interface {
+	pulumi.Input
+
+	ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput
+	ToRecommenderConfigPtrOutputWithContext(context.Context) RecommenderConfigPtrOutput
+}
+
+type recommenderConfigPtrType RecommenderConfigArgs
+
+func RecommenderConfigPtr(v *RecommenderConfigArgs) RecommenderConfigPtrInput {
+	return (*recommenderConfigPtrType)(v)
+}
+
+func (*recommenderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderConfig)(nil)).Elem()
+}
+
+func (i *recommenderConfigPtrType) ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput {
+	return i.ToRecommenderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *recommenderConfigPtrType) ToRecommenderConfigPtrOutputWithContext(ctx context.Context) RecommenderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderConfigPtrOutput)
+}
+
+// The configuration details of the recommender.
+type RecommenderConfigOutput struct{ *pulumi.OutputState }
+
+func (RecommenderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderConfig)(nil)).Elem()
+}
+
+func (o RecommenderConfigOutput) ToRecommenderConfigOutput() RecommenderConfigOutput {
+	return o
+}
+
+func (o RecommenderConfigOutput) ToRecommenderConfigOutputWithContext(ctx context.Context) RecommenderConfigOutput {
+	return o
+}
+
+func (o RecommenderConfigOutput) ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput {
+	return o.ToRecommenderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderConfigOutput) ToRecommenderConfigPtrOutputWithContext(ctx context.Context) RecommenderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommenderConfig) *RecommenderConfig {
+		return &v
+	}).(RecommenderConfigPtrOutput)
+}
+
+// Whether metadata with recommendations is enabled for the recommender.
+func (o RecommenderConfigOutput) EnableMetadataWithRecommendations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RecommenderConfig) *bool { return v.EnableMetadataWithRecommendations }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the exploration configuration hyperparameters.
+func (o RecommenderConfigOutput) ItemExplorationConfig() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RecommenderConfig) map[string]string { return v.ItemExplorationConfig }).(pulumi.StringMapOutput)
+}
+
+// Specifies the requested minimum provisioned recommendation requests per second.
+func (o RecommenderConfigOutput) MinRecommendationRequestsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecommenderConfig) *int { return v.MinRecommendationRequestsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+func (o RecommenderConfigOutput) TrainingDataConfig() RecommenderTrainingDataConfigPtrOutput {
+	return o.ApplyT(func(v RecommenderConfig) *RecommenderTrainingDataConfig { return v.TrainingDataConfig }).(RecommenderTrainingDataConfigPtrOutput)
+}
+
+type RecommenderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderConfig)(nil)).Elem()
+}
+
+func (o RecommenderConfigPtrOutput) ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput {
+	return o
+}
+
+func (o RecommenderConfigPtrOutput) ToRecommenderConfigPtrOutputWithContext(ctx context.Context) RecommenderConfigPtrOutput {
+	return o
+}
+
+func (o RecommenderConfigPtrOutput) Elem() RecommenderConfigOutput {
+	return o.ApplyT(func(v *RecommenderConfig) RecommenderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderConfig
+		return ret
+	}).(RecommenderConfigOutput)
+}
+
+// Whether metadata with recommendations is enabled for the recommender.
+func (o RecommenderConfigPtrOutput) EnableMetadataWithRecommendations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RecommenderConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMetadataWithRecommendations
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the exploration configuration hyperparameters.
+func (o RecommenderConfigPtrOutput) ItemExplorationConfig() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RecommenderConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ItemExplorationConfig
+	}).(pulumi.StringMapOutput)
+}
+
+// Specifies the requested minimum provisioned recommendation requests per second.
+func (o RecommenderConfigPtrOutput) MinRecommendationRequestsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecommenderConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinRecommendationRequestsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o RecommenderConfigPtrOutput) TrainingDataConfig() RecommenderTrainingDataConfigPtrOutput {
+	return o.ApplyT(func(v *RecommenderConfig) *RecommenderTrainingDataConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingDataConfig
+	}).(RecommenderTrainingDataConfigPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RecommenderTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// The training data configuration to use when creating a domain recommender.
+type RecommenderTrainingDataConfig struct {
+	// Specifies the columns to exclude from training. Each key is a dataset type, and each value is a list of columns.
+	ExcludedDatasetColumns map[string][]string `pulumi:"excludedDatasetColumns"`
+}
+
+// RecommenderTrainingDataConfigInput is an input type that accepts RecommenderTrainingDataConfigArgs and RecommenderTrainingDataConfigOutput values.
+// You can construct a concrete instance of `RecommenderTrainingDataConfigInput` via:
+//
+//	RecommenderTrainingDataConfigArgs{...}
+type RecommenderTrainingDataConfigInput interface {
+	pulumi.Input
+
+	ToRecommenderTrainingDataConfigOutput() RecommenderTrainingDataConfigOutput
+	ToRecommenderTrainingDataConfigOutputWithContext(context.Context) RecommenderTrainingDataConfigOutput
+}
+
+// The training data configuration to use when creating a domain recommender.
+type RecommenderTrainingDataConfigArgs struct {
+	// Specifies the columns to exclude from training. Each key is a dataset type, and each value is a list of columns.
+	ExcludedDatasetColumns pulumi.StringArrayMapInput `pulumi:"excludedDatasetColumns"`
+}
+
+func (RecommenderTrainingDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderTrainingDataConfig)(nil)).Elem()
+}
+
+func (i RecommenderTrainingDataConfigArgs) ToRecommenderTrainingDataConfigOutput() RecommenderTrainingDataConfigOutput {
+	return i.ToRecommenderTrainingDataConfigOutputWithContext(context.Background())
+}
+
+func (i RecommenderTrainingDataConfigArgs) ToRecommenderTrainingDataConfigOutputWithContext(ctx context.Context) RecommenderTrainingDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderTrainingDataConfigOutput)
+}
+
+func (i RecommenderTrainingDataConfigArgs) ToRecommenderTrainingDataConfigPtrOutput() RecommenderTrainingDataConfigPtrOutput {
+	return i.ToRecommenderTrainingDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RecommenderTrainingDataConfigArgs) ToRecommenderTrainingDataConfigPtrOutputWithContext(ctx context.Context) RecommenderTrainingDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderTrainingDataConfigOutput).ToRecommenderTrainingDataConfigPtrOutputWithContext(ctx)
+}
+
+// RecommenderTrainingDataConfigPtrInput is an input type that accepts RecommenderTrainingDataConfigArgs, RecommenderTrainingDataConfigPtr and RecommenderTrainingDataConfigPtrOutput values.
+// You can construct a concrete instance of `RecommenderTrainingDataConfigPtrInput` via:
+//
+//	        RecommenderTrainingDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecommenderTrainingDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToRecommenderTrainingDataConfigPtrOutput() RecommenderTrainingDataConfigPtrOutput
+	ToRecommenderTrainingDataConfigPtrOutputWithContext(context.Context) RecommenderTrainingDataConfigPtrOutput
+}
+
+type recommenderTrainingDataConfigPtrType RecommenderTrainingDataConfigArgs
+
+func RecommenderTrainingDataConfigPtr(v *RecommenderTrainingDataConfigArgs) RecommenderTrainingDataConfigPtrInput {
+	return (*recommenderTrainingDataConfigPtrType)(v)
+}
+
+func (*recommenderTrainingDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderTrainingDataConfig)(nil)).Elem()
+}
+
+func (i *recommenderTrainingDataConfigPtrType) ToRecommenderTrainingDataConfigPtrOutput() RecommenderTrainingDataConfigPtrOutput {
+	return i.ToRecommenderTrainingDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *recommenderTrainingDataConfigPtrType) ToRecommenderTrainingDataConfigPtrOutputWithContext(ctx context.Context) RecommenderTrainingDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderTrainingDataConfigPtrOutput)
+}
+
+// The training data configuration to use when creating a domain recommender.
+type RecommenderTrainingDataConfigOutput struct{ *pulumi.OutputState }
+
+func (RecommenderTrainingDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderTrainingDataConfig)(nil)).Elem()
+}
+
+func (o RecommenderTrainingDataConfigOutput) ToRecommenderTrainingDataConfigOutput() RecommenderTrainingDataConfigOutput {
+	return o
+}
+
+func (o RecommenderTrainingDataConfigOutput) ToRecommenderTrainingDataConfigOutputWithContext(ctx context.Context) RecommenderTrainingDataConfigOutput {
+	return o
+}
+
+func (o RecommenderTrainingDataConfigOutput) ToRecommenderTrainingDataConfigPtrOutput() RecommenderTrainingDataConfigPtrOutput {
+	return o.ToRecommenderTrainingDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderTrainingDataConfigOutput) ToRecommenderTrainingDataConfigPtrOutputWithContext(ctx context.Context) RecommenderTrainingDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommenderTrainingDataConfig) *RecommenderTrainingDataConfig {
+		return &v
+	}).(RecommenderTrainingDataConfigPtrOutput)
+}
+
+// Specifies the columns to exclude from training. Each key is a dataset type, and each value is a list of columns.
+func (o RecommenderTrainingDataConfigOutput) ExcludedDatasetColumns() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v RecommenderTrainingDataConfig) map[string][]string { return v.ExcludedDatasetColumns }).(pulumi.StringArrayMapOutput)
+}
+
+type RecommenderTrainingDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderTrainingDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderTrainingDataConfig)(nil)).Elem()
+}
+
+func (o RecommenderTrainingDataConfigPtrOutput) ToRecommenderTrainingDataConfigPtrOutput() RecommenderTrainingDataConfigPtrOutput {
+	return o
+}
+
+func (o RecommenderTrainingDataConfigPtrOutput) ToRecommenderTrainingDataConfigPtrOutputWithContext(ctx context.Context) RecommenderTrainingDataConfigPtrOutput {
+	return o
+}
+
+func (o RecommenderTrainingDataConfigPtrOutput) Elem() RecommenderTrainingDataConfigOutput {
+	return o.ApplyT(func(v *RecommenderTrainingDataConfig) RecommenderTrainingDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderTrainingDataConfig
+		return ret
+	}).(RecommenderTrainingDataConfigOutput)
+}
+
+// Specifies the columns to exclude from training. Each key is a dataset type, and each value is a list of columns.
+func (o RecommenderTrainingDataConfigPtrOutput) ExcludedDatasetColumns() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *RecommenderTrainingDataConfig) map[string][]string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedDatasetColumns
+	}).(pulumi.StringArrayMapOutput)
+}
+
 type SchemaTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2436,6 +2777,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAttributionMetricsOutputConfigInput)(nil)).Elem(), MetricAttributionMetricsOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAttributionS3DataDestinationInput)(nil)).Elem(), MetricAttributionS3DataDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAttributionS3DataDestinationPtrInput)(nil)).Elem(), MetricAttributionS3DataDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderConfigInput)(nil)).Elem(), RecommenderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderConfigPtrInput)(nil)).Elem(), RecommenderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderTrainingDataConfigInput)(nil)).Elem(), RecommenderTrainingDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderTrainingDataConfigPtrInput)(nil)).Elem(), RecommenderTrainingDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionCategoricalHyperParameterRangeInput)(nil)).Elem(), SolutionCategoricalHyperParameterRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionCategoricalHyperParameterRangeArrayInput)(nil)).Elem(), SolutionCategoricalHyperParameterRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigInput)(nil)).Elem(), SolutionConfigArgs{})
@@ -2466,6 +2811,10 @@ func init() {
 	pulumi.RegisterOutputType(MetricAttributionMetricsOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(MetricAttributionS3DataDestinationOutput{})
 	pulumi.RegisterOutputType(MetricAttributionS3DataDestinationPtrOutput{})
+	pulumi.RegisterOutputType(RecommenderConfigOutput{})
+	pulumi.RegisterOutputType(RecommenderConfigPtrOutput{})
+	pulumi.RegisterOutputType(RecommenderTrainingDataConfigOutput{})
+	pulumi.RegisterOutputType(RecommenderTrainingDataConfigPtrOutput{})
 	pulumi.RegisterOutputType(SolutionCategoricalHyperParameterRangeOutput{})
 	pulumi.RegisterOutputType(SolutionCategoricalHyperParameterRangeArrayOutput{})
 	pulumi.RegisterOutputType(SolutionConfigOutput{})

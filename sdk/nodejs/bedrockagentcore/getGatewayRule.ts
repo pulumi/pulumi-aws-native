@@ -25,7 +25,7 @@ export interface GetGatewayRuleArgs {
 
 export interface GetGatewayRuleResult {
     readonly actions?: (outputs.bedrockagentcore.GatewayRuleAction0Properties | outputs.bedrockagentcore.GatewayRuleAction1Properties)[];
-    readonly conditions?: (outputs.bedrockagentcore.GatewayRuleCondition0Properties | outputs.bedrockagentcore.GatewayRuleCondition1Properties)[];
+    readonly conditions?: (outputs.bedrockagentcore.GatewayRuleCondition0Properties | outputs.bedrockagentcore.GatewayRuleCondition1Properties | outputs.bedrockagentcore.GatewayRuleCondition2Properties)[];
     readonly createdAt?: string;
     readonly description?: string;
     readonly gatewayArn?: string;

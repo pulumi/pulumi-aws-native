@@ -56,7 +56,7 @@ export class QuotaShare extends pulumi.CustomResource {
     /**
      * The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
-    declare public readonly quotaShareName: pulumi.Output<string>;
+    declare public readonly quotaShareName: pulumi.Output<string | undefined>;
     /**
      * Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
      */

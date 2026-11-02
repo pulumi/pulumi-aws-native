@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.NeptuneGraph
     public sealed class GetGraphResult
     {
         /// <summary>
+        /// The time at which the graph was created.
+        /// </summary>
+        public readonly string? CreateTime;
+        /// <summary>
         /// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         /// 
         /// _Default_: If not specified, the default value is true.
@@ -96,12 +100,18 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// </summary>
         public readonly bool? PublicConnectivity;
         /// <summary>
+        /// The current status of the graph.
+        /// </summary>
+        public readonly string? Status;
+        /// <summary>
         /// The tags associated with this graph.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetGraphResult(
+            string? createTime,
+
             bool? deletionProtection,
 
             string? endpoint,
@@ -114,14 +124,18 @@ namespace Pulumi.AwsNative.NeptuneGraph
 
             bool? publicConnectivity,
 
+            string? status,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            CreateTime = createTime;
             DeletionProtection = deletionProtection;
             Endpoint = endpoint;
             GraphArn = graphArn;
             GraphId = graphId;
             ProvisionedMemory = provisionedMemory;
             PublicConnectivity = publicConnectivity;
+            Status = status;
             Tags = tags;
         }
     }

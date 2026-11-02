@@ -31,8 +31,6 @@ type LookupCalculatedAttributeDefinitionArgs struct {
 }
 
 type LookupCalculatedAttributeDefinitionResult struct {
-	// Mathematical expression and a list of attribute items specified in that expression.
-	AttributeDetails *CalculatedAttributeDefinitionAttributeDetails `pulumi:"attributeDetails"`
 	// The conditions including range, object count, and threshold for the calculated attribute.
 	Conditions *CalculatedAttributeDefinitionConditions `pulumi:"conditions"`
 	// The timestamp of when the calculated attribute definition was created.
@@ -44,8 +42,6 @@ type LookupCalculatedAttributeDefinitionResult struct {
 	// The timestamp of when the calculated attribute definition was most recently edited.
 	LastUpdatedAt *string                                 `pulumi:"lastUpdatedAt"`
 	Readiness     *CalculatedAttributeDefinitionReadiness `pulumi:"readiness"`
-	// The aggregation operation to perform for the calculated attribute.
-	Statistic *CalculatedAttributeDefinitionStatistic `pulumi:"statistic"`
 	// The status of the calculated attribute definition.
 	Status *CalculatedAttributeDefinitionStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
@@ -82,13 +78,6 @@ func (o LookupCalculatedAttributeDefinitionResultOutput) ToLookupCalculatedAttri
 	return o
 }
 
-// Mathematical expression and a list of attribute items specified in that expression.
-func (o LookupCalculatedAttributeDefinitionResultOutput) AttributeDetails() CalculatedAttributeDefinitionAttributeDetailsPtrOutput {
-	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) *CalculatedAttributeDefinitionAttributeDetails {
-		return v.AttributeDetails
-	}).(CalculatedAttributeDefinitionAttributeDetailsPtrOutput)
-}
-
 // The conditions including range, object count, and threshold for the calculated attribute.
 func (o LookupCalculatedAttributeDefinitionResultOutput) Conditions() CalculatedAttributeDefinitionConditionsPtrOutput {
 	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) *CalculatedAttributeDefinitionConditions {
@@ -120,13 +109,6 @@ func (o LookupCalculatedAttributeDefinitionResultOutput) Readiness() CalculatedA
 	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) *CalculatedAttributeDefinitionReadiness {
 		return v.Readiness
 	}).(CalculatedAttributeDefinitionReadinessPtrOutput)
-}
-
-// The aggregation operation to perform for the calculated attribute.
-func (o LookupCalculatedAttributeDefinitionResultOutput) Statistic() CalculatedAttributeDefinitionStatisticPtrOutput {
-	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) *CalculatedAttributeDefinitionStatistic {
-		return v.Statistic
-	}).(CalculatedAttributeDefinitionStatisticPtrOutput)
 }
 
 // The status of the calculated attribute definition.

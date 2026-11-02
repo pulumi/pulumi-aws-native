@@ -122,7 +122,7 @@ class Gateway(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::IoTSiteWise::Gateway
+        Resource Type definition for AWS::IoTSiteWise::Gateway
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +139,7 @@ class Gateway(pulumi.CustomResource):
                  args: GatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::IoTSiteWise::Gateway
+        Resource Type definition for AWS::IoTSiteWise::Gateway
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

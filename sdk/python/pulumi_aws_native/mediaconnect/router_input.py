@@ -24,7 +24,7 @@ __all__ = ['RouterInputArgs', 'RouterInput']
 @pulumi.input_type
 class RouterInputArgs:
     def __init__(__self__, *,
-                 configuration: pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration4PropertiesArgs']],
+                 configuration: pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration5PropertiesArgs']],
                  maximum_bitrate: pulumi.Input[_builtins.int],
                  routing_scope: pulumi.Input['RouterInputRoutingScope'],
                  tier: pulumi.Input['RouterInputTier'],
@@ -69,11 +69,11 @@ class RouterInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration4PropertiesArgs']]:
+    def configuration(self) -> pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration5PropertiesArgs']]:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration4PropertiesArgs']]):
+    def configuration(self, value: pulumi.Input[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration5PropertiesArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
@@ -201,7 +201,7 @@ class RouterInput(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict'], Union['RouterInputConfiguration5PropertiesArgs', 'RouterInputConfiguration5PropertiesArgsDict']]]] = None,
                  content_quality_analysis_configuration: pulumi.Input[Optional[Union['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs', 'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgsDict']]] = None,
                  maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
                  maximum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
@@ -252,7 +252,7 @@ class RouterInput(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict'], Union['RouterInputConfiguration5PropertiesArgs', 'RouterInputConfiguration5PropertiesArgsDict']]]] = None,
                  content_quality_analysis_configuration: pulumi.Input[Optional[Union['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs', 'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgsDict']]] = None,
                  maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
                  maximum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
@@ -291,6 +291,7 @@ class RouterInput(pulumi.CustomResource):
             __props__.__dict__["tier"] = tier
             __props__.__dict__["transit_encryption"] = transit_encryption
             __props__.__dict__["arn"] = None
+            __props__.__dict__["associated_destination_endpoint_arns"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["content_quality_analysis_type"] = None
             __props__.__dict__["created_at"] = None
@@ -325,6 +326,7 @@ class RouterInput(pulumi.CustomResource):
         __props__ = RouterInputArgs.__new__(RouterInputArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["associated_destination_endpoint_arns"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["configuration"] = None
@@ -354,6 +356,14 @@ class RouterInput(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the router input.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedDestinationEndpointArns")
+    def associated_destination_endpoint_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+        """
+        return pulumi.get(self, "associated_destination_endpoint_arns")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")

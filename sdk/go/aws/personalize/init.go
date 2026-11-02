@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Filter{}
 	case "aws-native:personalize:MetricAttribution":
 		r = &MetricAttribution{}
+	case "aws-native:personalize:Recommender":
+		r = &Recommender{}
 	case "aws-native:personalize:Schema":
 		r = &Schema{}
 	case "aws-native:personalize:Solution":

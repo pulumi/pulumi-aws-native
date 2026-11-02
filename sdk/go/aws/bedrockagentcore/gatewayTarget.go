@@ -16,7 +16,8 @@ import (
 type GatewayTarget struct {
 	pulumi.CustomResourceState
 
-	AuthorizationData GatewayTargetAuthorizationDataPropertiesOutput `pulumi:"authorizationData"`
+	AuthorizationData         GatewayTargetAuthorizationDataPropertiesOutput `pulumi:"authorizationData"`
+	CertificateConfigurations pulumi.ArrayOutput                             `pulumi:"certificateConfigurations"`
 	// The date and time at which the gateway target was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The OAuth credential provider configuration.
@@ -92,6 +93,7 @@ func (GatewayTargetState) ElementType() reflect.Type {
 }
 
 type gatewayTargetArgs struct {
+	CertificateConfigurations []interface{} `pulumi:"certificateConfigurations"`
 	// The OAuth credential provider configuration.
 	CredentialProviderConfigurations []GatewayTargetCredentialProviderConfiguration `pulumi:"credentialProviderConfigurations"`
 	// The description for the gateway target.
@@ -108,6 +110,7 @@ type gatewayTargetArgs struct {
 
 // The set of arguments for constructing a GatewayTarget resource.
 type GatewayTargetArgs struct {
+	CertificateConfigurations pulumi.ArrayInput
 	// The OAuth credential provider configuration.
 	CredentialProviderConfigurations GatewayTargetCredentialProviderConfigurationArrayInput
 	// The description for the gateway target.
@@ -161,6 +164,10 @@ func (o GatewayTargetOutput) ToGatewayTargetOutputWithContext(ctx context.Contex
 
 func (o GatewayTargetOutput) AuthorizationData() GatewayTargetAuthorizationDataPropertiesOutput {
 	return o.ApplyT(func(v *GatewayTarget) GatewayTargetAuthorizationDataPropertiesOutput { return v.AuthorizationData }).(GatewayTargetAuthorizationDataPropertiesOutput)
+}
+
+func (o GatewayTargetOutput) CertificateConfigurations() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *GatewayTarget) pulumi.ArrayOutput { return v.CertificateConfigurations }).(pulumi.ArrayOutput)
 }
 
 // The date and time at which the gateway target was created.

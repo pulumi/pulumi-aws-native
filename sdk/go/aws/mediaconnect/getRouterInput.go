@@ -30,7 +30,9 @@ type LookupRouterInputArgs struct {
 
 type LookupRouterInputResult struct {
 	// The Amazon Resource Name (ARN) of the router input.
-	Arn                                 *string                                                         `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+	AssociatedDestinationEndpointArns   []string                                                        `pulumi:"associatedDestinationEndpointArns"`
 	Configuration                       interface{}                                                     `pulumi:"configuration"`
 	ContentQualityAnalysisConfiguration *RouterInputRouterContentQualityAnalysisConfigurationProperties `pulumi:"contentQualityAnalysisConfiguration"`
 	ContentQualityAnalysisType          *RouterInputRouterContentQualityAnalysisType                    `pulumi:"contentQualityAnalysisType"`
@@ -97,6 +99,11 @@ func (o LookupRouterInputResultOutput) ToLookupRouterInputResultOutputWithContex
 // The Amazon Resource Name (ARN) of the router input.
 func (o LookupRouterInputResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouterInputResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+func (o LookupRouterInputResultOutput) AssociatedDestinationEndpointArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRouterInputResult) []string { return v.AssociatedDestinationEndpointArns }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupRouterInputResultOutput) Configuration() pulumi.AnyOutput {

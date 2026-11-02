@@ -405,6 +405,11 @@ export const getSecurityGroupVpcAssociation: typeof import("./getSecurityGroupVp
 export const getSecurityGroupVpcAssociationOutput: typeof import("./getSecurityGroupVpcAssociation").getSecurityGroupVpcAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroupVpcAssociation","getSecurityGroupVpcAssociationOutput"], () => require("./getSecurityGroupVpcAssociation"));
 
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+
 export { GetSnapshotBlockPublicAccessArgs, GetSnapshotBlockPublicAccessResult, GetSnapshotBlockPublicAccessOutputArgs } from "./getSnapshotBlockPublicAccess";
 export const getSnapshotBlockPublicAccess: typeof import("./getSnapshotBlockPublicAccess").getSnapshotBlockPublicAccess = null as any;
 export const getSnapshotBlockPublicAccessOutput: typeof import("./getSnapshotBlockPublicAccess").getSnapshotBlockPublicAccessOutput = null as any;
@@ -890,6 +895,11 @@ export type SecurityGroupVpcAssociation = import("./securityGroupVpcAssociation"
 export const SecurityGroupVpcAssociation: typeof import("./securityGroupVpcAssociation").SecurityGroupVpcAssociation = null as any;
 utilities.lazyLoad(exports, ["SecurityGroupVpcAssociation"], () => require("./securityGroupVpcAssociation"));
 
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
 export { SnapshotBlockPublicAccessArgs } from "./snapshotBlockPublicAccess";
 export type SnapshotBlockPublicAccess = import("./snapshotBlockPublicAccess").SnapshotBlockPublicAccess;
 export const SnapshotBlockPublicAccess: typeof import("./snapshotBlockPublicAccess").SnapshotBlockPublicAccess = null as any;
@@ -1300,6 +1310,8 @@ const _module = {
                 return new SecurityGroupIngress(name, <any>undefined, { urn })
             case "aws-native:ec2:SecurityGroupVpcAssociation":
                 return new SecurityGroupVpcAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "aws-native:ec2:SnapshotBlockPublicAccess":
                 return new SnapshotBlockPublicAccess(name, <any>undefined, { urn })
             case "aws-native:ec2:SpotFleet":

@@ -53,6 +53,7 @@ export type BotDialogActionType = (typeof BotDialogActionType)[keyof typeof BotD
 export const BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode = {
     Primary: "Primary",
     Fallback: "Fallback",
+    DialogManager: "DialogManager",
 } as const;
 
 export type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode = (typeof BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode)[keyof typeof BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode];

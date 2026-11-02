@@ -13,29 +13,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS::CloudWatch::OmniDashboard
+// Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
 type OmniDashboard struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the dashboard.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The dashboard body, a JSON document describing the dashboard's widgets and layout.
+	// The dashboard definition.
 	Body pulumi.StringOutput `pulumi:"body"`
-	// The time the dashboard was created.
+	// The timestamp when the dashboard was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The principal that created the dashboard.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// The unique identifier of the dashboard.
+	// The unique ID of the dashboard.
 	DashboardId pulumi.StringOutput `pulumi:"dashboardId"`
-	// The description of the dashboard.
+	// An optional description of the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the dashboard.
+	// A name that identifies the dashboard.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The unique identifier of the space the dashboard belongs to.
+	// The unique ID of the space to create the dashboard in.
 	SpaceId pulumi.StringOutput `pulumi:"spaceId"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The time the dashboard was last updated.
+	// The timestamp when the dashboard was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
@@ -89,13 +89,13 @@ func (OmniDashboardState) ElementType() reflect.Type {
 }
 
 type omniDashboardArgs struct {
-	// The dashboard body, a JSON document describing the dashboard's widgets and layout.
+	// The dashboard definition.
 	Body string `pulumi:"body"`
-	// The description of the dashboard.
+	// An optional description of the dashboard.
 	Description *string `pulumi:"description"`
-	// The name of the dashboard.
+	// A name that identifies the dashboard.
 	Name *string `pulumi:"name"`
-	// The unique identifier of the space the dashboard belongs to.
+	// The unique ID of the space to create the dashboard in.
 	SpaceId string `pulumi:"spaceId"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -103,13 +103,13 @@ type omniDashboardArgs struct {
 
 // The set of arguments for constructing a OmniDashboard resource.
 type OmniDashboardArgs struct {
-	// The dashboard body, a JSON document describing the dashboard's widgets and layout.
+	// The dashboard definition.
 	Body pulumi.StringInput
-	// The description of the dashboard.
+	// An optional description of the dashboard.
 	Description pulumi.StringPtrInput
-	// The name of the dashboard.
+	// A name that identifies the dashboard.
 	Name pulumi.StringPtrInput
-	// The unique identifier of the space the dashboard belongs to.
+	// The unique ID of the space to create the dashboard in.
 	SpaceId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -157,12 +157,12 @@ func (o OmniDashboardOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OmniDashboard) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The dashboard body, a JSON document describing the dashboard's widgets and layout.
+// The dashboard definition.
 func (o OmniDashboardOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *OmniDashboard) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
 }
 
-// The time the dashboard was created.
+// The timestamp when the dashboard was created.
 func (o OmniDashboardOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *OmniDashboard) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -172,22 +172,22 @@ func (o OmniDashboardOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *OmniDashboard) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the dashboard.
+// The unique ID of the dashboard.
 func (o OmniDashboardOutput) DashboardId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OmniDashboard) pulumi.StringOutput { return v.DashboardId }).(pulumi.StringOutput)
 }
 
-// The description of the dashboard.
+// An optional description of the dashboard.
 func (o OmniDashboardOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OmniDashboard) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the dashboard.
+// A name that identifies the dashboard.
 func (o OmniDashboardOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OmniDashboard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the space the dashboard belongs to.
+// The unique ID of the space to create the dashboard in.
 func (o OmniDashboardOutput) SpaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OmniDashboard) pulumi.StringOutput { return v.SpaceId }).(pulumi.StringOutput)
 }
@@ -197,7 +197,7 @@ func (o OmniDashboardOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *OmniDashboard) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The time the dashboard was last updated.
+// The timestamp when the dashboard was last updated.
 func (o OmniDashboardOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *OmniDashboard) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

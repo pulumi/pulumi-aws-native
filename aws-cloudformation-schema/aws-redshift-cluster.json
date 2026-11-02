@@ -9,7 +9,7 @@
   },
   "typeName" : "AWS::Redshift::Cluster",
   "readOnlyProperties" : [ "/properties/DeferMaintenanceIdentifier", "/properties/Endpoint/Port", "/properties/Endpoint/Address", "/properties/ClusterNamespaceArn", "/properties/MasterPasswordSecretArn" ],
-  "description" : "An example resource schema demonstrating some basic constructs and validation rules.",
+  "description" : "Resource Type definition for AWS::Redshift::Cluster",
   "createOnlyProperties" : [ "/properties/ClusterIdentifier", "/properties/OwnerAccount", "/properties/SnapshotIdentifier", "/properties/DBName", "/properties/SnapshotClusterIdentifier", "/properties/ClusterSubnetGroupName", "/properties/MasterUsername" ],
   "primaryIdentifier" : [ "/properties/ClusterIdentifier" ],
   "required" : [ "NodeType", "MasterUsername", "DBName", "ClusterType" ],
@@ -19,7 +19,7 @@
       "permissions" : [ "redshift:DescribeClusters", "redshift:DescribeLoggingStatus", "redshift:DescribeSnapshotCopyGrant", "redshift:DescribeClusterDbRevisions", "redshift:DescribeTags", "redshift:GetResourcePolicy" ]
     },
     "create" : {
-      "permissions" : [ "iam:PassRole", "iam:CreateServiceLinkedRole", "redshift:DescribeClusters", "redshift:CreateCluster", "redshift:RestoreFromClusterSnapshot", "redshift:EnableLogging", "redshift:DescribeLoggingStatus", "redshift:CreateTags", "redshift:DescribeTags", "redshift:GetResourcePolicy", "redshift:PutResourcePolicy", "redshift:ModifyClusterMaintenance", "ec2:Describe*", "ec2:AssociateAddress", "ec2:CreateNetworkInterface", "ec2:ModifyNetworkInterfaceAttribute", "ec2:CreateVpcEndpoint", "ec2:ModifyVpcEndpoint", "ec2:AllocateAddress", "ec2:CreateSecurityGroup", "cloudwatch:PutMetricData", "kms:GenerateDataKey", "kms:CreateGrant", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
+      "permissions" : [ "iam:PassRole", "iam:CreateServiceLinkedRole", "redshift:DescribeClusters", "redshift:CreateCluster", "redshift:RestoreFromClusterSnapshot", "redshift:EnableLogging", "redshift:DescribeLoggingStatus", "redshift:CreateTags", "redshift:DescribeTags", "redshift:GetResourcePolicy", "redshift:PutResourcePolicy", "redshift:ModifyClusterMaintenance", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeNetworkAcls", "ec2:DescribeNetworkInterfaces", "ec2:DescribeRouteTables", "ec2:DescribeSecurityGroupRules", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcAttribute", "ec2:DescribeVpcEndpoints", "ec2:DescribeVpcs", "ec2:AssociateAddress", "ec2:CreateNetworkInterface", "ec2:ModifyNetworkInterfaceAttribute", "ec2:CreateVpcEndpoint", "ec2:ModifyVpcEndpoint", "ec2:AllocateAddress", "ec2:CreateSecurityGroup", "cloudwatch:PutMetricData", "kms:GenerateDataKey", "kms:CreateGrant", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
       "timeoutInMinutes" : 2160
     },
     "update" : {

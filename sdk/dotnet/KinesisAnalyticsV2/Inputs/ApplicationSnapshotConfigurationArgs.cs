@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     public sealed class ApplicationSnapshotConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+        /// </summary>
+        [Input("snapshotMode")]
+        public Input<Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationSnapshotConfigurationSnapshotMode>? SnapshotMode { get; set; }
+
+        /// <summary>
         /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         /// </summary>
         [Input("snapshotsEnabled", required: true)]

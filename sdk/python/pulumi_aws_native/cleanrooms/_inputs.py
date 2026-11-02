@@ -108,6 +108,12 @@ __all__ = [
     'ConfiguredTableAthenaTableReferenceArgsDict',
     'ConfiguredTableComparisonControlsArgs',
     'ConfiguredTableComparisonControlsArgsDict',
+    'ConfiguredTableDatabricksConnectionTypePropertiesArgs',
+    'ConfiguredTableDatabricksConnectionTypePropertiesArgsDict',
+    'ConfiguredTableDatabricksDeltaSharingConnectionArgs',
+    'ConfiguredTableDatabricksDeltaSharingConnectionArgsDict',
+    'ConfiguredTableDatabricksTableReferenceArgs',
+    'ConfiguredTableDatabricksTableReferenceArgsDict',
     'ConfiguredTableDifferentialPrivacyArgs',
     'ConfiguredTableDifferentialPrivacyArgsDict',
     'ConfiguredTableDifferentialPrivacyColumnArgs',
@@ -128,6 +134,8 @@ __all__ = [
     'ConfiguredTableTableReference1PropertiesArgsDict',
     'ConfiguredTableTableReference2PropertiesArgs',
     'ConfiguredTableTableReference2PropertiesArgsDict',
+    'ConfiguredTableTableReference3PropertiesArgs',
+    'ConfiguredTableTableReference3PropertiesArgsDict',
     'IdMappingTableInputReferenceConfigArgs',
     'IdMappingTableInputReferenceConfigArgsDict',
     'IdNamespaceAssociationIdMappingConfigArgs',
@@ -2079,6 +2087,111 @@ class ConfiguredTableComparisonControlsArgs:
         pulumi.set(self, "allowed_literal_comparison_columns", value)
 
 
+class ConfiguredTableDatabricksConnectionTypePropertiesArgsDict(TypedDict):
+    delta_sharing: pulumi.Input['ConfiguredTableDatabricksDeltaSharingConnectionArgsDict']
+
+@pulumi.input_type
+class ConfiguredTableDatabricksConnectionTypePropertiesArgs:
+    def __init__(__self__, *,
+                 delta_sharing: pulumi.Input['ConfiguredTableDatabricksDeltaSharingConnectionArgs']):
+        pulumi.set(__self__, "delta_sharing", delta_sharing)
+
+    @_builtins.property
+    @pulumi.getter(name="deltaSharing")
+    def delta_sharing(self) -> pulumi.Input['ConfiguredTableDatabricksDeltaSharingConnectionArgs']:
+        return pulumi.get(self, "delta_sharing")
+
+    @delta_sharing.setter
+    def delta_sharing(self, value: pulumi.Input['ConfiguredTableDatabricksDeltaSharingConnectionArgs']):
+        pulumi.set(self, "delta_sharing", value)
+
+
+class ConfiguredTableDatabricksDeltaSharingConnectionArgsDict(TypedDict):
+    delta_share_endpoint: pulumi.Input[_builtins.str]
+    share_name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ConfiguredTableDatabricksDeltaSharingConnectionArgs:
+    def __init__(__self__, *,
+                 delta_share_endpoint: pulumi.Input[_builtins.str],
+                 share_name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "delta_share_endpoint", delta_share_endpoint)
+        pulumi.set(__self__, "share_name", share_name)
+
+    @_builtins.property
+    @pulumi.getter(name="deltaShareEndpoint")
+    def delta_share_endpoint(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "delta_share_endpoint")
+
+    @delta_share_endpoint.setter
+    def delta_share_endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "delta_share_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "share_name", value)
+
+
+class ConfiguredTableDatabricksTableReferenceArgsDict(TypedDict):
+    connection_type: pulumi.Input['ConfiguredTableDatabricksConnectionTypePropertiesArgsDict']
+    schema_name: pulumi.Input[_builtins.str]
+    table_name: pulumi.Input[_builtins.str]
+    workspace_url: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ConfiguredTableDatabricksTableReferenceArgs:
+    def __init__(__self__, *,
+                 connection_type: pulumi.Input['ConfiguredTableDatabricksConnectionTypePropertiesArgs'],
+                 schema_name: pulumi.Input[_builtins.str],
+                 table_name: pulumi.Input[_builtins.str],
+                 workspace_url: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "connection_type", connection_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "table_name", table_name)
+        pulumi.set(__self__, "workspace_url", workspace_url)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input['ConfiguredTableDatabricksConnectionTypePropertiesArgs']:
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input['ConfiguredTableDatabricksConnectionTypePropertiesArgs']):
+        pulumi.set(self, "connection_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceUrl")
+    def workspace_url(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "workspace_url")
+
+    @workspace_url.setter
+    def workspace_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_url", value)
+
+
 class ConfiguredTableDifferentialPrivacyArgsDict(TypedDict):
     columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableDifferentialPrivacyColumnArgsDict']]]
 
@@ -2376,6 +2489,25 @@ class ConfiguredTableTableReference2PropertiesArgs:
     @athena.setter
     def athena(self, value: pulumi.Input['ConfiguredTableAthenaTableReferenceArgs']):
         pulumi.set(self, "athena", value)
+
+
+class ConfiguredTableTableReference3PropertiesArgsDict(TypedDict):
+    databricks: pulumi.Input['ConfiguredTableDatabricksTableReferenceArgsDict']
+
+@pulumi.input_type
+class ConfiguredTableTableReference3PropertiesArgs:
+    def __init__(__self__, *,
+                 databricks: pulumi.Input['ConfiguredTableDatabricksTableReferenceArgs']):
+        pulumi.set(__self__, "databricks", databricks)
+
+    @_builtins.property
+    @pulumi.getter
+    def databricks(self) -> pulumi.Input['ConfiguredTableDatabricksTableReferenceArgs']:
+        return pulumi.get(self, "databricks")
+
+    @databricks.setter
+    def databricks(self, value: pulumi.Input['ConfiguredTableDatabricksTableReferenceArgs']):
+        pulumi.set(self, "databricks", value)
 
 
 class IdMappingTableInputReferenceConfigArgsDict(TypedDict):

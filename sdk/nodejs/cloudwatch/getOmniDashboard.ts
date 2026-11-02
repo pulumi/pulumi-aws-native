@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS::CloudWatch::OmniDashboard
+ * Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
  */
 export function getOmniDashboard(args: GetOmniDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetOmniDashboardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,11 +20,11 @@ export function getOmniDashboard(args: GetOmniDashboardArgs, opts?: pulumi.Invok
 
 export interface GetOmniDashboardArgs {
     /**
-     * The unique identifier of the dashboard.
+     * The unique ID of the dashboard.
      */
     dashboardId: string;
     /**
-     * The unique identifier of the space the dashboard belongs to.
+     * The unique ID of the space to create the dashboard in.
      */
     spaceId: string;
 }
@@ -35,11 +35,11 @@ export interface GetOmniDashboardResult {
      */
     readonly arn?: string;
     /**
-     * The dashboard body, a JSON document describing the dashboard's widgets and layout.
+     * The dashboard definition.
      */
     readonly body?: string;
     /**
-     * The time the dashboard was created.
+     * The timestamp when the dashboard was created.
      */
     readonly createdAt?: string;
     /**
@@ -47,15 +47,15 @@ export interface GetOmniDashboardResult {
      */
     readonly createdBy?: string;
     /**
-     * The unique identifier of the dashboard.
+     * The unique ID of the dashboard.
      */
     readonly dashboardId?: string;
     /**
-     * The description of the dashboard.
+     * An optional description of the dashboard.
      */
     readonly description?: string;
     /**
-     * The name of the dashboard.
+     * A name that identifies the dashboard.
      */
     readonly name?: string;
     /**
@@ -63,12 +63,12 @@ export interface GetOmniDashboardResult {
      */
     readonly tags?: outputs.Tag[];
     /**
-     * The time the dashboard was last updated.
+     * The timestamp when the dashboard was last updated.
      */
     readonly updatedAt?: string;
 }
 /**
- * Resource type definition for AWS::CloudWatch::OmniDashboard
+ * Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
  */
 export function getOmniDashboardOutput(args: GetOmniDashboardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOmniDashboardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,11 +80,11 @@ export function getOmniDashboardOutput(args: GetOmniDashboardOutputArgs, opts?: 
 
 export interface GetOmniDashboardOutputArgs {
     /**
-     * The unique identifier of the dashboard.
+     * The unique ID of the dashboard.
      */
     dashboardId: pulumi.Input<string>;
     /**
-     * The unique identifier of the space the dashboard belongs to.
+     * The unique ID of the space to create the dashboard in.
      */
     spaceId: pulumi.Input<string>;
 }

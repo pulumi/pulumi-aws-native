@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventTriggerResult:
-    def __init__(__self__, created_at=None, description=None, event_trigger_conditions=None, event_trigger_limits=None, last_updated_at=None, object_type_name=None, segment_filter=None, tags=None):
+    def __init__(__self__, created_at=None, description=None, event_trigger_conditions=None, event_trigger_limits=None, intent_filter_definition=None, last_updated_at=None, object_type_name=None, segment_filter=None, tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -39,6 +39,9 @@ class GetEventTriggerResult:
         if event_trigger_limits and not isinstance(event_trigger_limits, dict):
             raise TypeError("Expected argument 'event_trigger_limits' to be a dict")
         pulumi.set(__self__, "event_trigger_limits", event_trigger_limits)
+        if intent_filter_definition and not isinstance(intent_filter_definition, dict):
+            raise TypeError("Expected argument 'intent_filter_definition' to be a dict")
+        pulumi.set(__self__, "intent_filter_definition", intent_filter_definition)
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
@@ -85,6 +88,11 @@ class GetEventTriggerResult:
         return pulumi.get(self, "event_trigger_limits")
 
     @_builtins.property
+    @pulumi.getter(name="intentFilterDefinition")
+    def intent_filter_definition(self) -> Optional['outputs.EventTriggerIntentFilterDefinition']:
+        return pulumi.get(self, "intent_filter_definition")
+
+    @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> Optional[_builtins.str]:
         """
@@ -127,6 +135,7 @@ class AwaitableGetEventTriggerResult(GetEventTriggerResult):
             description=self.description,
             event_trigger_conditions=self.event_trigger_conditions,
             event_trigger_limits=self.event_trigger_limits,
+            intent_filter_definition=self.intent_filter_definition,
             last_updated_at=self.last_updated_at,
             object_type_name=self.object_type_name,
             segment_filter=self.segment_filter,
@@ -153,6 +162,7 @@ def get_event_trigger(domain_name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         event_trigger_conditions=pulumi.get(__ret__, 'event_trigger_conditions'),
         event_trigger_limits=pulumi.get(__ret__, 'event_trigger_limits'),
+        intent_filter_definition=pulumi.get(__ret__, 'intent_filter_definition'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         object_type_name=pulumi.get(__ret__, 'object_type_name'),
         segment_filter=pulumi.get(__ret__, 'segment_filter'),
@@ -176,6 +186,7 @@ def get_event_trigger_output(domain_name: pulumi.Input[Optional[_builtins.str]] 
         description=pulumi.get(__response__, 'description'),
         event_trigger_conditions=pulumi.get(__response__, 'event_trigger_conditions'),
         event_trigger_limits=pulumi.get(__response__, 'event_trigger_limits'),
+        intent_filter_definition=pulumi.get(__response__, 'intent_filter_definition'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         object_type_name=pulumi.get(__response__, 'object_type_name'),
         segment_filter=pulumi.get(__response__, 'segment_filter'),

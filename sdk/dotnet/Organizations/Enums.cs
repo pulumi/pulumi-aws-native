@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.Organizations
     }
 
     /// <summary>
-    /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, BEDROCK_POLICY, CHATBOT_POLICY, DECLARATIVE_POLICY_EC2, INSPECTOR_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, RESOURCE_CONTROL_POLICY, S3_POLICY, SECURITYHUB_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, UPGRADE_ROLLOUT_POLICY
+    /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, BEDROCK_POLICY, CHATBOT_POLICY, DECLARATIVE_POLICY_EC2, GUARDDUTY_POLICY, INSPECTOR_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, RESOURCE_CONTROL_POLICY, S3_POLICY, SECURITYHUB_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, UPGRADE_ROLLOUT_POLICY
     /// </summary>
     [EnumType]
     public readonly struct PolicyType : IEquatable<PolicyType>
@@ -153,6 +153,7 @@ namespace Pulumi.AwsNative.Organizations
         public static PolicyType BedrockPolicy { get; } = new PolicyType("BEDROCK_POLICY");
         public static PolicyType ChatbotPolicy { get; } = new PolicyType("CHATBOT_POLICY");
         public static PolicyType DeclarativePolicyEc2 { get; } = new PolicyType("DECLARATIVE_POLICY_EC2");
+        public static PolicyType GuarddutyPolicy { get; } = new PolicyType("GUARDDUTY_POLICY");
         public static PolicyType InspectorPolicy { get; } = new PolicyType("INSPECTOR_POLICY");
         public static PolicyType NetworkSecurityDirectorPolicy { get; } = new PolicyType("NETWORK_SECURITY_DIRECTOR_POLICY");
         public static PolicyType ResourceControlPolicy { get; } = new PolicyType("RESOURCE_CONTROL_POLICY");

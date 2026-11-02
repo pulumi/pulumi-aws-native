@@ -72,6 +72,7 @@ class BotDialogActionType(_builtins.str, Enum):
 class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode(_builtins.str, Enum):
     PRIMARY = "Primary"
     FALLBACK = "Fallback"
+    DIALOG_MANAGER = "DialogManager"
 
 
 @pulumi.type_token("aws-native:lex:BotMessageSelectionStrategy")

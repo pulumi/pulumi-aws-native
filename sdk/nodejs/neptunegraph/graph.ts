@@ -38,6 +38,10 @@ export class Graph extends pulumi.CustomResource {
     }
 
     /**
+     * The time at which the graph was created.
+     */
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
+    /**
      * Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
      *
      * _Default_: If not specified, the default value is true.
@@ -94,6 +98,10 @@ export class Graph extends pulumi.CustomResource {
      */
     declare public readonly replicaCount: pulumi.Output<number | undefined>;
     /**
+     * The current status of the graph.
+     */
+    declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
      * The tags associated with this graph.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -125,10 +133,13 @@ export class Graph extends pulumi.CustomResource {
             resourceInputs["replicaCount"] = args?.replicaCount;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vectorSearchConfiguration"] = args?.vectorSearchConfiguration;
+            resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["graphArn"] = undefined /*out*/;
             resourceInputs["graphId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
+            resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["graphArn"] = undefined /*out*/;
@@ -139,6 +150,7 @@ export class Graph extends pulumi.CustomResource {
             resourceInputs["provisionedMemory"] = undefined /*out*/;
             resourceInputs["publicConnectivity"] = undefined /*out*/;
             resourceInputs["replicaCount"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vectorSearchConfiguration"] = undefined /*out*/;
         }

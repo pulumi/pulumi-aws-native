@@ -7,11 +7,17 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .application import *
 from .connector import *
+from .get_application import *
 from .get_connector import *
 from .get_launch_configuration_template import *
 from .get_network_migration_definition import *
+from .get_replication_configuration_template import *
+from .get_wave import *
 from .launch_configuration_template import *
 from .network_migration_definition import *
+from .replication_configuration_template import *
+from .wave import *
 from ._inputs import *
 from . import outputs

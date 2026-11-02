@@ -139,7 +139,7 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
             resourceInputs["useHistoricalData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["calculatedAttributeName", "conditions.range.timestampFormat", "conditions.range.timestampSource", "domainName", "useHistoricalData"] };
+        const replaceOnChanges = { replaceOnChanges: ["attributeDetails", "calculatedAttributeName", "conditions.range.timestampFormat", "conditions.range.timestampSource", "domainName", "statistic", "useHistoricalData"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CalculatedAttributeDefinition.__pulumiType, name, resourceInputs, opts);
     }

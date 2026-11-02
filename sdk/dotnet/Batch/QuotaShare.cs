@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Batch
         /// The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
         [Output("quotaShareName")]
-        public Output<string> QuotaShareName { get; private set; } = null!;
+        public Output<string?> QuotaShareName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.

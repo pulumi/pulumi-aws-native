@@ -23,6 +23,7 @@ __all__ = ['GatewayTargetArgs', 'GatewayTarget']
 class GatewayTargetArgs:
     def __init__(__self__, *,
                  target_configuration: pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration2PropertiesArgs']],
+                 certificate_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayTargetCertificateConfiguration0PropertiesArgs', 'GatewayTargetCertificateConfiguration1PropertiesArgs']]]]] = None,
                  credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,6 +40,8 @@ class GatewayTargetArgs:
         :param pulumi.Input[_builtins.str] name: The name for the gateway target.
         """
         pulumi.set(__self__, "target_configuration", target_configuration)
+        if certificate_configurations is not None:
+            pulumi.set(__self__, "certificate_configurations", certificate_configurations)
         if credential_provider_configurations is not None:
             pulumi.set(__self__, "credential_provider_configurations", credential_provider_configurations)
         if description is not None:
@@ -63,6 +66,15 @@ class GatewayTargetArgs:
     @target_configuration.setter
     def target_configuration(self, value: pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration2PropertiesArgs']]):
         pulumi.set(self, "target_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateConfigurations")
+    def certificate_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayTargetCertificateConfiguration0PropertiesArgs', 'GatewayTargetCertificateConfiguration1PropertiesArgs']]]]]:
+        return pulumi.get(self, "certificate_configurations")
+
+    @certificate_configurations.setter
+    def certificate_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayTargetCertificateConfiguration0PropertiesArgs', 'GatewayTargetCertificateConfiguration1PropertiesArgs']]]]]):
+        pulumi.set(self, "certificate_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderConfigurations")
@@ -137,6 +149,7 @@ class GatewayTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayTargetCertificateConfiguration0PropertiesArgs', 'GatewayTargetCertificateConfiguration0PropertiesArgsDict'], Union['GatewayTargetCertificateConfiguration1PropertiesArgs', 'GatewayTargetCertificateConfiguration1PropertiesArgsDict']]]]]] = None,
                  credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -180,6 +193,7 @@ class GatewayTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayTargetCertificateConfiguration0PropertiesArgs', 'GatewayTargetCertificateConfiguration0PropertiesArgsDict'], Union['GatewayTargetCertificateConfiguration1PropertiesArgs', 'GatewayTargetCertificateConfiguration1PropertiesArgsDict']]]]]] = None,
                  credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -196,6 +210,7 @@ class GatewayTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GatewayTargetArgs.__new__(GatewayTargetArgs)
 
+            __props__.__dict__["certificate_configurations"] = certificate_configurations
             __props__.__dict__["credential_provider_configurations"] = credential_provider_configurations
             __props__.__dict__["description"] = description
             __props__.__dict__["gateway_identifier"] = gateway_identifier
@@ -240,6 +255,7 @@ class GatewayTarget(pulumi.CustomResource):
         __props__ = GatewayTargetArgs.__new__(GatewayTargetArgs)
 
         __props__.__dict__["authorization_data"] = None
+        __props__.__dict__["certificate_configurations"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["credential_provider_configurations"] = None
         __props__.__dict__["description"] = None
@@ -262,6 +278,11 @@ class GatewayTarget(pulumi.CustomResource):
     @pulumi.getter(name="authorizationData")
     def authorization_data(self) -> pulumi.Output['outputs.GatewayTargetAuthorizationDataProperties']:
         return pulumi.get(self, "authorization_data")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateConfigurations")
+    def certificate_configurations(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+        return pulumi.get(self, "certificate_configurations")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")

@@ -26,8 +26,6 @@ __all__ = [
     'ApplicationCodeContentArgsDict',
     'ApplicationConfigurationArgs',
     'ApplicationConfigurationArgsDict',
-    'ApplicationCsvMappingParametersArgs',
-    'ApplicationCsvMappingParametersArgsDict',
     'ApplicationCustomArtifactConfigurationArgs',
     'ApplicationCustomArtifactConfigurationArgsDict',
     'ApplicationDeployAsApplicationConfigurationArgs',
@@ -42,26 +40,8 @@ __all__ = [
     'ApplicationFlinkRunConfigurationArgsDict',
     'ApplicationGlueDataCatalogConfigurationArgs',
     'ApplicationGlueDataCatalogConfigurationArgsDict',
-    'ApplicationInputArgs',
-    'ApplicationInputArgsDict',
-    'ApplicationInputLambdaProcessorArgs',
-    'ApplicationInputLambdaProcessorArgsDict',
-    'ApplicationInputParallelismArgs',
-    'ApplicationInputParallelismArgsDict',
-    'ApplicationInputProcessingConfigurationArgs',
-    'ApplicationInputProcessingConfigurationArgsDict',
-    'ApplicationInputSchemaArgs',
-    'ApplicationInputSchemaArgsDict',
-    'ApplicationJsonMappingParametersArgs',
-    'ApplicationJsonMappingParametersArgsDict',
-    'ApplicationKinesisFirehoseInputArgs',
-    'ApplicationKinesisFirehoseInputArgsDict',
-    'ApplicationKinesisStreamsInputArgs',
-    'ApplicationKinesisStreamsInputArgsDict',
     'ApplicationMaintenanceConfigurationArgs',
     'ApplicationMaintenanceConfigurationArgsDict',
-    'ApplicationMappingParametersArgs',
-    'ApplicationMappingParametersArgsDict',
     'ApplicationMavenReferenceArgs',
     'ApplicationMavenReferenceArgsDict',
     'ApplicationMonitoringConfigurationArgs',
@@ -70,10 +50,6 @@ __all__ = [
     'ApplicationParallelismConfigurationArgsDict',
     'ApplicationPropertyGroupArgs',
     'ApplicationPropertyGroupArgsDict',
-    'ApplicationRecordColumnArgs',
-    'ApplicationRecordColumnArgsDict',
-    'ApplicationRecordFormatArgs',
-    'ApplicationRecordFormatArgsDict',
     'ApplicationRestoreConfigurationArgs',
     'ApplicationRestoreConfigurationArgsDict',
     'ApplicationRunConfigurationArgs',
@@ -84,8 +60,6 @@ __all__ = [
     'ApplicationS3ContentLocationArgsDict',
     'ApplicationSnapshotConfigurationArgs',
     'ApplicationSnapshotConfigurationArgsDict',
-    'ApplicationSqlApplicationConfigurationArgs',
-    'ApplicationSqlApplicationConfigurationArgsDict',
     'ApplicationSystemRollbackConfigurationArgs',
     'ApplicationSystemRollbackConfigurationArgsDict',
     'ApplicationVpcConfigurationArgs',
@@ -285,7 +259,7 @@ class ApplicationCodeContentArgsDict(TypedDict):
     """
     text_content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The text-format code for a Flink-based Kinesis Data Analytics application.
+    The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
     """
     zip_file_content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -302,7 +276,7 @@ class ApplicationCodeContentArgs:
         Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
 
         :param pulumi.Input['ApplicationS3ContentLocationArgs'] s3_content_location: Information about the Amazon S3 bucket that contains the application code.
-        :param pulumi.Input[_builtins.str] text_content: The text-format code for a Flink-based Kinesis Data Analytics application.
+        :param pulumi.Input[_builtins.str] text_content: The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
         :param pulumi.Input[_builtins.str] zip_file_content: The zip-format code for a Flink-based Kinesis Data Analytics application.
         """
         if s3_content_location is not None:
@@ -328,7 +302,7 @@ class ApplicationCodeContentArgs:
     @pulumi.getter(name="textContent")
     def text_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The text-format code for a Flink-based Kinesis Data Analytics application.
+        The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
         """
         return pulumi.get(self, "text_content")
 
@@ -377,10 +351,6 @@ class ApplicationConfigurationArgsDict(TypedDict):
     """
     The creation and update parameters for a Flink-based Kinesis Data Analytics application.
     """
-    sql_application_configuration: NotRequired[pulumi.Input[Optional['ApplicationSqlApplicationConfigurationArgsDict']]]
-    """
-    The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-    """
     vpc_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationVpcConfigurationArgsDict']]]]]
     """
     The array of descriptions of VPC configurations available to the application.
@@ -399,7 +369,6 @@ class ApplicationConfigurationArgs:
                  application_system_rollback_configuration: pulumi.Input[Optional['ApplicationSystemRollbackConfigurationArgs']] = None,
                  environment_properties: pulumi.Input[Optional['ApplicationEnvironmentPropertiesArgs']] = None,
                  flink_application_configuration: pulumi.Input[Optional['ApplicationFlinkApplicationConfigurationArgs']] = None,
-                 sql_application_configuration: pulumi.Input[Optional['ApplicationSqlApplicationConfigurationArgs']] = None,
                  vpc_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationVpcConfigurationArgs']]]] = None,
                  zeppelin_application_configuration: pulumi.Input[Optional['ApplicationZeppelinApplicationConfigurationArgs']] = None):
         """
@@ -411,7 +380,6 @@ class ApplicationConfigurationArgs:
         :param pulumi.Input['ApplicationSystemRollbackConfigurationArgs'] application_system_rollback_configuration: Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationEnvironmentPropertiesArgs'] environment_properties: Describes execution properties for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationFlinkApplicationConfigurationArgs'] flink_application_configuration: The creation and update parameters for a Flink-based Kinesis Data Analytics application.
-        :param pulumi.Input['ApplicationSqlApplicationConfigurationArgs'] sql_application_configuration: The creation and update parameters for a SQL-based Kinesis Data Analytics application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationVpcConfigurationArgs']]] vpc_configurations: The array of descriptions of VPC configurations available to the application.
         :param pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs'] zeppelin_application_configuration: The configuration parameters for a Kinesis Data Analytics Studio notebook.
         """
@@ -427,8 +395,6 @@ class ApplicationConfigurationArgs:
             pulumi.set(__self__, "environment_properties", environment_properties)
         if flink_application_configuration is not None:
             pulumi.set(__self__, "flink_application_configuration", flink_application_configuration)
-        if sql_application_configuration is not None:
-            pulumi.set(__self__, "sql_application_configuration", sql_application_configuration)
         if vpc_configurations is not None:
             pulumi.set(__self__, "vpc_configurations", vpc_configurations)
         if zeppelin_application_configuration is not None:
@@ -507,18 +473,6 @@ class ApplicationConfigurationArgs:
         pulumi.set(self, "flink_application_configuration", value)
 
     @_builtins.property
-    @pulumi.getter(name="sqlApplicationConfiguration")
-    def sql_application_configuration(self) -> pulumi.Input[Optional['ApplicationSqlApplicationConfigurationArgs']]:
-        """
-        The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-        """
-        return pulumi.get(self, "sql_application_configuration")
-
-    @sql_application_configuration.setter
-    def sql_application_configuration(self, value: pulumi.Input[Optional['ApplicationSqlApplicationConfigurationArgs']]):
-        pulumi.set(self, "sql_application_configuration", value)
-
-    @_builtins.property
     @pulumi.getter(name="vpcConfigurations")
     def vpc_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationVpcConfigurationArgs']]]]:
         """
@@ -541,62 +495,6 @@ class ApplicationConfigurationArgs:
     @zeppelin_application_configuration.setter
     def zeppelin_application_configuration(self, value: pulumi.Input[Optional['ApplicationZeppelinApplicationConfigurationArgs']]):
         pulumi.set(self, "zeppelin_application_configuration", value)
-
-
-class ApplicationCsvMappingParametersArgsDict(TypedDict):
-    """
-    For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
-    `"name1", "address1"`
-    `"name2", "address2"`
-    """
-    record_column_delimiter: pulumi.Input[_builtins.str]
-    """
-    The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-    """
-    record_row_delimiter: pulumi.Input[_builtins.str]
-    """
-    The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
-    """
-
-@pulumi.input_type
-class ApplicationCsvMappingParametersArgs:
-    def __init__(__self__, *,
-                 record_column_delimiter: pulumi.Input[_builtins.str],
-                 record_row_delimiter: pulumi.Input[_builtins.str]):
-        """
-        For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
-        `"name1", "address1"`
-        `"name2", "address2"`
-
-        :param pulumi.Input[_builtins.str] record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-        :param pulumi.Input[_builtins.str] record_row_delimiter: The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
-        """
-        pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
-        pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
-
-    @_builtins.property
-    @pulumi.getter(name="recordColumnDelimiter")
-    def record_column_delimiter(self) -> pulumi.Input[_builtins.str]:
-        """
-        The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-        """
-        return pulumi.get(self, "record_column_delimiter")
-
-    @record_column_delimiter.setter
-    def record_column_delimiter(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "record_column_delimiter", value)
-
-    @_builtins.property
-    @pulumi.getter(name="recordRowDelimiter")
-    def record_row_delimiter(self) -> pulumi.Input[_builtins.str]:
-        """
-        The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
-        """
-        return pulumi.get(self, "record_row_delimiter")
-
-    @record_row_delimiter.setter
-    def record_row_delimiter(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "record_row_delimiter", value)
 
 
 class ApplicationCustomArtifactConfigurationArgsDict(TypedDict):
@@ -934,410 +832,6 @@ class ApplicationGlueDataCatalogConfigurationArgs:
         pulumi.set(self, "database_arn", value)
 
 
-class ApplicationInputArgsDict(TypedDict):
-    """
-    When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
-    """
-    input_schema: pulumi.Input['ApplicationInputSchemaArgsDict']
-    """
-    Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-    """
-    name_prefix: pulumi.Input[_builtins.str]
-    """
-    The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
-    """
-    input_parallelism: NotRequired[pulumi.Input[Optional['ApplicationInputParallelismArgsDict']]]
-    """
-    Describes the number of in-application streams to create.
-    """
-    input_processing_configuration: NotRequired[pulumi.Input[Optional['ApplicationInputProcessingConfigurationArgsDict']]]
-    """
-    The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
-    """
-    kinesis_firehose_input: NotRequired[pulumi.Input[Optional['ApplicationKinesisFirehoseInputArgsDict']]]
-    """
-    If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-    """
-    kinesis_streams_input: NotRequired[pulumi.Input[Optional['ApplicationKinesisStreamsInputArgsDict']]]
-    """
-    If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-    """
-
-@pulumi.input_type
-class ApplicationInputArgs:
-    def __init__(__self__, *,
-                 input_schema: pulumi.Input['ApplicationInputSchemaArgs'],
-                 name_prefix: pulumi.Input[_builtins.str],
-                 input_parallelism: pulumi.Input[Optional['ApplicationInputParallelismArgs']] = None,
-                 input_processing_configuration: pulumi.Input[Optional['ApplicationInputProcessingConfigurationArgs']] = None,
-                 kinesis_firehose_input: pulumi.Input[Optional['ApplicationKinesisFirehoseInputArgs']] = None,
-                 kinesis_streams_input: pulumi.Input[Optional['ApplicationKinesisStreamsInputArgs']] = None):
-        """
-        When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
-
-        :param pulumi.Input['ApplicationInputSchemaArgs'] input_schema: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-        :param pulumi.Input[_builtins.str] name_prefix: The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
-        :param pulumi.Input['ApplicationInputParallelismArgs'] input_parallelism: Describes the number of in-application streams to create.
-        :param pulumi.Input['ApplicationInputProcessingConfigurationArgs'] input_processing_configuration: The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
-        :param pulumi.Input['ApplicationKinesisFirehoseInputArgs'] kinesis_firehose_input: If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        :param pulumi.Input['ApplicationKinesisStreamsInputArgs'] kinesis_streams_input: If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-        """
-        pulumi.set(__self__, "input_schema", input_schema)
-        pulumi.set(__self__, "name_prefix", name_prefix)
-        if input_parallelism is not None:
-            pulumi.set(__self__, "input_parallelism", input_parallelism)
-        if input_processing_configuration is not None:
-            pulumi.set(__self__, "input_processing_configuration", input_processing_configuration)
-        if kinesis_firehose_input is not None:
-            pulumi.set(__self__, "kinesis_firehose_input", kinesis_firehose_input)
-        if kinesis_streams_input is not None:
-            pulumi.set(__self__, "kinesis_streams_input", kinesis_streams_input)
-
-    @_builtins.property
-    @pulumi.getter(name="inputSchema")
-    def input_schema(self) -> pulumi.Input['ApplicationInputSchemaArgs']:
-        """
-        Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-        """
-        return pulumi.get(self, "input_schema")
-
-    @input_schema.setter
-    def input_schema(self, value: pulumi.Input['ApplicationInputSchemaArgs']):
-        pulumi.set(self, "input_schema", value)
-
-    @_builtins.property
-    @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
-        """
-        return pulumi.get(self, "name_prefix")
-
-    @name_prefix.setter
-    def name_prefix(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name_prefix", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inputParallelism")
-    def input_parallelism(self) -> pulumi.Input[Optional['ApplicationInputParallelismArgs']]:
-        """
-        Describes the number of in-application streams to create.
-        """
-        return pulumi.get(self, "input_parallelism")
-
-    @input_parallelism.setter
-    def input_parallelism(self, value: pulumi.Input[Optional['ApplicationInputParallelismArgs']]):
-        pulumi.set(self, "input_parallelism", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inputProcessingConfiguration")
-    def input_processing_configuration(self) -> pulumi.Input[Optional['ApplicationInputProcessingConfigurationArgs']]:
-        """
-        The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
-        """
-        return pulumi.get(self, "input_processing_configuration")
-
-    @input_processing_configuration.setter
-    def input_processing_configuration(self, value: pulumi.Input[Optional['ApplicationInputProcessingConfigurationArgs']]):
-        pulumi.set(self, "input_processing_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="kinesisFirehoseInput")
-    def kinesis_firehose_input(self) -> pulumi.Input[Optional['ApplicationKinesisFirehoseInputArgs']]:
-        """
-        If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        """
-        return pulumi.get(self, "kinesis_firehose_input")
-
-    @kinesis_firehose_input.setter
-    def kinesis_firehose_input(self, value: pulumi.Input[Optional['ApplicationKinesisFirehoseInputArgs']]):
-        pulumi.set(self, "kinesis_firehose_input", value)
-
-    @_builtins.property
-    @pulumi.getter(name="kinesisStreamsInput")
-    def kinesis_streams_input(self) -> pulumi.Input[Optional['ApplicationKinesisStreamsInputArgs']]:
-        """
-        If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-        """
-        return pulumi.get(self, "kinesis_streams_input")
-
-    @kinesis_streams_input.setter
-    def kinesis_streams_input(self, value: pulumi.Input[Optional['ApplicationKinesisStreamsInputArgs']]):
-        pulumi.set(self, "kinesis_streams_input", value)
-
-
-class ApplicationInputLambdaProcessorArgsDict(TypedDict):
-    """
-    An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
-    """
-    resource_arn: pulumi.Input[_builtins.str]
-    """
-    The ARN of the Amazon Lambda function that operates on records in the stream.
-    """
-
-@pulumi.input_type
-class ApplicationInputLambdaProcessorArgs:
-    def __init__(__self__, *,
-                 resource_arn: pulumi.Input[_builtins.str]):
-        """
-        An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
-
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the Amazon Lambda function that operates on records in the stream.
-        """
-        pulumi.set(__self__, "resource_arn", resource_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the Amazon Lambda function that operates on records in the stream.
-        """
-        return pulumi.get(self, "resource_arn")
-
-    @resource_arn.setter
-    def resource_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_arn", value)
-
-
-class ApplicationInputParallelismArgsDict(TypedDict):
-    """
-    For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
-    """
-    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The number of in-application streams to create.
-    """
-
-@pulumi.input_type
-class ApplicationInputParallelismArgs:
-    def __init__(__self__, *,
-                 count: pulumi.Input[Optional[_builtins.int]] = None):
-        """
-        For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
-
-        :param pulumi.Input[_builtins.int] count: The number of in-application streams to create.
-        """
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-
-    @_builtins.property
-    @pulumi.getter
-    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The number of in-application streams to create.
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "count", value)
-
-
-class ApplicationInputProcessingConfigurationArgsDict(TypedDict):
-    """
-    For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
-    """
-    input_lambda_processor: NotRequired[pulumi.Input[Optional['ApplicationInputLambdaProcessorArgsDict']]]
-    """
-    The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-    """
-
-@pulumi.input_type
-class ApplicationInputProcessingConfigurationArgs:
-    def __init__(__self__, *,
-                 input_lambda_processor: pulumi.Input[Optional['ApplicationInputLambdaProcessorArgs']] = None):
-        """
-        For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
-
-        :param pulumi.Input['ApplicationInputLambdaProcessorArgs'] input_lambda_processor: The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-        """
-        if input_lambda_processor is not None:
-            pulumi.set(__self__, "input_lambda_processor", input_lambda_processor)
-
-    @_builtins.property
-    @pulumi.getter(name="inputLambdaProcessor")
-    def input_lambda_processor(self) -> pulumi.Input[Optional['ApplicationInputLambdaProcessorArgs']]:
-        """
-        The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-        """
-        return pulumi.get(self, "input_lambda_processor")
-
-    @input_lambda_processor.setter
-    def input_lambda_processor(self, value: pulumi.Input[Optional['ApplicationInputLambdaProcessorArgs']]):
-        pulumi.set(self, "input_lambda_processor", value)
-
-
-class ApplicationInputSchemaArgsDict(TypedDict):
-    """
-    For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-    """
-    record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgsDict']]]
-    """
-    A list of `RecordColumn` objects.
-    """
-    record_format: pulumi.Input['ApplicationRecordFormatArgsDict']
-    """
-    Specifies the format of the records on the streaming source.
-    """
-    record_encoding: NotRequired[pulumi.Input[Optional['ApplicationInputSchemaRecordEncoding']]]
-    """
-    Specifies the encoding of the records in the streaming source. For example, UTF-8.
-    """
-
-@pulumi.input_type
-class ApplicationInputSchemaArgs:
-    def __init__(__self__, *,
-                 record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgs']]],
-                 record_format: pulumi.Input['ApplicationRecordFormatArgs'],
-                 record_encoding: pulumi.Input[Optional['ApplicationInputSchemaRecordEncoding']] = None):
-        """
-        For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgs']]] record_columns: A list of `RecordColumn` objects.
-        :param pulumi.Input['ApplicationRecordFormatArgs'] record_format: Specifies the format of the records on the streaming source.
-        :param pulumi.Input['ApplicationInputSchemaRecordEncoding'] record_encoding: Specifies the encoding of the records in the streaming source. For example, UTF-8.
-        """
-        pulumi.set(__self__, "record_columns", record_columns)
-        pulumi.set(__self__, "record_format", record_format)
-        if record_encoding is not None:
-            pulumi.set(__self__, "record_encoding", record_encoding)
-
-    @_builtins.property
-    @pulumi.getter(name="recordColumns")
-    def record_columns(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgs']]]:
-        """
-        A list of `RecordColumn` objects.
-        """
-        return pulumi.get(self, "record_columns")
-
-    @record_columns.setter
-    def record_columns(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgs']]]):
-        pulumi.set(self, "record_columns", value)
-
-    @_builtins.property
-    @pulumi.getter(name="recordFormat")
-    def record_format(self) -> pulumi.Input['ApplicationRecordFormatArgs']:
-        """
-        Specifies the format of the records on the streaming source.
-        """
-        return pulumi.get(self, "record_format")
-
-    @record_format.setter
-    def record_format(self, value: pulumi.Input['ApplicationRecordFormatArgs']):
-        pulumi.set(self, "record_format", value)
-
-    @_builtins.property
-    @pulumi.getter(name="recordEncoding")
-    def record_encoding(self) -> pulumi.Input[Optional['ApplicationInputSchemaRecordEncoding']]:
-        """
-        Specifies the encoding of the records in the streaming source. For example, UTF-8.
-        """
-        return pulumi.get(self, "record_encoding")
-
-    @record_encoding.setter
-    def record_encoding(self, value: pulumi.Input[Optional['ApplicationInputSchemaRecordEncoding']]):
-        pulumi.set(self, "record_encoding", value)
-
-
-class ApplicationJsonMappingParametersArgsDict(TypedDict):
-    """
-    For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
-    """
-    record_row_path: pulumi.Input[_builtins.str]
-    """
-    The path to the top-level parent that contains the records.
-    """
-
-@pulumi.input_type
-class ApplicationJsonMappingParametersArgs:
-    def __init__(__self__, *,
-                 record_row_path: pulumi.Input[_builtins.str]):
-        """
-        For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
-
-        :param pulumi.Input[_builtins.str] record_row_path: The path to the top-level parent that contains the records.
-        """
-        pulumi.set(__self__, "record_row_path", record_row_path)
-
-    @_builtins.property
-    @pulumi.getter(name="recordRowPath")
-    def record_row_path(self) -> pulumi.Input[_builtins.str]:
-        """
-        The path to the top-level parent that contains the records.
-        """
-        return pulumi.get(self, "record_row_path")
-
-    @record_row_path.setter
-    def record_row_path(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "record_row_path", value)
-
-
-class ApplicationKinesisFirehoseInputArgsDict(TypedDict):
-    """
-    For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
-    """
-    resource_arn: pulumi.Input[_builtins.str]
-    """
-    The Amazon Resource Name (ARN) of the delivery stream.
-    """
-
-@pulumi.input_type
-class ApplicationKinesisFirehoseInputArgs:
-    def __init__(__self__, *,
-                 resource_arn: pulumi.Input[_builtins.str]):
-        """
-        For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
-
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the delivery stream.
-        """
-        pulumi.set(__self__, "resource_arn", resource_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the delivery stream.
-        """
-        return pulumi.get(self, "resource_arn")
-
-    @resource_arn.setter
-    def resource_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_arn", value)
-
-
-class ApplicationKinesisStreamsInputArgsDict(TypedDict):
-    """
-    Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
-    """
-    resource_arn: pulumi.Input[_builtins.str]
-    """
-    The ARN of the input Kinesis data stream to read.
-    """
-
-@pulumi.input_type
-class ApplicationKinesisStreamsInputArgs:
-    def __init__(__self__, *,
-                 resource_arn: pulumi.Input[_builtins.str]):
-        """
-        Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
-
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the input Kinesis data stream to read.
-        """
-        pulumi.set(__self__, "resource_arn", resource_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the input Kinesis data stream to read.
-        """
-        return pulumi.get(self, "resource_arn")
-
-    @resource_arn.setter
-    def resource_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_arn", value)
-
-
 class ApplicationMaintenanceConfigurationArgsDict(TypedDict):
     """
     Describes the maintenance configuration for the application.
@@ -1369,60 +863,6 @@ class ApplicationMaintenanceConfigurationArgs:
     @application_maintenance_window_start_time.setter
     def application_maintenance_window_start_time(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "application_maintenance_window_start_time", value)
-
-
-class ApplicationMappingParametersArgsDict(TypedDict):
-    """
-    When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-    """
-    csv_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationCsvMappingParametersArgsDict']]]
-    """
-    Provides additional mapping information when the record format uses delimiters (for example, CSV).
-    """
-    json_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationJsonMappingParametersArgsDict']]]
-    """
-    Provides additional mapping information when JSON is the record format on the streaming source.
-    """
-
-@pulumi.input_type
-class ApplicationMappingParametersArgs:
-    def __init__(__self__, *,
-                 csv_mapping_parameters: pulumi.Input[Optional['ApplicationCsvMappingParametersArgs']] = None,
-                 json_mapping_parameters: pulumi.Input[Optional['ApplicationJsonMappingParametersArgs']] = None):
-        """
-        When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-
-        :param pulumi.Input['ApplicationCsvMappingParametersArgs'] csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        :param pulumi.Input['ApplicationJsonMappingParametersArgs'] json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
-        """
-        if csv_mapping_parameters is not None:
-            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
-        if json_mapping_parameters is not None:
-            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
-
-    @_builtins.property
-    @pulumi.getter(name="csvMappingParameters")
-    def csv_mapping_parameters(self) -> pulumi.Input[Optional['ApplicationCsvMappingParametersArgs']]:
-        """
-        Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        """
-        return pulumi.get(self, "csv_mapping_parameters")
-
-    @csv_mapping_parameters.setter
-    def csv_mapping_parameters(self, value: pulumi.Input[Optional['ApplicationCsvMappingParametersArgs']]):
-        pulumi.set(self, "csv_mapping_parameters", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jsonMappingParameters")
-    def json_mapping_parameters(self) -> pulumi.Input[Optional['ApplicationJsonMappingParametersArgs']]:
-        """
-        Provides additional mapping information when JSON is the record format on the streaming source.
-        """
-        return pulumi.get(self, "json_mapping_parameters")
-
-    @json_mapping_parameters.setter
-    def json_mapping_parameters(self, value: pulumi.Input[Optional['ApplicationJsonMappingParametersArgs']]):
-        pulumi.set(self, "json_mapping_parameters", value)
 
 
 class ApplicationMavenReferenceArgsDict(TypedDict):
@@ -1716,133 +1156,6 @@ class ApplicationPropertyGroupArgs:
         pulumi.set(self, "property_map", value)
 
 
-class ApplicationRecordColumnArgsDict(TypedDict):
-    """
-    For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-    Also used to describe the format of the reference data source.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the column that is created in the in-application input stream or reference table.
-    """
-    sql_type: pulumi.Input[_builtins.str]
-    """
-    The type of column created in the in-application input stream or reference table.
-    """
-    mapping: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    A reference to the data element in the streaming input or the reference data source.
-    """
-
-@pulumi.input_type
-class ApplicationRecordColumnArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 sql_type: pulumi.Input[_builtins.str],
-                 mapping: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        Also used to describe the format of the reference data source.
-
-        :param pulumi.Input[_builtins.str] name: The name of the column that is created in the in-application input stream or reference table.
-        :param pulumi.Input[_builtins.str] sql_type: The type of column created in the in-application input stream or reference table.
-        :param pulumi.Input[_builtins.str] mapping: A reference to the data element in the streaming input or the reference data source.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sql_type", sql_type)
-        if mapping is not None:
-            pulumi.set(__self__, "mapping", mapping)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the column that is created in the in-application input stream or reference table.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sqlType")
-    def sql_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of column created in the in-application input stream or reference table.
-        """
-        return pulumi.get(self, "sql_type")
-
-    @sql_type.setter
-    def sql_type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sql_type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def mapping(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        A reference to the data element in the streaming input or the reference data source.
-        """
-        return pulumi.get(self, "mapping")
-
-    @mapping.setter
-    def mapping(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "mapping", value)
-
-
-class ApplicationRecordFormatArgsDict(TypedDict):
-    """
-    For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
-    """
-    record_format_type: pulumi.Input['ApplicationRecordFormatRecordFormatType']
-    """
-    The type of record format.
-    """
-    mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationMappingParametersArgsDict']]]
-    """
-    When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-    """
-
-@pulumi.input_type
-class ApplicationRecordFormatArgs:
-    def __init__(__self__, *,
-                 record_format_type: pulumi.Input['ApplicationRecordFormatRecordFormatType'],
-                 mapping_parameters: pulumi.Input[Optional['ApplicationMappingParametersArgs']] = None):
-        """
-        For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
-
-        :param pulumi.Input['ApplicationRecordFormatRecordFormatType'] record_format_type: The type of record format.
-        :param pulumi.Input['ApplicationMappingParametersArgs'] mapping_parameters: When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
-        pulumi.set(__self__, "record_format_type", record_format_type)
-        if mapping_parameters is not None:
-            pulumi.set(__self__, "mapping_parameters", mapping_parameters)
-
-    @_builtins.property
-    @pulumi.getter(name="recordFormatType")
-    def record_format_type(self) -> pulumi.Input['ApplicationRecordFormatRecordFormatType']:
-        """
-        The type of record format.
-        """
-        return pulumi.get(self, "record_format_type")
-
-    @record_format_type.setter
-    def record_format_type(self, value: pulumi.Input['ApplicationRecordFormatRecordFormatType']):
-        pulumi.set(self, "record_format_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mappingParameters")
-    def mapping_parameters(self) -> pulumi.Input[Optional['ApplicationMappingParametersArgs']]:
-        """
-        When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
-        return pulumi.get(self, "mapping_parameters")
-
-    @mapping_parameters.setter
-    def mapping_parameters(self, value: pulumi.Input[Optional['ApplicationMappingParametersArgs']]):
-        pulumi.set(self, "mapping_parameters", value)
-
-
 class ApplicationRestoreConfigurationArgsDict(TypedDict):
     """
     Describes the restore behavior of a restarting application.
@@ -1851,23 +1164,31 @@ class ApplicationRestoreConfigurationArgsDict(TypedDict):
     """
     Specifies how the application should be restored.
     """
+    snapshot_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+    """
     snapshot_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+    The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
     """
 
 @pulumi.input_type
 class ApplicationRestoreConfigurationArgs:
     def __init__(__self__, *,
                  application_restore_type: pulumi.Input['ApplicationRestoreConfigurationApplicationRestoreType'],
+                 snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the restore behavior of a restarting application.
 
         :param pulumi.Input['ApplicationRestoreConfigurationApplicationRestoreType'] application_restore_type: Specifies how the application should be restored.
-        :param pulumi.Input[_builtins.str] snapshot_name: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+        :param pulumi.Input[_builtins.str] snapshot_arn: The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+        :param pulumi.Input[_builtins.str] snapshot_name: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
         """
         pulumi.set(__self__, "application_restore_type", application_restore_type)
+        if snapshot_arn is not None:
+            pulumi.set(__self__, "snapshot_arn", snapshot_arn)
         if snapshot_name is not None:
             pulumi.set(__self__, "snapshot_name", snapshot_name)
 
@@ -1884,10 +1205,22 @@ class ApplicationRestoreConfigurationArgs:
         pulumi.set(self, "application_restore_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+        """
+        return pulumi.get(self, "snapshot_arn")
+
+    @snapshot_arn.setter
+    def snapshot_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "snapshot_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+        The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -2083,17 +1416,25 @@ class ApplicationSnapshotConfigurationArgsDict(TypedDict):
     """
     Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
     """
+    snapshot_mode: NotRequired[pulumi.Input[Optional['ApplicationSnapshotConfigurationSnapshotMode']]]
+    """
+    The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+    """
 
 @pulumi.input_type
 class ApplicationSnapshotConfigurationArgs:
     def __init__(__self__, *,
-                 snapshots_enabled: pulumi.Input[_builtins.bool]):
+                 snapshots_enabled: pulumi.Input[_builtins.bool],
+                 snapshot_mode: pulumi.Input[Optional['ApplicationSnapshotConfigurationSnapshotMode']] = None):
         """
         Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 
         :param pulumi.Input[_builtins.bool] snapshots_enabled: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+        :param pulumi.Input['ApplicationSnapshotConfigurationSnapshotMode'] snapshot_mode: The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
         """
         pulumi.set(__self__, "snapshots_enabled", snapshots_enabled)
+        if snapshot_mode is not None:
+            pulumi.set(__self__, "snapshot_mode", snapshot_mode)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsEnabled")
@@ -2107,39 +1448,17 @@ class ApplicationSnapshotConfigurationArgs:
     def snapshots_enabled(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "snapshots_enabled", value)
 
-
-class ApplicationSqlApplicationConfigurationArgsDict(TypedDict):
-    """
-    Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
-    """
-    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInputArgsDict']]]]]
-    """
-    The array of Input objects describing the input streams used by the application.
-    """
-
-@pulumi.input_type
-class ApplicationSqlApplicationConfigurationArgs:
-    def __init__(__self__, *,
-                 inputs: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInputArgs']]]] = None):
-        """
-        Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
-
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationInputArgs']]] inputs: The array of Input objects describing the input streams used by the application.
-        """
-        if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
-
     @_builtins.property
-    @pulumi.getter
-    def inputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInputArgs']]]]:
+    @pulumi.getter(name="snapshotMode")
+    def snapshot_mode(self) -> pulumi.Input[Optional['ApplicationSnapshotConfigurationSnapshotMode']]:
         """
-        The array of Input objects describing the input streams used by the application.
+        The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
         """
-        return pulumi.get(self, "inputs")
+        return pulumi.get(self, "snapshot_mode")
 
-    @inputs.setter
-    def inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInputArgs']]]]):
-        pulumi.set(self, "inputs", value)
+    @snapshot_mode.setter
+    def snapshot_mode(self, value: pulumi.Input[Optional['ApplicationSnapshotConfigurationSnapshotMode']]):
+        pulumi.set(self, "snapshot_mode", value)
 
 
 class ApplicationSystemRollbackConfigurationArgsDict(TypedDict):

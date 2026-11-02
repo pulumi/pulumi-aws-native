@@ -15,15 +15,22 @@ namespace Pulumi.AwsNative.Omics.Outputs
     {
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+        /// </summary>
+        public readonly string? VpcOwnerAccountId;
 
         [OutputConstructor]
         private ConfigurationVpcConfig(
             ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> subnetIds)
+            ImmutableArray<string> subnetIds,
+
+            string? vpcOwnerAccountId)
         {
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
+            VpcOwnerAccountId = vpcOwnerAccountId;
         }
     }
 }

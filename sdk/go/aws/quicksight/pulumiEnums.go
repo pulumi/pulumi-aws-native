@@ -24112,7 +24112,8 @@ func (o ApprovalPolicyGovernedActionArrayOutput) Index(i pulumi.IntInput) Approv
 type CustomPermissionsCapabilityState string
 
 const (
-	CustomPermissionsCapabilityStateDeny = CustomPermissionsCapabilityState("DENY")
+	CustomPermissionsCapabilityStateDeny  = CustomPermissionsCapabilityState("DENY")
+	CustomPermissionsCapabilityStateAllow = CustomPermissionsCapabilityState("ALLOW")
 )
 
 func (CustomPermissionsCapabilityState) ElementType() reflect.Type {
@@ -24238,6 +24239,7 @@ func (o CustomPermissionsCapabilityStatePtrOutput) ToStringPtrOutputWithContext(
 // A concrete instance of `CustomPermissionsCapabilityStateInput` can be one of the following:
 //
 //	CustomPermissionsCapabilityStateDeny
+//	CustomPermissionsCapabilityStateAllow
 type CustomPermissionsCapabilityStateInput interface {
 	pulumi.Input
 

@@ -121,13 +121,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock-agentcore:CreatePaymentConnector", "bedrock-agentcore:GetPaymentConnector" ]
+      "permissions" : [ "bedrock-agentcore:CreatePaymentConnector", "bedrock-agentcore:GetPaymentConnector", "bedrock-agentcore:GetPaymentCredentialProvider" ]
     },
     "read" : {
       "permissions" : [ "bedrock-agentcore:GetPaymentConnector" ]
     },
     "update" : {
-      "permissions" : [ "bedrock-agentcore:UpdatePaymentConnector", "bedrock-agentcore:GetPaymentConnector" ]
+      "permissions" : [ "bedrock-agentcore:UpdatePaymentConnector", "bedrock-agentcore:GetPaymentConnector", "bedrock-agentcore:GetPaymentCredentialProvider" ]
     },
     "delete" : {
       "permissions" : [ "bedrock-agentcore:DeletePaymentConnector", "bedrock-agentcore:GetPaymentConnector" ]

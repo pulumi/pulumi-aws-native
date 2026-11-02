@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+ * Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
  */
 export function getDomainForOrganization(args: GetDomainForOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainForOrganizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,18 +19,18 @@ export function getDomainForOrganization(args: GetDomainForOrganizationArgs, opt
 
 export interface GetDomainForOrganizationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the organization domain.
      */
     arn: string;
 }
 
 export interface GetDomainForOrganizationResult {
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the organization domain.
      */
     readonly arn?: string;
     /**
-     * The timestamp when the domain was created.
+     * The timestamp when the organization domain was created.
      */
     readonly createdAt?: string;
     /**
@@ -38,40 +38,43 @@ export interface GetDomainForOrganizationResult {
      */
     readonly customEndpointUrls?: string[];
     /**
-     * The HTTPS endpoint URL for accessing the domain.
+     * The HTTPS endpoint URL for accessing the organization domain.
      */
     readonly domainEndpointUrl?: string;
     /**
-     * The unique ID of the domain.
+     * The unique ID of the organization domain.
      */
     readonly domainId?: string;
     /**
      * The ARN of the Identity Center application. Absent for IAM-only domains.
      */
     readonly identityCenterApplicationArn?: string;
+    /**
+     * Identity provider configuration for the organization domain.
+     */
     readonly identityProviderConfiguration?: outputs.cloudwatch.DomainForOrganizationIdentityProviderConfiguration;
     /**
-     * The identity providers configured for the domain.
+     * The identity providers configured for the organization domain.
      */
     readonly identityProviders?: enums.cloudwatch.DomainForOrganizationIdentityProvidersItem[];
     /**
-     * A name that identifies the domain.
+     * A name that identifies the organization domain.
      */
     readonly name?: string;
     /**
-     * The ID of the AWS Organization this domain belongs to.
+     * The ID of the AWS Organization that owns the domain.
      */
     readonly organizationId?: string;
     /**
-     * The account ID of the organization's management account, which owns this domain.
+     * The AWS account ID that owns the organization domain.
      */
     readonly ownerAccountId?: string;
     /**
-     * The Region where this domain was created.
+     * The Region where this organization domain was created.
      */
     readonly region?: string;
     /**
-     * Current status of the domain.
+     * Current status of the organization domain.
      */
     readonly status?: enums.cloudwatch.DomainForOrganizationStatus;
     /**
@@ -79,12 +82,12 @@ export interface GetDomainForOrganizationResult {
      */
     readonly tags?: outputs.Tag[];
     /**
-     * The timestamp when the domain was last updated.
+     * The timestamp when the organization domain was last updated.
      */
     readonly updatedAt?: string;
 }
 /**
- * Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+ * Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
  */
 export function getDomainForOrganizationOutput(args: GetDomainForOrganizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainForOrganizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,7 +98,7 @@ export function getDomainForOrganizationOutput(args: GetDomainForOrganizationOut
 
 export interface GetDomainForOrganizationOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the organization domain.
      */
     arn: pulumi.Input<string>;
 }

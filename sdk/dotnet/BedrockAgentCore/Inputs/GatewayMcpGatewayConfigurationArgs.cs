@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class GatewayMcpGatewayConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("disableMcpListToolsPagination")]
+        public Input<bool>? DisableMcpListToolsPagination { get; set; }
+
         [Input("instructions")]
         public Input<string>? Instructions { get; set; }
 

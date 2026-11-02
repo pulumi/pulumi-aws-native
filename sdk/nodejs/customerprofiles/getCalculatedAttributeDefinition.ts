@@ -31,10 +31,6 @@ export interface GetCalculatedAttributeDefinitionArgs {
 
 export interface GetCalculatedAttributeDefinitionResult {
     /**
-     * Mathematical expression and a list of attribute items specified in that expression.
-     */
-    readonly attributeDetails?: outputs.customerprofiles.CalculatedAttributeDefinitionAttributeDetails;
-    /**
      * The conditions including range, object count, and threshold for the calculated attribute.
      */
     readonly conditions?: outputs.customerprofiles.CalculatedAttributeDefinitionConditions;
@@ -55,10 +51,6 @@ export interface GetCalculatedAttributeDefinitionResult {
      */
     readonly lastUpdatedAt?: string;
     readonly readiness?: outputs.customerprofiles.CalculatedAttributeDefinitionReadiness;
-    /**
-     * The aggregation operation to perform for the calculated attribute.
-     */
-    readonly statistic?: enums.customerprofiles.CalculatedAttributeDefinitionStatistic;
     /**
      * The status of the calculated attribute definition.
      */

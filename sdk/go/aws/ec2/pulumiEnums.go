@@ -12894,6 +12894,191 @@ func (in *snapshotBlockPublicAccessStateEnumPtr) ToSnapshotBlockPublicAccessStat
 	return pulumi.ToOutputWithContext(ctx, in).(SnapshotBlockPublicAccessStateEnumPtrOutput)
 }
 
+// The snapshot state.
+type SnapshotStateEnum string
+
+const (
+	SnapshotStateEnumPending     = SnapshotStateEnum("pending")
+	SnapshotStateEnumCompleted   = SnapshotStateEnum("completed")
+	SnapshotStateEnumError       = SnapshotStateEnum("error")
+	SnapshotStateEnumRecoverable = SnapshotStateEnum("recoverable")
+	SnapshotStateEnumRecovering  = SnapshotStateEnum("recovering")
+)
+
+type SnapshotStateEnumOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotStateEnum)(nil)).Elem()
+}
+
+func (o SnapshotStateEnumOutput) ToSnapshotStateEnumOutput() SnapshotStateEnumOutput {
+	return o
+}
+
+func (o SnapshotStateEnumOutput) ToSnapshotStateEnumOutputWithContext(ctx context.Context) SnapshotStateEnumOutput {
+	return o
+}
+
+func (o SnapshotStateEnumOutput) ToSnapshotStateEnumPtrOutput() SnapshotStateEnumPtrOutput {
+	return o.ToSnapshotStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStateEnumOutput) ToSnapshotStateEnumPtrOutputWithContext(ctx context.Context) SnapshotStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotStateEnum) *SnapshotStateEnum {
+		return &v
+	}).(SnapshotStateEnumPtrOutput)
+}
+
+func (o SnapshotStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotStateEnum)(nil)).Elem()
+}
+
+func (o SnapshotStateEnumPtrOutput) ToSnapshotStateEnumPtrOutput() SnapshotStateEnumPtrOutput {
+	return o
+}
+
+func (o SnapshotStateEnumPtrOutput) ToSnapshotStateEnumPtrOutputWithContext(ctx context.Context) SnapshotStateEnumPtrOutput {
+	return o
+}
+
+func (o SnapshotStateEnumPtrOutput) Elem() SnapshotStateEnumOutput {
+	return o.ApplyT(func(v *SnapshotStateEnum) SnapshotStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotStateEnum
+		return ret
+	}).(SnapshotStateEnumOutput)
+}
+
+func (o SnapshotStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage tier in which the snapshot is stored.
+type SnapshotStorageTier string
+
+const (
+	SnapshotStorageTierArchive  = SnapshotStorageTier("archive")
+	SnapshotStorageTierStandard = SnapshotStorageTier("standard")
+)
+
+type SnapshotStorageTierOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStorageTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotStorageTier)(nil)).Elem()
+}
+
+func (o SnapshotStorageTierOutput) ToSnapshotStorageTierOutput() SnapshotStorageTierOutput {
+	return o
+}
+
+func (o SnapshotStorageTierOutput) ToSnapshotStorageTierOutputWithContext(ctx context.Context) SnapshotStorageTierOutput {
+	return o
+}
+
+func (o SnapshotStorageTierOutput) ToSnapshotStorageTierPtrOutput() SnapshotStorageTierPtrOutput {
+	return o.ToSnapshotStorageTierPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStorageTierOutput) ToSnapshotStorageTierPtrOutputWithContext(ctx context.Context) SnapshotStorageTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotStorageTier) *SnapshotStorageTier {
+		return &v
+	}).(SnapshotStorageTierPtrOutput)
+}
+
+func (o SnapshotStorageTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotStorageTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStorageTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotStorageTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStorageTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStorageTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotStorageTierPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStorageTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotStorageTier)(nil)).Elem()
+}
+
+func (o SnapshotStorageTierPtrOutput) ToSnapshotStorageTierPtrOutput() SnapshotStorageTierPtrOutput {
+	return o
+}
+
+func (o SnapshotStorageTierPtrOutput) ToSnapshotStorageTierPtrOutputWithContext(ctx context.Context) SnapshotStorageTierPtrOutput {
+	return o
+}
+
+func (o SnapshotStorageTierPtrOutput) Elem() SnapshotStorageTierOutput {
+	return o.ApplyT(func(v *SnapshotStorageTier) SnapshotStorageTier {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotStorageTier
+		return ret
+	}).(SnapshotStorageTierOutput)
+}
+
+func (o SnapshotStorageTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStorageTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotStorageTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem string
 
 const (
@@ -24173,6 +24358,10 @@ func init() {
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumOutput{})
 	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotStateEnumOutput{})
+	pulumi.RegisterOutputType(SnapshotStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotStorageTierOutput{})
+	pulumi.RegisterOutputType(SnapshotStorageTierPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput{})
 	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput{})

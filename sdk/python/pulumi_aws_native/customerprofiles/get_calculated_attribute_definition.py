@@ -26,10 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCalculatedAttributeDefinitionResult:
-    def __init__(__self__, attribute_details=None, conditions=None, created_at=None, description=None, display_name=None, last_updated_at=None, readiness=None, statistic=None, status=None, tags=None):
-        if attribute_details and not isinstance(attribute_details, dict):
-            raise TypeError("Expected argument 'attribute_details' to be a dict")
-        pulumi.set(__self__, "attribute_details", attribute_details)
+    def __init__(__self__, conditions=None, created_at=None, description=None, display_name=None, last_updated_at=None, readiness=None, status=None, tags=None):
         if conditions and not isinstance(conditions, dict):
             raise TypeError("Expected argument 'conditions' to be a dict")
         pulumi.set(__self__, "conditions", conditions)
@@ -48,23 +45,12 @@ class GetCalculatedAttributeDefinitionResult:
         if readiness and not isinstance(readiness, dict):
             raise TypeError("Expected argument 'readiness' to be a dict")
         pulumi.set(__self__, "readiness", readiness)
-        if statistic and not isinstance(statistic, str):
-            raise TypeError("Expected argument 'statistic' to be a str")
-        pulumi.set(__self__, "statistic", statistic)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="attributeDetails")
-    def attribute_details(self) -> Optional['outputs.CalculatedAttributeDefinitionAttributeDetails']:
-        """
-        Mathematical expression and a list of attribute items specified in that expression.
-        """
-        return pulumi.get(self, "attribute_details")
 
     @_builtins.property
     @pulumi.getter
@@ -113,14 +99,6 @@ class GetCalculatedAttributeDefinitionResult:
 
     @_builtins.property
     @pulumi.getter
-    def statistic(self) -> Optional['CalculatedAttributeDefinitionStatistic']:
-        """
-        The aggregation operation to perform for the calculated attribute.
-        """
-        return pulumi.get(self, "statistic")
-
-    @_builtins.property
-    @pulumi.getter
     def status(self) -> Optional['CalculatedAttributeDefinitionStatus']:
         """
         The status of the calculated attribute definition.
@@ -142,14 +120,12 @@ class AwaitableGetCalculatedAttributeDefinitionResult(GetCalculatedAttributeDefi
         if False:
             yield self
         return GetCalculatedAttributeDefinitionResult(
-            attribute_details=self.attribute_details,
             conditions=self.conditions,
             created_at=self.created_at,
             description=self.description,
             display_name=self.display_name,
             last_updated_at=self.last_updated_at,
             readiness=self.readiness,
-            statistic=self.statistic,
             status=self.status,
             tags=self.tags)
 
@@ -170,14 +146,12 @@ def get_calculated_attribute_definition(calculated_attribute_name: Optional[_bui
     __ret__ = pulumi.runtime.invoke('aws-native:customerprofiles:getCalculatedAttributeDefinition', __args__, opts=opts, typ=GetCalculatedAttributeDefinitionResult).value
 
     return AwaitableGetCalculatedAttributeDefinitionResult(
-        attribute_details=pulumi.get(__ret__, 'attribute_details'),
         conditions=pulumi.get(__ret__, 'conditions'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         readiness=pulumi.get(__ret__, 'readiness'),
-        statistic=pulumi.get(__ret__, 'statistic'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_calculated_attribute_definition_output(calculated_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -195,13 +169,11 @@ def get_calculated_attribute_definition_output(calculated_attribute_name: pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getCalculatedAttributeDefinition', __args__, opts=opts, typ=GetCalculatedAttributeDefinitionResult)
     return __ret__.apply(lambda __response__: GetCalculatedAttributeDefinitionResult(
-        attribute_details=pulumi.get(__response__, 'attribute_details'),
         conditions=pulumi.get(__response__, 'conditions'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         readiness=pulumi.get(__response__, 'readiness'),
-        statistic=pulumi.get(__response__, 'statistic'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

@@ -32,10 +32,14 @@ class FirewallArgs:
                  enabled_analysis_types: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
                  firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
                  firewall_policy_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nat_gateway_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallNatGatewayMappingArgs']]]] = None,
+                 no_source_preservation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proxy_settings: pulumi.Input[Optional['FirewallProxySettingsArgs']] = None,
                  subnet_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint: pulumi.Input[Optional['FirewallVpcEndpointArgs']] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Firewall resource.
@@ -50,6 +54,8 @@ class FirewallArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]] enabled_analysis_types: The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
         :param pulumi.Input[_builtins.str] firewall_name: The descriptive name of the firewall. You can't change the name of a firewall after you create it.
         :param pulumi.Input[_builtins.bool] firewall_policy_change_protection: A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallNatGatewayMappingArgs']]] nat_gateway_mappings: The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+        :param pulumi.Input[_builtins.bool] no_source_preservation: Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
         :param pulumi.Input[_builtins.bool] subnet_change_protection: A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
         :param pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]] subnet_mappings: The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
                
@@ -77,6 +83,12 @@ class FirewallArgs:
             pulumi.set(__self__, "firewall_name", firewall_name)
         if firewall_policy_change_protection is not None:
             pulumi.set(__self__, "firewall_policy_change_protection", firewall_policy_change_protection)
+        if nat_gateway_mappings is not None:
+            pulumi.set(__self__, "nat_gateway_mappings", nat_gateway_mappings)
+        if no_source_preservation is not None:
+            pulumi.set(__self__, "no_source_preservation", no_source_preservation)
+        if proxy_settings is not None:
+            pulumi.set(__self__, "proxy_settings", proxy_settings)
         if subnet_change_protection is not None:
             pulumi.set(__self__, "subnet_change_protection", subnet_change_protection)
         if subnet_mappings is not None:
@@ -85,6 +97,8 @@ class FirewallArgs:
             pulumi.set(__self__, "tags", tags)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_endpoint is not None:
+            pulumi.set(__self__, "vpc_endpoint", vpc_endpoint)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
 
@@ -187,6 +201,39 @@ class FirewallArgs:
         pulumi.set(self, "firewall_policy_change_protection", value)
 
     @_builtins.property
+    @pulumi.getter(name="natGatewayMappings")
+    def nat_gateway_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallNatGatewayMappingArgs']]]]:
+        """
+        The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+        """
+        return pulumi.get(self, "nat_gateway_mappings")
+
+    @nat_gateway_mappings.setter
+    def nat_gateway_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallNatGatewayMappingArgs']]]]):
+        pulumi.set(self, "nat_gateway_mappings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="noSourcePreservation")
+    def no_source_preservation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+        """
+        return pulumi.get(self, "no_source_preservation")
+
+    @no_source_preservation.setter
+    def no_source_preservation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "no_source_preservation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="proxySettings")
+    def proxy_settings(self) -> pulumi.Input[Optional['FirewallProxySettingsArgs']]:
+        return pulumi.get(self, "proxy_settings")
+
+    @proxy_settings.setter
+    def proxy_settings(self, value: pulumi.Input[Optional['FirewallProxySettingsArgs']]):
+        pulumi.set(self, "proxy_settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -241,6 +288,15 @@ class FirewallArgs:
         pulumi.set(self, "transit_gateway_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="vpcEndpoint")
+    def vpc_endpoint(self) -> pulumi.Input[Optional['FirewallVpcEndpointArgs']]:
+        return pulumi.get(self, "vpc_endpoint")
+
+    @vpc_endpoint.setter
+    def vpc_endpoint(self, value: pulumi.Input[Optional['FirewallVpcEndpointArgs']]):
+        pulumi.set(self, "vpc_endpoint", value)
+
+    @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -267,10 +323,14 @@ class Firewall(pulumi.CustomResource):
                  firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
                  firewall_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  firewall_policy_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nat_gateway_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNatGatewayMappingArgs', 'FirewallNatGatewayMappingArgsDict']]]]] = None,
+                 no_source_preservation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proxy_settings: pulumi.Input[Optional[Union['FirewallProxySettingsArgs', 'FirewallProxySettingsArgsDict']]] = None,
                  subnet_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint: pulumi.Input[Optional[Union['FirewallVpcEndpointArgs', 'FirewallVpcEndpointArgsDict']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -288,6 +348,8 @@ class Firewall(pulumi.CustomResource):
                
                The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
         :param pulumi.Input[_builtins.bool] firewall_policy_change_protection: A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallNatGatewayMappingArgs', 'FirewallNatGatewayMappingArgsDict']]]] nat_gateway_mappings: The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+        :param pulumi.Input[_builtins.bool] no_source_preservation: Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
         :param pulumi.Input[_builtins.bool] subnet_change_protection: A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]] subnet_mappings: The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
                
@@ -332,10 +394,14 @@ class Firewall(pulumi.CustomResource):
                  firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
                  firewall_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  firewall_policy_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nat_gateway_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNatGatewayMappingArgs', 'FirewallNatGatewayMappingArgsDict']]]]] = None,
+                 no_source_preservation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proxy_settings: pulumi.Input[Optional[Union['FirewallProxySettingsArgs', 'FirewallProxySettingsArgsDict']]] = None,
                  subnet_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint: pulumi.Input[Optional[Union['FirewallVpcEndpointArgs', 'FirewallVpcEndpointArgsDict']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -356,16 +422,21 @@ class Firewall(pulumi.CustomResource):
                 raise TypeError("Missing required property 'firewall_policy_arn'")
             __props__.__dict__["firewall_policy_arn"] = firewall_policy_arn
             __props__.__dict__["firewall_policy_change_protection"] = firewall_policy_change_protection
+            __props__.__dict__["nat_gateway_mappings"] = nat_gateway_mappings
+            __props__.__dict__["no_source_preservation"] = no_source_preservation
+            __props__.__dict__["proxy_settings"] = proxy_settings
             __props__.__dict__["subnet_change_protection"] = subnet_change_protection
             __props__.__dict__["subnet_mappings"] = subnet_mappings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
+            __props__.__dict__["vpc_endpoint"] = vpc_endpoint
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["endpoint_ids"] = None
             __props__.__dict__["firewall_arn"] = None
             __props__.__dict__["firewall_id"] = None
+            __props__.__dict__["number_of_associations"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewallName", "vpcId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewallName", "natGatewayMappings[*]", "noSourcePreservation", "vpcEndpoint", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Firewall, __self__).__init__(
             'aws-native:networkfirewall:Firewall',
@@ -400,11 +471,16 @@ class Firewall(pulumi.CustomResource):
         __props__.__dict__["firewall_name"] = None
         __props__.__dict__["firewall_policy_arn"] = None
         __props__.__dict__["firewall_policy_change_protection"] = None
+        __props__.__dict__["nat_gateway_mappings"] = None
+        __props__.__dict__["no_source_preservation"] = None
+        __props__.__dict__["number_of_associations"] = None
+        __props__.__dict__["proxy_settings"] = None
         __props__.__dict__["subnet_change_protection"] = None
         __props__.__dict__["subnet_mappings"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["transit_gateway_attachment_id"] = None
         __props__.__dict__["transit_gateway_id"] = None
+        __props__.__dict__["vpc_endpoint"] = None
         __props__.__dict__["vpc_id"] = None
         return Firewall(resource_name, opts=opts, __props__=__props__)
 
@@ -499,6 +575,35 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @_builtins.property
+    @pulumi.getter(name="natGatewayMappings")
+    def nat_gateway_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallNatGatewayMapping']]]:
+        """
+        The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+        """
+        return pulumi.get(self, "nat_gateway_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="noSourcePreservation")
+    def no_source_preservation(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+        """
+        return pulumi.get(self, "no_source_preservation")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfAssociations")
+    def number_of_associations(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of VPC endpoint associations attached to the firewall.
+        """
+        return pulumi.get(self, "number_of_associations")
+
+    @_builtins.property
+    @pulumi.getter(name="proxySettings")
+    def proxy_settings(self) -> pulumi.Output[Optional['outputs.FirewallProxySettings']]:
+        return pulumi.get(self, "proxy_settings")
+
+    @_builtins.property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -543,6 +648,11 @@ class Firewall(pulumi.CustomResource):
         The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
         """
         return pulumi.get(self, "transit_gateway_id")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpoint")
+    def vpc_endpoint(self) -> pulumi.Output[Optional['outputs.FirewallVpcEndpoint']]:
+        return pulumi.get(self, "vpc_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")

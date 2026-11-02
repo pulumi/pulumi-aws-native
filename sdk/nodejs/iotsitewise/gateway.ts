@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::IoTSiteWise::Gateway
+ * Resource Type definition for AWS::IoTSiteWise::Gateway
  */
 export class Gateway extends pulumi.CustomResource {
     /**

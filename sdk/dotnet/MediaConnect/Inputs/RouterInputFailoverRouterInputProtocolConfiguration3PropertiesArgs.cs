@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// </summary>
     public sealed class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("srtCaller", required: true)]
-        public Input<Inputs.RouterInputSrtCallerRouterInputConfigurationArgs> SrtCaller { get; set; } = null!;
+        [Input("rtp", required: true)]
+        public Input<Inputs.RouterInputRtpRouterInputConfigurationArgs> Rtp { get; set; } = null!;
 
         public RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs()
         {

@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
         /// </summary>
         public readonly Outputs.EventTriggerLimits? EventTriggerLimits;
+        public readonly Outputs.EventTriggerIntentFilterDefinition? IntentFilterDefinition;
         /// <summary>
         /// The timestamp of when the event trigger was most recently updated.
         /// </summary>
@@ -118,6 +119,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             Outputs.EventTriggerLimits? eventTriggerLimits,
 
+            Outputs.EventTriggerIntentFilterDefinition? intentFilterDefinition,
+
             string? lastUpdatedAt,
 
             string? objectTypeName,
@@ -130,6 +133,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
             Description = description;
             EventTriggerConditions = eventTriggerConditions;
             EventTriggerLimits = eventTriggerLimits;
+            IntentFilterDefinition = intentFilterDefinition;
             LastUpdatedAt = lastUpdatedAt;
             ObjectTypeName = objectTypeName;
             SegmentFilter = segmentFilter;

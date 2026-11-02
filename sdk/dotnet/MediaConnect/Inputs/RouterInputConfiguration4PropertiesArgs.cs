@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// </summary>
     public sealed class RouterInputConfiguration4PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("mediaLiveChannel", required: true)]
-        public Input<Inputs.RouterInputMediaLiveChannelRouterInputConfigurationArgs> MediaLiveChannel { get; set; } = null!;
+        [Input("mediaConnectFlow", required: true)]
+        public Input<Inputs.RouterInputMediaConnectFlowRouterInputConfigurationArgs> MediaConnectFlow { get; set; } = null!;
 
         public RouterInputConfiguration4PropertiesArgs()
         {

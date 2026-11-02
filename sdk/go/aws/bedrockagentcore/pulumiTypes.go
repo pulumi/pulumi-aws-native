@@ -8092,11 +8092,12 @@ func (o GatewayManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutp
 }
 
 type GatewayMcpGatewayConfiguration struct {
-	Instructions           *string                        `pulumi:"instructions"`
-	SearchType             *GatewaySearchType             `pulumi:"searchType"`
-	SessionConfiguration   *GatewaySessionConfiguration   `pulumi:"sessionConfiguration"`
-	StreamingConfiguration *GatewayStreamingConfiguration `pulumi:"streamingConfiguration"`
-	SupportedVersions      []string                       `pulumi:"supportedVersions"`
+	DisableMcpListToolsPagination *bool                          `pulumi:"disableMcpListToolsPagination"`
+	Instructions                  *string                        `pulumi:"instructions"`
+	SearchType                    *GatewaySearchType             `pulumi:"searchType"`
+	SessionConfiguration          *GatewaySessionConfiguration   `pulumi:"sessionConfiguration"`
+	StreamingConfiguration        *GatewayStreamingConfiguration `pulumi:"streamingConfiguration"`
+	SupportedVersions             []string                       `pulumi:"supportedVersions"`
 }
 
 // GatewayMcpGatewayConfigurationInput is an input type that accepts GatewayMcpGatewayConfigurationArgs and GatewayMcpGatewayConfigurationOutput values.
@@ -8111,11 +8112,12 @@ type GatewayMcpGatewayConfigurationInput interface {
 }
 
 type GatewayMcpGatewayConfigurationArgs struct {
-	Instructions           pulumi.StringPtrInput                 `pulumi:"instructions"`
-	SearchType             GatewaySearchTypePtrInput             `pulumi:"searchType"`
-	SessionConfiguration   GatewaySessionConfigurationPtrInput   `pulumi:"sessionConfiguration"`
-	StreamingConfiguration GatewayStreamingConfigurationPtrInput `pulumi:"streamingConfiguration"`
-	SupportedVersions      pulumi.StringArrayInput               `pulumi:"supportedVersions"`
+	DisableMcpListToolsPagination pulumi.BoolPtrInput                   `pulumi:"disableMcpListToolsPagination"`
+	Instructions                  pulumi.StringPtrInput                 `pulumi:"instructions"`
+	SearchType                    GatewaySearchTypePtrInput             `pulumi:"searchType"`
+	SessionConfiguration          GatewaySessionConfigurationPtrInput   `pulumi:"sessionConfiguration"`
+	StreamingConfiguration        GatewayStreamingConfigurationPtrInput `pulumi:"streamingConfiguration"`
+	SupportedVersions             pulumi.StringArrayInput               `pulumi:"supportedVersions"`
 }
 
 func (GatewayMcpGatewayConfigurationArgs) ElementType() reflect.Type {
@@ -8195,6 +8197,10 @@ func (o GatewayMcpGatewayConfigurationOutput) ToGatewayMcpGatewayConfigurationPt
 	}).(GatewayMcpGatewayConfigurationPtrOutput)
 }
 
+func (o GatewayMcpGatewayConfigurationOutput) DisableMcpListToolsPagination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GatewayMcpGatewayConfiguration) *bool { return v.DisableMcpListToolsPagination }).(pulumi.BoolPtrOutput)
+}
+
 func (o GatewayMcpGatewayConfigurationOutput) Instructions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayMcpGatewayConfiguration) *string { return v.Instructions }).(pulumi.StringPtrOutput)
 }
@@ -8237,6 +8243,15 @@ func (o GatewayMcpGatewayConfigurationPtrOutput) Elem() GatewayMcpGatewayConfigu
 		var ret GatewayMcpGatewayConfiguration
 		return ret
 	}).(GatewayMcpGatewayConfigurationOutput)
+}
+
+func (o GatewayMcpGatewayConfigurationPtrOutput) DisableMcpListToolsPagination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GatewayMcpGatewayConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableMcpListToolsPagination
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o GatewayMcpGatewayConfigurationPtrOutput) Instructions() pulumi.StringPtrOutput {
@@ -9162,6 +9177,139 @@ func (o GatewayRuleAction1PropertiesOutput) RouteToTarget() pulumi.AnyOutput {
 	return o.ApplyT(func(v GatewayRuleAction1Properties) interface{} { return v.RouteToTarget }).(pulumi.AnyOutput)
 }
 
+type GatewayRuleCircuitBreakerConfiguration struct {
+	Mode interface{} `pulumi:"mode"`
+}
+
+// GatewayRuleCircuitBreakerConfigurationInput is an input type that accepts GatewayRuleCircuitBreakerConfigurationArgs and GatewayRuleCircuitBreakerConfigurationOutput values.
+// You can construct a concrete instance of `GatewayRuleCircuitBreakerConfigurationInput` via:
+//
+//	GatewayRuleCircuitBreakerConfigurationArgs{...}
+type GatewayRuleCircuitBreakerConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayRuleCircuitBreakerConfigurationOutput() GatewayRuleCircuitBreakerConfigurationOutput
+	ToGatewayRuleCircuitBreakerConfigurationOutputWithContext(context.Context) GatewayRuleCircuitBreakerConfigurationOutput
+}
+
+type GatewayRuleCircuitBreakerConfigurationArgs struct {
+	Mode pulumi.Input `pulumi:"mode"`
+}
+
+func (GatewayRuleCircuitBreakerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleCircuitBreakerConfiguration)(nil)).Elem()
+}
+
+func (i GatewayRuleCircuitBreakerConfigurationArgs) ToGatewayRuleCircuitBreakerConfigurationOutput() GatewayRuleCircuitBreakerConfigurationOutput {
+	return i.ToGatewayRuleCircuitBreakerConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleCircuitBreakerConfigurationArgs) ToGatewayRuleCircuitBreakerConfigurationOutputWithContext(ctx context.Context) GatewayRuleCircuitBreakerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleCircuitBreakerConfigurationOutput)
+}
+
+func (i GatewayRuleCircuitBreakerConfigurationArgs) ToGatewayRuleCircuitBreakerConfigurationPtrOutput() GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return i.ToGatewayRuleCircuitBreakerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleCircuitBreakerConfigurationArgs) ToGatewayRuleCircuitBreakerConfigurationPtrOutputWithContext(ctx context.Context) GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleCircuitBreakerConfigurationOutput).ToGatewayRuleCircuitBreakerConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayRuleCircuitBreakerConfigurationPtrInput is an input type that accepts GatewayRuleCircuitBreakerConfigurationArgs, GatewayRuleCircuitBreakerConfigurationPtr and GatewayRuleCircuitBreakerConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayRuleCircuitBreakerConfigurationPtrInput` via:
+//
+//	        GatewayRuleCircuitBreakerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayRuleCircuitBreakerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRuleCircuitBreakerConfigurationPtrOutput() GatewayRuleCircuitBreakerConfigurationPtrOutput
+	ToGatewayRuleCircuitBreakerConfigurationPtrOutputWithContext(context.Context) GatewayRuleCircuitBreakerConfigurationPtrOutput
+}
+
+type gatewayRuleCircuitBreakerConfigurationPtrType GatewayRuleCircuitBreakerConfigurationArgs
+
+func GatewayRuleCircuitBreakerConfigurationPtr(v *GatewayRuleCircuitBreakerConfigurationArgs) GatewayRuleCircuitBreakerConfigurationPtrInput {
+	return (*gatewayRuleCircuitBreakerConfigurationPtrType)(v)
+}
+
+func (*gatewayRuleCircuitBreakerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRuleCircuitBreakerConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayRuleCircuitBreakerConfigurationPtrType) ToGatewayRuleCircuitBreakerConfigurationPtrOutput() GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return i.ToGatewayRuleCircuitBreakerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRuleCircuitBreakerConfigurationPtrType) ToGatewayRuleCircuitBreakerConfigurationPtrOutputWithContext(ctx context.Context) GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleCircuitBreakerConfigurationPtrOutput)
+}
+
+type GatewayRuleCircuitBreakerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleCircuitBreakerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleCircuitBreakerConfiguration)(nil)).Elem()
+}
+
+func (o GatewayRuleCircuitBreakerConfigurationOutput) ToGatewayRuleCircuitBreakerConfigurationOutput() GatewayRuleCircuitBreakerConfigurationOutput {
+	return o
+}
+
+func (o GatewayRuleCircuitBreakerConfigurationOutput) ToGatewayRuleCircuitBreakerConfigurationOutputWithContext(ctx context.Context) GatewayRuleCircuitBreakerConfigurationOutput {
+	return o
+}
+
+func (o GatewayRuleCircuitBreakerConfigurationOutput) ToGatewayRuleCircuitBreakerConfigurationPtrOutput() GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return o.ToGatewayRuleCircuitBreakerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleCircuitBreakerConfigurationOutput) ToGatewayRuleCircuitBreakerConfigurationPtrOutputWithContext(ctx context.Context) GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRuleCircuitBreakerConfiguration) *GatewayRuleCircuitBreakerConfiguration {
+		return &v
+	}).(GatewayRuleCircuitBreakerConfigurationPtrOutput)
+}
+
+func (o GatewayRuleCircuitBreakerConfigurationOutput) Mode() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayRuleCircuitBreakerConfiguration) interface{} { return v.Mode }).(pulumi.AnyOutput)
+}
+
+type GatewayRuleCircuitBreakerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleCircuitBreakerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRuleCircuitBreakerConfiguration)(nil)).Elem()
+}
+
+func (o GatewayRuleCircuitBreakerConfigurationPtrOutput) ToGatewayRuleCircuitBreakerConfigurationPtrOutput() GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayRuleCircuitBreakerConfigurationPtrOutput) ToGatewayRuleCircuitBreakerConfigurationPtrOutputWithContext(ctx context.Context) GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayRuleCircuitBreakerConfigurationPtrOutput) Elem() GatewayRuleCircuitBreakerConfigurationOutput {
+	return o.ApplyT(func(v *GatewayRuleCircuitBreakerConfiguration) GatewayRuleCircuitBreakerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRuleCircuitBreakerConfiguration
+		return ret
+	}).(GatewayRuleCircuitBreakerConfigurationOutput)
+}
+
+func (o GatewayRuleCircuitBreakerConfigurationPtrOutput) Mode() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayRuleCircuitBreakerConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.AnyOutput)
+}
+
 type GatewayRuleCondition0Properties struct {
 	MatchPrincipals GatewayRuleMatchPrincipals `pulumi:"matchPrincipals"`
 }
@@ -9258,6 +9406,55 @@ func (o GatewayRuleCondition1PropertiesOutput) ToGatewayRuleCondition1Properties
 
 func (o GatewayRuleCondition1PropertiesOutput) MatchPaths() GatewayRuleMatchPathsOutput {
 	return o.ApplyT(func(v GatewayRuleCondition1Properties) GatewayRuleMatchPaths { return v.MatchPaths }).(GatewayRuleMatchPathsOutput)
+}
+
+type GatewayRuleCondition2Properties struct {
+	MatchModels GatewayRuleMatchModels `pulumi:"matchModels"`
+}
+
+// GatewayRuleCondition2PropertiesInput is an input type that accepts GatewayRuleCondition2PropertiesArgs and GatewayRuleCondition2PropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleCondition2PropertiesInput` via:
+//
+//	GatewayRuleCondition2PropertiesArgs{...}
+type GatewayRuleCondition2PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleCondition2PropertiesOutput() GatewayRuleCondition2PropertiesOutput
+	ToGatewayRuleCondition2PropertiesOutputWithContext(context.Context) GatewayRuleCondition2PropertiesOutput
+}
+
+type GatewayRuleCondition2PropertiesArgs struct {
+	MatchModels GatewayRuleMatchModelsInput `pulumi:"matchModels"`
+}
+
+func (GatewayRuleCondition2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleCondition2Properties)(nil)).Elem()
+}
+
+func (i GatewayRuleCondition2PropertiesArgs) ToGatewayRuleCondition2PropertiesOutput() GatewayRuleCondition2PropertiesOutput {
+	return i.ToGatewayRuleCondition2PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleCondition2PropertiesArgs) ToGatewayRuleCondition2PropertiesOutputWithContext(ctx context.Context) GatewayRuleCondition2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleCondition2PropertiesOutput)
+}
+
+type GatewayRuleCondition2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleCondition2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleCondition2Properties)(nil)).Elem()
+}
+
+func (o GatewayRuleCondition2PropertiesOutput) ToGatewayRuleCondition2PropertiesOutput() GatewayRuleCondition2PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleCondition2PropertiesOutput) ToGatewayRuleCondition2PropertiesOutputWithContext(ctx context.Context) GatewayRuleCondition2PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleCondition2PropertiesOutput) MatchModels() GatewayRuleMatchModelsOutput {
+	return o.ApplyT(func(v GatewayRuleCondition2Properties) GatewayRuleMatchModels { return v.MatchModels }).(GatewayRuleMatchModelsOutput)
 }
 
 type GatewayRuleConfigurationBundleAction0Properties struct {
@@ -9417,6 +9614,444 @@ func (o GatewayRuleConfigurationBundleReferenceOutput) BundleVersion() pulumi.St
 	return o.ApplyT(func(v GatewayRuleConfigurationBundleReference) string { return v.BundleVersion }).(pulumi.StringOutput)
 }
 
+type GatewayRuleFallback struct {
+	CircuitBreaker               *GatewayRuleCircuitBreakerConfiguration `pulumi:"circuitBreaker"`
+	FirstByteTimeoutMilliseconds *int                                    `pulumi:"firstByteTimeoutMilliseconds"`
+	TargetFallback               []GatewayRuleFallbackTarget             `pulumi:"targetFallback"`
+	TriggerOn                    *GatewayRuleFallbackTriggers            `pulumi:"triggerOn"`
+}
+
+// GatewayRuleFallbackInput is an input type that accepts GatewayRuleFallbackArgs and GatewayRuleFallbackOutput values.
+// You can construct a concrete instance of `GatewayRuleFallbackInput` via:
+//
+//	GatewayRuleFallbackArgs{...}
+type GatewayRuleFallbackInput interface {
+	pulumi.Input
+
+	ToGatewayRuleFallbackOutput() GatewayRuleFallbackOutput
+	ToGatewayRuleFallbackOutputWithContext(context.Context) GatewayRuleFallbackOutput
+}
+
+type GatewayRuleFallbackArgs struct {
+	CircuitBreaker               GatewayRuleCircuitBreakerConfigurationPtrInput `pulumi:"circuitBreaker"`
+	FirstByteTimeoutMilliseconds pulumi.IntPtrInput                             `pulumi:"firstByteTimeoutMilliseconds"`
+	TargetFallback               GatewayRuleFallbackTargetArrayInput            `pulumi:"targetFallback"`
+	TriggerOn                    GatewayRuleFallbackTriggersPtrInput            `pulumi:"triggerOn"`
+}
+
+func (GatewayRuleFallbackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleFallback)(nil)).Elem()
+}
+
+func (i GatewayRuleFallbackArgs) ToGatewayRuleFallbackOutput() GatewayRuleFallbackOutput {
+	return i.ToGatewayRuleFallbackOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleFallbackArgs) ToGatewayRuleFallbackOutputWithContext(ctx context.Context) GatewayRuleFallbackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleFallbackOutput)
+}
+
+func (i GatewayRuleFallbackArgs) ToGatewayRuleFallbackPtrOutput() GatewayRuleFallbackPtrOutput {
+	return i.ToGatewayRuleFallbackPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleFallbackArgs) ToGatewayRuleFallbackPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleFallbackOutput).ToGatewayRuleFallbackPtrOutputWithContext(ctx)
+}
+
+// GatewayRuleFallbackPtrInput is an input type that accepts GatewayRuleFallbackArgs, GatewayRuleFallbackPtr and GatewayRuleFallbackPtrOutput values.
+// You can construct a concrete instance of `GatewayRuleFallbackPtrInput` via:
+//
+//	        GatewayRuleFallbackArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayRuleFallbackPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRuleFallbackPtrOutput() GatewayRuleFallbackPtrOutput
+	ToGatewayRuleFallbackPtrOutputWithContext(context.Context) GatewayRuleFallbackPtrOutput
+}
+
+type gatewayRuleFallbackPtrType GatewayRuleFallbackArgs
+
+func GatewayRuleFallbackPtr(v *GatewayRuleFallbackArgs) GatewayRuleFallbackPtrInput {
+	return (*gatewayRuleFallbackPtrType)(v)
+}
+
+func (*gatewayRuleFallbackPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRuleFallback)(nil)).Elem()
+}
+
+func (i *gatewayRuleFallbackPtrType) ToGatewayRuleFallbackPtrOutput() GatewayRuleFallbackPtrOutput {
+	return i.ToGatewayRuleFallbackPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRuleFallbackPtrType) ToGatewayRuleFallbackPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleFallbackPtrOutput)
+}
+
+type GatewayRuleFallbackOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleFallbackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleFallback)(nil)).Elem()
+}
+
+func (o GatewayRuleFallbackOutput) ToGatewayRuleFallbackOutput() GatewayRuleFallbackOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackOutput) ToGatewayRuleFallbackOutputWithContext(ctx context.Context) GatewayRuleFallbackOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackOutput) ToGatewayRuleFallbackPtrOutput() GatewayRuleFallbackPtrOutput {
+	return o.ToGatewayRuleFallbackPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleFallbackOutput) ToGatewayRuleFallbackPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRuleFallback) *GatewayRuleFallback {
+		return &v
+	}).(GatewayRuleFallbackPtrOutput)
+}
+
+func (o GatewayRuleFallbackOutput) CircuitBreaker() GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return o.ApplyT(func(v GatewayRuleFallback) *GatewayRuleCircuitBreakerConfiguration { return v.CircuitBreaker }).(GatewayRuleCircuitBreakerConfigurationPtrOutput)
+}
+
+func (o GatewayRuleFallbackOutput) FirstByteTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRuleFallback) *int { return v.FirstByteTimeoutMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayRuleFallbackOutput) TargetFallback() GatewayRuleFallbackTargetArrayOutput {
+	return o.ApplyT(func(v GatewayRuleFallback) []GatewayRuleFallbackTarget { return v.TargetFallback }).(GatewayRuleFallbackTargetArrayOutput)
+}
+
+func (o GatewayRuleFallbackOutput) TriggerOn() GatewayRuleFallbackTriggersPtrOutput {
+	return o.ApplyT(func(v GatewayRuleFallback) *GatewayRuleFallbackTriggers { return v.TriggerOn }).(GatewayRuleFallbackTriggersPtrOutput)
+}
+
+type GatewayRuleFallbackPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleFallbackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRuleFallback)(nil)).Elem()
+}
+
+func (o GatewayRuleFallbackPtrOutput) ToGatewayRuleFallbackPtrOutput() GatewayRuleFallbackPtrOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackPtrOutput) ToGatewayRuleFallbackPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackPtrOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackPtrOutput) Elem() GatewayRuleFallbackOutput {
+	return o.ApplyT(func(v *GatewayRuleFallback) GatewayRuleFallback {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRuleFallback
+		return ret
+	}).(GatewayRuleFallbackOutput)
+}
+
+func (o GatewayRuleFallbackPtrOutput) CircuitBreaker() GatewayRuleCircuitBreakerConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayRuleFallback) *GatewayRuleCircuitBreakerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CircuitBreaker
+	}).(GatewayRuleCircuitBreakerConfigurationPtrOutput)
+}
+
+func (o GatewayRuleFallbackPtrOutput) FirstByteTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRuleFallback) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FirstByteTimeoutMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayRuleFallbackPtrOutput) TargetFallback() GatewayRuleFallbackTargetArrayOutput {
+	return o.ApplyT(func(v *GatewayRuleFallback) []GatewayRuleFallbackTarget {
+		if v == nil {
+			return nil
+		}
+		return v.TargetFallback
+	}).(GatewayRuleFallbackTargetArrayOutput)
+}
+
+func (o GatewayRuleFallbackPtrOutput) TriggerOn() GatewayRuleFallbackTriggersPtrOutput {
+	return o.ApplyT(func(v *GatewayRuleFallback) *GatewayRuleFallbackTriggers {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerOn
+	}).(GatewayRuleFallbackTriggersPtrOutput)
+}
+
+type GatewayRuleFallbackTarget struct {
+	FirstByteTimeoutMilliseconds *int                         `pulumi:"firstByteTimeoutMilliseconds"`
+	Model                        *string                      `pulumi:"model"`
+	TargetName                   string                       `pulumi:"targetName"`
+	TriggerOn                    *GatewayRuleFallbackTriggers `pulumi:"triggerOn"`
+}
+
+// GatewayRuleFallbackTargetInput is an input type that accepts GatewayRuleFallbackTargetArgs and GatewayRuleFallbackTargetOutput values.
+// You can construct a concrete instance of `GatewayRuleFallbackTargetInput` via:
+//
+//	GatewayRuleFallbackTargetArgs{...}
+type GatewayRuleFallbackTargetInput interface {
+	pulumi.Input
+
+	ToGatewayRuleFallbackTargetOutput() GatewayRuleFallbackTargetOutput
+	ToGatewayRuleFallbackTargetOutputWithContext(context.Context) GatewayRuleFallbackTargetOutput
+}
+
+type GatewayRuleFallbackTargetArgs struct {
+	FirstByteTimeoutMilliseconds pulumi.IntPtrInput                  `pulumi:"firstByteTimeoutMilliseconds"`
+	Model                        pulumi.StringPtrInput               `pulumi:"model"`
+	TargetName                   pulumi.StringInput                  `pulumi:"targetName"`
+	TriggerOn                    GatewayRuleFallbackTriggersPtrInput `pulumi:"triggerOn"`
+}
+
+func (GatewayRuleFallbackTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleFallbackTarget)(nil)).Elem()
+}
+
+func (i GatewayRuleFallbackTargetArgs) ToGatewayRuleFallbackTargetOutput() GatewayRuleFallbackTargetOutput {
+	return i.ToGatewayRuleFallbackTargetOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleFallbackTargetArgs) ToGatewayRuleFallbackTargetOutputWithContext(ctx context.Context) GatewayRuleFallbackTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleFallbackTargetOutput)
+}
+
+// GatewayRuleFallbackTargetArrayInput is an input type that accepts GatewayRuleFallbackTargetArray and GatewayRuleFallbackTargetArrayOutput values.
+// You can construct a concrete instance of `GatewayRuleFallbackTargetArrayInput` via:
+//
+//	GatewayRuleFallbackTargetArray{ GatewayRuleFallbackTargetArgs{...} }
+type GatewayRuleFallbackTargetArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRuleFallbackTargetArrayOutput() GatewayRuleFallbackTargetArrayOutput
+	ToGatewayRuleFallbackTargetArrayOutputWithContext(context.Context) GatewayRuleFallbackTargetArrayOutput
+}
+
+type GatewayRuleFallbackTargetArray []GatewayRuleFallbackTargetInput
+
+func (GatewayRuleFallbackTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleFallbackTarget)(nil)).Elem()
+}
+
+func (i GatewayRuleFallbackTargetArray) ToGatewayRuleFallbackTargetArrayOutput() GatewayRuleFallbackTargetArrayOutput {
+	return i.ToGatewayRuleFallbackTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleFallbackTargetArray) ToGatewayRuleFallbackTargetArrayOutputWithContext(ctx context.Context) GatewayRuleFallbackTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleFallbackTargetArrayOutput)
+}
+
+type GatewayRuleFallbackTargetOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleFallbackTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleFallbackTarget)(nil)).Elem()
+}
+
+func (o GatewayRuleFallbackTargetOutput) ToGatewayRuleFallbackTargetOutput() GatewayRuleFallbackTargetOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackTargetOutput) ToGatewayRuleFallbackTargetOutputWithContext(ctx context.Context) GatewayRuleFallbackTargetOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackTargetOutput) FirstByteTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRuleFallbackTarget) *int { return v.FirstByteTimeoutMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayRuleFallbackTargetOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRuleFallbackTarget) *string { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRuleFallbackTargetOutput) TargetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleFallbackTarget) string { return v.TargetName }).(pulumi.StringOutput)
+}
+
+func (o GatewayRuleFallbackTargetOutput) TriggerOn() GatewayRuleFallbackTriggersPtrOutput {
+	return o.ApplyT(func(v GatewayRuleFallbackTarget) *GatewayRuleFallbackTriggers { return v.TriggerOn }).(GatewayRuleFallbackTriggersPtrOutput)
+}
+
+type GatewayRuleFallbackTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleFallbackTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleFallbackTarget)(nil)).Elem()
+}
+
+func (o GatewayRuleFallbackTargetArrayOutput) ToGatewayRuleFallbackTargetArrayOutput() GatewayRuleFallbackTargetArrayOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackTargetArrayOutput) ToGatewayRuleFallbackTargetArrayOutputWithContext(ctx context.Context) GatewayRuleFallbackTargetArrayOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackTargetArrayOutput) Index(i pulumi.IntInput) GatewayRuleFallbackTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRuleFallbackTarget {
+		return vs[0].([]GatewayRuleFallbackTarget)[vs[1].(int)]
+	}).(GatewayRuleFallbackTargetOutput)
+}
+
+type GatewayRuleFallbackTriggers struct {
+	Errors      []GatewayRuleFallbackError `pulumi:"errors"`
+	StatusCodes []string                   `pulumi:"statusCodes"`
+}
+
+// GatewayRuleFallbackTriggersInput is an input type that accepts GatewayRuleFallbackTriggersArgs and GatewayRuleFallbackTriggersOutput values.
+// You can construct a concrete instance of `GatewayRuleFallbackTriggersInput` via:
+//
+//	GatewayRuleFallbackTriggersArgs{...}
+type GatewayRuleFallbackTriggersInput interface {
+	pulumi.Input
+
+	ToGatewayRuleFallbackTriggersOutput() GatewayRuleFallbackTriggersOutput
+	ToGatewayRuleFallbackTriggersOutputWithContext(context.Context) GatewayRuleFallbackTriggersOutput
+}
+
+type GatewayRuleFallbackTriggersArgs struct {
+	Errors      GatewayRuleFallbackErrorArrayInput `pulumi:"errors"`
+	StatusCodes pulumi.StringArrayInput            `pulumi:"statusCodes"`
+}
+
+func (GatewayRuleFallbackTriggersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleFallbackTriggers)(nil)).Elem()
+}
+
+func (i GatewayRuleFallbackTriggersArgs) ToGatewayRuleFallbackTriggersOutput() GatewayRuleFallbackTriggersOutput {
+	return i.ToGatewayRuleFallbackTriggersOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleFallbackTriggersArgs) ToGatewayRuleFallbackTriggersOutputWithContext(ctx context.Context) GatewayRuleFallbackTriggersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleFallbackTriggersOutput)
+}
+
+func (i GatewayRuleFallbackTriggersArgs) ToGatewayRuleFallbackTriggersPtrOutput() GatewayRuleFallbackTriggersPtrOutput {
+	return i.ToGatewayRuleFallbackTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleFallbackTriggersArgs) ToGatewayRuleFallbackTriggersPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleFallbackTriggersOutput).ToGatewayRuleFallbackTriggersPtrOutputWithContext(ctx)
+}
+
+// GatewayRuleFallbackTriggersPtrInput is an input type that accepts GatewayRuleFallbackTriggersArgs, GatewayRuleFallbackTriggersPtr and GatewayRuleFallbackTriggersPtrOutput values.
+// You can construct a concrete instance of `GatewayRuleFallbackTriggersPtrInput` via:
+//
+//	        GatewayRuleFallbackTriggersArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayRuleFallbackTriggersPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRuleFallbackTriggersPtrOutput() GatewayRuleFallbackTriggersPtrOutput
+	ToGatewayRuleFallbackTriggersPtrOutputWithContext(context.Context) GatewayRuleFallbackTriggersPtrOutput
+}
+
+type gatewayRuleFallbackTriggersPtrType GatewayRuleFallbackTriggersArgs
+
+func GatewayRuleFallbackTriggersPtr(v *GatewayRuleFallbackTriggersArgs) GatewayRuleFallbackTriggersPtrInput {
+	return (*gatewayRuleFallbackTriggersPtrType)(v)
+}
+
+func (*gatewayRuleFallbackTriggersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRuleFallbackTriggers)(nil)).Elem()
+}
+
+func (i *gatewayRuleFallbackTriggersPtrType) ToGatewayRuleFallbackTriggersPtrOutput() GatewayRuleFallbackTriggersPtrOutput {
+	return i.ToGatewayRuleFallbackTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRuleFallbackTriggersPtrType) ToGatewayRuleFallbackTriggersPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleFallbackTriggersPtrOutput)
+}
+
+type GatewayRuleFallbackTriggersOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleFallbackTriggersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleFallbackTriggers)(nil)).Elem()
+}
+
+func (o GatewayRuleFallbackTriggersOutput) ToGatewayRuleFallbackTriggersOutput() GatewayRuleFallbackTriggersOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackTriggersOutput) ToGatewayRuleFallbackTriggersOutputWithContext(ctx context.Context) GatewayRuleFallbackTriggersOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackTriggersOutput) ToGatewayRuleFallbackTriggersPtrOutput() GatewayRuleFallbackTriggersPtrOutput {
+	return o.ToGatewayRuleFallbackTriggersPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleFallbackTriggersOutput) ToGatewayRuleFallbackTriggersPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackTriggersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRuleFallbackTriggers) *GatewayRuleFallbackTriggers {
+		return &v
+	}).(GatewayRuleFallbackTriggersPtrOutput)
+}
+
+func (o GatewayRuleFallbackTriggersOutput) Errors() GatewayRuleFallbackErrorArrayOutput {
+	return o.ApplyT(func(v GatewayRuleFallbackTriggers) []GatewayRuleFallbackError { return v.Errors }).(GatewayRuleFallbackErrorArrayOutput)
+}
+
+func (o GatewayRuleFallbackTriggersOutput) StatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayRuleFallbackTriggers) []string { return v.StatusCodes }).(pulumi.StringArrayOutput)
+}
+
+type GatewayRuleFallbackTriggersPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleFallbackTriggersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRuleFallbackTriggers)(nil)).Elem()
+}
+
+func (o GatewayRuleFallbackTriggersPtrOutput) ToGatewayRuleFallbackTriggersPtrOutput() GatewayRuleFallbackTriggersPtrOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackTriggersPtrOutput) ToGatewayRuleFallbackTriggersPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackTriggersPtrOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackTriggersPtrOutput) Elem() GatewayRuleFallbackTriggersOutput {
+	return o.ApplyT(func(v *GatewayRuleFallbackTriggers) GatewayRuleFallbackTriggers {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRuleFallbackTriggers
+		return ret
+	}).(GatewayRuleFallbackTriggersOutput)
+}
+
+func (o GatewayRuleFallbackTriggersPtrOutput) Errors() GatewayRuleFallbackErrorArrayOutput {
+	return o.ApplyT(func(v *GatewayRuleFallbackTriggers) []GatewayRuleFallbackError {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(GatewayRuleFallbackErrorArrayOutput)
+}
+
+func (o GatewayRuleFallbackTriggersPtrOutput) StatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayRuleFallbackTriggers) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCodes
+	}).(pulumi.StringArrayOutput)
+}
+
 type GatewayRuleIamPrincipal struct {
 	Arn      string                             `pulumi:"arn"`
 	Operator *GatewayRulePrincipalMatchOperator `pulumi:"operator"`
@@ -9470,6 +10105,155 @@ func (o GatewayRuleIamPrincipalOutput) Arn() pulumi.StringOutput {
 
 func (o GatewayRuleIamPrincipalOutput) Operator() GatewayRulePrincipalMatchOperatorPtrOutput {
 	return o.ApplyT(func(v GatewayRuleIamPrincipal) *GatewayRulePrincipalMatchOperator { return v.Operator }).(GatewayRulePrincipalMatchOperatorPtrOutput)
+}
+
+type GatewayRuleMatchModelEntry struct {
+	Operator interface{} `pulumi:"operator"`
+	Value    string      `pulumi:"value"`
+}
+
+// GatewayRuleMatchModelEntryInput is an input type that accepts GatewayRuleMatchModelEntryArgs and GatewayRuleMatchModelEntryOutput values.
+// You can construct a concrete instance of `GatewayRuleMatchModelEntryInput` via:
+//
+//	GatewayRuleMatchModelEntryArgs{...}
+type GatewayRuleMatchModelEntryInput interface {
+	pulumi.Input
+
+	ToGatewayRuleMatchModelEntryOutput() GatewayRuleMatchModelEntryOutput
+	ToGatewayRuleMatchModelEntryOutputWithContext(context.Context) GatewayRuleMatchModelEntryOutput
+}
+
+type GatewayRuleMatchModelEntryArgs struct {
+	Operator pulumi.Input       `pulumi:"operator"`
+	Value    pulumi.StringInput `pulumi:"value"`
+}
+
+func (GatewayRuleMatchModelEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchModelEntry)(nil)).Elem()
+}
+
+func (i GatewayRuleMatchModelEntryArgs) ToGatewayRuleMatchModelEntryOutput() GatewayRuleMatchModelEntryOutput {
+	return i.ToGatewayRuleMatchModelEntryOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleMatchModelEntryArgs) ToGatewayRuleMatchModelEntryOutputWithContext(ctx context.Context) GatewayRuleMatchModelEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleMatchModelEntryOutput)
+}
+
+// GatewayRuleMatchModelEntryArrayInput is an input type that accepts GatewayRuleMatchModelEntryArray and GatewayRuleMatchModelEntryArrayOutput values.
+// You can construct a concrete instance of `GatewayRuleMatchModelEntryArrayInput` via:
+//
+//	GatewayRuleMatchModelEntryArray{ GatewayRuleMatchModelEntryArgs{...} }
+type GatewayRuleMatchModelEntryArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRuleMatchModelEntryArrayOutput() GatewayRuleMatchModelEntryArrayOutput
+	ToGatewayRuleMatchModelEntryArrayOutputWithContext(context.Context) GatewayRuleMatchModelEntryArrayOutput
+}
+
+type GatewayRuleMatchModelEntryArray []GatewayRuleMatchModelEntryInput
+
+func (GatewayRuleMatchModelEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleMatchModelEntry)(nil)).Elem()
+}
+
+func (i GatewayRuleMatchModelEntryArray) ToGatewayRuleMatchModelEntryArrayOutput() GatewayRuleMatchModelEntryArrayOutput {
+	return i.ToGatewayRuleMatchModelEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleMatchModelEntryArray) ToGatewayRuleMatchModelEntryArrayOutputWithContext(ctx context.Context) GatewayRuleMatchModelEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleMatchModelEntryArrayOutput)
+}
+
+type GatewayRuleMatchModelEntryOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleMatchModelEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchModelEntry)(nil)).Elem()
+}
+
+func (o GatewayRuleMatchModelEntryOutput) ToGatewayRuleMatchModelEntryOutput() GatewayRuleMatchModelEntryOutput {
+	return o
+}
+
+func (o GatewayRuleMatchModelEntryOutput) ToGatewayRuleMatchModelEntryOutputWithContext(ctx context.Context) GatewayRuleMatchModelEntryOutput {
+	return o
+}
+
+func (o GatewayRuleMatchModelEntryOutput) Operator() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayRuleMatchModelEntry) interface{} { return v.Operator }).(pulumi.AnyOutput)
+}
+
+func (o GatewayRuleMatchModelEntryOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleMatchModelEntry) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GatewayRuleMatchModelEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleMatchModelEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleMatchModelEntry)(nil)).Elem()
+}
+
+func (o GatewayRuleMatchModelEntryArrayOutput) ToGatewayRuleMatchModelEntryArrayOutput() GatewayRuleMatchModelEntryArrayOutput {
+	return o
+}
+
+func (o GatewayRuleMatchModelEntryArrayOutput) ToGatewayRuleMatchModelEntryArrayOutputWithContext(ctx context.Context) GatewayRuleMatchModelEntryArrayOutput {
+	return o
+}
+
+func (o GatewayRuleMatchModelEntryArrayOutput) Index(i pulumi.IntInput) GatewayRuleMatchModelEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRuleMatchModelEntry {
+		return vs[0].([]GatewayRuleMatchModelEntry)[vs[1].(int)]
+	}).(GatewayRuleMatchModelEntryOutput)
+}
+
+type GatewayRuleMatchModels struct {
+	AnyOf []GatewayRuleMatchModelEntry `pulumi:"anyOf"`
+}
+
+// GatewayRuleMatchModelsInput is an input type that accepts GatewayRuleMatchModelsArgs and GatewayRuleMatchModelsOutput values.
+// You can construct a concrete instance of `GatewayRuleMatchModelsInput` via:
+//
+//	GatewayRuleMatchModelsArgs{...}
+type GatewayRuleMatchModelsInput interface {
+	pulumi.Input
+
+	ToGatewayRuleMatchModelsOutput() GatewayRuleMatchModelsOutput
+	ToGatewayRuleMatchModelsOutputWithContext(context.Context) GatewayRuleMatchModelsOutput
+}
+
+type GatewayRuleMatchModelsArgs struct {
+	AnyOf GatewayRuleMatchModelEntryArrayInput `pulumi:"anyOf"`
+}
+
+func (GatewayRuleMatchModelsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchModels)(nil)).Elem()
+}
+
+func (i GatewayRuleMatchModelsArgs) ToGatewayRuleMatchModelsOutput() GatewayRuleMatchModelsOutput {
+	return i.ToGatewayRuleMatchModelsOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleMatchModelsArgs) ToGatewayRuleMatchModelsOutputWithContext(ctx context.Context) GatewayRuleMatchModelsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleMatchModelsOutput)
+}
+
+type GatewayRuleMatchModelsOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleMatchModelsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchModels)(nil)).Elem()
+}
+
+func (o GatewayRuleMatchModelsOutput) ToGatewayRuleMatchModelsOutput() GatewayRuleMatchModelsOutput {
+	return o
+}
+
+func (o GatewayRuleMatchModelsOutput) ToGatewayRuleMatchModelsOutputWithContext(ctx context.Context) GatewayRuleMatchModelsOutput {
+	return o
+}
+
+func (o GatewayRuleMatchModelsOutput) AnyOf() GatewayRuleMatchModelEntryArrayOutput {
+	return o.ApplyT(func(v GatewayRuleMatchModels) []GatewayRuleMatchModelEntry { return v.AnyOf }).(GatewayRuleMatchModelEntryArrayOutput)
 }
 
 type GatewayRuleMatchPaths struct {
@@ -9822,7 +10606,9 @@ func (o GatewayRuleStaticOverrideOutput) BundleVersion() pulumi.StringOutput {
 }
 
 type GatewayRuleStaticRoute struct {
-	TargetName string `pulumi:"targetName"`
+	Fallback   *GatewayRuleFallback `pulumi:"fallback"`
+	Model      *string              `pulumi:"model"`
+	TargetName string               `pulumi:"targetName"`
 }
 
 // GatewayRuleStaticRouteInput is an input type that accepts GatewayRuleStaticRouteArgs and GatewayRuleStaticRouteOutput values.
@@ -9837,7 +10623,9 @@ type GatewayRuleStaticRouteInput interface {
 }
 
 type GatewayRuleStaticRouteArgs struct {
-	TargetName pulumi.StringInput `pulumi:"targetName"`
+	Fallback   GatewayRuleFallbackPtrInput `pulumi:"fallback"`
+	Model      pulumi.StringPtrInput       `pulumi:"model"`
+	TargetName pulumi.StringInput          `pulumi:"targetName"`
 }
 
 func (GatewayRuleStaticRouteArgs) ElementType() reflect.Type {
@@ -9864,6 +10652,14 @@ func (o GatewayRuleStaticRouteOutput) ToGatewayRuleStaticRouteOutput() GatewayRu
 
 func (o GatewayRuleStaticRouteOutput) ToGatewayRuleStaticRouteOutputWithContext(ctx context.Context) GatewayRuleStaticRouteOutput {
 	return o
+}
+
+func (o GatewayRuleStaticRouteOutput) Fallback() GatewayRuleFallbackPtrOutput {
+	return o.ApplyT(func(v GatewayRuleStaticRoute) *GatewayRuleFallback { return v.Fallback }).(GatewayRuleFallbackPtrOutput)
+}
+
+func (o GatewayRuleStaticRouteOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRuleStaticRoute) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
 func (o GatewayRuleStaticRouteOutput) TargetName() pulumi.StringOutput {
@@ -9926,11 +10722,13 @@ func (o GatewayRuleSystemManagedBlockPtrOutput) ManagedBy() pulumi.StringPtrOutp
 }
 
 type GatewayRuleTargetTrafficSplitEntry struct {
-	Description *string           `pulumi:"description"`
-	Metadata    map[string]string `pulumi:"metadata"`
-	Name        string            `pulumi:"name"`
-	TargetName  string            `pulumi:"targetName"`
-	Weight      float64           `pulumi:"weight"`
+	Description *string              `pulumi:"description"`
+	Fallback    *GatewayRuleFallback `pulumi:"fallback"`
+	Metadata    map[string]string    `pulumi:"metadata"`
+	Model       *string              `pulumi:"model"`
+	Name        string               `pulumi:"name"`
+	TargetName  string               `pulumi:"targetName"`
+	Weight      float64              `pulumi:"weight"`
 }
 
 // GatewayRuleTargetTrafficSplitEntryInput is an input type that accepts GatewayRuleTargetTrafficSplitEntryArgs and GatewayRuleTargetTrafficSplitEntryOutput values.
@@ -9945,11 +10743,13 @@ type GatewayRuleTargetTrafficSplitEntryInput interface {
 }
 
 type GatewayRuleTargetTrafficSplitEntryArgs struct {
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Metadata    pulumi.StringMapInput `pulumi:"metadata"`
-	Name        pulumi.StringInput    `pulumi:"name"`
-	TargetName  pulumi.StringInput    `pulumi:"targetName"`
-	Weight      pulumi.Float64Input   `pulumi:"weight"`
+	Description pulumi.StringPtrInput       `pulumi:"description"`
+	Fallback    GatewayRuleFallbackPtrInput `pulumi:"fallback"`
+	Metadata    pulumi.StringMapInput       `pulumi:"metadata"`
+	Model       pulumi.StringPtrInput       `pulumi:"model"`
+	Name        pulumi.StringInput          `pulumi:"name"`
+	TargetName  pulumi.StringInput          `pulumi:"targetName"`
+	Weight      pulumi.Float64Input         `pulumi:"weight"`
 }
 
 func (GatewayRuleTargetTrafficSplitEntryArgs) ElementType() reflect.Type {
@@ -10007,8 +10807,16 @@ func (o GatewayRuleTargetTrafficSplitEntryOutput) Description() pulumi.StringPtr
 	return o.ApplyT(func(v GatewayRuleTargetTrafficSplitEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o GatewayRuleTargetTrafficSplitEntryOutput) Fallback() GatewayRuleFallbackPtrOutput {
+	return o.ApplyT(func(v GatewayRuleTargetTrafficSplitEntry) *GatewayRuleFallback { return v.Fallback }).(GatewayRuleFallbackPtrOutput)
+}
+
 func (o GatewayRuleTargetTrafficSplitEntryOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GatewayRuleTargetTrafficSplitEntry) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRuleTargetTrafficSplitEntry) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
 func (o GatewayRuleTargetTrafficSplitEntryOutput) Name() pulumi.StringOutput {
@@ -11594,6 +12402,108 @@ func (o GatewayTargetAuthorizationDataPropertiesPtrOutput) Oauth2() GatewayTarge
 		}
 		return &v.Oauth2
 	}).(GatewayTargetOAuth2AuthorizationDataPtrOutput)
+}
+
+type GatewayTargetCertificateConfiguration0Properties struct {
+	S3 GatewayTargetS3CertificateConfiguration `pulumi:"s3"`
+}
+
+// GatewayTargetCertificateConfiguration0PropertiesInput is an input type that accepts GatewayTargetCertificateConfiguration0PropertiesArgs and GatewayTargetCertificateConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetCertificateConfiguration0PropertiesInput` via:
+//
+//	GatewayTargetCertificateConfiguration0PropertiesArgs{...}
+type GatewayTargetCertificateConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetCertificateConfiguration0PropertiesOutput() GatewayTargetCertificateConfiguration0PropertiesOutput
+	ToGatewayTargetCertificateConfiguration0PropertiesOutputWithContext(context.Context) GatewayTargetCertificateConfiguration0PropertiesOutput
+}
+
+type GatewayTargetCertificateConfiguration0PropertiesArgs struct {
+	S3 GatewayTargetS3CertificateConfigurationInput `pulumi:"s3"`
+}
+
+func (GatewayTargetCertificateConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetCertificateConfiguration0Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetCertificateConfiguration0PropertiesArgs) ToGatewayTargetCertificateConfiguration0PropertiesOutput() GatewayTargetCertificateConfiguration0PropertiesOutput {
+	return i.ToGatewayTargetCertificateConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetCertificateConfiguration0PropertiesArgs) ToGatewayTargetCertificateConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetCertificateConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetCertificateConfiguration0PropertiesOutput)
+}
+
+type GatewayTargetCertificateConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetCertificateConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetCertificateConfiguration0Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetCertificateConfiguration0PropertiesOutput) ToGatewayTargetCertificateConfiguration0PropertiesOutput() GatewayTargetCertificateConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetCertificateConfiguration0PropertiesOutput) ToGatewayTargetCertificateConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetCertificateConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetCertificateConfiguration0PropertiesOutput) S3() GatewayTargetS3CertificateConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetCertificateConfiguration0Properties) GatewayTargetS3CertificateConfiguration {
+		return v.S3
+	}).(GatewayTargetS3CertificateConfigurationOutput)
+}
+
+type GatewayTargetCertificateConfiguration1Properties struct {
+	SecretsManager GatewayTargetSecretsManagerCertificateConfiguration `pulumi:"secretsManager"`
+}
+
+// GatewayTargetCertificateConfiguration1PropertiesInput is an input type that accepts GatewayTargetCertificateConfiguration1PropertiesArgs and GatewayTargetCertificateConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetCertificateConfiguration1PropertiesInput` via:
+//
+//	GatewayTargetCertificateConfiguration1PropertiesArgs{...}
+type GatewayTargetCertificateConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetCertificateConfiguration1PropertiesOutput() GatewayTargetCertificateConfiguration1PropertiesOutput
+	ToGatewayTargetCertificateConfiguration1PropertiesOutputWithContext(context.Context) GatewayTargetCertificateConfiguration1PropertiesOutput
+}
+
+type GatewayTargetCertificateConfiguration1PropertiesArgs struct {
+	SecretsManager GatewayTargetSecretsManagerCertificateConfigurationInput `pulumi:"secretsManager"`
+}
+
+func (GatewayTargetCertificateConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetCertificateConfiguration1Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetCertificateConfiguration1PropertiesArgs) ToGatewayTargetCertificateConfiguration1PropertiesOutput() GatewayTargetCertificateConfiguration1PropertiesOutput {
+	return i.ToGatewayTargetCertificateConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetCertificateConfiguration1PropertiesArgs) ToGatewayTargetCertificateConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetCertificateConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetCertificateConfiguration1PropertiesOutput)
+}
+
+type GatewayTargetCertificateConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetCertificateConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetCertificateConfiguration1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetCertificateConfiguration1PropertiesOutput) ToGatewayTargetCertificateConfiguration1PropertiesOutput() GatewayTargetCertificateConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetCertificateConfiguration1PropertiesOutput) ToGatewayTargetCertificateConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetCertificateConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetCertificateConfiguration1PropertiesOutput) SecretsManager() GatewayTargetSecretsManagerCertificateConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetCertificateConfiguration1Properties) GatewayTargetSecretsManagerCertificateConfiguration {
+		return v.SecretsManager
+	}).(GatewayTargetSecretsManagerCertificateConfigurationOutput)
 }
 
 type GatewayTargetConnectorConfiguration struct {
@@ -16364,6 +17274,61 @@ func (o GatewayTargetRuntimeTargetConfigurationPtrOutput) Schema() GatewayTarget
 	}).(GatewayTargetHttpApiSchemaConfigurationPtrOutput)
 }
 
+type GatewayTargetS3CertificateConfiguration struct {
+	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
+	Uri                  string  `pulumi:"uri"`
+}
+
+// GatewayTargetS3CertificateConfigurationInput is an input type that accepts GatewayTargetS3CertificateConfigurationArgs and GatewayTargetS3CertificateConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetS3CertificateConfigurationInput` via:
+//
+//	GatewayTargetS3CertificateConfigurationArgs{...}
+type GatewayTargetS3CertificateConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetS3CertificateConfigurationOutput() GatewayTargetS3CertificateConfigurationOutput
+	ToGatewayTargetS3CertificateConfigurationOutputWithContext(context.Context) GatewayTargetS3CertificateConfigurationOutput
+}
+
+type GatewayTargetS3CertificateConfigurationArgs struct {
+	BucketOwnerAccountId pulumi.StringPtrInput `pulumi:"bucketOwnerAccountId"`
+	Uri                  pulumi.StringInput    `pulumi:"uri"`
+}
+
+func (GatewayTargetS3CertificateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetS3CertificateConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetS3CertificateConfigurationArgs) ToGatewayTargetS3CertificateConfigurationOutput() GatewayTargetS3CertificateConfigurationOutput {
+	return i.ToGatewayTargetS3CertificateConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetS3CertificateConfigurationArgs) ToGatewayTargetS3CertificateConfigurationOutputWithContext(ctx context.Context) GatewayTargetS3CertificateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetS3CertificateConfigurationOutput)
+}
+
+type GatewayTargetS3CertificateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetS3CertificateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetS3CertificateConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetS3CertificateConfigurationOutput) ToGatewayTargetS3CertificateConfigurationOutput() GatewayTargetS3CertificateConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetS3CertificateConfigurationOutput) ToGatewayTargetS3CertificateConfigurationOutputWithContext(ctx context.Context) GatewayTargetS3CertificateConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetS3CertificateConfigurationOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetS3CertificateConfiguration) *string { return v.BucketOwnerAccountId }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetS3CertificateConfigurationOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetS3CertificateConfiguration) string { return v.Uri }).(pulumi.StringOutput)
+}
+
 type GatewayTargetS3Configuration struct {
 	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
 	Uri                  *string `pulumi:"uri"`
@@ -16748,6 +17713,55 @@ func (o GatewayTargetSchemaDefinitionMapOutput) MapIndex(k pulumi.StringInput) G
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GatewayTargetSchemaDefinition {
 		return vs[0].(map[string]GatewayTargetSchemaDefinition)[vs[1].(string)]
 	}).(GatewayTargetSchemaDefinitionOutput)
+}
+
+type GatewayTargetSecretsManagerCertificateConfiguration struct {
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// GatewayTargetSecretsManagerCertificateConfigurationInput is an input type that accepts GatewayTargetSecretsManagerCertificateConfigurationArgs and GatewayTargetSecretsManagerCertificateConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetSecretsManagerCertificateConfigurationInput` via:
+//
+//	GatewayTargetSecretsManagerCertificateConfigurationArgs{...}
+type GatewayTargetSecretsManagerCertificateConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetSecretsManagerCertificateConfigurationOutput() GatewayTargetSecretsManagerCertificateConfigurationOutput
+	ToGatewayTargetSecretsManagerCertificateConfigurationOutputWithContext(context.Context) GatewayTargetSecretsManagerCertificateConfigurationOutput
+}
+
+type GatewayTargetSecretsManagerCertificateConfigurationArgs struct {
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (GatewayTargetSecretsManagerCertificateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetSecretsManagerCertificateConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetSecretsManagerCertificateConfigurationArgs) ToGatewayTargetSecretsManagerCertificateConfigurationOutput() GatewayTargetSecretsManagerCertificateConfigurationOutput {
+	return i.ToGatewayTargetSecretsManagerCertificateConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetSecretsManagerCertificateConfigurationArgs) ToGatewayTargetSecretsManagerCertificateConfigurationOutputWithContext(ctx context.Context) GatewayTargetSecretsManagerCertificateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetSecretsManagerCertificateConfigurationOutput)
+}
+
+type GatewayTargetSecretsManagerCertificateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetSecretsManagerCertificateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetSecretsManagerCertificateConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetSecretsManagerCertificateConfigurationOutput) ToGatewayTargetSecretsManagerCertificateConfigurationOutput() GatewayTargetSecretsManagerCertificateConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetSecretsManagerCertificateConfigurationOutput) ToGatewayTargetSecretsManagerCertificateConfigurationOutputWithContext(ctx context.Context) GatewayTargetSecretsManagerCertificateConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetSecretsManagerCertificateConfigurationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetSecretsManagerCertificateConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
 type GatewayTargetSelfManagedLatticeResource0Properties struct {
@@ -45660,12 +46674,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitRateConfigArrayInput)(nil)).Elem(), GatewayRateLimitRateConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleAction0PropertiesInput)(nil)).Elem(), GatewayRuleAction0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleAction1PropertiesInput)(nil)).Elem(), GatewayRuleAction1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleCircuitBreakerConfigurationInput)(nil)).Elem(), GatewayRuleCircuitBreakerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleCircuitBreakerConfigurationPtrInput)(nil)).Elem(), GatewayRuleCircuitBreakerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleCondition0PropertiesInput)(nil)).Elem(), GatewayRuleCondition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleCondition1PropertiesInput)(nil)).Elem(), GatewayRuleCondition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleCondition2PropertiesInput)(nil)).Elem(), GatewayRuleCondition2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleConfigurationBundleAction0PropertiesInput)(nil)).Elem(), GatewayRuleConfigurationBundleAction0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleConfigurationBundleAction1PropertiesInput)(nil)).Elem(), GatewayRuleConfigurationBundleAction1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleConfigurationBundleReferenceInput)(nil)).Elem(), GatewayRuleConfigurationBundleReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackInput)(nil)).Elem(), GatewayRuleFallbackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackPtrInput)(nil)).Elem(), GatewayRuleFallbackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackTargetInput)(nil)).Elem(), GatewayRuleFallbackTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackTargetArrayInput)(nil)).Elem(), GatewayRuleFallbackTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackTriggersInput)(nil)).Elem(), GatewayRuleFallbackTriggersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackTriggersPtrInput)(nil)).Elem(), GatewayRuleFallbackTriggersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleIamPrincipalInput)(nil)).Elem(), GatewayRuleIamPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchModelEntryInput)(nil)).Elem(), GatewayRuleMatchModelEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchModelEntryArrayInput)(nil)).Elem(), GatewayRuleMatchModelEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchModelsInput)(nil)).Elem(), GatewayRuleMatchModelsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchPathsInput)(nil)).Elem(), GatewayRuleMatchPathsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchPrincipalEntryPropertiesInput)(nil)).Elem(), GatewayRuleMatchPrincipalEntryPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchPrincipalEntryPropertiesArrayInput)(nil)).Elem(), GatewayRuleMatchPrincipalEntryPropertiesArray{})
@@ -45698,6 +46724,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiSchemaConfiguration0PropertiesPtrInput)(nil)).Elem(), GatewayTargetApiSchemaConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiSchemaConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetApiSchemaConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiSchemaConfiguration1PropertiesPtrInput)(nil)).Elem(), GatewayTargetApiSchemaConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCertificateConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetCertificateConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCertificateConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetCertificateConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetConnectorConfigurationInput)(nil)).Elem(), GatewayTargetConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetConnectorConfigurationArrayInput)(nil)).Elem(), GatewayTargetConnectorConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetConnectorParameterOverrideInput)(nil)).Elem(), GatewayTargetConnectorParameterOverrideArgs{})
@@ -45758,11 +46786,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetProviderPrefixInput)(nil)).Elem(), GatewayTargetProviderPrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetProviderPrefixPtrInput)(nil)).Elem(), GatewayTargetProviderPrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRuntimeTargetConfigurationInput)(nil)).Elem(), GatewayTargetRuntimeTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3CertificateConfigurationInput)(nil)).Elem(), GatewayTargetS3CertificateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationPtrInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionInput)(nil)).Elem(), GatewayTargetSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionPtrInput)(nil)).Elem(), GatewayTargetSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionMapInput)(nil)).Elem(), GatewayTargetSchemaDefinitionMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSecretsManagerCertificateConfigurationInput)(nil)).Elem(), GatewayTargetSecretsManagerCertificateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSelfManagedLatticeResourcePropertiesInput)(nil)).Elem(), GatewayTargetSelfManagedLatticeResourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSelfManagedLatticeResourcePropertiesPtrInput)(nil)).Elem(), GatewayTargetSelfManagedLatticeResourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetStickinessConfigurationInput)(nil)).Elem(), GatewayTargetStickinessConfigurationArgs{})
@@ -46241,12 +47271,24 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRateLimitRateConfigArrayOutput{})
 	pulumi.RegisterOutputType(GatewayRuleAction0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayRuleAction1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleCircuitBreakerConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayRuleCircuitBreakerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRuleCondition0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayRuleCondition1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleCondition2PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayRuleConfigurationBundleAction0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayRuleConfigurationBundleAction1PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayRuleConfigurationBundleReferenceOutput{})
+	pulumi.RegisterOutputType(GatewayRuleFallbackOutput{})
+	pulumi.RegisterOutputType(GatewayRuleFallbackPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRuleFallbackTargetOutput{})
+	pulumi.RegisterOutputType(GatewayRuleFallbackTargetArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRuleFallbackTriggersOutput{})
+	pulumi.RegisterOutputType(GatewayRuleFallbackTriggersPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRuleIamPrincipalOutput{})
+	pulumi.RegisterOutputType(GatewayRuleMatchModelEntryOutput{})
+	pulumi.RegisterOutputType(GatewayRuleMatchModelEntryArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRuleMatchModelsOutput{})
 	pulumi.RegisterOutputType(GatewayRuleMatchPathsOutput{})
 	pulumi.RegisterOutputType(GatewayRuleMatchPrincipalEntryPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayRuleMatchPrincipalEntryPropertiesArrayOutput{})
@@ -46285,6 +47327,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetAuthorizationDataPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetAuthorizationDataPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetCertificateConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetCertificateConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetConnectorConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetConnectorConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GatewayTargetConnectorParameterOverrideOutput{})
@@ -46371,11 +47415,13 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetProviderPrefixPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRuntimeTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRuntimeTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetS3CertificateConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionMapOutput{})
+	pulumi.RegisterOutputType(GatewayTargetSecretsManagerCertificateConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSelfManagedLatticeResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetStickinessConfigurationOutput{})

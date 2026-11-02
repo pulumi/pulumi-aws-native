@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Eks.Outputs
         /// Todo: add description
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The Gateway API configuration for the cluster.
+        /// </summary>
+        public readonly Outputs.ClusterGatewayApi? GatewayApi;
 
         [OutputConstructor]
-        private ClusterElasticLoadBalancing(bool? enabled)
+        private ClusterElasticLoadBalancing(
+            bool? enabled,
+
+            Outputs.ClusterGatewayApi? gatewayApi)
         {
             Enabled = enabled;
+            GatewayApi = gatewayApi;
         }
     }
 }

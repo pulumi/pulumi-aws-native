@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
 {
 
     /// <summary>
-    /// Configuration settings for connecting a router output to a MediaLive input.
+    /// Configuration settings for connecting a router output to a MediaLive input. To connect the router output to the MediaLive input, provide both mediaLiveInputArn and mediaLivePipelineId. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
     /// </summary>
     public sealed class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs : global::Pulumi.ResourceArgs
     {

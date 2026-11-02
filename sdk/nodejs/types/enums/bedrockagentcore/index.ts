@@ -340,6 +340,14 @@ export const GatewayRateLimitStatus = {
  */
 export type GatewayRateLimitStatus = (typeof GatewayRateLimitStatus)[keyof typeof GatewayRateLimitStatus];
 
+export const GatewayRuleFallbackError = {
+    ConnectionError: "CONNECTION_ERROR",
+    FirstByteTimeout: "FIRST_BYTE_TIMEOUT",
+    Unroutable: "UNROUTABLE",
+} as const;
+
+export type GatewayRuleFallbackError = (typeof GatewayRuleFallbackError)[keyof typeof GatewayRuleFallbackError];
+
 export const GatewayRulePrincipalMatchOperator = {
     StringEquals: "StringEquals",
     StringLike: "StringLike",

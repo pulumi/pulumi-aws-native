@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// 
         /// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
         /// </summary>
-        public readonly Outputs.BotPromptSpecification PromptSpecification;
+        public readonly Outputs.BotPromptSpecification? PromptSpecification;
 
         [OutputConstructor]
         private BotIntentConfirmationSetting(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             bool? isActive,
 
-            Outputs.BotPromptSpecification promptSpecification)
+            Outputs.BotPromptSpecification? promptSpecification)
         {
             CodeHook = codeHook;
             ConfirmationConditional = confirmationConditional;

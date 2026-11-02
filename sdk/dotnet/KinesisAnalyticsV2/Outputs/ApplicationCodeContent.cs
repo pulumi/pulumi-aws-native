@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// </summary>
         public readonly Outputs.ApplicationS3ContentLocation? S3ContentLocation;
         /// <summary>
-        /// The text-format code for a Flink-based Kinesis Data Analytics application.
+        /// The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
         /// </summary>
         public readonly string? TextContent;
         /// <summary>

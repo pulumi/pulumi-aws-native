@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class GatewayMcpGatewayConfiguration
     {
+        public readonly bool? DisableMcpListToolsPagination;
         public readonly string? Instructions;
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewaySearchType? SearchType;
         public readonly Outputs.GatewaySessionConfiguration? SessionConfiguration;
@@ -21,6 +22,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private GatewayMcpGatewayConfiguration(
+            bool? disableMcpListToolsPagination,
+
             string? instructions,
 
             Pulumi.AwsNative.BedrockAgentCore.GatewaySearchType? searchType,
@@ -31,6 +34,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<string> supportedVersions)
         {
+            DisableMcpListToolsPagination = disableMcpListToolsPagination;
             Instructions = instructions;
             SearchType = searchType;
             SessionConfiguration = sessionConfiguration;

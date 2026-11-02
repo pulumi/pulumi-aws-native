@@ -112,7 +112,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 def get_application(application_name: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
+    Resource Type definition for AWS::KinesisAnalyticsV2::Application. Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
 
     :param _builtins.str application_name: The name of the application.
     """
@@ -131,7 +131,7 @@ def get_application(application_name: Optional[_builtins.str] = None,
 def get_application_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
+    Resource Type definition for AWS::KinesisAnalyticsV2::Application. Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
 
     :param _builtins.str application_name: The name of the application.
     """

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise
 {
     /// <summary>
-    /// Resource schema for AWS::IoTSiteWise::Gateway
+    /// Resource Type definition for AWS::IoTSiteWise::Gateway
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource

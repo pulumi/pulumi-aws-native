@@ -76,10 +76,6 @@ namespace Pulumi.AwsNative.CustomerProfiles
     public sealed class GetCalculatedAttributeDefinitionResult
     {
         /// <summary>
-        /// Mathematical expression and a list of attribute items specified in that expression.
-        /// </summary>
-        public readonly Outputs.CalculatedAttributeDefinitionAttributeDetails? AttributeDetails;
-        /// <summary>
         /// The conditions including range, object count, and threshold for the calculated attribute.
         /// </summary>
         public readonly Outputs.CalculatedAttributeDefinitionConditions? Conditions;
@@ -101,10 +97,6 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public readonly string? LastUpdatedAt;
         public readonly Outputs.CalculatedAttributeDefinitionReadiness? Readiness;
         /// <summary>
-        /// The aggregation operation to perform for the calculated attribute.
-        /// </summary>
-        public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic? Statistic;
-        /// <summary>
         /// The status of the calculated attribute definition.
         /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatus? Status;
@@ -115,8 +107,6 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
         [OutputConstructor]
         private GetCalculatedAttributeDefinitionResult(
-            Outputs.CalculatedAttributeDefinitionAttributeDetails? attributeDetails,
-
             Outputs.CalculatedAttributeDefinitionConditions? conditions,
 
             string? createdAt,
@@ -129,20 +119,16 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             Outputs.CalculatedAttributeDefinitionReadiness? readiness,
 
-            Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic? statistic,
-
             Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
-            AttributeDetails = attributeDetails;
             Conditions = conditions;
             CreatedAt = createdAt;
             Description = description;
             DisplayName = displayName;
             LastUpdatedAt = lastUpdatedAt;
             Readiness = readiness;
-            Statistic = statistic;
             Status = status;
             Tags = tags;
         }

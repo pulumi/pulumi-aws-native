@@ -34,11 +34,37 @@ export const FirewallEnabledAnalysisType = {
  */
 export type FirewallEnabledAnalysisType = (typeof FirewallEnabledAnalysisType)[keyof typeof FirewallEnabledAnalysisType];
 
+export const FirewallListenerPropertyType = {
+    Http: "HTTP",
+    Https: "HTTPS",
+} as const;
+
+/**
+ * The protocol the proxy listener uses.
+ */
+export type FirewallListenerPropertyType = (typeof FirewallListenerPropertyType)[keyof typeof FirewallListenerPropertyType];
+
 export const FirewallPolicyOverrideAction = {
     DropToAlert: "DROP_TO_ALERT",
 } as const;
 
 export type FirewallPolicyOverrideAction = (typeof FirewallPolicyOverrideAction)[keyof typeof FirewallPolicyOverrideAction];
+
+export const FirewallPolicyRoute53ResolvedIpValidationAction = {
+    Reject: "REJECT",
+    Drop: "DROP",
+    Alert: "ALERT",
+} as const;
+
+export type FirewallPolicyRoute53ResolvedIpValidationAction = (typeof FirewallPolicyRoute53ResolvedIpValidationAction)[keyof typeof FirewallPolicyRoute53ResolvedIpValidationAction];
+
+export const FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy = {
+    Reject: "REJECT",
+    Drop: "DROP",
+    Continue: "CONTINUE",
+} as const;
+
+export type FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy = (typeof FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy)[keyof typeof FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy];
 
 export const FirewallPolicyRuleOrder = {
     DefaultActionOrder: "DEFAULT_ACTION_ORDER",
@@ -169,6 +195,7 @@ export type RuleGroupSummaryRuleOption = (typeof RuleGroupSummaryRuleOption)[key
 export const RuleGroupTargetType = {
     TlsSni: "TLS_SNI",
     HttpHost: "HTTP_HOST",
+    AwsRoute53ResolvedDomain: "AWS_ROUTE_53_RESOLVED_DOMAIN",
 } as const;
 
 export type RuleGroupTargetType = (typeof RuleGroupTargetType)[keyof typeof RuleGroupTargetType];

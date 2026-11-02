@@ -67,6 +67,10 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The Amazon Resource Name (ARN) of the router output.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+        /// </summary>
+        public readonly ImmutableArray<string> AssociatedSourceEndpointArns;
         public readonly object? Configuration;
         /// <summary>
         /// The timestamp when the router output was created.
@@ -130,6 +134,8 @@ namespace Pulumi.AwsNative.MediaConnect
         private GetRouterOutputResourceResult(
             string? arn,
 
+            ImmutableArray<string> associatedSourceEndpointArns,
+
             object? configuration,
 
             string? createdAt,
@@ -163,6 +169,7 @@ namespace Pulumi.AwsNative.MediaConnect
             string? updatedAt)
         {
             Arn = arn;
+            AssociatedSourceEndpointArns = associatedSourceEndpointArns;
             Configuration = configuration;
             CreatedAt = createdAt;
             FabricConfiguration = fabricConfiguration;

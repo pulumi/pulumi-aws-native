@@ -39,6 +39,7 @@ __all__ = [
     'GatewayPolicyEngineMode',
     'GatewayRateLimitPeriod',
     'GatewayRateLimitStatus',
+    'GatewayRuleFallbackError',
     'GatewayRulePrincipalMatchOperator',
     'GatewayRuleStatus',
     'GatewaySearchType',
@@ -432,6 +433,13 @@ class GatewayRateLimitStatus(_builtins.str, Enum):
     ACTIVE = "ACTIVE"
     UPDATING = "UPDATING"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayRuleFallbackError")
+class GatewayRuleFallbackError(_builtins.str, Enum):
+    CONNECTION_ERROR = "CONNECTION_ERROR"
+    FIRST_BYTE_TIMEOUT = "FIRST_BYTE_TIMEOUT"
+    UNROUTABLE = "UNROUTABLE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayRulePrincipalMatchOperator")

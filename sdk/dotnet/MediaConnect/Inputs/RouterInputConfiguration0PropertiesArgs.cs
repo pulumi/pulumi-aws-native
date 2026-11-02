@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// </summary>
     public sealed class RouterInputConfiguration0PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("standard", required: true)]
-        public Input<Inputs.RouterInputStandardRouterInputConfigurationArgs> Standard { get; set; } = null!;
+        [Input("destinationEndpoint", required: true)]
+        public Input<Inputs.RouterInputDestinationEndpointRouterInputConfigurationArgs> DestinationEndpoint { get; set; } = null!;
 
         public RouterInputConfiguration0PropertiesArgs()
         {

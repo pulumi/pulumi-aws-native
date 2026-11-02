@@ -19,6 +19,8 @@ type RouterInput struct {
 
 	// The Amazon Resource Name (ARN) of the router input.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+	AssociatedDestinationEndpointArns pulumi.StringArrayOutput `pulumi:"associatedDestinationEndpointArns"`
 	// The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The unique identifier of the router input.
@@ -201,6 +203,11 @@ func (o RouterInputOutput) ToRouterInputOutputWithContext(ctx context.Context) R
 // The Amazon Resource Name (ARN) of the router input.
 func (o RouterInputOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouterInput) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+func (o RouterInputOutput) AssociatedDestinationEndpointArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouterInput) pulumi.StringArrayOutput { return v.AssociatedDestinationEndpointArns }).(pulumi.StringArrayOutput)
 }
 
 // The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.

@@ -658,6 +658,8 @@ func (o ConfigurationRunConfigurationsOutput) VpcConfig() ConfigurationVpcConfig
 type ConfigurationVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	SubnetIds        []string `pulumi:"subnetIds"`
+	// The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+	VpcOwnerAccountId *string `pulumi:"vpcOwnerAccountId"`
 }
 
 // ConfigurationVpcConfigInput is an input type that accepts ConfigurationVpcConfigArgs and ConfigurationVpcConfigOutput values.
@@ -674,6 +676,8 @@ type ConfigurationVpcConfigInput interface {
 type ConfigurationVpcConfigArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+	VpcOwnerAccountId pulumi.StringPtrInput `pulumi:"vpcOwnerAccountId"`
 }
 
 func (ConfigurationVpcConfigArgs) ElementType() reflect.Type {
@@ -761,6 +765,11 @@ func (o ConfigurationVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+func (o ConfigurationVpcConfigOutput) VpcOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationVpcConfig) *string { return v.VpcOwnerAccountId }).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationVpcConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationVpcConfigPtrOutput) ElementType() reflect.Type {
@@ -801,6 +810,16 @@ func (o ConfigurationVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+func (o ConfigurationVpcConfigPtrOutput) VpcOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcOwnerAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Server-side encryption (SSE) settings for a store.

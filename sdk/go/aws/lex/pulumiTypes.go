@@ -8420,7 +8420,7 @@ type BotIntentConfirmationSetting struct {
 	// Prompts the user to confirm the intent. This question should have a yes or no answer.
 	//
 	// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
-	PromptSpecification BotPromptSpecification `pulumi:"promptSpecification"`
+	PromptSpecification *BotPromptSpecification `pulumi:"promptSpecification"`
 }
 
 // BotIntentConfirmationSettingInput is an input type that accepts BotIntentConfirmationSettingArgs and BotIntentConfirmationSettingOutput values.
@@ -8462,7 +8462,7 @@ type BotIntentConfirmationSettingArgs struct {
 	// Prompts the user to confirm the intent. This question should have a yes or no answer.
 	//
 	// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
-	PromptSpecification BotPromptSpecificationInput `pulumi:"promptSpecification"`
+	PromptSpecification BotPromptSpecificationPtrInput `pulumi:"promptSpecification"`
 }
 
 func (BotIntentConfirmationSettingArgs) ElementType() reflect.Type {
@@ -8607,8 +8607,8 @@ func (o BotIntentConfirmationSettingOutput) IsActive() pulumi.BoolPtrOutput {
 // Prompts the user to confirm the intent. This question should have a yes or no answer.
 //
 // Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
-func (o BotIntentConfirmationSettingOutput) PromptSpecification() BotPromptSpecificationOutput {
-	return o.ApplyT(func(v BotIntentConfirmationSetting) BotPromptSpecification { return v.PromptSpecification }).(BotPromptSpecificationOutput)
+func (o BotIntentConfirmationSettingOutput) PromptSpecification() BotPromptSpecificationPtrOutput {
+	return o.ApplyT(func(v BotIntentConfirmationSetting) *BotPromptSpecification { return v.PromptSpecification }).(BotPromptSpecificationPtrOutput)
 }
 
 type BotIntentConfirmationSettingPtrOutput struct{ *pulumi.OutputState }
@@ -8763,7 +8763,7 @@ func (o BotIntentConfirmationSettingPtrOutput) PromptSpecification() BotPromptSp
 		if v == nil {
 			return nil
 		}
-		return &v.PromptSpecification
+		return v.PromptSpecification
 	}).(BotPromptSpecificationPtrOutput)
 }
 
@@ -17913,13 +17913,13 @@ func (o BotVoiceSettingsPtrOutput) VoiceId() pulumi.StringPtrOutput {
 
 type BotWaitAndContinueSpecification struct {
 	// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-	ContinueResponse BotResponseSpecification `pulumi:"continueResponse"`
+	ContinueResponse *BotResponseSpecification `pulumi:"continueResponse"`
 	// Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
 	IsActive *bool `pulumi:"isActive"`
 	// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
 	StillWaitingResponse *BotStillWaitingResponseSpecification `pulumi:"stillWaitingResponse"`
 	// The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-	WaitingResponse BotResponseSpecification `pulumi:"waitingResponse"`
+	WaitingResponse *BotResponseSpecification `pulumi:"waitingResponse"`
 }
 
 // BotWaitAndContinueSpecificationInput is an input type that accepts BotWaitAndContinueSpecificationArgs and BotWaitAndContinueSpecificationOutput values.
@@ -17935,13 +17935,13 @@ type BotWaitAndContinueSpecificationInput interface {
 
 type BotWaitAndContinueSpecificationArgs struct {
 	// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-	ContinueResponse BotResponseSpecificationInput `pulumi:"continueResponse"`
+	ContinueResponse BotResponseSpecificationPtrInput `pulumi:"continueResponse"`
 	// Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
 	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
 	// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
 	StillWaitingResponse BotStillWaitingResponseSpecificationPtrInput `pulumi:"stillWaitingResponse"`
 	// The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-	WaitingResponse BotResponseSpecificationInput `pulumi:"waitingResponse"`
+	WaitingResponse BotResponseSpecificationPtrInput `pulumi:"waitingResponse"`
 }
 
 func (BotWaitAndContinueSpecificationArgs) ElementType() reflect.Type {
@@ -18022,8 +18022,8 @@ func (o BotWaitAndContinueSpecificationOutput) ToBotWaitAndContinueSpecification
 }
 
 // The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-func (o BotWaitAndContinueSpecificationOutput) ContinueResponse() BotResponseSpecificationOutput {
-	return o.ApplyT(func(v BotWaitAndContinueSpecification) BotResponseSpecification { return v.ContinueResponse }).(BotResponseSpecificationOutput)
+func (o BotWaitAndContinueSpecificationOutput) ContinueResponse() BotResponseSpecificationPtrOutput {
+	return o.ApplyT(func(v BotWaitAndContinueSpecification) *BotResponseSpecification { return v.ContinueResponse }).(BotResponseSpecificationPtrOutput)
 }
 
 // Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
@@ -18039,8 +18039,8 @@ func (o BotWaitAndContinueSpecificationOutput) StillWaitingResponse() BotStillWa
 }
 
 // The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-func (o BotWaitAndContinueSpecificationOutput) WaitingResponse() BotResponseSpecificationOutput {
-	return o.ApplyT(func(v BotWaitAndContinueSpecification) BotResponseSpecification { return v.WaitingResponse }).(BotResponseSpecificationOutput)
+func (o BotWaitAndContinueSpecificationOutput) WaitingResponse() BotResponseSpecificationPtrOutput {
+	return o.ApplyT(func(v BotWaitAndContinueSpecification) *BotResponseSpecification { return v.WaitingResponse }).(BotResponseSpecificationPtrOutput)
 }
 
 type BotWaitAndContinueSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -18073,7 +18073,7 @@ func (o BotWaitAndContinueSpecificationPtrOutput) ContinueResponse() BotResponse
 		if v == nil {
 			return nil
 		}
-		return &v.ContinueResponse
+		return v.ContinueResponse
 	}).(BotResponseSpecificationPtrOutput)
 }
 
@@ -18103,7 +18103,7 @@ func (o BotWaitAndContinueSpecificationPtrOutput) WaitingResponse() BotResponseS
 		if v == nil {
 			return nil
 		}
-		return &v.WaitingResponse
+		return v.WaitingResponse
 	}).(BotResponseSpecificationPtrOutput)
 }
 

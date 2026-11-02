@@ -72,7 +72,7 @@ export interface GetConfiguredTableResult {
     /**
      * The table that this configured table represents.
      */
-    readonly tableReference?: outputs.cleanrooms.ConfiguredTableTableReference0Properties | outputs.cleanrooms.ConfiguredTableTableReference1Properties | outputs.cleanrooms.ConfiguredTableTableReference2Properties;
+    readonly tableReference?: outputs.cleanrooms.ConfiguredTableTableReference0Properties | outputs.cleanrooms.ConfiguredTableTableReference1Properties | outputs.cleanrooms.ConfiguredTableTableReference2Properties | outputs.cleanrooms.ConfiguredTableTableReference3Properties;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */

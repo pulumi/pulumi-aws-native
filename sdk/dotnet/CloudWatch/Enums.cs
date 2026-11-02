@@ -8,6 +8,165 @@ using Pulumi;
 namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
+    /// Who manages the grant.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessGrantGrantType : IEquatable<AccessGrantGrantType>
+    {
+        private readonly string _value;
+
+        private AccessGrantGrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessGrantGrantType ServiceManaged { get; } = new AccessGrantGrantType("SERVICE_MANAGED");
+        public static AccessGrantGrantType CustomerManaged { get; } = new AccessGrantGrantType("CUSTOMER_MANAGED");
+
+        public static bool operator ==(AccessGrantGrantType left, AccessGrantGrantType right) => left.Equals(right);
+        public static bool operator !=(AccessGrantGrantType left, AccessGrantGrantType right) => !left.Equals(right);
+
+        public static explicit operator string(AccessGrantGrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessGrantGrantType other && Equals(other);
+        public bool Equals(AccessGrantGrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The permission granted.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessGrantPermission : IEquatable<AccessGrantPermission>
+    {
+        private readonly string _value;
+
+        private AccessGrantPermission(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessGrantPermission SpaceAdmin { get; } = new AccessGrantPermission("SPACE_ADMIN");
+        public static AccessGrantPermission Read { get; } = new AccessGrantPermission("READ");
+        public static AccessGrantPermission ReadWriteDelete { get; } = new AccessGrantPermission("READ_WRITE_DELETE");
+        public static AccessGrantPermission Custom { get; } = new AccessGrantPermission("CUSTOM");
+
+        public static bool operator ==(AccessGrantPermission left, AccessGrantPermission right) => left.Equals(right);
+        public static bool operator !=(AccessGrantPermission left, AccessGrantPermission right) => !left.Equals(right);
+
+        public static explicit operator string(AccessGrantPermission value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessGrantPermission other && Equals(other);
+        public bool Equals(AccessGrantPermission other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of principal receiving the grant.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessGrantPrincipalPrincipalType : IEquatable<AccessGrantPrincipalPrincipalType>
+    {
+        private readonly string _value;
+
+        private AccessGrantPrincipalPrincipalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessGrantPrincipalPrincipalType IdcUser { get; } = new AccessGrantPrincipalPrincipalType("IDC_USER");
+        public static AccessGrantPrincipalPrincipalType IdcGroup { get; } = new AccessGrantPrincipalPrincipalType("IDC_GROUP");
+        public static AccessGrantPrincipalPrincipalType IamUser { get; } = new AccessGrantPrincipalPrincipalType("IAM_USER");
+        public static AccessGrantPrincipalPrincipalType IamRole { get; } = new AccessGrantPrincipalPrincipalType("IAM_ROLE");
+        public static AccessGrantPrincipalPrincipalType IamRoot { get; } = new AccessGrantPrincipalPrincipalType("IAM_ROOT");
+        public static AccessGrantPrincipalPrincipalType AccessProfile { get; } = new AccessGrantPrincipalPrincipalType("ACCESS_PROFILE");
+        public static AccessGrantPrincipalPrincipalType Alert { get; } = new AccessGrantPrincipalPrincipalType("ALERT");
+        public static AccessGrantPrincipalPrincipalType Agent { get; } = new AccessGrantPrincipalPrincipalType("AGENT");
+
+        public static bool operator ==(AccessGrantPrincipalPrincipalType left, AccessGrantPrincipalPrincipalType right) => left.Equals(right);
+        public static bool operator !=(AccessGrantPrincipalPrincipalType left, AccessGrantPrincipalPrincipalType right) => !left.Equals(right);
+
+        public static explicit operator string(AccessGrantPrincipalPrincipalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessGrantPrincipalPrincipalType other && Equals(other);
+        public bool Equals(AccessGrantPrincipalPrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AccessGrantResourceScopeSignalTypesItem : IEquatable<AccessGrantResourceScopeSignalTypesItem>
+    {
+        private readonly string _value;
+
+        private AccessGrantResourceScopeSignalTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessGrantResourceScopeSignalTypesItem Logs { get; } = new AccessGrantResourceScopeSignalTypesItem("LOGS");
+        public static AccessGrantResourceScopeSignalTypesItem Traces { get; } = new AccessGrantResourceScopeSignalTypesItem("TRACES");
+
+        public static bool operator ==(AccessGrantResourceScopeSignalTypesItem left, AccessGrantResourceScopeSignalTypesItem right) => left.Equals(right);
+        public static bool operator !=(AccessGrantResourceScopeSignalTypesItem left, AccessGrantResourceScopeSignalTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(AccessGrantResourceScopeSignalTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessGrantResourceScopeSignalTypesItem other && Equals(other);
+        public bool Equals(AccessGrantResourceScopeSignalTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Match operator applied to this filter's values.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessGrantRowScopeOperator : IEquatable<AccessGrantRowScopeOperator>
+    {
+        private readonly string _value;
+
+        private AccessGrantRowScopeOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessGrantRowScopeOperator In { get; } = new AccessGrantRowScopeOperator("IN");
+
+        public static bool operator ==(AccessGrantRowScopeOperator left, AccessGrantRowScopeOperator right) => left.Equals(right);
+        public static bool operator !=(AccessGrantRowScopeOperator left, AccessGrantRowScopeOperator right) => !left.Equals(right);
+
+        public static explicit operator string(AccessGrantRowScopeOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessGrantRowScopeOperator other && Equals(other);
+        public bool Equals(AccessGrantRowScopeOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether the calling principal is authorized to assume the access profile.
     /// </summary>
     [EnumType]
@@ -101,6 +260,101 @@ namespace Pulumi.AwsNative.CloudWatch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Who manages the grant.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainAccessGrantForOrganizationGrantType : IEquatable<DomainAccessGrantForOrganizationGrantType>
+    {
+        private readonly string _value;
+
+        private DomainAccessGrantForOrganizationGrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainAccessGrantForOrganizationGrantType ServiceManaged { get; } = new DomainAccessGrantForOrganizationGrantType("SERVICE_MANAGED");
+        public static DomainAccessGrantForOrganizationGrantType CustomerManaged { get; } = new DomainAccessGrantForOrganizationGrantType("CUSTOMER_MANAGED");
+
+        public static bool operator ==(DomainAccessGrantForOrganizationGrantType left, DomainAccessGrantForOrganizationGrantType right) => left.Equals(right);
+        public static bool operator !=(DomainAccessGrantForOrganizationGrantType left, DomainAccessGrantForOrganizationGrantType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainAccessGrantForOrganizationGrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainAccessGrantForOrganizationGrantType other && Equals(other);
+        public bool Equals(DomainAccessGrantForOrganizationGrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of principal the grant is issued to.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType : IEquatable<DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType>
+    {
+        private readonly string _value;
+
+        private DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType IdcUser { get; } = new DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IDC_USER");
+        public static DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType IdcGroup { get; } = new DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IDC_GROUP");
+        public static DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType IamUser { get; } = new DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IAM_USER");
+        public static DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType IamRole { get; } = new DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IAM_ROLE");
+        public static DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType IamRoot { get; } = new DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IAM_ROOT");
+
+        public static bool operator ==(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType left, DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType right) => left.Equals(right);
+        public static bool operator !=(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType left, DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType other && Equals(other);
+        public bool Equals(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The permission granted.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainAccessGrantForOrganizationPermission : IEquatable<DomainAccessGrantForOrganizationPermission>
+    {
+        private readonly string _value;
+
+        private DomainAccessGrantForOrganizationPermission(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainAccessGrantForOrganizationPermission Admin { get; } = new DomainAccessGrantForOrganizationPermission("ADMIN");
+
+        public static bool operator ==(DomainAccessGrantForOrganizationPermission left, DomainAccessGrantForOrganizationPermission right) => left.Equals(right);
+        public static bool operator !=(DomainAccessGrantForOrganizationPermission left, DomainAccessGrantForOrganizationPermission right) => !left.Equals(right);
+
+        public static explicit operator string(DomainAccessGrantForOrganizationPermission value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainAccessGrantForOrganizationPermission other && Equals(other);
+        public bool Equals(DomainAccessGrantForOrganizationPermission other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct DomainForOrganizationIdentityProvidersItem : IEquatable<DomainForOrganizationIdentityProvidersItem>
     {
@@ -130,7 +384,7 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
     /// <summary>
-    /// Current status of the domain.
+    /// Current status of the organization domain.
     /// </summary>
     [EnumType]
     public readonly struct DomainForOrganizationStatus : IEquatable<DomainForOrganizationStatus>
@@ -152,6 +406,64 @@ namespace Pulumi.AwsNative.CloudWatch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainForOrganizationStatus other && Equals(other);
         public bool Equals(DomainForOrganizationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DomainIdentityProvidersItem : IEquatable<DomainIdentityProvidersItem>
+    {
+        private readonly string _value;
+
+        private DomainIdentityProvidersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainIdentityProvidersItem Iam { get; } = new DomainIdentityProvidersItem("IAM");
+        public static DomainIdentityProvidersItem Idc { get; } = new DomainIdentityProvidersItem("IDC");
+
+        public static bool operator ==(DomainIdentityProvidersItem left, DomainIdentityProvidersItem right) => left.Equals(right);
+        public static bool operator !=(DomainIdentityProvidersItem left, DomainIdentityProvidersItem right) => !left.Equals(right);
+
+        public static explicit operator string(DomainIdentityProvidersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainIdentityProvidersItem other && Equals(other);
+        public bool Equals(DomainIdentityProvidersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Current status of the domain.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainStatus : IEquatable<DomainStatus>
+    {
+        private readonly string _value;
+
+        private DomainStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainStatus Active { get; } = new DomainStatus("ACTIVE");
+
+        public static bool operator ==(DomainStatus left, DomainStatus right) => left.Equals(right);
+        public static bool operator !=(DomainStatus left, DomainStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DomainStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainStatus other && Equals(other);
+        public bool Equals(DomainStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -281,6 +593,69 @@ namespace Pulumi.AwsNative.CloudWatch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OTelEnrichmentStatus other && Equals(other);
         public bool Equals(OTelEnrichmentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the space is encrypted with an AWS owned key or a customer managed key.
+    /// </summary>
+    [EnumType]
+    public readonly struct SpaceEncryptionConfigurationEncryptionStrategy : IEquatable<SpaceEncryptionConfigurationEncryptionStrategy>
+    {
+        private readonly string _value;
+
+        private SpaceEncryptionConfigurationEncryptionStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpaceEncryptionConfigurationEncryptionStrategy AwsOwned { get; } = new SpaceEncryptionConfigurationEncryptionStrategy("AWS_OWNED");
+        public static SpaceEncryptionConfigurationEncryptionStrategy CustomerManaged { get; } = new SpaceEncryptionConfigurationEncryptionStrategy("CUSTOMER_MANAGED");
+
+        public static bool operator ==(SpaceEncryptionConfigurationEncryptionStrategy left, SpaceEncryptionConfigurationEncryptionStrategy right) => left.Equals(right);
+        public static bool operator !=(SpaceEncryptionConfigurationEncryptionStrategy left, SpaceEncryptionConfigurationEncryptionStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(SpaceEncryptionConfigurationEncryptionStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpaceEncryptionConfigurationEncryptionStrategy other && Equals(other);
+        public bool Equals(SpaceEncryptionConfigurationEncryptionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the space.
+    /// </summary>
+    [EnumType]
+    public readonly struct SpaceStatus : IEquatable<SpaceStatus>
+    {
+        private readonly string _value;
+
+        private SpaceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpaceStatus Active { get; } = new SpaceStatus("ACTIVE");
+        public static SpaceStatus Suspended { get; } = new SpaceStatus("SUSPENDED");
+        public static SpaceStatus Moving { get; } = new SpaceStatus("MOVING");
+
+        public static bool operator ==(SpaceStatus left, SpaceStatus right) => left.Equals(right);
+        public static bool operator !=(SpaceStatus left, SpaceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SpaceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpaceStatus other && Equals(other);
+        public bool Equals(SpaceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

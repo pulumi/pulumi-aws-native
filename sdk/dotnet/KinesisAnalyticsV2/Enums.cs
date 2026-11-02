@@ -132,36 +132,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     }
 
     /// <summary>
-    /// Specifies the encoding of the records in the streaming source. For example, UTF-8.
-    /// </summary>
-    [EnumType]
-    public readonly struct ApplicationInputSchemaRecordEncoding : IEquatable<ApplicationInputSchemaRecordEncoding>
-    {
-        private readonly string _value;
-
-        private ApplicationInputSchemaRecordEncoding(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ApplicationInputSchemaRecordEncoding Utf8 { get; } = new ApplicationInputSchemaRecordEncoding("UTF-8");
-
-        public static bool operator ==(ApplicationInputSchemaRecordEncoding left, ApplicationInputSchemaRecordEncoding right) => left.Equals(right);
-        public static bool operator !=(ApplicationInputSchemaRecordEncoding left, ApplicationInputSchemaRecordEncoding right) => !left.Equals(right);
-
-        public static explicit operator string(ApplicationInputSchemaRecordEncoding value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ApplicationInputSchemaRecordEncoding other && Equals(other);
-        public bool Equals(ApplicationInputSchemaRecordEncoding other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
     /// </summary>
     [EnumType]
@@ -321,37 +291,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     }
 
     /// <summary>
-    /// The type of record format.
-    /// </summary>
-    [EnumType]
-    public readonly struct ApplicationRecordFormatRecordFormatType : IEquatable<ApplicationRecordFormatRecordFormatType>
-    {
-        private readonly string _value;
-
-        private ApplicationRecordFormatRecordFormatType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ApplicationRecordFormatRecordFormatType Csv { get; } = new ApplicationRecordFormatRecordFormatType("CSV");
-        public static ApplicationRecordFormatRecordFormatType Json { get; } = new ApplicationRecordFormatRecordFormatType("JSON");
-
-        public static bool operator ==(ApplicationRecordFormatRecordFormatType left, ApplicationRecordFormatRecordFormatType right) => left.Equals(right);
-        public static bool operator !=(ApplicationRecordFormatRecordFormatType left, ApplicationRecordFormatRecordFormatType right) => !left.Equals(right);
-
-        public static explicit operator string(ApplicationRecordFormatRecordFormatType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ApplicationRecordFormatRecordFormatType other && Equals(other);
-        public bool Equals(ApplicationRecordFormatRecordFormatType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Specifies how the application should be restored.
     /// </summary>
     [EnumType]
@@ -376,6 +315,37 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ApplicationRestoreConfigurationApplicationRestoreType other && Equals(other);
         public bool Equals(ApplicationRestoreConfigurationApplicationRestoreType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationSnapshotConfigurationSnapshotMode : IEquatable<ApplicationSnapshotConfigurationSnapshotMode>
+    {
+        private readonly string _value;
+
+        private ApplicationSnapshotConfigurationSnapshotMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationSnapshotConfigurationSnapshotMode ApplicationSnapshotsLegacy { get; } = new ApplicationSnapshotConfigurationSnapshotMode("APPLICATION_SNAPSHOTS_LEGACY");
+        public static ApplicationSnapshotConfigurationSnapshotMode EnhancedSnapshots { get; } = new ApplicationSnapshotConfigurationSnapshotMode("ENHANCED_SNAPSHOTS");
+
+        public static bool operator ==(ApplicationSnapshotConfigurationSnapshotMode left, ApplicationSnapshotConfigurationSnapshotMode right) => left.Equals(right);
+        public static bool operator !=(ApplicationSnapshotConfigurationSnapshotMode left, ApplicationSnapshotConfigurationSnapshotMode right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationSnapshotConfigurationSnapshotMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationSnapshotConfigurationSnapshotMode other && Equals(other);
+        public bool Equals(ApplicationSnapshotConfigurationSnapshotMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

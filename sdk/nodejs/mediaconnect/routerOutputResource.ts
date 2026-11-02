@@ -42,6 +42,10 @@ export class RouterOutputResource extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+     */
+    declare public /*out*/ readonly associatedSourceEndpointArns: pulumi.Output<string[]>;
+    /**
      * The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
      */
     declare public readonly availabilityZone: pulumi.Output<string | undefined>;
@@ -49,7 +53,7 @@ export class RouterOutputResource extends pulumi.CustomResource {
      * The unique identifier of the router output.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
-    declare public readonly configuration: pulumi.Output<outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration0Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration1Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration2Properties>;
+    declare public readonly configuration: pulumi.Output<outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration0Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration1Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration2Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration3Properties>;
     /**
      * The timestamp when the router output was created.
      */
@@ -142,6 +146,7 @@ export class RouterOutputResource extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["tier"] = args?.tier;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associatedSourceEndpointArns"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
@@ -152,6 +157,7 @@ export class RouterOutputResource extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associatedSourceEndpointArns"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
@@ -186,7 +192,7 @@ export interface RouterOutputResourceArgs {
      * The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
-    configuration: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration2PropertiesArgs>;
+    configuration: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration2PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration3PropertiesArgs>;
     fabricConfiguration?: pulumi.Input<inputs.mediaconnect.RouterOutputResourceFabricConfigurationArgs | undefined>;
     /**
      * The maintenance configuration settings applied to this router output.

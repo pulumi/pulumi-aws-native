@@ -29,7 +29,11 @@ export interface GetRouterInputResult {
      * The Amazon Resource Name (ARN) of the router input.
      */
     readonly arn?: string;
-    readonly configuration?: outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties | outputs.mediaconnect.RouterInputConfiguration4Properties;
+    /**
+     * The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+     */
+    readonly associatedDestinationEndpointArns?: string[];
+    readonly configuration?: outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties | outputs.mediaconnect.RouterInputConfiguration4Properties | outputs.mediaconnect.RouterInputConfiguration5Properties;
     readonly contentQualityAnalysisConfiguration?: outputs.mediaconnect.RouterInputRouterContentQualityAnalysisConfigurationProperties;
     readonly contentQualityAnalysisType?: enums.mediaconnect.RouterInputRouterContentQualityAnalysisType;
     /**

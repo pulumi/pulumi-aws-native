@@ -11,14 +11,13 @@ __all__ = [
     'ApplicationCodeConfigurationCodeContentType',
     'ApplicationCustomArtifactConfigurationArtifactType',
     'ApplicationEncryptionConfigurationKeyType',
-    'ApplicationInputSchemaRecordEncoding',
     'ApplicationMode',
     'ApplicationMonitoringConfigurationConfigurationType',
     'ApplicationMonitoringConfigurationLogLevel',
     'ApplicationMonitoringConfigurationMetricsLevel',
     'ApplicationParallelismConfigurationConfigurationType',
-    'ApplicationRecordFormatRecordFormatType',
     'ApplicationRestoreConfigurationApplicationRestoreType',
+    'ApplicationSnapshotConfigurationSnapshotMode',
     'ApplicationZeppelinMonitoringConfigurationLogLevel',
 ]
 
@@ -57,14 +56,6 @@ class ApplicationEncryptionConfigurationKeyType(_builtins.str, Enum):
     """
     AWS_OWNED_KEY = "AWS_OWNED_KEY"
     CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY"
-
-
-@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationInputSchemaRecordEncoding")
-class ApplicationInputSchemaRecordEncoding(_builtins.str, Enum):
-    """
-    Specifies the encoding of the records in the streaming source. For example, UTF-8.
-    """
-    UTF8 = "UTF-8"
 
 
 @pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationMode")
@@ -116,15 +107,6 @@ class ApplicationParallelismConfigurationConfigurationType(_builtins.str, Enum):
     DEFAULT = "DEFAULT"
 
 
-@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationRecordFormatRecordFormatType")
-class ApplicationRecordFormatRecordFormatType(_builtins.str, Enum):
-    """
-    The type of record format.
-    """
-    CSV = "CSV"
-    JSON = "JSON"
-
-
 @pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationRestoreConfigurationApplicationRestoreType")
 class ApplicationRestoreConfigurationApplicationRestoreType(_builtins.str, Enum):
     """
@@ -133,6 +115,15 @@ class ApplicationRestoreConfigurationApplicationRestoreType(_builtins.str, Enum)
     SKIP_RESTORE_FROM_SNAPSHOT = "SKIP_RESTORE_FROM_SNAPSHOT"
     RESTORE_FROM_LATEST_SNAPSHOT = "RESTORE_FROM_LATEST_SNAPSHOT"
     RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT"
+
+
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationSnapshotConfigurationSnapshotMode")
+class ApplicationSnapshotConfigurationSnapshotMode(_builtins.str, Enum):
+    """
+    The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+    """
+    APPLICATION_SNAPSHOTS_LEGACY = "APPLICATION_SNAPSHOTS_LEGACY"
+    ENHANCED_SNAPSHOTS = "ENHANCED_SNAPSHOTS"
 
 
 @pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationZeppelinMonitoringConfigurationLogLevel")

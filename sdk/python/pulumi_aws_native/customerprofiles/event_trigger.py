@@ -30,6 +30,7 @@ class EventTriggerArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_trigger_limits: pulumi.Input[Optional['EventTriggerLimitsArgs']] = None,
                  event_trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 intent_filter_definition: pulumi.Input[Optional['EventTriggerIntentFilterDefinitionArgs']] = None,
                  segment_filter: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -53,6 +54,8 @@ class EventTriggerArgs:
             pulumi.set(__self__, "event_trigger_limits", event_trigger_limits)
         if event_trigger_name is not None:
             pulumi.set(__self__, "event_trigger_name", event_trigger_name)
+        if intent_filter_definition is not None:
+            pulumi.set(__self__, "intent_filter_definition", intent_filter_definition)
         if segment_filter is not None:
             pulumi.set(__self__, "segment_filter", segment_filter)
         if tags is not None:
@@ -131,6 +134,15 @@ class EventTriggerArgs:
         pulumi.set(self, "event_trigger_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="intentFilterDefinition")
+    def intent_filter_definition(self) -> pulumi.Input[Optional['EventTriggerIntentFilterDefinitionArgs']]:
+        return pulumi.get(self, "intent_filter_definition")
+
+    @intent_filter_definition.setter
+    def intent_filter_definition(self, value: pulumi.Input[Optional['EventTriggerIntentFilterDefinitionArgs']]):
+        pulumi.set(self, "intent_filter_definition", value)
+
+    @_builtins.property
     @pulumi.getter(name="segmentFilter")
     def segment_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -166,6 +178,7 @@ class EventTrigger(pulumi.CustomResource):
                  event_trigger_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]]] = None,
                  event_trigger_limits: pulumi.Input[Optional[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']]] = None,
                  event_trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 intent_filter_definition: pulumi.Input[Optional[Union['EventTriggerIntentFilterDefinitionArgs', 'EventTriggerIntentFilterDefinitionArgsDict']]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  segment_filter: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -213,6 +226,7 @@ class EventTrigger(pulumi.CustomResource):
                  event_trigger_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]]] = None,
                  event_trigger_limits: pulumi.Input[Optional[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']]] = None,
                  event_trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 intent_filter_definition: pulumi.Input[Optional[Union['EventTriggerIntentFilterDefinitionArgs', 'EventTriggerIntentFilterDefinitionArgsDict']]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  segment_filter: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -234,6 +248,7 @@ class EventTrigger(pulumi.CustomResource):
             __props__.__dict__["event_trigger_conditions"] = event_trigger_conditions
             __props__.__dict__["event_trigger_limits"] = event_trigger_limits
             __props__.__dict__["event_trigger_name"] = event_trigger_name
+            __props__.__dict__["intent_filter_definition"] = intent_filter_definition
             if object_type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'object_type_name'")
             __props__.__dict__["object_type_name"] = object_type_name
@@ -271,6 +286,7 @@ class EventTrigger(pulumi.CustomResource):
         __props__.__dict__["event_trigger_conditions"] = None
         __props__.__dict__["event_trigger_limits"] = None
         __props__.__dict__["event_trigger_name"] = None
+        __props__.__dict__["intent_filter_definition"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["object_type_name"] = None
         __props__.__dict__["segment_filter"] = None
@@ -324,6 +340,11 @@ class EventTrigger(pulumi.CustomResource):
         The unique name of the event trigger.
         """
         return pulumi.get(self, "event_trigger_name")
+
+    @_builtins.property
+    @pulumi.getter(name="intentFilterDefinition")
+    def intent_filter_definition(self) -> pulumi.Output[Optional['outputs.EventTriggerIntentFilterDefinition']]:
+        return pulumi.get(self, "intent_filter_definition")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")

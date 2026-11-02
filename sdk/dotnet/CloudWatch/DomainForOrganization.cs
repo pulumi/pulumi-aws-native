@@ -10,19 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+    /// Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudwatch:DomainForOrganization")]
     public partial class DomainForOrganization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// The Amazon Resource Name (ARN) of the organization domain.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the domain was created.
+        /// The timestamp when the organization domain was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -34,19 +34,19 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<ImmutableArray<string>> CustomEndpointUrls { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of an IAM role in the management account that CloudWatch Omni assumes for domain-scoped credential vending.
+        /// The ARN of the customer-provided IAM role in the management account used for domain access.
         /// </summary>
         [Output("domainAccessRoleArn")]
         public Output<string> DomainAccessRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTPS endpoint URL for accessing the domain.
+        /// The HTTPS endpoint URL for accessing the organization domain.
         /// </summary>
         [Output("domainEndpointUrl")]
         public Output<string> DomainEndpointUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID of the domain.
+        /// The unique ID of the organization domain.
         /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
@@ -57,41 +57,44 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("identityCenterApplicationArn")]
         public Output<string> IdentityCenterApplicationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Identity provider configuration for the organization domain.
+        /// </summary>
         [Output("identityProviderConfiguration")]
         public Output<Outputs.DomainForOrganizationIdentityProviderConfiguration?> IdentityProviderConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The identity providers configured for the domain.
+        /// The identity providers configured for the organization domain.
         /// </summary>
         [Output("identityProviders")]
         public Output<ImmutableArray<Pulumi.AwsNative.CloudWatch.DomainForOrganizationIdentityProvidersItem>> IdentityProviders { get; private set; } = null!;
 
         /// <summary>
-        /// A name that identifies the domain.
+        /// A name that identifies the organization domain.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AWS Organization this domain belongs to.
+        /// The ID of the AWS Organization that owns the domain.
         /// </summary>
         [Output("organizationId")]
         public Output<string> OrganizationId { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the organization's management account, which owns this domain.
+        /// The AWS account ID that owns the organization domain.
         /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The Region where this domain was created.
+        /// The Region where this organization domain was created.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Current status of the domain.
+        /// Current status of the organization domain.
         /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.CloudWatch.DomainForOrganizationStatus> Status { get; private set; } = null!;
@@ -103,7 +106,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the domain was last updated.
+        /// The timestamp when the organization domain was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -158,11 +161,14 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class DomainForOrganizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of an IAM role in the management account that CloudWatch Omni assumes for domain-scoped credential vending.
+        /// The ARN of the customer-provided IAM role in the management account used for domain access.
         /// </summary>
         [Input("domainAccessRoleArn", required: true)]
         public Input<string> DomainAccessRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Identity provider configuration for the organization domain.
+        /// </summary>
         [Input("identityProviderConfiguration")]
         public Input<Inputs.DomainForOrganizationIdentityProviderConfigurationArgs>? IdentityProviderConfiguration { get; set; }
 
@@ -170,7 +176,7 @@ namespace Pulumi.AwsNative.CloudWatch
         private InputList<Pulumi.AwsNative.CloudWatch.DomainForOrganizationIdentityProvidersItem>? _identityProviders;
 
         /// <summary>
-        /// The identity providers configured for the domain.
+        /// The identity providers configured for the organization domain.
         /// </summary>
         public InputList<Pulumi.AwsNative.CloudWatch.DomainForOrganizationIdentityProvidersItem> IdentityProviders
         {
@@ -179,7 +185,7 @@ namespace Pulumi.AwsNative.CloudWatch
         }
 
         /// <summary>
-        /// A name that identifies the domain.
+        /// A name that identifies the organization domain.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

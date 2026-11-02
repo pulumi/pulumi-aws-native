@@ -13,11 +13,20 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class GatewayRuleStaticRoute
     {
+        public readonly Outputs.GatewayRuleFallback? Fallback;
+        public readonly string? Model;
         public readonly string TargetName;
 
         [OutputConstructor]
-        private GatewayRuleStaticRoute(string targetName)
+        private GatewayRuleStaticRoute(
+            Outputs.GatewayRuleFallback? fallback,
+
+            string? model,
+
+            string targetName)
         {
+            Fallback = fallback;
+            Model = model;
             TargetName = targetName;
         }
     }

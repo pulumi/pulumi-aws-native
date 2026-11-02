@@ -110,7 +110,7 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "Batch:TagResource", "Batch:UntagResource" ]
   },
-  "required" : [ "QuotaShareName", "JobQueue", "CapacityLimits", "ResourceSharingConfiguration", "PreemptionConfiguration" ],
+  "required" : [ "JobQueue", "CapacityLimits", "ResourceSharingConfiguration", "PreemptionConfiguration" ],
   "primaryIdentifier" : [ "/properties/QuotaShareArn" ],
   "additionalIdentifiers" : [ [ "/properties/QuotaShareName" ] ],
   "createOnlyProperties" : [ "/properties/QuotaShareName", "/properties/JobQueue" ],

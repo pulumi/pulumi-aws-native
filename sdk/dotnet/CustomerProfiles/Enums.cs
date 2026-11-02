@@ -395,6 +395,105 @@ namespace Pulumi.AwsNative.CustomerProfiles
     }
 
     /// <summary>
+    /// The operator used to compare the predicted intent against a list of values.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventTriggerIntentFilterConditionComparisonOperator : IEquatable<EventTriggerIntentFilterConditionComparisonOperator>
+    {
+        private readonly string _value;
+
+        private EventTriggerIntentFilterConditionComparisonOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventTriggerIntentFilterConditionComparisonOperator Inclusive { get; } = new EventTriggerIntentFilterConditionComparisonOperator("INCLUSIVE");
+        public static EventTriggerIntentFilterConditionComparisonOperator Exclusive { get; } = new EventTriggerIntentFilterConditionComparisonOperator("EXCLUSIVE");
+        public static EventTriggerIntentFilterConditionComparisonOperator Contains { get; } = new EventTriggerIntentFilterConditionComparisonOperator("CONTAINS");
+        public static EventTriggerIntentFilterConditionComparisonOperator GreaterThan { get; } = new EventTriggerIntentFilterConditionComparisonOperator("GREATER_THAN");
+        public static EventTriggerIntentFilterConditionComparisonOperator LessThan { get; } = new EventTriggerIntentFilterConditionComparisonOperator("LESS_THAN");
+        public static EventTriggerIntentFilterConditionComparisonOperator GreaterThanOrEqual { get; } = new EventTriggerIntentFilterConditionComparisonOperator("GREATER_THAN_OR_EQUAL");
+        public static EventTriggerIntentFilterConditionComparisonOperator LessThanOrEqual { get; } = new EventTriggerIntentFilterConditionComparisonOperator("LESS_THAN_OR_EQUAL");
+        public static EventTriggerIntentFilterConditionComparisonOperator Equal { get; } = new EventTriggerIntentFilterConditionComparisonOperator("EQUAL");
+
+        public static bool operator ==(EventTriggerIntentFilterConditionComparisonOperator left, EventTriggerIntentFilterConditionComparisonOperator right) => left.Equals(right);
+        public static bool operator !=(EventTriggerIntentFilterConditionComparisonOperator left, EventTriggerIntentFilterConditionComparisonOperator right) => !left.Equals(right);
+
+        public static explicit operator string(EventTriggerIntentFilterConditionComparisonOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventTriggerIntentFilterConditionComparisonOperator other && Equals(other);
+        public bool Equals(EventTriggerIntentFilterConditionComparisonOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The domain of the intent.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventTriggerIntentIntentDomain : IEquatable<EventTriggerIntentIntentDomain>
+    {
+        private readonly string _value;
+
+        private EventTriggerIntentIntentDomain(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventTriggerIntentIntentDomain Default { get; } = new EventTriggerIntentIntentDomain("DEFAULT");
+
+        public static bool operator ==(EventTriggerIntentIntentDomain left, EventTriggerIntentIntentDomain right) => left.Equals(right);
+        public static bool operator !=(EventTriggerIntentIntentDomain left, EventTriggerIntentIntentDomain right) => !left.Equals(right);
+
+        public static explicit operator string(EventTriggerIntentIntentDomain value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventTriggerIntentIntentDomain other && Equals(other);
+        public bool Equals(EventTriggerIntentIntentDomain other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the intent.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventTriggerIntentType : IEquatable<EventTriggerIntentType>
+    {
+        private readonly string _value;
+
+        private EventTriggerIntentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventTriggerIntentType PriceSensitivity { get; } = new EventTriggerIntentType("PRICE_SENSITIVITY");
+        public static EventTriggerIntentType UpgradeUpsellPropensity { get; } = new EventTriggerIntentType("UPGRADE_UPSELL_PROPENSITY");
+        public static EventTriggerIntentType LastSearchIntent { get; } = new EventTriggerIntentType("LAST_SEARCH_INTENT");
+
+        public static bool operator ==(EventTriggerIntentType left, EventTriggerIntentType right) => left.Equals(right);
+        public static bool operator !=(EventTriggerIntentType left, EventTriggerIntentType right) => !left.Equals(right);
+
+        public static explicit operator string(EventTriggerIntentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventTriggerIntentType other && Equals(other);
+        public bool Equals(EventTriggerIntentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The operator used to combine multiple dimensions.
     /// </summary>
     [EnumType]

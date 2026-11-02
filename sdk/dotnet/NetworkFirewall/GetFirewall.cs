@@ -106,6 +106,11 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         public readonly bool? FirewallPolicyChangeProtection;
         /// <summary>
+        /// The number of VPC endpoint associations attached to the firewall.
+        /// </summary>
+        public readonly int? NumberOfAssociations;
+        public readonly Outputs.FirewallProxySettings? ProxySettings;
+        /// <summary>
         /// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
         /// </summary>
         public readonly bool? SubnetChangeProtection;
@@ -154,6 +159,10 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
             bool? firewallPolicyChangeProtection,
 
+            int? numberOfAssociations,
+
+            Outputs.FirewallProxySettings? proxySettings,
+
             bool? subnetChangeProtection,
 
             ImmutableArray<Outputs.FirewallSubnetMapping> subnetMappings,
@@ -174,6 +183,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
             FirewallId = firewallId;
             FirewallPolicyArn = firewallPolicyArn;
             FirewallPolicyChangeProtection = firewallPolicyChangeProtection;
+            NumberOfAssociations = numberOfAssociations;
+            ProxySettings = proxySettings;
             SubnetChangeProtection = subnetChangeProtection;
             SubnetMappings = subnetMappings;
             Tags = tags;

@@ -3052,9 +3052,7 @@ class BotIntentConfirmationSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "promptSpecification":
-            suggest = "prompt_specification"
-        elif key == "codeHook":
+        if key == "codeHook":
             suggest = "code_hook"
         elif key == "confirmationConditional":
             suggest = "confirmation_conditional"
@@ -3078,6 +3076,8 @@ class BotIntentConfirmationSetting(dict):
             suggest = "failure_response"
         elif key == "isActive":
             suggest = "is_active"
+        elif key == "promptSpecification":
+            suggest = "prompt_specification"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotIntentConfirmationSetting. Access the value via the '{suggest}' property getter instead.")
@@ -3091,7 +3091,6 @@ class BotIntentConfirmationSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 prompt_specification: 'outputs.BotPromptSpecification',
                  code_hook: Optional['outputs.BotDialogCodeHookInvocationSetting'] = None,
                  confirmation_conditional: Optional['outputs.BotConditionalSpecification'] = None,
                  confirmation_next_step: Optional['outputs.BotDialogState'] = None,
@@ -3103,11 +3102,9 @@ class BotIntentConfirmationSetting(dict):
                  failure_conditional: Optional['outputs.BotConditionalSpecification'] = None,
                  failure_next_step: Optional['outputs.BotDialogState'] = None,
                  failure_response: Optional['outputs.BotResponseSpecification'] = None,
-                 is_active: Optional[_builtins.bool] = None):
+                 is_active: Optional[_builtins.bool] = None,
+                 prompt_specification: Optional['outputs.BotPromptSpecification'] = None):
         """
-        :param 'BotPromptSpecification' prompt_specification: Prompts the user to confirm the intent. This question should have a yes or no answer.
-               
-               Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
         :param 'BotDialogCodeHookInvocationSetting' code_hook: The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
         :param 'BotConditionalSpecification' confirmation_conditional: A list of conditional branches to evaluate after the intent is closed.
         :param 'BotDialogState' confirmation_next_step: Specifies the next step that the bot executes when the customer confirms the intent.
@@ -3120,8 +3117,10 @@ class BotIntentConfirmationSetting(dict):
         :param 'BotDialogState' failure_next_step: The next step to take in the conversation if the confirmation step fails.
         :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input when the intent confirmation fails.
         :param _builtins.bool is_active: Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
+        :param 'BotPromptSpecification' prompt_specification: Prompts the user to confirm the intent. This question should have a yes or no answer.
+               
+               Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
         """
-        pulumi.set(__self__, "prompt_specification", prompt_specification)
         if code_hook is not None:
             pulumi.set(__self__, "code_hook", code_hook)
         if confirmation_conditional is not None:
@@ -3146,16 +3145,8 @@ class BotIntentConfirmationSetting(dict):
             pulumi.set(__self__, "failure_response", failure_response)
         if is_active is not None:
             pulumi.set(__self__, "is_active", is_active)
-
-    @_builtins.property
-    @pulumi.getter(name="promptSpecification")
-    def prompt_specification(self) -> 'outputs.BotPromptSpecification':
-        """
-        Prompts the user to confirm the intent. This question should have a yes or no answer.
-
-        Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
-        """
-        return pulumi.get(self, "prompt_specification")
+        if prompt_specification is not None:
+            pulumi.set(__self__, "prompt_specification", prompt_specification)
 
     @_builtins.property
     @pulumi.getter(name="codeHook")
@@ -3252,6 +3243,16 @@ class BotIntentConfirmationSetting(dict):
         Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
         """
         return pulumi.get(self, "is_active")
+
+    @_builtins.property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> Optional['outputs.BotPromptSpecification']:
+        """
+        Prompts the user to confirm the intent. This question should have a yes or no answer.
+
+        Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
+        """
+        return pulumi.get(self, "prompt_specification")
 
 
 @pulumi.output_type
@@ -6667,12 +6668,12 @@ class BotWaitAndContinueSpecification(dict):
         suggest = None
         if key == "continueResponse":
             suggest = "continue_response"
-        elif key == "waitingResponse":
-            suggest = "waiting_response"
         elif key == "isActive":
             suggest = "is_active"
         elif key == "stillWaitingResponse":
             suggest = "still_waiting_response"
+        elif key == "waitingResponse":
+            suggest = "waiting_response"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotWaitAndContinueSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -6686,38 +6687,32 @@ class BotWaitAndContinueSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 continue_response: 'outputs.BotResponseSpecification',
-                 waiting_response: 'outputs.BotResponseSpecification',
+                 continue_response: Optional['outputs.BotResponseSpecification'] = None,
                  is_active: Optional[_builtins.bool] = None,
-                 still_waiting_response: Optional['outputs.BotStillWaitingResponseSpecification'] = None):
+                 still_waiting_response: Optional['outputs.BotStillWaitingResponseSpecification'] = None,
+                 waiting_response: Optional['outputs.BotResponseSpecification'] = None):
         """
         :param 'BotResponseSpecification' continue_response: The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-        :param 'BotResponseSpecification' waiting_response: The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
         :param _builtins.bool is_active: Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
         :param 'BotStillWaitingResponseSpecification' still_waiting_response: A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+        :param 'BotResponseSpecification' waiting_response: The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
         """
-        pulumi.set(__self__, "continue_response", continue_response)
-        pulumi.set(__self__, "waiting_response", waiting_response)
+        if continue_response is not None:
+            pulumi.set(__self__, "continue_response", continue_response)
         if is_active is not None:
             pulumi.set(__self__, "is_active", is_active)
         if still_waiting_response is not None:
             pulumi.set(__self__, "still_waiting_response", still_waiting_response)
+        if waiting_response is not None:
+            pulumi.set(__self__, "waiting_response", waiting_response)
 
     @_builtins.property
     @pulumi.getter(name="continueResponse")
-    def continue_response(self) -> 'outputs.BotResponseSpecification':
+    def continue_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
         The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
         """
         return pulumi.get(self, "continue_response")
-
-    @_builtins.property
-    @pulumi.getter(name="waitingResponse")
-    def waiting_response(self) -> 'outputs.BotResponseSpecification':
-        """
-        The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-        """
-        return pulumi.get(self, "waiting_response")
 
     @_builtins.property
     @pulumi.getter(name="isActive")
@@ -6734,6 +6729,14 @@ class BotWaitAndContinueSpecification(dict):
         A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
         """
         return pulumi.get(self, "still_waiting_response")
+
+    @_builtins.property
+    @pulumi.getter(name="waitingResponse")
+    def waiting_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+        """
+        return pulumi.get(self, "waiting_response")
 
 
 @pulumi.output_type

@@ -39,6 +39,8 @@ __all__ = [
     'ClusterElasticLoadBalancing',
     'ClusterEncryptionConfig',
     'ClusterEtcdPlacement',
+    'ClusterGatewayApi',
+    'ClusterGatewayApiCrds',
     'ClusterHorizontalPodAutoscalerControllerConfig',
     'ClusterKubeApiServerConfig',
     'ClusterKubeControllerManagerConfig',
@@ -1019,15 +1021,36 @@ class ClusterElasticLoadBalancing(dict):
     """
     Todo: add description
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gatewayApi":
+            suggest = "gateway_api"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterElasticLoadBalancing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterElasticLoadBalancing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterElasticLoadBalancing.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[_builtins.bool] = None):
+                 enabled: Optional[_builtins.bool] = None,
+                 gateway_api: Optional['outputs.ClusterGatewayApi'] = None):
         """
         Todo: add description
 
         :param _builtins.bool enabled: Todo: add description
+        :param 'ClusterGatewayApi' gateway_api: The Gateway API configuration for the cluster.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if gateway_api is not None:
+            pulumi.set(__self__, "gateway_api", gateway_api)
 
     @_builtins.property
     @pulumi.getter
@@ -1036,6 +1059,14 @@ class ClusterElasticLoadBalancing(dict):
         Todo: add description
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayApi")
+    def gateway_api(self) -> Optional['outputs.ClusterGatewayApi']:
+        """
+        The Gateway API configuration for the cluster.
+        """
+        return pulumi.get(self, "gateway_api")
 
 
 @pulumi.output_type
@@ -1113,6 +1144,52 @@ class ClusterEtcdPlacement(dict):
         Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
         """
         return pulumi.get(self, "spread_level")
+
+
+@pulumi.output_type
+class ClusterGatewayApi(dict):
+    """
+    The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+    """
+    def __init__(__self__, *,
+                 crds: 'outputs.ClusterGatewayApiCrds'):
+        """
+        The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+
+        :param 'ClusterGatewayApiCrds' crds: The Gateway API Custom Resource Definition (CRD) configuration.
+        """
+        pulumi.set(__self__, "crds", crds)
+
+    @_builtins.property
+    @pulumi.getter
+    def crds(self) -> 'outputs.ClusterGatewayApiCrds':
+        """
+        The Gateway API Custom Resource Definition (CRD) configuration.
+        """
+        return pulumi.get(self, "crds")
+
+
+@pulumi.output_type
+class ClusterGatewayApiCrds(dict):
+    """
+    The Gateway API Custom Resource Definition (CRD) configuration for the cluster.
+    """
+    def __init__(__self__, *,
+                 managed: _builtins.bool):
+        """
+        The Gateway API Custom Resource Definition (CRD) configuration for the cluster.
+
+        :param _builtins.bool managed: Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+        """
+        pulumi.set(__self__, "managed", managed)
+
+    @_builtins.property
+    @pulumi.getter
+    def managed(self) -> _builtins.bool:
+        """
+        Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+        """
+        return pulumi.get(self, "managed")
 
 
 @pulumi.output_type

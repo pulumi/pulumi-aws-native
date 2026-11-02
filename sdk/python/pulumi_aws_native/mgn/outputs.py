@@ -27,6 +27,7 @@ __all__ = [
     'NetworkMigrationDefinitionSourceS3Configuration',
     'NetworkMigrationDefinitionTargetNetwork',
     'NetworkMigrationDefinitionTargetS3Configuration',
+    'WaveAggregatedStatus',
 ]
 
 @pulumi.output_type
@@ -696,5 +697,74 @@ class NetworkMigrationDefinitionTargetS3Configuration(dict):
         The AWS account ID of the S3 bucket owner.
         """
         return pulumi.get(self, "s3_bucket_owner")
+
+
+@pulumi.output_type
+class WaveAggregatedStatus(dict):
+    """
+    The aggregated migration status of the wave.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthStatus":
+            suggest = "health_status"
+        elif key == "progressStatus":
+            suggest = "progress_status"
+        elif key == "totalApplications":
+            suggest = "total_applications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WaveAggregatedStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WaveAggregatedStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WaveAggregatedStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_status: Optional['WaveAggregatedStatusHealthStatus'] = None,
+                 progress_status: Optional['WaveAggregatedStatusProgressStatus'] = None,
+                 total_applications: Optional[_builtins.int] = None):
+        """
+        The aggregated migration status of the wave.
+
+        :param 'WaveAggregatedStatusHealthStatus' health_status: The health status of the wave.
+        :param 'WaveAggregatedStatusProgressStatus' progress_status: The progress status of the wave.
+        :param _builtins.int total_applications: The total number of applications in the wave.
+        """
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if progress_status is not None:
+            pulumi.set(__self__, "progress_status", progress_status)
+        if total_applications is not None:
+            pulumi.set(__self__, "total_applications", total_applications)
+
+    @_builtins.property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional['WaveAggregatedStatusHealthStatus']:
+        """
+        The health status of the wave.
+        """
+        return pulumi.get(self, "health_status")
+
+    @_builtins.property
+    @pulumi.getter(name="progressStatus")
+    def progress_status(self) -> Optional['WaveAggregatedStatusProgressStatus']:
+        """
+        The progress status of the wave.
+        """
+        return pulumi.get(self, "progress_status")
+
+    @_builtins.property
+    @pulumi.getter(name="totalApplications")
+    def total_applications(self) -> Optional[_builtins.int]:
+        """
+        The total number of applications in the wave.
+        """
+        return pulumi.get(self, "total_applications")
 
 

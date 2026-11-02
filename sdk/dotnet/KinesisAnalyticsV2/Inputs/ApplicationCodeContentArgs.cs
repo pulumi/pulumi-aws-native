@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public Input<Inputs.ApplicationS3ContentLocationArgs>? S3ContentLocation { get; set; }
 
         /// <summary>
-        /// The text-format code for a Flink-based Kinesis Data Analytics application.
+        /// The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
         /// </summary>
         [Input("textContent")]
         public Input<string>? TextContent { get; set; }

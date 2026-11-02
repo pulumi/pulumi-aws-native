@@ -338,11 +338,221 @@ func (o FirewallAvailabilityZoneMappingArrayOutput) Index(i pulumi.IntInput) Fir
 	}).(FirewallAvailabilityZoneMappingOutput)
 }
 
+// A port and protocol that a proxy-mode firewall's proxy listener accepts traffic on.
+type FirewallListenerProperty struct {
+	// The port the proxy listener accepts traffic on.
+	Port *int `pulumi:"port"`
+	// The protocol the proxy listener uses.
+	Type *FirewallListenerPropertyType `pulumi:"type"`
+}
+
+// FirewallListenerPropertyInput is an input type that accepts FirewallListenerPropertyArgs and FirewallListenerPropertyOutput values.
+// You can construct a concrete instance of `FirewallListenerPropertyInput` via:
+//
+//	FirewallListenerPropertyArgs{...}
+type FirewallListenerPropertyInput interface {
+	pulumi.Input
+
+	ToFirewallListenerPropertyOutput() FirewallListenerPropertyOutput
+	ToFirewallListenerPropertyOutputWithContext(context.Context) FirewallListenerPropertyOutput
+}
+
+// A port and protocol that a proxy-mode firewall's proxy listener accepts traffic on.
+type FirewallListenerPropertyArgs struct {
+	// The port the proxy listener accepts traffic on.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The protocol the proxy listener uses.
+	Type FirewallListenerPropertyTypePtrInput `pulumi:"type"`
+}
+
+func (FirewallListenerPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallListenerProperty)(nil)).Elem()
+}
+
+func (i FirewallListenerPropertyArgs) ToFirewallListenerPropertyOutput() FirewallListenerPropertyOutput {
+	return i.ToFirewallListenerPropertyOutputWithContext(context.Background())
+}
+
+func (i FirewallListenerPropertyArgs) ToFirewallListenerPropertyOutputWithContext(ctx context.Context) FirewallListenerPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallListenerPropertyOutput)
+}
+
+// FirewallListenerPropertyArrayInput is an input type that accepts FirewallListenerPropertyArray and FirewallListenerPropertyArrayOutput values.
+// You can construct a concrete instance of `FirewallListenerPropertyArrayInput` via:
+//
+//	FirewallListenerPropertyArray{ FirewallListenerPropertyArgs{...} }
+type FirewallListenerPropertyArrayInput interface {
+	pulumi.Input
+
+	ToFirewallListenerPropertyArrayOutput() FirewallListenerPropertyArrayOutput
+	ToFirewallListenerPropertyArrayOutputWithContext(context.Context) FirewallListenerPropertyArrayOutput
+}
+
+type FirewallListenerPropertyArray []FirewallListenerPropertyInput
+
+func (FirewallListenerPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallListenerProperty)(nil)).Elem()
+}
+
+func (i FirewallListenerPropertyArray) ToFirewallListenerPropertyArrayOutput() FirewallListenerPropertyArrayOutput {
+	return i.ToFirewallListenerPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallListenerPropertyArray) ToFirewallListenerPropertyArrayOutputWithContext(ctx context.Context) FirewallListenerPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallListenerPropertyArrayOutput)
+}
+
+// A port and protocol that a proxy-mode firewall's proxy listener accepts traffic on.
+type FirewallListenerPropertyOutput struct{ *pulumi.OutputState }
+
+func (FirewallListenerPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallListenerProperty)(nil)).Elem()
+}
+
+func (o FirewallListenerPropertyOutput) ToFirewallListenerPropertyOutput() FirewallListenerPropertyOutput {
+	return o
+}
+
+func (o FirewallListenerPropertyOutput) ToFirewallListenerPropertyOutputWithContext(ctx context.Context) FirewallListenerPropertyOutput {
+	return o
+}
+
+// The port the proxy listener accepts traffic on.
+func (o FirewallListenerPropertyOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallListenerProperty) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The protocol the proxy listener uses.
+func (o FirewallListenerPropertyOutput) Type() FirewallListenerPropertyTypePtrOutput {
+	return o.ApplyT(func(v FirewallListenerProperty) *FirewallListenerPropertyType { return v.Type }).(FirewallListenerPropertyTypePtrOutput)
+}
+
+type FirewallListenerPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallListenerPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallListenerProperty)(nil)).Elem()
+}
+
+func (o FirewallListenerPropertyArrayOutput) ToFirewallListenerPropertyArrayOutput() FirewallListenerPropertyArrayOutput {
+	return o
+}
+
+func (o FirewallListenerPropertyArrayOutput) ToFirewallListenerPropertyArrayOutputWithContext(ctx context.Context) FirewallListenerPropertyArrayOutput {
+	return o
+}
+
+func (o FirewallListenerPropertyArrayOutput) Index(i pulumi.IntInput) FirewallListenerPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallListenerProperty {
+		return vs[0].([]FirewallListenerProperty)[vs[1].(int)]
+	}).(FirewallListenerPropertyOutput)
+}
+
+// A mapping to a NAT gateway that a proxy-mode firewall proxies egress traffic through.
+type FirewallNatGatewayMapping struct {
+	// The unique identifier of a NAT gateway.
+	NatGatewayId string `pulumi:"natGatewayId"`
+}
+
+// FirewallNatGatewayMappingInput is an input type that accepts FirewallNatGatewayMappingArgs and FirewallNatGatewayMappingOutput values.
+// You can construct a concrete instance of `FirewallNatGatewayMappingInput` via:
+//
+//	FirewallNatGatewayMappingArgs{...}
+type FirewallNatGatewayMappingInput interface {
+	pulumi.Input
+
+	ToFirewallNatGatewayMappingOutput() FirewallNatGatewayMappingOutput
+	ToFirewallNatGatewayMappingOutputWithContext(context.Context) FirewallNatGatewayMappingOutput
+}
+
+// A mapping to a NAT gateway that a proxy-mode firewall proxies egress traffic through.
+type FirewallNatGatewayMappingArgs struct {
+	// The unique identifier of a NAT gateway.
+	NatGatewayId pulumi.StringInput `pulumi:"natGatewayId"`
+}
+
+func (FirewallNatGatewayMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallNatGatewayMapping)(nil)).Elem()
+}
+
+func (i FirewallNatGatewayMappingArgs) ToFirewallNatGatewayMappingOutput() FirewallNatGatewayMappingOutput {
+	return i.ToFirewallNatGatewayMappingOutputWithContext(context.Background())
+}
+
+func (i FirewallNatGatewayMappingArgs) ToFirewallNatGatewayMappingOutputWithContext(ctx context.Context) FirewallNatGatewayMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallNatGatewayMappingOutput)
+}
+
+// FirewallNatGatewayMappingArrayInput is an input type that accepts FirewallNatGatewayMappingArray and FirewallNatGatewayMappingArrayOutput values.
+// You can construct a concrete instance of `FirewallNatGatewayMappingArrayInput` via:
+//
+//	FirewallNatGatewayMappingArray{ FirewallNatGatewayMappingArgs{...} }
+type FirewallNatGatewayMappingArrayInput interface {
+	pulumi.Input
+
+	ToFirewallNatGatewayMappingArrayOutput() FirewallNatGatewayMappingArrayOutput
+	ToFirewallNatGatewayMappingArrayOutputWithContext(context.Context) FirewallNatGatewayMappingArrayOutput
+}
+
+type FirewallNatGatewayMappingArray []FirewallNatGatewayMappingInput
+
+func (FirewallNatGatewayMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallNatGatewayMapping)(nil)).Elem()
+}
+
+func (i FirewallNatGatewayMappingArray) ToFirewallNatGatewayMappingArrayOutput() FirewallNatGatewayMappingArrayOutput {
+	return i.ToFirewallNatGatewayMappingArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallNatGatewayMappingArray) ToFirewallNatGatewayMappingArrayOutputWithContext(ctx context.Context) FirewallNatGatewayMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallNatGatewayMappingArrayOutput)
+}
+
+// A mapping to a NAT gateway that a proxy-mode firewall proxies egress traffic through.
+type FirewallNatGatewayMappingOutput struct{ *pulumi.OutputState }
+
+func (FirewallNatGatewayMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallNatGatewayMapping)(nil)).Elem()
+}
+
+func (o FirewallNatGatewayMappingOutput) ToFirewallNatGatewayMappingOutput() FirewallNatGatewayMappingOutput {
+	return o
+}
+
+func (o FirewallNatGatewayMappingOutput) ToFirewallNatGatewayMappingOutputWithContext(ctx context.Context) FirewallNatGatewayMappingOutput {
+	return o
+}
+
+// The unique identifier of a NAT gateway.
+func (o FirewallNatGatewayMappingOutput) NatGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallNatGatewayMapping) string { return v.NatGatewayId }).(pulumi.StringOutput)
+}
+
+type FirewallNatGatewayMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallNatGatewayMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallNatGatewayMapping)(nil)).Elem()
+}
+
+func (o FirewallNatGatewayMappingArrayOutput) ToFirewallNatGatewayMappingArrayOutput() FirewallNatGatewayMappingArrayOutput {
+	return o
+}
+
+func (o FirewallNatGatewayMappingArrayOutput) ToFirewallNatGatewayMappingArrayOutputWithContext(ctx context.Context) FirewallNatGatewayMappingArrayOutput {
+	return o
+}
+
+func (o FirewallNatGatewayMappingArrayOutput) Index(i pulumi.IntInput) FirewallNatGatewayMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallNatGatewayMapping {
+		return vs[0].([]FirewallNatGatewayMapping)[vs[1].(int)]
+	}).(FirewallNatGatewayMappingOutput)
+}
+
 type FirewallPolicyType struct {
 	// When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
 	EnableTlsSessionHolding *bool `pulumi:"enableTlsSessionHolding"`
 	// Contains variables that you can use to override default Suricata settings in your firewall policy.
-	PolicyVariables *FirewallPolicyPolicyVariablesProperties `pulumi:"policyVariables"`
+	PolicyVariables             *FirewallPolicyPolicyVariablesProperties   `pulumi:"policyVariables"`
+	Route53ResolvedIpValidation *FirewallPolicyRoute53ResolvedIpValidation `pulumi:"route53ResolvedIpValidation"`
 	// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
 	//
 	// Valid values of the stateful default action:
@@ -393,7 +603,8 @@ type FirewallPolicyTypeArgs struct {
 	// When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
 	EnableTlsSessionHolding pulumi.BoolPtrInput `pulumi:"enableTlsSessionHolding"`
 	// Contains variables that you can use to override default Suricata settings in your firewall policy.
-	PolicyVariables FirewallPolicyPolicyVariablesPropertiesPtrInput `pulumi:"policyVariables"`
+	PolicyVariables             FirewallPolicyPolicyVariablesPropertiesPtrInput   `pulumi:"policyVariables"`
+	Route53ResolvedIpValidation FirewallPolicyRoute53ResolvedIpValidationPtrInput `pulumi:"route53ResolvedIpValidation"`
 	// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
 	//
 	// Valid values of the stateful default action:
@@ -463,6 +674,12 @@ func (o FirewallPolicyTypeOutput) EnableTlsSessionHolding() pulumi.BoolPtrOutput
 // Contains variables that you can use to override default Suricata settings in your firewall policy.
 func (o FirewallPolicyTypeOutput) PolicyVariables() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyType) *FirewallPolicyPolicyVariablesProperties { return v.PolicyVariables }).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
+}
+
+func (o FirewallPolicyTypeOutput) Route53ResolvedIpValidation() FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyType) *FirewallPolicyRoute53ResolvedIpValidation {
+		return v.Route53ResolvedIpValidation
+	}).(FirewallPolicyRoute53ResolvedIpValidationPtrOutput)
 }
 
 // The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
@@ -568,6 +785,15 @@ func (o FirewallPolicyTypePtrOutput) PolicyVariables() FirewallPolicyPolicyVaria
 		}
 		return v.PolicyVariables
 	}).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) Route53ResolvedIpValidation() FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) *FirewallPolicyRoute53ResolvedIpValidation {
+		if v == nil {
+			return nil
+		}
+		return v.Route53ResolvedIpValidation
+	}).(FirewallPolicyRoute53ResolvedIpValidationPtrOutput)
 }
 
 // The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
@@ -725,6 +951,100 @@ func (o FirewallPolicyActionDefinitionOutput) PublishMetricAction() FirewallPoli
 	return o.ApplyT(func(v FirewallPolicyActionDefinition) *FirewallPolicyPublishMetricAction {
 		return v.PublishMetricAction
 	}).(FirewallPolicyPublishMetricActionPtrOutput)
+}
+
+type FirewallPolicyAddress struct {
+	AddressDefinition string `pulumi:"addressDefinition"`
+}
+
+// FirewallPolicyAddressInput is an input type that accepts FirewallPolicyAddressArgs and FirewallPolicyAddressOutput values.
+// You can construct a concrete instance of `FirewallPolicyAddressInput` via:
+//
+//	FirewallPolicyAddressArgs{...}
+type FirewallPolicyAddressInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyAddressOutput() FirewallPolicyAddressOutput
+	ToFirewallPolicyAddressOutputWithContext(context.Context) FirewallPolicyAddressOutput
+}
+
+type FirewallPolicyAddressArgs struct {
+	AddressDefinition pulumi.StringInput `pulumi:"addressDefinition"`
+}
+
+func (FirewallPolicyAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyAddress)(nil)).Elem()
+}
+
+func (i FirewallPolicyAddressArgs) ToFirewallPolicyAddressOutput() FirewallPolicyAddressOutput {
+	return i.ToFirewallPolicyAddressOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyAddressArgs) ToFirewallPolicyAddressOutputWithContext(ctx context.Context) FirewallPolicyAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyAddressOutput)
+}
+
+// FirewallPolicyAddressArrayInput is an input type that accepts FirewallPolicyAddressArray and FirewallPolicyAddressArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyAddressArrayInput` via:
+//
+//	FirewallPolicyAddressArray{ FirewallPolicyAddressArgs{...} }
+type FirewallPolicyAddressArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyAddressArrayOutput() FirewallPolicyAddressArrayOutput
+	ToFirewallPolicyAddressArrayOutputWithContext(context.Context) FirewallPolicyAddressArrayOutput
+}
+
+type FirewallPolicyAddressArray []FirewallPolicyAddressInput
+
+func (FirewallPolicyAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyAddress)(nil)).Elem()
+}
+
+func (i FirewallPolicyAddressArray) ToFirewallPolicyAddressArrayOutput() FirewallPolicyAddressArrayOutput {
+	return i.ToFirewallPolicyAddressArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyAddressArray) ToFirewallPolicyAddressArrayOutputWithContext(ctx context.Context) FirewallPolicyAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyAddressArrayOutput)
+}
+
+type FirewallPolicyAddressOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyAddress)(nil)).Elem()
+}
+
+func (o FirewallPolicyAddressOutput) ToFirewallPolicyAddressOutput() FirewallPolicyAddressOutput {
+	return o
+}
+
+func (o FirewallPolicyAddressOutput) ToFirewallPolicyAddressOutputWithContext(ctx context.Context) FirewallPolicyAddressOutput {
+	return o
+}
+
+func (o FirewallPolicyAddressOutput) AddressDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyAddress) string { return v.AddressDefinition }).(pulumi.StringOutput)
+}
+
+type FirewallPolicyAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyAddress)(nil)).Elem()
+}
+
+func (o FirewallPolicyAddressArrayOutput) ToFirewallPolicyAddressArrayOutput() FirewallPolicyAddressArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyAddressArrayOutput) ToFirewallPolicyAddressArrayOutputWithContext(ctx context.Context) FirewallPolicyAddressArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyAddressArrayOutput) Index(i pulumi.IntInput) FirewallPolicyAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyAddress {
+		return vs[0].([]FirewallPolicyAddress)[vs[1].(int)]
+	}).(FirewallPolicyAddressOutput)
 }
 
 type FirewallPolicyCustomAction struct {
@@ -1294,6 +1614,205 @@ func (o FirewallPolicyPublishMetricActionPtrOutput) Dimensions() FirewallPolicyD
 		}
 		return v.Dimensions
 	}).(FirewallPolicyDimensionArrayOutput)
+}
+
+type FirewallPolicyRoute53ResolvedIpValidation struct {
+	Action                              FirewallPolicyRoute53ResolvedIpValidationAction                   `pulumi:"action"`
+	BypassDestinationValidationIpRanges []FirewallPolicyAddress                                           `pulumi:"bypassDestinationValidationIpRanges"`
+	DnsExpiryExceptionPolicy            FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy `pulumi:"dnsExpiryExceptionPolicy"`
+	DnsFirewallRuleGroupId              string                                                            `pulumi:"dnsFirewallRuleGroupId"`
+	SourceIpRanges                      []FirewallPolicyAddress                                           `pulumi:"sourceIpRanges"`
+}
+
+// FirewallPolicyRoute53ResolvedIpValidationInput is an input type that accepts FirewallPolicyRoute53ResolvedIpValidationArgs and FirewallPolicyRoute53ResolvedIpValidationOutput values.
+// You can construct a concrete instance of `FirewallPolicyRoute53ResolvedIpValidationInput` via:
+//
+//	FirewallPolicyRoute53ResolvedIpValidationArgs{...}
+type FirewallPolicyRoute53ResolvedIpValidationInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRoute53ResolvedIpValidationOutput() FirewallPolicyRoute53ResolvedIpValidationOutput
+	ToFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(context.Context) FirewallPolicyRoute53ResolvedIpValidationOutput
+}
+
+type FirewallPolicyRoute53ResolvedIpValidationArgs struct {
+	Action                              FirewallPolicyRoute53ResolvedIpValidationActionInput                   `pulumi:"action"`
+	BypassDestinationValidationIpRanges FirewallPolicyAddressArrayInput                                        `pulumi:"bypassDestinationValidationIpRanges"`
+	DnsExpiryExceptionPolicy            FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyInput `pulumi:"dnsExpiryExceptionPolicy"`
+	DnsFirewallRuleGroupId              pulumi.StringInput                                                     `pulumi:"dnsFirewallRuleGroupId"`
+	SourceIpRanges                      FirewallPolicyAddressArrayInput                                        `pulumi:"sourceIpRanges"`
+}
+
+func (FirewallPolicyRoute53ResolvedIpValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (i FirewallPolicyRoute53ResolvedIpValidationArgs) ToFirewallPolicyRoute53ResolvedIpValidationOutput() FirewallPolicyRoute53ResolvedIpValidationOutput {
+	return i.ToFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRoute53ResolvedIpValidationArgs) ToFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRoute53ResolvedIpValidationOutput)
+}
+
+func (i FirewallPolicyRoute53ResolvedIpValidationArgs) ToFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return i.ToFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRoute53ResolvedIpValidationArgs) ToFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRoute53ResolvedIpValidationOutput).ToFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyRoute53ResolvedIpValidationPtrInput is an input type that accepts FirewallPolicyRoute53ResolvedIpValidationArgs, FirewallPolicyRoute53ResolvedIpValidationPtr and FirewallPolicyRoute53ResolvedIpValidationPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyRoute53ResolvedIpValidationPtrInput` via:
+//
+//	        FirewallPolicyRoute53ResolvedIpValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyRoute53ResolvedIpValidationPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyRoute53ResolvedIpValidationPtrOutput
+	ToFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(context.Context) FirewallPolicyRoute53ResolvedIpValidationPtrOutput
+}
+
+type firewallPolicyRoute53ResolvedIpValidationPtrType FirewallPolicyRoute53ResolvedIpValidationArgs
+
+func FirewallPolicyRoute53ResolvedIpValidationPtr(v *FirewallPolicyRoute53ResolvedIpValidationArgs) FirewallPolicyRoute53ResolvedIpValidationPtrInput {
+	return (*firewallPolicyRoute53ResolvedIpValidationPtrType)(v)
+}
+
+func (*firewallPolicyRoute53ResolvedIpValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (i *firewallPolicyRoute53ResolvedIpValidationPtrType) ToFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return i.ToFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyRoute53ResolvedIpValidationPtrType) ToFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRoute53ResolvedIpValidationPtrOutput)
+}
+
+type FirewallPolicyRoute53ResolvedIpValidationOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRoute53ResolvedIpValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationOutput) ToFirewallPolicyRoute53ResolvedIpValidationOutput() FirewallPolicyRoute53ResolvedIpValidationOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationOutput) ToFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationOutput) ToFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o.ToFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationOutput) ToFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyRoute53ResolvedIpValidation) *FirewallPolicyRoute53ResolvedIpValidation {
+		return &v
+	}).(FirewallPolicyRoute53ResolvedIpValidationPtrOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationOutput) Action() FirewallPolicyRoute53ResolvedIpValidationActionOutput {
+	return o.ApplyT(func(v FirewallPolicyRoute53ResolvedIpValidation) FirewallPolicyRoute53ResolvedIpValidationAction {
+		return v.Action
+	}).(FirewallPolicyRoute53ResolvedIpValidationActionOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationOutput) BypassDestinationValidationIpRanges() FirewallPolicyAddressArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRoute53ResolvedIpValidation) []FirewallPolicyAddress {
+		return v.BypassDestinationValidationIpRanges
+	}).(FirewallPolicyAddressArrayOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationOutput) DnsExpiryExceptionPolicy() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput {
+	return o.ApplyT(func(v FirewallPolicyRoute53ResolvedIpValidation) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy {
+		return v.DnsExpiryExceptionPolicy
+	}).(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationOutput) DnsFirewallRuleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRoute53ResolvedIpValidation) string { return v.DnsFirewallRuleGroupId }).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationOutput) SourceIpRanges() FirewallPolicyAddressArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRoute53ResolvedIpValidation) []FirewallPolicyAddress { return v.SourceIpRanges }).(FirewallPolicyAddressArrayOutput)
+}
+
+type FirewallPolicyRoute53ResolvedIpValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRoute53ResolvedIpValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationPtrOutput) ToFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationPtrOutput) ToFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationPtrOutput) Elem() FirewallPolicyRoute53ResolvedIpValidationOutput {
+	return o.ApplyT(func(v *FirewallPolicyRoute53ResolvedIpValidation) FirewallPolicyRoute53ResolvedIpValidation {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyRoute53ResolvedIpValidation
+		return ret
+	}).(FirewallPolicyRoute53ResolvedIpValidationOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationPtrOutput) Action() FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyRoute53ResolvedIpValidation) *FirewallPolicyRoute53ResolvedIpValidationAction {
+		if v == nil {
+			return nil
+		}
+		return &v.Action
+	}).(FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationPtrOutput) BypassDestinationValidationIpRanges() FirewallPolicyAddressArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyRoute53ResolvedIpValidation) []FirewallPolicyAddress {
+		if v == nil {
+			return nil
+		}
+		return v.BypassDestinationValidationIpRanges
+	}).(FirewallPolicyAddressArrayOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationPtrOutput) DnsExpiryExceptionPolicy() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyRoute53ResolvedIpValidation) *FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsExpiryExceptionPolicy
+	}).(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationPtrOutput) DnsFirewallRuleGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyRoute53ResolvedIpValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsFirewallRuleGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationPtrOutput) SourceIpRanges() FirewallPolicyAddressArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyRoute53ResolvedIpValidation) []FirewallPolicyAddress {
+		if v == nil {
+			return nil
+		}
+		return v.SourceIpRanges
+	}).(FirewallPolicyAddressArrayOutput)
 }
 
 type FirewallPolicyStatefulEngineOptions struct {
@@ -2021,6 +2540,142 @@ type FirewallPolicyTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The proxy listener configuration for a proxy-mode (no source preservation) firewall.
+type FirewallProxySettings struct {
+	ListenerProperties []FirewallListenerProperty `pulumi:"listenerProperties"`
+}
+
+// FirewallProxySettingsInput is an input type that accepts FirewallProxySettingsArgs and FirewallProxySettingsOutput values.
+// You can construct a concrete instance of `FirewallProxySettingsInput` via:
+//
+//	FirewallProxySettingsArgs{...}
+type FirewallProxySettingsInput interface {
+	pulumi.Input
+
+	ToFirewallProxySettingsOutput() FirewallProxySettingsOutput
+	ToFirewallProxySettingsOutputWithContext(context.Context) FirewallProxySettingsOutput
+}
+
+// The proxy listener configuration for a proxy-mode (no source preservation) firewall.
+type FirewallProxySettingsArgs struct {
+	ListenerProperties FirewallListenerPropertyArrayInput `pulumi:"listenerProperties"`
+}
+
+func (FirewallProxySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallProxySettings)(nil)).Elem()
+}
+
+func (i FirewallProxySettingsArgs) ToFirewallProxySettingsOutput() FirewallProxySettingsOutput {
+	return i.ToFirewallProxySettingsOutputWithContext(context.Background())
+}
+
+func (i FirewallProxySettingsArgs) ToFirewallProxySettingsOutputWithContext(ctx context.Context) FirewallProxySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallProxySettingsOutput)
+}
+
+func (i FirewallProxySettingsArgs) ToFirewallProxySettingsPtrOutput() FirewallProxySettingsPtrOutput {
+	return i.ToFirewallProxySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallProxySettingsArgs) ToFirewallProxySettingsPtrOutputWithContext(ctx context.Context) FirewallProxySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallProxySettingsOutput).ToFirewallProxySettingsPtrOutputWithContext(ctx)
+}
+
+// FirewallProxySettingsPtrInput is an input type that accepts FirewallProxySettingsArgs, FirewallProxySettingsPtr and FirewallProxySettingsPtrOutput values.
+// You can construct a concrete instance of `FirewallProxySettingsPtrInput` via:
+//
+//	        FirewallProxySettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallProxySettingsPtrInput interface {
+	pulumi.Input
+
+	ToFirewallProxySettingsPtrOutput() FirewallProxySettingsPtrOutput
+	ToFirewallProxySettingsPtrOutputWithContext(context.Context) FirewallProxySettingsPtrOutput
+}
+
+type firewallProxySettingsPtrType FirewallProxySettingsArgs
+
+func FirewallProxySettingsPtr(v *FirewallProxySettingsArgs) FirewallProxySettingsPtrInput {
+	return (*firewallProxySettingsPtrType)(v)
+}
+
+func (*firewallProxySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallProxySettings)(nil)).Elem()
+}
+
+func (i *firewallProxySettingsPtrType) ToFirewallProxySettingsPtrOutput() FirewallProxySettingsPtrOutput {
+	return i.ToFirewallProxySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallProxySettingsPtrType) ToFirewallProxySettingsPtrOutputWithContext(ctx context.Context) FirewallProxySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallProxySettingsPtrOutput)
+}
+
+// The proxy listener configuration for a proxy-mode (no source preservation) firewall.
+type FirewallProxySettingsOutput struct{ *pulumi.OutputState }
+
+func (FirewallProxySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallProxySettings)(nil)).Elem()
+}
+
+func (o FirewallProxySettingsOutput) ToFirewallProxySettingsOutput() FirewallProxySettingsOutput {
+	return o
+}
+
+func (o FirewallProxySettingsOutput) ToFirewallProxySettingsOutputWithContext(ctx context.Context) FirewallProxySettingsOutput {
+	return o
+}
+
+func (o FirewallProxySettingsOutput) ToFirewallProxySettingsPtrOutput() FirewallProxySettingsPtrOutput {
+	return o.ToFirewallProxySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallProxySettingsOutput) ToFirewallProxySettingsPtrOutputWithContext(ctx context.Context) FirewallProxySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallProxySettings) *FirewallProxySettings {
+		return &v
+	}).(FirewallProxySettingsPtrOutput)
+}
+
+func (o FirewallProxySettingsOutput) ListenerProperties() FirewallListenerPropertyArrayOutput {
+	return o.ApplyT(func(v FirewallProxySettings) []FirewallListenerProperty { return v.ListenerProperties }).(FirewallListenerPropertyArrayOutput)
+}
+
+type FirewallProxySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallProxySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallProxySettings)(nil)).Elem()
+}
+
+func (o FirewallProxySettingsPtrOutput) ToFirewallProxySettingsPtrOutput() FirewallProxySettingsPtrOutput {
+	return o
+}
+
+func (o FirewallProxySettingsPtrOutput) ToFirewallProxySettingsPtrOutputWithContext(ctx context.Context) FirewallProxySettingsPtrOutput {
+	return o
+}
+
+func (o FirewallProxySettingsPtrOutput) Elem() FirewallProxySettingsOutput {
+	return o.ApplyT(func(v *FirewallProxySettings) FirewallProxySettings {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallProxySettings
+		return ret
+	}).(FirewallProxySettingsOutput)
+}
+
+func (o FirewallProxySettingsPtrOutput) ListenerProperties() FirewallListenerPropertyArrayOutput {
+	return o.ApplyT(func(v *FirewallProxySettings) []FirewallListenerProperty {
+		if v == nil {
+			return nil
+		}
+		return v.ListenerProperties
+	}).(FirewallListenerPropertyArrayOutput)
+}
+
 type FirewallSubnetMapping struct {
 	// A IPAddressType
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -2132,6 +2787,161 @@ type FirewallTag struct {
 	Key string `pulumi:"key"`
 	// The part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
 	Value string `pulumi:"value"`
+}
+
+// The VPC and subnets for a proxy-mode firewall's endpoint. Provide this instead of the top-level VpcId and SubnetMappings when NoSourcePreservation is true.
+type FirewallVpcEndpoint struct {
+	SubnetMappings []FirewallSubnetMapping `pulumi:"subnetMappings"`
+	// The unique identifier of the VPC for the firewall endpoint.
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// FirewallVpcEndpointInput is an input type that accepts FirewallVpcEndpointArgs and FirewallVpcEndpointOutput values.
+// You can construct a concrete instance of `FirewallVpcEndpointInput` via:
+//
+//	FirewallVpcEndpointArgs{...}
+type FirewallVpcEndpointInput interface {
+	pulumi.Input
+
+	ToFirewallVpcEndpointOutput() FirewallVpcEndpointOutput
+	ToFirewallVpcEndpointOutputWithContext(context.Context) FirewallVpcEndpointOutput
+}
+
+// The VPC and subnets for a proxy-mode firewall's endpoint. Provide this instead of the top-level VpcId and SubnetMappings when NoSourcePreservation is true.
+type FirewallVpcEndpointArgs struct {
+	SubnetMappings FirewallSubnetMappingArrayInput `pulumi:"subnetMappings"`
+	// The unique identifier of the VPC for the firewall endpoint.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (FirewallVpcEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallVpcEndpoint)(nil)).Elem()
+}
+
+func (i FirewallVpcEndpointArgs) ToFirewallVpcEndpointOutput() FirewallVpcEndpointOutput {
+	return i.ToFirewallVpcEndpointOutputWithContext(context.Background())
+}
+
+func (i FirewallVpcEndpointArgs) ToFirewallVpcEndpointOutputWithContext(ctx context.Context) FirewallVpcEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallVpcEndpointOutput)
+}
+
+func (i FirewallVpcEndpointArgs) ToFirewallVpcEndpointPtrOutput() FirewallVpcEndpointPtrOutput {
+	return i.ToFirewallVpcEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallVpcEndpointArgs) ToFirewallVpcEndpointPtrOutputWithContext(ctx context.Context) FirewallVpcEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallVpcEndpointOutput).ToFirewallVpcEndpointPtrOutputWithContext(ctx)
+}
+
+// FirewallVpcEndpointPtrInput is an input type that accepts FirewallVpcEndpointArgs, FirewallVpcEndpointPtr and FirewallVpcEndpointPtrOutput values.
+// You can construct a concrete instance of `FirewallVpcEndpointPtrInput` via:
+//
+//	        FirewallVpcEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallVpcEndpointPtrInput interface {
+	pulumi.Input
+
+	ToFirewallVpcEndpointPtrOutput() FirewallVpcEndpointPtrOutput
+	ToFirewallVpcEndpointPtrOutputWithContext(context.Context) FirewallVpcEndpointPtrOutput
+}
+
+type firewallVpcEndpointPtrType FirewallVpcEndpointArgs
+
+func FirewallVpcEndpointPtr(v *FirewallVpcEndpointArgs) FirewallVpcEndpointPtrInput {
+	return (*firewallVpcEndpointPtrType)(v)
+}
+
+func (*firewallVpcEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallVpcEndpoint)(nil)).Elem()
+}
+
+func (i *firewallVpcEndpointPtrType) ToFirewallVpcEndpointPtrOutput() FirewallVpcEndpointPtrOutput {
+	return i.ToFirewallVpcEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallVpcEndpointPtrType) ToFirewallVpcEndpointPtrOutputWithContext(ctx context.Context) FirewallVpcEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallVpcEndpointPtrOutput)
+}
+
+// The VPC and subnets for a proxy-mode firewall's endpoint. Provide this instead of the top-level VpcId and SubnetMappings when NoSourcePreservation is true.
+type FirewallVpcEndpointOutput struct{ *pulumi.OutputState }
+
+func (FirewallVpcEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallVpcEndpoint)(nil)).Elem()
+}
+
+func (o FirewallVpcEndpointOutput) ToFirewallVpcEndpointOutput() FirewallVpcEndpointOutput {
+	return o
+}
+
+func (o FirewallVpcEndpointOutput) ToFirewallVpcEndpointOutputWithContext(ctx context.Context) FirewallVpcEndpointOutput {
+	return o
+}
+
+func (o FirewallVpcEndpointOutput) ToFirewallVpcEndpointPtrOutput() FirewallVpcEndpointPtrOutput {
+	return o.ToFirewallVpcEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallVpcEndpointOutput) ToFirewallVpcEndpointPtrOutputWithContext(ctx context.Context) FirewallVpcEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallVpcEndpoint) *FirewallVpcEndpoint {
+		return &v
+	}).(FirewallVpcEndpointPtrOutput)
+}
+
+func (o FirewallVpcEndpointOutput) SubnetMappings() FirewallSubnetMappingArrayOutput {
+	return o.ApplyT(func(v FirewallVpcEndpoint) []FirewallSubnetMapping { return v.SubnetMappings }).(FirewallSubnetMappingArrayOutput)
+}
+
+// The unique identifier of the VPC for the firewall endpoint.
+func (o FirewallVpcEndpointOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallVpcEndpoint) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type FirewallVpcEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallVpcEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallVpcEndpoint)(nil)).Elem()
+}
+
+func (o FirewallVpcEndpointPtrOutput) ToFirewallVpcEndpointPtrOutput() FirewallVpcEndpointPtrOutput {
+	return o
+}
+
+func (o FirewallVpcEndpointPtrOutput) ToFirewallVpcEndpointPtrOutputWithContext(ctx context.Context) FirewallVpcEndpointPtrOutput {
+	return o
+}
+
+func (o FirewallVpcEndpointPtrOutput) Elem() FirewallVpcEndpointOutput {
+	return o.ApplyT(func(v *FirewallVpcEndpoint) FirewallVpcEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallVpcEndpoint
+		return ret
+	}).(FirewallVpcEndpointOutput)
+}
+
+func (o FirewallVpcEndpointPtrOutput) SubnetMappings() FirewallSubnetMappingArrayOutput {
+	return o.ApplyT(func(v *FirewallVpcEndpoint) []FirewallSubnetMapping {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetMappings
+	}).(FirewallSubnetMappingArrayOutput)
+}
+
+// The unique identifier of the VPC for the firewall endpoint.
+func (o FirewallVpcEndpointPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallVpcEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type LoggingConfigurationType struct {
@@ -6449,8 +7259,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationContainerMonitoringConfigurationArrayInput)(nil)).Elem(), ContainerAssociationContainerMonitoringConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAvailabilityZoneMappingInput)(nil)).Elem(), FirewallAvailabilityZoneMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAvailabilityZoneMappingArrayInput)(nil)).Elem(), FirewallAvailabilityZoneMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallListenerPropertyInput)(nil)).Elem(), FirewallListenerPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallListenerPropertyArrayInput)(nil)).Elem(), FirewallListenerPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallNatGatewayMappingInput)(nil)).Elem(), FirewallNatGatewayMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallNatGatewayMappingArrayInput)(nil)).Elem(), FirewallNatGatewayMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyTypeInput)(nil)).Elem(), FirewallPolicyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyActionDefinitionInput)(nil)).Elem(), FirewallPolicyActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyAddressInput)(nil)).Elem(), FirewallPolicyAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyAddressArrayInput)(nil)).Elem(), FirewallPolicyAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyCustomActionInput)(nil)).Elem(), FirewallPolicyCustomActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyCustomActionArrayInput)(nil)).Elem(), FirewallPolicyCustomActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyDimensionInput)(nil)).Elem(), FirewallPolicyDimensionArgs{})
@@ -6461,6 +7277,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyPolicyVariablesPropertiesPtrInput)(nil)).Elem(), FirewallPolicyPolicyVariablesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyPublishMetricActionInput)(nil)).Elem(), FirewallPolicyPublishMetricActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyPublishMetricActionPtrInput)(nil)).Elem(), FirewallPolicyPublishMetricActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationInput)(nil)).Elem(), FirewallPolicyRoute53ResolvedIpValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationPtrInput)(nil)).Elem(), FirewallPolicyRoute53ResolvedIpValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsInput)(nil)).Elem(), FirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsPtrInput)(nil)).Elem(), FirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesInput)(nil)).Elem(), FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs{})
@@ -6471,8 +7289,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulRuleGroupReferenceArrayInput)(nil)).Elem(), FirewallPolicyStatefulRuleGroupReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatelessRuleGroupReferenceInput)(nil)).Elem(), FirewallPolicyStatelessRuleGroupReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatelessRuleGroupReferenceArrayInput)(nil)).Elem(), FirewallPolicyStatelessRuleGroupReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallProxySettingsInput)(nil)).Elem(), FirewallProxySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallProxySettingsPtrInput)(nil)).Elem(), FirewallProxySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallSubnetMappingInput)(nil)).Elem(), FirewallSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallSubnetMappingArrayInput)(nil)).Elem(), FirewallSubnetMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallVpcEndpointInput)(nil)).Elem(), FirewallVpcEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallVpcEndpointPtrInput)(nil)).Elem(), FirewallVpcEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationTypeInput)(nil)).Elem(), LoggingConfigurationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLogDestinationConfigInput)(nil)).Elem(), LoggingConfigurationLogDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLogDestinationConfigArrayInput)(nil)).Elem(), LoggingConfigurationLogDestinationConfigArray{})
@@ -6540,9 +7362,15 @@ func init() {
 	pulumi.RegisterOutputType(ContainerAssociationContainerMonitoringConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FirewallAvailabilityZoneMappingOutput{})
 	pulumi.RegisterOutputType(FirewallAvailabilityZoneMappingArrayOutput{})
+	pulumi.RegisterOutputType(FirewallListenerPropertyOutput{})
+	pulumi.RegisterOutputType(FirewallListenerPropertyArrayOutput{})
+	pulumi.RegisterOutputType(FirewallNatGatewayMappingOutput{})
+	pulumi.RegisterOutputType(FirewallNatGatewayMappingArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyTypeOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyActionDefinitionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyAddressOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyAddressArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomActionArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDimensionOutput{})
@@ -6553,6 +7381,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyPolicyVariablesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRoute53ResolvedIpValidationOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRoute53ResolvedIpValidationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput{})
@@ -6563,8 +7393,12 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferenceArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatelessRuleGroupReferenceOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatelessRuleGroupReferenceArrayOutput{})
+	pulumi.RegisterOutputType(FirewallProxySettingsOutput{})
+	pulumi.RegisterOutputType(FirewallProxySettingsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallSubnetMappingOutput{})
 	pulumi.RegisterOutputType(FirewallSubnetMappingArrayOutput{})
+	pulumi.RegisterOutputType(FirewallVpcEndpointOutput{})
+	pulumi.RegisterOutputType(FirewallVpcEndpointPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigOutput{})

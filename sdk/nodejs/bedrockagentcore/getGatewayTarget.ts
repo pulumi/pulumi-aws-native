@@ -31,6 +31,7 @@ export interface GetGatewayTargetArgs {
 
 export interface GetGatewayTargetResult {
     readonly authorizationData?: outputs.bedrockagentcore.GatewayTargetAuthorizationDataProperties;
+    readonly certificateConfigurations?: (outputs.bedrockagentcore.GatewayTargetCertificateConfiguration0Properties | outputs.bedrockagentcore.GatewayTargetCertificateConfiguration1Properties)[];
     /**
      * The date and time at which the gateway target was created.
      */

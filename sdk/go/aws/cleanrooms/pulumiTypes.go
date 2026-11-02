@@ -5025,6 +5025,320 @@ func (o ConfiguredTableComparisonControlsPtrOutput) AllowedLiteralComparisonColu
 	}).(pulumi.StringArrayOutput)
 }
 
+type ConfiguredTableDatabricksConnectionType0Properties struct {
+	DeltaSharing ConfiguredTableDatabricksDeltaSharingConnection `pulumi:"deltaSharing"`
+}
+
+type ConfiguredTableDatabricksConnectionTypeProperties struct {
+	DeltaSharing ConfiguredTableDatabricksDeltaSharingConnection `pulumi:"deltaSharing"`
+}
+
+// ConfiguredTableDatabricksConnectionTypePropertiesInput is an input type that accepts ConfiguredTableDatabricksConnectionTypePropertiesArgs and ConfiguredTableDatabricksConnectionTypePropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableDatabricksConnectionTypePropertiesInput` via:
+//
+//	ConfiguredTableDatabricksConnectionTypePropertiesArgs{...}
+type ConfiguredTableDatabricksConnectionTypePropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableDatabricksConnectionTypePropertiesOutput() ConfiguredTableDatabricksConnectionTypePropertiesOutput
+	ToConfiguredTableDatabricksConnectionTypePropertiesOutputWithContext(context.Context) ConfiguredTableDatabricksConnectionTypePropertiesOutput
+}
+
+type ConfiguredTableDatabricksConnectionTypePropertiesArgs struct {
+	DeltaSharing ConfiguredTableDatabricksDeltaSharingConnectionInput `pulumi:"deltaSharing"`
+}
+
+func (ConfiguredTableDatabricksConnectionTypePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDatabricksConnectionTypeProperties)(nil)).Elem()
+}
+
+func (i ConfiguredTableDatabricksConnectionTypePropertiesArgs) ToConfiguredTableDatabricksConnectionTypePropertiesOutput() ConfiguredTableDatabricksConnectionTypePropertiesOutput {
+	return i.ToConfiguredTableDatabricksConnectionTypePropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableDatabricksConnectionTypePropertiesArgs) ToConfiguredTableDatabricksConnectionTypePropertiesOutputWithContext(ctx context.Context) ConfiguredTableDatabricksConnectionTypePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableDatabricksConnectionTypePropertiesOutput)
+}
+
+type ConfiguredTableDatabricksConnectionTypePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDatabricksConnectionTypePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDatabricksConnectionTypeProperties)(nil)).Elem()
+}
+
+func (o ConfiguredTableDatabricksConnectionTypePropertiesOutput) ToConfiguredTableDatabricksConnectionTypePropertiesOutput() ConfiguredTableDatabricksConnectionTypePropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksConnectionTypePropertiesOutput) ToConfiguredTableDatabricksConnectionTypePropertiesOutputWithContext(ctx context.Context) ConfiguredTableDatabricksConnectionTypePropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksConnectionTypePropertiesOutput) DeltaSharing() ConfiguredTableDatabricksDeltaSharingConnectionOutput {
+	return o.ApplyT(func(v ConfiguredTableDatabricksConnectionTypeProperties) ConfiguredTableDatabricksDeltaSharingConnection {
+		return v.DeltaSharing
+	}).(ConfiguredTableDatabricksDeltaSharingConnectionOutput)
+}
+
+type ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableDatabricksConnectionTypeProperties)(nil)).Elem()
+}
+
+func (o ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput) ToConfiguredTableDatabricksConnectionTypePropertiesPtrOutput() ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput) ToConfiguredTableDatabricksConnectionTypePropertiesPtrOutputWithContext(ctx context.Context) ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput) Elem() ConfiguredTableDatabricksConnectionTypePropertiesOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksConnectionTypeProperties) ConfiguredTableDatabricksConnectionTypeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableDatabricksConnectionTypeProperties
+		return ret
+	}).(ConfiguredTableDatabricksConnectionTypePropertiesOutput)
+}
+
+func (o ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput) DeltaSharing() ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksConnectionTypeProperties) *ConfiguredTableDatabricksDeltaSharingConnection {
+		if v == nil {
+			return nil
+		}
+		return &v.DeltaSharing
+	}).(ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput)
+}
+
+type ConfiguredTableDatabricksDeltaSharingConnection struct {
+	DeltaShareEndpoint string `pulumi:"deltaShareEndpoint"`
+	ShareName          string `pulumi:"shareName"`
+}
+
+// ConfiguredTableDatabricksDeltaSharingConnectionInput is an input type that accepts ConfiguredTableDatabricksDeltaSharingConnectionArgs and ConfiguredTableDatabricksDeltaSharingConnectionOutput values.
+// You can construct a concrete instance of `ConfiguredTableDatabricksDeltaSharingConnectionInput` via:
+//
+//	ConfiguredTableDatabricksDeltaSharingConnectionArgs{...}
+type ConfiguredTableDatabricksDeltaSharingConnectionInput interface {
+	pulumi.Input
+
+	ToConfiguredTableDatabricksDeltaSharingConnectionOutput() ConfiguredTableDatabricksDeltaSharingConnectionOutput
+	ToConfiguredTableDatabricksDeltaSharingConnectionOutputWithContext(context.Context) ConfiguredTableDatabricksDeltaSharingConnectionOutput
+}
+
+type ConfiguredTableDatabricksDeltaSharingConnectionArgs struct {
+	DeltaShareEndpoint pulumi.StringInput `pulumi:"deltaShareEndpoint"`
+	ShareName          pulumi.StringInput `pulumi:"shareName"`
+}
+
+func (ConfiguredTableDatabricksDeltaSharingConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDatabricksDeltaSharingConnection)(nil)).Elem()
+}
+
+func (i ConfiguredTableDatabricksDeltaSharingConnectionArgs) ToConfiguredTableDatabricksDeltaSharingConnectionOutput() ConfiguredTableDatabricksDeltaSharingConnectionOutput {
+	return i.ToConfiguredTableDatabricksDeltaSharingConnectionOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableDatabricksDeltaSharingConnectionArgs) ToConfiguredTableDatabricksDeltaSharingConnectionOutputWithContext(ctx context.Context) ConfiguredTableDatabricksDeltaSharingConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableDatabricksDeltaSharingConnectionOutput)
+}
+
+type ConfiguredTableDatabricksDeltaSharingConnectionOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDatabricksDeltaSharingConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDatabricksDeltaSharingConnection)(nil)).Elem()
+}
+
+func (o ConfiguredTableDatabricksDeltaSharingConnectionOutput) ToConfiguredTableDatabricksDeltaSharingConnectionOutput() ConfiguredTableDatabricksDeltaSharingConnectionOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksDeltaSharingConnectionOutput) ToConfiguredTableDatabricksDeltaSharingConnectionOutputWithContext(ctx context.Context) ConfiguredTableDatabricksDeltaSharingConnectionOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksDeltaSharingConnectionOutput) DeltaShareEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableDatabricksDeltaSharingConnection) string { return v.DeltaShareEndpoint }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableDatabricksDeltaSharingConnectionOutput) ShareName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableDatabricksDeltaSharingConnection) string { return v.ShareName }).(pulumi.StringOutput)
+}
+
+type ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableDatabricksDeltaSharingConnection)(nil)).Elem()
+}
+
+func (o ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput) ToConfiguredTableDatabricksDeltaSharingConnectionPtrOutput() ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput) ToConfiguredTableDatabricksDeltaSharingConnectionPtrOutputWithContext(ctx context.Context) ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput) Elem() ConfiguredTableDatabricksDeltaSharingConnectionOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksDeltaSharingConnection) ConfiguredTableDatabricksDeltaSharingConnection {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableDatabricksDeltaSharingConnection
+		return ret
+	}).(ConfiguredTableDatabricksDeltaSharingConnectionOutput)
+}
+
+func (o ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput) DeltaShareEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksDeltaSharingConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeltaShareEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksDeltaSharingConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ShareName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableDatabricksTableReference struct {
+	ConnectionType ConfiguredTableDatabricksConnectionTypeProperties `pulumi:"connectionType"`
+	SchemaName     string                                            `pulumi:"schemaName"`
+	TableName      string                                            `pulumi:"tableName"`
+	WorkspaceUrl   string                                            `pulumi:"workspaceUrl"`
+}
+
+// ConfiguredTableDatabricksTableReferenceInput is an input type that accepts ConfiguredTableDatabricksTableReferenceArgs and ConfiguredTableDatabricksTableReferenceOutput values.
+// You can construct a concrete instance of `ConfiguredTableDatabricksTableReferenceInput` via:
+//
+//	ConfiguredTableDatabricksTableReferenceArgs{...}
+type ConfiguredTableDatabricksTableReferenceInput interface {
+	pulumi.Input
+
+	ToConfiguredTableDatabricksTableReferenceOutput() ConfiguredTableDatabricksTableReferenceOutput
+	ToConfiguredTableDatabricksTableReferenceOutputWithContext(context.Context) ConfiguredTableDatabricksTableReferenceOutput
+}
+
+type ConfiguredTableDatabricksTableReferenceArgs struct {
+	ConnectionType ConfiguredTableDatabricksConnectionTypePropertiesInput `pulumi:"connectionType"`
+	SchemaName     pulumi.StringInput                                     `pulumi:"schemaName"`
+	TableName      pulumi.StringInput                                     `pulumi:"tableName"`
+	WorkspaceUrl   pulumi.StringInput                                     `pulumi:"workspaceUrl"`
+}
+
+func (ConfiguredTableDatabricksTableReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDatabricksTableReference)(nil)).Elem()
+}
+
+func (i ConfiguredTableDatabricksTableReferenceArgs) ToConfiguredTableDatabricksTableReferenceOutput() ConfiguredTableDatabricksTableReferenceOutput {
+	return i.ToConfiguredTableDatabricksTableReferenceOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableDatabricksTableReferenceArgs) ToConfiguredTableDatabricksTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableDatabricksTableReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableDatabricksTableReferenceOutput)
+}
+
+type ConfiguredTableDatabricksTableReferenceOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDatabricksTableReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDatabricksTableReference)(nil)).Elem()
+}
+
+func (o ConfiguredTableDatabricksTableReferenceOutput) ToConfiguredTableDatabricksTableReferenceOutput() ConfiguredTableDatabricksTableReferenceOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksTableReferenceOutput) ToConfiguredTableDatabricksTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableDatabricksTableReferenceOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksTableReferenceOutput) ConnectionType() ConfiguredTableDatabricksConnectionTypePropertiesOutput {
+	return o.ApplyT(func(v ConfiguredTableDatabricksTableReference) ConfiguredTableDatabricksConnectionTypeProperties {
+		return v.ConnectionType
+	}).(ConfiguredTableDatabricksConnectionTypePropertiesOutput)
+}
+
+func (o ConfiguredTableDatabricksTableReferenceOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableDatabricksTableReference) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableDatabricksTableReferenceOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableDatabricksTableReference) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableDatabricksTableReferenceOutput) WorkspaceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableDatabricksTableReference) string { return v.WorkspaceUrl }).(pulumi.StringOutput)
+}
+
+type ConfiguredTableDatabricksTableReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDatabricksTableReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableDatabricksTableReference)(nil)).Elem()
+}
+
+func (o ConfiguredTableDatabricksTableReferencePtrOutput) ToConfiguredTableDatabricksTableReferencePtrOutput() ConfiguredTableDatabricksTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksTableReferencePtrOutput) ToConfiguredTableDatabricksTableReferencePtrOutputWithContext(ctx context.Context) ConfiguredTableDatabricksTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableDatabricksTableReferencePtrOutput) Elem() ConfiguredTableDatabricksTableReferenceOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksTableReference) ConfiguredTableDatabricksTableReference {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableDatabricksTableReference
+		return ret
+	}).(ConfiguredTableDatabricksTableReferenceOutput)
+}
+
+func (o ConfiguredTableDatabricksTableReferencePtrOutput) ConnectionType() ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksTableReference) *ConfiguredTableDatabricksConnectionTypeProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionType
+	}).(ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput)
+}
+
+func (o ConfiguredTableDatabricksTableReferencePtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableDatabricksTableReferencePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableDatabricksTableReferencePtrOutput) WorkspaceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableDatabricksTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkspaceUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfiguredTableDifferentialPrivacy struct {
 	Columns []ConfiguredTableDifferentialPrivacyColumn `pulumi:"columns"`
 }
@@ -6059,6 +6373,90 @@ func (o ConfiguredTableTableReference2PropertiesPtrOutput) Athena() ConfiguredTa
 		}
 		return &v.Athena
 	}).(ConfiguredTableAthenaTableReferencePtrOutput)
+}
+
+type ConfiguredTableTableReference3Properties struct {
+	Databricks ConfiguredTableDatabricksTableReference `pulumi:"databricks"`
+}
+
+// ConfiguredTableTableReference3PropertiesInput is an input type that accepts ConfiguredTableTableReference3PropertiesArgs and ConfiguredTableTableReference3PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableTableReference3PropertiesInput` via:
+//
+//	ConfiguredTableTableReference3PropertiesArgs{...}
+type ConfiguredTableTableReference3PropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableTableReference3PropertiesOutput() ConfiguredTableTableReference3PropertiesOutput
+	ToConfiguredTableTableReference3PropertiesOutputWithContext(context.Context) ConfiguredTableTableReference3PropertiesOutput
+}
+
+type ConfiguredTableTableReference3PropertiesArgs struct {
+	Databricks ConfiguredTableDatabricksTableReferenceInput `pulumi:"databricks"`
+}
+
+func (ConfiguredTableTableReference3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference3Properties)(nil)).Elem()
+}
+
+func (i ConfiguredTableTableReference3PropertiesArgs) ToConfiguredTableTableReference3PropertiesOutput() ConfiguredTableTableReference3PropertiesOutput {
+	return i.ToConfiguredTableTableReference3PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableTableReference3PropertiesArgs) ToConfiguredTableTableReference3PropertiesOutputWithContext(ctx context.Context) ConfiguredTableTableReference3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReference3PropertiesOutput)
+}
+
+type ConfiguredTableTableReference3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableTableReference3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference3Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableTableReference3PropertiesOutput) ToConfiguredTableTableReference3PropertiesOutput() ConfiguredTableTableReference3PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference3PropertiesOutput) ToConfiguredTableTableReference3PropertiesOutputWithContext(ctx context.Context) ConfiguredTableTableReference3PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference3PropertiesOutput) Databricks() ConfiguredTableDatabricksTableReferenceOutput {
+	return o.ApplyT(func(v ConfiguredTableTableReference3Properties) ConfiguredTableDatabricksTableReference {
+		return v.Databricks
+	}).(ConfiguredTableDatabricksTableReferenceOutput)
+}
+
+type ConfiguredTableTableReference3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableTableReference3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableTableReference3Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableTableReference3PropertiesPtrOutput) ToConfiguredTableTableReference3PropertiesPtrOutput() ConfiguredTableTableReference3PropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference3PropertiesPtrOutput) ToConfiguredTableTableReference3PropertiesPtrOutputWithContext(ctx context.Context) ConfiguredTableTableReference3PropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference3PropertiesPtrOutput) Elem() ConfiguredTableTableReference3PropertiesOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference3Properties) ConfiguredTableTableReference3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableTableReference3Properties
+		return ret
+	}).(ConfiguredTableTableReference3PropertiesOutput)
+}
+
+func (o ConfiguredTableTableReference3PropertiesPtrOutput) Databricks() ConfiguredTableDatabricksTableReferencePtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference3Properties) *ConfiguredTableDatabricksTableReference {
+		if v == nil {
+			return nil
+		}
+		return &v.Databricks
+	}).(ConfiguredTableDatabricksTableReferencePtrOutput)
 }
 
 type ConfiguredTableTag struct {
@@ -10137,6 +10535,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAthenaTableReferenceInput)(nil)).Elem(), ConfiguredTableAthenaTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableComparisonControlsInput)(nil)).Elem(), ConfiguredTableComparisonControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableComparisonControlsPtrInput)(nil)).Elem(), ConfiguredTableComparisonControlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDatabricksConnectionTypePropertiesInput)(nil)).Elem(), ConfiguredTableDatabricksConnectionTypePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDatabricksDeltaSharingConnectionInput)(nil)).Elem(), ConfiguredTableDatabricksDeltaSharingConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDatabricksTableReferenceInput)(nil)).Elem(), ConfiguredTableDatabricksTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyPtrInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumnInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyColumnArgs{})
@@ -10151,6 +10552,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReference0PropertiesInput)(nil)).Elem(), ConfiguredTableTableReference0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReference1PropertiesInput)(nil)).Elem(), ConfiguredTableTableReference1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReference2PropertiesInput)(nil)).Elem(), ConfiguredTableTableReference2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReference3PropertiesInput)(nil)).Elem(), ConfiguredTableTableReference3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingTableInputReferenceConfigInput)(nil)).Elem(), IdMappingTableInputReferenceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigPtrInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
@@ -10277,6 +10679,12 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAthenaTableReferencePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableComparisonControlsOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableComparisonControlsPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDatabricksConnectionTypePropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDatabricksConnectionTypePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDatabricksDeltaSharingConnectionOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDatabricksDeltaSharingConnectionPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDatabricksTableReferenceOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDatabricksTableReferencePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnOutput{})
@@ -10297,6 +10705,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableTableReference1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReference2PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReference2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReference3PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReference3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputReferenceConfigOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputReferencePropertiesOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputReferencePropertiesPtrOutput{})

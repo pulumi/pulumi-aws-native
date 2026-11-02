@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class GatewayRuleStaticRouteArgs : global::Pulumi.ResourceArgs
     {
+        [Input("fallback")]
+        public Input<Inputs.GatewayRuleFallbackArgs>? Fallback { get; set; }
+
+        [Input("model")]
+        public Input<string>? Model { get; set; }
+
         [Input("targetName", required: true)]
         public Input<string> TargetName { get; set; } = null!;
 

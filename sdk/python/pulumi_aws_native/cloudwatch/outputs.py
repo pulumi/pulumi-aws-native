@@ -17,6 +17,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessGrantPrincipal',
+    'AccessGrantPrincipalAttribute',
+    'AccessGrantResourceScope',
+    'AccessGrantRowScope',
+    'AccessGrantScopedActions',
     'AlarmActionConfiguration',
     'AlarmDimension',
     'AlarmEvaluationCriteria',
@@ -30,8 +35,12 @@ __all__ = [
     'AlarmWarmUpConfiguration',
     'CompositeAlarmActionConfiguration',
     'CompositeAlarmAlarmTagsPropagation',
+    'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal',
+    'DomainAccessGrantForOrganizationPrincipalAttribute',
     'DomainForOrganizationIdentityCenterConfiguration',
     'DomainForOrganizationIdentityProviderConfiguration',
+    'DomainIdentityCenterConfiguration',
+    'DomainIdentityProviderConfiguration',
     'IntegrationCredential',
     'IntegrationCredentialApiKeyCredentialProperties',
     'LogAlarmActionConfiguration',
@@ -48,7 +57,313 @@ __all__ = [
     'ResourceMetricsConfigurationResourceMetricSelection',
     'RuleProperties',
     'RulePropertiesScheduleProperties',
+    'SpaceEncryptionConfiguration',
 ]
+
+@pulumi.output_type
+class AccessGrantPrincipal(dict):
+    """
+    The principal receiving the grant. Specify PrincipalId, PrincipalAttributes, or both.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalType":
+            suggest = "principal_type"
+        elif key == "principalAttributes":
+            suggest = "principal_attributes"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessGrantPrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessGrantPrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessGrantPrincipal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_type: 'AccessGrantPrincipalPrincipalType',
+                 principal_attributes: Optional[Sequence['outputs.AccessGrantPrincipalAttribute']] = None,
+                 principal_id: Optional[_builtins.str] = None):
+        """
+        The principal receiving the grant. Specify PrincipalId, PrincipalAttributes, or both.
+
+        :param 'AccessGrantPrincipalPrincipalType' principal_type: The type of principal receiving the grant.
+        :param Sequence['AccessGrantPrincipalAttribute'] principal_attributes: Attribute conditions for attribute-based access. When provided, the grant targets any principal matching all specified conditions. Supported only for IDC_USER principals.
+        :param _builtins.str principal_id: The ID of the principal receiving the grant. An IAM principal ARN, an Identity Center UUID, or a service-defined identifier.
+        """
+        pulumi.set(__self__, "principal_type", principal_type)
+        if principal_attributes is not None:
+            pulumi.set(__self__, "principal_attributes", principal_attributes)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> 'AccessGrantPrincipalPrincipalType':
+        """
+        The type of principal receiving the grant.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @_builtins.property
+    @pulumi.getter(name="principalAttributes")
+    def principal_attributes(self) -> Optional[Sequence['outputs.AccessGrantPrincipalAttribute']]:
+        """
+        Attribute conditions for attribute-based access. When provided, the grant targets any principal matching all specified conditions. Supported only for IDC_USER principals.
+        """
+        return pulumi.get(self, "principal_attributes")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the principal receiving the grant. An IAM principal ARN, an Identity Center UUID, or a service-defined identifier.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class AccessGrantPrincipalAttribute(dict):
+    """
+    A single attribute condition used to match principals for attribute-based access.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        A single attribute condition used to match principals for attribute-based access.
+
+        :param _builtins.str key: The Identity Center user attribute to match on. One of userName, active, userStatus, displayName, email, name.givenName, name.familyName, enterprise.department, enterprise.division, enterprise.organization, enterprise.costCenter, or enterprise.employeeNumber.
+        :param _builtins.str value: The attribute value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The Identity Center user attribute to match on. One of userName, active, userStatus, displayName, email, name.givenName, name.familyName, enterprise.department, enterprise.division, enterprise.organization, enterprise.costCenter, or enterprise.employeeNumber.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The attribute value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AccessGrantResourceScope(dict):
+    """
+    A single resource scope entry within an access grant. Associates a resource type with optional ARN patterns, tag conditions, and row-level filters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "resourceArns":
+            suggest = "resource_arns"
+        elif key == "rowScopeGroups":
+            suggest = "row_scope_groups"
+        elif key == "signalTypes":
+            suggest = "signal_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessGrantResourceScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessGrantResourceScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessGrantResourceScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: _builtins.str,
+                 resource_arns: Optional[Sequence[_builtins.str]] = None,
+                 row_scope_groups: Optional[Sequence[Sequence['outputs.AccessGrantRowScope']]] = None,
+                 signal_types: Optional[Sequence['AccessGrantResourceScopeSignalTypesItem']] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        A single resource scope entry within an access grant. Associates a resource type with optional ARN patterns, tag conditions, and row-level filters.
+
+        :param _builtins.str resource_type: The resource type name, for example DataSet or OmniDashboard.
+        :param Sequence[_builtins.str] resource_arns: Specific resource ARNs or ARN patterns. When set, actions are limited to these resources. When absent, defaults to all resources of the type.
+        :param Sequence[Sequence['AccessGrantRowScope']] row_scope_groups: Row-level filters for this scope, as an OR of AND-groups: a row is visible when it matches every filter in any one group. Requires SignalTypes.
+        :param Sequence['AccessGrantResourceScopeSignalTypesItem'] signal_types: Signal types this scope's row filtering applies to. Required when RowScopeGroups is set.
+        :param Mapping[str, _builtins.str] tags: Tag-based conditions for dynamic resource scoping. Access applies only to resources carrying all of the specified tag key-value pairs.
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        if resource_arns is not None:
+            pulumi.set(__self__, "resource_arns", resource_arns)
+        if row_scope_groups is not None:
+            pulumi.set(__self__, "row_scope_groups", row_scope_groups)
+        if signal_types is not None:
+            pulumi.set(__self__, "signal_types", signal_types)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> _builtins.str:
+        """
+        The resource type name, for example DataSet or OmniDashboard.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArns")
+    def resource_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specific resource ARNs or ARN patterns. When set, actions are limited to these resources. When absent, defaults to all resources of the type.
+        """
+        return pulumi.get(self, "resource_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="rowScopeGroups")
+    def row_scope_groups(self) -> Optional[Sequence[Sequence['outputs.AccessGrantRowScope']]]:
+        """
+        Row-level filters for this scope, as an OR of AND-groups: a row is visible when it matches every filter in any one group. Requires SignalTypes.
+        """
+        return pulumi.get(self, "row_scope_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="signalTypes")
+    def signal_types(self) -> Optional[Sequence['AccessGrantResourceScopeSignalTypesItem']]:
+        """
+        Signal types this scope's row filtering applies to. Required when RowScopeGroups is set.
+        """
+        return pulumi.get(self, "signal_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tag-based conditions for dynamic resource scoping. Access applies only to resources carrying all of the specified tag key-value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AccessGrantRowScope(dict):
+    """
+    A single additive row-level filter on an access grant. A row is visible when its value for the given field matches the filter's values.
+    """
+    def __init__(__self__, *,
+                 field: _builtins.str,
+                 operator: 'AccessGrantRowScopeOperator',
+                 values: Sequence[_builtins.str]):
+        """
+        A single additive row-level filter on an access grant. A row is visible when its value for the given field matches the filter's values.
+
+        :param _builtins.str field: The field the allowlist applies to, for example serviceName or accountId.
+        :param 'AccessGrantRowScopeOperator' operator: Match operator applied to this filter's values.
+        :param Sequence[_builtins.str] values: The values the field is matched against.
+        """
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def field(self) -> _builtins.str:
+        """
+        The field the allowlist applies to, for example serviceName or accountId.
+        """
+        return pulumi.get(self, "field")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> 'AccessGrantRowScopeOperator':
+        """
+        Match operator applied to this filter's values.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        The values the field is matched against.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AccessGrantScopedActions(dict):
+    """
+    A group of actions within an access grant, together with the resource scopes and context conditions that apply to exactly those actions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contextConditions":
+            suggest = "context_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessGrantScopedActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessGrantScopedActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessGrantScopedActions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: Sequence[_builtins.str],
+                 context_conditions: Optional[Mapping[str, Sequence[_builtins.str]]] = None,
+                 resources: Optional[Sequence['outputs.AccessGrantResourceScope']] = None):
+        """
+        A group of actions within an access grant, together with the resource scopes and context conditions that apply to exactly those actions.
+
+        :param Sequence[_builtins.str] actions: The actions this group applies to, each in vendor-code:Action form.
+        :param Mapping[str, Sequence[_builtins.str]] context_conditions: Context conditions for fine-grained access control on these actions, as a map of condition keys to lists of allowed values.
+        :param Sequence['AccessGrantResourceScope'] resources: Resource scopes constraining these actions to specific resources.
+        """
+        pulumi.set(__self__, "actions", actions)
+        if context_conditions is not None:
+            pulumi.set(__self__, "context_conditions", context_conditions)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Sequence[_builtins.str]:
+        """
+        The actions this group applies to, each in vendor-code:Action form.
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="contextConditions")
+    def context_conditions(self) -> Optional[Mapping[str, Sequence[_builtins.str]]]:
+        """
+        Context conditions for fine-grained access control on these actions, as a map of condition keys to lists of allowed values.
+        """
+        return pulumi.get(self, "context_conditions")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence['outputs.AccessGrantResourceScope']]:
+        """
+        Resource scopes constraining these actions to specific resources.
+        """
+        return pulumi.get(self, "resources")
+
 
 @pulumi.output_type
 class AlarmActionConfiguration(dict):
@@ -803,6 +1118,108 @@ class CompositeAlarmAlarmTagsPropagation(dict):
 
 
 @pulumi.output_type
+class DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal(dict):
+    """
+    The principal the grant is issued to. Supply PrincipalId, or PrincipalAttributes for an attribute-based grant.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalType":
+            suggest = "principal_type"
+        elif key == "principalAttributes":
+            suggest = "principal_attributes"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_type: 'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType',
+                 principal_attributes: Optional[Sequence['outputs.DomainAccessGrantForOrganizationPrincipalAttribute']] = None,
+                 principal_id: Optional[_builtins.str] = None):
+        """
+        The principal the grant is issued to. Supply PrincipalId, or PrincipalAttributes for an attribute-based grant.
+
+        :param 'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType' principal_type: The type of principal the grant is issued to.
+        :param Sequence['DomainAccessGrantForOrganizationPrincipalAttribute'] principal_attributes: Attribute key-value pairs that select the principals the grant applies to.
+        :param _builtins.str principal_id: The identifier of the principal, such as an IAM role ARN or an Identity Center user ID.
+        """
+        pulumi.set(__self__, "principal_type", principal_type)
+        if principal_attributes is not None:
+            pulumi.set(__self__, "principal_attributes", principal_attributes)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> 'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType':
+        """
+        The type of principal the grant is issued to.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @_builtins.property
+    @pulumi.getter(name="principalAttributes")
+    def principal_attributes(self) -> Optional[Sequence['outputs.DomainAccessGrantForOrganizationPrincipalAttribute']]:
+        """
+        Attribute key-value pairs that select the principals the grant applies to.
+        """
+        return pulumi.get(self, "principal_attributes")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the principal, such as an IAM role ARN or an Identity Center user ID.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class DomainAccessGrantForOrganizationPrincipalAttribute(dict):
+    """
+    An attribute key-value pair used to select principals.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        An attribute key-value pair used to select principals.
+
+        :param _builtins.str key: The attribute name.
+        :param _builtins.str value: The attribute value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The attribute name.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The attribute value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DomainForOrganizationIdentityCenterConfiguration(dict):
     """
     Identity Center configuration. Required when identityProviders includes IDC.
@@ -876,6 +1293,83 @@ class DomainForOrganizationIdentityProviderConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="identityCenterConfiguration")
     def identity_center_configuration(self) -> Optional['outputs.DomainForOrganizationIdentityCenterConfiguration']:
+        return pulumi.get(self, "identity_center_configuration")
+
+
+@pulumi.output_type
+class DomainIdentityCenterConfiguration(dict):
+    """
+    Identity Center configuration. Required when identityProviders includes IDC.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityCenterInstanceArn":
+            suggest = "identity_center_instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainIdentityCenterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainIdentityCenterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainIdentityCenterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_center_instance_arn: Optional[_builtins.str] = None):
+        """
+        Identity Center configuration. Required when identityProviders includes IDC.
+
+        :param _builtins.str identity_center_instance_arn: Identity Center instance ARN
+        """
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[_builtins.str]:
+        """
+        Identity Center instance ARN
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+
+@pulumi.output_type
+class DomainIdentityProviderConfiguration(dict):
+    """
+    Identity provider configuration for the domain.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityCenterConfiguration":
+            suggest = "identity_center_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainIdentityProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainIdentityProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainIdentityProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_center_configuration: Optional['outputs.DomainIdentityCenterConfiguration'] = None):
+        """
+        Identity provider configuration for the domain.
+        """
+        if identity_center_configuration is not None:
+            pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> Optional['outputs.DomainIdentityCenterConfiguration']:
         return pulumi.get(self, "identity_center_configuration")
 
 
@@ -1677,5 +2171,59 @@ class RulePropertiesScheduleProperties(dict):
         The timezone of the schedule
         """
         return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class SpaceEncryptionConfiguration(dict):
+    """
+    The encryption configuration for the space.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionStrategy":
+            suggest = "encryption_strategy"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_strategy: 'SpaceEncryptionConfigurationEncryptionStrategy',
+                 kms_key_arn: Optional[_builtins.str] = None):
+        """
+        The encryption configuration for the space.
+
+        :param 'SpaceEncryptionConfigurationEncryptionStrategy' encryption_strategy: Whether the space is encrypted with an AWS owned key or a customer managed key.
+        :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+        """
+        pulumi.set(__self__, "encryption_strategy", encryption_strategy)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionStrategy")
+    def encryption_strategy(self) -> 'SpaceEncryptionConfigurationEncryptionStrategy':
+        """
+        Whether the space is encrypted with an AWS owned key or a customer managed key.
+        """
+        return pulumi.get(self, "encryption_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 

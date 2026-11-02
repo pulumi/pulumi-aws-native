@@ -38,7 +38,8 @@ type LookupEventTriggerResult struct {
 	// A list of conditions that determine when an event should trigger the destination.
 	EventTriggerConditions []EventTriggerCondition `pulumi:"eventTriggerConditions"`
 	// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
-	EventTriggerLimits *EventTriggerLimits `pulumi:"eventTriggerLimits"`
+	EventTriggerLimits     *EventTriggerLimits                 `pulumi:"eventTriggerLimits"`
+	IntentFilterDefinition *EventTriggerIntentFilterDefinition `pulumi:"intentFilterDefinition"`
 	// The timestamp of when the event trigger was most recently updated.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The unique name of the object type.
@@ -97,6 +98,10 @@ func (o LookupEventTriggerResultOutput) EventTriggerConditions() EventTriggerCon
 // Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
 func (o LookupEventTriggerResultOutput) EventTriggerLimits() EventTriggerLimitsPtrOutput {
 	return o.ApplyT(func(v LookupEventTriggerResult) *EventTriggerLimits { return v.EventTriggerLimits }).(EventTriggerLimitsPtrOutput)
+}
+
+func (o LookupEventTriggerResultOutput) IntentFilterDefinition() EventTriggerIntentFilterDefinitionPtrOutput {
+	return o.ApplyT(func(v LookupEventTriggerResult) *EventTriggerIntentFilterDefinition { return v.IntentFilterDefinition }).(EventTriggerIntentFilterDefinitionPtrOutput)
 }
 
 // The timestamp of when the event trigger was most recently updated.

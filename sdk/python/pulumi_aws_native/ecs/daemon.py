@@ -39,6 +39,7 @@ class DaemonArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_provider_arns: The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
         :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+        :param pulumi.Input[_builtins.bool] critical: If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
         :param pulumi.Input[_builtins.str] daemon_task_definition_arn: The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
         :param pulumi.Input['DaemonDeploymentConfigurationArgs'] deployment_configuration: The deployment configuration used for this daemon deployment.
         :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
@@ -93,6 +94,9 @@ class DaemonArgs:
     @_builtins.property
     @pulumi.getter
     def critical(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
+        """
         return pulumi.get(self, "critical")
 
     @critical.setter
@@ -202,6 +206,7 @@ class Daemon(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_provider_arns: The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
         :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+        :param pulumi.Input[_builtins.bool] critical: If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
         :param pulumi.Input[_builtins.str] daemon_task_definition_arn: The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
         :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']] deployment_configuration: The deployment configuration used for this daemon deployment.
         :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
@@ -331,6 +336,9 @@ class Daemon(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def critical(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
+        """
         return pulumi.get(self, "critical")
 
     @_builtins.property

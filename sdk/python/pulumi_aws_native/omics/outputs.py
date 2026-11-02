@@ -239,6 +239,8 @@ class ConfigurationVpcConfig(dict):
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
+        elif key == "vpcOwnerAccountId":
+            suggest = "vpc_owner_account_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigurationVpcConfig. Access the value via the '{suggest}' property getter instead.")
@@ -253,11 +255,17 @@ class ConfigurationVpcConfig(dict):
 
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[_builtins.str]] = None,
-                 subnet_ids: Optional[Sequence[_builtins.str]] = None):
+                 subnet_ids: Optional[Sequence[_builtins.str]] = None,
+                 vpc_owner_account_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str vpc_owner_account_id: The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_owner_account_id is not None:
+            pulumi.set(__self__, "vpc_owner_account_id", vpc_owner_account_id)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
@@ -268,6 +276,14 @@ class ConfigurationVpcConfig(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcOwnerAccountId")
+    def vpc_owner_account_id(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+        """
+        return pulumi.get(self, "vpc_owner_account_id")
 
 
 @pulumi.output_type

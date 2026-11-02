@@ -21,12 +21,18 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:mgn:Application":
+		r = &Application{}
 	case "aws-native:mgn:Connector":
 		r = &Connector{}
 	case "aws-native:mgn:LaunchConfigurationTemplate":
 		r = &LaunchConfigurationTemplate{}
 	case "aws-native:mgn:NetworkMigrationDefinition":
 		r = &NetworkMigrationDefinition{}
+	case "aws-native:mgn:ReplicationConfigurationTemplate":
+		r = &ReplicationConfigurationTemplate{}
+	case "aws-native:mgn:Wave":
+		r = &Wave{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

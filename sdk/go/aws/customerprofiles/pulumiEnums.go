@@ -1805,6 +1805,516 @@ func (o EventStreamStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// The operator used to compare the predicted intent against a list of values.
+type EventTriggerIntentFilterConditionComparisonOperator string
+
+const (
+	EventTriggerIntentFilterConditionComparisonOperatorInclusive          = EventTriggerIntentFilterConditionComparisonOperator("INCLUSIVE")
+	EventTriggerIntentFilterConditionComparisonOperatorExclusive          = EventTriggerIntentFilterConditionComparisonOperator("EXCLUSIVE")
+	EventTriggerIntentFilterConditionComparisonOperatorContains           = EventTriggerIntentFilterConditionComparisonOperator("CONTAINS")
+	EventTriggerIntentFilterConditionComparisonOperatorGreaterThan        = EventTriggerIntentFilterConditionComparisonOperator("GREATER_THAN")
+	EventTriggerIntentFilterConditionComparisonOperatorLessThan           = EventTriggerIntentFilterConditionComparisonOperator("LESS_THAN")
+	EventTriggerIntentFilterConditionComparisonOperatorGreaterThanOrEqual = EventTriggerIntentFilterConditionComparisonOperator("GREATER_THAN_OR_EQUAL")
+	EventTriggerIntentFilterConditionComparisonOperatorLessThanOrEqual    = EventTriggerIntentFilterConditionComparisonOperator("LESS_THAN_OR_EQUAL")
+	EventTriggerIntentFilterConditionComparisonOperatorEqual              = EventTriggerIntentFilterConditionComparisonOperator("EQUAL")
+)
+
+func (EventTriggerIntentFilterConditionComparisonOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentFilterConditionComparisonOperator)(nil)).Elem()
+}
+
+func (e EventTriggerIntentFilterConditionComparisonOperator) ToEventTriggerIntentFilterConditionComparisonOperatorOutput() EventTriggerIntentFilterConditionComparisonOperatorOutput {
+	return pulumi.ToOutput(e).(EventTriggerIntentFilterConditionComparisonOperatorOutput)
+}
+
+func (e EventTriggerIntentFilterConditionComparisonOperator) ToEventTriggerIntentFilterConditionComparisonOperatorOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionComparisonOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventTriggerIntentFilterConditionComparisonOperatorOutput)
+}
+
+func (e EventTriggerIntentFilterConditionComparisonOperator) ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutput() EventTriggerIntentFilterConditionComparisonOperatorPtrOutput {
+	return e.ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerIntentFilterConditionComparisonOperator) ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionComparisonOperatorPtrOutput {
+	return EventTriggerIntentFilterConditionComparisonOperator(e).ToEventTriggerIntentFilterConditionComparisonOperatorOutputWithContext(ctx).ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutputWithContext(ctx)
+}
+
+func (e EventTriggerIntentFilterConditionComparisonOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerIntentFilterConditionComparisonOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerIntentFilterConditionComparisonOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerIntentFilterConditionComparisonOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventTriggerIntentFilterConditionComparisonOperatorOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentFilterConditionComparisonOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentFilterConditionComparisonOperator)(nil)).Elem()
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorOutput) ToEventTriggerIntentFilterConditionComparisonOperatorOutput() EventTriggerIntentFilterConditionComparisonOperatorOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorOutput) ToEventTriggerIntentFilterConditionComparisonOperatorOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionComparisonOperatorOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorOutput) ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutput() EventTriggerIntentFilterConditionComparisonOperatorPtrOutput {
+	return o.ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorOutput) ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionComparisonOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTriggerIntentFilterConditionComparisonOperator) *EventTriggerIntentFilterConditionComparisonOperator {
+		return &v
+	}).(EventTriggerIntentFilterConditionComparisonOperatorPtrOutput)
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerIntentFilterConditionComparisonOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerIntentFilterConditionComparisonOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventTriggerIntentFilterConditionComparisonOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentFilterConditionComparisonOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerIntentFilterConditionComparisonOperator)(nil)).Elem()
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorPtrOutput) ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutput() EventTriggerIntentFilterConditionComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorPtrOutput) ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorPtrOutput) Elem() EventTriggerIntentFilterConditionComparisonOperatorOutput {
+	return o.ApplyT(func(v *EventTriggerIntentFilterConditionComparisonOperator) EventTriggerIntentFilterConditionComparisonOperator {
+		if v != nil {
+			return *v
+		}
+		var ret EventTriggerIntentFilterConditionComparisonOperator
+		return ret
+	}).(EventTriggerIntentFilterConditionComparisonOperatorOutput)
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentFilterConditionComparisonOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventTriggerIntentFilterConditionComparisonOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventTriggerIntentFilterConditionComparisonOperatorInput is an input type that accepts values of the EventTriggerIntentFilterConditionComparisonOperator enum
+// A concrete instance of `EventTriggerIntentFilterConditionComparisonOperatorInput` can be one of the following:
+//
+//	EventTriggerIntentFilterConditionComparisonOperatorInclusive
+//	EventTriggerIntentFilterConditionComparisonOperatorExclusive
+//	EventTriggerIntentFilterConditionComparisonOperatorContains
+//	EventTriggerIntentFilterConditionComparisonOperatorGreaterThan
+//	EventTriggerIntentFilterConditionComparisonOperatorLessThan
+//	EventTriggerIntentFilterConditionComparisonOperatorGreaterThanOrEqual
+//	EventTriggerIntentFilterConditionComparisonOperatorLessThanOrEqual
+//	EventTriggerIntentFilterConditionComparisonOperatorEqual
+type EventTriggerIntentFilterConditionComparisonOperatorInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentFilterConditionComparisonOperatorOutput() EventTriggerIntentFilterConditionComparisonOperatorOutput
+	ToEventTriggerIntentFilterConditionComparisonOperatorOutputWithContext(context.Context) EventTriggerIntentFilterConditionComparisonOperatorOutput
+}
+
+var eventTriggerIntentFilterConditionComparisonOperatorPtrType = reflect.TypeOf((**EventTriggerIntentFilterConditionComparisonOperator)(nil)).Elem()
+
+type EventTriggerIntentFilterConditionComparisonOperatorPtrInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutput() EventTriggerIntentFilterConditionComparisonOperatorPtrOutput
+	ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutputWithContext(context.Context) EventTriggerIntentFilterConditionComparisonOperatorPtrOutput
+}
+
+type eventTriggerIntentFilterConditionComparisonOperatorPtr string
+
+func EventTriggerIntentFilterConditionComparisonOperatorPtr(v string) EventTriggerIntentFilterConditionComparisonOperatorPtrInput {
+	return (*eventTriggerIntentFilterConditionComparisonOperatorPtr)(&v)
+}
+
+func (*eventTriggerIntentFilterConditionComparisonOperatorPtr) ElementType() reflect.Type {
+	return eventTriggerIntentFilterConditionComparisonOperatorPtrType
+}
+
+func (in *eventTriggerIntentFilterConditionComparisonOperatorPtr) ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutput() EventTriggerIntentFilterConditionComparisonOperatorPtrOutput {
+	return pulumi.ToOutput(in).(EventTriggerIntentFilterConditionComparisonOperatorPtrOutput)
+}
+
+func (in *eventTriggerIntentFilterConditionComparisonOperatorPtr) ToEventTriggerIntentFilterConditionComparisonOperatorPtrOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionComparisonOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventTriggerIntentFilterConditionComparisonOperatorPtrOutput)
+}
+
+// The domain of the intent.
+type EventTriggerIntentIntentDomain string
+
+const (
+	EventTriggerIntentIntentDomainDefault = EventTriggerIntentIntentDomain("DEFAULT")
+)
+
+func (EventTriggerIntentIntentDomain) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentIntentDomain)(nil)).Elem()
+}
+
+func (e EventTriggerIntentIntentDomain) ToEventTriggerIntentIntentDomainOutput() EventTriggerIntentIntentDomainOutput {
+	return pulumi.ToOutput(e).(EventTriggerIntentIntentDomainOutput)
+}
+
+func (e EventTriggerIntentIntentDomain) ToEventTriggerIntentIntentDomainOutputWithContext(ctx context.Context) EventTriggerIntentIntentDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventTriggerIntentIntentDomainOutput)
+}
+
+func (e EventTriggerIntentIntentDomain) ToEventTriggerIntentIntentDomainPtrOutput() EventTriggerIntentIntentDomainPtrOutput {
+	return e.ToEventTriggerIntentIntentDomainPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerIntentIntentDomain) ToEventTriggerIntentIntentDomainPtrOutputWithContext(ctx context.Context) EventTriggerIntentIntentDomainPtrOutput {
+	return EventTriggerIntentIntentDomain(e).ToEventTriggerIntentIntentDomainOutputWithContext(ctx).ToEventTriggerIntentIntentDomainPtrOutputWithContext(ctx)
+}
+
+func (e EventTriggerIntentIntentDomain) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerIntentIntentDomain) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerIntentIntentDomain) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerIntentIntentDomain) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventTriggerIntentIntentDomainOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentIntentDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentIntentDomain)(nil)).Elem()
+}
+
+func (o EventTriggerIntentIntentDomainOutput) ToEventTriggerIntentIntentDomainOutput() EventTriggerIntentIntentDomainOutput {
+	return o
+}
+
+func (o EventTriggerIntentIntentDomainOutput) ToEventTriggerIntentIntentDomainOutputWithContext(ctx context.Context) EventTriggerIntentIntentDomainOutput {
+	return o
+}
+
+func (o EventTriggerIntentIntentDomainOutput) ToEventTriggerIntentIntentDomainPtrOutput() EventTriggerIntentIntentDomainPtrOutput {
+	return o.ToEventTriggerIntentIntentDomainPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentIntentDomainOutput) ToEventTriggerIntentIntentDomainPtrOutputWithContext(ctx context.Context) EventTriggerIntentIntentDomainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTriggerIntentIntentDomain) *EventTriggerIntentIntentDomain {
+		return &v
+	}).(EventTriggerIntentIntentDomainPtrOutput)
+}
+
+func (o EventTriggerIntentIntentDomainOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentIntentDomainOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerIntentIntentDomain) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventTriggerIntentIntentDomainOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentIntentDomainOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerIntentIntentDomain) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventTriggerIntentIntentDomainPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentIntentDomainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerIntentIntentDomain)(nil)).Elem()
+}
+
+func (o EventTriggerIntentIntentDomainPtrOutput) ToEventTriggerIntentIntentDomainPtrOutput() EventTriggerIntentIntentDomainPtrOutput {
+	return o
+}
+
+func (o EventTriggerIntentIntentDomainPtrOutput) ToEventTriggerIntentIntentDomainPtrOutputWithContext(ctx context.Context) EventTriggerIntentIntentDomainPtrOutput {
+	return o
+}
+
+func (o EventTriggerIntentIntentDomainPtrOutput) Elem() EventTriggerIntentIntentDomainOutput {
+	return o.ApplyT(func(v *EventTriggerIntentIntentDomain) EventTriggerIntentIntentDomain {
+		if v != nil {
+			return *v
+		}
+		var ret EventTriggerIntentIntentDomain
+		return ret
+	}).(EventTriggerIntentIntentDomainOutput)
+}
+
+func (o EventTriggerIntentIntentDomainPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentIntentDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventTriggerIntentIntentDomain) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventTriggerIntentIntentDomainInput is an input type that accepts values of the EventTriggerIntentIntentDomain enum
+// A concrete instance of `EventTriggerIntentIntentDomainInput` can be one of the following:
+//
+//	EventTriggerIntentIntentDomainDefault
+type EventTriggerIntentIntentDomainInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentIntentDomainOutput() EventTriggerIntentIntentDomainOutput
+	ToEventTriggerIntentIntentDomainOutputWithContext(context.Context) EventTriggerIntentIntentDomainOutput
+}
+
+var eventTriggerIntentIntentDomainPtrType = reflect.TypeOf((**EventTriggerIntentIntentDomain)(nil)).Elem()
+
+type EventTriggerIntentIntentDomainPtrInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentIntentDomainPtrOutput() EventTriggerIntentIntentDomainPtrOutput
+	ToEventTriggerIntentIntentDomainPtrOutputWithContext(context.Context) EventTriggerIntentIntentDomainPtrOutput
+}
+
+type eventTriggerIntentIntentDomainPtr string
+
+func EventTriggerIntentIntentDomainPtr(v string) EventTriggerIntentIntentDomainPtrInput {
+	return (*eventTriggerIntentIntentDomainPtr)(&v)
+}
+
+func (*eventTriggerIntentIntentDomainPtr) ElementType() reflect.Type {
+	return eventTriggerIntentIntentDomainPtrType
+}
+
+func (in *eventTriggerIntentIntentDomainPtr) ToEventTriggerIntentIntentDomainPtrOutput() EventTriggerIntentIntentDomainPtrOutput {
+	return pulumi.ToOutput(in).(EventTriggerIntentIntentDomainPtrOutput)
+}
+
+func (in *eventTriggerIntentIntentDomainPtr) ToEventTriggerIntentIntentDomainPtrOutputWithContext(ctx context.Context) EventTriggerIntentIntentDomainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventTriggerIntentIntentDomainPtrOutput)
+}
+
+// The type of the intent.
+type EventTriggerIntentType string
+
+const (
+	EventTriggerIntentTypePriceSensitivity        = EventTriggerIntentType("PRICE_SENSITIVITY")
+	EventTriggerIntentTypeUpgradeUpsellPropensity = EventTriggerIntentType("UPGRADE_UPSELL_PROPENSITY")
+	EventTriggerIntentTypeLastSearchIntent        = EventTriggerIntentType("LAST_SEARCH_INTENT")
+)
+
+func (EventTriggerIntentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentType)(nil)).Elem()
+}
+
+func (e EventTriggerIntentType) ToEventTriggerIntentTypeOutput() EventTriggerIntentTypeOutput {
+	return pulumi.ToOutput(e).(EventTriggerIntentTypeOutput)
+}
+
+func (e EventTriggerIntentType) ToEventTriggerIntentTypeOutputWithContext(ctx context.Context) EventTriggerIntentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventTriggerIntentTypeOutput)
+}
+
+func (e EventTriggerIntentType) ToEventTriggerIntentTypePtrOutput() EventTriggerIntentTypePtrOutput {
+	return e.ToEventTriggerIntentTypePtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerIntentType) ToEventTriggerIntentTypePtrOutputWithContext(ctx context.Context) EventTriggerIntentTypePtrOutput {
+	return EventTriggerIntentType(e).ToEventTriggerIntentTypeOutputWithContext(ctx).ToEventTriggerIntentTypePtrOutputWithContext(ctx)
+}
+
+func (e EventTriggerIntentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerIntentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerIntentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerIntentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventTriggerIntentTypeOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentType)(nil)).Elem()
+}
+
+func (o EventTriggerIntentTypeOutput) ToEventTriggerIntentTypeOutput() EventTriggerIntentTypeOutput {
+	return o
+}
+
+func (o EventTriggerIntentTypeOutput) ToEventTriggerIntentTypeOutputWithContext(ctx context.Context) EventTriggerIntentTypeOutput {
+	return o
+}
+
+func (o EventTriggerIntentTypeOutput) ToEventTriggerIntentTypePtrOutput() EventTriggerIntentTypePtrOutput {
+	return o.ToEventTriggerIntentTypePtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentTypeOutput) ToEventTriggerIntentTypePtrOutputWithContext(ctx context.Context) EventTriggerIntentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTriggerIntentType) *EventTriggerIntentType {
+		return &v
+	}).(EventTriggerIntentTypePtrOutput)
+}
+
+func (o EventTriggerIntentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerIntentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventTriggerIntentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerIntentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventTriggerIntentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerIntentType)(nil)).Elem()
+}
+
+func (o EventTriggerIntentTypePtrOutput) ToEventTriggerIntentTypePtrOutput() EventTriggerIntentTypePtrOutput {
+	return o
+}
+
+func (o EventTriggerIntentTypePtrOutput) ToEventTriggerIntentTypePtrOutputWithContext(ctx context.Context) EventTriggerIntentTypePtrOutput {
+	return o
+}
+
+func (o EventTriggerIntentTypePtrOutput) Elem() EventTriggerIntentTypeOutput {
+	return o.ApplyT(func(v *EventTriggerIntentType) EventTriggerIntentType {
+		if v != nil {
+			return *v
+		}
+		var ret EventTriggerIntentType
+		return ret
+	}).(EventTriggerIntentTypeOutput)
+}
+
+func (o EventTriggerIntentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventTriggerIntentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventTriggerIntentTypeInput is an input type that accepts values of the EventTriggerIntentType enum
+// A concrete instance of `EventTriggerIntentTypeInput` can be one of the following:
+//
+//	EventTriggerIntentTypePriceSensitivity
+//	EventTriggerIntentTypeUpgradeUpsellPropensity
+//	EventTriggerIntentTypeLastSearchIntent
+type EventTriggerIntentTypeInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentTypeOutput() EventTriggerIntentTypeOutput
+	ToEventTriggerIntentTypeOutputWithContext(context.Context) EventTriggerIntentTypeOutput
+}
+
+var eventTriggerIntentTypePtrType = reflect.TypeOf((**EventTriggerIntentType)(nil)).Elem()
+
+type EventTriggerIntentTypePtrInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentTypePtrOutput() EventTriggerIntentTypePtrOutput
+	ToEventTriggerIntentTypePtrOutputWithContext(context.Context) EventTriggerIntentTypePtrOutput
+}
+
+type eventTriggerIntentTypePtr string
+
+func EventTriggerIntentTypePtr(v string) EventTriggerIntentTypePtrInput {
+	return (*eventTriggerIntentTypePtr)(&v)
+}
+
+func (*eventTriggerIntentTypePtr) ElementType() reflect.Type {
+	return eventTriggerIntentTypePtrType
+}
+
+func (in *eventTriggerIntentTypePtr) ToEventTriggerIntentTypePtrOutput() EventTriggerIntentTypePtrOutput {
+	return pulumi.ToOutput(in).(EventTriggerIntentTypePtrOutput)
+}
+
+func (in *eventTriggerIntentTypePtr) ToEventTriggerIntentTypePtrOutputWithContext(ctx context.Context) EventTriggerIntentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventTriggerIntentTypePtrOutput)
+}
+
 // The operator used to combine multiple dimensions.
 type EventTriggerLogicalOperator string
 
@@ -7150,6 +7660,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainObjectTypeFieldFeatureTypePtrInput)(nil)).Elem(), DomainObjectTypeFieldFeatureType("TEXTUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingStatusInput)(nil)).Elem(), DomainRuleBasedMatchingStatus("PENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingStatusPtrInput)(nil)).Elem(), DomainRuleBasedMatchingStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentFilterConditionComparisonOperatorInput)(nil)).Elem(), EventTriggerIntentFilterConditionComparisonOperator("INCLUSIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentFilterConditionComparisonOperatorPtrInput)(nil)).Elem(), EventTriggerIntentFilterConditionComparisonOperator("INCLUSIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentIntentDomainInput)(nil)).Elem(), EventTriggerIntentIntentDomain("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentIntentDomainPtrInput)(nil)).Elem(), EventTriggerIntentIntentDomain("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentTypeInput)(nil)).Elem(), EventTriggerIntentType("PRICE_SENSITIVITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentTypePtrInput)(nil)).Elem(), EventTriggerIntentType("PRICE_SENSITIVITY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLogicalOperatorInput)(nil)).Elem(), EventTriggerLogicalOperator("ANY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLogicalOperatorPtrInput)(nil)).Elem(), EventTriggerLogicalOperator("ANY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerObjectAttributeComparisonOperatorInput)(nil)).Elem(), EventTriggerObjectAttributeComparisonOperator("INCLUSIVE"))
@@ -7232,6 +7748,12 @@ func init() {
 	pulumi.RegisterOutputType(EventStreamStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(EventStreamStatusOutput{})
 	pulumi.RegisterOutputType(EventStreamStatusPtrOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentFilterConditionComparisonOperatorOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentFilterConditionComparisonOperatorPtrOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentIntentDomainOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentIntentDomainPtrOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentTypeOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentTypePtrOutput{})
 	pulumi.RegisterOutputType(EventTriggerLogicalOperatorOutput{})
 	pulumi.RegisterOutputType(EventTriggerLogicalOperatorPtrOutput{})
 	pulumi.RegisterOutputType(EventTriggerObjectAttributeComparisonOperatorOutput{})

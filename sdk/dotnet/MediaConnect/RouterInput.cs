@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+        /// </summary>
+        [Output("associatedDestinationEndpointArns")]
+        public Output<ImmutableArray<string>> AssociatedDestinationEndpointArns { get; private set; } = null!;
+
+        /// <summary>
         /// The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
         /// </summary>
         [Output("availabilityZone")]

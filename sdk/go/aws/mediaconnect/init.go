@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BridgeOutputResource{}
 	case "aws-native:mediaconnect:BridgeSource":
 		r = &BridgeSource{}
+	case "aws-native:mediaconnect:DestinationEndpoint":
+		r = &DestinationEndpoint{}
 	case "aws-native:mediaconnect:Flow":
 		r = &Flow{}
 	case "aws-native:mediaconnect:FlowEntitlement":
@@ -47,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RouterNetworkInterface{}
 	case "aws-native:mediaconnect:RouterOutputResource":
 		r = &RouterOutputResource{}
+	case "aws-native:mediaconnect:SourceEndpoint":
+		r = &SourceEndpoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

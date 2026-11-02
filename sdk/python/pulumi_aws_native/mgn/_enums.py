@@ -16,6 +16,12 @@ __all__ = [
     'NetworkMigrationDefinitionSourceConfigurationSourceEnvironment',
     'NetworkMigrationDefinitionTargetDeployment',
     'NetworkMigrationDefinitionTargetNetworkTopology',
+    'ReplicationConfigurationTemplateDataPlaneRouting',
+    'ReplicationConfigurationTemplateDefaultLargeStagingDiskType',
+    'ReplicationConfigurationTemplateEbsEncryption',
+    'ReplicationConfigurationTemplateInternetProtocol',
+    'WaveAggregatedStatusHealthStatus',
+    'WaveAggregatedStatusProgressStatus',
 ]
 
 
@@ -110,3 +116,60 @@ class NetworkMigrationDefinitionTargetNetworkTopology(_builtins.str, Enum):
     """
     ISOLATED_VPC = "ISOLATED_VPC"
     HUB_AND_SPOKE = "HUB_AND_SPOKE"
+
+
+@pulumi.type_token("aws-native:mgn:ReplicationConfigurationTemplateDataPlaneRouting")
+class ReplicationConfigurationTemplateDataPlaneRouting(_builtins.str, Enum):
+    """
+    The data plane routing mechanism that will be used for replication.
+    """
+    PRIVATE_IP = "PRIVATE_IP"
+    PUBLIC_IP = "PUBLIC_IP"
+
+
+@pulumi.type_token("aws-native:mgn:ReplicationConfigurationTemplateDefaultLargeStagingDiskType")
+class ReplicationConfigurationTemplateDefaultLargeStagingDiskType(_builtins.str, Enum):
+    """
+    The Staging Disk EBS volume type to be used during replication.
+    """
+    GP2 = "GP2"
+    ST1 = "ST1"
+    GP3 = "GP3"
+
+
+@pulumi.type_token("aws-native:mgn:ReplicationConfigurationTemplateEbsEncryption")
+class ReplicationConfigurationTemplateEbsEncryption(_builtins.str, Enum):
+    """
+    The type of EBS encryption to be used during replication.
+    """
+    DEFAULT = "DEFAULT"
+    CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:mgn:ReplicationConfigurationTemplateInternetProtocol")
+class ReplicationConfigurationTemplateInternetProtocol(_builtins.str, Enum):
+    """
+    Which internet protocol to use for replication of data.
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+
+
+@pulumi.type_token("aws-native:mgn:WaveAggregatedStatusHealthStatus")
+class WaveAggregatedStatusHealthStatus(_builtins.str, Enum):
+    """
+    The health status of the wave.
+    """
+    HEALTHY = "HEALTHY"
+    LAGGING = "LAGGING"
+    ERROR = "ERROR"
+
+
+@pulumi.type_token("aws-native:mgn:WaveAggregatedStatusProgressStatus")
+class WaveAggregatedStatusProgressStatus(_builtins.str, Enum):
+    """
+    The progress status of the wave.
+    """
+    NOT_STARTED = "NOT_STARTED"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"

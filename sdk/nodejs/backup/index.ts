@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BackupAccessPointArgs } from "./backupAccessPoint";
+export type BackupAccessPoint = import("./backupAccessPoint").BackupAccessPoint;
+export const BackupAccessPoint: typeof import("./backupAccessPoint").BackupAccessPoint = null as any;
+utilities.lazyLoad(exports, ["BackupAccessPoint"], () => require("./backupAccessPoint"));
+
 export { BackupPlanArgs } from "./backupPlan";
 export type BackupPlan = import("./backupPlan").BackupPlan;
 export const BackupPlan: typeof import("./backupPlan").BackupPlan = null as any;
@@ -24,6 +29,11 @@ export { FrameworkArgs } from "./framework";
 export type Framework = import("./framework").Framework;
 export const Framework: typeof import("./framework").Framework = null as any;
 utilities.lazyLoad(exports, ["Framework"], () => require("./framework"));
+
+export { GetBackupAccessPointArgs, GetBackupAccessPointResult, GetBackupAccessPointOutputArgs } from "./getBackupAccessPoint";
+export const getBackupAccessPoint: typeof import("./getBackupAccessPoint").getBackupAccessPoint = null as any;
+export const getBackupAccessPointOutput: typeof import("./getBackupAccessPoint").getBackupAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupAccessPoint","getBackupAccessPointOutput"], () => require("./getBackupAccessPoint"));
 
 export { GetBackupPlanArgs, GetBackupPlanResult, GetBackupPlanOutputArgs } from "./getBackupPlan";
 export const getBackupPlan: typeof import("./getBackupPlan").getBackupPlan = null as any;
@@ -113,6 +123,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:backup:BackupAccessPoint":
+                return new BackupAccessPoint(name, <any>undefined, { urn })
             case "aws-native:backup:BackupPlan":
                 return new BackupPlan(name, <any>undefined, { urn })
             case "aws-native:backup:BackupSelection":

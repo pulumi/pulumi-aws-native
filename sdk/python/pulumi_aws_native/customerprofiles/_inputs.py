@@ -58,6 +58,14 @@ __all__ = [
     'EventTriggerConditionArgsDict',
     'EventTriggerDimensionArgs',
     'EventTriggerDimensionArgsDict',
+    'EventTriggerIntentArgs',
+    'EventTriggerIntentArgsDict',
+    'EventTriggerIntentFilterConditionArgs',
+    'EventTriggerIntentFilterConditionArgsDict',
+    'EventTriggerIntentFilterDefinitionArgs',
+    'EventTriggerIntentFilterDefinitionArgsDict',
+    'EventTriggerIntentFilterGroupArgs',
+    'EventTriggerIntentFilterGroupArgsDict',
     'EventTriggerLimitsArgs',
     'EventTriggerLimitsArgsDict',
     'EventTriggerObjectAttributeArgs',
@@ -1471,6 +1479,196 @@ class EventTriggerDimensionArgs:
     @object_attributes.setter
     def object_attributes(self, value: pulumi.Input[Sequence[pulumi.Input['EventTriggerObjectAttributeArgs']]]):
         pulumi.set(self, "object_attributes", value)
+
+
+class EventTriggerIntentArgsDict(TypedDict):
+    """
+    Identifies a predicted intent by domain and type.
+    """
+    intent_domain: pulumi.Input['EventTriggerIntentIntentDomain']
+    """
+    The domain of the intent.
+    """
+    type: pulumi.Input['EventTriggerIntentType']
+    """
+    The type of the intent.
+    """
+
+@pulumi.input_type
+class EventTriggerIntentArgs:
+    def __init__(__self__, *,
+                 intent_domain: pulumi.Input['EventTriggerIntentIntentDomain'],
+                 type: pulumi.Input['EventTriggerIntentType']):
+        """
+        Identifies a predicted intent by domain and type.
+
+        :param pulumi.Input['EventTriggerIntentIntentDomain'] intent_domain: The domain of the intent.
+        :param pulumi.Input['EventTriggerIntentType'] type: The type of the intent.
+        """
+        pulumi.set(__self__, "intent_domain", intent_domain)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="intentDomain")
+    def intent_domain(self) -> pulumi.Input['EventTriggerIntentIntentDomain']:
+        """
+        The domain of the intent.
+        """
+        return pulumi.get(self, "intent_domain")
+
+    @intent_domain.setter
+    def intent_domain(self, value: pulumi.Input['EventTriggerIntentIntentDomain']):
+        pulumi.set(self, "intent_domain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['EventTriggerIntentType']:
+        """
+        The type of the intent.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['EventTriggerIntentType']):
+        pulumi.set(self, "type", value)
+
+
+class EventTriggerIntentFilterConditionArgsDict(TypedDict):
+    """
+    The criteria that a predicted intent must meet.
+    """
+    comparison_operator: pulumi.Input['EventTriggerIntentFilterConditionComparisonOperator']
+    """
+    The operator used to compare the predicted intent against a list of values.
+    """
+    intent: pulumi.Input['EventTriggerIntentArgsDict']
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of intent values used for comparison.
+    """
+
+@pulumi.input_type
+class EventTriggerIntentFilterConditionArgs:
+    def __init__(__self__, *,
+                 comparison_operator: pulumi.Input['EventTriggerIntentFilterConditionComparisonOperator'],
+                 intent: pulumi.Input['EventTriggerIntentArgs'],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        The criteria that a predicted intent must meet.
+
+        :param pulumi.Input['EventTriggerIntentFilterConditionComparisonOperator'] comparison_operator: The operator used to compare the predicted intent against a list of values.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of intent values used for comparison.
+        """
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "intent", intent)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> pulumi.Input['EventTriggerIntentFilterConditionComparisonOperator']:
+        """
+        The operator used to compare the predicted intent against a list of values.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: pulumi.Input['EventTriggerIntentFilterConditionComparisonOperator']):
+        pulumi.set(self, "comparison_operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def intent(self) -> pulumi.Input['EventTriggerIntentArgs']:
+        return pulumi.get(self, "intent")
+
+    @intent.setter
+    def intent(self, value: pulumi.Input['EventTriggerIntentArgs']):
+        pulumi.set(self, "intent", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of intent values used for comparison.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class EventTriggerIntentFilterDefinitionArgsDict(TypedDict):
+    """
+    Filters the destination to profiles whose predicted intents meet the specified conditions.
+    """
+    groups: pulumi.Input[Sequence[pulumi.Input['EventTriggerIntentFilterGroupArgsDict']]]
+    logical_operator: pulumi.Input['EventTriggerLogicalOperator']
+
+@pulumi.input_type
+class EventTriggerIntentFilterDefinitionArgs:
+    def __init__(__self__, *,
+                 groups: pulumi.Input[Sequence[pulumi.Input['EventTriggerIntentFilterGroupArgs']]],
+                 logical_operator: pulumi.Input['EventTriggerLogicalOperator']):
+        """
+        Filters the destination to profiles whose predicted intents meet the specified conditions.
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "logical_operator", logical_operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> pulumi.Input[Sequence[pulumi.Input['EventTriggerIntentFilterGroupArgs']]]:
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: pulumi.Input[Sequence[pulumi.Input['EventTriggerIntentFilterGroupArgs']]]):
+        pulumi.set(self, "groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logicalOperator")
+    def logical_operator(self) -> pulumi.Input['EventTriggerLogicalOperator']:
+        return pulumi.get(self, "logical_operator")
+
+    @logical_operator.setter
+    def logical_operator(self, value: pulumi.Input['EventTriggerLogicalOperator']):
+        pulumi.set(self, "logical_operator", value)
+
+
+class EventTriggerIntentFilterGroupArgsDict(TypedDict):
+    """
+    A group of intent filter conditions combined by the group's logical operator.
+    """
+    conditions: pulumi.Input[Sequence[pulumi.Input['EventTriggerIntentFilterConditionArgsDict']]]
+    logical_operator: pulumi.Input['EventTriggerLogicalOperator']
+
+@pulumi.input_type
+class EventTriggerIntentFilterGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['EventTriggerIntentFilterConditionArgs']]],
+                 logical_operator: pulumi.Input['EventTriggerLogicalOperator']):
+        """
+        A group of intent filter conditions combined by the group's logical operator.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "logical_operator", logical_operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['EventTriggerIntentFilterConditionArgs']]]:
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['EventTriggerIntentFilterConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logicalOperator")
+    def logical_operator(self) -> pulumi.Input['EventTriggerLogicalOperator']:
+        return pulumi.get(self, "logical_operator")
+
+    @logical_operator.setter
+    def logical_operator(self, value: pulumi.Input['EventTriggerLogicalOperator']):
+        pulumi.set(self, "logical_operator", value)
 
 
 class EventTriggerLimitsArgsDict(TypedDict):

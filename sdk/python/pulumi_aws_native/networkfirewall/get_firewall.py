@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFirewallResult:
-    def __init__(__self__, availability_zone_change_protection=None, availability_zone_mappings=None, delete_protection=None, description=None, enabled_analysis_types=None, endpoint_ids=None, firewall_arn=None, firewall_id=None, firewall_policy_arn=None, firewall_policy_change_protection=None, subnet_change_protection=None, subnet_mappings=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None):
+    def __init__(__self__, availability_zone_change_protection=None, availability_zone_mappings=None, delete_protection=None, description=None, enabled_analysis_types=None, endpoint_ids=None, firewall_arn=None, firewall_id=None, firewall_policy_arn=None, firewall_policy_change_protection=None, number_of_associations=None, proxy_settings=None, subnet_change_protection=None, subnet_mappings=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None):
         if availability_zone_change_protection and not isinstance(availability_zone_change_protection, bool):
             raise TypeError("Expected argument 'availability_zone_change_protection' to be a bool")
         pulumi.set(__self__, "availability_zone_change_protection", availability_zone_change_protection)
@@ -57,6 +57,12 @@ class GetFirewallResult:
         if firewall_policy_change_protection and not isinstance(firewall_policy_change_protection, bool):
             raise TypeError("Expected argument 'firewall_policy_change_protection' to be a bool")
         pulumi.set(__self__, "firewall_policy_change_protection", firewall_policy_change_protection)
+        if number_of_associations and not isinstance(number_of_associations, int):
+            raise TypeError("Expected argument 'number_of_associations' to be a int")
+        pulumi.set(__self__, "number_of_associations", number_of_associations)
+        if proxy_settings and not isinstance(proxy_settings, dict):
+            raise TypeError("Expected argument 'proxy_settings' to be a dict")
+        pulumi.set(__self__, "proxy_settings", proxy_settings)
         if subnet_change_protection and not isinstance(subnet_change_protection, bool):
             raise TypeError("Expected argument 'subnet_change_protection' to be a bool")
         pulumi.set(__self__, "subnet_change_protection", subnet_change_protection)
@@ -156,6 +162,19 @@ class GetFirewallResult:
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @_builtins.property
+    @pulumi.getter(name="numberOfAssociations")
+    def number_of_associations(self) -> Optional[_builtins.int]:
+        """
+        The number of VPC endpoint associations attached to the firewall.
+        """
+        return pulumi.get(self, "number_of_associations")
+
+    @_builtins.property
+    @pulumi.getter(name="proxySettings")
+    def proxy_settings(self) -> Optional['outputs.FirewallProxySettings']:
+        return pulumi.get(self, "proxy_settings")
+
+    @_builtins.property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> Optional[_builtins.bool]:
         """
@@ -218,6 +237,8 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             firewall_id=self.firewall_id,
             firewall_policy_arn=self.firewall_policy_arn,
             firewall_policy_change_protection=self.firewall_policy_change_protection,
+            number_of_associations=self.number_of_associations,
+            proxy_settings=self.proxy_settings,
             subnet_change_protection=self.subnet_change_protection,
             subnet_mappings=self.subnet_mappings,
             tags=self.tags,
@@ -248,6 +269,8 @@ def get_firewall(firewall_arn: Optional[_builtins.str] = None,
         firewall_id=pulumi.get(__ret__, 'firewall_id'),
         firewall_policy_arn=pulumi.get(__ret__, 'firewall_policy_arn'),
         firewall_policy_change_protection=pulumi.get(__ret__, 'firewall_policy_change_protection'),
+        number_of_associations=pulumi.get(__ret__, 'number_of_associations'),
+        proxy_settings=pulumi.get(__ret__, 'proxy_settings'),
         subnet_change_protection=pulumi.get(__ret__, 'subnet_change_protection'),
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -275,6 +298,8 @@ def get_firewall_output(firewall_arn: pulumi.Input[Optional[_builtins.str]] = No
         firewall_id=pulumi.get(__response__, 'firewall_id'),
         firewall_policy_arn=pulumi.get(__response__, 'firewall_policy_arn'),
         firewall_policy_change_protection=pulumi.get(__response__, 'firewall_policy_change_protection'),
+        number_of_associations=pulumi.get(__response__, 'number_of_associations'),
+        proxy_settings=pulumi.get(__response__, 'proxy_settings'),
         subnet_change_protection=pulumi.get(__response__, 'subnet_change_protection'),
         subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
         tags=pulumi.get(__response__, 'tags'),

@@ -76,6 +76,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public sealed class GetGatewayTargetResult
     {
         public readonly Outputs.GatewayTargetAuthorizationDataProperties? AuthorizationData;
+        public readonly ImmutableArray<Union<Outputs.GatewayTargetCertificateConfiguration0Properties, Outputs.GatewayTargetCertificateConfiguration1Properties>> CertificateConfigurations;
         /// <summary>
         /// The date and time at which the gateway target was created.
         /// </summary>
@@ -123,6 +124,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         private GetGatewayTargetResult(
             Outputs.GatewayTargetAuthorizationDataProperties? authorizationData,
 
+            ImmutableArray<Union<Outputs.GatewayTargetCertificateConfiguration0Properties, Outputs.GatewayTargetCertificateConfiguration1Properties>> certificateConfigurations,
+
             string? createdAt,
 
             ImmutableArray<Outputs.GatewayTargetCredentialProviderConfiguration> credentialProviderConfigurations,
@@ -154,6 +157,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             string? updatedAt)
         {
             AuthorizationData = authorizationData;
+            CertificateConfigurations = certificateConfigurations;
             CreatedAt = createdAt;
             CredentialProviderConfigurations = credentialProviderConfigurations;
             Description = description;

@@ -41,6 +41,13 @@ type Firewall struct {
 	FirewallPolicyArn pulumi.StringOutput `pulumi:"firewallPolicyArn"`
 	// A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	FirewallPolicyChangeProtection pulumi.BoolPtrOutput `pulumi:"firewallPolicyChangeProtection"`
+	// The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+	NatGatewayMappings FirewallNatGatewayMappingArrayOutput `pulumi:"natGatewayMappings"`
+	// Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+	NoSourcePreservation pulumi.BoolPtrOutput `pulumi:"noSourcePreservation"`
+	// The number of VPC endpoint associations attached to the firewall.
+	NumberOfAssociations pulumi.IntOutput               `pulumi:"numberOfAssociations"`
+	ProxySettings        FirewallProxySettingsPtrOutput `pulumi:"proxySettings"`
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection pulumi.BoolPtrOutput `pulumi:"subnetChangeProtection"`
 	// The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
@@ -56,7 +63,8 @@ type Firewall struct {
 	// The unique identifier of the transit gateway attachment associated with this firewall. This field is only present for transit gateway-attached firewalls.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
-	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
+	TransitGatewayId pulumi.StringPtrOutput       `pulumi:"transitGatewayId"`
+	VpcEndpoint      FirewallVpcEndpointPtrOutput `pulumi:"vpcEndpoint"`
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
@@ -73,6 +81,9 @@ func NewFirewall(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"firewallName",
+		"natGatewayMappings[*]",
+		"noSourcePreservation",
+		"vpcEndpoint",
 		"vpcId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -127,6 +138,11 @@ type firewallArgs struct {
 	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
 	// A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
+	// The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+	NatGatewayMappings []FirewallNatGatewayMapping `pulumi:"natGatewayMappings"`
+	// Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+	NoSourcePreservation *bool                  `pulumi:"noSourcePreservation"`
+	ProxySettings        *FirewallProxySettings `pulumi:"proxySettings"`
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
 	// The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
@@ -140,7 +156,8 @@ type firewallArgs struct {
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 	// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
-	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	TransitGatewayId *string              `pulumi:"transitGatewayId"`
+	VpcEndpoint      *FirewallVpcEndpoint `pulumi:"vpcEndpoint"`
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -165,6 +182,11 @@ type FirewallArgs struct {
 	FirewallPolicyArn pulumi.StringInput
 	// A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
+	// The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+	NatGatewayMappings FirewallNatGatewayMappingArrayInput
+	// Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+	NoSourcePreservation pulumi.BoolPtrInput
+	ProxySettings        FirewallProxySettingsPtrInput
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection pulumi.BoolPtrInput
 	// The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
@@ -179,6 +201,7 @@ type FirewallArgs struct {
 	Tags aws.TagArrayInput
 	// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
 	TransitGatewayId pulumi.StringPtrInput
+	VpcEndpoint      FirewallVpcEndpointPtrInput
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
 	VpcId pulumi.StringPtrInput
 }
@@ -277,6 +300,25 @@ func (o FirewallOutput) FirewallPolicyChangeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.FirewallPolicyChangeProtection }).(pulumi.BoolPtrOutput)
 }
 
+// The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+func (o FirewallOutput) NatGatewayMappings() FirewallNatGatewayMappingArrayOutput {
+	return o.ApplyT(func(v *Firewall) FirewallNatGatewayMappingArrayOutput { return v.NatGatewayMappings }).(FirewallNatGatewayMappingArrayOutput)
+}
+
+// Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+func (o FirewallOutput) NoSourcePreservation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.NoSourcePreservation }).(pulumi.BoolPtrOutput)
+}
+
+// The number of VPC endpoint associations attached to the firewall.
+func (o FirewallOutput) NumberOfAssociations() pulumi.IntOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.IntOutput { return v.NumberOfAssociations }).(pulumi.IntOutput)
+}
+
+func (o FirewallOutput) ProxySettings() FirewallProxySettingsPtrOutput {
+	return o.ApplyT(func(v *Firewall) FirewallProxySettingsPtrOutput { return v.ProxySettings }).(FirewallProxySettingsPtrOutput)
+}
+
 // A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 func (o FirewallOutput) SubnetChangeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.SubnetChangeProtection }).(pulumi.BoolPtrOutput)
@@ -306,6 +348,10 @@ func (o FirewallOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 // The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
 func (o FirewallOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o FirewallOutput) VpcEndpoint() FirewallVpcEndpointPtrOutput {
+	return o.ApplyT(func(v *Firewall) FirewallVpcEndpointPtrOutput { return v.VpcEndpoint }).(FirewallVpcEndpointPtrOutput)
 }
 
 // The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.

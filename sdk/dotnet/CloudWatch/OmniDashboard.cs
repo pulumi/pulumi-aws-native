@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
-    /// Resource type definition for AWS::CloudWatch::OmniDashboard
+    /// Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudwatch:OmniDashboard")]
     public partial class OmniDashboard : global::Pulumi.CustomResource
@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The dashboard body, a JSON document describing the dashboard's widgets and layout.
+        /// The dashboard definition.
         /// </summary>
         [Output("body")]
         public Output<string> Body { get; private set; } = null!;
 
         /// <summary>
-        /// The time the dashboard was created.
+        /// The timestamp when the dashboard was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -40,25 +40,25 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the dashboard.
+        /// The unique ID of the dashboard.
         /// </summary>
         [Output("dashboardId")]
         public Output<string> DashboardId { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the dashboard.
+        /// An optional description of the dashboard.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the dashboard.
+        /// A name that identifies the dashboard.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the space the dashboard belongs to.
+        /// The unique ID of the space to create the dashboard in.
         /// </summary>
         [Output("spaceId")]
         public Output<string> SpaceId { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The time the dashboard was last updated.
+        /// The timestamp when the dashboard was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -125,25 +125,25 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class OmniDashboardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The dashboard body, a JSON document describing the dashboard's widgets and layout.
+        /// The dashboard definition.
         /// </summary>
         [Input("body", required: true)]
         public Input<string> Body { get; set; } = null!;
 
         /// <summary>
-        /// The description of the dashboard.
+        /// An optional description of the dashboard.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the dashboard.
+        /// A name that identifies the dashboard.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The unique identifier of the space the dashboard belongs to.
+        /// The unique ID of the space to create the dashboard in.
         /// </summary>
         [Input("spaceId", required: true)]
         public Input<string> SpaceId { get; set; } = null!;

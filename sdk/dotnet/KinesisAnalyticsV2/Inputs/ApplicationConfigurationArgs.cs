@@ -51,12 +51,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         [Input("flinkApplicationConfiguration")]
         public Input<Inputs.ApplicationFlinkApplicationConfigurationArgs>? FlinkApplicationConfiguration { get; set; }
 
-        /// <summary>
-        /// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-        /// </summary>
-        [Input("sqlApplicationConfiguration")]
-        public Input<Inputs.ApplicationSqlApplicationConfigurationArgs>? SqlApplicationConfiguration { get; set; }
-
         [Input("vpcConfigurations")]
         private InputList<Inputs.ApplicationVpcConfigurationArgs>? _vpcConfigurations;
 

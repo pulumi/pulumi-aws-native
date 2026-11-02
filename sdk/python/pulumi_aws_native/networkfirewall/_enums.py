@@ -10,7 +10,10 @@ __all__ = [
     'ContainerAssociationStatus',
     'ContainerAssociationType',
     'FirewallEnabledAnalysisType',
+    'FirewallListenerPropertyType',
     'FirewallPolicyOverrideAction',
+    'FirewallPolicyRoute53ResolvedIpValidationAction',
+    'FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy',
     'FirewallPolicyRuleOrder',
     'FirewallPolicyStreamExceptionPolicy',
     'LoggingConfigurationLogDestinationConfigLogDestinationType',
@@ -58,9 +61,32 @@ class FirewallEnabledAnalysisType(_builtins.str, Enum):
     HTTP_HOST = "HTTP_HOST"
 
 
+@pulumi.type_token("aws-native:networkfirewall:FirewallListenerPropertyType")
+class FirewallListenerPropertyType(_builtins.str, Enum):
+    """
+    The protocol the proxy listener uses.
+    """
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+
+
 @pulumi.type_token("aws-native:networkfirewall:FirewallPolicyOverrideAction")
 class FirewallPolicyOverrideAction(_builtins.str, Enum):
     DROP_TO_ALERT = "DROP_TO_ALERT"
+
+
+@pulumi.type_token("aws-native:networkfirewall:FirewallPolicyRoute53ResolvedIpValidationAction")
+class FirewallPolicyRoute53ResolvedIpValidationAction(_builtins.str, Enum):
+    REJECT = "REJECT"
+    DROP = "DROP"
+    ALERT = "ALERT"
+
+
+@pulumi.type_token("aws-native:networkfirewall:FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy")
+class FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy(_builtins.str, Enum):
+    REJECT = "REJECT"
+    DROP = "DROP"
+    CONTINUE_ = "CONTINUE"
 
 
 @pulumi.type_token("aws-native:networkfirewall:FirewallPolicyRuleOrder")
@@ -183,6 +209,7 @@ class RuleGroupSummaryRuleOption(_builtins.str, Enum):
 class RuleGroupTargetType(_builtins.str, Enum):
     TLS_SNI = "TLS_SNI"
     HTTP_HOST = "HTTP_HOST"
+    AWS_ROUTE53_RESOLVED_DOMAIN = "AWS_ROUTE_53_RESOLVED_DOMAIN"
 
 
 @pulumi.type_token("aws-native:networkfirewall:RuleGroupTcpFlag")

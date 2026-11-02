@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// </summary>
     public sealed class RouterInputConfiguration3PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("mediaConnectFlow", required: true)]
-        public Input<Inputs.RouterInputMediaConnectFlowRouterInputConfigurationArgs> MediaConnectFlow { get; set; } = null!;
+        [Input("failover", required: true)]
+        public Input<Inputs.RouterInputFailoverRouterInputConfigurationArgs> Failover { get; set; } = null!;
 
         public RouterInputConfiguration3PropertiesArgs()
         {

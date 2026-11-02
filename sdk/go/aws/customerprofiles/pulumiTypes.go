@@ -79,50 +79,6 @@ func (o CalculatedAttributeDefinitionAttributeDetailsOutput) Expression() pulumi
 	return o.ApplyT(func(v CalculatedAttributeDefinitionAttributeDetails) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-type CalculatedAttributeDefinitionAttributeDetailsPtrOutput struct{ *pulumi.OutputState }
-
-func (CalculatedAttributeDefinitionAttributeDetailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CalculatedAttributeDefinitionAttributeDetails)(nil)).Elem()
-}
-
-func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) ToCalculatedAttributeDefinitionAttributeDetailsPtrOutput() CalculatedAttributeDefinitionAttributeDetailsPtrOutput {
-	return o
-}
-
-func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) ToCalculatedAttributeDefinitionAttributeDetailsPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionAttributeDetailsPtrOutput {
-	return o
-}
-
-func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Elem() CalculatedAttributeDefinitionAttributeDetailsOutput {
-	return o.ApplyT(func(v *CalculatedAttributeDefinitionAttributeDetails) CalculatedAttributeDefinitionAttributeDetails {
-		if v != nil {
-			return *v
-		}
-		var ret CalculatedAttributeDefinitionAttributeDetails
-		return ret
-	}).(CalculatedAttributeDefinitionAttributeDetailsOutput)
-}
-
-// Mathematical expression and a list of attribute items specified in that expression.
-func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Attributes() CalculatedAttributeDefinitionAttributeItemArrayOutput {
-	return o.ApplyT(func(v *CalculatedAttributeDefinitionAttributeDetails) []CalculatedAttributeDefinitionAttributeItem {
-		if v == nil {
-			return nil
-		}
-		return v.Attributes
-	}).(CalculatedAttributeDefinitionAttributeItemArrayOutput)
-}
-
-// Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \"{ObjectTypeName.AttributeName}\".
-func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Expression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CalculatedAttributeDefinitionAttributeDetails) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Expression
-	}).(pulumi.StringPtrOutput)
-}
-
 // The details of a single attribute item specified in the mathematical expression.
 type CalculatedAttributeDefinitionAttributeItem struct {
 	Name string `pulumi:"name"`
@@ -3594,6 +3550,441 @@ func (o EventTriggerDimensionArrayOutput) Index(i pulumi.IntInput) EventTriggerD
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTriggerDimension {
 		return vs[0].([]EventTriggerDimension)[vs[1].(int)]
 	}).(EventTriggerDimensionOutput)
+}
+
+// Identifies a predicted intent by domain and type.
+type EventTriggerIntent struct {
+	// The domain of the intent.
+	IntentDomain EventTriggerIntentIntentDomain `pulumi:"intentDomain"`
+	// The type of the intent.
+	Type EventTriggerIntentType `pulumi:"type"`
+}
+
+// EventTriggerIntentInput is an input type that accepts EventTriggerIntentArgs and EventTriggerIntentOutput values.
+// You can construct a concrete instance of `EventTriggerIntentInput` via:
+//
+//	EventTriggerIntentArgs{...}
+type EventTriggerIntentInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentOutput() EventTriggerIntentOutput
+	ToEventTriggerIntentOutputWithContext(context.Context) EventTriggerIntentOutput
+}
+
+// Identifies a predicted intent by domain and type.
+type EventTriggerIntentArgs struct {
+	// The domain of the intent.
+	IntentDomain EventTriggerIntentIntentDomainInput `pulumi:"intentDomain"`
+	// The type of the intent.
+	Type EventTriggerIntentTypeInput `pulumi:"type"`
+}
+
+func (EventTriggerIntentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntent)(nil)).Elem()
+}
+
+func (i EventTriggerIntentArgs) ToEventTriggerIntentOutput() EventTriggerIntentOutput {
+	return i.ToEventTriggerIntentOutputWithContext(context.Background())
+}
+
+func (i EventTriggerIntentArgs) ToEventTriggerIntentOutputWithContext(ctx context.Context) EventTriggerIntentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerIntentOutput)
+}
+
+// Identifies a predicted intent by domain and type.
+type EventTriggerIntentOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntent)(nil)).Elem()
+}
+
+func (o EventTriggerIntentOutput) ToEventTriggerIntentOutput() EventTriggerIntentOutput {
+	return o
+}
+
+func (o EventTriggerIntentOutput) ToEventTriggerIntentOutputWithContext(ctx context.Context) EventTriggerIntentOutput {
+	return o
+}
+
+// The domain of the intent.
+func (o EventTriggerIntentOutput) IntentDomain() EventTriggerIntentIntentDomainOutput {
+	return o.ApplyT(func(v EventTriggerIntent) EventTriggerIntentIntentDomain { return v.IntentDomain }).(EventTriggerIntentIntentDomainOutput)
+}
+
+// The type of the intent.
+func (o EventTriggerIntentOutput) Type() EventTriggerIntentTypeOutput {
+	return o.ApplyT(func(v EventTriggerIntent) EventTriggerIntentType { return v.Type }).(EventTriggerIntentTypeOutput)
+}
+
+// The criteria that a predicted intent must meet.
+type EventTriggerIntentFilterCondition struct {
+	// The operator used to compare the predicted intent against a list of values.
+	ComparisonOperator EventTriggerIntentFilterConditionComparisonOperator `pulumi:"comparisonOperator"`
+	Intent             EventTriggerIntent                                  `pulumi:"intent"`
+	// A list of intent values used for comparison.
+	Values []string `pulumi:"values"`
+}
+
+// EventTriggerIntentFilterConditionInput is an input type that accepts EventTriggerIntentFilterConditionArgs and EventTriggerIntentFilterConditionOutput values.
+// You can construct a concrete instance of `EventTriggerIntentFilterConditionInput` via:
+//
+//	EventTriggerIntentFilterConditionArgs{...}
+type EventTriggerIntentFilterConditionInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentFilterConditionOutput() EventTriggerIntentFilterConditionOutput
+	ToEventTriggerIntentFilterConditionOutputWithContext(context.Context) EventTriggerIntentFilterConditionOutput
+}
+
+// The criteria that a predicted intent must meet.
+type EventTriggerIntentFilterConditionArgs struct {
+	// The operator used to compare the predicted intent against a list of values.
+	ComparisonOperator EventTriggerIntentFilterConditionComparisonOperatorInput `pulumi:"comparisonOperator"`
+	Intent             EventTriggerIntentInput                                  `pulumi:"intent"`
+	// A list of intent values used for comparison.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (EventTriggerIntentFilterConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentFilterCondition)(nil)).Elem()
+}
+
+func (i EventTriggerIntentFilterConditionArgs) ToEventTriggerIntentFilterConditionOutput() EventTriggerIntentFilterConditionOutput {
+	return i.ToEventTriggerIntentFilterConditionOutputWithContext(context.Background())
+}
+
+func (i EventTriggerIntentFilterConditionArgs) ToEventTriggerIntentFilterConditionOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerIntentFilterConditionOutput)
+}
+
+// EventTriggerIntentFilterConditionArrayInput is an input type that accepts EventTriggerIntentFilterConditionArray and EventTriggerIntentFilterConditionArrayOutput values.
+// You can construct a concrete instance of `EventTriggerIntentFilterConditionArrayInput` via:
+//
+//	EventTriggerIntentFilterConditionArray{ EventTriggerIntentFilterConditionArgs{...} }
+type EventTriggerIntentFilterConditionArrayInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentFilterConditionArrayOutput() EventTriggerIntentFilterConditionArrayOutput
+	ToEventTriggerIntentFilterConditionArrayOutputWithContext(context.Context) EventTriggerIntentFilterConditionArrayOutput
+}
+
+type EventTriggerIntentFilterConditionArray []EventTriggerIntentFilterConditionInput
+
+func (EventTriggerIntentFilterConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerIntentFilterCondition)(nil)).Elem()
+}
+
+func (i EventTriggerIntentFilterConditionArray) ToEventTriggerIntentFilterConditionArrayOutput() EventTriggerIntentFilterConditionArrayOutput {
+	return i.ToEventTriggerIntentFilterConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EventTriggerIntentFilterConditionArray) ToEventTriggerIntentFilterConditionArrayOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerIntentFilterConditionArrayOutput)
+}
+
+// The criteria that a predicted intent must meet.
+type EventTriggerIntentFilterConditionOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentFilterConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentFilterCondition)(nil)).Elem()
+}
+
+func (o EventTriggerIntentFilterConditionOutput) ToEventTriggerIntentFilterConditionOutput() EventTriggerIntentFilterConditionOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterConditionOutput) ToEventTriggerIntentFilterConditionOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionOutput {
+	return o
+}
+
+// The operator used to compare the predicted intent against a list of values.
+func (o EventTriggerIntentFilterConditionOutput) ComparisonOperator() EventTriggerIntentFilterConditionComparisonOperatorOutput {
+	return o.ApplyT(func(v EventTriggerIntentFilterCondition) EventTriggerIntentFilterConditionComparisonOperator {
+		return v.ComparisonOperator
+	}).(EventTriggerIntentFilterConditionComparisonOperatorOutput)
+}
+
+func (o EventTriggerIntentFilterConditionOutput) Intent() EventTriggerIntentOutput {
+	return o.ApplyT(func(v EventTriggerIntentFilterCondition) EventTriggerIntent { return v.Intent }).(EventTriggerIntentOutput)
+}
+
+// A list of intent values used for comparison.
+func (o EventTriggerIntentFilterConditionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventTriggerIntentFilterCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type EventTriggerIntentFilterConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentFilterConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerIntentFilterCondition)(nil)).Elem()
+}
+
+func (o EventTriggerIntentFilterConditionArrayOutput) ToEventTriggerIntentFilterConditionArrayOutput() EventTriggerIntentFilterConditionArrayOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterConditionArrayOutput) ToEventTriggerIntentFilterConditionArrayOutputWithContext(ctx context.Context) EventTriggerIntentFilterConditionArrayOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterConditionArrayOutput) Index(i pulumi.IntInput) EventTriggerIntentFilterConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTriggerIntentFilterCondition {
+		return vs[0].([]EventTriggerIntentFilterCondition)[vs[1].(int)]
+	}).(EventTriggerIntentFilterConditionOutput)
+}
+
+// Filters the destination to profiles whose predicted intents meet the specified conditions.
+type EventTriggerIntentFilterDefinition struct {
+	Groups          []EventTriggerIntentFilterGroup `pulumi:"groups"`
+	LogicalOperator EventTriggerLogicalOperator     `pulumi:"logicalOperator"`
+}
+
+// EventTriggerIntentFilterDefinitionInput is an input type that accepts EventTriggerIntentFilterDefinitionArgs and EventTriggerIntentFilterDefinitionOutput values.
+// You can construct a concrete instance of `EventTriggerIntentFilterDefinitionInput` via:
+//
+//	EventTriggerIntentFilterDefinitionArgs{...}
+type EventTriggerIntentFilterDefinitionInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentFilterDefinitionOutput() EventTriggerIntentFilterDefinitionOutput
+	ToEventTriggerIntentFilterDefinitionOutputWithContext(context.Context) EventTriggerIntentFilterDefinitionOutput
+}
+
+// Filters the destination to profiles whose predicted intents meet the specified conditions.
+type EventTriggerIntentFilterDefinitionArgs struct {
+	Groups          EventTriggerIntentFilterGroupArrayInput `pulumi:"groups"`
+	LogicalOperator EventTriggerLogicalOperatorInput        `pulumi:"logicalOperator"`
+}
+
+func (EventTriggerIntentFilterDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentFilterDefinition)(nil)).Elem()
+}
+
+func (i EventTriggerIntentFilterDefinitionArgs) ToEventTriggerIntentFilterDefinitionOutput() EventTriggerIntentFilterDefinitionOutput {
+	return i.ToEventTriggerIntentFilterDefinitionOutputWithContext(context.Background())
+}
+
+func (i EventTriggerIntentFilterDefinitionArgs) ToEventTriggerIntentFilterDefinitionOutputWithContext(ctx context.Context) EventTriggerIntentFilterDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerIntentFilterDefinitionOutput)
+}
+
+func (i EventTriggerIntentFilterDefinitionArgs) ToEventTriggerIntentFilterDefinitionPtrOutput() EventTriggerIntentFilterDefinitionPtrOutput {
+	return i.ToEventTriggerIntentFilterDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i EventTriggerIntentFilterDefinitionArgs) ToEventTriggerIntentFilterDefinitionPtrOutputWithContext(ctx context.Context) EventTriggerIntentFilterDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerIntentFilterDefinitionOutput).ToEventTriggerIntentFilterDefinitionPtrOutputWithContext(ctx)
+}
+
+// EventTriggerIntentFilterDefinitionPtrInput is an input type that accepts EventTriggerIntentFilterDefinitionArgs, EventTriggerIntentFilterDefinitionPtr and EventTriggerIntentFilterDefinitionPtrOutput values.
+// You can construct a concrete instance of `EventTriggerIntentFilterDefinitionPtrInput` via:
+//
+//	        EventTriggerIntentFilterDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventTriggerIntentFilterDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentFilterDefinitionPtrOutput() EventTriggerIntentFilterDefinitionPtrOutput
+	ToEventTriggerIntentFilterDefinitionPtrOutputWithContext(context.Context) EventTriggerIntentFilterDefinitionPtrOutput
+}
+
+type eventTriggerIntentFilterDefinitionPtrType EventTriggerIntentFilterDefinitionArgs
+
+func EventTriggerIntentFilterDefinitionPtr(v *EventTriggerIntentFilterDefinitionArgs) EventTriggerIntentFilterDefinitionPtrInput {
+	return (*eventTriggerIntentFilterDefinitionPtrType)(v)
+}
+
+func (*eventTriggerIntentFilterDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerIntentFilterDefinition)(nil)).Elem()
+}
+
+func (i *eventTriggerIntentFilterDefinitionPtrType) ToEventTriggerIntentFilterDefinitionPtrOutput() EventTriggerIntentFilterDefinitionPtrOutput {
+	return i.ToEventTriggerIntentFilterDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTriggerIntentFilterDefinitionPtrType) ToEventTriggerIntentFilterDefinitionPtrOutputWithContext(ctx context.Context) EventTriggerIntentFilterDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerIntentFilterDefinitionPtrOutput)
+}
+
+// Filters the destination to profiles whose predicted intents meet the specified conditions.
+type EventTriggerIntentFilterDefinitionOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentFilterDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentFilterDefinition)(nil)).Elem()
+}
+
+func (o EventTriggerIntentFilterDefinitionOutput) ToEventTriggerIntentFilterDefinitionOutput() EventTriggerIntentFilterDefinitionOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterDefinitionOutput) ToEventTriggerIntentFilterDefinitionOutputWithContext(ctx context.Context) EventTriggerIntentFilterDefinitionOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterDefinitionOutput) ToEventTriggerIntentFilterDefinitionPtrOutput() EventTriggerIntentFilterDefinitionPtrOutput {
+	return o.ToEventTriggerIntentFilterDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerIntentFilterDefinitionOutput) ToEventTriggerIntentFilterDefinitionPtrOutputWithContext(ctx context.Context) EventTriggerIntentFilterDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTriggerIntentFilterDefinition) *EventTriggerIntentFilterDefinition {
+		return &v
+	}).(EventTriggerIntentFilterDefinitionPtrOutput)
+}
+
+func (o EventTriggerIntentFilterDefinitionOutput) Groups() EventTriggerIntentFilterGroupArrayOutput {
+	return o.ApplyT(func(v EventTriggerIntentFilterDefinition) []EventTriggerIntentFilterGroup { return v.Groups }).(EventTriggerIntentFilterGroupArrayOutput)
+}
+
+func (o EventTriggerIntentFilterDefinitionOutput) LogicalOperator() EventTriggerLogicalOperatorOutput {
+	return o.ApplyT(func(v EventTriggerIntentFilterDefinition) EventTriggerLogicalOperator { return v.LogicalOperator }).(EventTriggerLogicalOperatorOutput)
+}
+
+type EventTriggerIntentFilterDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentFilterDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerIntentFilterDefinition)(nil)).Elem()
+}
+
+func (o EventTriggerIntentFilterDefinitionPtrOutput) ToEventTriggerIntentFilterDefinitionPtrOutput() EventTriggerIntentFilterDefinitionPtrOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterDefinitionPtrOutput) ToEventTriggerIntentFilterDefinitionPtrOutputWithContext(ctx context.Context) EventTriggerIntentFilterDefinitionPtrOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterDefinitionPtrOutput) Elem() EventTriggerIntentFilterDefinitionOutput {
+	return o.ApplyT(func(v *EventTriggerIntentFilterDefinition) EventTriggerIntentFilterDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret EventTriggerIntentFilterDefinition
+		return ret
+	}).(EventTriggerIntentFilterDefinitionOutput)
+}
+
+func (o EventTriggerIntentFilterDefinitionPtrOutput) Groups() EventTriggerIntentFilterGroupArrayOutput {
+	return o.ApplyT(func(v *EventTriggerIntentFilterDefinition) []EventTriggerIntentFilterGroup {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(EventTriggerIntentFilterGroupArrayOutput)
+}
+
+func (o EventTriggerIntentFilterDefinitionPtrOutput) LogicalOperator() EventTriggerLogicalOperatorPtrOutput {
+	return o.ApplyT(func(v *EventTriggerIntentFilterDefinition) *EventTriggerLogicalOperator {
+		if v == nil {
+			return nil
+		}
+		return &v.LogicalOperator
+	}).(EventTriggerLogicalOperatorPtrOutput)
+}
+
+// A group of intent filter conditions combined by the group's logical operator.
+type EventTriggerIntentFilterGroup struct {
+	Conditions      []EventTriggerIntentFilterCondition `pulumi:"conditions"`
+	LogicalOperator EventTriggerLogicalOperator         `pulumi:"logicalOperator"`
+}
+
+// EventTriggerIntentFilterGroupInput is an input type that accepts EventTriggerIntentFilterGroupArgs and EventTriggerIntentFilterGroupOutput values.
+// You can construct a concrete instance of `EventTriggerIntentFilterGroupInput` via:
+//
+//	EventTriggerIntentFilterGroupArgs{...}
+type EventTriggerIntentFilterGroupInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentFilterGroupOutput() EventTriggerIntentFilterGroupOutput
+	ToEventTriggerIntentFilterGroupOutputWithContext(context.Context) EventTriggerIntentFilterGroupOutput
+}
+
+// A group of intent filter conditions combined by the group's logical operator.
+type EventTriggerIntentFilterGroupArgs struct {
+	Conditions      EventTriggerIntentFilterConditionArrayInput `pulumi:"conditions"`
+	LogicalOperator EventTriggerLogicalOperatorInput            `pulumi:"logicalOperator"`
+}
+
+func (EventTriggerIntentFilterGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentFilterGroup)(nil)).Elem()
+}
+
+func (i EventTriggerIntentFilterGroupArgs) ToEventTriggerIntentFilterGroupOutput() EventTriggerIntentFilterGroupOutput {
+	return i.ToEventTriggerIntentFilterGroupOutputWithContext(context.Background())
+}
+
+func (i EventTriggerIntentFilterGroupArgs) ToEventTriggerIntentFilterGroupOutputWithContext(ctx context.Context) EventTriggerIntentFilterGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerIntentFilterGroupOutput)
+}
+
+// EventTriggerIntentFilterGroupArrayInput is an input type that accepts EventTriggerIntentFilterGroupArray and EventTriggerIntentFilterGroupArrayOutput values.
+// You can construct a concrete instance of `EventTriggerIntentFilterGroupArrayInput` via:
+//
+//	EventTriggerIntentFilterGroupArray{ EventTriggerIntentFilterGroupArgs{...} }
+type EventTriggerIntentFilterGroupArrayInput interface {
+	pulumi.Input
+
+	ToEventTriggerIntentFilterGroupArrayOutput() EventTriggerIntentFilterGroupArrayOutput
+	ToEventTriggerIntentFilterGroupArrayOutputWithContext(context.Context) EventTriggerIntentFilterGroupArrayOutput
+}
+
+type EventTriggerIntentFilterGroupArray []EventTriggerIntentFilterGroupInput
+
+func (EventTriggerIntentFilterGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerIntentFilterGroup)(nil)).Elem()
+}
+
+func (i EventTriggerIntentFilterGroupArray) ToEventTriggerIntentFilterGroupArrayOutput() EventTriggerIntentFilterGroupArrayOutput {
+	return i.ToEventTriggerIntentFilterGroupArrayOutputWithContext(context.Background())
+}
+
+func (i EventTriggerIntentFilterGroupArray) ToEventTriggerIntentFilterGroupArrayOutputWithContext(ctx context.Context) EventTriggerIntentFilterGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerIntentFilterGroupArrayOutput)
+}
+
+// A group of intent filter conditions combined by the group's logical operator.
+type EventTriggerIntentFilterGroupOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentFilterGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerIntentFilterGroup)(nil)).Elem()
+}
+
+func (o EventTriggerIntentFilterGroupOutput) ToEventTriggerIntentFilterGroupOutput() EventTriggerIntentFilterGroupOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterGroupOutput) ToEventTriggerIntentFilterGroupOutputWithContext(ctx context.Context) EventTriggerIntentFilterGroupOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterGroupOutput) Conditions() EventTriggerIntentFilterConditionArrayOutput {
+	return o.ApplyT(func(v EventTriggerIntentFilterGroup) []EventTriggerIntentFilterCondition { return v.Conditions }).(EventTriggerIntentFilterConditionArrayOutput)
+}
+
+func (o EventTriggerIntentFilterGroupOutput) LogicalOperator() EventTriggerLogicalOperatorOutput {
+	return o.ApplyT(func(v EventTriggerIntentFilterGroup) EventTriggerLogicalOperator { return v.LogicalOperator }).(EventTriggerLogicalOperatorOutput)
+}
+
+type EventTriggerIntentFilterGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerIntentFilterGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerIntentFilterGroup)(nil)).Elem()
+}
+
+func (o EventTriggerIntentFilterGroupArrayOutput) ToEventTriggerIntentFilterGroupArrayOutput() EventTriggerIntentFilterGroupArrayOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterGroupArrayOutput) ToEventTriggerIntentFilterGroupArrayOutputWithContext(ctx context.Context) EventTriggerIntentFilterGroupArrayOutput {
+	return o
+}
+
+func (o EventTriggerIntentFilterGroupArrayOutput) Index(i pulumi.IntInput) EventTriggerIntentFilterGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTriggerIntentFilterGroup {
+		return vs[0].([]EventTriggerIntentFilterGroup)[vs[1].(int)]
+	}).(EventTriggerIntentFilterGroupOutput)
 }
 
 // Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
@@ -10352,6 +10743,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerConditionArrayInput)(nil)).Elem(), EventTriggerConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerDimensionInput)(nil)).Elem(), EventTriggerDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerDimensionArrayInput)(nil)).Elem(), EventTriggerDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentInput)(nil)).Elem(), EventTriggerIntentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentFilterConditionInput)(nil)).Elem(), EventTriggerIntentFilterConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentFilterConditionArrayInput)(nil)).Elem(), EventTriggerIntentFilterConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentFilterDefinitionInput)(nil)).Elem(), EventTriggerIntentFilterDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentFilterDefinitionPtrInput)(nil)).Elem(), EventTriggerIntentFilterDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentFilterGroupInput)(nil)).Elem(), EventTriggerIntentFilterGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerIntentFilterGroupArrayInput)(nil)).Elem(), EventTriggerIntentFilterGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLimitsInput)(nil)).Elem(), EventTriggerLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLimitsPtrInput)(nil)).Elem(), EventTriggerLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerObjectAttributeInput)(nil)).Elem(), EventTriggerObjectAttributeArgs{})
@@ -10439,7 +10837,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSourceSegmentArrayInput)(nil)).Elem(), SegmentDefinitionSourceSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderSchemaFieldArrayMapInput)(nil)).Elem(), RecommenderSchemaFieldArrayMap{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeDetailsOutput{})
-	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeItemOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeItemArrayOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionConditionsOutput{})
@@ -10486,6 +10883,13 @@ func init() {
 	pulumi.RegisterOutputType(EventTriggerConditionArrayOutput{})
 	pulumi.RegisterOutputType(EventTriggerDimensionOutput{})
 	pulumi.RegisterOutputType(EventTriggerDimensionArrayOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentFilterConditionOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentFilterConditionArrayOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentFilterDefinitionOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentFilterDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentFilterGroupOutput{})
+	pulumi.RegisterOutputType(EventTriggerIntentFilterGroupArrayOutput{})
 	pulumi.RegisterOutputType(EventTriggerLimitsOutput{})
 	pulumi.RegisterOutputType(EventTriggerLimitsPtrOutput{})
 	pulumi.RegisterOutputType(EventTriggerObjectAttributeOutput{})

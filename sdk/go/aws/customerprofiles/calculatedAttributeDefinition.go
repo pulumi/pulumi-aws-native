@@ -64,10 +64,12 @@ func NewCalculatedAttributeDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Statistic'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"attributeDetails",
 		"calculatedAttributeName",
 		"conditions.range.timestampFormat",
 		"conditions.range.timestampSource",
 		"domainName",
+		"statistic",
 		"useHistoricalData",
 	})
 	opts = append(opts, replaceOnChanges)

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.CloudWatch
     public static class GetOmniDashboard
     {
         /// <summary>
-        /// Resource type definition for AWS::CloudWatch::OmniDashboard
+        /// Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
         /// </summary>
         public static Task<GetOmniDashboardResult> InvokeAsync(GetOmniDashboardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOmniDashboardResult>("aws-native:cloudwatch:getOmniDashboard", args ?? new GetOmniDashboardArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::CloudWatch::OmniDashboard
+        /// Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
         /// </summary>
         public static Output<GetOmniDashboardResult> Invoke(GetOmniDashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOmniDashboardResult>("aws-native:cloudwatch:getOmniDashboard", args ?? new GetOmniDashboardInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::CloudWatch::OmniDashboard
+        /// Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
         /// </summary>
         public static Output<GetOmniDashboardResult> Invoke(GetOmniDashboardInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOmniDashboardResult>("aws-native:cloudwatch:getOmniDashboard", args ?? new GetOmniDashboardInvokeArgs(), options.WithDefaults());
@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetOmniDashboardArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the dashboard.
+        /// The unique ID of the dashboard.
         /// </summary>
         [Input("dashboardId", required: true)]
         public string DashboardId { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the space the dashboard belongs to.
+        /// The unique ID of the space to create the dashboard in.
         /// </summary>
         [Input("spaceId", required: true)]
         public string SpaceId { get; set; } = null!;
@@ -54,13 +54,13 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetOmniDashboardInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the dashboard.
+        /// The unique ID of the dashboard.
         /// </summary>
         [Input("dashboardId", required: true)]
         public Input<string> DashboardId { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the space the dashboard belongs to.
+        /// The unique ID of the space to create the dashboard in.
         /// </summary>
         [Input("spaceId", required: true)]
         public Input<string> SpaceId { get; set; } = null!;
@@ -80,11 +80,11 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The dashboard body, a JSON document describing the dashboard's widgets and layout.
+        /// The dashboard definition.
         /// </summary>
         public readonly string? Body;
         /// <summary>
-        /// The time the dashboard was created.
+        /// The timestamp when the dashboard was created.
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
@@ -92,15 +92,15 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public readonly string? CreatedBy;
         /// <summary>
-        /// The unique identifier of the dashboard.
+        /// The unique ID of the dashboard.
         /// </summary>
         public readonly string? DashboardId;
         /// <summary>
-        /// The description of the dashboard.
+        /// An optional description of the dashboard.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The name of the dashboard.
+        /// A name that identifies the dashboard.
         /// </summary>
         public readonly string? Name;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The time the dashboard was last updated.
+        /// The timestamp when the dashboard was last updated.
         /// </summary>
         public readonly string? UpdatedAt;
 

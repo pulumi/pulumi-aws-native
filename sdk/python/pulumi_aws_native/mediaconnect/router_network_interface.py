@@ -32,7 +32,7 @@ class RouterNetworkInterfaceArgs:
         The set of arguments for constructing a RouterNetworkInterface resource.
 
         :param pulumi.Input[_builtins.str] name: The name of the router network interface.
-        :param pulumi.Input[_builtins.str] region_name: The AWS Region for the router network interface. Defaults to the current region if not specified.
+        :param pulumi.Input[_builtins.str] region_name: The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to tag and organize this router network interface.
         """
         pulumi.set(__self__, "configuration", configuration)
@@ -68,7 +68,7 @@ class RouterNetworkInterfaceArgs:
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS Region for the router network interface. Defaults to the current region if not specified.
+        The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
         """
         return pulumi.get(self, "region_name")
 
@@ -106,7 +106,7 @@ class RouterNetworkInterface(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the router network interface.
-        :param pulumi.Input[_builtins.str] region_name: The AWS Region for the router network interface. Defaults to the current region if not specified.
+        :param pulumi.Input[_builtins.str] region_name: The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this router network interface.
         """
         ...
@@ -263,7 +263,7 @@ class RouterNetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The AWS Region for the router network interface. Defaults to the current region if not specified.
+        The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
         """
         return pulumi.get(self, "region_name")
 

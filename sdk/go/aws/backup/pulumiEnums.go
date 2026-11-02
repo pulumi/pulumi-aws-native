@@ -10,6 +10,102 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The current status of the backup access point.
+type BackupAccessPointStatus string
+
+const (
+	BackupAccessPointStatusAvailable      = BackupAccessPointStatus("AVAILABLE")
+	BackupAccessPointStatusCreating       = BackupAccessPointStatus("CREATING")
+	BackupAccessPointStatusDeleting       = BackupAccessPointStatus("DELETING")
+	BackupAccessPointStatusDisassociated  = BackupAccessPointStatus("DISASSOCIATED")
+	BackupAccessPointStatusDisassociating = BackupAccessPointStatus("DISASSOCIATING")
+	BackupAccessPointStatusExpired        = BackupAccessPointStatus("EXPIRED")
+	BackupAccessPointStatusFailed         = BackupAccessPointStatus("FAILED")
+)
+
+type BackupAccessPointStatusOutput struct{ *pulumi.OutputState }
+
+func (BackupAccessPointStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupAccessPointStatus)(nil)).Elem()
+}
+
+func (o BackupAccessPointStatusOutput) ToBackupAccessPointStatusOutput() BackupAccessPointStatusOutput {
+	return o
+}
+
+func (o BackupAccessPointStatusOutput) ToBackupAccessPointStatusOutputWithContext(ctx context.Context) BackupAccessPointStatusOutput {
+	return o
+}
+
+func (o BackupAccessPointStatusOutput) ToBackupAccessPointStatusPtrOutput() BackupAccessPointStatusPtrOutput {
+	return o.ToBackupAccessPointStatusPtrOutputWithContext(context.Background())
+}
+
+func (o BackupAccessPointStatusOutput) ToBackupAccessPointStatusPtrOutputWithContext(ctx context.Context) BackupAccessPointStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupAccessPointStatus) *BackupAccessPointStatus {
+		return &v
+	}).(BackupAccessPointStatusPtrOutput)
+}
+
+func (o BackupAccessPointStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BackupAccessPointStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupAccessPointStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BackupAccessPointStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupAccessPointStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupAccessPointStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupAccessPointStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (BackupAccessPointStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupAccessPointStatus)(nil)).Elem()
+}
+
+func (o BackupAccessPointStatusPtrOutput) ToBackupAccessPointStatusPtrOutput() BackupAccessPointStatusPtrOutput {
+	return o
+}
+
+func (o BackupAccessPointStatusPtrOutput) ToBackupAccessPointStatusPtrOutputWithContext(ctx context.Context) BackupAccessPointStatusPtrOutput {
+	return o
+}
+
+func (o BackupAccessPointStatusPtrOutput) Elem() BackupAccessPointStatusOutput {
+	return o.ApplyT(func(v *BackupAccessPointStatus) BackupAccessPointStatus {
+		if v != nil {
+			return *v
+		}
+		var ret BackupAccessPointStatus
+		return ret
+	}).(BackupAccessPointStatusOutput)
+}
+
+func (o BackupAccessPointStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupAccessPointStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackupAccessPointStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type BackupPlanMalwareScanner string
 
 const (
@@ -816,6 +912,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointTypeInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointType("SNAPSHOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointTypePtrInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointType("SNAPSHOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointTypeArray{})
+	pulumi.RegisterOutputType(BackupAccessPointStatusOutput{})
+	pulumi.RegisterOutputType(BackupAccessPointStatusPtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanMalwareScannerOutput{})
 	pulumi.RegisterOutputType(BackupPlanMalwareScannerPtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanScanModeOutput{})

@@ -296,7 +296,7 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "profile:TagResource", "profile:UntagResource", "profile:ListTagsForResource" ]
   },
-  "createOnlyProperties" : [ "/properties/DomainName", "/properties/CalculatedAttributeName", "/properties/UseHistoricalData", "/properties/Conditions/Range/TimestampSource", "/properties/Conditions/Range/TimestampFormat" ],
+  "createOnlyProperties" : [ "/properties/DomainName", "/properties/CalculatedAttributeName", "/properties/Statistic", "/properties/AttributeDetails", "/properties/UseHistoricalData", "/properties/Conditions/Range/TimestampSource", "/properties/Conditions/Range/TimestampFormat" ],
   "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/LastUpdatedAt", "/properties/Status", "/properties/Readiness" ],
   "primaryIdentifier" : [ "/properties/DomainName", "/properties/CalculatedAttributeName" ],
   "handlers" : {

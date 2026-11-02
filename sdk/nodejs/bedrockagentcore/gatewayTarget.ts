@@ -38,6 +38,7 @@ export class GatewayTarget extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly authorizationData: pulumi.Output<outputs.bedrockagentcore.GatewayTargetAuthorizationDataProperties>;
+    declare public readonly certificateConfigurations: pulumi.Output<(outputs.bedrockagentcore.GatewayTargetCertificateConfiguration0Properties | outputs.bedrockagentcore.GatewayTargetCertificateConfiguration1Properties)[] | undefined>;
     /**
      * The date and time at which the gateway target was created.
      */
@@ -99,6 +100,7 @@ export class GatewayTarget extends pulumi.CustomResource {
             if (args?.targetConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetConfiguration'");
             }
+            resourceInputs["certificateConfigurations"] = args?.certificateConfigurations;
             resourceInputs["credentialProviderConfigurations"] = args?.credentialProviderConfigurations;
             resourceInputs["description"] = args?.description;
             resourceInputs["gatewayIdentifier"] = args?.gatewayIdentifier;
@@ -118,6 +120,7 @@ export class GatewayTarget extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["authorizationData"] = undefined /*out*/;
+            resourceInputs["certificateConfigurations"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["credentialProviderConfigurations"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -146,6 +149,7 @@ export class GatewayTarget extends pulumi.CustomResource {
  * The set of arguments for constructing a GatewayTarget resource.
  */
 export interface GatewayTargetArgs {
+    certificateConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayTargetCertificateConfiguration0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetCertificateConfiguration1PropertiesArgs>[] | undefined>;
     /**
      * The OAuth credential provider configuration.
      */

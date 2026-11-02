@@ -571,7 +571,7 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    Resource Type definition for AWS::Redshift::Cluster
 
     :param _builtins.str cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
     """
@@ -627,7 +627,7 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
 def get_cluster_output(cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    Resource Type definition for AWS::Redshift::Cluster
 
     :param _builtins.str cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
     """

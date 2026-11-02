@@ -137,6 +137,7 @@ AWS::B2BI::Transformer
 AWS::BCM::Dashboard
 AWS::BCM::ScheduledReport
 AWS::BCMDataExports::Export
+AWS::Backup::BackupAccessPoint
 AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
 AWS::Backup::BackupVault
@@ -287,11 +288,14 @@ AWS::CloudTrail::Dashboard
 AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::ResourcePolicy
 AWS::CloudTrail::Trail
+AWS::CloudWatch::AccessGrant
 AWS::CloudWatch::AccessProfile
 AWS::CloudWatch::Alarm
 AWS::CloudWatch::AlarmMuteRule
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::Dashboard
+AWS::CloudWatch::Domain
+AWS::CloudWatch::DomainAccessGrantForOrganization
 AWS::CloudWatch::DomainForOrganization
 AWS::CloudWatch::InsightRule
 AWS::CloudWatch::Integration
@@ -300,6 +304,7 @@ AWS::CloudWatch::MetricStream
 AWS::CloudWatch::OTelEnrichment
 AWS::CloudWatch::OmniDashboard
 AWS::CloudWatch::ResourceMetricsConfiguration
+AWS::CloudWatch::Space
 AWS::CloudWatch::View
 AWS::CodeArtifact::Domain
 AWS::CodeArtifact::PackageGroup
@@ -586,6 +591,7 @@ AWS::EC2::SecurityGroup
 AWS::EC2::SecurityGroupEgress
 AWS::EC2::SecurityGroupIngress
 AWS::EC2::SecurityGroupVpcAssociation
+AWS::EC2::Snapshot
 AWS::EC2::SnapshotBlockPublicAccess
 AWS::EC2::SpotFleet
 AWS::EC2::SqlHaStandbyDetectedInstance
@@ -1038,9 +1044,12 @@ AWS::LookoutVision::Project
 AWS::M2::Application
 AWS::M2::Deployment
 AWS::M2::Environment
+AWS::MGN::Application
 AWS::MGN::Connector
 AWS::MGN::LaunchConfigurationTemplate
 AWS::MGN::NetworkMigrationDefinition
+AWS::MGN::ReplicationConfigurationTemplate
+AWS::MGN::Wave
 AWS::MSK::BatchScramSecret
 AWS::MSK::Channel
 AWS::MSK::Cluster
@@ -1060,6 +1069,7 @@ AWS::Macie::Session
 AWS::MediaConnect::Bridge
 AWS::MediaConnect::BridgeOutput
 AWS::MediaConnect::BridgeSource
+AWS::MediaConnect::DestinationEndpoint
 AWS::MediaConnect::Flow
 AWS::MediaConnect::FlowEntitlement
 AWS::MediaConnect::FlowMediaStream
@@ -1070,6 +1080,7 @@ AWS::MediaConnect::Gateway
 AWS::MediaConnect::RouterInput
 AWS::MediaConnect::RouterNetworkInterface
 AWS::MediaConnect::RouterOutput
+AWS::MediaConnect::SourceEndpoint
 AWS::MediaConvert::CertificateAssociation
 AWS::MediaConvert::JobTemplate
 AWS::MediaConvert::Preset
@@ -1152,6 +1163,10 @@ AWS::NetworkManager::TransitGatewayRouteTableAttachment
 AWS::NetworkManager::VpcAttachment
 AWS::NetworkMonitor::Monitor
 AWS::NetworkMonitor::Probe
+AWS::NetworkSecurityManager::Policy
+AWS::NetworkSecurityManager::Rule
+AWS::NetworkSecurityManager::Scope
+AWS::NetworkSecurityManager::Template
 AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio
@@ -1222,6 +1237,7 @@ AWS::Personalize::DatasetGroup
 AWS::Personalize::EventTracker
 AWS::Personalize::Filter
 AWS::Personalize::MetricAttribution
+AWS::Personalize::Recommender
 AWS::Personalize::Schema
 AWS::Personalize::Solution
 AWS::Pinpoint::InAppTemplate
@@ -1782,6 +1798,7 @@ MongoDB::Atlas::CloudBackUpRestoreJobs
 MongoDB::Atlas::CloudBackupSchedule
 MongoDB::Atlas::CloudBackupSnapshot
 MongoDB::Atlas::CloudBackupSnapshotExportBucket
+MongoDB::Atlas::CloudProviderAccessSetup
 MongoDB::Atlas::Cluster
 MongoDB::Atlas::ClusterOutageSimulation
 MongoDB::Atlas::CustomDBRole

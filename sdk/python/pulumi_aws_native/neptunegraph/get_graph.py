@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetGraphResult:
-    def __init__(__self__, deletion_protection=None, endpoint=None, graph_arn=None, graph_id=None, provisioned_memory=None, public_connectivity=None, tags=None):
+    def __init__(__self__, create_time=None, deletion_protection=None, endpoint=None, graph_arn=None, graph_id=None, provisioned_memory=None, public_connectivity=None, status=None, tags=None):
+        if create_time and not isinstance(create_time, str):
+            raise TypeError("Expected argument 'create_time' to be a str")
+        pulumi.set(__self__, "create_time", create_time)
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -43,9 +46,20 @@ class GetGraphResult:
         if public_connectivity and not isinstance(public_connectivity, bool):
             raise TypeError("Expected argument 'public_connectivity' to be a bool")
         pulumi.set(__self__, "public_connectivity", public_connectivity)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> Optional[_builtins.str]:
+        """
+        The time at which the graph was created.
+        """
+        return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
@@ -105,6 +119,14 @@ class GetGraphResult:
 
     @_builtins.property
     @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The current status of the graph.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The tags associated with this graph.
@@ -118,12 +140,14 @@ class AwaitableGetGraphResult(GetGraphResult):
         if False:
             yield self
         return GetGraphResult(
+            create_time=self.create_time,
             deletion_protection=self.deletion_protection,
             endpoint=self.endpoint,
             graph_arn=self.graph_arn,
             graph_id=self.graph_id,
             provisioned_memory=self.provisioned_memory,
             public_connectivity=self.public_connectivity,
+            status=self.status,
             tags=self.tags)
 
 
@@ -140,12 +164,14 @@ def get_graph(graph_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:neptunegraph:getGraph', __args__, opts=opts, typ=GetGraphResult).value
 
     return AwaitableGetGraphResult(
+        create_time=pulumi.get(__ret__, 'create_time'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         graph_arn=pulumi.get(__ret__, 'graph_arn'),
         graph_id=pulumi.get(__ret__, 'graph_id'),
         provisioned_memory=pulumi.get(__ret__, 'provisioned_memory'),
         public_connectivity=pulumi.get(__ret__, 'public_connectivity'),
+        status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_graph_output(graph_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphResult]:
@@ -159,10 +185,12 @@ def get_graph_output(graph_id: pulumi.Input[Optional[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:neptunegraph:getGraph', __args__, opts=opts, typ=GetGraphResult)
     return __ret__.apply(lambda __response__: GetGraphResult(
+        create_time=pulumi.get(__response__, 'create_time'),
         deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         graph_arn=pulumi.get(__response__, 'graph_arn'),
         graph_id=pulumi.get(__response__, 'graph_id'),
         provisioned_memory=pulumi.get(__response__, 'provisioned_memory'),
         public_connectivity=pulumi.get(__response__, 'public_connectivity'),
+        status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

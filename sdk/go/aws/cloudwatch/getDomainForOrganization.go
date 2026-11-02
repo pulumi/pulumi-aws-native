@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+// Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
 func LookupDomainForOrganization(ctx *pulumi.Context, args *LookupDomainForOrganizationArgs, opts ...pulumi.InvokeOption) (*LookupDomainForOrganizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainForOrganizationResult
@@ -24,39 +24,40 @@ func LookupDomainForOrganization(ctx *pulumi.Context, args *LookupDomainForOrgan
 }
 
 type LookupDomainForOrganizationArgs struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// The Amazon Resource Name (ARN) of the organization domain.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupDomainForOrganizationResult struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// The Amazon Resource Name (ARN) of the organization domain.
 	Arn *string `pulumi:"arn"`
-	// The timestamp when the domain was created.
+	// The timestamp when the organization domain was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Additional endpoint URLs derived from the domain name.
 	CustomEndpointUrls []string `pulumi:"customEndpointUrls"`
-	// The HTTPS endpoint URL for accessing the domain.
+	// The HTTPS endpoint URL for accessing the organization domain.
 	DomainEndpointUrl *string `pulumi:"domainEndpointUrl"`
-	// The unique ID of the domain.
+	// The unique ID of the organization domain.
 	DomainId *string `pulumi:"domainId"`
 	// The ARN of the Identity Center application. Absent for IAM-only domains.
-	IdentityCenterApplicationArn  *string                                             `pulumi:"identityCenterApplicationArn"`
+	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
+	// Identity provider configuration for the organization domain.
 	IdentityProviderConfiguration *DomainForOrganizationIdentityProviderConfiguration `pulumi:"identityProviderConfiguration"`
-	// The identity providers configured for the domain.
+	// The identity providers configured for the organization domain.
 	IdentityProviders []DomainForOrganizationIdentityProvidersItem `pulumi:"identityProviders"`
-	// A name that identifies the domain.
+	// A name that identifies the organization domain.
 	Name *string `pulumi:"name"`
-	// The ID of the AWS Organization this domain belongs to.
+	// The ID of the AWS Organization that owns the domain.
 	OrganizationId *string `pulumi:"organizationId"`
-	// The account ID of the organization's management account, which owns this domain.
+	// The AWS account ID that owns the organization domain.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The Region where this domain was created.
+	// The Region where this organization domain was created.
 	Region *string `pulumi:"region"`
-	// Current status of the domain.
+	// Current status of the organization domain.
 	Status *DomainForOrganizationStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The timestamp when the domain was last updated.
+	// The timestamp when the organization domain was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
@@ -66,7 +67,7 @@ func LookupDomainForOrganizationOutput(ctx *pulumi.Context, args LookupDomainFor
 }
 
 type LookupDomainForOrganizationOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// The Amazon Resource Name (ARN) of the organization domain.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -88,12 +89,12 @@ func (o LookupDomainForOrganizationResultOutput) ToLookupDomainForOrganizationRe
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// The Amazon Resource Name (ARN) of the organization domain.
 func (o LookupDomainForOrganizationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp when the domain was created.
+// The timestamp when the organization domain was created.
 func (o LookupDomainForOrganizationResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -103,12 +104,12 @@ func (o LookupDomainForOrganizationResultOutput) CustomEndpointUrls() pulumi.Str
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) []string { return v.CustomEndpointUrls }).(pulumi.StringArrayOutput)
 }
 
-// The HTTPS endpoint URL for accessing the domain.
+// The HTTPS endpoint URL for accessing the organization domain.
 func (o LookupDomainForOrganizationResultOutput) DomainEndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.DomainEndpointUrl }).(pulumi.StringPtrOutput)
 }
 
-// The unique ID of the domain.
+// The unique ID of the organization domain.
 func (o LookupDomainForOrganizationResultOutput) DomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
@@ -118,40 +119,41 @@ func (o LookupDomainForOrganizationResultOutput) IdentityCenterApplicationArn() 
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.IdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// Identity provider configuration for the organization domain.
 func (o LookupDomainForOrganizationResultOutput) IdentityProviderConfiguration() DomainForOrganizationIdentityProviderConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *DomainForOrganizationIdentityProviderConfiguration {
 		return v.IdentityProviderConfiguration
 	}).(DomainForOrganizationIdentityProviderConfigurationPtrOutput)
 }
 
-// The identity providers configured for the domain.
+// The identity providers configured for the organization domain.
 func (o LookupDomainForOrganizationResultOutput) IdentityProviders() DomainForOrganizationIdentityProvidersItemArrayOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) []DomainForOrganizationIdentityProvidersItem {
 		return v.IdentityProviders
 	}).(DomainForOrganizationIdentityProvidersItemArrayOutput)
 }
 
-// A name that identifies the domain.
+// A name that identifies the organization domain.
 func (o LookupDomainForOrganizationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS Organization this domain belongs to.
+// The ID of the AWS Organization that owns the domain.
 func (o LookupDomainForOrganizationResultOutput) OrganizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.OrganizationId }).(pulumi.StringPtrOutput)
 }
 
-// The account ID of the organization's management account, which owns this domain.
+// The AWS account ID that owns the organization domain.
 func (o LookupDomainForOrganizationResultOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The Region where this domain was created.
+// The Region where this organization domain was created.
 func (o LookupDomainForOrganizationResultOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// Current status of the domain.
+// Current status of the organization domain.
 func (o LookupDomainForOrganizationResultOutput) Status() DomainForOrganizationStatusPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *DomainForOrganizationStatus { return v.Status }).(DomainForOrganizationStatusPtrOutput)
 }
@@ -161,7 +163,7 @@ func (o LookupDomainForOrganizationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The timestamp when the domain was last updated.
+// The timestamp when the organization domain was last updated.
 func (o LookupDomainForOrganizationResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainForOrganizationResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

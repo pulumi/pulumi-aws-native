@@ -58,6 +58,76 @@ export const BridgeStateEnum = {
 
 export type BridgeStateEnum = (typeof BridgeStateEnum)[keyof typeof BridgeStateEnum];
 
+export const DestinationEndpointConnectionState = {
+    Connected: "CONNECTED",
+    Disconnected: "DISCONNECTED",
+    Connecting: "CONNECTING",
+    Disconnecting: "DISCONNECTING",
+} as const;
+
+export type DestinationEndpointConnectionState = (typeof DestinationEndpointConnectionState)[keyof typeof DestinationEndpointConnectionState];
+
+export const DestinationEndpointEndpointLifecycle = {
+    Managed: "MANAGED",
+    Unmanaged: "UNMANAGED",
+} as const;
+
+export type DestinationEndpointEndpointLifecycle = (typeof DestinationEndpointEndpointLifecycle)[keyof typeof DestinationEndpointEndpointLifecycle];
+
+export const DestinationEndpointForwardErrorCorrectionState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DestinationEndpointForwardErrorCorrectionState = (typeof DestinationEndpointForwardErrorCorrectionState)[keyof typeof DestinationEndpointForwardErrorCorrectionState];
+
+export const DestinationEndpointNetworkingType = {
+    Public: "PUBLIC",
+    Vpc: "VPC",
+} as const;
+
+export type DestinationEndpointNetworkingType = (typeof DestinationEndpointNetworkingType)[keyof typeof DestinationEndpointNetworkingType];
+
+export const DestinationEndpointProtocol = {
+    Rtp: "RTP",
+    Rist: "RIST",
+    SrtCaller: "SRT_CALLER",
+    SrtListener: "SRT_LISTENER",
+} as const;
+
+export type DestinationEndpointProtocol = (typeof DestinationEndpointProtocol)[keyof typeof DestinationEndpointProtocol];
+
+export const DestinationEndpointRegistrationState = {
+    Registered: "REGISTERED",
+    Registering: "REGISTERING",
+    Deregistering: "DEREGISTERING",
+    RegistrationFailed: "REGISTRATION_FAILED",
+} as const;
+
+export type DestinationEndpointRegistrationState = (typeof DestinationEndpointRegistrationState)[keyof typeof DestinationEndpointRegistrationState];
+
+export const DestinationEndpointRouterInputState = {
+    Creating: "CREATING",
+    Standby: "STANDBY",
+    Starting: "STARTING",
+    Active: "ACTIVE",
+    Stopping: "STOPPING",
+    Deleting: "DELETING",
+    Updating: "UPDATING",
+    Error: "ERROR",
+    Recovering: "RECOVERING",
+    Migrating: "MIGRATING",
+} as const;
+
+export type DestinationEndpointRouterInputState = (typeof DestinationEndpointRouterInputState)[keyof typeof DestinationEndpointRouterInputState];
+
+export const DestinationEndpointType = {
+    Standard: "STANDARD",
+    RouterInput: "ROUTER_INPUT",
+} as const;
+
+export type DestinationEndpointType = (typeof DestinationEndpointType)[keyof typeof DestinationEndpointType];
+
 export const FlowBlackFramesState = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -562,6 +632,29 @@ export const RouterInputDay = {
 
 export type RouterInputDay = (typeof RouterInputDay)[keyof typeof RouterInputDay];
 
+export const RouterInputEndpointEncryptionSecretType = {
+    Aes128Key: "AES_128_KEY",
+    Aes192Key: "AES_192_KEY",
+    Aes256Key: "AES_256_KEY",
+    SrtPassphrase: "SRT_PASSPHRASE",
+} as const;
+
+export type RouterInputEndpointEncryptionSecretType = (typeof RouterInputEndpointEncryptionSecretType)[keyof typeof RouterInputEndpointEncryptionSecretType];
+
+export const RouterInputEndpointEncryptionType = {
+    SecretsManager: "SECRETS_MANAGER",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type RouterInputEndpointEncryptionType = (typeof RouterInputEndpointEncryptionType)[keyof typeof RouterInputEndpointEncryptionType];
+
+export const RouterInputEndpointLifecycle = {
+    Managed: "MANAGED",
+    Unmanaged: "UNMANAGED",
+} as const;
+
+export type RouterInputEndpointLifecycle = (typeof RouterInputEndpointLifecycle)[keyof typeof RouterInputEndpointLifecycle];
+
 export const RouterInputFailoverInputSourcePriorityMode = {
     NoPriority: "NO_PRIORITY",
     PrimarySecondary: "PRIMARY_SECONDARY",
@@ -645,6 +738,8 @@ export const RouterInputTier = {
     Input100: "INPUT_100",
     Input50: "INPUT_50",
     Input20: "INPUT_20",
+    Input500: "INPUT_500",
+    Input250: "INPUT_250",
 } as const;
 
 export type RouterInputTier = (typeof RouterInputTier)[keyof typeof RouterInputTier];
@@ -662,6 +757,7 @@ export const RouterInputType = {
     Merge: "MERGE",
     MediaconnectFlow: "MEDIACONNECT_FLOW",
     MedialiveChannel: "MEDIALIVE_CHANNEL",
+    DestinationEndpoint: "DESTINATION_ENDPOINT",
 } as const;
 
 export type RouterInputType = (typeof RouterInputType)[keyof typeof RouterInputType];
@@ -695,6 +791,29 @@ export const RouterOutputResourceDay = {
 } as const;
 
 export type RouterOutputResourceDay = (typeof RouterOutputResourceDay)[keyof typeof RouterOutputResourceDay];
+
+export const RouterOutputResourceEndpointEncryptionSecretType = {
+    Aes128Key: "AES_128_KEY",
+    Aes192Key: "AES_192_KEY",
+    Aes256Key: "AES_256_KEY",
+    SrtPassphrase: "SRT_PASSPHRASE",
+} as const;
+
+export type RouterOutputResourceEndpointEncryptionSecretType = (typeof RouterOutputResourceEndpointEncryptionSecretType)[keyof typeof RouterOutputResourceEndpointEncryptionSecretType];
+
+export const RouterOutputResourceEndpointEncryptionType = {
+    SecretsManager: "SECRETS_MANAGER",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type RouterOutputResourceEndpointEncryptionType = (typeof RouterOutputResourceEndpointEncryptionType)[keyof typeof RouterOutputResourceEndpointEncryptionType];
+
+export const RouterOutputResourceEndpointLifecycle = {
+    Managed: "MANAGED",
+    Unmanaged: "UNMANAGED",
+} as const;
+
+export type RouterOutputResourceEndpointLifecycle = (typeof RouterOutputResourceEndpointLifecycle)[keyof typeof RouterOutputResourceEndpointLifecycle];
 
 export const RouterOutputResourceFabricLatencyMode = {
     Balanced: "BALANCED",
@@ -775,6 +894,8 @@ export const RouterOutputResourceRouterOutputTier = {
     Output100: "OUTPUT_100",
     Output50: "OUTPUT_50",
     Output20: "OUTPUT_20",
+    Output500: "OUTPUT_500",
+    Output250: "OUTPUT_250",
 } as const;
 
 export type RouterOutputResourceRouterOutputTier = (typeof RouterOutputResourceRouterOutputTier)[keyof typeof RouterOutputResourceRouterOutputTier];
@@ -783,6 +904,7 @@ export const RouterOutputResourceRouterOutputType = {
     Standard: "STANDARD",
     MediaconnectFlow: "MEDIACONNECT_FLOW",
     MedialiveInput: "MEDIALIVE_INPUT",
+    SourceEndpoint: "SOURCE_ENDPOINT",
 } as const;
 
 export type RouterOutputResourceRouterOutputType = (typeof RouterOutputResourceRouterOutputType)[keyof typeof RouterOutputResourceRouterOutputType];
@@ -799,3 +921,73 @@ export const RouterOutputResourceTlsEncryptionType = {
 } as const;
 
 export type RouterOutputResourceTlsEncryptionType = (typeof RouterOutputResourceTlsEncryptionType)[keyof typeof RouterOutputResourceTlsEncryptionType];
+
+export const SourceEndpointConnectionState = {
+    Connected: "CONNECTED",
+    Disconnected: "DISCONNECTED",
+    Connecting: "CONNECTING",
+    Disconnecting: "DISCONNECTING",
+} as const;
+
+export type SourceEndpointConnectionState = (typeof SourceEndpointConnectionState)[keyof typeof SourceEndpointConnectionState];
+
+export const SourceEndpointEndpointLifecycle = {
+    Managed: "MANAGED",
+    Unmanaged: "UNMANAGED",
+} as const;
+
+export type SourceEndpointEndpointLifecycle = (typeof SourceEndpointEndpointLifecycle)[keyof typeof SourceEndpointEndpointLifecycle];
+
+export const SourceEndpointForwardErrorCorrectionState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type SourceEndpointForwardErrorCorrectionState = (typeof SourceEndpointForwardErrorCorrectionState)[keyof typeof SourceEndpointForwardErrorCorrectionState];
+
+export const SourceEndpointNetworkingType = {
+    Public: "PUBLIC",
+    Vpc: "VPC",
+} as const;
+
+export type SourceEndpointNetworkingType = (typeof SourceEndpointNetworkingType)[keyof typeof SourceEndpointNetworkingType];
+
+export const SourceEndpointProtocol = {
+    Rtp: "RTP",
+    Rist: "RIST",
+    SrtCaller: "SRT_CALLER",
+    SrtListener: "SRT_LISTENER",
+} as const;
+
+export type SourceEndpointProtocol = (typeof SourceEndpointProtocol)[keyof typeof SourceEndpointProtocol];
+
+export const SourceEndpointRegistrationState = {
+    Registered: "REGISTERED",
+    Registering: "REGISTERING",
+    Deregistering: "DEREGISTERING",
+    RegistrationFailed: "REGISTRATION_FAILED",
+} as const;
+
+export type SourceEndpointRegistrationState = (typeof SourceEndpointRegistrationState)[keyof typeof SourceEndpointRegistrationState];
+
+export const SourceEndpointRouterOutputState = {
+    Creating: "CREATING",
+    Standby: "STANDBY",
+    Starting: "STARTING",
+    Active: "ACTIVE",
+    Stopping: "STOPPING",
+    Deleting: "DELETING",
+    Updating: "UPDATING",
+    Error: "ERROR",
+    Recovering: "RECOVERING",
+    Migrating: "MIGRATING",
+} as const;
+
+export type SourceEndpointRouterOutputState = (typeof SourceEndpointRouterOutputState)[keyof typeof SourceEndpointRouterOutputState];
+
+export const SourceEndpointType = {
+    Standard: "STANDARD",
+    RouterOutput: "ROUTER_OUTPUT",
+} as const;
+
+export type SourceEndpointType = (typeof SourceEndpointType)[keyof typeof SourceEndpointType];

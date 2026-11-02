@@ -2,6 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BackupAccessPointStatus = {
+    Available: "AVAILABLE",
+    Creating: "CREATING",
+    Deleting: "DELETING",
+    Disassociated: "DISASSOCIATED",
+    Disassociating: "DISASSOCIATING",
+    Expired: "EXPIRED",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The current status of the backup access point.
+ */
+export type BackupAccessPointStatus = (typeof BackupAccessPointStatus)[keyof typeof BackupAccessPointStatus];
+
 export const BackupPlanMalwareScanner = {
     Guardduty: "GUARDDUTY",
 } as const;

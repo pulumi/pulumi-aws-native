@@ -7,12 +7,27 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'BackupAccessPointStatus',
     'BackupPlanMalwareScanner',
     'BackupPlanScanMode',
     'LegalHoldStatus',
     'RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm',
     'RestoreTestingPlanRestoreTestingRecoveryPointType',
 ]
+
+
+@pulumi.type_token("aws-native:backup:BackupAccessPointStatus")
+class BackupAccessPointStatus(_builtins.str, Enum):
+    """
+    The current status of the backup access point.
+    """
+    AVAILABLE = "AVAILABLE"
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    DISASSOCIATED = "DISASSOCIATED"
+    DISASSOCIATING = "DISASSOCIATING"
+    EXPIRED = "EXPIRED"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:backup:BackupPlanMalwareScanner")

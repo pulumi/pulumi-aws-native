@@ -20,19 +20,25 @@ __all__ = [
     'ContainerAssociationContainerAttribute',
     'ContainerAssociationContainerMonitoringConfiguration',
     'FirewallAvailabilityZoneMapping',
+    'FirewallListenerProperty',
+    'FirewallNatGatewayMapping',
     'FirewallPolicy',
     'FirewallPolicyActionDefinition',
+    'FirewallPolicyAddress',
     'FirewallPolicyCustomAction',
     'FirewallPolicyDimension',
     'FirewallPolicyIpSet',
     'FirewallPolicyPolicyVariablesProperties',
     'FirewallPolicyPublishMetricAction',
+    'FirewallPolicyRoute53ResolvedIpValidation',
     'FirewallPolicyStatefulEngineOptions',
     'FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties',
     'FirewallPolicyStatefulRuleGroupOverride',
     'FirewallPolicyStatefulRuleGroupReference',
     'FirewallPolicyStatelessRuleGroupReference',
+    'FirewallProxySettings',
     'FirewallSubnetMapping',
+    'FirewallVpcEndpoint',
     'LoggingConfiguration',
     'LoggingConfigurationLogDestinationConfig',
     'RuleGroup',
@@ -193,6 +199,82 @@ class FirewallAvailabilityZoneMapping(dict):
 
 
 @pulumi.output_type
+class FirewallListenerProperty(dict):
+    """
+    A port and protocol that a proxy-mode firewall's proxy listener accepts traffic on.
+    """
+    def __init__(__self__, *,
+                 port: Optional[_builtins.int] = None,
+                 type: Optional['FirewallListenerPropertyType'] = None):
+        """
+        A port and protocol that a proxy-mode firewall's proxy listener accepts traffic on.
+
+        :param _builtins.int port: The port the proxy listener accepts traffic on.
+        :param 'FirewallListenerPropertyType' type: The protocol the proxy listener uses.
+        """
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[_builtins.int]:
+        """
+        The port the proxy listener accepts traffic on.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['FirewallListenerPropertyType']:
+        """
+        The protocol the proxy listener uses.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FirewallNatGatewayMapping(dict):
+    """
+    A mapping to a NAT gateway that a proxy-mode firewall proxies egress traffic through.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "natGatewayId":
+            suggest = "nat_gateway_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallNatGatewayMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallNatGatewayMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallNatGatewayMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nat_gateway_id: _builtins.str):
+        """
+        A mapping to a NAT gateway that a proxy-mode firewall proxies egress traffic through.
+
+        :param _builtins.str nat_gateway_id: The unique identifier of a NAT gateway.
+        """
+        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> _builtins.str:
+        """
+        The unique identifier of a NAT gateway.
+        """
+        return pulumi.get(self, "nat_gateway_id")
+
+
+@pulumi.output_type
 class FirewallPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -205,6 +287,8 @@ class FirewallPolicy(dict):
             suggest = "enable_tls_session_holding"
         elif key == "policyVariables":
             suggest = "policy_variables"
+        elif key == "route53ResolvedIpValidation":
+            suggest = "route53_resolved_ip_validation"
         elif key == "statefulDefaultActions":
             suggest = "stateful_default_actions"
         elif key == "statefulEngineOptions":
@@ -234,6 +318,7 @@ class FirewallPolicy(dict):
                  stateless_fragment_default_actions: Sequence[_builtins.str],
                  enable_tls_session_holding: Optional[_builtins.bool] = None,
                  policy_variables: Optional['outputs.FirewallPolicyPolicyVariablesProperties'] = None,
+                 route53_resolved_ip_validation: Optional['outputs.FirewallPolicyRoute53ResolvedIpValidation'] = None,
                  stateful_default_actions: Optional[Sequence[_builtins.str]] = None,
                  stateful_engine_options: Optional['outputs.FirewallPolicyStatefulEngineOptions'] = None,
                  stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']] = None,
@@ -275,6 +360,8 @@ class FirewallPolicy(dict):
             pulumi.set(__self__, "enable_tls_session_holding", enable_tls_session_holding)
         if policy_variables is not None:
             pulumi.set(__self__, "policy_variables", policy_variables)
+        if route53_resolved_ip_validation is not None:
+            pulumi.set(__self__, "route53_resolved_ip_validation", route53_resolved_ip_validation)
         if stateful_default_actions is not None:
             pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
         if stateful_engine_options is not None:
@@ -327,6 +414,11 @@ class FirewallPolicy(dict):
         Contains variables that you can use to override default Suricata settings in your firewall policy.
         """
         return pulumi.get(self, "policy_variables")
+
+    @_builtins.property
+    @pulumi.getter(name="route53ResolvedIpValidation")
+    def route53_resolved_ip_validation(self) -> Optional['outputs.FirewallPolicyRoute53ResolvedIpValidation']:
+        return pulumi.get(self, "route53_resolved_ip_validation")
 
     @_builtins.property
     @pulumi.getter(name="statefulDefaultActions")
@@ -424,6 +516,35 @@ class FirewallPolicyActionDefinition(dict):
         You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
         """
         return pulumi.get(self, "publish_metric_action")
+
+
+@pulumi.output_type
+class FirewallPolicyAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressDefinition":
+            suggest = "address_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyAddress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_definition: _builtins.str):
+        pulumi.set(__self__, "address_definition", address_definition)
+
+    @_builtins.property
+    @pulumi.getter(name="addressDefinition")
+    def address_definition(self) -> _builtins.str:
+        return pulumi.get(self, "address_definition")
 
 
 @pulumi.output_type
@@ -557,6 +678,71 @@ class FirewallPolicyPublishMetricAction(dict):
     @pulumi.getter
     def dimensions(self) -> Sequence['outputs.FirewallPolicyDimension']:
         return pulumi.get(self, "dimensions")
+
+
+@pulumi.output_type
+class FirewallPolicyRoute53ResolvedIpValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsExpiryExceptionPolicy":
+            suggest = "dns_expiry_exception_policy"
+        elif key == "dnsFirewallRuleGroupId":
+            suggest = "dns_firewall_rule_group_id"
+        elif key == "bypassDestinationValidationIpRanges":
+            suggest = "bypass_destination_validation_ip_ranges"
+        elif key == "sourceIpRanges":
+            suggest = "source_ip_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyRoute53ResolvedIpValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyRoute53ResolvedIpValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyRoute53ResolvedIpValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'FirewallPolicyRoute53ResolvedIpValidationAction',
+                 dns_expiry_exception_policy: 'FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy',
+                 dns_firewall_rule_group_id: _builtins.str,
+                 bypass_destination_validation_ip_ranges: Optional[Sequence['outputs.FirewallPolicyAddress']] = None,
+                 source_ip_ranges: Optional[Sequence['outputs.FirewallPolicyAddress']] = None):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "dns_expiry_exception_policy", dns_expiry_exception_policy)
+        pulumi.set(__self__, "dns_firewall_rule_group_id", dns_firewall_rule_group_id)
+        if bypass_destination_validation_ip_ranges is not None:
+            pulumi.set(__self__, "bypass_destination_validation_ip_ranges", bypass_destination_validation_ip_ranges)
+        if source_ip_ranges is not None:
+            pulumi.set(__self__, "source_ip_ranges", source_ip_ranges)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'FirewallPolicyRoute53ResolvedIpValidationAction':
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsExpiryExceptionPolicy")
+    def dns_expiry_exception_policy(self) -> 'FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy':
+        return pulumi.get(self, "dns_expiry_exception_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsFirewallRuleGroupId")
+    def dns_firewall_rule_group_id(self) -> _builtins.str:
+        return pulumi.get(self, "dns_firewall_rule_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="bypassDestinationValidationIpRanges")
+    def bypass_destination_validation_ip_ranges(self) -> Optional[Sequence['outputs.FirewallPolicyAddress']]:
+        return pulumi.get(self, "bypass_destination_validation_ip_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIpRanges")
+    def source_ip_ranges(self) -> Optional[Sequence['outputs.FirewallPolicyAddress']]:
+        return pulumi.get(self, "source_ip_ranges")
 
 
 @pulumi.output_type
@@ -818,6 +1004,42 @@ class FirewallPolicyStatelessRuleGroupReference(dict):
 
 
 @pulumi.output_type
+class FirewallProxySettings(dict):
+    """
+    The proxy listener configuration for a proxy-mode (no source preservation) firewall.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "listenerProperties":
+            suggest = "listener_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallProxySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallProxySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallProxySettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 listener_properties: Optional[Sequence['outputs.FirewallListenerProperty']] = None):
+        """
+        The proxy listener configuration for a proxy-mode (no source preservation) firewall.
+        """
+        if listener_properties is not None:
+            pulumi.set(__self__, "listener_properties", listener_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="listenerProperties")
+    def listener_properties(self) -> Optional[Sequence['outputs.FirewallListenerProperty']]:
+        return pulumi.get(self, "listener_properties")
+
+
+@pulumi.output_type
 class FirewallSubnetMapping(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -864,6 +1086,57 @@ class FirewallSubnetMapping(dict):
         A IPAddressType
         """
         return pulumi.get(self, "ip_address_type")
+
+
+@pulumi.output_type
+class FirewallVpcEndpoint(dict):
+    """
+    The VPC and subnets for a proxy-mode firewall's endpoint. Provide this instead of the top-level VpcId and SubnetMappings when NoSourcePreservation is true.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetMappings":
+            suggest = "subnet_mappings"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallVpcEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallVpcEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallVpcEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_mappings: Optional[Sequence['outputs.FirewallSubnetMapping']] = None,
+                 vpc_id: Optional[_builtins.str] = None):
+        """
+        The VPC and subnets for a proxy-mode firewall's endpoint. Provide this instead of the top-level VpcId and SubnetMappings when NoSourcePreservation is true.
+
+        :param _builtins.str vpc_id: The unique identifier of the VPC for the firewall endpoint.
+        """
+        if subnet_mappings is not None:
+            pulumi.set(__self__, "subnet_mappings", subnet_mappings)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetMappings")
+    def subnet_mappings(self) -> Optional[Sequence['outputs.FirewallSubnetMapping']]:
+        return pulumi.get(self, "subnet_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[_builtins.str]:
+        """
+        The unique identifier of the VPC for the firewall endpoint.
+        """
+        return pulumi.get(self, "vpc_id")
 
 
 @pulumi.output_type

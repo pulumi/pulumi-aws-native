@@ -7,17 +7,78 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AccessGrantGrantType',
+    'AccessGrantPermission',
+    'AccessGrantPrincipalPrincipalType',
+    'AccessGrantResourceScopeSignalTypesItem',
+    'AccessGrantRowScopeOperator',
     'AccessProfileAssumeStatus',
     'AccessProfileProfileType',
     'AlarmMuteRuleStatus',
+    'DomainAccessGrantForOrganizationGrantType',
+    'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType',
+    'DomainAccessGrantForOrganizationPermission',
     'DomainForOrganizationIdentityProvidersItem',
     'DomainForOrganizationStatus',
+    'DomainIdentityProvidersItem',
+    'DomainStatus',
     'InsightRuleRuleState',
     'IntegrationStatus',
     'IntegrationType',
     'OTelEnrichmentStatus',
+    'SpaceEncryptionConfigurationEncryptionStrategy',
+    'SpaceStatus',
     'ViewType',
 ]
+
+
+@pulumi.type_token("aws-native:cloudwatch:AccessGrantGrantType")
+class AccessGrantGrantType(_builtins.str, Enum):
+    """
+    Who manages the grant.
+    """
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AccessGrantPermission")
+class AccessGrantPermission(_builtins.str, Enum):
+    """
+    The permission granted.
+    """
+    SPACE_ADMIN = "SPACE_ADMIN"
+    READ = "READ"
+    READ_WRITE_DELETE = "READ_WRITE_DELETE"
+    CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AccessGrantPrincipalPrincipalType")
+class AccessGrantPrincipalPrincipalType(_builtins.str, Enum):
+    """
+    The type of principal receiving the grant.
+    """
+    IDC_USER = "IDC_USER"
+    IDC_GROUP = "IDC_GROUP"
+    IAM_USER = "IAM_USER"
+    IAM_ROLE = "IAM_ROLE"
+    IAM_ROOT = "IAM_ROOT"
+    ACCESS_PROFILE = "ACCESS_PROFILE"
+    ALERT = "ALERT"
+    AGENT = "AGENT"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AccessGrantResourceScopeSignalTypesItem")
+class AccessGrantResourceScopeSignalTypesItem(_builtins.str, Enum):
+    LOGS = "LOGS"
+    TRACES = "TRACES"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AccessGrantRowScopeOperator")
+class AccessGrantRowScopeOperator(_builtins.str, Enum):
+    """
+    Match operator applied to this filter's values.
+    """
+    IN_ = "IN"
 
 
 @pulumi.type_token("aws-native:cloudwatch:AccessProfileAssumeStatus")
@@ -48,6 +109,35 @@ class AlarmMuteRuleStatus(_builtins.str, Enum):
     EXPIRED = "EXPIRED"
 
 
+@pulumi.type_token("aws-native:cloudwatch:DomainAccessGrantForOrganizationGrantType")
+class DomainAccessGrantForOrganizationGrantType(_builtins.str, Enum):
+    """
+    Who manages the grant.
+    """
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType")
+class DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType(_builtins.str, Enum):
+    """
+    The type of principal the grant is issued to.
+    """
+    IDC_USER = "IDC_USER"
+    IDC_GROUP = "IDC_GROUP"
+    IAM_USER = "IAM_USER"
+    IAM_ROLE = "IAM_ROLE"
+    IAM_ROOT = "IAM_ROOT"
+
+
+@pulumi.type_token("aws-native:cloudwatch:DomainAccessGrantForOrganizationPermission")
+class DomainAccessGrantForOrganizationPermission(_builtins.str, Enum):
+    """
+    The permission granted.
+    """
+    ADMIN = "ADMIN"
+
+
 @pulumi.type_token("aws-native:cloudwatch:DomainForOrganizationIdentityProvidersItem")
 class DomainForOrganizationIdentityProvidersItem(_builtins.str, Enum):
     IAM = "IAM"
@@ -56,6 +146,20 @@ class DomainForOrganizationIdentityProvidersItem(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:cloudwatch:DomainForOrganizationStatus")
 class DomainForOrganizationStatus(_builtins.str, Enum):
+    """
+    Current status of the organization domain.
+    """
+    ACTIVE = "ACTIVE"
+
+
+@pulumi.type_token("aws-native:cloudwatch:DomainIdentityProvidersItem")
+class DomainIdentityProvidersItem(_builtins.str, Enum):
+    IAM = "IAM"
+    IDC = "IDC"
+
+
+@pulumi.type_token("aws-native:cloudwatch:DomainStatus")
+class DomainStatus(_builtins.str, Enum):
     """
     Current status of the domain.
     """
@@ -101,6 +205,25 @@ class OTelEnrichmentStatus(_builtins.str, Enum):
     """
     RUNNING = "RUNNING"
     STOPPED = "STOPPED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:SpaceEncryptionConfigurationEncryptionStrategy")
+class SpaceEncryptionConfigurationEncryptionStrategy(_builtins.str, Enum):
+    """
+    Whether the space is encrypted with an AWS owned key or a customer managed key.
+    """
+    AWS_OWNED = "AWS_OWNED"
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:SpaceStatus")
+class SpaceStatus(_builtins.str, Enum):
+    """
+    The status of the space.
+    """
+    ACTIVE = "ACTIVE"
+    SUSPENDED = "SUSPENDED"
+    MOVING = "MOVING"
 
 
 @pulumi.type_token("aws-native:cloudwatch:ViewType")
