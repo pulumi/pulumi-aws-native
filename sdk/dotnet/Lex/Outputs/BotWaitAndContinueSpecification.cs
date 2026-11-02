@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// <summary>
         /// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
         /// </summary>
-        public readonly Outputs.BotResponseSpecification ContinueResponse;
+        public readonly Outputs.BotResponseSpecification? ContinueResponse;
         /// <summary>
         /// Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// <summary>
         /// The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
         /// </summary>
-        public readonly Outputs.BotResponseSpecification WaitingResponse;
+        public readonly Outputs.BotResponseSpecification? WaitingResponse;
 
         [OutputConstructor]
         private BotWaitAndContinueSpecification(
-            Outputs.BotResponseSpecification continueResponse,
+            Outputs.BotResponseSpecification? continueResponse,
 
             bool? isActive,
 
             Outputs.BotStillWaitingResponseSpecification? stillWaitingResponse,
 
-            Outputs.BotResponseSpecification waitingResponse)
+            Outputs.BotResponseSpecification? waitingResponse)
         {
             ContinueResponse = continueResponse;
             IsActive = isActive;

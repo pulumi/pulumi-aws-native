@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Omics.Inputs
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+        /// </summary>
+        [Input("vpcOwnerAccountId")]
+        public Input<string>? VpcOwnerAccountId { get; set; }
+
         public ConfigurationVpcConfigArgs()
         {
         }

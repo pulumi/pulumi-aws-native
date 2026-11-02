@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("authorizationData")]
         public Output<Outputs.GatewayTargetAuthorizationDataProperties> AuthorizationData { get; private set; } = null!;
 
+        [Output("certificateConfigurations")]
+        public Output<ImmutableArray<Union<Outputs.GatewayTargetCertificateConfiguration0Properties, Outputs.GatewayTargetCertificateConfiguration1Properties>>> CertificateConfigurations { get; private set; } = null!;
+
         /// <summary>
         /// The date and time at which the gateway target was created.
         /// </summary>
@@ -145,6 +148,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
     public sealed class GatewayTargetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("certificateConfigurations")]
+        private InputList<Union<Inputs.GatewayTargetCertificateConfiguration0PropertiesArgs, Inputs.GatewayTargetCertificateConfiguration1PropertiesArgs>>? _certificateConfigurations;
+        public InputList<Union<Inputs.GatewayTargetCertificateConfiguration0PropertiesArgs, Inputs.GatewayTargetCertificateConfiguration1PropertiesArgs>> CertificateConfigurations
+        {
+            get => _certificateConfigurations ?? (_certificateConfigurations = new InputList<Union<Inputs.GatewayTargetCertificateConfiguration0PropertiesArgs, Inputs.GatewayTargetCertificateConfiguration1PropertiesArgs>>());
+            set => _certificateConfigurations = value;
+        }
+
         [Input("credentialProviderConfigurations")]
         private InputList<Inputs.GatewayTargetCredentialProviderConfigurationArgs>? _credentialProviderConfigurations;
 

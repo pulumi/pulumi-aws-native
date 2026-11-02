@@ -60,6 +60,11 @@ export const getMetricAttribution: typeof import("./getMetricAttribution").getMe
 export const getMetricAttributionOutput: typeof import("./getMetricAttribution").getMetricAttributionOutput = null as any;
 utilities.lazyLoad(exports, ["getMetricAttribution","getMetricAttributionOutput"], () => require("./getMetricAttribution"));
 
+export { GetRecommenderArgs, GetRecommenderResult, GetRecommenderOutputArgs } from "./getRecommender";
+export const getRecommender: typeof import("./getRecommender").getRecommender = null as any;
+export const getRecommenderOutput: typeof import("./getRecommender").getRecommenderOutput = null as any;
+utilities.lazyLoad(exports, ["getRecommender","getRecommenderOutput"], () => require("./getRecommender"));
+
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
@@ -74,6 +79,11 @@ export { MetricAttributionArgs } from "./metricAttribution";
 export type MetricAttribution = import("./metricAttribution").MetricAttribution;
 export const MetricAttribution: typeof import("./metricAttribution").MetricAttribution = null as any;
 utilities.lazyLoad(exports, ["MetricAttribution"], () => require("./metricAttribution"));
+
+export { RecommenderArgs } from "./recommender";
+export type Recommender = import("./recommender").Recommender;
+export const Recommender: typeof import("./recommender").Recommender = null as any;
+utilities.lazyLoad(exports, ["Recommender"], () => require("./recommender"));
 
 export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
@@ -105,6 +115,8 @@ const _module = {
                 return new Filter(name, <any>undefined, { urn })
             case "aws-native:personalize:MetricAttribution":
                 return new MetricAttribution(name, <any>undefined, { urn })
+            case "aws-native:personalize:Recommender":
+                return new Recommender(name, <any>undefined, { urn })
             case "aws-native:personalize:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "aws-native:personalize:Solution":

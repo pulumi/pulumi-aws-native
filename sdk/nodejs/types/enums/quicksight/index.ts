@@ -1228,6 +1228,7 @@ export type ApprovalPolicyGovernedAction = (typeof ApprovalPolicyGovernedAction)
 
 export const CustomPermissionsCapabilityState = {
     Deny: "DENY",
+    Allow: "ALLOW",
 } as const;
 
 export type CustomPermissionsCapabilityState = (typeof CustomPermissionsCapabilityState)[keyof typeof CustomPermissionsCapabilityState];

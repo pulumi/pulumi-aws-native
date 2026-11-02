@@ -29,6 +29,8 @@ type LookupGraphArgs struct {
 }
 
 type LookupGraphResult struct {
+	// The time at which the graph was created.
+	CreateTime *string `pulumi:"createTime"`
 	// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
 	//
 	// _Default_: If not specified, the default value is true.
@@ -49,6 +51,8 @@ type LookupGraphResult struct {
 	//
 	// _Default_: If not specified, the default value is false.
 	PublicConnectivity *bool `pulumi:"publicConnectivity"`
+	// The current status of the graph.
+	Status *string `pulumi:"status"`
 	// The tags associated with this graph.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -79,6 +83,11 @@ func (o LookupGraphResultOutput) ToLookupGraphResultOutput() LookupGraphResultOu
 
 func (o LookupGraphResultOutput) ToLookupGraphResultOutputWithContext(ctx context.Context) LookupGraphResultOutput {
 	return o
+}
+
+// The time at which the graph was created.
+func (o LookupGraphResultOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
@@ -117,6 +126,11 @@ func (o LookupGraphResultOutput) ProvisionedMemory() pulumi.IntPtrOutput {
 // _Default_: If not specified, the default value is false.
 func (o LookupGraphResultOutput) PublicConnectivity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGraphResult) *bool { return v.PublicConnectivity }).(pulumi.BoolPtrOutput)
+}
+
+// The current status of the graph.
+func (o LookupGraphResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The tags associated with this graph.

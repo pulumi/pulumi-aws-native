@@ -28,7 +28,8 @@ type EventTrigger struct {
 	// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
 	EventTriggerLimits EventTriggerLimitsPtrOutput `pulumi:"eventTriggerLimits"`
 	// The unique name of the event trigger.
-	EventTriggerName pulumi.StringOutput `pulumi:"eventTriggerName"`
+	EventTriggerName       pulumi.StringOutput                         `pulumi:"eventTriggerName"`
+	IntentFilterDefinition EventTriggerIntentFilterDefinitionPtrOutput `pulumi:"intentFilterDefinition"`
 	// The timestamp of when the event trigger was most recently updated.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The unique name of the object type.
@@ -102,7 +103,8 @@ type eventTriggerArgs struct {
 	// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
 	EventTriggerLimits *EventTriggerLimits `pulumi:"eventTriggerLimits"`
 	// The unique name of the event trigger.
-	EventTriggerName *string `pulumi:"eventTriggerName"`
+	EventTriggerName       *string                             `pulumi:"eventTriggerName"`
+	IntentFilterDefinition *EventTriggerIntentFilterDefinition `pulumi:"intentFilterDefinition"`
 	// The unique name of the object type.
 	ObjectTypeName string `pulumi:"objectTypeName"`
 	// The destination is triggered only for profiles that meet the criteria of a segment definition.
@@ -122,7 +124,8 @@ type EventTriggerArgs struct {
 	// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
 	EventTriggerLimits EventTriggerLimitsPtrInput
 	// The unique name of the event trigger.
-	EventTriggerName pulumi.StringPtrInput
+	EventTriggerName       pulumi.StringPtrInput
+	IntentFilterDefinition EventTriggerIntentFilterDefinitionPtrInput
 	// The unique name of the object type.
 	ObjectTypeName pulumi.StringInput
 	// The destination is triggered only for profiles that meet the criteria of a segment definition.
@@ -196,6 +199,10 @@ func (o EventTriggerOutput) EventTriggerLimits() EventTriggerLimitsPtrOutput {
 // The unique name of the event trigger.
 func (o EventTriggerOutput) EventTriggerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTrigger) pulumi.StringOutput { return v.EventTriggerName }).(pulumi.StringOutput)
+}
+
+func (o EventTriggerOutput) IntentFilterDefinition() EventTriggerIntentFilterDefinitionPtrOutput {
+	return o.ApplyT(func(v *EventTrigger) EventTriggerIntentFilterDefinitionPtrOutput { return v.IntentFilterDefinition }).(EventTriggerIntentFilterDefinitionPtrOutput)
 }
 
 // The timestamp of when the event trigger was most recently updated.

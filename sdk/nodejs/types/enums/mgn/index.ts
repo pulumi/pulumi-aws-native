@@ -103,3 +103,66 @@ export const NetworkMigrationDefinitionTargetNetworkTopology = {
  * The network topology type for the target environment.
  */
 export type NetworkMigrationDefinitionTargetNetworkTopology = (typeof NetworkMigrationDefinitionTargetNetworkTopology)[keyof typeof NetworkMigrationDefinitionTargetNetworkTopology];
+
+export const ReplicationConfigurationTemplateDataPlaneRouting = {
+    PrivateIp: "PRIVATE_IP",
+    PublicIp: "PUBLIC_IP",
+} as const;
+
+/**
+ * The data plane routing mechanism that will be used for replication.
+ */
+export type ReplicationConfigurationTemplateDataPlaneRouting = (typeof ReplicationConfigurationTemplateDataPlaneRouting)[keyof typeof ReplicationConfigurationTemplateDataPlaneRouting];
+
+export const ReplicationConfigurationTemplateDefaultLargeStagingDiskType = {
+    Gp2: "GP2",
+    St1: "ST1",
+    Gp3: "GP3",
+} as const;
+
+/**
+ * The Staging Disk EBS volume type to be used during replication.
+ */
+export type ReplicationConfigurationTemplateDefaultLargeStagingDiskType = (typeof ReplicationConfigurationTemplateDefaultLargeStagingDiskType)[keyof typeof ReplicationConfigurationTemplateDefaultLargeStagingDiskType];
+
+export const ReplicationConfigurationTemplateEbsEncryption = {
+    Default: "DEFAULT",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * The type of EBS encryption to be used during replication.
+ */
+export type ReplicationConfigurationTemplateEbsEncryption = (typeof ReplicationConfigurationTemplateEbsEncryption)[keyof typeof ReplicationConfigurationTemplateEbsEncryption];
+
+export const ReplicationConfigurationTemplateInternetProtocol = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+/**
+ * Which internet protocol to use for replication of data.
+ */
+export type ReplicationConfigurationTemplateInternetProtocol = (typeof ReplicationConfigurationTemplateInternetProtocol)[keyof typeof ReplicationConfigurationTemplateInternetProtocol];
+
+export const WaveAggregatedStatusHealthStatus = {
+    Healthy: "HEALTHY",
+    Lagging: "LAGGING",
+    Error: "ERROR",
+} as const;
+
+/**
+ * The health status of the wave.
+ */
+export type WaveAggregatedStatusHealthStatus = (typeof WaveAggregatedStatusHealthStatus)[keyof typeof WaveAggregatedStatusHealthStatus];
+
+export const WaveAggregatedStatusProgressStatus = {
+    NotStarted: "NOT_STARTED",
+    InProgress: "IN_PROGRESS",
+    Completed: "COMPLETED",
+} as const;
+
+/**
+ * The progress status of the wave.
+ */
+export type WaveAggregatedStatusProgressStatus = (typeof WaveAggregatedStatusProgressStatus)[keyof typeof WaveAggregatedStatusProgressStatus];

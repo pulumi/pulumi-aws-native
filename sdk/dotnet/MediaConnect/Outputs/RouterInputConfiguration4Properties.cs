@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
     [OutputType]
     public sealed class RouterInputConfiguration4Properties
     {
-        public readonly Outputs.RouterInputMediaLiveChannelRouterInputConfiguration MediaLiveChannel;
+        public readonly Outputs.RouterInputMediaConnectFlowRouterInputConfiguration MediaConnectFlow;
 
         [OutputConstructor]
-        private RouterInputConfiguration4Properties(Outputs.RouterInputMediaLiveChannelRouterInputConfiguration mediaLiveChannel)
+        private RouterInputConfiguration4Properties(Outputs.RouterInputMediaConnectFlowRouterInputConfiguration mediaConnectFlow)
         {
-            MediaLiveChannel = mediaLiveChannel;
+            MediaConnectFlow = mediaConnectFlow;
         }
     }
 }

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS::CloudWatch::OmniDashboard
+// Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
 func LookupOmniDashboard(ctx *pulumi.Context, args *LookupOmniDashboardArgs, opts ...pulumi.InvokeOption) (*LookupOmniDashboardResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOmniDashboardResult
@@ -24,30 +24,30 @@ func LookupOmniDashboard(ctx *pulumi.Context, args *LookupOmniDashboardArgs, opt
 }
 
 type LookupOmniDashboardArgs struct {
-	// The unique identifier of the dashboard.
+	// The unique ID of the dashboard.
 	DashboardId string `pulumi:"dashboardId"`
-	// The unique identifier of the space the dashboard belongs to.
+	// The unique ID of the space to create the dashboard in.
 	SpaceId string `pulumi:"spaceId"`
 }
 
 type LookupOmniDashboardResult struct {
 	// The Amazon Resource Name (ARN) of the dashboard.
 	Arn *string `pulumi:"arn"`
-	// The dashboard body, a JSON document describing the dashboard's widgets and layout.
+	// The dashboard definition.
 	Body *string `pulumi:"body"`
-	// The time the dashboard was created.
+	// The timestamp when the dashboard was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The principal that created the dashboard.
 	CreatedBy *string `pulumi:"createdBy"`
-	// The unique identifier of the dashboard.
+	// The unique ID of the dashboard.
 	DashboardId *string `pulumi:"dashboardId"`
-	// The description of the dashboard.
+	// An optional description of the dashboard.
 	Description *string `pulumi:"description"`
-	// The name of the dashboard.
+	// A name that identifies the dashboard.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The time the dashboard was last updated.
+	// The timestamp when the dashboard was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
@@ -57,9 +57,9 @@ func LookupOmniDashboardOutput(ctx *pulumi.Context, args LookupOmniDashboardOutp
 }
 
 type LookupOmniDashboardOutputArgs struct {
-	// The unique identifier of the dashboard.
+	// The unique ID of the dashboard.
 	DashboardId pulumi.StringInput `pulumi:"dashboardId"`
-	// The unique identifier of the space the dashboard belongs to.
+	// The unique ID of the space to create the dashboard in.
 	SpaceId pulumi.StringInput `pulumi:"spaceId"`
 }
 
@@ -86,12 +86,12 @@ func (o LookupOmniDashboardResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOmniDashboardResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The dashboard body, a JSON document describing the dashboard's widgets and layout.
+// The dashboard definition.
 func (o LookupOmniDashboardResultOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOmniDashboardResult) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// The time the dashboard was created.
+// The timestamp when the dashboard was created.
 func (o LookupOmniDashboardResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOmniDashboardResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -101,17 +101,17 @@ func (o LookupOmniDashboardResultOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOmniDashboardResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier of the dashboard.
+// The unique ID of the dashboard.
 func (o LookupOmniDashboardResultOutput) DashboardId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOmniDashboardResult) *string { return v.DashboardId }).(pulumi.StringPtrOutput)
 }
 
-// The description of the dashboard.
+// An optional description of the dashboard.
 func (o LookupOmniDashboardResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOmniDashboardResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the dashboard.
+// A name that identifies the dashboard.
 func (o LookupOmniDashboardResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOmniDashboardResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -121,7 +121,7 @@ func (o LookupOmniDashboardResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupOmniDashboardResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The time the dashboard was last updated.
+// The timestamp when the dashboard was last updated.
 func (o LookupOmniDashboardResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOmniDashboardResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

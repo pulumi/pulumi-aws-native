@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Redshift
     public static class GetCluster
     {
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Resource Type definition for AWS::Redshift::Cluster
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:redshift:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Resource Type definition for AWS::Redshift::Cluster
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:redshift:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Resource Type definition for AWS::Redshift::Cluster
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:redshift:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

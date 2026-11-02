@@ -138,9 +138,7 @@ namespace Pulumi.AwsNative.KafkaConnect
                     "kafkaConnectVersion",
                     "logDelivery",
                     "networkType",
-                    "plugins[*]",
                     "serviceExecutionRoleArn",
-                    "workerConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

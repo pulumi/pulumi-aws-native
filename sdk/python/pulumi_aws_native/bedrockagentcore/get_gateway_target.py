@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetGatewayTargetResult:
-    def __init__(__self__, authorization_data=None, created_at=None, credential_provider_configurations=None, description=None, gateway_arn=None, last_synchronized_at=None, metadata_configuration=None, name=None, private_endpoint=None, private_endpoint_managed_resources=None, protocol_type=None, status=None, status_reasons=None, target_configuration=None, target_id=None, updated_at=None):
+    def __init__(__self__, authorization_data=None, certificate_configurations=None, created_at=None, credential_provider_configurations=None, description=None, gateway_arn=None, last_synchronized_at=None, metadata_configuration=None, name=None, private_endpoint=None, private_endpoint_managed_resources=None, protocol_type=None, status=None, status_reasons=None, target_configuration=None, target_id=None, updated_at=None):
         if authorization_data and not isinstance(authorization_data, dict):
             raise TypeError("Expected argument 'authorization_data' to be a dict")
         pulumi.set(__self__, "authorization_data", authorization_data)
+        if certificate_configurations and not isinstance(certificate_configurations, list):
+            raise TypeError("Expected argument 'certificate_configurations' to be a list")
+        pulumi.set(__self__, "certificate_configurations", certificate_configurations)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -79,6 +82,11 @@ class GetGatewayTargetResult:
     @pulumi.getter(name="authorizationData")
     def authorization_data(self) -> Optional['outputs.GatewayTargetAuthorizationDataProperties']:
         return pulumi.get(self, "authorization_data")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateConfigurations")
+    def certificate_configurations(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "certificate_configurations")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -190,6 +198,7 @@ class AwaitableGetGatewayTargetResult(GetGatewayTargetResult):
             yield self
         return GetGatewayTargetResult(
             authorization_data=self.authorization_data,
+            certificate_configurations=self.certificate_configurations,
             created_at=self.created_at,
             credential_provider_configurations=self.credential_provider_configurations,
             description=self.description,
@@ -224,6 +233,7 @@ def get_gateway_target(gateway_identifier: Optional[_builtins.str] = None,
 
     return AwaitableGetGatewayTargetResult(
         authorization_data=pulumi.get(__ret__, 'authorization_data'),
+        certificate_configurations=pulumi.get(__ret__, 'certificate_configurations'),
         created_at=pulumi.get(__ret__, 'created_at'),
         credential_provider_configurations=pulumi.get(__ret__, 'credential_provider_configurations'),
         description=pulumi.get(__ret__, 'description'),
@@ -255,6 +265,7 @@ def get_gateway_target_output(gateway_identifier: pulumi.Input[Optional[_builtin
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrockagentcore:getGatewayTarget', __args__, opts=opts, typ=GetGatewayTargetResult)
     return __ret__.apply(lambda __response__: GetGatewayTargetResult(
         authorization_data=pulumi.get(__response__, 'authorization_data'),
+        certificate_configurations=pulumi.get(__response__, 'certificate_configurations'),
         created_at=pulumi.get(__response__, 'created_at'),
         credential_provider_configurations=pulumi.get(__response__, 'credential_provider_configurations'),
         description=pulumi.get(__response__, 'description'),

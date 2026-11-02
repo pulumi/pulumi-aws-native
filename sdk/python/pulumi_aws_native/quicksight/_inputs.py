@@ -48066,6 +48066,7 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     """
     The ability to add or run anomaly detection.
     """
+    adobe_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     amazon_bedrock_ars_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     amazon_bedrock_fs_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     amazon_bedrock_krs_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
@@ -48077,15 +48078,21 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     approve_flow_share_requests: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     apps: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     asana_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    athena_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    aurora_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     automate: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     bamboo_hr_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    bedrock_managed_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     box_agent_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    box_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     build_calculated_field_with_q: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     canva_agent_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     chat_agent: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     comprehend_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     comprehend_medical_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     confluence_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    confluence_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_adobe_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_amazon_bedrock_ars_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_amazon_bedrock_fs_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_amazon_bedrock_krs_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
@@ -48093,11 +48100,14 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     create_and_update_apps: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_asana_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_bamboo_hr_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_and_update_bedrock_managed_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_box_agent_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_and_update_box_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_canva_agent_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_comprehend_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_comprehend_medical_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_confluence_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_and_update_confluence_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_dashboard_email_reports: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to create and update email reports.
@@ -48114,8 +48124,10 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     create_and_update_generic_http_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_github_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_google_calendar_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_and_update_google_drive_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_hubspot_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_hugging_face_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_and_update_idc_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_intercom_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_jira_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_knowledge_bases: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
@@ -48127,8 +48139,11 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     create_and_update_new_relic_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_notion_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_one_drive_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_and_update_one_drive_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_open_api_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_pager_duty_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_and_update_q_business_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_and_update_s3_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_salesforce_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_sand_p_global_energy_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_sand_pgmi_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
@@ -48139,6 +48154,7 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     create_and_update_sap_product_master_data_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_service_now_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_share_point_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_and_update_share_point_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_slack_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_smartsheet_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_textract_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
@@ -48150,23 +48166,75 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     """
     The ability to create and update threshold alerts.
     """
+    create_and_update_web_crawler_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_and_update_zendesk_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_athena_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_aurora_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_chat_agents: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_dashboard_executive_summary_with_q: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_databricks_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_db2_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_denodo_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_document_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_dremio_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_dynamo_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_exasol_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_file_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_git_hub_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_google_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_google_big_query_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_google_sheets_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_impala_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_jira_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_maria_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_mongo_atlas_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_mongo_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_my_sql_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_open_search_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_oracle_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_pay_pal_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_postgre_sql_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_presto_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_radiant_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_rds_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_redshift_auto_discovered_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_redshift_manual_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_s3_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_s3_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_s3_tables_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_salesforce_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_sap_hana_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_service_now_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_shared_folders: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to create shared folders.
     """
+    create_snowflake_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_spaces: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_spark_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     create_spice_dataset: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to create a SPICE dataset.
     """
+    create_sql_server_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_square_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_starburst_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_teradata_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_timestream_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_trino_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    create_twitter_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     dashboard: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to perform dashboard-related actions.
     """
+    databricks_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    db2_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    denodo_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    document_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    dremio_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    dynamo_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     edit_visual_with_q: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    exasol_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     export_to_csv: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to export to CSV files from the UI.
@@ -48193,12 +48261,21 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     """
     extension: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     fact_set_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    file_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     flow: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     generic_http_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    git_hub_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     github_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    google_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    google_big_query_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     google_calendar_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    google_drive_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    google_sheets_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     hubspot_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     hugging_face_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    idc_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    impala_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    inbound_email_trigger: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     include_content_in_scheduled_reports_email: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to include content in scheduled email reports.
@@ -48206,38 +48283,64 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     intercom_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     invoke_apps_ai_inference: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     jira_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    jira_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     linear_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     manage_shared_folders: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    maria_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     mcp_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     monday_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    mongo_atlas_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    mongo_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     ms_exchange_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     ms_teams_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    my_sql_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     new_relic_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     notion_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     one_drive_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    one_drive_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     open_api_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    open_search_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    oracle_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     pager_duty_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    pay_pal_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     perform_flow_ui_task: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    postgre_sql_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    presto_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     print_reports: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to print reports.
     """
     publish_without_approval: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    q_business_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    quick_event_trigger: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    radiant_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    rds_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    redshift_auto_discovered_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    redshift_manual_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     rename_shared_folders: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to rename shared folders.
     """
     research: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    s3_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    s3_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    s3_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    s3_tables_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     salesforce_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    salesforce_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     sand_p_global_energy_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     sand_pgmi_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     sap_bill_of_material_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     sap_business_partner_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    sap_hana_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     sap_material_stock_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     sap_physical_inventory_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     sap_product_master_data_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    schedule_trigger: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     service_now_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    service_now_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_adobe_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_amazon_bedrock_ars_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_amazon_bedrock_fs_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_amazon_bedrock_krs_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
@@ -48248,13 +48351,18 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     """
     share_apps: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_asana_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_athena_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_aurora_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_bamboo_hr_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_bedrock_managed_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_box_agent_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_box_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_canva_agent_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_chat_agents: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_comprehend_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_comprehend_medical_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_confluence_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_confluence_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_dashboards: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to share dashboards.
@@ -48263,54 +48371,159 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     """
     The ability to share data sources.
     """
+    share_databricks_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_datasets: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to share datasets.
     """
+    share_db2_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_denodo_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_document_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_dremio_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_dynamo_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_exasol_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_fact_set_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_file_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_generic_http_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_git_hub_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_github_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_google_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_google_big_query_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_google_calendar_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_google_drive_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_google_sheets_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_hubspot_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_hugging_face_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_idc_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_impala_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_intercom_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_jira_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_jira_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_knowledge_bases: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_linear_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_maria_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_mcp_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_monday_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_mongo_atlas_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_mongo_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_ms_exchange_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_ms_teams_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_my_sql_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_new_relic_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_notion_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_one_drive_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_one_drive_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_open_api_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_open_search_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_oracle_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_pager_duty_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_pay_pal_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_point_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_point_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_postgre_sql_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_presto_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_q_business_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_radiant_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_rds_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_redshift_auto_discovered_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_redshift_manual_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_s3_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_s3_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_s3_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_s3_tables_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_salesforce_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_salesforce_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_sand_p_global_energy_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_sand_pgmi_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_sap_bill_of_material_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_sap_business_partner_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_sap_hana_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_sap_material_stock_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_sap_physical_inventory_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_sap_product_master_data_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_service_now_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_service_now_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_share_point_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_share_point_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_slack_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_smartsheet_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_snowflake_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_spaces: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_spark_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_sql_server_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_square_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_starburst_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_teradata_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_textract_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_timestream_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_trino_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_twitter_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    share_web_crawler_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     share_zendesk_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     slack_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     smartsheet_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    snowflake_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     space: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    spark_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    sql_server_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    square_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    starburst_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     subscribe_dashboard_email_reports: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to subscribe to email reports.
     """
+    teradata_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     textract_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    timestream_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     topic: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    trigger: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    trino_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    twitter_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_adobe_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_athena_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_aurora_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_databricks_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_db2_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_denodo_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_document_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_dremio_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_dynamo_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_exasol_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_file_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_git_hub_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_google_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_google_big_query_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_google_sheets_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_impala_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_jira_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_maria_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_mongo_atlas_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_mongo_db_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_my_sql_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_open_search_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_oracle_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_pay_pal_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_postgre_sql_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_presto_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_radiant_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_rds_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_redshift_auto_discovered_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_redshift_manual_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_s3_analytics_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_s3_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_s3_tables_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_salesforce_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_sap_hana_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_service_now_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_snowflake_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_spark_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_sql_server_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_square_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_starburst_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_teradata_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_timestream_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_trino_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    update_twitter_data_source: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_agent_web_search: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_amazon_bedrock_ars_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_amazon_bedrock_fs_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
@@ -48318,18 +48531,25 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     use_amazon_s_three_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_asana_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_bamboo_hr_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_bedrock_managed_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_bedrock_models: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_box_agent_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_box_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_browser_extension: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_canva_agent_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_comprehend_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_comprehend_medical_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_confluence_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_confluence_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_excel_add_in_extension: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_fact_set_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_generic_http_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_github_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_google_calendar_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_google_drive_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_hubspot_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_hugging_face_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_idc_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_intercom_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_jira_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_linear_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
@@ -48340,8 +48560,13 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     use_new_relic_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_notion_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_one_drive_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_one_drive_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_open_api_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_outlook_add_in_extension: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_pager_duty_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_powerpoint_add_in_extension: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_q_business_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_s3_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_salesforce_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_sand_p_global_energy_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_sand_pgmi_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
@@ -48352,14 +48577,18 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     use_sap_product_master_data_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_service_now_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_share_point_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_share_point_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_slack_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_smartsheet_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_textract_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_web_crawler_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
+    use_word_add_in_extension: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     use_zendesk_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     view_account_spice_capacity: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     """
     The ability to view account SPICE capacity.
     """
+    web_crawler_knowledge_base: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
     zendesk_action: NotRequired[pulumi.Input[Optional['CustomPermissionsCapabilityState']]]
 
 @pulumi.input_type
@@ -48368,6 +48597,7 @@ class CustomPermissionsCapabilitiesArgs:
                  access_apps_native_data_store: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  add_or_run_anomaly_detection_for_analyses: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 adobe_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  amazon_bedrock_ars_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  amazon_bedrock_fs_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  amazon_bedrock_krs_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48376,15 +48606,21 @@ class CustomPermissionsCapabilitiesArgs:
                  approve_flow_share_requests: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  apps: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  asana_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 athena_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 aurora_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  automate: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  bamboo_hr_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 bedrock_managed_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  box_agent_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 box_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  build_calculated_field_with_q: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  canva_agent_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  chat_agent: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  comprehend_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  comprehend_medical_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  confluence_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 confluence_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_adobe_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_amazon_bedrock_ars_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_amazon_bedrock_fs_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_amazon_bedrock_krs_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48392,11 +48628,14 @@ class CustomPermissionsCapabilitiesArgs:
                  create_and_update_apps: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_asana_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_bamboo_hr_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_bedrock_managed_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_box_agent_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_box_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_canva_agent_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_comprehend_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_comprehend_medical_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_confluence_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_confluence_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_dashboard_email_reports: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_data_sources: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_datasets: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48404,8 +48643,10 @@ class CustomPermissionsCapabilitiesArgs:
                  create_and_update_generic_http_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_github_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_google_calendar_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_google_drive_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_hubspot_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_hugging_face_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_idc_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_intercom_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_jira_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_knowledge_bases: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48417,8 +48658,11 @@ class CustomPermissionsCapabilitiesArgs:
                  create_and_update_new_relic_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_notion_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_one_drive_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_one_drive_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_open_api_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_pager_duty_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_q_business_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_s3_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_salesforce_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_sand_p_global_energy_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_sand_pgmi_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48429,19 +48673,72 @@ class CustomPermissionsCapabilitiesArgs:
                  create_and_update_sap_product_master_data_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_service_now_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_share_point_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_share_point_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_slack_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_smartsheet_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_textract_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_themes: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_threshold_alerts: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_and_update_web_crawler_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_and_update_zendesk_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_athena_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_aurora_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_chat_agents: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_dashboard_executive_summary_with_q: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_databricks_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_db2_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_denodo_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_document_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_dremio_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_dynamo_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_exasol_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_file_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_git_hub_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_google_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_google_big_query_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_google_sheets_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_impala_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_jira_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_maria_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_mongo_atlas_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_mongo_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_my_sql_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_open_search_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_oracle_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_pay_pal_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_postgre_sql_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_presto_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_radiant_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_rds_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_redshift_auto_discovered_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_redshift_manual_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_s3_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_s3_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_s3_tables_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_salesforce_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_sap_hana_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_service_now_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_shared_folders: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_snowflake_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_spaces: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_spark_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  create_spice_dataset: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_sql_server_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_square_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_starburst_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_teradata_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_timestream_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_trino_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 create_twitter_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  dashboard: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 databricks_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 db2_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 denodo_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 document_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 dremio_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 dynamo_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  edit_visual_with_q: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 exasol_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  export_to_csv: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  export_to_csv_in_scheduled_reports: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  export_to_excel: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48450,42 +48747,77 @@ class CustomPermissionsCapabilitiesArgs:
                  export_to_pdf_in_scheduled_reports: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  extension: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  fact_set_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 file_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  flow: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  generic_http_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 git_hub_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  github_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 google_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 google_big_query_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  google_calendar_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 google_drive_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 google_sheets_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  hubspot_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  hugging_face_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 idc_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 impala_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 inbound_email_trigger: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  include_content_in_scheduled_reports_email: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  intercom_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  invoke_apps_ai_inference: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  jira_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 jira_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  linear_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  manage_shared_folders: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 maria_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  mcp_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  monday_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 mongo_atlas_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 mongo_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  ms_exchange_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  ms_teams_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 my_sql_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  new_relic_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  notion_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  one_drive_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 one_drive_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  open_api_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 open_search_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 oracle_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  pager_duty_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 pay_pal_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  perform_flow_ui_task: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 postgre_sql_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 presto_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  print_reports: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  publish_without_approval: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 q_business_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 quick_event_trigger: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 radiant_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 rds_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 redshift_auto_discovered_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 redshift_manual_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  rename_shared_folders: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  research: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 s3_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 s3_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 s3_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 s3_tables_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  salesforce_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 salesforce_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  sand_p_global_energy_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  sand_pgmi_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  sap_bill_of_material_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  sap_business_partner_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 sap_hana_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  sap_material_stock_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  sap_physical_inventory_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  sap_product_master_data_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 schedule_trigger: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  service_now_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 service_now_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_adobe_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_amazon_bedrock_ars_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_amazon_bedrock_fs_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_amazon_bedrock_krs_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48493,57 +48825,167 @@ class CustomPermissionsCapabilitiesArgs:
                  share_analyses: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_apps: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_asana_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_athena_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_aurora_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_bamboo_hr_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_bedrock_managed_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_box_agent_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_box_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_canva_agent_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_chat_agents: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_comprehend_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_comprehend_medical_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_confluence_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_confluence_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_dashboards: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_data_sources: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_databricks_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_datasets: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_db2_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_denodo_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_document_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_dremio_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_dynamo_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_exasol_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_fact_set_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_file_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_generic_http_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_git_hub_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_github_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_google_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_google_big_query_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_google_calendar_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_google_drive_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_google_sheets_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_hubspot_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_hugging_face_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_idc_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_impala_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_intercom_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_jira_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_jira_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_knowledge_bases: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_linear_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_maria_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_mcp_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_monday_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_mongo_atlas_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_mongo_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_ms_exchange_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_ms_teams_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_my_sql_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_new_relic_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_notion_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_one_drive_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_one_drive_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_open_api_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_open_search_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_oracle_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_pager_duty_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_pay_pal_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_point_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_point_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_postgre_sql_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_presto_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_q_business_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_radiant_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_rds_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_redshift_auto_discovered_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_redshift_manual_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_s3_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_s3_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_s3_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_s3_tables_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_salesforce_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_salesforce_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_sand_p_global_energy_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_sand_pgmi_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_sap_bill_of_material_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_sap_business_partner_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_sap_hana_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_sap_material_stock_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_sap_physical_inventory_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_sap_product_master_data_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_service_now_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_service_now_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_share_point_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_share_point_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_slack_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_smartsheet_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_snowflake_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_spaces: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_spark_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_sql_server_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_square_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_starburst_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_teradata_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_textract_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_timestream_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_trino_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_twitter_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 share_web_crawler_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  share_zendesk_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  slack_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  smartsheet_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 snowflake_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  space: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 spark_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 sql_server_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 square_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 starburst_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  subscribe_dashboard_email_reports: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 teradata_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  textract_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 timestream_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  topic: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 trigger: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 trino_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 twitter_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_adobe_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_athena_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_aurora_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_databricks_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_db2_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_denodo_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_document_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_dremio_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_dynamo_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_exasol_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_file_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_git_hub_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_google_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_google_big_query_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_google_sheets_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_impala_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_jira_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_maria_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_mongo_atlas_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_mongo_db_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_my_sql_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_open_search_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_oracle_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_pay_pal_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_postgre_sql_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_presto_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_radiant_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_rds_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_redshift_auto_discovered_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_redshift_manual_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_s3_analytics_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_s3_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_s3_tables_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_salesforce_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_sap_hana_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_service_now_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_snowflake_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_spark_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_sql_server_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_square_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_starburst_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_teradata_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_timestream_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_trino_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 update_twitter_data_source: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_agent_web_search: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_amazon_bedrock_ars_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_amazon_bedrock_fs_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48551,18 +48993,25 @@ class CustomPermissionsCapabilitiesArgs:
                  use_amazon_s_three_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_asana_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_bamboo_hr_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_bedrock_managed_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_bedrock_models: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_box_agent_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_box_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_browser_extension: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_canva_agent_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_comprehend_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_comprehend_medical_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_confluence_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_confluence_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_excel_add_in_extension: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_fact_set_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_generic_http_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_github_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_google_calendar_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_google_drive_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_hubspot_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_hugging_face_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_idc_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_intercom_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_jira_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_linear_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48573,8 +49022,13 @@ class CustomPermissionsCapabilitiesArgs:
                  use_new_relic_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_notion_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_one_drive_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_one_drive_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_open_api_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_outlook_add_in_extension: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_pager_duty_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_powerpoint_add_in_extension: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_q_business_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_s3_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_salesforce_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_sand_p_global_energy_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_sand_pgmi_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
@@ -48585,11 +49039,15 @@ class CustomPermissionsCapabilitiesArgs:
                  use_sap_product_master_data_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_service_now_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_share_point_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_share_point_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_slack_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_smartsheet_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_textract_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_web_crawler_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 use_word_add_in_extension: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  use_zendesk_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  view_account_spice_capacity: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
+                 web_crawler_knowledge_base: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None,
                  zendesk_action: pulumi.Input[Optional['CustomPermissionsCapabilityState']] = None):
         """
         :param pulumi.Input['CustomPermissionsCapabilityState'] add_or_run_anomaly_detection_for_analyses: The ability to add or run anomaly detection.
@@ -48624,6 +49082,8 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "action", action)
         if add_or_run_anomaly_detection_for_analyses is not None:
             pulumi.set(__self__, "add_or_run_anomaly_detection_for_analyses", add_or_run_anomaly_detection_for_analyses)
+        if adobe_analytics_data_source is not None:
+            pulumi.set(__self__, "adobe_analytics_data_source", adobe_analytics_data_source)
         if amazon_bedrock_ars_action is not None:
             pulumi.set(__self__, "amazon_bedrock_ars_action", amazon_bedrock_ars_action)
         if amazon_bedrock_fs_action is not None:
@@ -48640,12 +49100,20 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "apps", apps)
         if asana_action is not None:
             pulumi.set(__self__, "asana_action", asana_action)
+        if athena_data_source is not None:
+            pulumi.set(__self__, "athena_data_source", athena_data_source)
+        if aurora_data_source is not None:
+            pulumi.set(__self__, "aurora_data_source", aurora_data_source)
         if automate is not None:
             pulumi.set(__self__, "automate", automate)
         if bamboo_hr_action is not None:
             pulumi.set(__self__, "bamboo_hr_action", bamboo_hr_action)
+        if bedrock_managed_knowledge_base is not None:
+            pulumi.set(__self__, "bedrock_managed_knowledge_base", bedrock_managed_knowledge_base)
         if box_agent_action is not None:
             pulumi.set(__self__, "box_agent_action", box_agent_action)
+        if box_knowledge_base is not None:
+            pulumi.set(__self__, "box_knowledge_base", box_knowledge_base)
         if build_calculated_field_with_q is not None:
             pulumi.set(__self__, "build_calculated_field_with_q", build_calculated_field_with_q)
         if canva_agent_action is not None:
@@ -48658,6 +49126,10 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "comprehend_medical_action", comprehend_medical_action)
         if confluence_action is not None:
             pulumi.set(__self__, "confluence_action", confluence_action)
+        if confluence_knowledge_base is not None:
+            pulumi.set(__self__, "confluence_knowledge_base", confluence_knowledge_base)
+        if create_adobe_analytics_data_source is not None:
+            pulumi.set(__self__, "create_adobe_analytics_data_source", create_adobe_analytics_data_source)
         if create_and_update_amazon_bedrock_ars_action is not None:
             pulumi.set(__self__, "create_and_update_amazon_bedrock_ars_action", create_and_update_amazon_bedrock_ars_action)
         if create_and_update_amazon_bedrock_fs_action is not None:
@@ -48672,8 +49144,12 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "create_and_update_asana_action", create_and_update_asana_action)
         if create_and_update_bamboo_hr_action is not None:
             pulumi.set(__self__, "create_and_update_bamboo_hr_action", create_and_update_bamboo_hr_action)
+        if create_and_update_bedrock_managed_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_bedrock_managed_knowledge_base", create_and_update_bedrock_managed_knowledge_base)
         if create_and_update_box_agent_action is not None:
             pulumi.set(__self__, "create_and_update_box_agent_action", create_and_update_box_agent_action)
+        if create_and_update_box_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_box_knowledge_base", create_and_update_box_knowledge_base)
         if create_and_update_canva_agent_action is not None:
             pulumi.set(__self__, "create_and_update_canva_agent_action", create_and_update_canva_agent_action)
         if create_and_update_comprehend_action is not None:
@@ -48682,6 +49158,8 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "create_and_update_comprehend_medical_action", create_and_update_comprehend_medical_action)
         if create_and_update_confluence_action is not None:
             pulumi.set(__self__, "create_and_update_confluence_action", create_and_update_confluence_action)
+        if create_and_update_confluence_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_confluence_knowledge_base", create_and_update_confluence_knowledge_base)
         if create_and_update_dashboard_email_reports is not None:
             pulumi.set(__self__, "create_and_update_dashboard_email_reports", create_and_update_dashboard_email_reports)
         if create_and_update_data_sources is not None:
@@ -48696,10 +49174,14 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "create_and_update_github_action", create_and_update_github_action)
         if create_and_update_google_calendar_action is not None:
             pulumi.set(__self__, "create_and_update_google_calendar_action", create_and_update_google_calendar_action)
+        if create_and_update_google_drive_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_google_drive_knowledge_base", create_and_update_google_drive_knowledge_base)
         if create_and_update_hubspot_action is not None:
             pulumi.set(__self__, "create_and_update_hubspot_action", create_and_update_hubspot_action)
         if create_and_update_hugging_face_action is not None:
             pulumi.set(__self__, "create_and_update_hugging_face_action", create_and_update_hugging_face_action)
+        if create_and_update_idc_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_idc_knowledge_base", create_and_update_idc_knowledge_base)
         if create_and_update_intercom_action is not None:
             pulumi.set(__self__, "create_and_update_intercom_action", create_and_update_intercom_action)
         if create_and_update_jira_action is not None:
@@ -48722,10 +49204,16 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "create_and_update_notion_action", create_and_update_notion_action)
         if create_and_update_one_drive_action is not None:
             pulumi.set(__self__, "create_and_update_one_drive_action", create_and_update_one_drive_action)
+        if create_and_update_one_drive_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_one_drive_knowledge_base", create_and_update_one_drive_knowledge_base)
         if create_and_update_open_api_action is not None:
             pulumi.set(__self__, "create_and_update_open_api_action", create_and_update_open_api_action)
         if create_and_update_pager_duty_action is not None:
             pulumi.set(__self__, "create_and_update_pager_duty_action", create_and_update_pager_duty_action)
+        if create_and_update_q_business_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_q_business_knowledge_base", create_and_update_q_business_knowledge_base)
+        if create_and_update_s3_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_s3_knowledge_base", create_and_update_s3_knowledge_base)
         if create_and_update_salesforce_action is not None:
             pulumi.set(__self__, "create_and_update_salesforce_action", create_and_update_salesforce_action)
         if create_and_update_sand_p_global_energy_action is not None:
@@ -48746,6 +49234,8 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "create_and_update_service_now_action", create_and_update_service_now_action)
         if create_and_update_share_point_action is not None:
             pulumi.set(__self__, "create_and_update_share_point_action", create_and_update_share_point_action)
+        if create_and_update_share_point_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_share_point_knowledge_base", create_and_update_share_point_knowledge_base)
         if create_and_update_slack_action is not None:
             pulumi.set(__self__, "create_and_update_slack_action", create_and_update_slack_action)
         if create_and_update_smartsheet_action is not None:
@@ -48756,22 +49246,126 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "create_and_update_themes", create_and_update_themes)
         if create_and_update_threshold_alerts is not None:
             pulumi.set(__self__, "create_and_update_threshold_alerts", create_and_update_threshold_alerts)
+        if create_and_update_web_crawler_knowledge_base is not None:
+            pulumi.set(__self__, "create_and_update_web_crawler_knowledge_base", create_and_update_web_crawler_knowledge_base)
         if create_and_update_zendesk_action is not None:
             pulumi.set(__self__, "create_and_update_zendesk_action", create_and_update_zendesk_action)
+        if create_athena_data_source is not None:
+            pulumi.set(__self__, "create_athena_data_source", create_athena_data_source)
+        if create_aurora_data_source is not None:
+            pulumi.set(__self__, "create_aurora_data_source", create_aurora_data_source)
         if create_chat_agents is not None:
             pulumi.set(__self__, "create_chat_agents", create_chat_agents)
         if create_dashboard_executive_summary_with_q is not None:
             pulumi.set(__self__, "create_dashboard_executive_summary_with_q", create_dashboard_executive_summary_with_q)
+        if create_databricks_data_source is not None:
+            pulumi.set(__self__, "create_databricks_data_source", create_databricks_data_source)
+        if create_db2_data_source is not None:
+            pulumi.set(__self__, "create_db2_data_source", create_db2_data_source)
+        if create_denodo_data_source is not None:
+            pulumi.set(__self__, "create_denodo_data_source", create_denodo_data_source)
+        if create_document_db_data_source is not None:
+            pulumi.set(__self__, "create_document_db_data_source", create_document_db_data_source)
+        if create_dremio_data_source is not None:
+            pulumi.set(__self__, "create_dremio_data_source", create_dremio_data_source)
+        if create_dynamo_db_data_source is not None:
+            pulumi.set(__self__, "create_dynamo_db_data_source", create_dynamo_db_data_source)
+        if create_exasol_data_source is not None:
+            pulumi.set(__self__, "create_exasol_data_source", create_exasol_data_source)
+        if create_file_data_source is not None:
+            pulumi.set(__self__, "create_file_data_source", create_file_data_source)
+        if create_git_hub_data_source is not None:
+            pulumi.set(__self__, "create_git_hub_data_source", create_git_hub_data_source)
+        if create_google_analytics_data_source is not None:
+            pulumi.set(__self__, "create_google_analytics_data_source", create_google_analytics_data_source)
+        if create_google_big_query_data_source is not None:
+            pulumi.set(__self__, "create_google_big_query_data_source", create_google_big_query_data_source)
+        if create_google_sheets_data_source is not None:
+            pulumi.set(__self__, "create_google_sheets_data_source", create_google_sheets_data_source)
+        if create_impala_data_source is not None:
+            pulumi.set(__self__, "create_impala_data_source", create_impala_data_source)
+        if create_jira_data_source is not None:
+            pulumi.set(__self__, "create_jira_data_source", create_jira_data_source)
+        if create_maria_db_data_source is not None:
+            pulumi.set(__self__, "create_maria_db_data_source", create_maria_db_data_source)
+        if create_mongo_atlas_data_source is not None:
+            pulumi.set(__self__, "create_mongo_atlas_data_source", create_mongo_atlas_data_source)
+        if create_mongo_db_data_source is not None:
+            pulumi.set(__self__, "create_mongo_db_data_source", create_mongo_db_data_source)
+        if create_my_sql_data_source is not None:
+            pulumi.set(__self__, "create_my_sql_data_source", create_my_sql_data_source)
+        if create_open_search_data_source is not None:
+            pulumi.set(__self__, "create_open_search_data_source", create_open_search_data_source)
+        if create_oracle_data_source is not None:
+            pulumi.set(__self__, "create_oracle_data_source", create_oracle_data_source)
+        if create_pay_pal_data_source is not None:
+            pulumi.set(__self__, "create_pay_pal_data_source", create_pay_pal_data_source)
+        if create_postgre_sql_data_source is not None:
+            pulumi.set(__self__, "create_postgre_sql_data_source", create_postgre_sql_data_source)
+        if create_presto_data_source is not None:
+            pulumi.set(__self__, "create_presto_data_source", create_presto_data_source)
+        if create_radiant_data_source is not None:
+            pulumi.set(__self__, "create_radiant_data_source", create_radiant_data_source)
+        if create_rds_data_source is not None:
+            pulumi.set(__self__, "create_rds_data_source", create_rds_data_source)
+        if create_redshift_auto_discovered_data_source is not None:
+            pulumi.set(__self__, "create_redshift_auto_discovered_data_source", create_redshift_auto_discovered_data_source)
+        if create_redshift_manual_data_source is not None:
+            pulumi.set(__self__, "create_redshift_manual_data_source", create_redshift_manual_data_source)
+        if create_s3_analytics_data_source is not None:
+            pulumi.set(__self__, "create_s3_analytics_data_source", create_s3_analytics_data_source)
+        if create_s3_data_source is not None:
+            pulumi.set(__self__, "create_s3_data_source", create_s3_data_source)
+        if create_s3_tables_data_source is not None:
+            pulumi.set(__self__, "create_s3_tables_data_source", create_s3_tables_data_source)
+        if create_salesforce_data_source is not None:
+            pulumi.set(__self__, "create_salesforce_data_source", create_salesforce_data_source)
+        if create_sap_hana_data_source is not None:
+            pulumi.set(__self__, "create_sap_hana_data_source", create_sap_hana_data_source)
+        if create_service_now_data_source is not None:
+            pulumi.set(__self__, "create_service_now_data_source", create_service_now_data_source)
         if create_shared_folders is not None:
             pulumi.set(__self__, "create_shared_folders", create_shared_folders)
+        if create_snowflake_data_source is not None:
+            pulumi.set(__self__, "create_snowflake_data_source", create_snowflake_data_source)
         if create_spaces is not None:
             pulumi.set(__self__, "create_spaces", create_spaces)
+        if create_spark_data_source is not None:
+            pulumi.set(__self__, "create_spark_data_source", create_spark_data_source)
         if create_spice_dataset is not None:
             pulumi.set(__self__, "create_spice_dataset", create_spice_dataset)
+        if create_sql_server_data_source is not None:
+            pulumi.set(__self__, "create_sql_server_data_source", create_sql_server_data_source)
+        if create_square_data_source is not None:
+            pulumi.set(__self__, "create_square_data_source", create_square_data_source)
+        if create_starburst_data_source is not None:
+            pulumi.set(__self__, "create_starburst_data_source", create_starburst_data_source)
+        if create_teradata_data_source is not None:
+            pulumi.set(__self__, "create_teradata_data_source", create_teradata_data_source)
+        if create_timestream_data_source is not None:
+            pulumi.set(__self__, "create_timestream_data_source", create_timestream_data_source)
+        if create_trino_data_source is not None:
+            pulumi.set(__self__, "create_trino_data_source", create_trino_data_source)
+        if create_twitter_data_source is not None:
+            pulumi.set(__self__, "create_twitter_data_source", create_twitter_data_source)
         if dashboard is not None:
             pulumi.set(__self__, "dashboard", dashboard)
+        if databricks_data_source is not None:
+            pulumi.set(__self__, "databricks_data_source", databricks_data_source)
+        if db2_data_source is not None:
+            pulumi.set(__self__, "db2_data_source", db2_data_source)
+        if denodo_data_source is not None:
+            pulumi.set(__self__, "denodo_data_source", denodo_data_source)
+        if document_db_data_source is not None:
+            pulumi.set(__self__, "document_db_data_source", document_db_data_source)
+        if dremio_data_source is not None:
+            pulumi.set(__self__, "dremio_data_source", dremio_data_source)
+        if dynamo_db_data_source is not None:
+            pulumi.set(__self__, "dynamo_db_data_source", dynamo_db_data_source)
         if edit_visual_with_q is not None:
             pulumi.set(__self__, "edit_visual_with_q", edit_visual_with_q)
+        if exasol_data_source is not None:
+            pulumi.set(__self__, "exasol_data_source", exasol_data_source)
         if export_to_csv is not None:
             pulumi.set(__self__, "export_to_csv", export_to_csv)
         if export_to_csv_in_scheduled_reports is not None:
@@ -48788,18 +49382,36 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "extension", extension)
         if fact_set_action is not None:
             pulumi.set(__self__, "fact_set_action", fact_set_action)
+        if file_data_source is not None:
+            pulumi.set(__self__, "file_data_source", file_data_source)
         if flow is not None:
             pulumi.set(__self__, "flow", flow)
         if generic_http_action is not None:
             pulumi.set(__self__, "generic_http_action", generic_http_action)
+        if git_hub_data_source is not None:
+            pulumi.set(__self__, "git_hub_data_source", git_hub_data_source)
         if github_action is not None:
             pulumi.set(__self__, "github_action", github_action)
+        if google_analytics_data_source is not None:
+            pulumi.set(__self__, "google_analytics_data_source", google_analytics_data_source)
+        if google_big_query_data_source is not None:
+            pulumi.set(__self__, "google_big_query_data_source", google_big_query_data_source)
         if google_calendar_action is not None:
             pulumi.set(__self__, "google_calendar_action", google_calendar_action)
+        if google_drive_knowledge_base is not None:
+            pulumi.set(__self__, "google_drive_knowledge_base", google_drive_knowledge_base)
+        if google_sheets_data_source is not None:
+            pulumi.set(__self__, "google_sheets_data_source", google_sheets_data_source)
         if hubspot_action is not None:
             pulumi.set(__self__, "hubspot_action", hubspot_action)
         if hugging_face_action is not None:
             pulumi.set(__self__, "hugging_face_action", hugging_face_action)
+        if idc_knowledge_base is not None:
+            pulumi.set(__self__, "idc_knowledge_base", idc_knowledge_base)
+        if impala_data_source is not None:
+            pulumi.set(__self__, "impala_data_source", impala_data_source)
+        if inbound_email_trigger is not None:
+            pulumi.set(__self__, "inbound_email_trigger", inbound_email_trigger)
         if include_content_in_scheduled_reports_email is not None:
             pulumi.set(__self__, "include_content_in_scheduled_reports_email", include_content_in_scheduled_reports_email)
         if intercom_action is not None:
@@ -48808,42 +49420,86 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "invoke_apps_ai_inference", invoke_apps_ai_inference)
         if jira_action is not None:
             pulumi.set(__self__, "jira_action", jira_action)
+        if jira_data_source is not None:
+            pulumi.set(__self__, "jira_data_source", jira_data_source)
         if knowledge_base is not None:
             pulumi.set(__self__, "knowledge_base", knowledge_base)
         if linear_action is not None:
             pulumi.set(__self__, "linear_action", linear_action)
         if manage_shared_folders is not None:
             pulumi.set(__self__, "manage_shared_folders", manage_shared_folders)
+        if maria_db_data_source is not None:
+            pulumi.set(__self__, "maria_db_data_source", maria_db_data_source)
         if mcp_action is not None:
             pulumi.set(__self__, "mcp_action", mcp_action)
         if monday_action is not None:
             pulumi.set(__self__, "monday_action", monday_action)
+        if mongo_atlas_data_source is not None:
+            pulumi.set(__self__, "mongo_atlas_data_source", mongo_atlas_data_source)
+        if mongo_db_data_source is not None:
+            pulumi.set(__self__, "mongo_db_data_source", mongo_db_data_source)
         if ms_exchange_action is not None:
             pulumi.set(__self__, "ms_exchange_action", ms_exchange_action)
         if ms_teams_action is not None:
             pulumi.set(__self__, "ms_teams_action", ms_teams_action)
+        if my_sql_data_source is not None:
+            pulumi.set(__self__, "my_sql_data_source", my_sql_data_source)
         if new_relic_action is not None:
             pulumi.set(__self__, "new_relic_action", new_relic_action)
         if notion_action is not None:
             pulumi.set(__self__, "notion_action", notion_action)
         if one_drive_action is not None:
             pulumi.set(__self__, "one_drive_action", one_drive_action)
+        if one_drive_knowledge_base is not None:
+            pulumi.set(__self__, "one_drive_knowledge_base", one_drive_knowledge_base)
         if open_api_action is not None:
             pulumi.set(__self__, "open_api_action", open_api_action)
+        if open_search_data_source is not None:
+            pulumi.set(__self__, "open_search_data_source", open_search_data_source)
+        if oracle_data_source is not None:
+            pulumi.set(__self__, "oracle_data_source", oracle_data_source)
         if pager_duty_action is not None:
             pulumi.set(__self__, "pager_duty_action", pager_duty_action)
+        if pay_pal_data_source is not None:
+            pulumi.set(__self__, "pay_pal_data_source", pay_pal_data_source)
         if perform_flow_ui_task is not None:
             pulumi.set(__self__, "perform_flow_ui_task", perform_flow_ui_task)
+        if postgre_sql_data_source is not None:
+            pulumi.set(__self__, "postgre_sql_data_source", postgre_sql_data_source)
+        if presto_data_source is not None:
+            pulumi.set(__self__, "presto_data_source", presto_data_source)
         if print_reports is not None:
             pulumi.set(__self__, "print_reports", print_reports)
         if publish_without_approval is not None:
             pulumi.set(__self__, "publish_without_approval", publish_without_approval)
+        if q_business_knowledge_base is not None:
+            pulumi.set(__self__, "q_business_knowledge_base", q_business_knowledge_base)
+        if quick_event_trigger is not None:
+            pulumi.set(__self__, "quick_event_trigger", quick_event_trigger)
+        if radiant_data_source is not None:
+            pulumi.set(__self__, "radiant_data_source", radiant_data_source)
+        if rds_data_source is not None:
+            pulumi.set(__self__, "rds_data_source", rds_data_source)
+        if redshift_auto_discovered_data_source is not None:
+            pulumi.set(__self__, "redshift_auto_discovered_data_source", redshift_auto_discovered_data_source)
+        if redshift_manual_data_source is not None:
+            pulumi.set(__self__, "redshift_manual_data_source", redshift_manual_data_source)
         if rename_shared_folders is not None:
             pulumi.set(__self__, "rename_shared_folders", rename_shared_folders)
         if research is not None:
             pulumi.set(__self__, "research", research)
+        if s3_analytics_data_source is not None:
+            pulumi.set(__self__, "s3_analytics_data_source", s3_analytics_data_source)
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+        if s3_knowledge_base is not None:
+            pulumi.set(__self__, "s3_knowledge_base", s3_knowledge_base)
+        if s3_tables_data_source is not None:
+            pulumi.set(__self__, "s3_tables_data_source", s3_tables_data_source)
         if salesforce_action is not None:
             pulumi.set(__self__, "salesforce_action", salesforce_action)
+        if salesforce_data_source is not None:
+            pulumi.set(__self__, "salesforce_data_source", salesforce_data_source)
         if sand_p_global_energy_action is not None:
             pulumi.set(__self__, "sand_p_global_energy_action", sand_p_global_energy_action)
         if sand_pgmi_action is not None:
@@ -48852,14 +49508,22 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "sap_bill_of_material_action", sap_bill_of_material_action)
         if sap_business_partner_action is not None:
             pulumi.set(__self__, "sap_business_partner_action", sap_business_partner_action)
+        if sap_hana_data_source is not None:
+            pulumi.set(__self__, "sap_hana_data_source", sap_hana_data_source)
         if sap_material_stock_action is not None:
             pulumi.set(__self__, "sap_material_stock_action", sap_material_stock_action)
         if sap_physical_inventory_action is not None:
             pulumi.set(__self__, "sap_physical_inventory_action", sap_physical_inventory_action)
         if sap_product_master_data_action is not None:
             pulumi.set(__self__, "sap_product_master_data_action", sap_product_master_data_action)
+        if schedule_trigger is not None:
+            pulumi.set(__self__, "schedule_trigger", schedule_trigger)
         if service_now_action is not None:
             pulumi.set(__self__, "service_now_action", service_now_action)
+        if service_now_data_source is not None:
+            pulumi.set(__self__, "service_now_data_source", service_now_data_source)
+        if share_adobe_analytics_data_source is not None:
+            pulumi.set(__self__, "share_adobe_analytics_data_source", share_adobe_analytics_data_source)
         if share_amazon_bedrock_ars_action is not None:
             pulumi.set(__self__, "share_amazon_bedrock_ars_action", share_amazon_bedrock_ars_action)
         if share_amazon_bedrock_fs_action is not None:
@@ -48874,10 +49538,18 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "share_apps", share_apps)
         if share_asana_action is not None:
             pulumi.set(__self__, "share_asana_action", share_asana_action)
+        if share_athena_data_source is not None:
+            pulumi.set(__self__, "share_athena_data_source", share_athena_data_source)
+        if share_aurora_data_source is not None:
+            pulumi.set(__self__, "share_aurora_data_source", share_aurora_data_source)
         if share_bamboo_hr_action is not None:
             pulumi.set(__self__, "share_bamboo_hr_action", share_bamboo_hr_action)
+        if share_bedrock_managed_knowledge_base is not None:
+            pulumi.set(__self__, "share_bedrock_managed_knowledge_base", share_bedrock_managed_knowledge_base)
         if share_box_agent_action is not None:
             pulumi.set(__self__, "share_box_agent_action", share_box_agent_action)
+        if share_box_knowledge_base is not None:
+            pulumi.set(__self__, "share_box_knowledge_base", share_box_knowledge_base)
         if share_canva_agent_action is not None:
             pulumi.set(__self__, "share_canva_agent_action", share_canva_agent_action)
         if share_chat_agents is not None:
@@ -48888,54 +49560,130 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "share_comprehend_medical_action", share_comprehend_medical_action)
         if share_confluence_action is not None:
             pulumi.set(__self__, "share_confluence_action", share_confluence_action)
+        if share_confluence_knowledge_base is not None:
+            pulumi.set(__self__, "share_confluence_knowledge_base", share_confluence_knowledge_base)
         if share_dashboards is not None:
             pulumi.set(__self__, "share_dashboards", share_dashboards)
         if share_data_sources is not None:
             pulumi.set(__self__, "share_data_sources", share_data_sources)
+        if share_databricks_data_source is not None:
+            pulumi.set(__self__, "share_databricks_data_source", share_databricks_data_source)
         if share_datasets is not None:
             pulumi.set(__self__, "share_datasets", share_datasets)
+        if share_db2_data_source is not None:
+            pulumi.set(__self__, "share_db2_data_source", share_db2_data_source)
+        if share_denodo_data_source is not None:
+            pulumi.set(__self__, "share_denodo_data_source", share_denodo_data_source)
+        if share_document_db_data_source is not None:
+            pulumi.set(__self__, "share_document_db_data_source", share_document_db_data_source)
+        if share_dremio_data_source is not None:
+            pulumi.set(__self__, "share_dremio_data_source", share_dremio_data_source)
+        if share_dynamo_db_data_source is not None:
+            pulumi.set(__self__, "share_dynamo_db_data_source", share_dynamo_db_data_source)
+        if share_exasol_data_source is not None:
+            pulumi.set(__self__, "share_exasol_data_source", share_exasol_data_source)
         if share_fact_set_action is not None:
             pulumi.set(__self__, "share_fact_set_action", share_fact_set_action)
+        if share_file_data_source is not None:
+            pulumi.set(__self__, "share_file_data_source", share_file_data_source)
         if share_generic_http_action is not None:
             pulumi.set(__self__, "share_generic_http_action", share_generic_http_action)
+        if share_git_hub_data_source is not None:
+            pulumi.set(__self__, "share_git_hub_data_source", share_git_hub_data_source)
         if share_github_action is not None:
             pulumi.set(__self__, "share_github_action", share_github_action)
+        if share_google_analytics_data_source is not None:
+            pulumi.set(__self__, "share_google_analytics_data_source", share_google_analytics_data_source)
+        if share_google_big_query_data_source is not None:
+            pulumi.set(__self__, "share_google_big_query_data_source", share_google_big_query_data_source)
         if share_google_calendar_action is not None:
             pulumi.set(__self__, "share_google_calendar_action", share_google_calendar_action)
+        if share_google_drive_knowledge_base is not None:
+            pulumi.set(__self__, "share_google_drive_knowledge_base", share_google_drive_knowledge_base)
+        if share_google_sheets_data_source is not None:
+            pulumi.set(__self__, "share_google_sheets_data_source", share_google_sheets_data_source)
         if share_hubspot_action is not None:
             pulumi.set(__self__, "share_hubspot_action", share_hubspot_action)
         if share_hugging_face_action is not None:
             pulumi.set(__self__, "share_hugging_face_action", share_hugging_face_action)
+        if share_idc_knowledge_base is not None:
+            pulumi.set(__self__, "share_idc_knowledge_base", share_idc_knowledge_base)
+        if share_impala_data_source is not None:
+            pulumi.set(__self__, "share_impala_data_source", share_impala_data_source)
         if share_intercom_action is not None:
             pulumi.set(__self__, "share_intercom_action", share_intercom_action)
         if share_jira_action is not None:
             pulumi.set(__self__, "share_jira_action", share_jira_action)
+        if share_jira_data_source is not None:
+            pulumi.set(__self__, "share_jira_data_source", share_jira_data_source)
         if share_knowledge_bases is not None:
             pulumi.set(__self__, "share_knowledge_bases", share_knowledge_bases)
         if share_linear_action is not None:
             pulumi.set(__self__, "share_linear_action", share_linear_action)
+        if share_maria_db_data_source is not None:
+            pulumi.set(__self__, "share_maria_db_data_source", share_maria_db_data_source)
         if share_mcp_action is not None:
             pulumi.set(__self__, "share_mcp_action", share_mcp_action)
         if share_monday_action is not None:
             pulumi.set(__self__, "share_monday_action", share_monday_action)
+        if share_mongo_atlas_data_source is not None:
+            pulumi.set(__self__, "share_mongo_atlas_data_source", share_mongo_atlas_data_source)
+        if share_mongo_db_data_source is not None:
+            pulumi.set(__self__, "share_mongo_db_data_source", share_mongo_db_data_source)
         if share_ms_exchange_action is not None:
             pulumi.set(__self__, "share_ms_exchange_action", share_ms_exchange_action)
         if share_ms_teams_action is not None:
             pulumi.set(__self__, "share_ms_teams_action", share_ms_teams_action)
+        if share_my_sql_data_source is not None:
+            pulumi.set(__self__, "share_my_sql_data_source", share_my_sql_data_source)
         if share_new_relic_action is not None:
             pulumi.set(__self__, "share_new_relic_action", share_new_relic_action)
         if share_notion_action is not None:
             pulumi.set(__self__, "share_notion_action", share_notion_action)
         if share_one_drive_action is not None:
             pulumi.set(__self__, "share_one_drive_action", share_one_drive_action)
+        if share_one_drive_knowledge_base is not None:
+            pulumi.set(__self__, "share_one_drive_knowledge_base", share_one_drive_knowledge_base)
         if share_open_api_action is not None:
             pulumi.set(__self__, "share_open_api_action", share_open_api_action)
+        if share_open_search_data_source is not None:
+            pulumi.set(__self__, "share_open_search_data_source", share_open_search_data_source)
+        if share_oracle_data_source is not None:
+            pulumi.set(__self__, "share_oracle_data_source", share_oracle_data_source)
         if share_pager_duty_action is not None:
             pulumi.set(__self__, "share_pager_duty_action", share_pager_duty_action)
+        if share_pay_pal_data_source is not None:
+            pulumi.set(__self__, "share_pay_pal_data_source", share_pay_pal_data_source)
         if share_point_action is not None:
             pulumi.set(__self__, "share_point_action", share_point_action)
+        if share_point_knowledge_base is not None:
+            pulumi.set(__self__, "share_point_knowledge_base", share_point_knowledge_base)
+        if share_postgre_sql_data_source is not None:
+            pulumi.set(__self__, "share_postgre_sql_data_source", share_postgre_sql_data_source)
+        if share_presto_data_source is not None:
+            pulumi.set(__self__, "share_presto_data_source", share_presto_data_source)
+        if share_q_business_knowledge_base is not None:
+            pulumi.set(__self__, "share_q_business_knowledge_base", share_q_business_knowledge_base)
+        if share_radiant_data_source is not None:
+            pulumi.set(__self__, "share_radiant_data_source", share_radiant_data_source)
+        if share_rds_data_source is not None:
+            pulumi.set(__self__, "share_rds_data_source", share_rds_data_source)
+        if share_redshift_auto_discovered_data_source is not None:
+            pulumi.set(__self__, "share_redshift_auto_discovered_data_source", share_redshift_auto_discovered_data_source)
+        if share_redshift_manual_data_source is not None:
+            pulumi.set(__self__, "share_redshift_manual_data_source", share_redshift_manual_data_source)
+        if share_s3_analytics_data_source is not None:
+            pulumi.set(__self__, "share_s3_analytics_data_source", share_s3_analytics_data_source)
+        if share_s3_data_source is not None:
+            pulumi.set(__self__, "share_s3_data_source", share_s3_data_source)
+        if share_s3_knowledge_base is not None:
+            pulumi.set(__self__, "share_s3_knowledge_base", share_s3_knowledge_base)
+        if share_s3_tables_data_source is not None:
+            pulumi.set(__self__, "share_s3_tables_data_source", share_s3_tables_data_source)
         if share_salesforce_action is not None:
             pulumi.set(__self__, "share_salesforce_action", share_salesforce_action)
+        if share_salesforce_data_source is not None:
+            pulumi.set(__self__, "share_salesforce_data_source", share_salesforce_data_source)
         if share_sand_p_global_energy_action is not None:
             pulumi.set(__self__, "share_sand_p_global_energy_action", share_sand_p_global_energy_action)
         if share_sand_pgmi_action is not None:
@@ -48944,6 +49692,8 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "share_sap_bill_of_material_action", share_sap_bill_of_material_action)
         if share_sap_business_partner_action is not None:
             pulumi.set(__self__, "share_sap_business_partner_action", share_sap_business_partner_action)
+        if share_sap_hana_data_source is not None:
+            pulumi.set(__self__, "share_sap_hana_data_source", share_sap_hana_data_source)
         if share_sap_material_stock_action is not None:
             pulumi.set(__self__, "share_sap_material_stock_action", share_sap_material_stock_action)
         if share_sap_physical_inventory_action is not None:
@@ -48952,30 +49702,164 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "share_sap_product_master_data_action", share_sap_product_master_data_action)
         if share_service_now_action is not None:
             pulumi.set(__self__, "share_service_now_action", share_service_now_action)
+        if share_service_now_data_source is not None:
+            pulumi.set(__self__, "share_service_now_data_source", share_service_now_data_source)
         if share_share_point_action is not None:
             pulumi.set(__self__, "share_share_point_action", share_share_point_action)
+        if share_share_point_knowledge_base is not None:
+            pulumi.set(__self__, "share_share_point_knowledge_base", share_share_point_knowledge_base)
         if share_slack_action is not None:
             pulumi.set(__self__, "share_slack_action", share_slack_action)
         if share_smartsheet_action is not None:
             pulumi.set(__self__, "share_smartsheet_action", share_smartsheet_action)
+        if share_snowflake_data_source is not None:
+            pulumi.set(__self__, "share_snowflake_data_source", share_snowflake_data_source)
         if share_spaces is not None:
             pulumi.set(__self__, "share_spaces", share_spaces)
+        if share_spark_data_source is not None:
+            pulumi.set(__self__, "share_spark_data_source", share_spark_data_source)
+        if share_sql_server_data_source is not None:
+            pulumi.set(__self__, "share_sql_server_data_source", share_sql_server_data_source)
+        if share_square_data_source is not None:
+            pulumi.set(__self__, "share_square_data_source", share_square_data_source)
+        if share_starburst_data_source is not None:
+            pulumi.set(__self__, "share_starburst_data_source", share_starburst_data_source)
+        if share_teradata_data_source is not None:
+            pulumi.set(__self__, "share_teradata_data_source", share_teradata_data_source)
         if share_textract_action is not None:
             pulumi.set(__self__, "share_textract_action", share_textract_action)
+        if share_timestream_data_source is not None:
+            pulumi.set(__self__, "share_timestream_data_source", share_timestream_data_source)
+        if share_trino_data_source is not None:
+            pulumi.set(__self__, "share_trino_data_source", share_trino_data_source)
+        if share_twitter_data_source is not None:
+            pulumi.set(__self__, "share_twitter_data_source", share_twitter_data_source)
+        if share_web_crawler_knowledge_base is not None:
+            pulumi.set(__self__, "share_web_crawler_knowledge_base", share_web_crawler_knowledge_base)
         if share_zendesk_action is not None:
             pulumi.set(__self__, "share_zendesk_action", share_zendesk_action)
         if slack_action is not None:
             pulumi.set(__self__, "slack_action", slack_action)
         if smartsheet_action is not None:
             pulumi.set(__self__, "smartsheet_action", smartsheet_action)
+        if snowflake_data_source is not None:
+            pulumi.set(__self__, "snowflake_data_source", snowflake_data_source)
         if space is not None:
             pulumi.set(__self__, "space", space)
+        if spark_data_source is not None:
+            pulumi.set(__self__, "spark_data_source", spark_data_source)
+        if sql_server_data_source is not None:
+            pulumi.set(__self__, "sql_server_data_source", sql_server_data_source)
+        if square_data_source is not None:
+            pulumi.set(__self__, "square_data_source", square_data_source)
+        if starburst_data_source is not None:
+            pulumi.set(__self__, "starburst_data_source", starburst_data_source)
         if subscribe_dashboard_email_reports is not None:
             pulumi.set(__self__, "subscribe_dashboard_email_reports", subscribe_dashboard_email_reports)
+        if teradata_data_source is not None:
+            pulumi.set(__self__, "teradata_data_source", teradata_data_source)
         if textract_action is not None:
             pulumi.set(__self__, "textract_action", textract_action)
+        if timestream_data_source is not None:
+            pulumi.set(__self__, "timestream_data_source", timestream_data_source)
         if topic is not None:
             pulumi.set(__self__, "topic", topic)
+        if trigger is not None:
+            pulumi.set(__self__, "trigger", trigger)
+        if trino_data_source is not None:
+            pulumi.set(__self__, "trino_data_source", trino_data_source)
+        if twitter_data_source is not None:
+            pulumi.set(__self__, "twitter_data_source", twitter_data_source)
+        if update_adobe_analytics_data_source is not None:
+            pulumi.set(__self__, "update_adobe_analytics_data_source", update_adobe_analytics_data_source)
+        if update_athena_data_source is not None:
+            pulumi.set(__self__, "update_athena_data_source", update_athena_data_source)
+        if update_aurora_data_source is not None:
+            pulumi.set(__self__, "update_aurora_data_source", update_aurora_data_source)
+        if update_databricks_data_source is not None:
+            pulumi.set(__self__, "update_databricks_data_source", update_databricks_data_source)
+        if update_db2_data_source is not None:
+            pulumi.set(__self__, "update_db2_data_source", update_db2_data_source)
+        if update_denodo_data_source is not None:
+            pulumi.set(__self__, "update_denodo_data_source", update_denodo_data_source)
+        if update_document_db_data_source is not None:
+            pulumi.set(__self__, "update_document_db_data_source", update_document_db_data_source)
+        if update_dremio_data_source is not None:
+            pulumi.set(__self__, "update_dremio_data_source", update_dremio_data_source)
+        if update_dynamo_db_data_source is not None:
+            pulumi.set(__self__, "update_dynamo_db_data_source", update_dynamo_db_data_source)
+        if update_exasol_data_source is not None:
+            pulumi.set(__self__, "update_exasol_data_source", update_exasol_data_source)
+        if update_file_data_source is not None:
+            pulumi.set(__self__, "update_file_data_source", update_file_data_source)
+        if update_git_hub_data_source is not None:
+            pulumi.set(__self__, "update_git_hub_data_source", update_git_hub_data_source)
+        if update_google_analytics_data_source is not None:
+            pulumi.set(__self__, "update_google_analytics_data_source", update_google_analytics_data_source)
+        if update_google_big_query_data_source is not None:
+            pulumi.set(__self__, "update_google_big_query_data_source", update_google_big_query_data_source)
+        if update_google_sheets_data_source is not None:
+            pulumi.set(__self__, "update_google_sheets_data_source", update_google_sheets_data_source)
+        if update_impala_data_source is not None:
+            pulumi.set(__self__, "update_impala_data_source", update_impala_data_source)
+        if update_jira_data_source is not None:
+            pulumi.set(__self__, "update_jira_data_source", update_jira_data_source)
+        if update_maria_db_data_source is not None:
+            pulumi.set(__self__, "update_maria_db_data_source", update_maria_db_data_source)
+        if update_mongo_atlas_data_source is not None:
+            pulumi.set(__self__, "update_mongo_atlas_data_source", update_mongo_atlas_data_source)
+        if update_mongo_db_data_source is not None:
+            pulumi.set(__self__, "update_mongo_db_data_source", update_mongo_db_data_source)
+        if update_my_sql_data_source is not None:
+            pulumi.set(__self__, "update_my_sql_data_source", update_my_sql_data_source)
+        if update_open_search_data_source is not None:
+            pulumi.set(__self__, "update_open_search_data_source", update_open_search_data_source)
+        if update_oracle_data_source is not None:
+            pulumi.set(__self__, "update_oracle_data_source", update_oracle_data_source)
+        if update_pay_pal_data_source is not None:
+            pulumi.set(__self__, "update_pay_pal_data_source", update_pay_pal_data_source)
+        if update_postgre_sql_data_source is not None:
+            pulumi.set(__self__, "update_postgre_sql_data_source", update_postgre_sql_data_source)
+        if update_presto_data_source is not None:
+            pulumi.set(__self__, "update_presto_data_source", update_presto_data_source)
+        if update_radiant_data_source is not None:
+            pulumi.set(__self__, "update_radiant_data_source", update_radiant_data_source)
+        if update_rds_data_source is not None:
+            pulumi.set(__self__, "update_rds_data_source", update_rds_data_source)
+        if update_redshift_auto_discovered_data_source is not None:
+            pulumi.set(__self__, "update_redshift_auto_discovered_data_source", update_redshift_auto_discovered_data_source)
+        if update_redshift_manual_data_source is not None:
+            pulumi.set(__self__, "update_redshift_manual_data_source", update_redshift_manual_data_source)
+        if update_s3_analytics_data_source is not None:
+            pulumi.set(__self__, "update_s3_analytics_data_source", update_s3_analytics_data_source)
+        if update_s3_data_source is not None:
+            pulumi.set(__self__, "update_s3_data_source", update_s3_data_source)
+        if update_s3_tables_data_source is not None:
+            pulumi.set(__self__, "update_s3_tables_data_source", update_s3_tables_data_source)
+        if update_salesforce_data_source is not None:
+            pulumi.set(__self__, "update_salesforce_data_source", update_salesforce_data_source)
+        if update_sap_hana_data_source is not None:
+            pulumi.set(__self__, "update_sap_hana_data_source", update_sap_hana_data_source)
+        if update_service_now_data_source is not None:
+            pulumi.set(__self__, "update_service_now_data_source", update_service_now_data_source)
+        if update_snowflake_data_source is not None:
+            pulumi.set(__self__, "update_snowflake_data_source", update_snowflake_data_source)
+        if update_spark_data_source is not None:
+            pulumi.set(__self__, "update_spark_data_source", update_spark_data_source)
+        if update_sql_server_data_source is not None:
+            pulumi.set(__self__, "update_sql_server_data_source", update_sql_server_data_source)
+        if update_square_data_source is not None:
+            pulumi.set(__self__, "update_square_data_source", update_square_data_source)
+        if update_starburst_data_source is not None:
+            pulumi.set(__self__, "update_starburst_data_source", update_starburst_data_source)
+        if update_teradata_data_source is not None:
+            pulumi.set(__self__, "update_teradata_data_source", update_teradata_data_source)
+        if update_timestream_data_source is not None:
+            pulumi.set(__self__, "update_timestream_data_source", update_timestream_data_source)
+        if update_trino_data_source is not None:
+            pulumi.set(__self__, "update_trino_data_source", update_trino_data_source)
+        if update_twitter_data_source is not None:
+            pulumi.set(__self__, "update_twitter_data_source", update_twitter_data_source)
         if use_agent_web_search is not None:
             pulumi.set(__self__, "use_agent_web_search", use_agent_web_search)
         if use_amazon_bedrock_ars_action is not None:
@@ -48990,10 +49874,16 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "use_asana_action", use_asana_action)
         if use_bamboo_hr_action is not None:
             pulumi.set(__self__, "use_bamboo_hr_action", use_bamboo_hr_action)
+        if use_bedrock_managed_knowledge_base is not None:
+            pulumi.set(__self__, "use_bedrock_managed_knowledge_base", use_bedrock_managed_knowledge_base)
         if use_bedrock_models is not None:
             pulumi.set(__self__, "use_bedrock_models", use_bedrock_models)
         if use_box_agent_action is not None:
             pulumi.set(__self__, "use_box_agent_action", use_box_agent_action)
+        if use_box_knowledge_base is not None:
+            pulumi.set(__self__, "use_box_knowledge_base", use_box_knowledge_base)
+        if use_browser_extension is not None:
+            pulumi.set(__self__, "use_browser_extension", use_browser_extension)
         if use_canva_agent_action is not None:
             pulumi.set(__self__, "use_canva_agent_action", use_canva_agent_action)
         if use_comprehend_action is not None:
@@ -49002,6 +49892,10 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "use_comprehend_medical_action", use_comprehend_medical_action)
         if use_confluence_action is not None:
             pulumi.set(__self__, "use_confluence_action", use_confluence_action)
+        if use_confluence_knowledge_base is not None:
+            pulumi.set(__self__, "use_confluence_knowledge_base", use_confluence_knowledge_base)
+        if use_excel_add_in_extension is not None:
+            pulumi.set(__self__, "use_excel_add_in_extension", use_excel_add_in_extension)
         if use_fact_set_action is not None:
             pulumi.set(__self__, "use_fact_set_action", use_fact_set_action)
         if use_generic_http_action is not None:
@@ -49010,10 +49904,14 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "use_github_action", use_github_action)
         if use_google_calendar_action is not None:
             pulumi.set(__self__, "use_google_calendar_action", use_google_calendar_action)
+        if use_google_drive_knowledge_base is not None:
+            pulumi.set(__self__, "use_google_drive_knowledge_base", use_google_drive_knowledge_base)
         if use_hubspot_action is not None:
             pulumi.set(__self__, "use_hubspot_action", use_hubspot_action)
         if use_hugging_face_action is not None:
             pulumi.set(__self__, "use_hugging_face_action", use_hugging_face_action)
+        if use_idc_knowledge_base is not None:
+            pulumi.set(__self__, "use_idc_knowledge_base", use_idc_knowledge_base)
         if use_intercom_action is not None:
             pulumi.set(__self__, "use_intercom_action", use_intercom_action)
         if use_jira_action is not None:
@@ -49034,10 +49932,20 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "use_notion_action", use_notion_action)
         if use_one_drive_action is not None:
             pulumi.set(__self__, "use_one_drive_action", use_one_drive_action)
+        if use_one_drive_knowledge_base is not None:
+            pulumi.set(__self__, "use_one_drive_knowledge_base", use_one_drive_knowledge_base)
         if use_open_api_action is not None:
             pulumi.set(__self__, "use_open_api_action", use_open_api_action)
+        if use_outlook_add_in_extension is not None:
+            pulumi.set(__self__, "use_outlook_add_in_extension", use_outlook_add_in_extension)
         if use_pager_duty_action is not None:
             pulumi.set(__self__, "use_pager_duty_action", use_pager_duty_action)
+        if use_powerpoint_add_in_extension is not None:
+            pulumi.set(__self__, "use_powerpoint_add_in_extension", use_powerpoint_add_in_extension)
+        if use_q_business_knowledge_base is not None:
+            pulumi.set(__self__, "use_q_business_knowledge_base", use_q_business_knowledge_base)
+        if use_s3_knowledge_base is not None:
+            pulumi.set(__self__, "use_s3_knowledge_base", use_s3_knowledge_base)
         if use_salesforce_action is not None:
             pulumi.set(__self__, "use_salesforce_action", use_salesforce_action)
         if use_sand_p_global_energy_action is not None:
@@ -49058,16 +49966,24 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "use_service_now_action", use_service_now_action)
         if use_share_point_action is not None:
             pulumi.set(__self__, "use_share_point_action", use_share_point_action)
+        if use_share_point_knowledge_base is not None:
+            pulumi.set(__self__, "use_share_point_knowledge_base", use_share_point_knowledge_base)
         if use_slack_action is not None:
             pulumi.set(__self__, "use_slack_action", use_slack_action)
         if use_smartsheet_action is not None:
             pulumi.set(__self__, "use_smartsheet_action", use_smartsheet_action)
         if use_textract_action is not None:
             pulumi.set(__self__, "use_textract_action", use_textract_action)
+        if use_web_crawler_knowledge_base is not None:
+            pulumi.set(__self__, "use_web_crawler_knowledge_base", use_web_crawler_knowledge_base)
+        if use_word_add_in_extension is not None:
+            pulumi.set(__self__, "use_word_add_in_extension", use_word_add_in_extension)
         if use_zendesk_action is not None:
             pulumi.set(__self__, "use_zendesk_action", use_zendesk_action)
         if view_account_spice_capacity is not None:
             pulumi.set(__self__, "view_account_spice_capacity", view_account_spice_capacity)
+        if web_crawler_knowledge_base is not None:
+            pulumi.set(__self__, "web_crawler_knowledge_base", web_crawler_knowledge_base)
         if zendesk_action is not None:
             pulumi.set(__self__, "zendesk_action", zendesk_action)
 
@@ -49100,6 +50016,15 @@ class CustomPermissionsCapabilitiesArgs:
     @add_or_run_anomaly_detection_for_analyses.setter
     def add_or_run_anomaly_detection_for_analyses(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "add_or_run_anomaly_detection_for_analyses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adobeAnalyticsDataSource")
+    def adobe_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "adobe_analytics_data_source")
+
+    @adobe_analytics_data_source.setter
+    def adobe_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "adobe_analytics_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="amazonBedrockArsAction")
@@ -49177,6 +50102,24 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "asana_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="athenaDataSource")
+    def athena_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "athena_data_source")
+
+    @athena_data_source.setter
+    def athena_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "athena_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="auroraDataSource")
+    def aurora_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "aurora_data_source")
+
+    @aurora_data_source.setter
+    def aurora_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "aurora_data_source", value)
+
+    @_builtins.property
     @pulumi.getter
     def automate(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "automate")
@@ -49195,6 +50138,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "bamboo_hr_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="bedrockManagedKnowledgeBase")
+    def bedrock_managed_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "bedrock_managed_knowledge_base")
+
+    @bedrock_managed_knowledge_base.setter
+    def bedrock_managed_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "bedrock_managed_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="boxAgentAction")
     def box_agent_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "box_agent_action")
@@ -49202,6 +50154,15 @@ class CustomPermissionsCapabilitiesArgs:
     @box_agent_action.setter
     def box_agent_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "box_agent_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="boxKnowledgeBase")
+    def box_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "box_knowledge_base")
+
+    @box_knowledge_base.setter
+    def box_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "box_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="buildCalculatedFieldWithQ")
@@ -49256,6 +50217,24 @@ class CustomPermissionsCapabilitiesArgs:
     @confluence_action.setter
     def confluence_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "confluence_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="confluenceKnowledgeBase")
+    def confluence_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "confluence_knowledge_base")
+
+    @confluence_knowledge_base.setter
+    def confluence_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "confluence_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createAdobeAnalyticsDataSource")
+    def create_adobe_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_adobe_analytics_data_source")
+
+    @create_adobe_analytics_data_source.setter
+    def create_adobe_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_adobe_analytics_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="createAndUpdateAmazonBedrockArsAction")
@@ -49321,6 +50300,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "create_and_update_bamboo_hr_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="createAndUpdateBedrockManagedKnowledgeBase")
+    def create_and_update_bedrock_managed_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_bedrock_managed_knowledge_base")
+
+    @create_and_update_bedrock_managed_knowledge_base.setter
+    def create_and_update_bedrock_managed_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_bedrock_managed_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="createAndUpdateBoxAgentAction")
     def create_and_update_box_agent_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "create_and_update_box_agent_action")
@@ -49328,6 +50316,15 @@ class CustomPermissionsCapabilitiesArgs:
     @create_and_update_box_agent_action.setter
     def create_and_update_box_agent_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "create_and_update_box_agent_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateBoxKnowledgeBase")
+    def create_and_update_box_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_box_knowledge_base")
+
+    @create_and_update_box_knowledge_base.setter
+    def create_and_update_box_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_box_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="createAndUpdateCanvaAgentAction")
@@ -49364,6 +50361,15 @@ class CustomPermissionsCapabilitiesArgs:
     @create_and_update_confluence_action.setter
     def create_and_update_confluence_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "create_and_update_confluence_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateConfluenceKnowledgeBase")
+    def create_and_update_confluence_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_confluence_knowledge_base")
+
+    @create_and_update_confluence_knowledge_base.setter
+    def create_and_update_confluence_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_confluence_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="createAndUpdateDashboardEmailReports")
@@ -49438,6 +50444,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "create_and_update_google_calendar_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="createAndUpdateGoogleDriveKnowledgeBase")
+    def create_and_update_google_drive_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_google_drive_knowledge_base")
+
+    @create_and_update_google_drive_knowledge_base.setter
+    def create_and_update_google_drive_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_google_drive_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="createAndUpdateHubspotAction")
     def create_and_update_hubspot_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "create_and_update_hubspot_action")
@@ -49454,6 +50469,15 @@ class CustomPermissionsCapabilitiesArgs:
     @create_and_update_hugging_face_action.setter
     def create_and_update_hugging_face_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "create_and_update_hugging_face_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateIdcKnowledgeBase")
+    def create_and_update_idc_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_idc_knowledge_base")
+
+    @create_and_update_idc_knowledge_base.setter
+    def create_and_update_idc_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_idc_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="createAndUpdateIntercomAction")
@@ -49555,6 +50579,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "create_and_update_one_drive_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="createAndUpdateOneDriveKnowledgeBase")
+    def create_and_update_one_drive_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_one_drive_knowledge_base")
+
+    @create_and_update_one_drive_knowledge_base.setter
+    def create_and_update_one_drive_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_one_drive_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="createAndUpdateOpenApiAction")
     def create_and_update_open_api_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "create_and_update_open_api_action")
@@ -49571,6 +50604,24 @@ class CustomPermissionsCapabilitiesArgs:
     @create_and_update_pager_duty_action.setter
     def create_and_update_pager_duty_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "create_and_update_pager_duty_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateQBusinessKnowledgeBase")
+    def create_and_update_q_business_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_q_business_knowledge_base")
+
+    @create_and_update_q_business_knowledge_base.setter
+    def create_and_update_q_business_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_q_business_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createAndUpdateS3KnowledgeBase")
+    def create_and_update_s3_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_s3_knowledge_base")
+
+    @create_and_update_s3_knowledge_base.setter
+    def create_and_update_s3_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_s3_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="createAndUpdateSalesforceAction")
@@ -49663,6 +50714,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "create_and_update_share_point_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="createAndUpdateSharePointKnowledgeBase")
+    def create_and_update_share_point_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_share_point_knowledge_base")
+
+    @create_and_update_share_point_knowledge_base.setter
+    def create_and_update_share_point_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_share_point_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="createAndUpdateSlackAction")
     def create_and_update_slack_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "create_and_update_slack_action")
@@ -49714,6 +50774,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "create_and_update_threshold_alerts", value)
 
     @_builtins.property
+    @pulumi.getter(name="createAndUpdateWebCrawlerKnowledgeBase")
+    def create_and_update_web_crawler_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_and_update_web_crawler_knowledge_base")
+
+    @create_and_update_web_crawler_knowledge_base.setter
+    def create_and_update_web_crawler_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_and_update_web_crawler_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="createAndUpdateZendeskAction")
     def create_and_update_zendesk_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "create_and_update_zendesk_action")
@@ -49721,6 +50790,24 @@ class CustomPermissionsCapabilitiesArgs:
     @create_and_update_zendesk_action.setter
     def create_and_update_zendesk_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "create_and_update_zendesk_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createAthenaDataSource")
+    def create_athena_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_athena_data_source")
+
+    @create_athena_data_source.setter
+    def create_athena_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_athena_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createAuroraDataSource")
+    def create_aurora_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_aurora_data_source")
+
+    @create_aurora_data_source.setter
+    def create_aurora_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_aurora_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="createChatAgents")
@@ -49741,6 +50828,303 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "create_dashboard_executive_summary_with_q", value)
 
     @_builtins.property
+    @pulumi.getter(name="createDatabricksDataSource")
+    def create_databricks_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_databricks_data_source")
+
+    @create_databricks_data_source.setter
+    def create_databricks_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_databricks_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createDb2DataSource")
+    def create_db2_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_db2_data_source")
+
+    @create_db2_data_source.setter
+    def create_db2_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_db2_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createDenodoDataSource")
+    def create_denodo_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_denodo_data_source")
+
+    @create_denodo_data_source.setter
+    def create_denodo_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_denodo_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createDocumentDbDataSource")
+    def create_document_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_document_db_data_source")
+
+    @create_document_db_data_source.setter
+    def create_document_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_document_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createDremioDataSource")
+    def create_dremio_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_dremio_data_source")
+
+    @create_dremio_data_source.setter
+    def create_dremio_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_dremio_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createDynamoDbDataSource")
+    def create_dynamo_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_dynamo_db_data_source")
+
+    @create_dynamo_db_data_source.setter
+    def create_dynamo_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_dynamo_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createExasolDataSource")
+    def create_exasol_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_exasol_data_source")
+
+    @create_exasol_data_source.setter
+    def create_exasol_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_exasol_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createFileDataSource")
+    def create_file_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_file_data_source")
+
+    @create_file_data_source.setter
+    def create_file_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_file_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createGitHubDataSource")
+    def create_git_hub_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_git_hub_data_source")
+
+    @create_git_hub_data_source.setter
+    def create_git_hub_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_git_hub_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createGoogleAnalyticsDataSource")
+    def create_google_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_google_analytics_data_source")
+
+    @create_google_analytics_data_source.setter
+    def create_google_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_google_analytics_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createGoogleBigQueryDataSource")
+    def create_google_big_query_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_google_big_query_data_source")
+
+    @create_google_big_query_data_source.setter
+    def create_google_big_query_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_google_big_query_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createGoogleSheetsDataSource")
+    def create_google_sheets_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_google_sheets_data_source")
+
+    @create_google_sheets_data_source.setter
+    def create_google_sheets_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_google_sheets_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createImpalaDataSource")
+    def create_impala_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_impala_data_source")
+
+    @create_impala_data_source.setter
+    def create_impala_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_impala_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createJiraDataSource")
+    def create_jira_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_jira_data_source")
+
+    @create_jira_data_source.setter
+    def create_jira_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_jira_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createMariaDbDataSource")
+    def create_maria_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_maria_db_data_source")
+
+    @create_maria_db_data_source.setter
+    def create_maria_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_maria_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createMongoAtlasDataSource")
+    def create_mongo_atlas_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_mongo_atlas_data_source")
+
+    @create_mongo_atlas_data_source.setter
+    def create_mongo_atlas_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_mongo_atlas_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createMongoDbDataSource")
+    def create_mongo_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_mongo_db_data_source")
+
+    @create_mongo_db_data_source.setter
+    def create_mongo_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_mongo_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createMySqlDataSource")
+    def create_my_sql_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_my_sql_data_source")
+
+    @create_my_sql_data_source.setter
+    def create_my_sql_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_my_sql_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createOpenSearchDataSource")
+    def create_open_search_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_open_search_data_source")
+
+    @create_open_search_data_source.setter
+    def create_open_search_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_open_search_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createOracleDataSource")
+    def create_oracle_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_oracle_data_source")
+
+    @create_oracle_data_source.setter
+    def create_oracle_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_oracle_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createPayPalDataSource")
+    def create_pay_pal_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_pay_pal_data_source")
+
+    @create_pay_pal_data_source.setter
+    def create_pay_pal_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_pay_pal_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createPostgreSqlDataSource")
+    def create_postgre_sql_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_postgre_sql_data_source")
+
+    @create_postgre_sql_data_source.setter
+    def create_postgre_sql_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_postgre_sql_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createPrestoDataSource")
+    def create_presto_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_presto_data_source")
+
+    @create_presto_data_source.setter
+    def create_presto_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_presto_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createRadiantDataSource")
+    def create_radiant_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_radiant_data_source")
+
+    @create_radiant_data_source.setter
+    def create_radiant_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_radiant_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createRdsDataSource")
+    def create_rds_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_rds_data_source")
+
+    @create_rds_data_source.setter
+    def create_rds_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_rds_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createRedshiftAutoDiscoveredDataSource")
+    def create_redshift_auto_discovered_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_redshift_auto_discovered_data_source")
+
+    @create_redshift_auto_discovered_data_source.setter
+    def create_redshift_auto_discovered_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_redshift_auto_discovered_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createRedshiftManualDataSource")
+    def create_redshift_manual_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_redshift_manual_data_source")
+
+    @create_redshift_manual_data_source.setter
+    def create_redshift_manual_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_redshift_manual_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createS3AnalyticsDataSource")
+    def create_s3_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_s3_analytics_data_source")
+
+    @create_s3_analytics_data_source.setter
+    def create_s3_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_s3_analytics_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createS3DataSource")
+    def create_s3_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_s3_data_source")
+
+    @create_s3_data_source.setter
+    def create_s3_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_s3_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createS3TablesDataSource")
+    def create_s3_tables_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_s3_tables_data_source")
+
+    @create_s3_tables_data_source.setter
+    def create_s3_tables_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_s3_tables_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createSalesforceDataSource")
+    def create_salesforce_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_salesforce_data_source")
+
+    @create_salesforce_data_source.setter
+    def create_salesforce_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_salesforce_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createSapHanaDataSource")
+    def create_sap_hana_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_sap_hana_data_source")
+
+    @create_sap_hana_data_source.setter
+    def create_sap_hana_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_sap_hana_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createServiceNowDataSource")
+    def create_service_now_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_service_now_data_source")
+
+    @create_service_now_data_source.setter
+    def create_service_now_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_service_now_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="createSharedFolders")
     def create_shared_folders(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         """
@@ -49753,6 +51137,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "create_shared_folders", value)
 
     @_builtins.property
+    @pulumi.getter(name="createSnowflakeDataSource")
+    def create_snowflake_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_snowflake_data_source")
+
+    @create_snowflake_data_source.setter
+    def create_snowflake_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_snowflake_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="createSpaces")
     def create_spaces(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "create_spaces")
@@ -49760,6 +51153,15 @@ class CustomPermissionsCapabilitiesArgs:
     @create_spaces.setter
     def create_spaces(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "create_spaces", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createSparkDataSource")
+    def create_spark_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_spark_data_source")
+
+    @create_spark_data_source.setter
+    def create_spark_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_spark_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="createSpiceDataset")
@@ -49774,6 +51176,69 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "create_spice_dataset", value)
 
     @_builtins.property
+    @pulumi.getter(name="createSqlServerDataSource")
+    def create_sql_server_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_sql_server_data_source")
+
+    @create_sql_server_data_source.setter
+    def create_sql_server_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_sql_server_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createSquareDataSource")
+    def create_square_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_square_data_source")
+
+    @create_square_data_source.setter
+    def create_square_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_square_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createStarburstDataSource")
+    def create_starburst_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_starburst_data_source")
+
+    @create_starburst_data_source.setter
+    def create_starburst_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_starburst_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createTeradataDataSource")
+    def create_teradata_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_teradata_data_source")
+
+    @create_teradata_data_source.setter
+    def create_teradata_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_teradata_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createTimestreamDataSource")
+    def create_timestream_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_timestream_data_source")
+
+    @create_timestream_data_source.setter
+    def create_timestream_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_timestream_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createTrinoDataSource")
+    def create_trino_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_trino_data_source")
+
+    @create_trino_data_source.setter
+    def create_trino_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_trino_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createTwitterDataSource")
+    def create_twitter_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "create_twitter_data_source")
+
+    @create_twitter_data_source.setter
+    def create_twitter_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "create_twitter_data_source", value)
+
+    @_builtins.property
     @pulumi.getter
     def dashboard(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         """
@@ -49786,6 +51251,60 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "dashboard", value)
 
     @_builtins.property
+    @pulumi.getter(name="databricksDataSource")
+    def databricks_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "databricks_data_source")
+
+    @databricks_data_source.setter
+    def databricks_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "databricks_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="db2DataSource")
+    def db2_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "db2_data_source")
+
+    @db2_data_source.setter
+    def db2_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "db2_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="denodoDataSource")
+    def denodo_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "denodo_data_source")
+
+    @denodo_data_source.setter
+    def denodo_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "denodo_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="documentDbDataSource")
+    def document_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "document_db_data_source")
+
+    @document_db_data_source.setter
+    def document_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "document_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dremioDataSource")
+    def dremio_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "dremio_data_source")
+
+    @dremio_data_source.setter
+    def dremio_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "dremio_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dynamoDbDataSource")
+    def dynamo_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "dynamo_db_data_source")
+
+    @dynamo_db_data_source.setter
+    def dynamo_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "dynamo_db_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="editVisualWithQ")
     def edit_visual_with_q(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "edit_visual_with_q")
@@ -49793,6 +51312,15 @@ class CustomPermissionsCapabilitiesArgs:
     @edit_visual_with_q.setter
     def edit_visual_with_q(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "edit_visual_with_q", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exasolDataSource")
+    def exasol_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "exasol_data_source")
+
+    @exasol_data_source.setter
+    def exasol_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "exasol_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="exportToCsv")
@@ -49885,6 +51413,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "fact_set_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="fileDataSource")
+    def file_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "file_data_source")
+
+    @file_data_source.setter
+    def file_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "file_data_source", value)
+
+    @_builtins.property
     @pulumi.getter
     def flow(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "flow")
@@ -49903,6 +51440,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "generic_http_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="gitHubDataSource")
+    def git_hub_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "git_hub_data_source")
+
+    @git_hub_data_source.setter
+    def git_hub_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "git_hub_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="githubAction")
     def github_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "github_action")
@@ -49912,6 +51458,24 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "github_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="googleAnalyticsDataSource")
+    def google_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "google_analytics_data_source")
+
+    @google_analytics_data_source.setter
+    def google_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "google_analytics_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="googleBigQueryDataSource")
+    def google_big_query_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "google_big_query_data_source")
+
+    @google_big_query_data_source.setter
+    def google_big_query_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "google_big_query_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="googleCalendarAction")
     def google_calendar_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "google_calendar_action")
@@ -49919,6 +51483,24 @@ class CustomPermissionsCapabilitiesArgs:
     @google_calendar_action.setter
     def google_calendar_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "google_calendar_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="googleDriveKnowledgeBase")
+    def google_drive_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "google_drive_knowledge_base")
+
+    @google_drive_knowledge_base.setter
+    def google_drive_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "google_drive_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="googleSheetsDataSource")
+    def google_sheets_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "google_sheets_data_source")
+
+    @google_sheets_data_source.setter
+    def google_sheets_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "google_sheets_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="hubspotAction")
@@ -49937,6 +51519,33 @@ class CustomPermissionsCapabilitiesArgs:
     @hugging_face_action.setter
     def hugging_face_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "hugging_face_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idcKnowledgeBase")
+    def idc_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "idc_knowledge_base")
+
+    @idc_knowledge_base.setter
+    def idc_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "idc_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="impalaDataSource")
+    def impala_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "impala_data_source")
+
+    @impala_data_source.setter
+    def impala_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "impala_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundEmailTrigger")
+    def inbound_email_trigger(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "inbound_email_trigger")
+
+    @inbound_email_trigger.setter
+    def inbound_email_trigger(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "inbound_email_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="includeContentInScheduledReportsEmail")
@@ -49978,6 +51587,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "jira_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="jiraDataSource")
+    def jira_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "jira_data_source")
+
+    @jira_data_source.setter
+    def jira_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "jira_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="knowledgeBase")
     def knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "knowledge_base")
@@ -50005,6 +51623,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "manage_shared_folders", value)
 
     @_builtins.property
+    @pulumi.getter(name="mariaDbDataSource")
+    def maria_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "maria_db_data_source")
+
+    @maria_db_data_source.setter
+    def maria_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "maria_db_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="mcpAction")
     def mcp_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "mcp_action")
@@ -50023,6 +51650,24 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "monday_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="mongoAtlasDataSource")
+    def mongo_atlas_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "mongo_atlas_data_source")
+
+    @mongo_atlas_data_source.setter
+    def mongo_atlas_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "mongo_atlas_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mongoDbDataSource")
+    def mongo_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "mongo_db_data_source")
+
+    @mongo_db_data_source.setter
+    def mongo_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "mongo_db_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="msExchangeAction")
     def ms_exchange_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "ms_exchange_action")
@@ -50039,6 +51684,15 @@ class CustomPermissionsCapabilitiesArgs:
     @ms_teams_action.setter
     def ms_teams_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "ms_teams_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mySqlDataSource")
+    def my_sql_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "my_sql_data_source")
+
+    @my_sql_data_source.setter
+    def my_sql_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "my_sql_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="newRelicAction")
@@ -50068,6 +51722,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "one_drive_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="oneDriveKnowledgeBase")
+    def one_drive_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "one_drive_knowledge_base")
+
+    @one_drive_knowledge_base.setter
+    def one_drive_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "one_drive_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="openApiAction")
     def open_api_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "open_api_action")
@@ -50075,6 +51738,24 @@ class CustomPermissionsCapabilitiesArgs:
     @open_api_action.setter
     def open_api_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "open_api_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="openSearchDataSource")
+    def open_search_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "open_search_data_source")
+
+    @open_search_data_source.setter
+    def open_search_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "open_search_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oracleDataSource")
+    def oracle_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "oracle_data_source")
+
+    @oracle_data_source.setter
+    def oracle_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "oracle_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="pagerDutyAction")
@@ -50086,6 +51767,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "pager_duty_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="payPalDataSource")
+    def pay_pal_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "pay_pal_data_source")
+
+    @pay_pal_data_source.setter
+    def pay_pal_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "pay_pal_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="performFlowUiTask")
     def perform_flow_ui_task(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "perform_flow_ui_task")
@@ -50093,6 +51783,24 @@ class CustomPermissionsCapabilitiesArgs:
     @perform_flow_ui_task.setter
     def perform_flow_ui_task(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "perform_flow_ui_task", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postgreSqlDataSource")
+    def postgre_sql_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "postgre_sql_data_source")
+
+    @postgre_sql_data_source.setter
+    def postgre_sql_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "postgre_sql_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prestoDataSource")
+    def presto_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "presto_data_source")
+
+    @presto_data_source.setter
+    def presto_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "presto_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="printReports")
@@ -50116,6 +51824,60 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "publish_without_approval", value)
 
     @_builtins.property
+    @pulumi.getter(name="qBusinessKnowledgeBase")
+    def q_business_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "q_business_knowledge_base")
+
+    @q_business_knowledge_base.setter
+    def q_business_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "q_business_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="quickEventTrigger")
+    def quick_event_trigger(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "quick_event_trigger")
+
+    @quick_event_trigger.setter
+    def quick_event_trigger(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "quick_event_trigger", value)
+
+    @_builtins.property
+    @pulumi.getter(name="radiantDataSource")
+    def radiant_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "radiant_data_source")
+
+    @radiant_data_source.setter
+    def radiant_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "radiant_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsDataSource")
+    def rds_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "rds_data_source")
+
+    @rds_data_source.setter
+    def rds_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "rds_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redshiftAutoDiscoveredDataSource")
+    def redshift_auto_discovered_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "redshift_auto_discovered_data_source")
+
+    @redshift_auto_discovered_data_source.setter
+    def redshift_auto_discovered_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "redshift_auto_discovered_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redshiftManualDataSource")
+    def redshift_manual_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "redshift_manual_data_source")
+
+    @redshift_manual_data_source.setter
+    def redshift_manual_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "redshift_manual_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="renameSharedFolders")
     def rename_shared_folders(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         """
@@ -50137,6 +51899,42 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "research", value)
 
     @_builtins.property
+    @pulumi.getter(name="s3AnalyticsDataSource")
+    def s3_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "s3_analytics_data_source")
+
+    @s3_analytics_data_source.setter
+    def s3_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "s3_analytics_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "s3_data_source")
+
+    @s3_data_source.setter
+    def s3_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "s3_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3KnowledgeBase")
+    def s3_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "s3_knowledge_base")
+
+    @s3_knowledge_base.setter
+    def s3_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "s3_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3TablesDataSource")
+    def s3_tables_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "s3_tables_data_source")
+
+    @s3_tables_data_source.setter
+    def s3_tables_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "s3_tables_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="salesforceAction")
     def salesforce_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "salesforce_action")
@@ -50144,6 +51942,15 @@ class CustomPermissionsCapabilitiesArgs:
     @salesforce_action.setter
     def salesforce_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "salesforce_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="salesforceDataSource")
+    def salesforce_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "salesforce_data_source")
+
+    @salesforce_data_source.setter
+    def salesforce_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "salesforce_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="sandPGlobalEnergyAction")
@@ -50182,6 +51989,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "sap_business_partner_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="sapHanaDataSource")
+    def sap_hana_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "sap_hana_data_source")
+
+    @sap_hana_data_source.setter
+    def sap_hana_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "sap_hana_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="sapMaterialStockAction")
     def sap_material_stock_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "sap_material_stock_action")
@@ -50209,6 +52025,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "sap_product_master_data_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="scheduleTrigger")
+    def schedule_trigger(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "schedule_trigger")
+
+    @schedule_trigger.setter
+    def schedule_trigger(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "schedule_trigger", value)
+
+    @_builtins.property
     @pulumi.getter(name="serviceNowAction")
     def service_now_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "service_now_action")
@@ -50216,6 +52041,24 @@ class CustomPermissionsCapabilitiesArgs:
     @service_now_action.setter
     def service_now_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "service_now_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNowDataSource")
+    def service_now_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "service_now_data_source")
+
+    @service_now_data_source.setter
+    def service_now_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "service_now_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareAdobeAnalyticsDataSource")
+    def share_adobe_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_adobe_analytics_data_source")
+
+    @share_adobe_analytics_data_source.setter
+    def share_adobe_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_adobe_analytics_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="shareAmazonBedrockArsAction")
@@ -50284,6 +52127,24 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_asana_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareAthenaDataSource")
+    def share_athena_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_athena_data_source")
+
+    @share_athena_data_source.setter
+    def share_athena_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_athena_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareAuroraDataSource")
+    def share_aurora_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_aurora_data_source")
+
+    @share_aurora_data_source.setter
+    def share_aurora_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_aurora_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareBambooHrAction")
     def share_bamboo_hr_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_bamboo_hr_action")
@@ -50293,6 +52154,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_bamboo_hr_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareBedrockManagedKnowledgeBase")
+    def share_bedrock_managed_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_bedrock_managed_knowledge_base")
+
+    @share_bedrock_managed_knowledge_base.setter
+    def share_bedrock_managed_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_bedrock_managed_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareBoxAgentAction")
     def share_box_agent_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_box_agent_action")
@@ -50300,6 +52170,15 @@ class CustomPermissionsCapabilitiesArgs:
     @share_box_agent_action.setter
     def share_box_agent_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "share_box_agent_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareBoxKnowledgeBase")
+    def share_box_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_box_knowledge_base")
+
+    @share_box_knowledge_base.setter
+    def share_box_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_box_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="shareCanvaAgentAction")
@@ -50347,6 +52226,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_confluence_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareConfluenceKnowledgeBase")
+    def share_confluence_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_confluence_knowledge_base")
+
+    @share_confluence_knowledge_base.setter
+    def share_confluence_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_confluence_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareDashboards")
     def share_dashboards(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         """
@@ -50371,6 +52259,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_data_sources", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareDatabricksDataSource")
+    def share_databricks_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_databricks_data_source")
+
+    @share_databricks_data_source.setter
+    def share_databricks_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_databricks_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareDatasets")
     def share_datasets(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         """
@@ -50383,6 +52280,60 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_datasets", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareDb2DataSource")
+    def share_db2_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_db2_data_source")
+
+    @share_db2_data_source.setter
+    def share_db2_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_db2_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareDenodoDataSource")
+    def share_denodo_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_denodo_data_source")
+
+    @share_denodo_data_source.setter
+    def share_denodo_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_denodo_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareDocumentDbDataSource")
+    def share_document_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_document_db_data_source")
+
+    @share_document_db_data_source.setter
+    def share_document_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_document_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareDremioDataSource")
+    def share_dremio_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_dremio_data_source")
+
+    @share_dremio_data_source.setter
+    def share_dremio_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_dremio_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareDynamoDbDataSource")
+    def share_dynamo_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_dynamo_db_data_source")
+
+    @share_dynamo_db_data_source.setter
+    def share_dynamo_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_dynamo_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareExasolDataSource")
+    def share_exasol_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_exasol_data_source")
+
+    @share_exasol_data_source.setter
+    def share_exasol_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_exasol_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareFactSetAction")
     def share_fact_set_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_fact_set_action")
@@ -50390,6 +52341,15 @@ class CustomPermissionsCapabilitiesArgs:
     @share_fact_set_action.setter
     def share_fact_set_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "share_fact_set_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareFileDataSource")
+    def share_file_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_file_data_source")
+
+    @share_file_data_source.setter
+    def share_file_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_file_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="shareGenericHttpAction")
@@ -50401,6 +52361,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_generic_http_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareGitHubDataSource")
+    def share_git_hub_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_git_hub_data_source")
+
+    @share_git_hub_data_source.setter
+    def share_git_hub_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_git_hub_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareGithubAction")
     def share_github_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_github_action")
@@ -50410,6 +52379,24 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_github_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareGoogleAnalyticsDataSource")
+    def share_google_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_google_analytics_data_source")
+
+    @share_google_analytics_data_source.setter
+    def share_google_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_google_analytics_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareGoogleBigQueryDataSource")
+    def share_google_big_query_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_google_big_query_data_source")
+
+    @share_google_big_query_data_source.setter
+    def share_google_big_query_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_google_big_query_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareGoogleCalendarAction")
     def share_google_calendar_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_google_calendar_action")
@@ -50417,6 +52404,24 @@ class CustomPermissionsCapabilitiesArgs:
     @share_google_calendar_action.setter
     def share_google_calendar_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "share_google_calendar_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareGoogleDriveKnowledgeBase")
+    def share_google_drive_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_google_drive_knowledge_base")
+
+    @share_google_drive_knowledge_base.setter
+    def share_google_drive_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_google_drive_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareGoogleSheetsDataSource")
+    def share_google_sheets_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_google_sheets_data_source")
+
+    @share_google_sheets_data_source.setter
+    def share_google_sheets_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_google_sheets_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="shareHubspotAction")
@@ -50437,6 +52442,24 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_hugging_face_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareIdcKnowledgeBase")
+    def share_idc_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_idc_knowledge_base")
+
+    @share_idc_knowledge_base.setter
+    def share_idc_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_idc_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareImpalaDataSource")
+    def share_impala_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_impala_data_source")
+
+    @share_impala_data_source.setter
+    def share_impala_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_impala_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareIntercomAction")
     def share_intercom_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_intercom_action")
@@ -50453,6 +52476,15 @@ class CustomPermissionsCapabilitiesArgs:
     @share_jira_action.setter
     def share_jira_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "share_jira_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareJiraDataSource")
+    def share_jira_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_jira_data_source")
+
+    @share_jira_data_source.setter
+    def share_jira_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_jira_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="shareKnowledgeBases")
@@ -50473,6 +52505,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_linear_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareMariaDbDataSource")
+    def share_maria_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_maria_db_data_source")
+
+    @share_maria_db_data_source.setter
+    def share_maria_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_maria_db_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareMcpAction")
     def share_mcp_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_mcp_action")
@@ -50491,6 +52532,24 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_monday_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareMongoAtlasDataSource")
+    def share_mongo_atlas_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_mongo_atlas_data_source")
+
+    @share_mongo_atlas_data_source.setter
+    def share_mongo_atlas_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_mongo_atlas_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareMongoDbDataSource")
+    def share_mongo_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_mongo_db_data_source")
+
+    @share_mongo_db_data_source.setter
+    def share_mongo_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_mongo_db_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareMsExchangeAction")
     def share_ms_exchange_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_ms_exchange_action")
@@ -50507,6 +52566,15 @@ class CustomPermissionsCapabilitiesArgs:
     @share_ms_teams_action.setter
     def share_ms_teams_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "share_ms_teams_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareMySqlDataSource")
+    def share_my_sql_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_my_sql_data_source")
+
+    @share_my_sql_data_source.setter
+    def share_my_sql_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_my_sql_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="shareNewRelicAction")
@@ -50536,6 +52604,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_one_drive_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareOneDriveKnowledgeBase")
+    def share_one_drive_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_one_drive_knowledge_base")
+
+    @share_one_drive_knowledge_base.setter
+    def share_one_drive_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_one_drive_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareOpenApiAction")
     def share_open_api_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_open_api_action")
@@ -50543,6 +52620,24 @@ class CustomPermissionsCapabilitiesArgs:
     @share_open_api_action.setter
     def share_open_api_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "share_open_api_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareOpenSearchDataSource")
+    def share_open_search_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_open_search_data_source")
+
+    @share_open_search_data_source.setter
+    def share_open_search_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_open_search_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareOracleDataSource")
+    def share_oracle_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_oracle_data_source")
+
+    @share_oracle_data_source.setter
+    def share_oracle_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_oracle_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="sharePagerDutyAction")
@@ -50554,6 +52649,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_pager_duty_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="sharePayPalDataSource")
+    def share_pay_pal_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_pay_pal_data_source")
+
+    @share_pay_pal_data_source.setter
+    def share_pay_pal_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_pay_pal_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharePointAction")
     def share_point_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_point_action")
@@ -50563,6 +52667,114 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_point_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="sharePointKnowledgeBase")
+    def share_point_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_point_knowledge_base")
+
+    @share_point_knowledge_base.setter
+    def share_point_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_point_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sharePostgreSqlDataSource")
+    def share_postgre_sql_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_postgre_sql_data_source")
+
+    @share_postgre_sql_data_source.setter
+    def share_postgre_sql_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_postgre_sql_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sharePrestoDataSource")
+    def share_presto_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_presto_data_source")
+
+    @share_presto_data_source.setter
+    def share_presto_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_presto_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareQBusinessKnowledgeBase")
+    def share_q_business_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_q_business_knowledge_base")
+
+    @share_q_business_knowledge_base.setter
+    def share_q_business_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_q_business_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareRadiantDataSource")
+    def share_radiant_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_radiant_data_source")
+
+    @share_radiant_data_source.setter
+    def share_radiant_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_radiant_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareRdsDataSource")
+    def share_rds_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_rds_data_source")
+
+    @share_rds_data_source.setter
+    def share_rds_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_rds_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareRedshiftAutoDiscoveredDataSource")
+    def share_redshift_auto_discovered_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_redshift_auto_discovered_data_source")
+
+    @share_redshift_auto_discovered_data_source.setter
+    def share_redshift_auto_discovered_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_redshift_auto_discovered_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareRedshiftManualDataSource")
+    def share_redshift_manual_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_redshift_manual_data_source")
+
+    @share_redshift_manual_data_source.setter
+    def share_redshift_manual_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_redshift_manual_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareS3AnalyticsDataSource")
+    def share_s3_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_s3_analytics_data_source")
+
+    @share_s3_analytics_data_source.setter
+    def share_s3_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_s3_analytics_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareS3DataSource")
+    def share_s3_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_s3_data_source")
+
+    @share_s3_data_source.setter
+    def share_s3_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_s3_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareS3KnowledgeBase")
+    def share_s3_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_s3_knowledge_base")
+
+    @share_s3_knowledge_base.setter
+    def share_s3_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_s3_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareS3TablesDataSource")
+    def share_s3_tables_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_s3_tables_data_source")
+
+    @share_s3_tables_data_source.setter
+    def share_s3_tables_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_s3_tables_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareSalesforceAction")
     def share_salesforce_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_salesforce_action")
@@ -50570,6 +52782,15 @@ class CustomPermissionsCapabilitiesArgs:
     @share_salesforce_action.setter
     def share_salesforce_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "share_salesforce_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareSalesforceDataSource")
+    def share_salesforce_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_salesforce_data_source")
+
+    @share_salesforce_data_source.setter
+    def share_salesforce_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_salesforce_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="shareSandPGlobalEnergyAction")
@@ -50608,6 +52829,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_sap_business_partner_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareSapHanaDataSource")
+    def share_sap_hana_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_sap_hana_data_source")
+
+    @share_sap_hana_data_source.setter
+    def share_sap_hana_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_sap_hana_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareSapMaterialStockAction")
     def share_sap_material_stock_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_sap_material_stock_action")
@@ -50644,6 +52874,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_service_now_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareServiceNowDataSource")
+    def share_service_now_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_service_now_data_source")
+
+    @share_service_now_data_source.setter
+    def share_service_now_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_service_now_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareSharePointAction")
     def share_share_point_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_share_point_action")
@@ -50651,6 +52890,15 @@ class CustomPermissionsCapabilitiesArgs:
     @share_share_point_action.setter
     def share_share_point_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "share_share_point_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareSharePointKnowledgeBase")
+    def share_share_point_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_share_point_knowledge_base")
+
+    @share_share_point_knowledge_base.setter
+    def share_share_point_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_share_point_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="shareSlackAction")
@@ -50671,6 +52919,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_smartsheet_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareSnowflakeDataSource")
+    def share_snowflake_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_snowflake_data_source")
+
+    @share_snowflake_data_source.setter
+    def share_snowflake_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_snowflake_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareSpaces")
     def share_spaces(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_spaces")
@@ -50680,6 +52937,51 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_spaces", value)
 
     @_builtins.property
+    @pulumi.getter(name="shareSparkDataSource")
+    def share_spark_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_spark_data_source")
+
+    @share_spark_data_source.setter
+    def share_spark_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_spark_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareSqlServerDataSource")
+    def share_sql_server_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_sql_server_data_source")
+
+    @share_sql_server_data_source.setter
+    def share_sql_server_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_sql_server_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareSquareDataSource")
+    def share_square_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_square_data_source")
+
+    @share_square_data_source.setter
+    def share_square_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_square_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareStarburstDataSource")
+    def share_starburst_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_starburst_data_source")
+
+    @share_starburst_data_source.setter
+    def share_starburst_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_starburst_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareTeradataDataSource")
+    def share_teradata_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_teradata_data_source")
+
+    @share_teradata_data_source.setter
+    def share_teradata_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_teradata_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="shareTextractAction")
     def share_textract_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "share_textract_action")
@@ -50687,6 +52989,42 @@ class CustomPermissionsCapabilitiesArgs:
     @share_textract_action.setter
     def share_textract_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "share_textract_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareTimestreamDataSource")
+    def share_timestream_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_timestream_data_source")
+
+    @share_timestream_data_source.setter
+    def share_timestream_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_timestream_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareTrinoDataSource")
+    def share_trino_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_trino_data_source")
+
+    @share_trino_data_source.setter
+    def share_trino_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_trino_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareTwitterDataSource")
+    def share_twitter_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_twitter_data_source")
+
+    @share_twitter_data_source.setter
+    def share_twitter_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_twitter_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareWebCrawlerKnowledgeBase")
+    def share_web_crawler_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "share_web_crawler_knowledge_base")
+
+    @share_web_crawler_knowledge_base.setter
+    def share_web_crawler_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "share_web_crawler_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="shareZendeskAction")
@@ -50716,6 +53054,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "smartsheet_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="snowflakeDataSource")
+    def snowflake_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "snowflake_data_source")
+
+    @snowflake_data_source.setter
+    def snowflake_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "snowflake_data_source", value)
+
+    @_builtins.property
     @pulumi.getter
     def space(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "space")
@@ -50723,6 +53070,42 @@ class CustomPermissionsCapabilitiesArgs:
     @space.setter
     def space(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "space", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sparkDataSource")
+    def spark_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "spark_data_source")
+
+    @spark_data_source.setter
+    def spark_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "spark_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlServerDataSource")
+    def sql_server_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "sql_server_data_source")
+
+    @sql_server_data_source.setter
+    def sql_server_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "sql_server_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="squareDataSource")
+    def square_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "square_data_source")
+
+    @square_data_source.setter
+    def square_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "square_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="starburstDataSource")
+    def starburst_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "starburst_data_source")
+
+    @starburst_data_source.setter
+    def starburst_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "starburst_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="subscribeDashboardEmailReports")
@@ -50737,6 +53120,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "subscribe_dashboard_email_reports", value)
 
     @_builtins.property
+    @pulumi.getter(name="teradataDataSource")
+    def teradata_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "teradata_data_source")
+
+    @teradata_data_source.setter
+    def teradata_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "teradata_data_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="textractAction")
     def textract_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "textract_action")
@@ -50746,6 +53138,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "textract_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="timestreamDataSource")
+    def timestream_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "timestream_data_source")
+
+    @timestream_data_source.setter
+    def timestream_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "timestream_data_source", value)
+
+    @_builtins.property
     @pulumi.getter
     def topic(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "topic")
@@ -50753,6 +53154,438 @@ class CustomPermissionsCapabilitiesArgs:
     @topic.setter
     def topic(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "topic", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "trigger", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trinoDataSource")
+    def trino_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "trino_data_source")
+
+    @trino_data_source.setter
+    def trino_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "trino_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="twitterDataSource")
+    def twitter_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "twitter_data_source")
+
+    @twitter_data_source.setter
+    def twitter_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "twitter_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateAdobeAnalyticsDataSource")
+    def update_adobe_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_adobe_analytics_data_source")
+
+    @update_adobe_analytics_data_source.setter
+    def update_adobe_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_adobe_analytics_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateAthenaDataSource")
+    def update_athena_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_athena_data_source")
+
+    @update_athena_data_source.setter
+    def update_athena_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_athena_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateAuroraDataSource")
+    def update_aurora_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_aurora_data_source")
+
+    @update_aurora_data_source.setter
+    def update_aurora_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_aurora_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateDatabricksDataSource")
+    def update_databricks_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_databricks_data_source")
+
+    @update_databricks_data_source.setter
+    def update_databricks_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_databricks_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateDb2DataSource")
+    def update_db2_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_db2_data_source")
+
+    @update_db2_data_source.setter
+    def update_db2_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_db2_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateDenodoDataSource")
+    def update_denodo_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_denodo_data_source")
+
+    @update_denodo_data_source.setter
+    def update_denodo_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_denodo_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateDocumentDbDataSource")
+    def update_document_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_document_db_data_source")
+
+    @update_document_db_data_source.setter
+    def update_document_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_document_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateDremioDataSource")
+    def update_dremio_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_dremio_data_source")
+
+    @update_dremio_data_source.setter
+    def update_dremio_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_dremio_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateDynamoDbDataSource")
+    def update_dynamo_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_dynamo_db_data_source")
+
+    @update_dynamo_db_data_source.setter
+    def update_dynamo_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_dynamo_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateExasolDataSource")
+    def update_exasol_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_exasol_data_source")
+
+    @update_exasol_data_source.setter
+    def update_exasol_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_exasol_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateFileDataSource")
+    def update_file_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_file_data_source")
+
+    @update_file_data_source.setter
+    def update_file_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_file_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateGitHubDataSource")
+    def update_git_hub_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_git_hub_data_source")
+
+    @update_git_hub_data_source.setter
+    def update_git_hub_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_git_hub_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateGoogleAnalyticsDataSource")
+    def update_google_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_google_analytics_data_source")
+
+    @update_google_analytics_data_source.setter
+    def update_google_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_google_analytics_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateGoogleBigQueryDataSource")
+    def update_google_big_query_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_google_big_query_data_source")
+
+    @update_google_big_query_data_source.setter
+    def update_google_big_query_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_google_big_query_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateGoogleSheetsDataSource")
+    def update_google_sheets_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_google_sheets_data_source")
+
+    @update_google_sheets_data_source.setter
+    def update_google_sheets_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_google_sheets_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateImpalaDataSource")
+    def update_impala_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_impala_data_source")
+
+    @update_impala_data_source.setter
+    def update_impala_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_impala_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateJiraDataSource")
+    def update_jira_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_jira_data_source")
+
+    @update_jira_data_source.setter
+    def update_jira_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_jira_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateMariaDbDataSource")
+    def update_maria_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_maria_db_data_source")
+
+    @update_maria_db_data_source.setter
+    def update_maria_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_maria_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateMongoAtlasDataSource")
+    def update_mongo_atlas_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_mongo_atlas_data_source")
+
+    @update_mongo_atlas_data_source.setter
+    def update_mongo_atlas_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_mongo_atlas_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateMongoDbDataSource")
+    def update_mongo_db_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_mongo_db_data_source")
+
+    @update_mongo_db_data_source.setter
+    def update_mongo_db_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_mongo_db_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateMySqlDataSource")
+    def update_my_sql_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_my_sql_data_source")
+
+    @update_my_sql_data_source.setter
+    def update_my_sql_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_my_sql_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateOpenSearchDataSource")
+    def update_open_search_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_open_search_data_source")
+
+    @update_open_search_data_source.setter
+    def update_open_search_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_open_search_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateOracleDataSource")
+    def update_oracle_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_oracle_data_source")
+
+    @update_oracle_data_source.setter
+    def update_oracle_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_oracle_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatePayPalDataSource")
+    def update_pay_pal_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_pay_pal_data_source")
+
+    @update_pay_pal_data_source.setter
+    def update_pay_pal_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_pay_pal_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatePostgreSqlDataSource")
+    def update_postgre_sql_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_postgre_sql_data_source")
+
+    @update_postgre_sql_data_source.setter
+    def update_postgre_sql_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_postgre_sql_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatePrestoDataSource")
+    def update_presto_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_presto_data_source")
+
+    @update_presto_data_source.setter
+    def update_presto_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_presto_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateRadiantDataSource")
+    def update_radiant_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_radiant_data_source")
+
+    @update_radiant_data_source.setter
+    def update_radiant_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_radiant_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateRdsDataSource")
+    def update_rds_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_rds_data_source")
+
+    @update_rds_data_source.setter
+    def update_rds_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_rds_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateRedshiftAutoDiscoveredDataSource")
+    def update_redshift_auto_discovered_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_redshift_auto_discovered_data_source")
+
+    @update_redshift_auto_discovered_data_source.setter
+    def update_redshift_auto_discovered_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_redshift_auto_discovered_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateRedshiftManualDataSource")
+    def update_redshift_manual_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_redshift_manual_data_source")
+
+    @update_redshift_manual_data_source.setter
+    def update_redshift_manual_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_redshift_manual_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateS3AnalyticsDataSource")
+    def update_s3_analytics_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_s3_analytics_data_source")
+
+    @update_s3_analytics_data_source.setter
+    def update_s3_analytics_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_s3_analytics_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateS3DataSource")
+    def update_s3_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_s3_data_source")
+
+    @update_s3_data_source.setter
+    def update_s3_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_s3_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateS3TablesDataSource")
+    def update_s3_tables_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_s3_tables_data_source")
+
+    @update_s3_tables_data_source.setter
+    def update_s3_tables_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_s3_tables_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateSalesforceDataSource")
+    def update_salesforce_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_salesforce_data_source")
+
+    @update_salesforce_data_source.setter
+    def update_salesforce_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_salesforce_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateSapHanaDataSource")
+    def update_sap_hana_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_sap_hana_data_source")
+
+    @update_sap_hana_data_source.setter
+    def update_sap_hana_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_sap_hana_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateServiceNowDataSource")
+    def update_service_now_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_service_now_data_source")
+
+    @update_service_now_data_source.setter
+    def update_service_now_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_service_now_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateSnowflakeDataSource")
+    def update_snowflake_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_snowflake_data_source")
+
+    @update_snowflake_data_source.setter
+    def update_snowflake_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_snowflake_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateSparkDataSource")
+    def update_spark_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_spark_data_source")
+
+    @update_spark_data_source.setter
+    def update_spark_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_spark_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateSqlServerDataSource")
+    def update_sql_server_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_sql_server_data_source")
+
+    @update_sql_server_data_source.setter
+    def update_sql_server_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_sql_server_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateSquareDataSource")
+    def update_square_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_square_data_source")
+
+    @update_square_data_source.setter
+    def update_square_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_square_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateStarburstDataSource")
+    def update_starburst_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_starburst_data_source")
+
+    @update_starburst_data_source.setter
+    def update_starburst_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_starburst_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateTeradataDataSource")
+    def update_teradata_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_teradata_data_source")
+
+    @update_teradata_data_source.setter
+    def update_teradata_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_teradata_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateTimestreamDataSource")
+    def update_timestream_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_timestream_data_source")
+
+    @update_timestream_data_source.setter
+    def update_timestream_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_timestream_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateTrinoDataSource")
+    def update_trino_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_trino_data_source")
+
+    @update_trino_data_source.setter
+    def update_trino_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_trino_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateTwitterDataSource")
+    def update_twitter_data_source(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "update_twitter_data_source")
+
+    @update_twitter_data_source.setter
+    def update_twitter_data_source(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "update_twitter_data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="useAgentWebSearch")
@@ -50818,6 +53651,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "use_bamboo_hr_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="useBedrockManagedKnowledgeBase")
+    def use_bedrock_managed_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_bedrock_managed_knowledge_base")
+
+    @use_bedrock_managed_knowledge_base.setter
+    def use_bedrock_managed_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_bedrock_managed_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="useBedrockModels")
     def use_bedrock_models(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "use_bedrock_models")
@@ -50834,6 +53676,24 @@ class CustomPermissionsCapabilitiesArgs:
     @use_box_agent_action.setter
     def use_box_agent_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "use_box_agent_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useBoxKnowledgeBase")
+    def use_box_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_box_knowledge_base")
+
+    @use_box_knowledge_base.setter
+    def use_box_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_box_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useBrowserExtension")
+    def use_browser_extension(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_browser_extension")
+
+    @use_browser_extension.setter
+    def use_browser_extension(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_browser_extension", value)
 
     @_builtins.property
     @pulumi.getter(name="useCanvaAgentAction")
@@ -50872,6 +53732,24 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "use_confluence_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="useConfluenceKnowledgeBase")
+    def use_confluence_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_confluence_knowledge_base")
+
+    @use_confluence_knowledge_base.setter
+    def use_confluence_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_confluence_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useExcelAddInExtension")
+    def use_excel_add_in_extension(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_excel_add_in_extension")
+
+    @use_excel_add_in_extension.setter
+    def use_excel_add_in_extension(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_excel_add_in_extension", value)
+
+    @_builtins.property
     @pulumi.getter(name="useFactSetAction")
     def use_fact_set_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "use_fact_set_action")
@@ -50908,6 +53786,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "use_google_calendar_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="useGoogleDriveKnowledgeBase")
+    def use_google_drive_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_google_drive_knowledge_base")
+
+    @use_google_drive_knowledge_base.setter
+    def use_google_drive_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_google_drive_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="useHubspotAction")
     def use_hubspot_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "use_hubspot_action")
@@ -50924,6 +53811,15 @@ class CustomPermissionsCapabilitiesArgs:
     @use_hugging_face_action.setter
     def use_hugging_face_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "use_hugging_face_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useIdcKnowledgeBase")
+    def use_idc_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_idc_knowledge_base")
+
+    @use_idc_knowledge_base.setter
+    def use_idc_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_idc_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="useIntercomAction")
@@ -51016,6 +53912,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "use_one_drive_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="useOneDriveKnowledgeBase")
+    def use_one_drive_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_one_drive_knowledge_base")
+
+    @use_one_drive_knowledge_base.setter
+    def use_one_drive_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_one_drive_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="useOpenApiAction")
     def use_open_api_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "use_open_api_action")
@@ -51025,6 +53930,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "use_open_api_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="useOutlookAddInExtension")
+    def use_outlook_add_in_extension(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_outlook_add_in_extension")
+
+    @use_outlook_add_in_extension.setter
+    def use_outlook_add_in_extension(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_outlook_add_in_extension", value)
+
+    @_builtins.property
     @pulumi.getter(name="usePagerDutyAction")
     def use_pager_duty_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "use_pager_duty_action")
@@ -51032,6 +53946,33 @@ class CustomPermissionsCapabilitiesArgs:
     @use_pager_duty_action.setter
     def use_pager_duty_action(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "use_pager_duty_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePowerpointAddInExtension")
+    def use_powerpoint_add_in_extension(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_powerpoint_add_in_extension")
+
+    @use_powerpoint_add_in_extension.setter
+    def use_powerpoint_add_in_extension(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_powerpoint_add_in_extension", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useQBusinessKnowledgeBase")
+    def use_q_business_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_q_business_knowledge_base")
+
+    @use_q_business_knowledge_base.setter
+    def use_q_business_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_q_business_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useS3KnowledgeBase")
+    def use_s3_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_s3_knowledge_base")
+
+    @use_s3_knowledge_base.setter
+    def use_s3_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_s3_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="useSalesforceAction")
@@ -51124,6 +54065,15 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "use_share_point_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="useSharePointKnowledgeBase")
+    def use_share_point_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_share_point_knowledge_base")
+
+    @use_share_point_knowledge_base.setter
+    def use_share_point_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_share_point_knowledge_base", value)
+
+    @_builtins.property
     @pulumi.getter(name="useSlackAction")
     def use_slack_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "use_slack_action")
@@ -51151,6 +54101,24 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "use_textract_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="useWebCrawlerKnowledgeBase")
+    def use_web_crawler_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_web_crawler_knowledge_base")
+
+    @use_web_crawler_knowledge_base.setter
+    def use_web_crawler_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_web_crawler_knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useWordAddInExtension")
+    def use_word_add_in_extension(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "use_word_add_in_extension")
+
+    @use_word_add_in_extension.setter
+    def use_word_add_in_extension(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "use_word_add_in_extension", value)
+
+    @_builtins.property
     @pulumi.getter(name="useZendeskAction")
     def use_zendesk_action(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
         return pulumi.get(self, "use_zendesk_action")
@@ -51170,6 +54138,15 @@ class CustomPermissionsCapabilitiesArgs:
     @view_account_spice_capacity.setter
     def view_account_spice_capacity(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
         pulumi.set(self, "view_account_spice_capacity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webCrawlerKnowledgeBase")
+    def web_crawler_knowledge_base(self) -> pulumi.Input[Optional['CustomPermissionsCapabilityState']]:
+        return pulumi.get(self, "web_crawler_knowledge_base")
+
+    @web_crawler_knowledge_base.setter
+    def web_crawler_knowledge_base(self, value: pulumi.Input[Optional['CustomPermissionsCapabilityState']]):
+        pulumi.set(self, "web_crawler_knowledge_base", value)
 
     @_builtins.property
     @pulumi.getter(name="zendeskAction")

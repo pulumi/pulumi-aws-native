@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("eventTriggerName")]
         public Output<string> EventTriggerName { get; private set; } = null!;
 
+        [Output("intentFilterDefinition")]
+        public Output<Outputs.EventTriggerIntentFilterDefinition?> IntentFilterDefinition { get; private set; } = null!;
+
         /// <summary>
         /// The timestamp of when the event trigger was most recently updated.
         /// </summary>
@@ -160,6 +163,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         [Input("eventTriggerName")]
         public Input<string>? EventTriggerName { get; set; }
+
+        [Input("intentFilterDefinition")]
+        public Input<Inputs.EventTriggerIntentFilterDefinitionArgs>? IntentFilterDefinition { get; set; }
 
         /// <summary>
         /// The unique name of the object type.

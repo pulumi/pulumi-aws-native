@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.NeptuneGraph
     public partial class Graph : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The time at which the graph was created.
+        /// </summary>
+        [Output("createTime")]
+        public Output<string> CreateTime { get; private set; } = null!;
+
+        /// <summary>
         /// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         /// 
         /// _Default_: If not specified, the default value is true.
@@ -90,6 +96,12 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// </summary>
         [Output("replicaCount")]
         public Output<int?> ReplicaCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The current status of the graph.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags associated with this graph.

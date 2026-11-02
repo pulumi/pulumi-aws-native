@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// </summary>
     public sealed class RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("rtmpPush", required: true)]
-        public Input<Inputs.RouterOutputResourceRtmpPushRouterOutputConfigurationArgs> RtmpPush { get; set; } = null!;
+        [Input("rtp", required: true)]
+        public Input<Inputs.RouterOutputResourceRtpRouterOutputConfigurationArgs> Rtp { get; set; } = null!;
 
         public RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs()
         {

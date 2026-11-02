@@ -19,8 +19,9 @@ type Daemon struct {
 	// The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
 	CapacityProviderArns pulumi.StringArrayOutput `pulumi:"capacityProviderArns"`
 	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
-	ClusterArn   pulumi.StringPtrOutput `pulumi:"clusterArn"`
-	CreatedAt    pulumi.StringOutput    `pulumi:"createdAt"`
+	ClusterArn pulumi.StringPtrOutput `pulumi:"clusterArn"`
+	CreatedAt  pulumi.StringOutput    `pulumi:"createdAt"`
+	// If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
 	Critical     pulumi.BoolPtrOutput   `pulumi:"critical"`
 	DaemonArn    pulumi.StringOutput    `pulumi:"daemonArn"`
 	DaemonName   pulumi.StringPtrOutput `pulumi:"daemonName"`
@@ -89,6 +90,7 @@ type daemonArgs struct {
 	CapacityProviderArns []string `pulumi:"capacityProviderArns"`
 	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
 	ClusterArn *string `pulumi:"clusterArn"`
+	// If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
 	Critical   *bool   `pulumi:"critical"`
 	DaemonName *string `pulumi:"daemonName"`
 	// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
@@ -110,6 +112,7 @@ type DaemonArgs struct {
 	CapacityProviderArns pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
 	ClusterArn pulumi.StringPtrInput
+	// If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
 	Critical   pulumi.BoolPtrInput
 	DaemonName pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
@@ -176,6 +179,7 @@ func (o DaemonOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Daemon) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// If the “critical“ parameter of this daemon revision is “true“, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is “false“, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is “true“.
 func (o DaemonOutput) Critical() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Daemon) pulumi.BoolPtrOutput { return v.Critical }).(pulumi.BoolPtrOutput)
 }

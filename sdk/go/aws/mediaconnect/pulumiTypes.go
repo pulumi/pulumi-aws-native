@@ -2587,6 +2587,2195 @@ func (o BridgeVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The details of the resource that is associated with a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointAssociatedResourceDetails0Properties struct {
+	Standard DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails `pulumi:"standard"`
+}
+
+// The details of the resource that is associated with a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointAssociatedResourceDetails0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointAssociatedResourceDetails0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointAssociatedResourceDetails0Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointAssociatedResourceDetails0PropertiesOutput) ToDestinationEndpointAssociatedResourceDetails0PropertiesOutput() DestinationEndpointAssociatedResourceDetails0PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointAssociatedResourceDetails0PropertiesOutput) ToDestinationEndpointAssociatedResourceDetails0PropertiesOutputWithContext(ctx context.Context) DestinationEndpointAssociatedResourceDetails0PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointAssociatedResourceDetails0PropertiesOutput) Standard() DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput {
+	return o.ApplyT(func(v DestinationEndpointAssociatedResourceDetails0Properties) DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails {
+		return v.Standard
+	}).(DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput)
+}
+
+type DestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointAssociatedResourceDetails0Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput) ToDestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput() DestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput) ToDestinationEndpointAssociatedResourceDetails0PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput) Elem() DestinationEndpointAssociatedResourceDetails0PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointAssociatedResourceDetails0Properties) DestinationEndpointAssociatedResourceDetails0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointAssociatedResourceDetails0Properties
+		return ret
+	}).(DestinationEndpointAssociatedResourceDetails0PropertiesOutput)
+}
+
+func (o DestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput) Standard() DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointAssociatedResourceDetails0Properties) *DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.Standard
+	}).(DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput)
+}
+
+// The details of the resource that is associated with a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointAssociatedResourceDetails1Properties struct {
+	RouterInput DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails `pulumi:"routerInput"`
+}
+
+// The details of the resource that is associated with a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointAssociatedResourceDetails1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointAssociatedResourceDetails1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointAssociatedResourceDetails1Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointAssociatedResourceDetails1PropertiesOutput) ToDestinationEndpointAssociatedResourceDetails1PropertiesOutput() DestinationEndpointAssociatedResourceDetails1PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointAssociatedResourceDetails1PropertiesOutput) ToDestinationEndpointAssociatedResourceDetails1PropertiesOutputWithContext(ctx context.Context) DestinationEndpointAssociatedResourceDetails1PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointAssociatedResourceDetails1PropertiesOutput) RouterInput() DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput {
+	return o.ApplyT(func(v DestinationEndpointAssociatedResourceDetails1Properties) DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails {
+		return v.RouterInput
+	}).(DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput)
+}
+
+type DestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointAssociatedResourceDetails1Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput) ToDestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput() DestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput) ToDestinationEndpointAssociatedResourceDetails1PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput) Elem() DestinationEndpointAssociatedResourceDetails1PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointAssociatedResourceDetails1Properties) DestinationEndpointAssociatedResourceDetails1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointAssociatedResourceDetails1Properties
+		return ret
+	}).(DestinationEndpointAssociatedResourceDetails1PropertiesOutput)
+}
+
+func (o DestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput) RouterInput() DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointAssociatedResourceDetails1Properties) *DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.RouterInput
+	}).(DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput)
+}
+
+// The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointConfiguration0Properties struct {
+	Standard DestinationEndpointStandardDestinationEndpointConfiguration `pulumi:"standard"`
+}
+
+// DestinationEndpointConfiguration0PropertiesInput is an input type that accepts DestinationEndpointConfiguration0PropertiesArgs and DestinationEndpointConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `DestinationEndpointConfiguration0PropertiesInput` via:
+//
+//	DestinationEndpointConfiguration0PropertiesArgs{...}
+type DestinationEndpointConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointConfiguration0PropertiesOutput() DestinationEndpointConfiguration0PropertiesOutput
+	ToDestinationEndpointConfiguration0PropertiesOutputWithContext(context.Context) DestinationEndpointConfiguration0PropertiesOutput
+}
+
+// The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointConfiguration0PropertiesArgs struct {
+	Standard DestinationEndpointStandardDestinationEndpointConfigurationInput `pulumi:"standard"`
+}
+
+func (DestinationEndpointConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointConfiguration0Properties)(nil)).Elem()
+}
+
+func (i DestinationEndpointConfiguration0PropertiesArgs) ToDestinationEndpointConfiguration0PropertiesOutput() DestinationEndpointConfiguration0PropertiesOutput {
+	return i.ToDestinationEndpointConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointConfiguration0PropertiesArgs) ToDestinationEndpointConfiguration0PropertiesOutputWithContext(ctx context.Context) DestinationEndpointConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointConfiguration0PropertiesOutput)
+}
+
+// The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointConfiguration0Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointConfiguration0PropertiesOutput) ToDestinationEndpointConfiguration0PropertiesOutput() DestinationEndpointConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointConfiguration0PropertiesOutput) ToDestinationEndpointConfiguration0PropertiesOutputWithContext(ctx context.Context) DestinationEndpointConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointConfiguration0PropertiesOutput) Standard() DestinationEndpointStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v DestinationEndpointConfiguration0Properties) DestinationEndpointStandardDestinationEndpointConfiguration {
+		return v.Standard
+	}).(DestinationEndpointStandardDestinationEndpointConfigurationOutput)
+}
+
+type DestinationEndpointConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointConfiguration0Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointConfiguration0PropertiesPtrOutput) ToDestinationEndpointConfiguration0PropertiesPtrOutput() DestinationEndpointConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointConfiguration0PropertiesPtrOutput) ToDestinationEndpointConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointConfiguration0PropertiesPtrOutput) Elem() DestinationEndpointConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointConfiguration0Properties) DestinationEndpointConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointConfiguration0Properties
+		return ret
+	}).(DestinationEndpointConfiguration0PropertiesOutput)
+}
+
+func (o DestinationEndpointConfiguration0PropertiesPtrOutput) Standard() DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointConfiguration0Properties) *DestinationEndpointStandardDestinationEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Standard
+	}).(DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput)
+}
+
+// The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointConfiguration1Properties struct {
+	RouterInput DestinationEndpointRouterInputDestinationEndpointConfiguration `pulumi:"routerInput"`
+}
+
+// DestinationEndpointConfiguration1PropertiesInput is an input type that accepts DestinationEndpointConfiguration1PropertiesArgs and DestinationEndpointConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `DestinationEndpointConfiguration1PropertiesInput` via:
+//
+//	DestinationEndpointConfiguration1PropertiesArgs{...}
+type DestinationEndpointConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointConfiguration1PropertiesOutput() DestinationEndpointConfiguration1PropertiesOutput
+	ToDestinationEndpointConfiguration1PropertiesOutputWithContext(context.Context) DestinationEndpointConfiguration1PropertiesOutput
+}
+
+// The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointConfiguration1PropertiesArgs struct {
+	RouterInput DestinationEndpointRouterInputDestinationEndpointConfigurationInput `pulumi:"routerInput"`
+}
+
+func (DestinationEndpointConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointConfiguration1Properties)(nil)).Elem()
+}
+
+func (i DestinationEndpointConfiguration1PropertiesArgs) ToDestinationEndpointConfiguration1PropertiesOutput() DestinationEndpointConfiguration1PropertiesOutput {
+	return i.ToDestinationEndpointConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointConfiguration1PropertiesArgs) ToDestinationEndpointConfiguration1PropertiesOutputWithContext(ctx context.Context) DestinationEndpointConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointConfiguration1PropertiesOutput)
+}
+
+// The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+type DestinationEndpointConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointConfiguration1Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointConfiguration1PropertiesOutput) ToDestinationEndpointConfiguration1PropertiesOutput() DestinationEndpointConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointConfiguration1PropertiesOutput) ToDestinationEndpointConfiguration1PropertiesOutputWithContext(ctx context.Context) DestinationEndpointConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointConfiguration1PropertiesOutput) RouterInput() DestinationEndpointRouterInputDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v DestinationEndpointConfiguration1Properties) DestinationEndpointRouterInputDestinationEndpointConfiguration {
+		return v.RouterInput
+	}).(DestinationEndpointRouterInputDestinationEndpointConfigurationOutput)
+}
+
+type DestinationEndpointConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointConfiguration1Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointConfiguration1PropertiesPtrOutput) ToDestinationEndpointConfiguration1PropertiesPtrOutput() DestinationEndpointConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointConfiguration1PropertiesPtrOutput) ToDestinationEndpointConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointConfiguration1PropertiesPtrOutput) Elem() DestinationEndpointConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointConfiguration1Properties) DestinationEndpointConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointConfiguration1Properties
+		return ret
+	}).(DestinationEndpointConfiguration1PropertiesOutput)
+}
+
+func (o DestinationEndpointConfiguration1PropertiesPtrOutput) RouterInput() DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointConfiguration1Properties) *DestinationEndpointRouterInputDestinationEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.RouterInput
+	}).(DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput)
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type DestinationEndpointEndpointEncryptionSecretConfiguration struct {
+	// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// DestinationEndpointEndpointEncryptionSecretConfigurationInput is an input type that accepts DestinationEndpointEndpointEncryptionSecretConfigurationArgs and DestinationEndpointEndpointEncryptionSecretConfigurationOutput values.
+// You can construct a concrete instance of `DestinationEndpointEndpointEncryptionSecretConfigurationInput` via:
+//
+//	DestinationEndpointEndpointEncryptionSecretConfigurationArgs{...}
+type DestinationEndpointEndpointEncryptionSecretConfigurationInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointEndpointEncryptionSecretConfigurationOutput() DestinationEndpointEndpointEncryptionSecretConfigurationOutput
+	ToDestinationEndpointEndpointEncryptionSecretConfigurationOutputWithContext(context.Context) DestinationEndpointEndpointEncryptionSecretConfigurationOutput
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type DestinationEndpointEndpointEncryptionSecretConfigurationArgs struct {
+	// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (DestinationEndpointEndpointEncryptionSecretConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (i DestinationEndpointEndpointEncryptionSecretConfigurationArgs) ToDestinationEndpointEndpointEncryptionSecretConfigurationOutput() DestinationEndpointEndpointEncryptionSecretConfigurationOutput {
+	return i.ToDestinationEndpointEndpointEncryptionSecretConfigurationOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointEndpointEncryptionSecretConfigurationArgs) ToDestinationEndpointEndpointEncryptionSecretConfigurationOutputWithContext(ctx context.Context) DestinationEndpointEndpointEncryptionSecretConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointEndpointEncryptionSecretConfigurationOutput)
+}
+
+func (i DestinationEndpointEndpointEncryptionSecretConfigurationArgs) ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput() DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return i.ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointEndpointEncryptionSecretConfigurationArgs) ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointEndpointEncryptionSecretConfigurationOutput).ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx)
+}
+
+// DestinationEndpointEndpointEncryptionSecretConfigurationPtrInput is an input type that accepts DestinationEndpointEndpointEncryptionSecretConfigurationArgs, DestinationEndpointEndpointEncryptionSecretConfigurationPtr and DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput values.
+// You can construct a concrete instance of `DestinationEndpointEndpointEncryptionSecretConfigurationPtrInput` via:
+//
+//	        DestinationEndpointEndpointEncryptionSecretConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DestinationEndpointEndpointEncryptionSecretConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput() DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput
+	ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(context.Context) DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput
+}
+
+type destinationEndpointEndpointEncryptionSecretConfigurationPtrType DestinationEndpointEndpointEncryptionSecretConfigurationArgs
+
+func DestinationEndpointEndpointEncryptionSecretConfigurationPtr(v *DestinationEndpointEndpointEncryptionSecretConfigurationArgs) DestinationEndpointEndpointEncryptionSecretConfigurationPtrInput {
+	return (*destinationEndpointEndpointEncryptionSecretConfigurationPtrType)(v)
+}
+
+func (*destinationEndpointEndpointEncryptionSecretConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (i *destinationEndpointEndpointEncryptionSecretConfigurationPtrType) ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput() DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return i.ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *destinationEndpointEndpointEncryptionSecretConfigurationPtrType) ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type DestinationEndpointEndpointEncryptionSecretConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointEndpointEncryptionSecretConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointEndpointEncryptionSecretConfigurationOutput) ToDestinationEndpointEndpointEncryptionSecretConfigurationOutput() DestinationEndpointEndpointEncryptionSecretConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointEndpointEncryptionSecretConfigurationOutput) ToDestinationEndpointEndpointEncryptionSecretConfigurationOutputWithContext(ctx context.Context) DestinationEndpointEndpointEncryptionSecretConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointEndpointEncryptionSecretConfigurationOutput) ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput() DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointEndpointEncryptionSecretConfigurationOutput) ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationEndpointEndpointEncryptionSecretConfiguration) *DestinationEndpointEndpointEncryptionSecretConfiguration {
+		return &v
+	}).(DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+func (o DestinationEndpointEndpointEncryptionSecretConfigurationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationEndpointEndpointEncryptionSecretConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput) ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput() DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput) ToDestinationEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput) Elem() DestinationEndpointEndpointEncryptionSecretConfigurationOutput {
+	return o.ApplyT(func(v *DestinationEndpointEndpointEncryptionSecretConfiguration) DestinationEndpointEndpointEncryptionSecretConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointEndpointEncryptionSecretConfiguration
+		return ret
+	}).(DestinationEndpointEndpointEncryptionSecretConfigurationOutput)
+}
+
+// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+func (o DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointEndpointEncryptionSecretConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.
+type DestinationEndpointPublicDestinationEndpointNetworkingConfiguration struct {
+	// The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+	DestinationAllowRules []DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule `pulumi:"destinationAllowRules"`
+}
+
+// DestinationEndpointPublicDestinationEndpointNetworkingConfigurationInput is an input type that accepts DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs and DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput values.
+// You can construct a concrete instance of `DestinationEndpointPublicDestinationEndpointNetworkingConfigurationInput` via:
+//
+//	DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs{...}
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput
+	ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutputWithContext(context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput
+}
+
+// The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs struct {
+	// The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+	DestinationAllowRules DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayInput `pulumi:"destinationAllowRules"`
+}
+
+func (DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointPublicDestinationEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (i DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput {
+	return i.ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutputWithContext(ctx context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput)
+}
+
+// The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointPublicDestinationEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutputWithContext(ctx context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput {
+	return o
+}
+
+// The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput) DestinationAllowRules() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return o.ApplyT(func(v DestinationEndpointPublicDestinationEndpointNetworkingConfiguration) []DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule {
+		return v.DestinationAllowRules
+	}).(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput)
+}
+
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointPublicDestinationEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput) Elem() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput {
+	return o.ApplyT(func(v *DestinationEndpointPublicDestinationEndpointNetworkingConfiguration) DestinationEndpointPublicDestinationEndpointNetworkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointPublicDestinationEndpointNetworkingConfiguration
+		return ret
+	}).(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput)
+}
+
+// The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput) DestinationAllowRules() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return o.ApplyT(func(v *DestinationEndpointPublicDestinationEndpointNetworkingConfiguration) []DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationAllowRules
+	}).(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput)
+}
+
+// A rule that allows a specific CIDR block to connect to the public destination endpoint.
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule struct {
+	// The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.
+	Cidr string `pulumi:"cidr"`
+}
+
+// DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleInput is an input type that accepts DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs and DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput values.
+// You can construct a concrete instance of `DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleInput` via:
+//
+//	DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs{...}
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput
+	ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutputWithContext(context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput
+}
+
+// A rule that allows a specific CIDR block to connect to the public destination endpoint.
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs struct {
+	// The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+}
+
+func (DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule)(nil)).Elem()
+}
+
+func (i DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput {
+	return i.ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutputWithContext(ctx context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput)
+}
+
+// DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayInput is an input type that accepts DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArray and DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput values.
+// You can construct a concrete instance of `DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayInput` via:
+//
+//	DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArray{ DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs{...} }
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput
+	ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutputWithContext(context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput
+}
+
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArray []DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleInput
+
+func (DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule)(nil)).Elem()
+}
+
+func (i DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArray) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return i.ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArray) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutputWithContext(ctx context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput)
+}
+
+// A rule that allows a specific CIDR block to connect to the public destination endpoint.
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule)(nil)).Elem()
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput {
+	return o
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutputWithContext(ctx context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput {
+	return o
+}
+
+// The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule) string {
+		return v.Cidr
+	}).(pulumi.StringOutput)
+}
+
+type DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule)(nil)).Elem()
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return o
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput) ToDestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutputWithContext(ctx context.Context) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return o
+}
+
+func (o DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput) Index(i pulumi.IntInput) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule {
+		return vs[0].([]DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule)[vs[1].(int)]
+	}).(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput)
+}
+
+// The configuration settings for a destination endpoint that uses the RIST protocol.
+type DestinationEndpointRistStandardDestinationEndpointConfiguration struct {
+	// The IP address on which the destination endpoint receives content.
+	DestinationAddress string `pulumi:"destinationAddress"`
+	// The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+	DestinationIngestPort int `pulumi:"destinationIngestPort"`
+}
+
+// DestinationEndpointRistStandardDestinationEndpointConfigurationInput is an input type that accepts DestinationEndpointRistStandardDestinationEndpointConfigurationArgs and DestinationEndpointRistStandardDestinationEndpointConfigurationOutput values.
+// You can construct a concrete instance of `DestinationEndpointRistStandardDestinationEndpointConfigurationInput` via:
+//
+//	DestinationEndpointRistStandardDestinationEndpointConfigurationArgs{...}
+type DestinationEndpointRistStandardDestinationEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointRistStandardDestinationEndpointConfigurationOutput() DestinationEndpointRistStandardDestinationEndpointConfigurationOutput
+	ToDestinationEndpointRistStandardDestinationEndpointConfigurationOutputWithContext(context.Context) DestinationEndpointRistStandardDestinationEndpointConfigurationOutput
+}
+
+// The configuration settings for a destination endpoint that uses the RIST protocol.
+type DestinationEndpointRistStandardDestinationEndpointConfigurationArgs struct {
+	// The IP address on which the destination endpoint receives content.
+	DestinationAddress pulumi.StringInput `pulumi:"destinationAddress"`
+	// The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+	DestinationIngestPort pulumi.IntInput `pulumi:"destinationIngestPort"`
+}
+
+func (DestinationEndpointRistStandardDestinationEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointRistStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (i DestinationEndpointRistStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointRistStandardDestinationEndpointConfigurationOutput() DestinationEndpointRistStandardDestinationEndpointConfigurationOutput {
+	return i.ToDestinationEndpointRistStandardDestinationEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointRistStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointRistStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointRistStandardDestinationEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointRistStandardDestinationEndpointConfigurationOutput)
+}
+
+// The configuration settings for a destination endpoint that uses the RIST protocol.
+type DestinationEndpointRistStandardDestinationEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRistStandardDestinationEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointRistStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointRistStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointRistStandardDestinationEndpointConfigurationOutput() DestinationEndpointRistStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointRistStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointRistStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointRistStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+// The IP address on which the destination endpoint receives content.
+func (o DestinationEndpointRistStandardDestinationEndpointConfigurationOutput) DestinationAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationEndpointRistStandardDestinationEndpointConfiguration) string {
+		return v.DestinationAddress
+	}).(pulumi.StringOutput)
+}
+
+// The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+func (o DestinationEndpointRistStandardDestinationEndpointConfigurationOutput) DestinationIngestPort() pulumi.IntOutput {
+	return o.ApplyT(func(v DestinationEndpointRistStandardDestinationEndpointConfiguration) int {
+		return v.DestinationIngestPort
+	}).(pulumi.IntOutput)
+}
+
+type DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointRistStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput() DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput) Elem() DestinationEndpointRistStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v *DestinationEndpointRistStandardDestinationEndpointConfiguration) DestinationEndpointRistStandardDestinationEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointRistStandardDestinationEndpointConfiguration
+		return ret
+	}).(DestinationEndpointRistStandardDestinationEndpointConfigurationOutput)
+}
+
+// The IP address on which the destination endpoint receives content.
+func (o DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointRistStandardDestinationEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+func (o DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput) DestinationIngestPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointRistStandardDestinationEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationIngestPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The details of the router input that is associated with a destination endpoint.
+type DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails struct {
+	// The maximum bitrate of the router input, in bits per second.
+	MaximumBitrate int `pulumi:"maximumBitrate"`
+	// The name of the router input.
+	Name  string                              `pulumi:"name"`
+	State DestinationEndpointRouterInputState `pulumi:"state"`
+}
+
+// The details of the router input that is associated with a destination endpoint.
+type DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails)(nil)).Elem()
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput) ToDestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput() DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput) ToDestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutputWithContext(ctx context.Context) DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput {
+	return o
+}
+
+// The maximum bitrate of the router input, in bits per second.
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput) MaximumBitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails) int {
+		return v.MaximumBitrate
+	}).(pulumi.IntOutput)
+}
+
+// The name of the router input.
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput) State() DestinationEndpointRouterInputStateOutput {
+	return o.ApplyT(func(v DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails) DestinationEndpointRouterInputState {
+		return v.State
+	}).(DestinationEndpointRouterInputStateOutput)
+}
+
+type DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails)(nil)).Elem()
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput) ToDestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput() DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput) ToDestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutputWithContext(ctx context.Context) DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput) Elem() DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput {
+	return o.ApplyT(func(v *DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails) DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails
+		return ret
+	}).(DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput)
+}
+
+// The maximum bitrate of the router input, in bits per second.
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput) MaximumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the router input.
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput) State() DestinationEndpointRouterInputStatePtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails) *DestinationEndpointRouterInputState {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(DestinationEndpointRouterInputStatePtrOutput)
+}
+
+// The configuration settings for a destination endpoint that represents a router input.
+type DestinationEndpointRouterInputDestinationEndpointConfiguration struct {
+	// The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+	RouterInputArn string `pulumi:"routerInputArn"`
+}
+
+// DestinationEndpointRouterInputDestinationEndpointConfigurationInput is an input type that accepts DestinationEndpointRouterInputDestinationEndpointConfigurationArgs and DestinationEndpointRouterInputDestinationEndpointConfigurationOutput values.
+// You can construct a concrete instance of `DestinationEndpointRouterInputDestinationEndpointConfigurationInput` via:
+//
+//	DestinationEndpointRouterInputDestinationEndpointConfigurationArgs{...}
+type DestinationEndpointRouterInputDestinationEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointRouterInputDestinationEndpointConfigurationOutput() DestinationEndpointRouterInputDestinationEndpointConfigurationOutput
+	ToDestinationEndpointRouterInputDestinationEndpointConfigurationOutputWithContext(context.Context) DestinationEndpointRouterInputDestinationEndpointConfigurationOutput
+}
+
+// The configuration settings for a destination endpoint that represents a router input.
+type DestinationEndpointRouterInputDestinationEndpointConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+	RouterInputArn pulumi.StringInput `pulumi:"routerInputArn"`
+}
+
+func (DestinationEndpointRouterInputDestinationEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointRouterInputDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (i DestinationEndpointRouterInputDestinationEndpointConfigurationArgs) ToDestinationEndpointRouterInputDestinationEndpointConfigurationOutput() DestinationEndpointRouterInputDestinationEndpointConfigurationOutput {
+	return i.ToDestinationEndpointRouterInputDestinationEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointRouterInputDestinationEndpointConfigurationArgs) ToDestinationEndpointRouterInputDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointRouterInputDestinationEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointRouterInputDestinationEndpointConfigurationOutput)
+}
+
+// The configuration settings for a destination endpoint that represents a router input.
+type DestinationEndpointRouterInputDestinationEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRouterInputDestinationEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointRouterInputDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointConfigurationOutput) ToDestinationEndpointRouterInputDestinationEndpointConfigurationOutput() DestinationEndpointRouterInputDestinationEndpointConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointConfigurationOutput) ToDestinationEndpointRouterInputDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointRouterInputDestinationEndpointConfigurationOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+func (o DestinationEndpointRouterInputDestinationEndpointConfigurationOutput) RouterInputArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationEndpointRouterInputDestinationEndpointConfiguration) string { return v.RouterInputArn }).(pulumi.StringOutput)
+}
+
+type DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointRouterInputDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput() DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput) Elem() DestinationEndpointRouterInputDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v *DestinationEndpointRouterInputDestinationEndpointConfiguration) DestinationEndpointRouterInputDestinationEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointRouterInputDestinationEndpointConfiguration
+		return ret
+	}).(DestinationEndpointRouterInputDestinationEndpointConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+func (o DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput) RouterInputArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointRouterInputDestinationEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RouterInputArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration settings for a destination endpoint that uses the RTP protocol.
+type DestinationEndpointRtpStandardDestinationEndpointConfiguration struct {
+	// The IP address on which the destination endpoint receives content.
+	DestinationAddress string `pulumi:"destinationAddress"`
+	// The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+	DestinationIngestPort       int                                            `pulumi:"destinationIngestPort"`
+	ForwardErrorCorrectionState DestinationEndpointForwardErrorCorrectionState `pulumi:"forwardErrorCorrectionState"`
+}
+
+// DestinationEndpointRtpStandardDestinationEndpointConfigurationInput is an input type that accepts DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs and DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput values.
+// You can construct a concrete instance of `DestinationEndpointRtpStandardDestinationEndpointConfigurationInput` via:
+//
+//	DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs{...}
+type DestinationEndpointRtpStandardDestinationEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointRtpStandardDestinationEndpointConfigurationOutput() DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput
+	ToDestinationEndpointRtpStandardDestinationEndpointConfigurationOutputWithContext(context.Context) DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput
+}
+
+// The configuration settings for a destination endpoint that uses the RTP protocol.
+type DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs struct {
+	// The IP address on which the destination endpoint receives content.
+	DestinationAddress pulumi.StringInput `pulumi:"destinationAddress"`
+	// The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+	DestinationIngestPort       pulumi.IntInput                                     `pulumi:"destinationIngestPort"`
+	ForwardErrorCorrectionState DestinationEndpointForwardErrorCorrectionStateInput `pulumi:"forwardErrorCorrectionState"`
+}
+
+func (DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointRtpStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (i DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointRtpStandardDestinationEndpointConfigurationOutput() DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput {
+	return i.ToDestinationEndpointRtpStandardDestinationEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointRtpStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput)
+}
+
+// The configuration settings for a destination endpoint that uses the RTP protocol.
+type DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointRtpStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointRtpStandardDestinationEndpointConfigurationOutput() DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointRtpStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+// The IP address on which the destination endpoint receives content.
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput) DestinationAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationEndpointRtpStandardDestinationEndpointConfiguration) string {
+		return v.DestinationAddress
+	}).(pulumi.StringOutput)
+}
+
+// The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput) DestinationIngestPort() pulumi.IntOutput {
+	return o.ApplyT(func(v DestinationEndpointRtpStandardDestinationEndpointConfiguration) int {
+		return v.DestinationIngestPort
+	}).(pulumi.IntOutput)
+}
+
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput) ForwardErrorCorrectionState() DestinationEndpointForwardErrorCorrectionStateOutput {
+	return o.ApplyT(func(v DestinationEndpointRtpStandardDestinationEndpointConfiguration) DestinationEndpointForwardErrorCorrectionState {
+		return v.ForwardErrorCorrectionState
+	}).(DestinationEndpointForwardErrorCorrectionStateOutput)
+}
+
+type DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointRtpStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput() DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput) Elem() DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v *DestinationEndpointRtpStandardDestinationEndpointConfiguration) DestinationEndpointRtpStandardDestinationEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointRtpStandardDestinationEndpointConfiguration
+		return ret
+	}).(DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput)
+}
+
+// The IP address on which the destination endpoint receives content.
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointRtpStandardDestinationEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput) DestinationIngestPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointRtpStandardDestinationEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationIngestPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput) ForwardErrorCorrectionState() DestinationEndpointForwardErrorCorrectionStatePtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointRtpStandardDestinationEndpointConfiguration) *DestinationEndpointForwardErrorCorrectionState {
+		if v == nil {
+			return nil
+		}
+		return &v.ForwardErrorCorrectionState
+	}).(DestinationEndpointForwardErrorCorrectionStatePtrOutput)
+}
+
+// The configuration settings for a destination endpoint that uses SRT in caller mode.
+type DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration struct {
+	EncryptionPassphrase *DestinationEndpointEndpointEncryptionSecretConfiguration `pulumi:"encryptionPassphrase"`
+	// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+	MinimumLatencyMilliseconds int `pulumi:"minimumLatencyMilliseconds"`
+	// The port on which the source listens for the connection. The valid range is 3000 to 30000.
+	SourceListenerPort int `pulumi:"sourceListenerPort"`
+}
+
+// DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationInput is an input type that accepts DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs and DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput values.
+// You can construct a concrete instance of `DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationInput` via:
+//
+//	DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs{...}
+type DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput() DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput
+	ToDestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutputWithContext(context.Context) DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput
+}
+
+// The configuration settings for a destination endpoint that uses SRT in caller mode.
+type DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs struct {
+	EncryptionPassphrase DestinationEndpointEndpointEncryptionSecretConfigurationPtrInput `pulumi:"encryptionPassphrase"`
+	// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+	MinimumLatencyMilliseconds pulumi.IntInput `pulumi:"minimumLatencyMilliseconds"`
+	// The port on which the source listens for the connection. The valid range is 3000 to 30000.
+	SourceListenerPort pulumi.IntInput `pulumi:"sourceListenerPort"`
+}
+
+func (DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (i DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput() DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput {
+	return i.ToDestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput)
+}
+
+// The configuration settings for a destination endpoint that uses SRT in caller mode.
+type DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput() DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput) EncryptionPassphrase() DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration) *DestinationEndpointEndpointEncryptionSecretConfiguration {
+		return v.EncryptionPassphrase
+	}).(DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput) MinimumLatencyMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration) int {
+		return v.MinimumLatencyMilliseconds
+	}).(pulumi.IntOutput)
+}
+
+// The port on which the source listens for the connection. The valid range is 3000 to 30000.
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput) SourceListenerPort() pulumi.IntOutput {
+	return o.ApplyT(func(v DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration) int {
+		return v.SourceListenerPort
+	}).(pulumi.IntOutput)
+}
+
+type DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput() DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput) Elem() DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration) DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration
+		return ret
+	}).(DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput)
+}
+
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput) EncryptionPassphrase() DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration) *DestinationEndpointEndpointEncryptionSecretConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionPassphrase
+	}).(DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput) MinimumLatencyMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumLatencyMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The port on which the source listens for the connection. The valid range is 3000 to 30000.
+func (o DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput) SourceListenerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceListenerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The configuration settings for a destination endpoint that uses SRT in listener mode.
+type DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration struct {
+	// The IP address on which the destination endpoint listens for incoming connections.
+	DestinationAddress string `pulumi:"destinationAddress"`
+	// The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+	DestinationIngestPort int                                                       `pulumi:"destinationIngestPort"`
+	EncryptionPassphrase  *DestinationEndpointEndpointEncryptionSecretConfiguration `pulumi:"encryptionPassphrase"`
+	// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+	MinimumLatencyMilliseconds int `pulumi:"minimumLatencyMilliseconds"`
+	// The stream ID that identifies the content for the SRT connection.
+	StreamId *string `pulumi:"streamId"`
+}
+
+// DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationInput is an input type that accepts DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs and DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput values.
+// You can construct a concrete instance of `DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationInput` via:
+//
+//	DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs{...}
+type DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput() DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput
+	ToDestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutputWithContext(context.Context) DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput
+}
+
+// The configuration settings for a destination endpoint that uses SRT in listener mode.
+type DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs struct {
+	// The IP address on which the destination endpoint listens for incoming connections.
+	DestinationAddress pulumi.StringInput `pulumi:"destinationAddress"`
+	// The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+	DestinationIngestPort pulumi.IntInput                                                  `pulumi:"destinationIngestPort"`
+	EncryptionPassphrase  DestinationEndpointEndpointEncryptionSecretConfigurationPtrInput `pulumi:"encryptionPassphrase"`
+	// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+	MinimumLatencyMilliseconds pulumi.IntInput `pulumi:"minimumLatencyMilliseconds"`
+	// The stream ID that identifies the content for the SRT connection.
+	StreamId pulumi.StringPtrInput `pulumi:"streamId"`
+}
+
+func (DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (i DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput() DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput {
+	return i.ToDestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput)
+}
+
+// The configuration settings for a destination endpoint that uses SRT in listener mode.
+type DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput() DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+// The IP address on which the destination endpoint listens for incoming connections.
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput) DestinationAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) string {
+		return v.DestinationAddress
+	}).(pulumi.StringOutput)
+}
+
+// The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput) DestinationIngestPort() pulumi.IntOutput {
+	return o.ApplyT(func(v DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) int {
+		return v.DestinationIngestPort
+	}).(pulumi.IntOutput)
+}
+
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput) EncryptionPassphrase() DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) *DestinationEndpointEndpointEncryptionSecretConfiguration {
+		return v.EncryptionPassphrase
+	}).(DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput) MinimumLatencyMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) int {
+		return v.MinimumLatencyMilliseconds
+	}).(pulumi.IntOutput)
+}
+
+// The stream ID that identifies the content for the SRT connection.
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) *string {
+		return v.StreamId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput() DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput) Elem() DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration
+		return ret
+	}).(DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput)
+}
+
+// The IP address on which the destination endpoint listens for incoming connections.
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput) DestinationIngestPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationIngestPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput) EncryptionPassphrase() DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) *DestinationEndpointEndpointEncryptionSecretConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionPassphrase
+	}).(DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput) MinimumLatencyMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumLatencyMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The stream ID that identifies the content for the SRT connection.
+func (o DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The associated resource details for a standard destination endpoint. This type does not require any additional settings.
+type DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails struct {
+}
+
+// The associated resource details for a standard destination endpoint. This type does not require any additional settings.
+type DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput) ToDestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput() DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput) ToDestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput {
+	return o
+}
+
+type DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput) ToDestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput() DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput) ToDestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput) Elem() DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails) DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails
+		return ret
+	}).(DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput)
+}
+
+// The configuration settings for a standard destination endpoint.
+type DestinationEndpointStandardDestinationEndpointConfiguration struct {
+	DestinationNetworkingConfiguration interface{}                        `pulumi:"destinationNetworkingConfiguration"`
+	DestinationNetworkingType          *DestinationEndpointNetworkingType `pulumi:"destinationNetworkingType"`
+	// The name of the destination endpoint.
+	Name                  string                       `pulumi:"name"`
+	Protocol              *DestinationEndpointProtocol `pulumi:"protocol"`
+	ProtocolConfiguration interface{}                  `pulumi:"protocolConfiguration"`
+}
+
+// DestinationEndpointStandardDestinationEndpointConfigurationInput is an input type that accepts DestinationEndpointStandardDestinationEndpointConfigurationArgs and DestinationEndpointStandardDestinationEndpointConfigurationOutput values.
+// You can construct a concrete instance of `DestinationEndpointStandardDestinationEndpointConfigurationInput` via:
+//
+//	DestinationEndpointStandardDestinationEndpointConfigurationArgs{...}
+type DestinationEndpointStandardDestinationEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointStandardDestinationEndpointConfigurationOutput() DestinationEndpointStandardDestinationEndpointConfigurationOutput
+	ToDestinationEndpointStandardDestinationEndpointConfigurationOutputWithContext(context.Context) DestinationEndpointStandardDestinationEndpointConfigurationOutput
+}
+
+// The configuration settings for a standard destination endpoint.
+type DestinationEndpointStandardDestinationEndpointConfigurationArgs struct {
+	DestinationNetworkingConfiguration pulumi.Input                              `pulumi:"destinationNetworkingConfiguration"`
+	DestinationNetworkingType          DestinationEndpointNetworkingTypePtrInput `pulumi:"destinationNetworkingType"`
+	// The name of the destination endpoint.
+	Name                  pulumi.StringInput                  `pulumi:"name"`
+	Protocol              DestinationEndpointProtocolPtrInput `pulumi:"protocol"`
+	ProtocolConfiguration pulumi.Input                        `pulumi:"protocolConfiguration"`
+}
+
+func (DestinationEndpointStandardDestinationEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (i DestinationEndpointStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointStandardDestinationEndpointConfigurationOutput() DestinationEndpointStandardDestinationEndpointConfigurationOutput {
+	return i.ToDestinationEndpointStandardDestinationEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointStandardDestinationEndpointConfigurationArgs) ToDestinationEndpointStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointStandardDestinationEndpointConfigurationOutput)
+}
+
+// The configuration settings for a standard destination endpoint.
+type DestinationEndpointStandardDestinationEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointStandardDestinationEndpointConfigurationOutput() DestinationEndpointStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationOutput) ToDestinationEndpointStandardDestinationEndpointConfigurationOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationOutput) DestinationNetworkingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointConfiguration) interface{} {
+		return v.DestinationNetworkingConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationOutput) DestinationNetworkingType() DestinationEndpointNetworkingTypePtrOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointConfiguration) *DestinationEndpointNetworkingType {
+		return v.DestinationNetworkingType
+	}).(DestinationEndpointNetworkingTypePtrOutput)
+}
+
+// The name of the destination endpoint.
+func (o DestinationEndpointStandardDestinationEndpointConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationOutput) Protocol() DestinationEndpointProtocolPtrOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointConfiguration) *DestinationEndpointProtocol {
+		return v.Protocol
+	}).(DestinationEndpointProtocolPtrOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationOutput) ProtocolConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointConfiguration) interface{} {
+		return v.ProtocolConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+type DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointStandardDestinationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointStandardDestinationEndpointConfigurationPtrOutput() DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput) ToDestinationEndpointStandardDestinationEndpointConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput) Elem() DestinationEndpointStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointConfiguration) DestinationEndpointStandardDestinationEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointStandardDestinationEndpointConfiguration
+		return ret
+	}).(DestinationEndpointStandardDestinationEndpointConfigurationOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput) DestinationNetworkingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationNetworkingConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput) DestinationNetworkingType() DestinationEndpointNetworkingTypePtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointConfiguration) *DestinationEndpointNetworkingType {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationNetworkingType
+	}).(DestinationEndpointNetworkingTypePtrOutput)
+}
+
+// The name of the destination endpoint.
+func (o DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput) Protocol() DestinationEndpointProtocolPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointConfiguration) *DestinationEndpointProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(DestinationEndpointProtocolPtrOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput) ProtocolConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ProtocolConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+// The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties struct {
+	Public DestinationEndpointPublicDestinationEndpointNetworkingConfiguration `pulumi:"public"`
+}
+
+// DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesInput is an input type that accepts DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs and DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesInput` via:
+//
+//	DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs{...}
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput
+	ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutputWithContext(context.Context) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput
+}
+
+// The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs struct {
+	Public DestinationEndpointPublicDestinationEndpointNetworkingConfigurationInput `pulumi:"public"`
+}
+
+func (DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties)(nil)).Elem()
+}
+
+func (i DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput {
+	return i.ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput)
+}
+
+// The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput) Public() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties) DestinationEndpointPublicDestinationEndpointNetworkingConfiguration {
+		return v.Public
+	}).(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput)
+}
+
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput) Elem() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties
+		return ret
+	}).(DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput) Public() DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties) *DestinationEndpointPublicDestinationEndpointNetworkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Public
+	}).(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput)
+}
+
+// The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties struct {
+	Vpc DestinationEndpointVpcDestinationEndpointNetworkingConfiguration `pulumi:"vpc"`
+}
+
+// DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesInput is an input type that accepts DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs and DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesInput` via:
+//
+//	DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs{...}
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput
+	ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutputWithContext(context.Context) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput
+}
+
+// The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs struct {
+	Vpc DestinationEndpointVpcDestinationEndpointNetworkingConfigurationInput `pulumi:"vpc"`
+}
+
+func (DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties)(nil)).Elem()
+}
+
+func (i DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput {
+	return i.ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput)
+}
+
+// The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput) Vpc() DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties) DestinationEndpointVpcDestinationEndpointNetworkingConfiguration {
+		return v.Vpc
+	}).(DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput)
+}
+
+type DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput) Elem() DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties) DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties
+		return ret
+	}).(DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput) Vpc() DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties) *DestinationEndpointVpcDestinationEndpointNetworkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Vpc
+	}).(DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput)
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties struct {
+	Rist DestinationEndpointRistStandardDestinationEndpointConfiguration `pulumi:"rist"`
+}
+
+// DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesInput is an input type that accepts DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs and DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesInput` via:
+//
+//	DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs{...}
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput
+	ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutputWithContext(context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs struct {
+	Rist DestinationEndpointRistStandardDestinationEndpointConfigurationInput `pulumi:"rist"`
+}
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties)(nil)).Elem()
+}
+
+func (i DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput {
+	return i.ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput)
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput) Rist() DestinationEndpointRistStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties) DestinationEndpointRistStandardDestinationEndpointConfiguration {
+		return v.Rist
+	}).(DestinationEndpointRistStandardDestinationEndpointConfigurationOutput)
+}
+
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput) Elem() DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties) DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties
+		return ret
+	}).(DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput) Rist() DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties) *DestinationEndpointRistStandardDestinationEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Rist
+	}).(DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput)
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties struct {
+	SrtListener DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration `pulumi:"srtListener"`
+}
+
+// DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesInput is an input type that accepts DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs and DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesInput` via:
+//
+//	DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs{...}
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput
+	ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutputWithContext(context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs struct {
+	SrtListener DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationInput `pulumi:"srtListener"`
+}
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties)(nil)).Elem()
+}
+
+func (i DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput {
+	return i.ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput)
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput) SrtListener() DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties) DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration {
+		return v.SrtListener
+	}).(DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput)
+}
+
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput) Elem() DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties) DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties
+		return ret
+	}).(DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput) SrtListener() DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties) *DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SrtListener
+	}).(DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput)
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties struct {
+	SrtCaller DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration `pulumi:"srtCaller"`
+}
+
+// DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesInput is an input type that accepts DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs and DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput values.
+// You can construct a concrete instance of `DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesInput` via:
+//
+//	DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs{...}
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput
+	ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutputWithContext(context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs struct {
+	SrtCaller DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationInput `pulumi:"srtCaller"`
+}
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties)(nil)).Elem()
+}
+
+func (i DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput {
+	return i.ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput)
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput) SrtCaller() DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties) DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration {
+		return v.SrtCaller
+	}).(DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput)
+}
+
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput) Elem() DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties) DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties
+		return ret
+	}).(DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput) SrtCaller() DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties) *DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SrtCaller
+	}).(DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput)
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties struct {
+	Rtp DestinationEndpointRtpStandardDestinationEndpointConfiguration `pulumi:"rtp"`
+}
+
+// DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesInput is an input type that accepts DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs and DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput values.
+// You can construct a concrete instance of `DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesInput` via:
+//
+//	DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs{...}
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput
+	ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutputWithContext(context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs struct {
+	Rtp DestinationEndpointRtpStandardDestinationEndpointConfigurationInput `pulumi:"rtp"`
+}
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties)(nil)).Elem()
+}
+
+func (i DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput {
+	return i.ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput)
+}
+
+// The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput) Rtp() DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput {
+	return o.ApplyT(func(v DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties) DestinationEndpointRtpStandardDestinationEndpointConfiguration {
+		return v.Rtp
+	}).(DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput)
+}
+
+type DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties)(nil)).Elem()
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput() DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput) ToDestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput) Elem() DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties) DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties
+		return ret
+	}).(DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput)
+}
+
+func (o DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput) Rtp() DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties) *DestinationEndpointRtpStandardDestinationEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Rtp
+	}).(DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput)
+}
+
+type DestinationEndpointTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// The networking configuration for a destination endpoint in a virtual private cloud (VPC).
+type DestinationEndpointVpcDestinationEndpointNetworkingConfiguration struct {
+	// The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID of the subnet to use for the destination endpoint.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// DestinationEndpointVpcDestinationEndpointNetworkingConfigurationInput is an input type that accepts DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs and DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput values.
+// You can construct a concrete instance of `DestinationEndpointVpcDestinationEndpointNetworkingConfigurationInput` via:
+//
+//	DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs{...}
+type DestinationEndpointVpcDestinationEndpointNetworkingConfigurationInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput() DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput
+	ToDestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutputWithContext(context.Context) DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput
+}
+
+// The networking configuration for a destination endpoint in a virtual private cloud (VPC).
+type DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs struct {
+	// The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The ID of the subnet to use for the destination endpoint.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointVpcDestinationEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (i DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs) ToDestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput() DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput {
+	return i.ToDestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs) ToDestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutputWithContext(ctx context.Context) DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput)
+}
+
+// The networking configuration for a destination endpoint in a virtual private cloud (VPC).
+type DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointVpcDestinationEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput) ToDestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput() DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput {
+	return o
+}
+
+func (o DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput) ToDestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutputWithContext(ctx context.Context) DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput {
+	return o
+}
+
+// The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+func (o DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DestinationEndpointVpcDestinationEndpointNetworkingConfiguration) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnet to use for the destination endpoint.
+func (o DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationEndpointVpcDestinationEndpointNetworkingConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointVpcDestinationEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (o DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput) ToDestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput() DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput) ToDestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutputWithContext(ctx context.Context) DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput) Elem() DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput {
+	return o.ApplyT(func(v *DestinationEndpointVpcDestinationEndpointNetworkingConfiguration) DestinationEndpointVpcDestinationEndpointNetworkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointVpcDestinationEndpointNetworkingConfiguration
+		return ret
+	}).(DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput)
+}
+
+// The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+func (o DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DestinationEndpointVpcDestinationEndpointNetworkingConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnet to use for the destination endpoint.
+func (o DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationEndpointVpcDestinationEndpointNetworkingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the configuration for audio stream metrics monitoring.
 type FlowAudioMonitoringSetting struct {
 	// Detects periods of silence.
@@ -10618,6 +12807,76 @@ func (o RouterInputAutomaticEncryptionKeyConfigurationPtrOutput) Elem() RouterIn
 	}).(RouterInputAutomaticEncryptionKeyConfigurationOutput)
 }
 
+// The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+type RouterInputAutomaticEndpointEncryptionConfiguration struct {
+}
+
+// RouterInputAutomaticEndpointEncryptionConfigurationInput is an input type that accepts RouterInputAutomaticEndpointEncryptionConfigurationArgs and RouterInputAutomaticEndpointEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputAutomaticEndpointEncryptionConfigurationInput` via:
+//
+//	RouterInputAutomaticEndpointEncryptionConfigurationArgs{...}
+type RouterInputAutomaticEndpointEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputAutomaticEndpointEncryptionConfigurationOutput() RouterInputAutomaticEndpointEncryptionConfigurationOutput
+	ToRouterInputAutomaticEndpointEncryptionConfigurationOutputWithContext(context.Context) RouterInputAutomaticEndpointEncryptionConfigurationOutput
+}
+
+// The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+type RouterInputAutomaticEndpointEncryptionConfigurationArgs struct {
+}
+
+func (RouterInputAutomaticEndpointEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputAutomaticEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputAutomaticEndpointEncryptionConfigurationArgs) ToRouterInputAutomaticEndpointEncryptionConfigurationOutput() RouterInputAutomaticEndpointEncryptionConfigurationOutput {
+	return i.ToRouterInputAutomaticEndpointEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputAutomaticEndpointEncryptionConfigurationArgs) ToRouterInputAutomaticEndpointEncryptionConfigurationOutputWithContext(ctx context.Context) RouterInputAutomaticEndpointEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputAutomaticEndpointEncryptionConfigurationOutput)
+}
+
+// The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+type RouterInputAutomaticEndpointEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputAutomaticEndpointEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputAutomaticEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputAutomaticEndpointEncryptionConfigurationOutput) ToRouterInputAutomaticEndpointEncryptionConfigurationOutput() RouterInputAutomaticEndpointEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RouterInputAutomaticEndpointEncryptionConfigurationOutput) ToRouterInputAutomaticEndpointEncryptionConfigurationOutputWithContext(ctx context.Context) RouterInputAutomaticEndpointEncryptionConfigurationOutput {
+	return o
+}
+
+type RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputAutomaticEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput) ToRouterInputAutomaticEndpointEncryptionConfigurationPtrOutput() RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput) ToRouterInputAutomaticEndpointEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput) Elem() RouterInputAutomaticEndpointEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputAutomaticEndpointEncryptionConfiguration) RouterInputAutomaticEndpointEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputAutomaticEndpointEncryptionConfiguration
+		return ret
+	}).(RouterInputAutomaticEndpointEncryptionConfigurationOutput)
+}
+
 // Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
 type RouterInputBlackFramesConfiguration struct {
 	State RouterInputContentQualityAnalysisState `pulumi:"state"`
@@ -10775,7 +13034,7 @@ func (o RouterInputBlackFramesConfigurationPtrOutput) ThresholdSeconds() pulumi.
 
 // The configuration settings for a router input.
 type RouterInputConfiguration0Properties struct {
-	Standard RouterInputStandardRouterInputConfiguration `pulumi:"standard"`
+	DestinationEndpoint RouterInputDestinationEndpointRouterInputConfiguration `pulumi:"destinationEndpoint"`
 }
 
 // RouterInputConfiguration0PropertiesInput is an input type that accepts RouterInputConfiguration0PropertiesArgs and RouterInputConfiguration0PropertiesOutput values.
@@ -10791,7 +13050,7 @@ type RouterInputConfiguration0PropertiesInput interface {
 
 // The configuration settings for a router input.
 type RouterInputConfiguration0PropertiesArgs struct {
-	Standard RouterInputStandardRouterInputConfigurationInput `pulumi:"standard"`
+	DestinationEndpoint RouterInputDestinationEndpointRouterInputConfigurationInput `pulumi:"destinationEndpoint"`
 }
 
 func (RouterInputConfiguration0PropertiesArgs) ElementType() reflect.Type {
@@ -10821,10 +13080,10 @@ func (o RouterInputConfiguration0PropertiesOutput) ToRouterInputConfiguration0Pr
 	return o
 }
 
-func (o RouterInputConfiguration0PropertiesOutput) Standard() RouterInputStandardRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputConfiguration0Properties) RouterInputStandardRouterInputConfiguration {
-		return v.Standard
-	}).(RouterInputStandardRouterInputConfigurationOutput)
+func (o RouterInputConfiguration0PropertiesOutput) DestinationEndpoint() RouterInputDestinationEndpointRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputConfiguration0Properties) RouterInputDestinationEndpointRouterInputConfiguration {
+		return v.DestinationEndpoint
+	}).(RouterInputDestinationEndpointRouterInputConfigurationOutput)
 }
 
 type RouterInputConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -10851,18 +13110,18 @@ func (o RouterInputConfiguration0PropertiesPtrOutput) Elem() RouterInputConfigur
 	}).(RouterInputConfiguration0PropertiesOutput)
 }
 
-func (o RouterInputConfiguration0PropertiesPtrOutput) Standard() RouterInputStandardRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputConfiguration0Properties) *RouterInputStandardRouterInputConfiguration {
+func (o RouterInputConfiguration0PropertiesPtrOutput) DestinationEndpoint() RouterInputDestinationEndpointRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputConfiguration0Properties) *RouterInputDestinationEndpointRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.Standard
-	}).(RouterInputStandardRouterInputConfigurationPtrOutput)
+		return &v.DestinationEndpoint
+	}).(RouterInputDestinationEndpointRouterInputConfigurationPtrOutput)
 }
 
 // The configuration settings for a router input.
 type RouterInputConfiguration1Properties struct {
-	Failover RouterInputFailoverRouterInputConfiguration `pulumi:"failover"`
+	Standard RouterInputStandardRouterInputConfiguration `pulumi:"standard"`
 }
 
 // RouterInputConfiguration1PropertiesInput is an input type that accepts RouterInputConfiguration1PropertiesArgs and RouterInputConfiguration1PropertiesOutput values.
@@ -10878,7 +13137,7 @@ type RouterInputConfiguration1PropertiesInput interface {
 
 // The configuration settings for a router input.
 type RouterInputConfiguration1PropertiesArgs struct {
-	Failover RouterInputFailoverRouterInputConfigurationInput `pulumi:"failover"`
+	Standard RouterInputStandardRouterInputConfigurationInput `pulumi:"standard"`
 }
 
 func (RouterInputConfiguration1PropertiesArgs) ElementType() reflect.Type {
@@ -10908,10 +13167,10 @@ func (o RouterInputConfiguration1PropertiesOutput) ToRouterInputConfiguration1Pr
 	return o
 }
 
-func (o RouterInputConfiguration1PropertiesOutput) Failover() RouterInputFailoverRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputConfiguration1Properties) RouterInputFailoverRouterInputConfiguration {
-		return v.Failover
-	}).(RouterInputFailoverRouterInputConfigurationOutput)
+func (o RouterInputConfiguration1PropertiesOutput) Standard() RouterInputStandardRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputConfiguration1Properties) RouterInputStandardRouterInputConfiguration {
+		return v.Standard
+	}).(RouterInputStandardRouterInputConfigurationOutput)
 }
 
 type RouterInputConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -10938,18 +13197,18 @@ func (o RouterInputConfiguration1PropertiesPtrOutput) Elem() RouterInputConfigur
 	}).(RouterInputConfiguration1PropertiesOutput)
 }
 
-func (o RouterInputConfiguration1PropertiesPtrOutput) Failover() RouterInputFailoverRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputConfiguration1Properties) *RouterInputFailoverRouterInputConfiguration {
+func (o RouterInputConfiguration1PropertiesPtrOutput) Standard() RouterInputStandardRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputConfiguration1Properties) *RouterInputStandardRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.Failover
-	}).(RouterInputFailoverRouterInputConfigurationPtrOutput)
+		return &v.Standard
+	}).(RouterInputStandardRouterInputConfigurationPtrOutput)
 }
 
 // The configuration settings for a router input.
 type RouterInputConfiguration2Properties struct {
-	Merge RouterInputMergeRouterInputConfiguration `pulumi:"merge"`
+	MediaLiveChannel RouterInputMediaLiveChannelRouterInputConfiguration `pulumi:"mediaLiveChannel"`
 }
 
 // RouterInputConfiguration2PropertiesInput is an input type that accepts RouterInputConfiguration2PropertiesArgs and RouterInputConfiguration2PropertiesOutput values.
@@ -10965,7 +13224,7 @@ type RouterInputConfiguration2PropertiesInput interface {
 
 // The configuration settings for a router input.
 type RouterInputConfiguration2PropertiesArgs struct {
-	Merge RouterInputMergeRouterInputConfigurationInput `pulumi:"merge"`
+	MediaLiveChannel RouterInputMediaLiveChannelRouterInputConfigurationInput `pulumi:"mediaLiveChannel"`
 }
 
 func (RouterInputConfiguration2PropertiesArgs) ElementType() reflect.Type {
@@ -10995,8 +13254,10 @@ func (o RouterInputConfiguration2PropertiesOutput) ToRouterInputConfiguration2Pr
 	return o
 }
 
-func (o RouterInputConfiguration2PropertiesOutput) Merge() RouterInputMergeRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputConfiguration2Properties) RouterInputMergeRouterInputConfiguration { return v.Merge }).(RouterInputMergeRouterInputConfigurationOutput)
+func (o RouterInputConfiguration2PropertiesOutput) MediaLiveChannel() RouterInputMediaLiveChannelRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputConfiguration2Properties) RouterInputMediaLiveChannelRouterInputConfiguration {
+		return v.MediaLiveChannel
+	}).(RouterInputMediaLiveChannelRouterInputConfigurationOutput)
 }
 
 type RouterInputConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -11023,18 +13284,18 @@ func (o RouterInputConfiguration2PropertiesPtrOutput) Elem() RouterInputConfigur
 	}).(RouterInputConfiguration2PropertiesOutput)
 }
 
-func (o RouterInputConfiguration2PropertiesPtrOutput) Merge() RouterInputMergeRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputConfiguration2Properties) *RouterInputMergeRouterInputConfiguration {
+func (o RouterInputConfiguration2PropertiesPtrOutput) MediaLiveChannel() RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputConfiguration2Properties) *RouterInputMediaLiveChannelRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.Merge
-	}).(RouterInputMergeRouterInputConfigurationPtrOutput)
+		return &v.MediaLiveChannel
+	}).(RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput)
 }
 
 // The configuration settings for a router input.
 type RouterInputConfiguration3Properties struct {
-	MediaConnectFlow RouterInputMediaConnectFlowRouterInputConfiguration `pulumi:"mediaConnectFlow"`
+	Failover RouterInputFailoverRouterInputConfiguration `pulumi:"failover"`
 }
 
 // RouterInputConfiguration3PropertiesInput is an input type that accepts RouterInputConfiguration3PropertiesArgs and RouterInputConfiguration3PropertiesOutput values.
@@ -11050,7 +13311,7 @@ type RouterInputConfiguration3PropertiesInput interface {
 
 // The configuration settings for a router input.
 type RouterInputConfiguration3PropertiesArgs struct {
-	MediaConnectFlow RouterInputMediaConnectFlowRouterInputConfigurationInput `pulumi:"mediaConnectFlow"`
+	Failover RouterInputFailoverRouterInputConfigurationInput `pulumi:"failover"`
 }
 
 func (RouterInputConfiguration3PropertiesArgs) ElementType() reflect.Type {
@@ -11080,10 +13341,10 @@ func (o RouterInputConfiguration3PropertiesOutput) ToRouterInputConfiguration3Pr
 	return o
 }
 
-func (o RouterInputConfiguration3PropertiesOutput) MediaConnectFlow() RouterInputMediaConnectFlowRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputConfiguration3Properties) RouterInputMediaConnectFlowRouterInputConfiguration {
-		return v.MediaConnectFlow
-	}).(RouterInputMediaConnectFlowRouterInputConfigurationOutput)
+func (o RouterInputConfiguration3PropertiesOutput) Failover() RouterInputFailoverRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputConfiguration3Properties) RouterInputFailoverRouterInputConfiguration {
+		return v.Failover
+	}).(RouterInputFailoverRouterInputConfigurationOutput)
 }
 
 type RouterInputConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -11110,18 +13371,18 @@ func (o RouterInputConfiguration3PropertiesPtrOutput) Elem() RouterInputConfigur
 	}).(RouterInputConfiguration3PropertiesOutput)
 }
 
-func (o RouterInputConfiguration3PropertiesPtrOutput) MediaConnectFlow() RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputConfiguration3Properties) *RouterInputMediaConnectFlowRouterInputConfiguration {
+func (o RouterInputConfiguration3PropertiesPtrOutput) Failover() RouterInputFailoverRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputConfiguration3Properties) *RouterInputFailoverRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.MediaConnectFlow
-	}).(RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput)
+		return &v.Failover
+	}).(RouterInputFailoverRouterInputConfigurationPtrOutput)
 }
 
 // The configuration settings for a router input.
 type RouterInputConfiguration4Properties struct {
-	MediaLiveChannel RouterInputMediaLiveChannelRouterInputConfiguration `pulumi:"mediaLiveChannel"`
+	MediaConnectFlow RouterInputMediaConnectFlowRouterInputConfiguration `pulumi:"mediaConnectFlow"`
 }
 
 // RouterInputConfiguration4PropertiesInput is an input type that accepts RouterInputConfiguration4PropertiesArgs and RouterInputConfiguration4PropertiesOutput values.
@@ -11137,7 +13398,7 @@ type RouterInputConfiguration4PropertiesInput interface {
 
 // The configuration settings for a router input.
 type RouterInputConfiguration4PropertiesArgs struct {
-	MediaLiveChannel RouterInputMediaLiveChannelRouterInputConfigurationInput `pulumi:"mediaLiveChannel"`
+	MediaConnectFlow RouterInputMediaConnectFlowRouterInputConfigurationInput `pulumi:"mediaConnectFlow"`
 }
 
 func (RouterInputConfiguration4PropertiesArgs) ElementType() reflect.Type {
@@ -11167,10 +13428,10 @@ func (o RouterInputConfiguration4PropertiesOutput) ToRouterInputConfiguration4Pr
 	return o
 }
 
-func (o RouterInputConfiguration4PropertiesOutput) MediaLiveChannel() RouterInputMediaLiveChannelRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputConfiguration4Properties) RouterInputMediaLiveChannelRouterInputConfiguration {
-		return v.MediaLiveChannel
-	}).(RouterInputMediaLiveChannelRouterInputConfigurationOutput)
+func (o RouterInputConfiguration4PropertiesOutput) MediaConnectFlow() RouterInputMediaConnectFlowRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputConfiguration4Properties) RouterInputMediaConnectFlowRouterInputConfiguration {
+		return v.MediaConnectFlow
+	}).(RouterInputMediaConnectFlowRouterInputConfigurationOutput)
 }
 
 type RouterInputConfiguration4PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -11197,13 +13458,98 @@ func (o RouterInputConfiguration4PropertiesPtrOutput) Elem() RouterInputConfigur
 	}).(RouterInputConfiguration4PropertiesOutput)
 }
 
-func (o RouterInputConfiguration4PropertiesPtrOutput) MediaLiveChannel() RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputConfiguration4Properties) *RouterInputMediaLiveChannelRouterInputConfiguration {
+func (o RouterInputConfiguration4PropertiesPtrOutput) MediaConnectFlow() RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputConfiguration4Properties) *RouterInputMediaConnectFlowRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.MediaLiveChannel
-	}).(RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput)
+		return &v.MediaConnectFlow
+	}).(RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput)
+}
+
+// The configuration settings for a router input.
+type RouterInputConfiguration5Properties struct {
+	Merge RouterInputMergeRouterInputConfiguration `pulumi:"merge"`
+}
+
+// RouterInputConfiguration5PropertiesInput is an input type that accepts RouterInputConfiguration5PropertiesArgs and RouterInputConfiguration5PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputConfiguration5PropertiesInput` via:
+//
+//	RouterInputConfiguration5PropertiesArgs{...}
+type RouterInputConfiguration5PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputConfiguration5PropertiesOutput() RouterInputConfiguration5PropertiesOutput
+	ToRouterInputConfiguration5PropertiesOutputWithContext(context.Context) RouterInputConfiguration5PropertiesOutput
+}
+
+// The configuration settings for a router input.
+type RouterInputConfiguration5PropertiesArgs struct {
+	Merge RouterInputMergeRouterInputConfigurationInput `pulumi:"merge"`
+}
+
+func (RouterInputConfiguration5PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputConfiguration5Properties)(nil)).Elem()
+}
+
+func (i RouterInputConfiguration5PropertiesArgs) ToRouterInputConfiguration5PropertiesOutput() RouterInputConfiguration5PropertiesOutput {
+	return i.ToRouterInputConfiguration5PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputConfiguration5PropertiesArgs) ToRouterInputConfiguration5PropertiesOutputWithContext(ctx context.Context) RouterInputConfiguration5PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputConfiguration5PropertiesOutput)
+}
+
+// The configuration settings for a router input.
+type RouterInputConfiguration5PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputConfiguration5PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputConfiguration5Properties)(nil)).Elem()
+}
+
+func (o RouterInputConfiguration5PropertiesOutput) ToRouterInputConfiguration5PropertiesOutput() RouterInputConfiguration5PropertiesOutput {
+	return o
+}
+
+func (o RouterInputConfiguration5PropertiesOutput) ToRouterInputConfiguration5PropertiesOutputWithContext(ctx context.Context) RouterInputConfiguration5PropertiesOutput {
+	return o
+}
+
+func (o RouterInputConfiguration5PropertiesOutput) Merge() RouterInputMergeRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputConfiguration5Properties) RouterInputMergeRouterInputConfiguration { return v.Merge }).(RouterInputMergeRouterInputConfigurationOutput)
+}
+
+type RouterInputConfiguration5PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputConfiguration5PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputConfiguration5Properties)(nil)).Elem()
+}
+
+func (o RouterInputConfiguration5PropertiesPtrOutput) ToRouterInputConfiguration5PropertiesPtrOutput() RouterInputConfiguration5PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputConfiguration5PropertiesPtrOutput) ToRouterInputConfiguration5PropertiesPtrOutputWithContext(ctx context.Context) RouterInputConfiguration5PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputConfiguration5PropertiesPtrOutput) Elem() RouterInputConfiguration5PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputConfiguration5Properties) RouterInputConfiguration5Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputConfiguration5Properties
+		return ret
+	}).(RouterInputConfiguration5PropertiesOutput)
+}
+
+func (o RouterInputConfiguration5PropertiesPtrOutput) Merge() RouterInputMergeRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputConfiguration5Properties) *RouterInputMergeRouterInputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Merge
+	}).(RouterInputMergeRouterInputConfigurationPtrOutput)
 }
 
 // Configures the content quality analysis features for the router input.
@@ -11499,6 +13845,390 @@ func (o RouterInputDefaultMaintenanceConfigurationPtrOutput) Elem() RouterInputD
 	}).(RouterInputDefaultMaintenanceConfigurationOutput)
 }
 
+// Configuration settings for a router input that is represented by a destination endpoint.
+type RouterInputDestinationEndpointRouterInputConfiguration struct {
+	EndpointLifecycleManagement RouterInputEndpointLifecycle       `pulumi:"endpointLifecycleManagement"`
+	SourceTransitDecryption     interface{}                        `pulumi:"sourceTransitDecryption"`
+	SourceTransitDecryptionType *RouterInputEndpointEncryptionType `pulumi:"sourceTransitDecryptionType"`
+}
+
+// RouterInputDestinationEndpointRouterInputConfigurationInput is an input type that accepts RouterInputDestinationEndpointRouterInputConfigurationArgs and RouterInputDestinationEndpointRouterInputConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputDestinationEndpointRouterInputConfigurationInput` via:
+//
+//	RouterInputDestinationEndpointRouterInputConfigurationArgs{...}
+type RouterInputDestinationEndpointRouterInputConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputDestinationEndpointRouterInputConfigurationOutput() RouterInputDestinationEndpointRouterInputConfigurationOutput
+	ToRouterInputDestinationEndpointRouterInputConfigurationOutputWithContext(context.Context) RouterInputDestinationEndpointRouterInputConfigurationOutput
+}
+
+// Configuration settings for a router input that is represented by a destination endpoint.
+type RouterInputDestinationEndpointRouterInputConfigurationArgs struct {
+	EndpointLifecycleManagement RouterInputEndpointLifecycleInput         `pulumi:"endpointLifecycleManagement"`
+	SourceTransitDecryption     pulumi.Input                              `pulumi:"sourceTransitDecryption"`
+	SourceTransitDecryptionType RouterInputEndpointEncryptionTypePtrInput `pulumi:"sourceTransitDecryptionType"`
+}
+
+func (RouterInputDestinationEndpointRouterInputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputDestinationEndpointRouterInputConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputDestinationEndpointRouterInputConfigurationArgs) ToRouterInputDestinationEndpointRouterInputConfigurationOutput() RouterInputDestinationEndpointRouterInputConfigurationOutput {
+	return i.ToRouterInputDestinationEndpointRouterInputConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputDestinationEndpointRouterInputConfigurationArgs) ToRouterInputDestinationEndpointRouterInputConfigurationOutputWithContext(ctx context.Context) RouterInputDestinationEndpointRouterInputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputDestinationEndpointRouterInputConfigurationOutput)
+}
+
+// Configuration settings for a router input that is represented by a destination endpoint.
+type RouterInputDestinationEndpointRouterInputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputDestinationEndpointRouterInputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputDestinationEndpointRouterInputConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationOutput) ToRouterInputDestinationEndpointRouterInputConfigurationOutput() RouterInputDestinationEndpointRouterInputConfigurationOutput {
+	return o
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationOutput) ToRouterInputDestinationEndpointRouterInputConfigurationOutputWithContext(ctx context.Context) RouterInputDestinationEndpointRouterInputConfigurationOutput {
+	return o
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationOutput) EndpointLifecycleManagement() RouterInputEndpointLifecycleOutput {
+	return o.ApplyT(func(v RouterInputDestinationEndpointRouterInputConfiguration) RouterInputEndpointLifecycle {
+		return v.EndpointLifecycleManagement
+	}).(RouterInputEndpointLifecycleOutput)
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationOutput) SourceTransitDecryption() pulumi.AnyOutput {
+	return o.ApplyT(func(v RouterInputDestinationEndpointRouterInputConfiguration) interface{} {
+		return v.SourceTransitDecryption
+	}).(pulumi.AnyOutput)
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationOutput) SourceTransitDecryptionType() RouterInputEndpointEncryptionTypePtrOutput {
+	return o.ApplyT(func(v RouterInputDestinationEndpointRouterInputConfiguration) *RouterInputEndpointEncryptionType {
+		return v.SourceTransitDecryptionType
+	}).(RouterInputEndpointEncryptionTypePtrOutput)
+}
+
+type RouterInputDestinationEndpointRouterInputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputDestinationEndpointRouterInputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputDestinationEndpointRouterInputConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationPtrOutput) ToRouterInputDestinationEndpointRouterInputConfigurationPtrOutput() RouterInputDestinationEndpointRouterInputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationPtrOutput) ToRouterInputDestinationEndpointRouterInputConfigurationPtrOutputWithContext(ctx context.Context) RouterInputDestinationEndpointRouterInputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationPtrOutput) Elem() RouterInputDestinationEndpointRouterInputConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputDestinationEndpointRouterInputConfiguration) RouterInputDestinationEndpointRouterInputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputDestinationEndpointRouterInputConfiguration
+		return ret
+	}).(RouterInputDestinationEndpointRouterInputConfigurationOutput)
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationPtrOutput) EndpointLifecycleManagement() RouterInputEndpointLifecyclePtrOutput {
+	return o.ApplyT(func(v *RouterInputDestinationEndpointRouterInputConfiguration) *RouterInputEndpointLifecycle {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointLifecycleManagement
+	}).(RouterInputEndpointLifecyclePtrOutput)
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationPtrOutput) SourceTransitDecryption() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RouterInputDestinationEndpointRouterInputConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTransitDecryption
+	}).(pulumi.AnyOutput)
+}
+
+func (o RouterInputDestinationEndpointRouterInputConfigurationPtrOutput) SourceTransitDecryptionType() RouterInputEndpointEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *RouterInputDestinationEndpointRouterInputConfiguration) *RouterInputEndpointEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTransitDecryptionType
+	}).(RouterInputEndpointEncryptionTypePtrOutput)
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterInputEndpointEncryptionConfiguration0Properties struct {
+	SecretsManager RouterInputSecretsManagerEndpointEncryptionConfiguration `pulumi:"secretsManager"`
+}
+
+// RouterInputEndpointEncryptionConfiguration0PropertiesInput is an input type that accepts RouterInputEndpointEncryptionConfiguration0PropertiesArgs and RouterInputEndpointEncryptionConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputEndpointEncryptionConfiguration0PropertiesInput` via:
+//
+//	RouterInputEndpointEncryptionConfiguration0PropertiesArgs{...}
+type RouterInputEndpointEncryptionConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputEndpointEncryptionConfiguration0PropertiesOutput() RouterInputEndpointEncryptionConfiguration0PropertiesOutput
+	ToRouterInputEndpointEncryptionConfiguration0PropertiesOutputWithContext(context.Context) RouterInputEndpointEncryptionConfiguration0PropertiesOutput
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterInputEndpointEncryptionConfiguration0PropertiesArgs struct {
+	SecretsManager RouterInputSecretsManagerEndpointEncryptionConfigurationInput `pulumi:"secretsManager"`
+}
+
+func (RouterInputEndpointEncryptionConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionConfiguration0Properties)(nil)).Elem()
+}
+
+func (i RouterInputEndpointEncryptionConfiguration0PropertiesArgs) ToRouterInputEndpointEncryptionConfiguration0PropertiesOutput() RouterInputEndpointEncryptionConfiguration0PropertiesOutput {
+	return i.ToRouterInputEndpointEncryptionConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputEndpointEncryptionConfiguration0PropertiesArgs) ToRouterInputEndpointEncryptionConfiguration0PropertiesOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputEndpointEncryptionConfiguration0PropertiesOutput)
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterInputEndpointEncryptionConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionConfiguration0Properties)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionConfiguration0PropertiesOutput) ToRouterInputEndpointEncryptionConfiguration0PropertiesOutput() RouterInputEndpointEncryptionConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionConfiguration0PropertiesOutput) ToRouterInputEndpointEncryptionConfiguration0PropertiesOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionConfiguration0PropertiesOutput) SecretsManager() RouterInputSecretsManagerEndpointEncryptionConfigurationOutput {
+	return o.ApplyT(func(v RouterInputEndpointEncryptionConfiguration0Properties) RouterInputSecretsManagerEndpointEncryptionConfiguration {
+		return v.SecretsManager
+	}).(RouterInputSecretsManagerEndpointEncryptionConfigurationOutput)
+}
+
+type RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputEndpointEncryptionConfiguration0Properties)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput) ToRouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput() RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput) ToRouterInputEndpointEncryptionConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput) Elem() RouterInputEndpointEncryptionConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputEndpointEncryptionConfiguration0Properties) RouterInputEndpointEncryptionConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputEndpointEncryptionConfiguration0Properties
+		return ret
+	}).(RouterInputEndpointEncryptionConfiguration0PropertiesOutput)
+}
+
+func (o RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput) SecretsManager() RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputEndpointEncryptionConfiguration0Properties) *RouterInputSecretsManagerEndpointEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretsManager
+	}).(RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput)
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterInputEndpointEncryptionConfiguration1Properties struct {
+	Automatic RouterInputAutomaticEndpointEncryptionConfiguration `pulumi:"automatic"`
+}
+
+// RouterInputEndpointEncryptionConfiguration1PropertiesInput is an input type that accepts RouterInputEndpointEncryptionConfiguration1PropertiesArgs and RouterInputEndpointEncryptionConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputEndpointEncryptionConfiguration1PropertiesInput` via:
+//
+//	RouterInputEndpointEncryptionConfiguration1PropertiesArgs{...}
+type RouterInputEndpointEncryptionConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputEndpointEncryptionConfiguration1PropertiesOutput() RouterInputEndpointEncryptionConfiguration1PropertiesOutput
+	ToRouterInputEndpointEncryptionConfiguration1PropertiesOutputWithContext(context.Context) RouterInputEndpointEncryptionConfiguration1PropertiesOutput
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterInputEndpointEncryptionConfiguration1PropertiesArgs struct {
+	Automatic RouterInputAutomaticEndpointEncryptionConfigurationInput `pulumi:"automatic"`
+}
+
+func (RouterInputEndpointEncryptionConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionConfiguration1Properties)(nil)).Elem()
+}
+
+func (i RouterInputEndpointEncryptionConfiguration1PropertiesArgs) ToRouterInputEndpointEncryptionConfiguration1PropertiesOutput() RouterInputEndpointEncryptionConfiguration1PropertiesOutput {
+	return i.ToRouterInputEndpointEncryptionConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputEndpointEncryptionConfiguration1PropertiesArgs) ToRouterInputEndpointEncryptionConfiguration1PropertiesOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputEndpointEncryptionConfiguration1PropertiesOutput)
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterInputEndpointEncryptionConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionConfiguration1Properties)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionConfiguration1PropertiesOutput) ToRouterInputEndpointEncryptionConfiguration1PropertiesOutput() RouterInputEndpointEncryptionConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionConfiguration1PropertiesOutput) ToRouterInputEndpointEncryptionConfiguration1PropertiesOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionConfiguration1PropertiesOutput) Automatic() RouterInputAutomaticEndpointEncryptionConfigurationOutput {
+	return o.ApplyT(func(v RouterInputEndpointEncryptionConfiguration1Properties) RouterInputAutomaticEndpointEncryptionConfiguration {
+		return v.Automatic
+	}).(RouterInputAutomaticEndpointEncryptionConfigurationOutput)
+}
+
+type RouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputEndpointEncryptionConfiguration1Properties)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput) ToRouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput() RouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput) ToRouterInputEndpointEncryptionConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput) Elem() RouterInputEndpointEncryptionConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputEndpointEncryptionConfiguration1Properties) RouterInputEndpointEncryptionConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputEndpointEncryptionConfiguration1Properties
+		return ret
+	}).(RouterInputEndpointEncryptionConfiguration1PropertiesOutput)
+}
+
+func (o RouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput) Automatic() RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputEndpointEncryptionConfiguration1Properties) *RouterInputAutomaticEndpointEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Automatic
+	}).(RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput)
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type RouterInputEndpointEncryptionSecretConfiguration struct {
+	// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// RouterInputEndpointEncryptionSecretConfigurationInput is an input type that accepts RouterInputEndpointEncryptionSecretConfigurationArgs and RouterInputEndpointEncryptionSecretConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputEndpointEncryptionSecretConfigurationInput` via:
+//
+//	RouterInputEndpointEncryptionSecretConfigurationArgs{...}
+type RouterInputEndpointEncryptionSecretConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputEndpointEncryptionSecretConfigurationOutput() RouterInputEndpointEncryptionSecretConfigurationOutput
+	ToRouterInputEndpointEncryptionSecretConfigurationOutputWithContext(context.Context) RouterInputEndpointEncryptionSecretConfigurationOutput
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type RouterInputEndpointEncryptionSecretConfigurationArgs struct {
+	// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (RouterInputEndpointEncryptionSecretConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputEndpointEncryptionSecretConfigurationArgs) ToRouterInputEndpointEncryptionSecretConfigurationOutput() RouterInputEndpointEncryptionSecretConfigurationOutput {
+	return i.ToRouterInputEndpointEncryptionSecretConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputEndpointEncryptionSecretConfigurationArgs) ToRouterInputEndpointEncryptionSecretConfigurationOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionSecretConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputEndpointEncryptionSecretConfigurationOutput)
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type RouterInputEndpointEncryptionSecretConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionSecretConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionSecretConfigurationOutput) ToRouterInputEndpointEncryptionSecretConfigurationOutput() RouterInputEndpointEncryptionSecretConfigurationOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionSecretConfigurationOutput) ToRouterInputEndpointEncryptionSecretConfigurationOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionSecretConfigurationOutput {
+	return o
+}
+
+// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+func (o RouterInputEndpointEncryptionSecretConfigurationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RouterInputEndpointEncryptionSecretConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type RouterInputEndpointEncryptionSecretConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionSecretConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionSecretConfigurationPtrOutput) ToRouterInputEndpointEncryptionSecretConfigurationPtrOutput() RouterInputEndpointEncryptionSecretConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionSecretConfigurationPtrOutput) ToRouterInputEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionSecretConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionSecretConfigurationPtrOutput) Elem() RouterInputEndpointEncryptionSecretConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputEndpointEncryptionSecretConfiguration) RouterInputEndpointEncryptionSecretConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputEndpointEncryptionSecretConfiguration
+		return ret
+	}).(RouterInputEndpointEncryptionSecretConfigurationOutput)
+}
+
+// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+func (o RouterInputEndpointEncryptionSecretConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterInputEndpointEncryptionSecretConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Configuration settings for a failover router input that allows switching between two input sources.
 type RouterInputFailoverRouterInputConfiguration struct {
 	// The ARN of the network interface to use for this failover router input.
@@ -11645,7 +14375,7 @@ func (o RouterInputFailoverRouterInputConfigurationPtrOutput) SourcePriorityMode
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration0Properties struct {
-	Rtp RouterInputRtpRouterInputConfiguration `pulumi:"rtp"`
+	Rist RouterInputRistRouterInputConfiguration `pulumi:"rist"`
 }
 
 // RouterInputFailoverRouterInputProtocolConfiguration0PropertiesInput is an input type that accepts RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs and RouterInputFailoverRouterInputProtocolConfiguration0PropertiesOutput values.
@@ -11661,7 +14391,7 @@ type RouterInputFailoverRouterInputProtocolConfiguration0PropertiesInput interfa
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs struct {
-	Rtp RouterInputRtpRouterInputConfigurationInput `pulumi:"rtp"`
+	Rist RouterInputRistRouterInputConfigurationInput `pulumi:"rist"`
 }
 
 func (RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs) ElementType() reflect.Type {
@@ -11691,15 +14421,15 @@ func (o RouterInputFailoverRouterInputProtocolConfiguration0PropertiesOutput) To
 	return o
 }
 
-func (o RouterInputFailoverRouterInputProtocolConfiguration0PropertiesOutput) Rtp() RouterInputRtpRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration0Properties) RouterInputRtpRouterInputConfiguration {
-		return v.Rtp
-	}).(RouterInputRtpRouterInputConfigurationOutput)
+func (o RouterInputFailoverRouterInputProtocolConfiguration0PropertiesOutput) Rist() RouterInputRistRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration0Properties) RouterInputRistRouterInputConfiguration {
+		return v.Rist
+	}).(RouterInputRistRouterInputConfigurationOutput)
 }
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration1Properties struct {
-	Rist RouterInputRistRouterInputConfiguration `pulumi:"rist"`
+	SrtListener RouterInputSrtListenerRouterInputConfiguration `pulumi:"srtListener"`
 }
 
 // RouterInputFailoverRouterInputProtocolConfiguration1PropertiesInput is an input type that accepts RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs and RouterInputFailoverRouterInputProtocolConfiguration1PropertiesOutput values.
@@ -11715,7 +14445,7 @@ type RouterInputFailoverRouterInputProtocolConfiguration1PropertiesInput interfa
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs struct {
-	Rist RouterInputRistRouterInputConfigurationInput `pulumi:"rist"`
+	SrtListener RouterInputSrtListenerRouterInputConfigurationInput `pulumi:"srtListener"`
 }
 
 func (RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs) ElementType() reflect.Type {
@@ -11745,15 +14475,15 @@ func (o RouterInputFailoverRouterInputProtocolConfiguration1PropertiesOutput) To
 	return o
 }
 
-func (o RouterInputFailoverRouterInputProtocolConfiguration1PropertiesOutput) Rist() RouterInputRistRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration1Properties) RouterInputRistRouterInputConfiguration {
-		return v.Rist
-	}).(RouterInputRistRouterInputConfigurationOutput)
+func (o RouterInputFailoverRouterInputProtocolConfiguration1PropertiesOutput) SrtListener() RouterInputSrtListenerRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration1Properties) RouterInputSrtListenerRouterInputConfiguration {
+		return v.SrtListener
+	}).(RouterInputSrtListenerRouterInputConfigurationOutput)
 }
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration2Properties struct {
-	SrtListener RouterInputSrtListenerRouterInputConfiguration `pulumi:"srtListener"`
+	SrtCaller RouterInputSrtCallerRouterInputConfiguration `pulumi:"srtCaller"`
 }
 
 // RouterInputFailoverRouterInputProtocolConfiguration2PropertiesInput is an input type that accepts RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs and RouterInputFailoverRouterInputProtocolConfiguration2PropertiesOutput values.
@@ -11769,7 +14499,7 @@ type RouterInputFailoverRouterInputProtocolConfiguration2PropertiesInput interfa
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs struct {
-	SrtListener RouterInputSrtListenerRouterInputConfigurationInput `pulumi:"srtListener"`
+	SrtCaller RouterInputSrtCallerRouterInputConfigurationInput `pulumi:"srtCaller"`
 }
 
 func (RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs) ElementType() reflect.Type {
@@ -11799,15 +14529,15 @@ func (o RouterInputFailoverRouterInputProtocolConfiguration2PropertiesOutput) To
 	return o
 }
 
-func (o RouterInputFailoverRouterInputProtocolConfiguration2PropertiesOutput) SrtListener() RouterInputSrtListenerRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration2Properties) RouterInputSrtListenerRouterInputConfiguration {
-		return v.SrtListener
-	}).(RouterInputSrtListenerRouterInputConfigurationOutput)
+func (o RouterInputFailoverRouterInputProtocolConfiguration2PropertiesOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration2Properties) RouterInputSrtCallerRouterInputConfiguration {
+		return v.SrtCaller
+	}).(RouterInputSrtCallerRouterInputConfigurationOutput)
 }
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration3Properties struct {
-	SrtCaller RouterInputSrtCallerRouterInputConfiguration `pulumi:"srtCaller"`
+	Rtp RouterInputRtpRouterInputConfiguration `pulumi:"rtp"`
 }
 
 // RouterInputFailoverRouterInputProtocolConfiguration3PropertiesInput is an input type that accepts RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs and RouterInputFailoverRouterInputProtocolConfiguration3PropertiesOutput values.
@@ -11823,7 +14553,7 @@ type RouterInputFailoverRouterInputProtocolConfiguration3PropertiesInput interfa
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs struct {
-	SrtCaller RouterInputSrtCallerRouterInputConfigurationInput `pulumi:"srtCaller"`
+	Rtp RouterInputRtpRouterInputConfigurationInput `pulumi:"rtp"`
 }
 
 func (RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs) ElementType() reflect.Type {
@@ -11853,10 +14583,10 @@ func (o RouterInputFailoverRouterInputProtocolConfiguration3PropertiesOutput) To
 	return o
 }
 
-func (o RouterInputFailoverRouterInputProtocolConfiguration3PropertiesOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration3Properties) RouterInputSrtCallerRouterInputConfiguration {
-		return v.SrtCaller
-	}).(RouterInputSrtCallerRouterInputConfigurationOutput)
+func (o RouterInputFailoverRouterInputProtocolConfiguration3PropertiesOutput) Rtp() RouterInputRtpRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration3Properties) RouterInputRtpRouterInputConfiguration {
+		return v.Rtp
+	}).(RouterInputRtpRouterInputConfigurationOutput)
 }
 
 // The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
@@ -12566,7 +15296,7 @@ func (o RouterInputMaintenanceConfiguration1PropertiesPtrOutput) Default() Route
 	}).(RouterInputDefaultMaintenanceConfigurationPtrOutput)
 }
 
-// Configuration settings for connecting a router input to a flow output.
+// Configuration settings for connecting a router input to a flow output. To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
 type RouterInputMediaConnectFlowRouterInputConfiguration struct {
 	// The ARN of the flow to connect to.
 	FlowArn *string `pulumi:"flowArn"`
@@ -12586,7 +15316,7 @@ type RouterInputMediaConnectFlowRouterInputConfigurationInput interface {
 	ToRouterInputMediaConnectFlowRouterInputConfigurationOutputWithContext(context.Context) RouterInputMediaConnectFlowRouterInputConfigurationOutput
 }
 
-// Configuration settings for connecting a router input to a flow output.
+// Configuration settings for connecting a router input to a flow output. To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
 type RouterInputMediaConnectFlowRouterInputConfigurationArgs struct {
 	// The ARN of the flow to connect to.
 	FlowArn pulumi.StringPtrInput `pulumi:"flowArn"`
@@ -12607,7 +15337,7 @@ func (i RouterInputMediaConnectFlowRouterInputConfigurationArgs) ToRouterInputMe
 	return pulumi.ToOutputWithContext(ctx, i).(RouterInputMediaConnectFlowRouterInputConfigurationOutput)
 }
 
-// Configuration settings for connecting a router input to a flow output.
+// Configuration settings for connecting a router input to a flow output. To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
 type RouterInputMediaConnectFlowRouterInputConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RouterInputMediaConnectFlowRouterInputConfigurationOutput) ElementType() reflect.Type {
@@ -12691,7 +15421,7 @@ func (o RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput) SourceTran
 	}).(RouterInputFlowTransitEncryptionPtrOutput)
 }
 
-// Configuration settings for connecting a router input to a MediaLive channel output.
+// Configuration settings for connecting a router input to a MediaLive channel output. To connect the router input to the MediaLive channel output, provide all three of mediaLiveChannelArn, mediaLivePipelineId, and mediaLiveChannelOutputName. To disconnect it, call the update operation and omit all three fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
 type RouterInputMediaLiveChannelRouterInputConfiguration struct {
 	// The ARN of the MediaLive channel to connect to this router input.
 	MediaLiveChannelArn *string `pulumi:"mediaLiveChannelArn"`
@@ -12712,7 +15442,7 @@ type RouterInputMediaLiveChannelRouterInputConfigurationInput interface {
 	ToRouterInputMediaLiveChannelRouterInputConfigurationOutputWithContext(context.Context) RouterInputMediaLiveChannelRouterInputConfigurationOutput
 }
 
-// Configuration settings for connecting a router input to a MediaLive channel output.
+// Configuration settings for connecting a router input to a MediaLive channel output. To connect the router input to the MediaLive channel output, provide all three of mediaLiveChannelArn, mediaLivePipelineId, and mediaLiveChannelOutputName. To disconnect it, call the update operation and omit all three fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
 type RouterInputMediaLiveChannelRouterInputConfigurationArgs struct {
 	// The ARN of the MediaLive channel to connect to this router input.
 	MediaLiveChannelArn pulumi.StringPtrInput `pulumi:"mediaLiveChannelArn"`
@@ -12734,7 +15464,7 @@ func (i RouterInputMediaLiveChannelRouterInputConfigurationArgs) ToRouterInputMe
 	return pulumi.ToOutputWithContext(ctx, i).(RouterInputMediaLiveChannelRouterInputConfigurationOutput)
 }
 
-// Configuration settings for connecting a router input to a MediaLive channel output.
+// Configuration settings for connecting a router input to a MediaLive channel output. To connect the router input to the MediaLive channel output, provide all three of mediaLiveChannelArn, mediaLivePipelineId, and mediaLiveChannelOutputName. To disconnect it, call the update operation and omit all three fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
 type RouterInputMediaLiveChannelRouterInputConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RouterInputMediaLiveChannelRouterInputConfigurationOutput) ElementType() reflect.Type {
@@ -13503,7 +16233,7 @@ func (o RouterInputPreferredDayTimeMaintenanceConfigurationPtrOutput) Time() pul
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration0Properties struct {
-	Rtp RouterInputRtpRouterInputConfiguration `pulumi:"rtp"`
+	Rist RouterInputRistRouterInputConfiguration `pulumi:"rist"`
 }
 
 // RouterInputProtocolConfiguration0PropertiesInput is an input type that accepts RouterInputProtocolConfiguration0PropertiesArgs and RouterInputProtocolConfiguration0PropertiesOutput values.
@@ -13519,7 +16249,7 @@ type RouterInputProtocolConfiguration0PropertiesInput interface {
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration0PropertiesArgs struct {
-	Rtp RouterInputRtpRouterInputConfigurationInput `pulumi:"rtp"`
+	Rist RouterInputRistRouterInputConfigurationInput `pulumi:"rist"`
 }
 
 func (RouterInputProtocolConfiguration0PropertiesArgs) ElementType() reflect.Type {
@@ -13549,10 +16279,10 @@ func (o RouterInputProtocolConfiguration0PropertiesOutput) ToRouterInputProtocol
 	return o
 }
 
-func (o RouterInputProtocolConfiguration0PropertiesOutput) Rtp() RouterInputRtpRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputProtocolConfiguration0Properties) RouterInputRtpRouterInputConfiguration {
-		return v.Rtp
-	}).(RouterInputRtpRouterInputConfigurationOutput)
+func (o RouterInputProtocolConfiguration0PropertiesOutput) Rist() RouterInputRistRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputProtocolConfiguration0Properties) RouterInputRistRouterInputConfiguration {
+		return v.Rist
+	}).(RouterInputRistRouterInputConfigurationOutput)
 }
 
 type RouterInputProtocolConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -13579,18 +16309,18 @@ func (o RouterInputProtocolConfiguration0PropertiesPtrOutput) Elem() RouterInput
 	}).(RouterInputProtocolConfiguration0PropertiesOutput)
 }
 
-func (o RouterInputProtocolConfiguration0PropertiesPtrOutput) Rtp() RouterInputRtpRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputProtocolConfiguration0Properties) *RouterInputRtpRouterInputConfiguration {
+func (o RouterInputProtocolConfiguration0PropertiesPtrOutput) Rist() RouterInputRistRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputProtocolConfiguration0Properties) *RouterInputRistRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.Rtp
-	}).(RouterInputRtpRouterInputConfigurationPtrOutput)
+		return &v.Rist
+	}).(RouterInputRistRouterInputConfigurationPtrOutput)
 }
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration1Properties struct {
-	Rist RouterInputRistRouterInputConfiguration `pulumi:"rist"`
+	SrtListener RouterInputSrtListenerRouterInputConfiguration `pulumi:"srtListener"`
 }
 
 // RouterInputProtocolConfiguration1PropertiesInput is an input type that accepts RouterInputProtocolConfiguration1PropertiesArgs and RouterInputProtocolConfiguration1PropertiesOutput values.
@@ -13606,7 +16336,7 @@ type RouterInputProtocolConfiguration1PropertiesInput interface {
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration1PropertiesArgs struct {
-	Rist RouterInputRistRouterInputConfigurationInput `pulumi:"rist"`
+	SrtListener RouterInputSrtListenerRouterInputConfigurationInput `pulumi:"srtListener"`
 }
 
 func (RouterInputProtocolConfiguration1PropertiesArgs) ElementType() reflect.Type {
@@ -13636,10 +16366,10 @@ func (o RouterInputProtocolConfiguration1PropertiesOutput) ToRouterInputProtocol
 	return o
 }
 
-func (o RouterInputProtocolConfiguration1PropertiesOutput) Rist() RouterInputRistRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputProtocolConfiguration1Properties) RouterInputRistRouterInputConfiguration {
-		return v.Rist
-	}).(RouterInputRistRouterInputConfigurationOutput)
+func (o RouterInputProtocolConfiguration1PropertiesOutput) SrtListener() RouterInputSrtListenerRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputProtocolConfiguration1Properties) RouterInputSrtListenerRouterInputConfiguration {
+		return v.SrtListener
+	}).(RouterInputSrtListenerRouterInputConfigurationOutput)
 }
 
 type RouterInputProtocolConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -13666,18 +16396,18 @@ func (o RouterInputProtocolConfiguration1PropertiesPtrOutput) Elem() RouterInput
 	}).(RouterInputProtocolConfiguration1PropertiesOutput)
 }
 
-func (o RouterInputProtocolConfiguration1PropertiesPtrOutput) Rist() RouterInputRistRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputProtocolConfiguration1Properties) *RouterInputRistRouterInputConfiguration {
+func (o RouterInputProtocolConfiguration1PropertiesPtrOutput) SrtListener() RouterInputSrtListenerRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputProtocolConfiguration1Properties) *RouterInputSrtListenerRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.Rist
-	}).(RouterInputRistRouterInputConfigurationPtrOutput)
+		return &v.SrtListener
+	}).(RouterInputSrtListenerRouterInputConfigurationPtrOutput)
 }
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration2Properties struct {
-	SrtListener RouterInputSrtListenerRouterInputConfiguration `pulumi:"srtListener"`
+	SrtCaller RouterInputSrtCallerRouterInputConfiguration `pulumi:"srtCaller"`
 }
 
 // RouterInputProtocolConfiguration2PropertiesInput is an input type that accepts RouterInputProtocolConfiguration2PropertiesArgs and RouterInputProtocolConfiguration2PropertiesOutput values.
@@ -13693,7 +16423,7 @@ type RouterInputProtocolConfiguration2PropertiesInput interface {
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration2PropertiesArgs struct {
-	SrtListener RouterInputSrtListenerRouterInputConfigurationInput `pulumi:"srtListener"`
+	SrtCaller RouterInputSrtCallerRouterInputConfigurationInput `pulumi:"srtCaller"`
 }
 
 func (RouterInputProtocolConfiguration2PropertiesArgs) ElementType() reflect.Type {
@@ -13723,10 +16453,10 @@ func (o RouterInputProtocolConfiguration2PropertiesOutput) ToRouterInputProtocol
 	return o
 }
 
-func (o RouterInputProtocolConfiguration2PropertiesOutput) SrtListener() RouterInputSrtListenerRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputProtocolConfiguration2Properties) RouterInputSrtListenerRouterInputConfiguration {
-		return v.SrtListener
-	}).(RouterInputSrtListenerRouterInputConfigurationOutput)
+func (o RouterInputProtocolConfiguration2PropertiesOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputProtocolConfiguration2Properties) RouterInputSrtCallerRouterInputConfiguration {
+		return v.SrtCaller
+	}).(RouterInputSrtCallerRouterInputConfigurationOutput)
 }
 
 type RouterInputProtocolConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -13753,18 +16483,18 @@ func (o RouterInputProtocolConfiguration2PropertiesPtrOutput) Elem() RouterInput
 	}).(RouterInputProtocolConfiguration2PropertiesOutput)
 }
 
-func (o RouterInputProtocolConfiguration2PropertiesPtrOutput) SrtListener() RouterInputSrtListenerRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputProtocolConfiguration2Properties) *RouterInputSrtListenerRouterInputConfiguration {
+func (o RouterInputProtocolConfiguration2PropertiesPtrOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputProtocolConfiguration2Properties) *RouterInputSrtCallerRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.SrtListener
-	}).(RouterInputSrtListenerRouterInputConfigurationPtrOutput)
+		return &v.SrtCaller
+	}).(RouterInputSrtCallerRouterInputConfigurationPtrOutput)
 }
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration3Properties struct {
-	SrtCaller RouterInputSrtCallerRouterInputConfiguration `pulumi:"srtCaller"`
+	Rtp RouterInputRtpRouterInputConfiguration `pulumi:"rtp"`
 }
 
 // RouterInputProtocolConfiguration3PropertiesInput is an input type that accepts RouterInputProtocolConfiguration3PropertiesArgs and RouterInputProtocolConfiguration3PropertiesOutput values.
@@ -13780,7 +16510,7 @@ type RouterInputProtocolConfiguration3PropertiesInput interface {
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration3PropertiesArgs struct {
-	SrtCaller RouterInputSrtCallerRouterInputConfigurationInput `pulumi:"srtCaller"`
+	Rtp RouterInputRtpRouterInputConfigurationInput `pulumi:"rtp"`
 }
 
 func (RouterInputProtocolConfiguration3PropertiesArgs) ElementType() reflect.Type {
@@ -13810,10 +16540,10 @@ func (o RouterInputProtocolConfiguration3PropertiesOutput) ToRouterInputProtocol
 	return o
 }
 
-func (o RouterInputProtocolConfiguration3PropertiesOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputProtocolConfiguration3Properties) RouterInputSrtCallerRouterInputConfiguration {
-		return v.SrtCaller
-	}).(RouterInputSrtCallerRouterInputConfigurationOutput)
+func (o RouterInputProtocolConfiguration3PropertiesOutput) Rtp() RouterInputRtpRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputProtocolConfiguration3Properties) RouterInputRtpRouterInputConfiguration {
+		return v.Rtp
+	}).(RouterInputRtpRouterInputConfigurationOutput)
 }
 
 type RouterInputProtocolConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -13840,13 +16570,13 @@ func (o RouterInputProtocolConfiguration3PropertiesPtrOutput) Elem() RouterInput
 	}).(RouterInputProtocolConfiguration3PropertiesOutput)
 }
 
-func (o RouterInputProtocolConfiguration3PropertiesPtrOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputProtocolConfiguration3Properties) *RouterInputSrtCallerRouterInputConfiguration {
+func (o RouterInputProtocolConfiguration3PropertiesPtrOutput) Rtp() RouterInputRtpRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputProtocolConfiguration3Properties) *RouterInputRtpRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.SrtCaller
-	}).(RouterInputSrtCallerRouterInputConfigurationPtrOutput)
+		return &v.Rtp
+	}).(RouterInputRtpRouterInputConfigurationPtrOutput)
 }
 
 // The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
@@ -14363,6 +17093,110 @@ func (o RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput) SecretArn(
 		}
 		return &v.SecretArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+type RouterInputSecretsManagerEndpointEncryptionConfiguration struct {
+	EncryptionSecret     RouterInputEndpointEncryptionSecretConfiguration `pulumi:"encryptionSecret"`
+	EncryptionSecretType *RouterInputEndpointEncryptionSecretType         `pulumi:"encryptionSecretType"`
+}
+
+// RouterInputSecretsManagerEndpointEncryptionConfigurationInput is an input type that accepts RouterInputSecretsManagerEndpointEncryptionConfigurationArgs and RouterInputSecretsManagerEndpointEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputSecretsManagerEndpointEncryptionConfigurationInput` via:
+//
+//	RouterInputSecretsManagerEndpointEncryptionConfigurationArgs{...}
+type RouterInputSecretsManagerEndpointEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputSecretsManagerEndpointEncryptionConfigurationOutput() RouterInputSecretsManagerEndpointEncryptionConfigurationOutput
+	ToRouterInputSecretsManagerEndpointEncryptionConfigurationOutputWithContext(context.Context) RouterInputSecretsManagerEndpointEncryptionConfigurationOutput
+}
+
+// The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+type RouterInputSecretsManagerEndpointEncryptionConfigurationArgs struct {
+	EncryptionSecret     RouterInputEndpointEncryptionSecretConfigurationInput `pulumi:"encryptionSecret"`
+	EncryptionSecretType RouterInputEndpointEncryptionSecretTypePtrInput       `pulumi:"encryptionSecretType"`
+}
+
+func (RouterInputSecretsManagerEndpointEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputSecretsManagerEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputSecretsManagerEndpointEncryptionConfigurationArgs) ToRouterInputSecretsManagerEndpointEncryptionConfigurationOutput() RouterInputSecretsManagerEndpointEncryptionConfigurationOutput {
+	return i.ToRouterInputSecretsManagerEndpointEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputSecretsManagerEndpointEncryptionConfigurationArgs) ToRouterInputSecretsManagerEndpointEncryptionConfigurationOutputWithContext(ctx context.Context) RouterInputSecretsManagerEndpointEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputSecretsManagerEndpointEncryptionConfigurationOutput)
+}
+
+// The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+type RouterInputSecretsManagerEndpointEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputSecretsManagerEndpointEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputSecretsManagerEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputSecretsManagerEndpointEncryptionConfigurationOutput) ToRouterInputSecretsManagerEndpointEncryptionConfigurationOutput() RouterInputSecretsManagerEndpointEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RouterInputSecretsManagerEndpointEncryptionConfigurationOutput) ToRouterInputSecretsManagerEndpointEncryptionConfigurationOutputWithContext(ctx context.Context) RouterInputSecretsManagerEndpointEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RouterInputSecretsManagerEndpointEncryptionConfigurationOutput) EncryptionSecret() RouterInputEndpointEncryptionSecretConfigurationOutput {
+	return o.ApplyT(func(v RouterInputSecretsManagerEndpointEncryptionConfiguration) RouterInputEndpointEncryptionSecretConfiguration {
+		return v.EncryptionSecret
+	}).(RouterInputEndpointEncryptionSecretConfigurationOutput)
+}
+
+func (o RouterInputSecretsManagerEndpointEncryptionConfigurationOutput) EncryptionSecretType() RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return o.ApplyT(func(v RouterInputSecretsManagerEndpointEncryptionConfiguration) *RouterInputEndpointEncryptionSecretType {
+		return v.EncryptionSecretType
+	}).(RouterInputEndpointEncryptionSecretTypePtrOutput)
+}
+
+type RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputSecretsManagerEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput) ToRouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput() RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput) ToRouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput) Elem() RouterInputSecretsManagerEndpointEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputSecretsManagerEndpointEncryptionConfiguration) RouterInputSecretsManagerEndpointEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputSecretsManagerEndpointEncryptionConfiguration
+		return ret
+	}).(RouterInputSecretsManagerEndpointEncryptionConfigurationOutput)
+}
+
+func (o RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput) EncryptionSecret() RouterInputEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputSecretsManagerEndpointEncryptionConfiguration) *RouterInputEndpointEncryptionSecretConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionSecret
+	}).(RouterInputEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+func (o RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput) EncryptionSecretType() RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return o.ApplyT(func(v *RouterInputSecretsManagerEndpointEncryptionConfiguration) *RouterInputEndpointEncryptionSecretType {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionSecretType
+	}).(RouterInputEndpointEncryptionSecretTypePtrOutput)
 }
 
 // Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.
@@ -16047,6 +18881,76 @@ func (o RouterOutputResourceAutomaticEncryptionKeyConfigurationPtrOutput) Elem()
 	}).(RouterOutputResourceAutomaticEncryptionKeyConfigurationOutput)
 }
 
+// The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+type RouterOutputResourceAutomaticEndpointEncryptionConfiguration struct {
+}
+
+// RouterOutputResourceAutomaticEndpointEncryptionConfigurationInput is an input type that accepts RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs and RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RouterOutputResourceAutomaticEndpointEncryptionConfigurationInput` via:
+//
+//	RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs{...}
+type RouterOutputResourceAutomaticEndpointEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput() RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput
+	ToRouterOutputResourceAutomaticEndpointEncryptionConfigurationOutputWithContext(context.Context) RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput
+}
+
+// The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+type RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs struct {
+}
+
+func (RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceAutomaticEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs) ToRouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput() RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput {
+	return i.ToRouterOutputResourceAutomaticEndpointEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs) ToRouterOutputResourceAutomaticEndpointEncryptionConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput)
+}
+
+// The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+type RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceAutomaticEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput) ToRouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput() RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput) ToRouterOutputResourceAutomaticEndpointEncryptionConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput {
+	return o
+}
+
+type RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceAutomaticEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput) ToRouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput() RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput) ToRouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput) Elem() RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RouterOutputResourceAutomaticEndpointEncryptionConfiguration) RouterOutputResourceAutomaticEndpointEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceAutomaticEndpointEncryptionConfiguration
+		return ret
+	}).(RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput)
+}
+
 // Configuration settings for default maintenance scheduling.
 type RouterOutputResourceDefaultMaintenanceConfiguration struct {
 }
@@ -16166,6 +19070,269 @@ func (o RouterOutputResourceDefaultMaintenanceConfigurationPtrOutput) Elem() Rou
 		var ret RouterOutputResourceDefaultMaintenanceConfiguration
 		return ret
 	}).(RouterOutputResourceDefaultMaintenanceConfigurationOutput)
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterOutputResourceEndpointEncryptionConfiguration0Properties struct {
+	SecretsManager RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration `pulumi:"secretsManager"`
+}
+
+// RouterOutputResourceEndpointEncryptionConfiguration0PropertiesInput is an input type that accepts RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs and RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `RouterOutputResourceEndpointEncryptionConfiguration0PropertiesInput` via:
+//
+//	RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs{...}
+type RouterOutputResourceEndpointEncryptionConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput() RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput
+	ToRouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutputWithContext(context.Context) RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs struct {
+	SecretsManager RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationInput `pulumi:"secretsManager"`
+}
+
+func (RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionConfiguration0Properties)(nil)).Elem()
+}
+
+func (i RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs) ToRouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput() RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput {
+	return i.ToRouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs) ToRouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput)
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionConfiguration0Properties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput) ToRouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput() RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput) ToRouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput) SecretsManager() RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceEndpointEncryptionConfiguration0Properties) RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration {
+		return v.SecretsManager
+	}).(RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput)
+}
+
+type RouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceEndpointEncryptionConfiguration0Properties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput) ToRouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput() RouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput) ToRouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput) Elem() RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *RouterOutputResourceEndpointEncryptionConfiguration0Properties) RouterOutputResourceEndpointEncryptionConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceEndpointEncryptionConfiguration0Properties
+		return ret
+	}).(RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput)
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput) SecretsManager() RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceEndpointEncryptionConfiguration0Properties) *RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretsManager
+	}).(RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput)
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterOutputResourceEndpointEncryptionConfiguration1Properties struct {
+	Automatic RouterOutputResourceAutomaticEndpointEncryptionConfiguration `pulumi:"automatic"`
+}
+
+// RouterOutputResourceEndpointEncryptionConfiguration1PropertiesInput is an input type that accepts RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs and RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `RouterOutputResourceEndpointEncryptionConfiguration1PropertiesInput` via:
+//
+//	RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs{...}
+type RouterOutputResourceEndpointEncryptionConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput() RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput
+	ToRouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutputWithContext(context.Context) RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs struct {
+	Automatic RouterOutputResourceAutomaticEndpointEncryptionConfigurationInput `pulumi:"automatic"`
+}
+
+func (RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionConfiguration1Properties)(nil)).Elem()
+}
+
+func (i RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs) ToRouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput() RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput {
+	return i.ToRouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs) ToRouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput)
+}
+
+// The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+type RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionConfiguration1Properties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput) ToRouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput() RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput) ToRouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput) Automatic() RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceEndpointEncryptionConfiguration1Properties) RouterOutputResourceAutomaticEndpointEncryptionConfiguration {
+		return v.Automatic
+	}).(RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput)
+}
+
+type RouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceEndpointEncryptionConfiguration1Properties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput) ToRouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput() RouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput) ToRouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput) Elem() RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *RouterOutputResourceEndpointEncryptionConfiguration1Properties) RouterOutputResourceEndpointEncryptionConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceEndpointEncryptionConfiguration1Properties
+		return ret
+	}).(RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput)
+}
+
+func (o RouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput) Automatic() RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceEndpointEncryptionConfiguration1Properties) *RouterOutputResourceAutomaticEndpointEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Automatic
+	}).(RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput)
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type RouterOutputResourceEndpointEncryptionSecretConfiguration struct {
+	// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// RouterOutputResourceEndpointEncryptionSecretConfigurationInput is an input type that accepts RouterOutputResourceEndpointEncryptionSecretConfigurationArgs and RouterOutputResourceEndpointEncryptionSecretConfigurationOutput values.
+// You can construct a concrete instance of `RouterOutputResourceEndpointEncryptionSecretConfigurationInput` via:
+//
+//	RouterOutputResourceEndpointEncryptionSecretConfigurationArgs{...}
+type RouterOutputResourceEndpointEncryptionSecretConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceEndpointEncryptionSecretConfigurationOutput() RouterOutputResourceEndpointEncryptionSecretConfigurationOutput
+	ToRouterOutputResourceEndpointEncryptionSecretConfigurationOutputWithContext(context.Context) RouterOutputResourceEndpointEncryptionSecretConfigurationOutput
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type RouterOutputResourceEndpointEncryptionSecretConfigurationArgs struct {
+	// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (RouterOutputResourceEndpointEncryptionSecretConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (i RouterOutputResourceEndpointEncryptionSecretConfigurationArgs) ToRouterOutputResourceEndpointEncryptionSecretConfigurationOutput() RouterOutputResourceEndpointEncryptionSecretConfigurationOutput {
+	return i.ToRouterOutputResourceEndpointEncryptionSecretConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceEndpointEncryptionSecretConfigurationArgs) ToRouterOutputResourceEndpointEncryptionSecretConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionSecretConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceEndpointEncryptionSecretConfigurationOutput)
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type RouterOutputResourceEndpointEncryptionSecretConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionSecretConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretConfigurationOutput) ToRouterOutputResourceEndpointEncryptionSecretConfigurationOutput() RouterOutputResourceEndpointEncryptionSecretConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretConfigurationOutput) ToRouterOutputResourceEndpointEncryptionSecretConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionSecretConfigurationOutput {
+	return o
+}
+
+// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+func (o RouterOutputResourceEndpointEncryptionSecretConfigurationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RouterOutputResourceEndpointEncryptionSecretConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput) ToRouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput() RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput) ToRouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput) Elem() RouterOutputResourceEndpointEncryptionSecretConfigurationOutput {
+	return o.ApplyT(func(v *RouterOutputResourceEndpointEncryptionSecretConfiguration) RouterOutputResourceEndpointEncryptionSecretConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceEndpointEncryptionSecretConfiguration
+		return ret
+	}).(RouterOutputResourceEndpointEncryptionSecretConfigurationOutput)
+}
+
+// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+func (o RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceEndpointEncryptionSecretConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The fabric configuration settings for the router output.
@@ -16858,7 +20025,7 @@ func (o RouterOutputResourceMaintenanceConfiguration1PropertiesPtrOutput) Defaul
 	}).(RouterOutputResourceDefaultMaintenanceConfigurationPtrOutput)
 }
 
-// Configuration settings for connecting a router output to a MediaConnect flow source.
+// Configuration settings for connecting a router output to a MediaConnect flow source. To connect the router output to the flow source, provide both flowArn and flowSourceArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
 type RouterOutputResourceMediaConnectFlowRouterOutputConfiguration struct {
 	DestinationTransitEncryption RouterOutputResourceFlowTransitEncryption `pulumi:"destinationTransitEncryption"`
 	// The ARN of the flow to connect to this router output.
@@ -16878,7 +20045,7 @@ type RouterOutputResourceMediaConnectFlowRouterOutputConfigurationInput interfac
 	ToRouterOutputResourceMediaConnectFlowRouterOutputConfigurationOutputWithContext(context.Context) RouterOutputResourceMediaConnectFlowRouterOutputConfigurationOutput
 }
 
-// Configuration settings for connecting a router output to a MediaConnect flow source.
+// Configuration settings for connecting a router output to a MediaConnect flow source. To connect the router output to the flow source, provide both flowArn and flowSourceArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
 type RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs struct {
 	DestinationTransitEncryption RouterOutputResourceFlowTransitEncryptionInput `pulumi:"destinationTransitEncryption"`
 	// The ARN of the flow to connect to this router output.
@@ -16899,7 +20066,7 @@ func (i RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs) ToRou
 	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceMediaConnectFlowRouterOutputConfigurationOutput)
 }
 
-// Configuration settings for connecting a router output to a MediaConnect flow source.
+// Configuration settings for connecting a router output to a MediaConnect flow source. To connect the router output to the flow source, provide both flowArn and flowSourceArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
 type RouterOutputResourceMediaConnectFlowRouterOutputConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RouterOutputResourceMediaConnectFlowRouterOutputConfigurationOutput) ElementType() reflect.Type {
@@ -16983,7 +20150,7 @@ func (o RouterOutputResourceMediaConnectFlowRouterOutputConfigurationPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings for connecting a router output to a MediaLive input.
+// Configuration settings for connecting a router output to a MediaLive input. To connect the router output to the MediaLive input, provide both mediaLiveInputArn and mediaLivePipelineId. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
 type RouterOutputResourceMediaLiveInputRouterOutputConfiguration struct {
 	DestinationTransitEncryption RouterOutputResourceMediaLiveTransitEncryption `pulumi:"destinationTransitEncryption"`
 	// The ARN of the MediaLive input to connect to this router output.
@@ -17002,7 +20169,7 @@ type RouterOutputResourceMediaLiveInputRouterOutputConfigurationInput interface 
 	ToRouterOutputResourceMediaLiveInputRouterOutputConfigurationOutputWithContext(context.Context) RouterOutputResourceMediaLiveInputRouterOutputConfigurationOutput
 }
 
-// Configuration settings for connecting a router output to a MediaLive input.
+// Configuration settings for connecting a router output to a MediaLive input. To connect the router output to the MediaLive input, provide both mediaLiveInputArn and mediaLivePipelineId. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
 type RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs struct {
 	DestinationTransitEncryption RouterOutputResourceMediaLiveTransitEncryptionInput `pulumi:"destinationTransitEncryption"`
 	// The ARN of the MediaLive input to connect to this router output.
@@ -17022,7 +20189,7 @@ func (i RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs) ToRoute
 	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceMediaLiveInputRouterOutputConfigurationOutput)
 }
 
-// Configuration settings for connecting a router output to a MediaLive input.
+// Configuration settings for connecting a router output to a MediaLive input. To connect the router output to the MediaLive input, provide both mediaLiveInputArn and mediaLivePipelineId. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
 type RouterOutputResourceMediaLiveInputRouterOutputConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RouterOutputResourceMediaLiveInputRouterOutputConfigurationOutput) ElementType() reflect.Type {
@@ -18033,9 +21200,96 @@ func (o RouterOutputResourceRouterOutputConfiguration2PropertiesPtrOutput) Media
 	}).(RouterOutputResourceMediaLiveInputRouterOutputConfigurationPtrOutput)
 }
 
+// The configuration settings for a router output.
+type RouterOutputResourceRouterOutputConfiguration3Properties struct {
+	SourceEndpoint RouterOutputResourceSourceEndpointRouterOutputConfiguration `pulumi:"sourceEndpoint"`
+}
+
+// RouterOutputResourceRouterOutputConfiguration3PropertiesInput is an input type that accepts RouterOutputResourceRouterOutputConfiguration3PropertiesArgs and RouterOutputResourceRouterOutputConfiguration3PropertiesOutput values.
+// You can construct a concrete instance of `RouterOutputResourceRouterOutputConfiguration3PropertiesInput` via:
+//
+//	RouterOutputResourceRouterOutputConfiguration3PropertiesArgs{...}
+type RouterOutputResourceRouterOutputConfiguration3PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceRouterOutputConfiguration3PropertiesOutput() RouterOutputResourceRouterOutputConfiguration3PropertiesOutput
+	ToRouterOutputResourceRouterOutputConfiguration3PropertiesOutputWithContext(context.Context) RouterOutputResourceRouterOutputConfiguration3PropertiesOutput
+}
+
+// The configuration settings for a router output.
+type RouterOutputResourceRouterOutputConfiguration3PropertiesArgs struct {
+	SourceEndpoint RouterOutputResourceSourceEndpointRouterOutputConfigurationInput `pulumi:"sourceEndpoint"`
+}
+
+func (RouterOutputResourceRouterOutputConfiguration3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceRouterOutputConfiguration3Properties)(nil)).Elem()
+}
+
+func (i RouterOutputResourceRouterOutputConfiguration3PropertiesArgs) ToRouterOutputResourceRouterOutputConfiguration3PropertiesOutput() RouterOutputResourceRouterOutputConfiguration3PropertiesOutput {
+	return i.ToRouterOutputResourceRouterOutputConfiguration3PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceRouterOutputConfiguration3PropertiesArgs) ToRouterOutputResourceRouterOutputConfiguration3PropertiesOutputWithContext(ctx context.Context) RouterOutputResourceRouterOutputConfiguration3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceRouterOutputConfiguration3PropertiesOutput)
+}
+
+// The configuration settings for a router output.
+type RouterOutputResourceRouterOutputConfiguration3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceRouterOutputConfiguration3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceRouterOutputConfiguration3Properties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceRouterOutputConfiguration3PropertiesOutput) ToRouterOutputResourceRouterOutputConfiguration3PropertiesOutput() RouterOutputResourceRouterOutputConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceRouterOutputConfiguration3PropertiesOutput) ToRouterOutputResourceRouterOutputConfiguration3PropertiesOutputWithContext(ctx context.Context) RouterOutputResourceRouterOutputConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceRouterOutputConfiguration3PropertiesOutput) SourceEndpoint() RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceRouterOutputConfiguration3Properties) RouterOutputResourceSourceEndpointRouterOutputConfiguration {
+		return v.SourceEndpoint
+	}).(RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput)
+}
+
+type RouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceRouterOutputConfiguration3Properties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput) ToRouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput() RouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput) ToRouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) RouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput) Elem() RouterOutputResourceRouterOutputConfiguration3PropertiesOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRouterOutputConfiguration3Properties) RouterOutputResourceRouterOutputConfiguration3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceRouterOutputConfiguration3Properties
+		return ret
+	}).(RouterOutputResourceRouterOutputConfiguration3PropertiesOutput)
+}
+
+func (o RouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput) SourceEndpoint() RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRouterOutputConfiguration3Properties) *RouterOutputResourceSourceEndpointRouterOutputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceEndpoint
+	}).(RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput)
+}
+
 // The protocol configuration settings for a router output.
 type RouterOutputResourceRouterOutputProtocolConfiguration0Properties struct {
-	Rtp RouterOutputResourceRtpRouterOutputConfiguration `pulumi:"rtp"`
+	Rist RouterOutputResourceRistRouterOutputConfiguration `pulumi:"rist"`
 }
 
 // RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesInput is an input type that accepts RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs and RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesOutput values.
@@ -18051,7 +21305,7 @@ type RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesInput inter
 
 // The protocol configuration settings for a router output.
 type RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs struct {
-	Rtp RouterOutputResourceRtpRouterOutputConfigurationInput `pulumi:"rtp"`
+	Rist RouterOutputResourceRistRouterOutputConfigurationInput `pulumi:"rist"`
 }
 
 func (RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs) ElementType() reflect.Type {
@@ -18081,10 +21335,10 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesOutput) 
 	return o
 }
 
-func (o RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesOutput) Rtp() RouterOutputResourceRtpRouterOutputConfigurationOutput {
-	return o.ApplyT(func(v RouterOutputResourceRouterOutputProtocolConfiguration0Properties) RouterOutputResourceRtpRouterOutputConfiguration {
-		return v.Rtp
-	}).(RouterOutputResourceRtpRouterOutputConfigurationOutput)
+func (o RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesOutput) Rist() RouterOutputResourceRistRouterOutputConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceRouterOutputProtocolConfiguration0Properties) RouterOutputResourceRistRouterOutputConfiguration {
+		return v.Rist
+	}).(RouterOutputResourceRistRouterOutputConfigurationOutput)
 }
 
 type RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -18111,18 +21365,18 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesPtrOutpu
 	}).(RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesOutput)
 }
 
-func (o RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesPtrOutput) Rtp() RouterOutputResourceRtpRouterOutputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration0Properties) *RouterOutputResourceRtpRouterOutputConfiguration {
+func (o RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesPtrOutput) Rist() RouterOutputResourceRistRouterOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration0Properties) *RouterOutputResourceRistRouterOutputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.Rtp
-	}).(RouterOutputResourceRtpRouterOutputConfigurationPtrOutput)
+		return &v.Rist
+	}).(RouterOutputResourceRistRouterOutputConfigurationPtrOutput)
 }
 
 // The protocol configuration settings for a router output.
 type RouterOutputResourceRouterOutputProtocolConfiguration1Properties struct {
-	Rist RouterOutputResourceRistRouterOutputConfiguration `pulumi:"rist"`
+	SrtListener RouterOutputResourceSrtListenerRouterOutputConfiguration `pulumi:"srtListener"`
 }
 
 // RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesInput is an input type that accepts RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs and RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesOutput values.
@@ -18138,7 +21392,7 @@ type RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesInput inter
 
 // The protocol configuration settings for a router output.
 type RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs struct {
-	Rist RouterOutputResourceRistRouterOutputConfigurationInput `pulumi:"rist"`
+	SrtListener RouterOutputResourceSrtListenerRouterOutputConfigurationInput `pulumi:"srtListener"`
 }
 
 func (RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs) ElementType() reflect.Type {
@@ -18168,10 +21422,10 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesOutput) 
 	return o
 }
 
-func (o RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesOutput) Rist() RouterOutputResourceRistRouterOutputConfigurationOutput {
-	return o.ApplyT(func(v RouterOutputResourceRouterOutputProtocolConfiguration1Properties) RouterOutputResourceRistRouterOutputConfiguration {
-		return v.Rist
-	}).(RouterOutputResourceRistRouterOutputConfigurationOutput)
+func (o RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesOutput) SrtListener() RouterOutputResourceSrtListenerRouterOutputConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceRouterOutputProtocolConfiguration1Properties) RouterOutputResourceSrtListenerRouterOutputConfiguration {
+		return v.SrtListener
+	}).(RouterOutputResourceSrtListenerRouterOutputConfigurationOutput)
 }
 
 type RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -18198,18 +21452,18 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesPtrOutpu
 	}).(RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesOutput)
 }
 
-func (o RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesPtrOutput) Rist() RouterOutputResourceRistRouterOutputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration1Properties) *RouterOutputResourceRistRouterOutputConfiguration {
+func (o RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesPtrOutput) SrtListener() RouterOutputResourceSrtListenerRouterOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration1Properties) *RouterOutputResourceSrtListenerRouterOutputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.Rist
-	}).(RouterOutputResourceRistRouterOutputConfigurationPtrOutput)
+		return &v.SrtListener
+	}).(RouterOutputResourceSrtListenerRouterOutputConfigurationPtrOutput)
 }
 
 // The protocol configuration settings for a router output.
 type RouterOutputResourceRouterOutputProtocolConfiguration2Properties struct {
-	SrtListener RouterOutputResourceSrtListenerRouterOutputConfiguration `pulumi:"srtListener"`
+	RtmpPush RouterOutputResourceRtmpPushRouterOutputConfiguration `pulumi:"rtmpPush"`
 }
 
 // RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesInput is an input type that accepts RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs and RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesOutput values.
@@ -18225,7 +21479,7 @@ type RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesInput inter
 
 // The protocol configuration settings for a router output.
 type RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs struct {
-	SrtListener RouterOutputResourceSrtListenerRouterOutputConfigurationInput `pulumi:"srtListener"`
+	RtmpPush RouterOutputResourceRtmpPushRouterOutputConfigurationInput `pulumi:"rtmpPush"`
 }
 
 func (RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs) ElementType() reflect.Type {
@@ -18255,10 +21509,10 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesOutput) 
 	return o
 }
 
-func (o RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesOutput) SrtListener() RouterOutputResourceSrtListenerRouterOutputConfigurationOutput {
-	return o.ApplyT(func(v RouterOutputResourceRouterOutputProtocolConfiguration2Properties) RouterOutputResourceSrtListenerRouterOutputConfiguration {
-		return v.SrtListener
-	}).(RouterOutputResourceSrtListenerRouterOutputConfigurationOutput)
+func (o RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesOutput) RtmpPush() RouterOutputResourceRtmpPushRouterOutputConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceRouterOutputProtocolConfiguration2Properties) RouterOutputResourceRtmpPushRouterOutputConfiguration {
+		return v.RtmpPush
+	}).(RouterOutputResourceRtmpPushRouterOutputConfigurationOutput)
 }
 
 type RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -18285,13 +21539,13 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesPtrOutpu
 	}).(RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesOutput)
 }
 
-func (o RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesPtrOutput) SrtListener() RouterOutputResourceSrtListenerRouterOutputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration2Properties) *RouterOutputResourceSrtListenerRouterOutputConfiguration {
+func (o RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesPtrOutput) RtmpPush() RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration2Properties) *RouterOutputResourceRtmpPushRouterOutputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.SrtListener
-	}).(RouterOutputResourceSrtListenerRouterOutputConfigurationPtrOutput)
+		return &v.RtmpPush
+	}).(RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput)
 }
 
 // The protocol configuration settings for a router output.
@@ -18383,7 +21637,7 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesPtrOutpu
 
 // The protocol configuration settings for a router output.
 type RouterOutputResourceRouterOutputProtocolConfiguration4Properties struct {
-	RtmpPush RouterOutputResourceRtmpPushRouterOutputConfiguration `pulumi:"rtmpPush"`
+	Rtp RouterOutputResourceRtpRouterOutputConfiguration `pulumi:"rtp"`
 }
 
 // RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesInput is an input type that accepts RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs and RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput values.
@@ -18399,7 +21653,7 @@ type RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesInput inter
 
 // The protocol configuration settings for a router output.
 type RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs struct {
-	RtmpPush RouterOutputResourceRtmpPushRouterOutputConfigurationInput `pulumi:"rtmpPush"`
+	Rtp RouterOutputResourceRtpRouterOutputConfigurationInput `pulumi:"rtp"`
 }
 
 func (RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs) ElementType() reflect.Type {
@@ -18429,10 +21683,10 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput) 
 	return o
 }
 
-func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput) RtmpPush() RouterOutputResourceRtmpPushRouterOutputConfigurationOutput {
-	return o.ApplyT(func(v RouterOutputResourceRouterOutputProtocolConfiguration4Properties) RouterOutputResourceRtmpPushRouterOutputConfiguration {
-		return v.RtmpPush
-	}).(RouterOutputResourceRtmpPushRouterOutputConfigurationOutput)
+func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput) Rtp() RouterOutputResourceRtpRouterOutputConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceRouterOutputProtocolConfiguration4Properties) RouterOutputResourceRtpRouterOutputConfiguration {
+		return v.Rtp
+	}).(RouterOutputResourceRtpRouterOutputConfigurationOutput)
 }
 
 type RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -18459,13 +21713,13 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutpu
 	}).(RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput)
 }
 
-func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput) RtmpPush() RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration4Properties) *RouterOutputResourceRtmpPushRouterOutputConfiguration {
+func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput) Rtp() RouterOutputResourceRtpRouterOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration4Properties) *RouterOutputResourceRtpRouterOutputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.RtmpPush
-	}).(RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput)
+		return &v.Rtp
+	}).(RouterOutputResourceRtpRouterOutputConfigurationPtrOutput)
 }
 
 // The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
@@ -18913,6 +22167,231 @@ func (o RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrOutput) S
 		}
 		return &v.SecretArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+type RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration struct {
+	EncryptionSecret     RouterOutputResourceEndpointEncryptionSecretConfiguration `pulumi:"encryptionSecret"`
+	EncryptionSecretType *RouterOutputResourceEndpointEncryptionSecretType         `pulumi:"encryptionSecretType"`
+}
+
+// RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationInput is an input type that accepts RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs and RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationInput` via:
+//
+//	RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs{...}
+type RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput() RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput
+	ToRouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutputWithContext(context.Context) RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput
+}
+
+// The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+type RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs struct {
+	EncryptionSecret     RouterOutputResourceEndpointEncryptionSecretConfigurationInput `pulumi:"encryptionSecret"`
+	EncryptionSecretType RouterOutputResourceEndpointEncryptionSecretTypePtrInput       `pulumi:"encryptionSecretType"`
+}
+
+func (RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs) ToRouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput() RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput {
+	return i.ToRouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs) ToRouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput)
+}
+
+// The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+type RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput) ToRouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput() RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput) ToRouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput) EncryptionSecret() RouterOutputResourceEndpointEncryptionSecretConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration) RouterOutputResourceEndpointEncryptionSecretConfiguration {
+		return v.EncryptionSecret
+	}).(RouterOutputResourceEndpointEncryptionSecretConfigurationOutput)
+}
+
+func (o RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput) EncryptionSecretType() RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return o.ApplyT(func(v RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration) *RouterOutputResourceEndpointEncryptionSecretType {
+		return v.EncryptionSecretType
+	}).(RouterOutputResourceEndpointEncryptionSecretTypePtrOutput)
+}
+
+type RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput) ToRouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput() RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput) ToRouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput) Elem() RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration) RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration
+		return ret
+	}).(RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput)
+}
+
+func (o RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput) EncryptionSecret() RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration) *RouterOutputResourceEndpointEncryptionSecretConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionSecret
+	}).(RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+func (o RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput) EncryptionSecretType() RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration) *RouterOutputResourceEndpointEncryptionSecretType {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionSecretType
+	}).(RouterOutputResourceEndpointEncryptionSecretTypePtrOutput)
+}
+
+// Configuration settings for a router output that is represented by a source endpoint.
+type RouterOutputResourceSourceEndpointRouterOutputConfiguration struct {
+	DestinationTransitEncryption     interface{}                                 `pulumi:"destinationTransitEncryption"`
+	DestinationTransitEncryptionType *RouterOutputResourceEndpointEncryptionType `pulumi:"destinationTransitEncryptionType"`
+	EndpointLifecycleManagement      RouterOutputResourceEndpointLifecycle       `pulumi:"endpointLifecycleManagement"`
+}
+
+// RouterOutputResourceSourceEndpointRouterOutputConfigurationInput is an input type that accepts RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs and RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput values.
+// You can construct a concrete instance of `RouterOutputResourceSourceEndpointRouterOutputConfigurationInput` via:
+//
+//	RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs{...}
+type RouterOutputResourceSourceEndpointRouterOutputConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceSourceEndpointRouterOutputConfigurationOutput() RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput
+	ToRouterOutputResourceSourceEndpointRouterOutputConfigurationOutputWithContext(context.Context) RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput
+}
+
+// Configuration settings for a router output that is represented by a source endpoint.
+type RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs struct {
+	DestinationTransitEncryption     pulumi.Input                                       `pulumi:"destinationTransitEncryption"`
+	DestinationTransitEncryptionType RouterOutputResourceEndpointEncryptionTypePtrInput `pulumi:"destinationTransitEncryptionType"`
+	EndpointLifecycleManagement      RouterOutputResourceEndpointLifecycleInput         `pulumi:"endpointLifecycleManagement"`
+}
+
+func (RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceSourceEndpointRouterOutputConfiguration)(nil)).Elem()
+}
+
+func (i RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs) ToRouterOutputResourceSourceEndpointRouterOutputConfigurationOutput() RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput {
+	return i.ToRouterOutputResourceSourceEndpointRouterOutputConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs) ToRouterOutputResourceSourceEndpointRouterOutputConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput)
+}
+
+// Configuration settings for a router output that is represented by a source endpoint.
+type RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceSourceEndpointRouterOutputConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput) ToRouterOutputResourceSourceEndpointRouterOutputConfigurationOutput() RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput) ToRouterOutputResourceSourceEndpointRouterOutputConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput) DestinationTransitEncryption() pulumi.AnyOutput {
+	return o.ApplyT(func(v RouterOutputResourceSourceEndpointRouterOutputConfiguration) interface{} {
+		return v.DestinationTransitEncryption
+	}).(pulumi.AnyOutput)
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput) DestinationTransitEncryptionType() RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return o.ApplyT(func(v RouterOutputResourceSourceEndpointRouterOutputConfiguration) *RouterOutputResourceEndpointEncryptionType {
+		return v.DestinationTransitEncryptionType
+	}).(RouterOutputResourceEndpointEncryptionTypePtrOutput)
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput) EndpointLifecycleManagement() RouterOutputResourceEndpointLifecycleOutput {
+	return o.ApplyT(func(v RouterOutputResourceSourceEndpointRouterOutputConfiguration) RouterOutputResourceEndpointLifecycle {
+		return v.EndpointLifecycleManagement
+	}).(RouterOutputResourceEndpointLifecycleOutput)
+}
+
+type RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceSourceEndpointRouterOutputConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput) ToRouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput() RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput) ToRouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput) Elem() RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput {
+	return o.ApplyT(func(v *RouterOutputResourceSourceEndpointRouterOutputConfiguration) RouterOutputResourceSourceEndpointRouterOutputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceSourceEndpointRouterOutputConfiguration
+		return ret
+	}).(RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput)
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput) DestinationTransitEncryption() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RouterOutputResourceSourceEndpointRouterOutputConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationTransitEncryption
+	}).(pulumi.AnyOutput)
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput) DestinationTransitEncryptionType() RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceSourceEndpointRouterOutputConfiguration) *RouterOutputResourceEndpointEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationTransitEncryptionType
+	}).(RouterOutputResourceEndpointEncryptionTypePtrOutput)
+}
+
+func (o RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput) EndpointLifecycleManagement() RouterOutputResourceEndpointLifecyclePtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceSourceEndpointRouterOutputConfiguration) *RouterOutputResourceEndpointLifecycle {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointLifecycleManagement
+	}).(RouterOutputResourceEndpointLifecyclePtrOutput)
 }
 
 // The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
@@ -19771,6 +23250,2150 @@ func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput) Publi
 	}).(RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput)
 }
 
+// The details of the resource that is associated with a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointAssociatedResourceDetails0Properties struct {
+	Standard SourceEndpointStandardSourceEndpointAssociatedResourceDetails `pulumi:"standard"`
+}
+
+// The details of the resource that is associated with a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointAssociatedResourceDetails0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointAssociatedResourceDetails0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointAssociatedResourceDetails0Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointAssociatedResourceDetails0PropertiesOutput) ToSourceEndpointAssociatedResourceDetails0PropertiesOutput() SourceEndpointAssociatedResourceDetails0PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointAssociatedResourceDetails0PropertiesOutput) ToSourceEndpointAssociatedResourceDetails0PropertiesOutputWithContext(ctx context.Context) SourceEndpointAssociatedResourceDetails0PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointAssociatedResourceDetails0PropertiesOutput) Standard() SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput {
+	return o.ApplyT(func(v SourceEndpointAssociatedResourceDetails0Properties) SourceEndpointStandardSourceEndpointAssociatedResourceDetails {
+		return v.Standard
+	}).(SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput)
+}
+
+type SourceEndpointAssociatedResourceDetails0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointAssociatedResourceDetails0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointAssociatedResourceDetails0Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointAssociatedResourceDetails0PropertiesPtrOutput) ToSourceEndpointAssociatedResourceDetails0PropertiesPtrOutput() SourceEndpointAssociatedResourceDetails0PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointAssociatedResourceDetails0PropertiesPtrOutput) ToSourceEndpointAssociatedResourceDetails0PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointAssociatedResourceDetails0PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointAssociatedResourceDetails0PropertiesPtrOutput) Elem() SourceEndpointAssociatedResourceDetails0PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointAssociatedResourceDetails0Properties) SourceEndpointAssociatedResourceDetails0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointAssociatedResourceDetails0Properties
+		return ret
+	}).(SourceEndpointAssociatedResourceDetails0PropertiesOutput)
+}
+
+func (o SourceEndpointAssociatedResourceDetails0PropertiesPtrOutput) Standard() SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointAssociatedResourceDetails0Properties) *SourceEndpointStandardSourceEndpointAssociatedResourceDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.Standard
+	}).(SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput)
+}
+
+// The details of the resource that is associated with a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointAssociatedResourceDetails1Properties struct {
+	RouterOutput SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails `pulumi:"routerOutput"`
+}
+
+// The details of the resource that is associated with a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointAssociatedResourceDetails1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointAssociatedResourceDetails1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointAssociatedResourceDetails1Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointAssociatedResourceDetails1PropertiesOutput) ToSourceEndpointAssociatedResourceDetails1PropertiesOutput() SourceEndpointAssociatedResourceDetails1PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointAssociatedResourceDetails1PropertiesOutput) ToSourceEndpointAssociatedResourceDetails1PropertiesOutputWithContext(ctx context.Context) SourceEndpointAssociatedResourceDetails1PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointAssociatedResourceDetails1PropertiesOutput) RouterOutput() SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput {
+	return o.ApplyT(func(v SourceEndpointAssociatedResourceDetails1Properties) SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails {
+		return v.RouterOutput
+	}).(SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput)
+}
+
+type SourceEndpointAssociatedResourceDetails1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointAssociatedResourceDetails1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointAssociatedResourceDetails1Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointAssociatedResourceDetails1PropertiesPtrOutput) ToSourceEndpointAssociatedResourceDetails1PropertiesPtrOutput() SourceEndpointAssociatedResourceDetails1PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointAssociatedResourceDetails1PropertiesPtrOutput) ToSourceEndpointAssociatedResourceDetails1PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointAssociatedResourceDetails1PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointAssociatedResourceDetails1PropertiesPtrOutput) Elem() SourceEndpointAssociatedResourceDetails1PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointAssociatedResourceDetails1Properties) SourceEndpointAssociatedResourceDetails1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointAssociatedResourceDetails1Properties
+		return ret
+	}).(SourceEndpointAssociatedResourceDetails1PropertiesOutput)
+}
+
+func (o SourceEndpointAssociatedResourceDetails1PropertiesPtrOutput) RouterOutput() SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointAssociatedResourceDetails1Properties) *SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.RouterOutput
+	}).(SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput)
+}
+
+// The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointConfiguration0Properties struct {
+	Standard SourceEndpointStandardSourceEndpointConfiguration `pulumi:"standard"`
+}
+
+// SourceEndpointConfiguration0PropertiesInput is an input type that accepts SourceEndpointConfiguration0PropertiesArgs and SourceEndpointConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `SourceEndpointConfiguration0PropertiesInput` via:
+//
+//	SourceEndpointConfiguration0PropertiesArgs{...}
+type SourceEndpointConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToSourceEndpointConfiguration0PropertiesOutput() SourceEndpointConfiguration0PropertiesOutput
+	ToSourceEndpointConfiguration0PropertiesOutputWithContext(context.Context) SourceEndpointConfiguration0PropertiesOutput
+}
+
+// The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointConfiguration0PropertiesArgs struct {
+	Standard SourceEndpointStandardSourceEndpointConfigurationInput `pulumi:"standard"`
+}
+
+func (SourceEndpointConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointConfiguration0Properties)(nil)).Elem()
+}
+
+func (i SourceEndpointConfiguration0PropertiesArgs) ToSourceEndpointConfiguration0PropertiesOutput() SourceEndpointConfiguration0PropertiesOutput {
+	return i.ToSourceEndpointConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointConfiguration0PropertiesArgs) ToSourceEndpointConfiguration0PropertiesOutputWithContext(ctx context.Context) SourceEndpointConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointConfiguration0PropertiesOutput)
+}
+
+// The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointConfiguration0Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointConfiguration0PropertiesOutput) ToSourceEndpointConfiguration0PropertiesOutput() SourceEndpointConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointConfiguration0PropertiesOutput) ToSourceEndpointConfiguration0PropertiesOutputWithContext(ctx context.Context) SourceEndpointConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointConfiguration0PropertiesOutput) Standard() SourceEndpointStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v SourceEndpointConfiguration0Properties) SourceEndpointStandardSourceEndpointConfiguration {
+		return v.Standard
+	}).(SourceEndpointStandardSourceEndpointConfigurationOutput)
+}
+
+type SourceEndpointConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointConfiguration0Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointConfiguration0PropertiesPtrOutput) ToSourceEndpointConfiguration0PropertiesPtrOutput() SourceEndpointConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointConfiguration0PropertiesPtrOutput) ToSourceEndpointConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointConfiguration0PropertiesPtrOutput) Elem() SourceEndpointConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointConfiguration0Properties) SourceEndpointConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointConfiguration0Properties
+		return ret
+	}).(SourceEndpointConfiguration0PropertiesOutput)
+}
+
+func (o SourceEndpointConfiguration0PropertiesPtrOutput) Standard() SourceEndpointStandardSourceEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointConfiguration0Properties) *SourceEndpointStandardSourceEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Standard
+	}).(SourceEndpointStandardSourceEndpointConfigurationPtrOutput)
+}
+
+// The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointConfiguration1Properties struct {
+	RouterOutput SourceEndpointRouterOutputSourceEndpointConfiguration `pulumi:"routerOutput"`
+}
+
+// SourceEndpointConfiguration1PropertiesInput is an input type that accepts SourceEndpointConfiguration1PropertiesArgs and SourceEndpointConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `SourceEndpointConfiguration1PropertiesInput` via:
+//
+//	SourceEndpointConfiguration1PropertiesArgs{...}
+type SourceEndpointConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToSourceEndpointConfiguration1PropertiesOutput() SourceEndpointConfiguration1PropertiesOutput
+	ToSourceEndpointConfiguration1PropertiesOutputWithContext(context.Context) SourceEndpointConfiguration1PropertiesOutput
+}
+
+// The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointConfiguration1PropertiesArgs struct {
+	RouterOutput SourceEndpointRouterOutputSourceEndpointConfigurationInput `pulumi:"routerOutput"`
+}
+
+func (SourceEndpointConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointConfiguration1Properties)(nil)).Elem()
+}
+
+func (i SourceEndpointConfiguration1PropertiesArgs) ToSourceEndpointConfiguration1PropertiesOutput() SourceEndpointConfiguration1PropertiesOutput {
+	return i.ToSourceEndpointConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointConfiguration1PropertiesArgs) ToSourceEndpointConfiguration1PropertiesOutputWithContext(ctx context.Context) SourceEndpointConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointConfiguration1PropertiesOutput)
+}
+
+// The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+type SourceEndpointConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointConfiguration1Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointConfiguration1PropertiesOutput) ToSourceEndpointConfiguration1PropertiesOutput() SourceEndpointConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointConfiguration1PropertiesOutput) ToSourceEndpointConfiguration1PropertiesOutputWithContext(ctx context.Context) SourceEndpointConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointConfiguration1PropertiesOutput) RouterOutput() SourceEndpointRouterOutputSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v SourceEndpointConfiguration1Properties) SourceEndpointRouterOutputSourceEndpointConfiguration {
+		return v.RouterOutput
+	}).(SourceEndpointRouterOutputSourceEndpointConfigurationOutput)
+}
+
+type SourceEndpointConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointConfiguration1Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointConfiguration1PropertiesPtrOutput) ToSourceEndpointConfiguration1PropertiesPtrOutput() SourceEndpointConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointConfiguration1PropertiesPtrOutput) ToSourceEndpointConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointConfiguration1PropertiesPtrOutput) Elem() SourceEndpointConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointConfiguration1Properties) SourceEndpointConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointConfiguration1Properties
+		return ret
+	}).(SourceEndpointConfiguration1PropertiesOutput)
+}
+
+func (o SourceEndpointConfiguration1PropertiesPtrOutput) RouterOutput() SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointConfiguration1Properties) *SourceEndpointRouterOutputSourceEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.RouterOutput
+	}).(SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput)
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type SourceEndpointEndpointEncryptionSecretConfiguration struct {
+	// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// SourceEndpointEndpointEncryptionSecretConfigurationInput is an input type that accepts SourceEndpointEndpointEncryptionSecretConfigurationArgs and SourceEndpointEndpointEncryptionSecretConfigurationOutput values.
+// You can construct a concrete instance of `SourceEndpointEndpointEncryptionSecretConfigurationInput` via:
+//
+//	SourceEndpointEndpointEncryptionSecretConfigurationArgs{...}
+type SourceEndpointEndpointEncryptionSecretConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceEndpointEndpointEncryptionSecretConfigurationOutput() SourceEndpointEndpointEncryptionSecretConfigurationOutput
+	ToSourceEndpointEndpointEncryptionSecretConfigurationOutputWithContext(context.Context) SourceEndpointEndpointEncryptionSecretConfigurationOutput
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type SourceEndpointEndpointEncryptionSecretConfigurationArgs struct {
+	// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (SourceEndpointEndpointEncryptionSecretConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (i SourceEndpointEndpointEncryptionSecretConfigurationArgs) ToSourceEndpointEndpointEncryptionSecretConfigurationOutput() SourceEndpointEndpointEncryptionSecretConfigurationOutput {
+	return i.ToSourceEndpointEndpointEncryptionSecretConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointEndpointEncryptionSecretConfigurationArgs) ToSourceEndpointEndpointEncryptionSecretConfigurationOutputWithContext(ctx context.Context) SourceEndpointEndpointEncryptionSecretConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointEndpointEncryptionSecretConfigurationOutput)
+}
+
+func (i SourceEndpointEndpointEncryptionSecretConfigurationArgs) ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutput() SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return i.ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointEndpointEncryptionSecretConfigurationArgs) ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointEndpointEncryptionSecretConfigurationOutput).ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx)
+}
+
+// SourceEndpointEndpointEncryptionSecretConfigurationPtrInput is an input type that accepts SourceEndpointEndpointEncryptionSecretConfigurationArgs, SourceEndpointEndpointEncryptionSecretConfigurationPtr and SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput values.
+// You can construct a concrete instance of `SourceEndpointEndpointEncryptionSecretConfigurationPtrInput` via:
+//
+//	        SourceEndpointEndpointEncryptionSecretConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SourceEndpointEndpointEncryptionSecretConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutput() SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput
+	ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(context.Context) SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput
+}
+
+type sourceEndpointEndpointEncryptionSecretConfigurationPtrType SourceEndpointEndpointEncryptionSecretConfigurationArgs
+
+func SourceEndpointEndpointEncryptionSecretConfigurationPtr(v *SourceEndpointEndpointEncryptionSecretConfigurationArgs) SourceEndpointEndpointEncryptionSecretConfigurationPtrInput {
+	return (*sourceEndpointEndpointEncryptionSecretConfigurationPtrType)(v)
+}
+
+func (*sourceEndpointEndpointEncryptionSecretConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (i *sourceEndpointEndpointEncryptionSecretConfigurationPtrType) ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutput() SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return i.ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceEndpointEndpointEncryptionSecretConfigurationPtrType) ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+type SourceEndpointEndpointEncryptionSecretConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointEndpointEncryptionSecretConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointEndpointEncryptionSecretConfigurationOutput) ToSourceEndpointEndpointEncryptionSecretConfigurationOutput() SourceEndpointEndpointEncryptionSecretConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointEndpointEncryptionSecretConfigurationOutput) ToSourceEndpointEndpointEncryptionSecretConfigurationOutputWithContext(ctx context.Context) SourceEndpointEndpointEncryptionSecretConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointEndpointEncryptionSecretConfigurationOutput) ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutput() SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointEndpointEncryptionSecretConfigurationOutput) ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceEndpointEndpointEncryptionSecretConfiguration) *SourceEndpointEndpointEncryptionSecretConfiguration {
+		return &v
+	}).(SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+func (o SourceEndpointEndpointEncryptionSecretConfigurationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceEndpointEndpointEncryptionSecretConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointEndpointEncryptionSecretConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput) ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutput() SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput) ToSourceEndpointEndpointEncryptionSecretConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput) Elem() SourceEndpointEndpointEncryptionSecretConfigurationOutput {
+	return o.ApplyT(func(v *SourceEndpointEndpointEncryptionSecretConfiguration) SourceEndpointEndpointEncryptionSecretConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointEndpointEncryptionSecretConfiguration
+		return ret
+	}).(SourceEndpointEndpointEncryptionSecretConfigurationOutput)
+}
+
+// The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+func (o SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointEndpointEncryptionSecretConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.
+type SourceEndpointPublicSourceEndpointNetworkingConfiguration struct {
+	// The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+	SourceAllowRules []SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule `pulumi:"sourceAllowRules"`
+}
+
+// SourceEndpointPublicSourceEndpointNetworkingConfigurationInput is an input type that accepts SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs and SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput values.
+// You can construct a concrete instance of `SourceEndpointPublicSourceEndpointNetworkingConfigurationInput` via:
+//
+//	SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs{...}
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceEndpointPublicSourceEndpointNetworkingConfigurationOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput
+	ToSourceEndpointPublicSourceEndpointNetworkingConfigurationOutputWithContext(context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput
+}
+
+// The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs struct {
+	// The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+	SourceAllowRules SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayInput `pulumi:"sourceAllowRules"`
+}
+
+func (SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointPublicSourceEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (i SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput {
+	return i.ToSourceEndpointPublicSourceEndpointNetworkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationOutputWithContext(ctx context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput)
+}
+
+// The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointPublicSourceEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationOutputWithContext(ctx context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput {
+	return o
+}
+
+// The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput) SourceAllowRules() SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return o.ApplyT(func(v SourceEndpointPublicSourceEndpointNetworkingConfiguration) []SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule {
+		return v.SourceAllowRules
+	}).(SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput)
+}
+
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointPublicSourceEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput) Elem() SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput {
+	return o.ApplyT(func(v *SourceEndpointPublicSourceEndpointNetworkingConfiguration) SourceEndpointPublicSourceEndpointNetworkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointPublicSourceEndpointNetworkingConfiguration
+		return ret
+	}).(SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput)
+}
+
+// The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput) SourceAllowRules() SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return o.ApplyT(func(v *SourceEndpointPublicSourceEndpointNetworkingConfiguration) []SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAllowRules
+	}).(SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput)
+}
+
+// A rule that allows a specific CIDR block to connect to the public source endpoint.
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule struct {
+	// The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.
+	Cidr string `pulumi:"cidr"`
+}
+
+// SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleInput is an input type that accepts SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs and SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput values.
+// You can construct a concrete instance of `SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleInput` via:
+//
+//	SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs{...}
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleInput interface {
+	pulumi.Input
+
+	ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput
+	ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutputWithContext(context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput
+}
+
+// A rule that allows a specific CIDR block to connect to the public source endpoint.
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs struct {
+	// The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+}
+
+func (SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule)(nil)).Elem()
+}
+
+func (i SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput {
+	return i.ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutputWithContext(ctx context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput)
+}
+
+// SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayInput is an input type that accepts SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArray and SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput values.
+// You can construct a concrete instance of `SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayInput` via:
+//
+//	SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArray{ SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs{...} }
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayInput interface {
+	pulumi.Input
+
+	ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput
+	ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutputWithContext(context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput
+}
+
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArray []SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleInput
+
+func (SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule)(nil)).Elem()
+}
+
+func (i SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArray) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return i.ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArray) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutputWithContext(ctx context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput)
+}
+
+// A rule that allows a specific CIDR block to connect to the public source endpoint.
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule)(nil)).Elem()
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput {
+	return o
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutputWithContext(ctx context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput {
+	return o
+}
+
+// The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+type SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule)(nil)).Elem()
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput() SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return o
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput) ToSourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutputWithContext(ctx context.Context) SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput {
+	return o
+}
+
+func (o SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput) Index(i pulumi.IntInput) SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule {
+		return vs[0].([]SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule)[vs[1].(int)]
+	}).(SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput)
+}
+
+// The configuration settings for a source endpoint that uses the RIST protocol.
+type SourceEndpointRistStandardSourceEndpointConfiguration struct {
+	// The port on the destination that receives the content. The valid range is 3000 to 30000.
+	DestinationIngestPort int `pulumi:"destinationIngestPort"`
+	// The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+	RecoveryLatencyMilliseconds int `pulumi:"recoveryLatencyMilliseconds"`
+}
+
+// SourceEndpointRistStandardSourceEndpointConfigurationInput is an input type that accepts SourceEndpointRistStandardSourceEndpointConfigurationArgs and SourceEndpointRistStandardSourceEndpointConfigurationOutput values.
+// You can construct a concrete instance of `SourceEndpointRistStandardSourceEndpointConfigurationInput` via:
+//
+//	SourceEndpointRistStandardSourceEndpointConfigurationArgs{...}
+type SourceEndpointRistStandardSourceEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceEndpointRistStandardSourceEndpointConfigurationOutput() SourceEndpointRistStandardSourceEndpointConfigurationOutput
+	ToSourceEndpointRistStandardSourceEndpointConfigurationOutputWithContext(context.Context) SourceEndpointRistStandardSourceEndpointConfigurationOutput
+}
+
+// The configuration settings for a source endpoint that uses the RIST protocol.
+type SourceEndpointRistStandardSourceEndpointConfigurationArgs struct {
+	// The port on the destination that receives the content. The valid range is 3000 to 30000.
+	DestinationIngestPort pulumi.IntInput `pulumi:"destinationIngestPort"`
+	// The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+	RecoveryLatencyMilliseconds pulumi.IntInput `pulumi:"recoveryLatencyMilliseconds"`
+}
+
+func (SourceEndpointRistStandardSourceEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointRistStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (i SourceEndpointRistStandardSourceEndpointConfigurationArgs) ToSourceEndpointRistStandardSourceEndpointConfigurationOutput() SourceEndpointRistStandardSourceEndpointConfigurationOutput {
+	return i.ToSourceEndpointRistStandardSourceEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointRistStandardSourceEndpointConfigurationArgs) ToSourceEndpointRistStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointRistStandardSourceEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointRistStandardSourceEndpointConfigurationOutput)
+}
+
+// The configuration settings for a source endpoint that uses the RIST protocol.
+type SourceEndpointRistStandardSourceEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRistStandardSourceEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointRistStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointRistStandardSourceEndpointConfigurationOutput) ToSourceEndpointRistStandardSourceEndpointConfigurationOutput() SourceEndpointRistStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointRistStandardSourceEndpointConfigurationOutput) ToSourceEndpointRistStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointRistStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+// The port on the destination that receives the content. The valid range is 3000 to 30000.
+func (o SourceEndpointRistStandardSourceEndpointConfigurationOutput) DestinationIngestPort() pulumi.IntOutput {
+	return o.ApplyT(func(v SourceEndpointRistStandardSourceEndpointConfiguration) int { return v.DestinationIngestPort }).(pulumi.IntOutput)
+}
+
+// The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+func (o SourceEndpointRistStandardSourceEndpointConfigurationOutput) RecoveryLatencyMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v SourceEndpointRistStandardSourceEndpointConfiguration) int {
+		return v.RecoveryLatencyMilliseconds
+	}).(pulumi.IntOutput)
+}
+
+type SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointRistStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointRistStandardSourceEndpointConfigurationPtrOutput() SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointRistStandardSourceEndpointConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput) Elem() SourceEndpointRistStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v *SourceEndpointRistStandardSourceEndpointConfiguration) SourceEndpointRistStandardSourceEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointRistStandardSourceEndpointConfiguration
+		return ret
+	}).(SourceEndpointRistStandardSourceEndpointConfigurationOutput)
+}
+
+// The port on the destination that receives the content. The valid range is 3000 to 30000.
+func (o SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput) DestinationIngestPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointRistStandardSourceEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationIngestPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+func (o SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput) RecoveryLatencyMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointRistStandardSourceEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RecoveryLatencyMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The details of the router output that is associated with a source endpoint.
+type SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails struct {
+	// The maximum bitrate of the router output, in bits per second.
+	MaximumBitrate int `pulumi:"maximumBitrate"`
+	// The name of the router output.
+	Name  string                          `pulumi:"name"`
+	State SourceEndpointRouterOutputState `pulumi:"state"`
+}
+
+// The details of the router output that is associated with a source endpoint.
+type SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails)(nil)).Elem()
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput) ToSourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput() SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput) ToSourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutputWithContext(ctx context.Context) SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput {
+	return o
+}
+
+// The maximum bitrate of the router output, in bits per second.
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput) MaximumBitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails) int { return v.MaximumBitrate }).(pulumi.IntOutput)
+}
+
+// The name of the router output.
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput) State() SourceEndpointRouterOutputStateOutput {
+	return o.ApplyT(func(v SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails) SourceEndpointRouterOutputState {
+		return v.State
+	}).(SourceEndpointRouterOutputStateOutput)
+}
+
+type SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails)(nil)).Elem()
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput) ToSourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput() SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput) ToSourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutputWithContext(ctx context.Context) SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput) Elem() SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput {
+	return o.ApplyT(func(v *SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails) SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails
+		return ret
+	}).(SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput)
+}
+
+// The maximum bitrate of the router output, in bits per second.
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput) MaximumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the router output.
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput) State() SourceEndpointRouterOutputStatePtrOutput {
+	return o.ApplyT(func(v *SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails) *SourceEndpointRouterOutputState {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(SourceEndpointRouterOutputStatePtrOutput)
+}
+
+// The configuration settings for a source endpoint that represents a router output.
+type SourceEndpointRouterOutputSourceEndpointConfiguration struct {
+	// The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+	RouterOutputArn string `pulumi:"routerOutputArn"`
+}
+
+// SourceEndpointRouterOutputSourceEndpointConfigurationInput is an input type that accepts SourceEndpointRouterOutputSourceEndpointConfigurationArgs and SourceEndpointRouterOutputSourceEndpointConfigurationOutput values.
+// You can construct a concrete instance of `SourceEndpointRouterOutputSourceEndpointConfigurationInput` via:
+//
+//	SourceEndpointRouterOutputSourceEndpointConfigurationArgs{...}
+type SourceEndpointRouterOutputSourceEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceEndpointRouterOutputSourceEndpointConfigurationOutput() SourceEndpointRouterOutputSourceEndpointConfigurationOutput
+	ToSourceEndpointRouterOutputSourceEndpointConfigurationOutputWithContext(context.Context) SourceEndpointRouterOutputSourceEndpointConfigurationOutput
+}
+
+// The configuration settings for a source endpoint that represents a router output.
+type SourceEndpointRouterOutputSourceEndpointConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+	RouterOutputArn pulumi.StringInput `pulumi:"routerOutputArn"`
+}
+
+func (SourceEndpointRouterOutputSourceEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointRouterOutputSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (i SourceEndpointRouterOutputSourceEndpointConfigurationArgs) ToSourceEndpointRouterOutputSourceEndpointConfigurationOutput() SourceEndpointRouterOutputSourceEndpointConfigurationOutput {
+	return i.ToSourceEndpointRouterOutputSourceEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointRouterOutputSourceEndpointConfigurationArgs) ToSourceEndpointRouterOutputSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointRouterOutputSourceEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointRouterOutputSourceEndpointConfigurationOutput)
+}
+
+// The configuration settings for a source endpoint that represents a router output.
+type SourceEndpointRouterOutputSourceEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRouterOutputSourceEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointRouterOutputSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointConfigurationOutput) ToSourceEndpointRouterOutputSourceEndpointConfigurationOutput() SourceEndpointRouterOutputSourceEndpointConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointConfigurationOutput) ToSourceEndpointRouterOutputSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointRouterOutputSourceEndpointConfigurationOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+func (o SourceEndpointRouterOutputSourceEndpointConfigurationOutput) RouterOutputArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceEndpointRouterOutputSourceEndpointConfiguration) string { return v.RouterOutputArn }).(pulumi.StringOutput)
+}
+
+type SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointRouterOutputSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput) ToSourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput() SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput) ToSourceEndpointRouterOutputSourceEndpointConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput) Elem() SourceEndpointRouterOutputSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v *SourceEndpointRouterOutputSourceEndpointConfiguration) SourceEndpointRouterOutputSourceEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointRouterOutputSourceEndpointConfiguration
+		return ret
+	}).(SourceEndpointRouterOutputSourceEndpointConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+func (o SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput) RouterOutputArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointRouterOutputSourceEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RouterOutputArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration settings for a source endpoint that uses the RTP protocol.
+type SourceEndpointRtpStandardSourceEndpointConfiguration struct {
+	// The port on the destination that receives the content. The valid range is 3000 to 30000.
+	DestinationIngestPort       int                                       `pulumi:"destinationIngestPort"`
+	ForwardErrorCorrectionState SourceEndpointForwardErrorCorrectionState `pulumi:"forwardErrorCorrectionState"`
+}
+
+// SourceEndpointRtpStandardSourceEndpointConfigurationInput is an input type that accepts SourceEndpointRtpStandardSourceEndpointConfigurationArgs and SourceEndpointRtpStandardSourceEndpointConfigurationOutput values.
+// You can construct a concrete instance of `SourceEndpointRtpStandardSourceEndpointConfigurationInput` via:
+//
+//	SourceEndpointRtpStandardSourceEndpointConfigurationArgs{...}
+type SourceEndpointRtpStandardSourceEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceEndpointRtpStandardSourceEndpointConfigurationOutput() SourceEndpointRtpStandardSourceEndpointConfigurationOutput
+	ToSourceEndpointRtpStandardSourceEndpointConfigurationOutputWithContext(context.Context) SourceEndpointRtpStandardSourceEndpointConfigurationOutput
+}
+
+// The configuration settings for a source endpoint that uses the RTP protocol.
+type SourceEndpointRtpStandardSourceEndpointConfigurationArgs struct {
+	// The port on the destination that receives the content. The valid range is 3000 to 30000.
+	DestinationIngestPort       pulumi.IntInput                                `pulumi:"destinationIngestPort"`
+	ForwardErrorCorrectionState SourceEndpointForwardErrorCorrectionStateInput `pulumi:"forwardErrorCorrectionState"`
+}
+
+func (SourceEndpointRtpStandardSourceEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointRtpStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (i SourceEndpointRtpStandardSourceEndpointConfigurationArgs) ToSourceEndpointRtpStandardSourceEndpointConfigurationOutput() SourceEndpointRtpStandardSourceEndpointConfigurationOutput {
+	return i.ToSourceEndpointRtpStandardSourceEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointRtpStandardSourceEndpointConfigurationArgs) ToSourceEndpointRtpStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointRtpStandardSourceEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointRtpStandardSourceEndpointConfigurationOutput)
+}
+
+// The configuration settings for a source endpoint that uses the RTP protocol.
+type SourceEndpointRtpStandardSourceEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRtpStandardSourceEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointRtpStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointRtpStandardSourceEndpointConfigurationOutput) ToSourceEndpointRtpStandardSourceEndpointConfigurationOutput() SourceEndpointRtpStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointRtpStandardSourceEndpointConfigurationOutput) ToSourceEndpointRtpStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointRtpStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+// The port on the destination that receives the content. The valid range is 3000 to 30000.
+func (o SourceEndpointRtpStandardSourceEndpointConfigurationOutput) DestinationIngestPort() pulumi.IntOutput {
+	return o.ApplyT(func(v SourceEndpointRtpStandardSourceEndpointConfiguration) int { return v.DestinationIngestPort }).(pulumi.IntOutput)
+}
+
+func (o SourceEndpointRtpStandardSourceEndpointConfigurationOutput) ForwardErrorCorrectionState() SourceEndpointForwardErrorCorrectionStateOutput {
+	return o.ApplyT(func(v SourceEndpointRtpStandardSourceEndpointConfiguration) SourceEndpointForwardErrorCorrectionState {
+		return v.ForwardErrorCorrectionState
+	}).(SourceEndpointForwardErrorCorrectionStateOutput)
+}
+
+type SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointRtpStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput() SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointRtpStandardSourceEndpointConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput) Elem() SourceEndpointRtpStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v *SourceEndpointRtpStandardSourceEndpointConfiguration) SourceEndpointRtpStandardSourceEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointRtpStandardSourceEndpointConfiguration
+		return ret
+	}).(SourceEndpointRtpStandardSourceEndpointConfigurationOutput)
+}
+
+// The port on the destination that receives the content. The valid range is 3000 to 30000.
+func (o SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput) DestinationIngestPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointRtpStandardSourceEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationIngestPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput) ForwardErrorCorrectionState() SourceEndpointForwardErrorCorrectionStatePtrOutput {
+	return o.ApplyT(func(v *SourceEndpointRtpStandardSourceEndpointConfiguration) *SourceEndpointForwardErrorCorrectionState {
+		if v == nil {
+			return nil
+		}
+		return &v.ForwardErrorCorrectionState
+	}).(SourceEndpointForwardErrorCorrectionStatePtrOutput)
+}
+
+// The configuration settings for a source endpoint that uses SRT in caller mode.
+type SourceEndpointSrtCallerStandardSourceEndpointConfiguration struct {
+	// The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+	DestinationIngestPort int                                                  `pulumi:"destinationIngestPort"`
+	EncryptionPassphrase  *SourceEndpointEndpointEncryptionSecretConfiguration `pulumi:"encryptionPassphrase"`
+	// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+	MinimumLatencyMilliseconds int `pulumi:"minimumLatencyMilliseconds"`
+}
+
+// SourceEndpointSrtCallerStandardSourceEndpointConfigurationInput is an input type that accepts SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs and SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput values.
+// You can construct a concrete instance of `SourceEndpointSrtCallerStandardSourceEndpointConfigurationInput` via:
+//
+//	SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs{...}
+type SourceEndpointSrtCallerStandardSourceEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput() SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput
+	ToSourceEndpointSrtCallerStandardSourceEndpointConfigurationOutputWithContext(context.Context) SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput
+}
+
+// The configuration settings for a source endpoint that uses SRT in caller mode.
+type SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs struct {
+	// The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+	DestinationIngestPort pulumi.IntInput                                             `pulumi:"destinationIngestPort"`
+	EncryptionPassphrase  SourceEndpointEndpointEncryptionSecretConfigurationPtrInput `pulumi:"encryptionPassphrase"`
+	// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+	MinimumLatencyMilliseconds pulumi.IntInput `pulumi:"minimumLatencyMilliseconds"`
+}
+
+func (SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointSrtCallerStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (i SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs) ToSourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput() SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput {
+	return i.ToSourceEndpointSrtCallerStandardSourceEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs) ToSourceEndpointSrtCallerStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput)
+}
+
+// The configuration settings for a source endpoint that uses SRT in caller mode.
+type SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointSrtCallerStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput) ToSourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput() SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput) ToSourceEndpointSrtCallerStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+// The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput) DestinationIngestPort() pulumi.IntOutput {
+	return o.ApplyT(func(v SourceEndpointSrtCallerStandardSourceEndpointConfiguration) int { return v.DestinationIngestPort }).(pulumi.IntOutput)
+}
+
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput) EncryptionPassphrase() SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v SourceEndpointSrtCallerStandardSourceEndpointConfiguration) *SourceEndpointEndpointEncryptionSecretConfiguration {
+		return v.EncryptionPassphrase
+	}).(SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput) MinimumLatencyMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v SourceEndpointSrtCallerStandardSourceEndpointConfiguration) int {
+		return v.MinimumLatencyMilliseconds
+	}).(pulumi.IntOutput)
+}
+
+type SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointSrtCallerStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput() SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput) Elem() SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtCallerStandardSourceEndpointConfiguration) SourceEndpointSrtCallerStandardSourceEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointSrtCallerStandardSourceEndpointConfiguration
+		return ret
+	}).(SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput)
+}
+
+// The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput) DestinationIngestPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtCallerStandardSourceEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationIngestPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput) EncryptionPassphrase() SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtCallerStandardSourceEndpointConfiguration) *SourceEndpointEndpointEncryptionSecretConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionPassphrase
+	}).(SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+func (o SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput) MinimumLatencyMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtCallerStandardSourceEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumLatencyMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The configuration settings for a source endpoint that uses SRT in listener mode.
+type SourceEndpointSrtListenerStandardSourceEndpointConfiguration struct {
+	EncryptionPassphrase *SourceEndpointEndpointEncryptionSecretConfiguration `pulumi:"encryptionPassphrase"`
+	// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+	MinimumLatencyMilliseconds int `pulumi:"minimumLatencyMilliseconds"`
+	// The IP address that the source endpoint listens on for incoming connections.
+	SourceAddress string `pulumi:"sourceAddress"`
+	// The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+	SourceListenerPort int `pulumi:"sourceListenerPort"`
+	// The stream ID that identifies the content for the SRT connection.
+	StreamId *string `pulumi:"streamId"`
+}
+
+// SourceEndpointSrtListenerStandardSourceEndpointConfigurationInput is an input type that accepts SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs and SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput values.
+// You can construct a concrete instance of `SourceEndpointSrtListenerStandardSourceEndpointConfigurationInput` via:
+//
+//	SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs{...}
+type SourceEndpointSrtListenerStandardSourceEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput() SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput
+	ToSourceEndpointSrtListenerStandardSourceEndpointConfigurationOutputWithContext(context.Context) SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput
+}
+
+// The configuration settings for a source endpoint that uses SRT in listener mode.
+type SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs struct {
+	EncryptionPassphrase SourceEndpointEndpointEncryptionSecretConfigurationPtrInput `pulumi:"encryptionPassphrase"`
+	// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+	MinimumLatencyMilliseconds pulumi.IntInput `pulumi:"minimumLatencyMilliseconds"`
+	// The IP address that the source endpoint listens on for incoming connections.
+	SourceAddress pulumi.StringInput `pulumi:"sourceAddress"`
+	// The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+	SourceListenerPort pulumi.IntInput `pulumi:"sourceListenerPort"`
+	// The stream ID that identifies the content for the SRT connection.
+	StreamId pulumi.StringPtrInput `pulumi:"streamId"`
+}
+
+func (SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointSrtListenerStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (i SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs) ToSourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput() SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput {
+	return i.ToSourceEndpointSrtListenerStandardSourceEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs) ToSourceEndpointSrtListenerStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput)
+}
+
+// The configuration settings for a source endpoint that uses SRT in listener mode.
+type SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointSrtListenerStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput) ToSourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput() SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput) ToSourceEndpointSrtListenerStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput) EncryptionPassphrase() SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v SourceEndpointSrtListenerStandardSourceEndpointConfiguration) *SourceEndpointEndpointEncryptionSecretConfiguration {
+		return v.EncryptionPassphrase
+	}).(SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput) MinimumLatencyMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v SourceEndpointSrtListenerStandardSourceEndpointConfiguration) int {
+		return v.MinimumLatencyMilliseconds
+	}).(pulumi.IntOutput)
+}
+
+// The IP address that the source endpoint listens on for incoming connections.
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput) SourceAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceEndpointSrtListenerStandardSourceEndpointConfiguration) string { return v.SourceAddress }).(pulumi.StringOutput)
+}
+
+// The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput) SourceListenerPort() pulumi.IntOutput {
+	return o.ApplyT(func(v SourceEndpointSrtListenerStandardSourceEndpointConfiguration) int { return v.SourceListenerPort }).(pulumi.IntOutput)
+}
+
+// The stream ID that identifies the content for the SRT connection.
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceEndpointSrtListenerStandardSourceEndpointConfiguration) *string { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointSrtListenerStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput() SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput) Elem() SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtListenerStandardSourceEndpointConfiguration) SourceEndpointSrtListenerStandardSourceEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointSrtListenerStandardSourceEndpointConfiguration
+		return ret
+	}).(SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput)
+}
+
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput) EncryptionPassphrase() SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtListenerStandardSourceEndpointConfiguration) *SourceEndpointEndpointEncryptionSecretConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionPassphrase
+	}).(SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput)
+}
+
+// The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput) MinimumLatencyMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtListenerStandardSourceEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumLatencyMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The IP address that the source endpoint listens on for incoming connections.
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput) SourceAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtListenerStandardSourceEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput) SourceListenerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtListenerStandardSourceEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceListenerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The stream ID that identifies the content for the SRT connection.
+func (o SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointSrtListenerStandardSourceEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The associated resource details for a standard source endpoint. This type does not require any additional settings.
+type SourceEndpointStandardSourceEndpointAssociatedResourceDetails struct {
+}
+
+// The associated resource details for a standard source endpoint. This type does not require any additional settings.
+type SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointAssociatedResourceDetails)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput) ToSourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput() SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput) ToSourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput {
+	return o
+}
+
+type SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointStandardSourceEndpointAssociatedResourceDetails)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput) ToSourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput() SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput) ToSourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput) Elem() SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointAssociatedResourceDetails) SourceEndpointStandardSourceEndpointAssociatedResourceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointStandardSourceEndpointAssociatedResourceDetails
+		return ret
+	}).(SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput)
+}
+
+// The configuration settings for a standard source endpoint.
+type SourceEndpointStandardSourceEndpointConfiguration struct {
+	// The name of the source endpoint.
+	Name                          string                        `pulumi:"name"`
+	Protocol                      *SourceEndpointProtocol       `pulumi:"protocol"`
+	ProtocolConfiguration         interface{}                   `pulumi:"protocolConfiguration"`
+	SourceNetworkingConfiguration interface{}                   `pulumi:"sourceNetworkingConfiguration"`
+	SourceNetworkingType          *SourceEndpointNetworkingType `pulumi:"sourceNetworkingType"`
+}
+
+// SourceEndpointStandardSourceEndpointConfigurationInput is an input type that accepts SourceEndpointStandardSourceEndpointConfigurationArgs and SourceEndpointStandardSourceEndpointConfigurationOutput values.
+// You can construct a concrete instance of `SourceEndpointStandardSourceEndpointConfigurationInput` via:
+//
+//	SourceEndpointStandardSourceEndpointConfigurationArgs{...}
+type SourceEndpointStandardSourceEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceEndpointStandardSourceEndpointConfigurationOutput() SourceEndpointStandardSourceEndpointConfigurationOutput
+	ToSourceEndpointStandardSourceEndpointConfigurationOutputWithContext(context.Context) SourceEndpointStandardSourceEndpointConfigurationOutput
+}
+
+// The configuration settings for a standard source endpoint.
+type SourceEndpointStandardSourceEndpointConfigurationArgs struct {
+	// The name of the source endpoint.
+	Name                          pulumi.StringInput                   `pulumi:"name"`
+	Protocol                      SourceEndpointProtocolPtrInput       `pulumi:"protocol"`
+	ProtocolConfiguration         pulumi.Input                         `pulumi:"protocolConfiguration"`
+	SourceNetworkingConfiguration pulumi.Input                         `pulumi:"sourceNetworkingConfiguration"`
+	SourceNetworkingType          SourceEndpointNetworkingTypePtrInput `pulumi:"sourceNetworkingType"`
+}
+
+func (SourceEndpointStandardSourceEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (i SourceEndpointStandardSourceEndpointConfigurationArgs) ToSourceEndpointStandardSourceEndpointConfigurationOutput() SourceEndpointStandardSourceEndpointConfigurationOutput {
+	return i.ToSourceEndpointStandardSourceEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointStandardSourceEndpointConfigurationArgs) ToSourceEndpointStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointStandardSourceEndpointConfigurationOutput)
+}
+
+// The configuration settings for a standard source endpoint.
+type SourceEndpointStandardSourceEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationOutput) ToSourceEndpointStandardSourceEndpointConfigurationOutput() SourceEndpointStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationOutput) ToSourceEndpointStandardSourceEndpointConfigurationOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointConfigurationOutput {
+	return o
+}
+
+// The name of the source endpoint.
+func (o SourceEndpointStandardSourceEndpointConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationOutput) Protocol() SourceEndpointProtocolPtrOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointConfiguration) *SourceEndpointProtocol { return v.Protocol }).(SourceEndpointProtocolPtrOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationOutput) ProtocolConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointConfiguration) interface{} { return v.ProtocolConfiguration }).(pulumi.AnyOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationOutput) SourceNetworkingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointConfiguration) interface{} {
+		return v.SourceNetworkingConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationOutput) SourceNetworkingType() SourceEndpointNetworkingTypePtrOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointConfiguration) *SourceEndpointNetworkingType {
+		return v.SourceNetworkingType
+	}).(SourceEndpointNetworkingTypePtrOutput)
+}
+
+type SourceEndpointStandardSourceEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointStandardSourceEndpointConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointStandardSourceEndpointConfigurationPtrOutput() SourceEndpointStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationPtrOutput) ToSourceEndpointStandardSourceEndpointConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationPtrOutput) Elem() SourceEndpointStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointConfiguration) SourceEndpointStandardSourceEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointStandardSourceEndpointConfiguration
+		return ret
+	}).(SourceEndpointStandardSourceEndpointConfigurationOutput)
+}
+
+// The name of the source endpoint.
+func (o SourceEndpointStandardSourceEndpointConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationPtrOutput) Protocol() SourceEndpointProtocolPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointConfiguration) *SourceEndpointProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(SourceEndpointProtocolPtrOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationPtrOutput) ProtocolConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ProtocolConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationPtrOutput) SourceNetworkingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SourceNetworkingConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointConfigurationPtrOutput) SourceNetworkingType() SourceEndpointNetworkingTypePtrOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointConfiguration) *SourceEndpointNetworkingType {
+		if v == nil {
+			return nil
+		}
+		return v.SourceNetworkingType
+	}).(SourceEndpointNetworkingTypePtrOutput)
+}
+
+// The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties struct {
+	Public SourceEndpointPublicSourceEndpointNetworkingConfiguration `pulumi:"public"`
+}
+
+// SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesInput is an input type that accepts SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs and SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesInput` via:
+//
+//	SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs{...}
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToSourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput() SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput
+	ToSourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutputWithContext(context.Context) SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput
+}
+
+// The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs struct {
+	Public SourceEndpointPublicSourceEndpointNetworkingConfigurationInput `pulumi:"public"`
+}
+
+func (SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties)(nil)).Elem()
+}
+
+func (i SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput() SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput {
+	return i.ToSourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput)
+}
+
+// The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput() SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput) Public() SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties) SourceEndpointPublicSourceEndpointNetworkingConfiguration {
+		return v.Public
+	}).(SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput)
+}
+
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput() SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput) Elem() SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties) SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties
+		return ret
+	}).(SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput) Public() SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties) *SourceEndpointPublicSourceEndpointNetworkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Public
+	}).(SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput)
+}
+
+// The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties struct {
+	Vpc SourceEndpointVpcSourceEndpointNetworkingConfiguration `pulumi:"vpc"`
+}
+
+// SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesInput is an input type that accepts SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs and SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesInput` via:
+//
+//	SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs{...}
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToSourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput() SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput
+	ToSourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutputWithContext(context.Context) SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput
+}
+
+// The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs struct {
+	Vpc SourceEndpointVpcSourceEndpointNetworkingConfigurationInput `pulumi:"vpc"`
+}
+
+func (SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties)(nil)).Elem()
+}
+
+func (i SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput() SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput {
+	return i.ToSourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput)
+}
+
+// The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput() SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput) Vpc() SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties) SourceEndpointVpcSourceEndpointNetworkingConfiguration {
+		return v.Vpc
+	}).(SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput)
+}
+
+type SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput() SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput) Elem() SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties) SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties
+		return ret
+	}).(SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput) Vpc() SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties) *SourceEndpointVpcSourceEndpointNetworkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Vpc
+	}).(SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput)
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties struct {
+	Rist SourceEndpointRistStandardSourceEndpointConfiguration `pulumi:"rist"`
+}
+
+// SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesInput is an input type that accepts SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs and SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesInput` via:
+//
+//	SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs{...}
+type SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToSourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput
+	ToSourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutputWithContext(context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs struct {
+	Rist SourceEndpointRistStandardSourceEndpointConfigurationInput `pulumi:"rist"`
+}
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties)(nil)).Elem()
+}
+
+func (i SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs) ToSourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput {
+	return i.ToSourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs) ToSourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput)
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput) Rist() SourceEndpointRistStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties) SourceEndpointRistStandardSourceEndpointConfiguration {
+		return v.Rist
+	}).(SourceEndpointRistStandardSourceEndpointConfigurationOutput)
+}
+
+type SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput) Elem() SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties) SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties
+		return ret
+	}).(SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput) Rist() SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties) *SourceEndpointRistStandardSourceEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Rist
+	}).(SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput)
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties struct {
+	SrtListener SourceEndpointSrtListenerStandardSourceEndpointConfiguration `pulumi:"srtListener"`
+}
+
+// SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesInput is an input type that accepts SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs and SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesInput` via:
+//
+//	SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs{...}
+type SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToSourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput
+	ToSourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutputWithContext(context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs struct {
+	SrtListener SourceEndpointSrtListenerStandardSourceEndpointConfigurationInput `pulumi:"srtListener"`
+}
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties)(nil)).Elem()
+}
+
+func (i SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs) ToSourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput {
+	return i.ToSourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs) ToSourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput)
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput) SrtListener() SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties) SourceEndpointSrtListenerStandardSourceEndpointConfiguration {
+		return v.SrtListener
+	}).(SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput)
+}
+
+type SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput) Elem() SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties) SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties
+		return ret
+	}).(SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput) SrtListener() SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties) *SourceEndpointSrtListenerStandardSourceEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SrtListener
+	}).(SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput)
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties struct {
+	SrtCaller SourceEndpointSrtCallerStandardSourceEndpointConfiguration `pulumi:"srtCaller"`
+}
+
+// SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesInput is an input type that accepts SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs and SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput values.
+// You can construct a concrete instance of `SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesInput` via:
+//
+//	SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs{...}
+type SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesInput interface {
+	pulumi.Input
+
+	ToSourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput
+	ToSourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutputWithContext(context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs struct {
+	SrtCaller SourceEndpointSrtCallerStandardSourceEndpointConfigurationInput `pulumi:"srtCaller"`
+}
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties)(nil)).Elem()
+}
+
+func (i SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs) ToSourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput {
+	return i.ToSourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs) ToSourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput)
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput) SrtCaller() SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties) SourceEndpointSrtCallerStandardSourceEndpointConfiguration {
+		return v.SrtCaller
+	}).(SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput)
+}
+
+type SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput) Elem() SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties) SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties
+		return ret
+	}).(SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput) SrtCaller() SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties) *SourceEndpointSrtCallerStandardSourceEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SrtCaller
+	}).(SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput)
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties struct {
+	Rtp SourceEndpointRtpStandardSourceEndpointConfiguration `pulumi:"rtp"`
+}
+
+// SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesInput is an input type that accepts SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs and SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput values.
+// You can construct a concrete instance of `SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesInput` via:
+//
+//	SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs{...}
+type SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesInput interface {
+	pulumi.Input
+
+	ToSourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput
+	ToSourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutputWithContext(context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs struct {
+	Rtp SourceEndpointRtpStandardSourceEndpointConfigurationInput `pulumi:"rtp"`
+}
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties)(nil)).Elem()
+}
+
+func (i SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs) ToSourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput {
+	return i.ToSourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs) ToSourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput)
+}
+
+// The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+type SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput) Rtp() SourceEndpointRtpStandardSourceEndpointConfigurationOutput {
+	return o.ApplyT(func(v SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties) SourceEndpointRtpStandardSourceEndpointConfiguration {
+		return v.Rtp
+	}).(SourceEndpointRtpStandardSourceEndpointConfigurationOutput)
+}
+
+type SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties)(nil)).Elem()
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput() SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput) ToSourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput) Elem() SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties) SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties
+		return ret
+	}).(SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput)
+}
+
+func (o SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput) Rtp() SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties) *SourceEndpointRtpStandardSourceEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Rtp
+	}).(SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput)
+}
+
+type SourceEndpointTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// The networking configuration for a source endpoint in a virtual private cloud (VPC).
+type SourceEndpointVpcSourceEndpointNetworkingConfiguration struct {
+	// The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID of the subnet to use for the source endpoint.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// SourceEndpointVpcSourceEndpointNetworkingConfigurationInput is an input type that accepts SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs and SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput values.
+// You can construct a concrete instance of `SourceEndpointVpcSourceEndpointNetworkingConfigurationInput` via:
+//
+//	SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs{...}
+type SourceEndpointVpcSourceEndpointNetworkingConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceEndpointVpcSourceEndpointNetworkingConfigurationOutput() SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput
+	ToSourceEndpointVpcSourceEndpointNetworkingConfigurationOutputWithContext(context.Context) SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput
+}
+
+// The networking configuration for a source endpoint in a virtual private cloud (VPC).
+type SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs struct {
+	// The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The ID of the subnet to use for the source endpoint.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointVpcSourceEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (i SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs) ToSourceEndpointVpcSourceEndpointNetworkingConfigurationOutput() SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput {
+	return i.ToSourceEndpointVpcSourceEndpointNetworkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs) ToSourceEndpointVpcSourceEndpointNetworkingConfigurationOutputWithContext(ctx context.Context) SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput)
+}
+
+// The networking configuration for a source endpoint in a virtual private cloud (VPC).
+type SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointVpcSourceEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput) ToSourceEndpointVpcSourceEndpointNetworkingConfigurationOutput() SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput {
+	return o
+}
+
+func (o SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput) ToSourceEndpointVpcSourceEndpointNetworkingConfigurationOutputWithContext(ctx context.Context) SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput {
+	return o
+}
+
+// The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+func (o SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SourceEndpointVpcSourceEndpointNetworkingConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnet to use for the source endpoint.
+func (o SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceEndpointVpcSourceEndpointNetworkingConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointVpcSourceEndpointNetworkingConfiguration)(nil)).Elem()
+}
+
+func (o SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput) ToSourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput() SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput) ToSourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutputWithContext(ctx context.Context) SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput {
+	return o
+}
+
+func (o SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput) Elem() SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput {
+	return o.ApplyT(func(v *SourceEndpointVpcSourceEndpointNetworkingConfiguration) SourceEndpointVpcSourceEndpointNetworkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointVpcSourceEndpointNetworkingConfiguration
+		return ret
+	}).(SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput)
+}
+
+// The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+func (o SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SourceEndpointVpcSourceEndpointNetworkingConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnet to use for the source endpoint.
+func (o SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceEndpointVpcSourceEndpointNetworkingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeEgressGatewayBridgeInput)(nil)).Elem(), BridgeEgressGatewayBridgeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeEgressGatewayBridgePtrInput)(nil)).Elem(), BridgeEgressGatewayBridgeArgs{})
@@ -19803,6 +25426,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceVpcInterfaceAttachmentPtrInput)(nil)).Elem(), BridgeSourceVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeVpcInterfaceAttachmentInput)(nil)).Elem(), BridgeVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeVpcInterfaceAttachmentPtrInput)(nil)).Elem(), BridgeVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointConfiguration0PropertiesInput)(nil)).Elem(), DestinationEndpointConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointConfiguration1PropertiesInput)(nil)).Elem(), DestinationEndpointConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointEndpointEncryptionSecretConfigurationInput)(nil)).Elem(), DestinationEndpointEndpointEncryptionSecretConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointEndpointEncryptionSecretConfigurationPtrInput)(nil)).Elem(), DestinationEndpointEndpointEncryptionSecretConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointPublicDestinationEndpointNetworkingConfigurationInput)(nil)).Elem(), DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleInput)(nil)).Elem(), DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayInput)(nil)).Elem(), DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointRistStandardDestinationEndpointConfigurationInput)(nil)).Elem(), DestinationEndpointRistStandardDestinationEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointRouterInputDestinationEndpointConfigurationInput)(nil)).Elem(), DestinationEndpointRouterInputDestinationEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointRtpStandardDestinationEndpointConfigurationInput)(nil)).Elem(), DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationInput)(nil)).Elem(), DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationInput)(nil)).Elem(), DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointConfigurationInput)(nil)).Elem(), DestinationEndpointStandardDestinationEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesInput)(nil)).Elem(), DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesInput)(nil)).Elem(), DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesInput)(nil)).Elem(), DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesInput)(nil)).Elem(), DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesInput)(nil)).Elem(), DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesInput)(nil)).Elem(), DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointVpcDestinationEndpointNetworkingConfigurationInput)(nil)).Elem(), DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAudioMonitoringSettingInput)(nil)).Elem(), FlowAudioMonitoringSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAudioMonitoringSettingArrayInput)(nil)).Elem(), FlowAudioMonitoringSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAutomaticEncryptionKeyConfigurationInput)(nil)).Elem(), FlowAutomaticEncryptionKeyConfigurationArgs{})
@@ -19898,6 +25541,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayNetworkArrayInput)(nil)).Elem(), GatewayNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputAutomaticEncryptionKeyConfigurationInput)(nil)).Elem(), RouterInputAutomaticEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputAutomaticEncryptionKeyConfigurationPtrInput)(nil)).Elem(), RouterInputAutomaticEncryptionKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputAutomaticEndpointEncryptionConfigurationInput)(nil)).Elem(), RouterInputAutomaticEndpointEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputBlackFramesConfigurationInput)(nil)).Elem(), RouterInputBlackFramesConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputBlackFramesConfigurationPtrInput)(nil)).Elem(), RouterInputBlackFramesConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration0PropertiesInput)(nil)).Elem(), RouterInputConfiguration0PropertiesArgs{})
@@ -19905,10 +25549,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration2PropertiesInput)(nil)).Elem(), RouterInputConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration3PropertiesInput)(nil)).Elem(), RouterInputConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration4PropertiesInput)(nil)).Elem(), RouterInputConfiguration4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration5PropertiesInput)(nil)).Elem(), RouterInputConfiguration5PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputContentQualityAnalysisFeatureConfigurationInput)(nil)).Elem(), RouterInputContentQualityAnalysisFeatureConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputContentQualityAnalysisFeatureConfigurationPtrInput)(nil)).Elem(), RouterInputContentQualityAnalysisFeatureConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDefaultMaintenanceConfigurationInput)(nil)).Elem(), RouterInputDefaultMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDefaultMaintenanceConfigurationPtrInput)(nil)).Elem(), RouterInputDefaultMaintenanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDestinationEndpointRouterInputConfigurationInput)(nil)).Elem(), RouterInputDestinationEndpointRouterInputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputEndpointEncryptionConfiguration0PropertiesInput)(nil)).Elem(), RouterInputEndpointEncryptionConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputEndpointEncryptionConfiguration1PropertiesInput)(nil)).Elem(), RouterInputEndpointEncryptionConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputEndpointEncryptionSecretConfigurationInput)(nil)).Elem(), RouterInputEndpointEncryptionSecretConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverRouterInputConfigurationInput)(nil)).Elem(), RouterInputFailoverRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverRouterInputProtocolConfiguration0PropertiesInput)(nil)).Elem(), RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverRouterInputProtocolConfiguration1PropertiesInput)(nil)).Elem(), RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs{})
@@ -19943,6 +25592,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRtpRouterInputConfigurationInput)(nil)).Elem(), RouterInputRtpRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSecretsManagerEncryptionKeyConfigurationInput)(nil)).Elem(), RouterInputSecretsManagerEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSecretsManagerEncryptionKeyConfigurationPtrInput)(nil)).Elem(), RouterInputSecretsManagerEncryptionKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSecretsManagerEndpointEncryptionConfigurationInput)(nil)).Elem(), RouterInputSecretsManagerEndpointEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSilentAudioConfigurationInput)(nil)).Elem(), RouterInputSilentAudioConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSilentAudioConfigurationPtrInput)(nil)).Elem(), RouterInputSilentAudioConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSrtCallerRouterInputConfigurationInput)(nil)).Elem(), RouterInputSrtCallerRouterInputConfigurationArgs{})
@@ -19963,8 +25613,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArrayInput)(nil)).Elem(), RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationInput)(nil)).Elem(), RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceAutomaticEncryptionKeyConfigurationInput)(nil)).Elem(), RouterOutputResourceAutomaticEncryptionKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceAutomaticEndpointEncryptionConfigurationInput)(nil)).Elem(), RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceDefaultMaintenanceConfigurationInput)(nil)).Elem(), RouterOutputResourceDefaultMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceDefaultMaintenanceConfigurationPtrInput)(nil)).Elem(), RouterOutputResourceDefaultMaintenanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceEndpointEncryptionConfiguration0PropertiesInput)(nil)).Elem(), RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceEndpointEncryptionConfiguration1PropertiesInput)(nil)).Elem(), RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceEndpointEncryptionSecretConfigurationInput)(nil)).Elem(), RouterOutputResourceEndpointEncryptionSecretConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFabricConfigurationInput)(nil)).Elem(), RouterOutputResourceFabricConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFabricConfigurationPtrInput)(nil)).Elem(), RouterOutputResourceFabricConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFlowTransitEncryptionInput)(nil)).Elem(), RouterOutputResourceFlowTransitEncryptionArgs{})
@@ -19987,6 +25641,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputConfiguration0PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputConfiguration1PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputConfiguration2PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputConfiguration2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputConfiguration3PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs{})
@@ -19996,6 +25651,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRtpRouterOutputConfigurationInput)(nil)).Elem(), RouterOutputResourceRtpRouterOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSecretsManagerEncryptionKeyConfigurationInput)(nil)).Elem(), RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrInput)(nil)).Elem(), RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationInput)(nil)).Elem(), RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSourceEndpointRouterOutputConfigurationInput)(nil)).Elem(), RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSrtCallerRouterOutputConfigurationInput)(nil)).Elem(), RouterOutputResourceSrtCallerRouterOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSrtEncryptionConfigurationInput)(nil)).Elem(), RouterOutputResourceSrtEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSrtEncryptionConfigurationPtrInput)(nil)).Elem(), RouterOutputResourceSrtEncryptionConfigurationArgs{})
@@ -20005,6 +25662,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceTlsEncryptionPtrInput)(nil)).Elem(), RouterOutputResourceTlsEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceTlsEncryptionConfigurationPropertiesInput)(nil)).Elem(), RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrInput)(nil)).Elem(), RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointConfiguration0PropertiesInput)(nil)).Elem(), SourceEndpointConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointConfiguration1PropertiesInput)(nil)).Elem(), SourceEndpointConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointEndpointEncryptionSecretConfigurationInput)(nil)).Elem(), SourceEndpointEndpointEncryptionSecretConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointEndpointEncryptionSecretConfigurationPtrInput)(nil)).Elem(), SourceEndpointEndpointEncryptionSecretConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointPublicSourceEndpointNetworkingConfigurationInput)(nil)).Elem(), SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleInput)(nil)).Elem(), SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayInput)(nil)).Elem(), SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointRistStandardSourceEndpointConfigurationInput)(nil)).Elem(), SourceEndpointRistStandardSourceEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointRouterOutputSourceEndpointConfigurationInput)(nil)).Elem(), SourceEndpointRouterOutputSourceEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointRtpStandardSourceEndpointConfigurationInput)(nil)).Elem(), SourceEndpointRtpStandardSourceEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointSrtCallerStandardSourceEndpointConfigurationInput)(nil)).Elem(), SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointSrtListenerStandardSourceEndpointConfigurationInput)(nil)).Elem(), SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointStandardSourceEndpointConfigurationInput)(nil)).Elem(), SourceEndpointStandardSourceEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesInput)(nil)).Elem(), SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesInput)(nil)).Elem(), SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesInput)(nil)).Elem(), SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesInput)(nil)).Elem(), SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesInput)(nil)).Elem(), SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesInput)(nil)).Elem(), SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointVpcSourceEndpointNetworkingConfigurationInput)(nil)).Elem(), SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs{})
 	pulumi.RegisterOutputType(BridgeEgressGatewayBridgeOutput{})
 	pulumi.RegisterOutputType(BridgeEgressGatewayBridgePtrOutput{})
 	pulumi.RegisterOutputType(BridgeFailoverConfigOutput{})
@@ -20037,6 +25714,50 @@ func init() {
 	pulumi.RegisterOutputType(BridgeSourceVpcInterfaceAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(BridgeVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(BridgeVpcInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointAssociatedResourceDetails0PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointAssociatedResourceDetails0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointAssociatedResourceDetails1PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointAssociatedResourceDetails1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointEndpointEncryptionSecretConfigurationOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointEndpointEncryptionSecretConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArrayOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRistStandardDestinationEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRistStandardDestinationEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRouterInputDestinationEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRouterInputDestinationEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRtpStandardDestinationEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRtpStandardDestinationEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointAssociatedResourceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointVpcDestinationEndpointNetworkingConfigurationOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointVpcDestinationEndpointNetworkingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowAudioMonitoringSettingOutput{})
 	pulumi.RegisterOutputType(FlowAudioMonitoringSettingArrayOutput{})
 	pulumi.RegisterOutputType(FlowAutomaticEncryptionKeyConfigurationOutput{})
@@ -20133,6 +25854,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayNetworkArrayOutput{})
 	pulumi.RegisterOutputType(RouterInputAutomaticEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputAutomaticEncryptionKeyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputAutomaticEndpointEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputBlackFramesConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputBlackFramesConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration0PropertiesOutput{})
@@ -20145,10 +25868,20 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputConfiguration3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration4PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration4PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputConfiguration5PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputConfiguration5PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputContentQualityAnalysisFeatureConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputDefaultMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputDefaultMaintenanceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputDestinationEndpointRouterInputConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputDestinationEndpointRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionSecretConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionSecretConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputProtocolConfiguration0PropertiesOutput{})
@@ -20199,6 +25932,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputRtpRouterInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputSecretsManagerEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputSecretsManagerEndpointEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputSecretsManagerEndpointEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputSilentAudioConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputSilentAudioConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputSrtCallerRouterInputConfigurationOutput{})
@@ -20227,8 +25962,16 @@ func init() {
 	pulumi.RegisterOutputType(RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceAutomaticEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceAutomaticEncryptionKeyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceAutomaticEndpointEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceAutomaticEndpointEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceDefaultMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceDefaultMaintenanceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionSecretConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionSecretConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFabricConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFabricConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFlowTransitEncryptionOutput{})
@@ -20263,6 +26006,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputConfiguration2PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputConfiguration2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputConfiguration3PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputConfiguration3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesOutput{})
@@ -20279,6 +26024,10 @@ func init() {
 	pulumi.RegisterOutputType(RouterOutputResourceRtpRouterOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceSourceEndpointRouterOutputConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceSourceEndpointRouterOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceSrtCallerRouterOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceSrtCallerRouterOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceSrtEncryptionConfigurationOutput{})
@@ -20291,4 +26040,48 @@ func init() {
 	pulumi.RegisterOutputType(RouterOutputResourceTlsEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointAssociatedResourceDetails0PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointAssociatedResourceDetails0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointAssociatedResourceDetails1PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointAssociatedResourceDetails1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointEndpointEncryptionSecretConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceEndpointEndpointEncryptionSecretConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointPublicSourceEndpointNetworkingConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceEndpointPublicSourceEndpointNetworkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleOutput{})
+	pulumi.RegisterOutputType(SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArrayOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRistStandardSourceEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRistStandardSourceEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRouterOutputSourceEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRouterOutputSourceEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRtpStandardSourceEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRtpStandardSourceEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointSrtCallerStandardSourceEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceEndpointSrtCallerStandardSourceEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointSrtListenerStandardSourceEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceEndpointSrtListenerStandardSourceEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointAssociatedResourceDetailsOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointAssociatedResourceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesOutput{})
+	pulumi.RegisterOutputType(SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointVpcSourceEndpointNetworkingConfigurationOutput{})
+	pulumi.RegisterOutputType(SourceEndpointVpcSourceEndpointNetworkingConfigurationPtrOutput{})
 }

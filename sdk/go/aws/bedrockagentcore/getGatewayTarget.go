@@ -30,7 +30,8 @@ type LookupGatewayTargetArgs struct {
 }
 
 type LookupGatewayTargetResult struct {
-	AuthorizationData *GatewayTargetAuthorizationDataProperties `pulumi:"authorizationData"`
+	AuthorizationData         *GatewayTargetAuthorizationDataProperties `pulumi:"authorizationData"`
+	CertificateConfigurations []interface{}                             `pulumi:"certificateConfigurations"`
 	// The date and time at which the gateway target was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The OAuth credential provider configuration.
@@ -91,6 +92,10 @@ func (o LookupGatewayTargetResultOutput) AuthorizationData() GatewayTargetAuthor
 	return o.ApplyT(func(v LookupGatewayTargetResult) *GatewayTargetAuthorizationDataProperties {
 		return v.AuthorizationData
 	}).(GatewayTargetAuthorizationDataPropertiesPtrOutput)
+}
+
+func (o LookupGatewayTargetResultOutput) CertificateConfigurations() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LookupGatewayTargetResult) []interface{} { return v.CertificateConfigurations }).(pulumi.ArrayOutput)
 }
 
 // The date and time at which the gateway target was created.

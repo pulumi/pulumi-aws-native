@@ -22,7 +22,13 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public Input<Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationRestoreConfigurationApplicationRestoreType> ApplicationRestoreType { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+        /// The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+        /// </summary>
+        [Input("snapshotArn")]
+        public Input<string>? SnapshotArn { get; set; }
+
+        /// <summary>
+        /// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }

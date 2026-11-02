@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class GatewayRuleTargetTrafficSplitEntry
     {
         public readonly string? Description;
+        public readonly Outputs.GatewayRuleFallback? Fallback;
         public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly string? Model;
         public readonly string Name;
         public readonly string TargetName;
         public readonly double Weight;
@@ -23,7 +25,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         private GatewayRuleTargetTrafficSplitEntry(
             string? description,
 
+            Outputs.GatewayRuleFallback? fallback,
+
             ImmutableDictionary<string, string>? metadata,
+
+            string? model,
 
             string name,
 
@@ -32,7 +38,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             double weight)
         {
             Description = description;
+            Fallback = fallback;
             Metadata = metadata;
+            Model = model;
             Name = name;
             TargetName = targetName;
             Weight = weight;

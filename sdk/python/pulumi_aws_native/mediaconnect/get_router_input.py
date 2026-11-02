@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetRouterInputResult:
-    def __init__(__self__, arn=None, configuration=None, content_quality_analysis_configuration=None, content_quality_analysis_type=None, created_at=None, id=None, input_type=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, routed_outputs=None, routing_scope=None, state=None, tags=None, tier=None, transit_encryption=None, updated_at=None):
+    def __init__(__self__, arn=None, associated_destination_endpoint_arns=None, configuration=None, content_quality_analysis_configuration=None, content_quality_analysis_type=None, created_at=None, id=None, input_type=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, routed_outputs=None, routing_scope=None, state=None, tags=None, tier=None, transit_encryption=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if associated_destination_endpoint_arns and not isinstance(associated_destination_endpoint_arns, list):
+            raise TypeError("Expected argument 'associated_destination_endpoint_arns' to be a list")
+        pulumi.set(__self__, "associated_destination_endpoint_arns", associated_destination_endpoint_arns)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -92,6 +95,14 @@ class GetRouterInputResult:
         The Amazon Resource Name (ARN) of the router input.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedDestinationEndpointArns")
+    def associated_destination_endpoint_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+        """
+        return pulumi.get(self, "associated_destination_endpoint_arns")
 
     @_builtins.property
     @pulumi.getter
@@ -236,6 +247,7 @@ class AwaitableGetRouterInputResult(GetRouterInputResult):
             yield self
         return GetRouterInputResult(
             arn=self.arn,
+            associated_destination_endpoint_arns=self.associated_destination_endpoint_arns,
             configuration=self.configuration,
             content_quality_analysis_configuration=self.content_quality_analysis_configuration,
             content_quality_analysis_type=self.content_quality_analysis_type,
@@ -270,6 +282,7 @@ def get_router_input(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetRouterInputResult(
         arn=pulumi.get(__ret__, 'arn'),
+        associated_destination_endpoint_arns=pulumi.get(__ret__, 'associated_destination_endpoint_arns'),
         configuration=pulumi.get(__ret__, 'configuration'),
         content_quality_analysis_configuration=pulumi.get(__ret__, 'content_quality_analysis_configuration'),
         content_quality_analysis_type=pulumi.get(__ret__, 'content_quality_analysis_type'),
@@ -301,6 +314,7 @@ def get_router_input_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getRouterInput', __args__, opts=opts, typ=GetRouterInputResult)
     return __ret__.apply(lambda __response__: GetRouterInputResult(
         arn=pulumi.get(__response__, 'arn'),
+        associated_destination_endpoint_arns=pulumi.get(__response__, 'associated_destination_endpoint_arns'),
         configuration=pulumi.get(__response__, 'configuration'),
         content_quality_analysis_configuration=pulumi.get(__response__, 'content_quality_analysis_configuration'),
         content_quality_analysis_type=pulumi.get(__response__, 'content_quality_analysis_type'),

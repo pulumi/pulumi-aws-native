@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Eks.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The Gateway API configuration for the cluster.
+        /// </summary>
+        [Input("gatewayApi")]
+        public Input<Inputs.ClusterGatewayApiArgs>? GatewayApi { get; set; }
+
         public ClusterElasticLoadBalancingArgs()
         {
         }

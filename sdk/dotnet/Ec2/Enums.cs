@@ -2596,6 +2596,71 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The snapshot state.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotState : IEquatable<SnapshotState>
+    {
+        private readonly string _value;
+
+        private SnapshotState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotState Pending { get; } = new SnapshotState("pending");
+        public static SnapshotState Completed { get; } = new SnapshotState("completed");
+        public static SnapshotState Error { get; } = new SnapshotState("error");
+        public static SnapshotState Recoverable { get; } = new SnapshotState("recoverable");
+        public static SnapshotState Recovering { get; } = new SnapshotState("recovering");
+
+        public static bool operator ==(SnapshotState left, SnapshotState right) => left.Equals(right);
+        public static bool operator !=(SnapshotState left, SnapshotState right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotState other && Equals(other);
+        public bool Equals(SnapshotState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The storage tier in which the snapshot is stored.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotStorageTier : IEquatable<SnapshotStorageTier>
+    {
+        private readonly string _value;
+
+        private SnapshotStorageTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotStorageTier Archive { get; } = new SnapshotStorageTier("archive");
+        public static SnapshotStorageTier Standard { get; } = new SnapshotStorageTier("standard");
+
+        public static bool operator ==(SnapshotStorageTier left, SnapshotStorageTier right) => left.Equals(right);
+        public static bool operator !=(SnapshotStorageTier left, SnapshotStorageTier right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotStorageTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotStorageTier other && Equals(other);
+        public bool Equals(SnapshotStorageTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem : IEquatable<SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem>
     {

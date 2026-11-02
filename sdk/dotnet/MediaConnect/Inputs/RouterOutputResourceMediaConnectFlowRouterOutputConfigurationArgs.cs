@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
 {
 
     /// <summary>
-    /// Configuration settings for connecting a router output to a MediaConnect flow source.
+    /// Configuration settings for connecting a router output to a MediaConnect flow source. To connect the router output to the flow source, provide both flowArn and flowSourceArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
     /// </summary>
     public sealed class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs : global::Pulumi.ResourceArgs
     {

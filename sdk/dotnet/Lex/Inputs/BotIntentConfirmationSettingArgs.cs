@@ -89,8 +89,8 @@ namespace Pulumi.AwsNative.Lex.Inputs
         /// 
         /// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
         /// </summary>
-        [Input("promptSpecification", required: true)]
-        public Input<Inputs.BotPromptSpecificationArgs> PromptSpecification { get; set; } = null!;
+        [Input("promptSpecification")]
+        public Input<Inputs.BotPromptSpecificationArgs>? PromptSpecification { get; set; }
 
         public BotIntentConfirmationSettingArgs()
         {

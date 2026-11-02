@@ -42,6 +42,10 @@ export class RouterInput extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+     */
+    declare public /*out*/ readonly associatedDestinationEndpointArns: pulumi.Output<string[]>;
+    /**
      * The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
      */
     declare public readonly availabilityZone: pulumi.Output<string | undefined>;
@@ -49,7 +53,7 @@ export class RouterInput extends pulumi.CustomResource {
      * The unique identifier of the router input.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
-    declare public readonly configuration: pulumi.Output<outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties | outputs.mediaconnect.RouterInputConfiguration4Properties>;
+    declare public readonly configuration: pulumi.Output<outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties | outputs.mediaconnect.RouterInputConfiguration4Properties | outputs.mediaconnect.RouterInputConfiguration5Properties>;
     declare public readonly contentQualityAnalysisConfiguration: pulumi.Output<outputs.mediaconnect.RouterInputRouterContentQualityAnalysisConfigurationProperties | undefined>;
     declare public /*out*/ readonly contentQualityAnalysisType: pulumi.Output<enums.mediaconnect.RouterInputRouterContentQualityAnalysisType>;
     /**
@@ -148,6 +152,7 @@ export class RouterInput extends pulumi.CustomResource {
             resourceInputs["tier"] = args?.tier;
             resourceInputs["transitEncryption"] = args?.transitEncryption;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associatedDestinationEndpointArns"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["contentQualityAnalysisType"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -159,6 +164,7 @@ export class RouterInput extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associatedDestinationEndpointArns"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
@@ -195,7 +201,7 @@ export interface RouterInputArgs {
      * The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
-    configuration: pulumi.Input<inputs.mediaconnect.RouterInputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration2PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration3PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration4PropertiesArgs>;
+    configuration: pulumi.Input<inputs.mediaconnect.RouterInputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration2PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration3PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration4PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration5PropertiesArgs>;
     contentQualityAnalysisConfiguration?: pulumi.Input<inputs.mediaconnect.RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs | undefined>;
     /**
      * The maintenance configuration settings applied to this router input.

@@ -932,6 +932,29 @@ export const SnapshotBlockPublicAccessState = {
  */
 export type SnapshotBlockPublicAccessState = (typeof SnapshotBlockPublicAccessState)[keyof typeof SnapshotBlockPublicAccessState];
 
+export const SnapshotState = {
+    Pending: "pending",
+    Completed: "completed",
+    Error: "error",
+    Recoverable: "recoverable",
+    Recovering: "recovering",
+} as const;
+
+/**
+ * The snapshot state.
+ */
+export type SnapshotState = (typeof SnapshotState)[keyof typeof SnapshotState];
+
+export const SnapshotStorageTier = {
+    Archive: "archive",
+    Standard: "standard",
+} as const;
+
+/**
+ * The storage tier in which the snapshot is stored.
+ */
+export type SnapshotStorageTier = (typeof SnapshotStorageTier)[keyof typeof SnapshotStorageTier];
+
 export const SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
     AmazonWebServices: "amazon-web-services",
     Amd: "amd",

@@ -137,6 +137,42 @@ export const EventStreamStatus = {
  */
 export type EventStreamStatus = (typeof EventStreamStatus)[keyof typeof EventStreamStatus];
 
+export const EventTriggerIntentFilterConditionComparisonOperator = {
+    Inclusive: "INCLUSIVE",
+    Exclusive: "EXCLUSIVE",
+    Contains: "CONTAINS",
+    GreaterThan: "GREATER_THAN",
+    LessThan: "LESS_THAN",
+    GreaterThanOrEqual: "GREATER_THAN_OR_EQUAL",
+    LessThanOrEqual: "LESS_THAN_OR_EQUAL",
+    Equal: "EQUAL",
+} as const;
+
+/**
+ * The operator used to compare the predicted intent against a list of values.
+ */
+export type EventTriggerIntentFilterConditionComparisonOperator = (typeof EventTriggerIntentFilterConditionComparisonOperator)[keyof typeof EventTriggerIntentFilterConditionComparisonOperator];
+
+export const EventTriggerIntentIntentDomain = {
+    Default: "DEFAULT",
+} as const;
+
+/**
+ * The domain of the intent.
+ */
+export type EventTriggerIntentIntentDomain = (typeof EventTriggerIntentIntentDomain)[keyof typeof EventTriggerIntentIntentDomain];
+
+export const EventTriggerIntentType = {
+    PriceSensitivity: "PRICE_SENSITIVITY",
+    UpgradeUpsellPropensity: "UPGRADE_UPSELL_PROPENSITY",
+    LastSearchIntent: "LAST_SEARCH_INTENT",
+} as const;
+
+/**
+ * The type of the intent.
+ */
+export type EventTriggerIntentType = (typeof EventTriggerIntentType)[keyof typeof EventTriggerIntentType];
+
 export const EventTriggerLogicalOperator = {
     Any: "ANY",
     All: "ALL",

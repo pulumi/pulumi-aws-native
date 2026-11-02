@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:cloudwatch:AccessGrant":
+		r = &AccessGrant{}
 	case "aws-native:cloudwatch:AccessProfile":
 		r = &AccessProfile{}
 	case "aws-native:cloudwatch:Alarm":
@@ -31,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CompositeAlarm{}
 	case "aws-native:cloudwatch:Dashboard":
 		r = &Dashboard{}
+	case "aws-native:cloudwatch:Domain":
+		r = &Domain{}
+	case "aws-native:cloudwatch:DomainAccessGrantForOrganization":
+		r = &DomainAccessGrantForOrganization{}
 	case "aws-native:cloudwatch:DomainForOrganization":
 		r = &DomainForOrganization{}
 	case "aws-native:cloudwatch:InsightRule":
@@ -47,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OmniDashboard{}
 	case "aws-native:cloudwatch:ResourceMetricsConfiguration":
 		r = &ResourceMetricsConfiguration{}
+	case "aws-native:cloudwatch:Space":
+		r = &Space{}
 	case "aws-native:cloudwatch:View":
 		r = &View{}
 	default:

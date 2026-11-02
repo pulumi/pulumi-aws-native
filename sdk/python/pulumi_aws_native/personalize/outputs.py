@@ -23,6 +23,8 @@ __all__ = [
     'MetricAttributionMetricAttribute',
     'MetricAttributionMetricsOutputConfig',
     'MetricAttributionS3DataDestination',
+    'RecommenderConfig',
+    'RecommenderTrainingDataConfig',
     'SolutionCategoricalHyperParameterRange',
     'SolutionConfig',
     'SolutionConfigAutoMlConfigProperties',
@@ -419,6 +421,126 @@ class MetricAttributionS3DataDestination(dict):
         The ARN of the KMS key.
         """
         return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class RecommenderConfig(dict):
+    """
+    The configuration details of the recommender.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableMetadataWithRecommendations":
+            suggest = "enable_metadata_with_recommendations"
+        elif key == "itemExplorationConfig":
+            suggest = "item_exploration_config"
+        elif key == "minRecommendationRequestsPerSecond":
+            suggest = "min_recommendation_requests_per_second"
+        elif key == "trainingDataConfig":
+            suggest = "training_data_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommenderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommenderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommenderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_metadata_with_recommendations: Optional[_builtins.bool] = None,
+                 item_exploration_config: Optional[Mapping[str, _builtins.str]] = None,
+                 min_recommendation_requests_per_second: Optional[_builtins.int] = None,
+                 training_data_config: Optional['outputs.RecommenderTrainingDataConfig'] = None):
+        """
+        The configuration details of the recommender.
+
+        :param _builtins.bool enable_metadata_with_recommendations: Whether metadata with recommendations is enabled for the recommender.
+        :param Mapping[str, _builtins.str] item_exploration_config: Specifies the exploration configuration hyperparameters.
+        :param _builtins.int min_recommendation_requests_per_second: Specifies the requested minimum provisioned recommendation requests per second.
+        """
+        if enable_metadata_with_recommendations is not None:
+            pulumi.set(__self__, "enable_metadata_with_recommendations", enable_metadata_with_recommendations)
+        if item_exploration_config is not None:
+            pulumi.set(__self__, "item_exploration_config", item_exploration_config)
+        if min_recommendation_requests_per_second is not None:
+            pulumi.set(__self__, "min_recommendation_requests_per_second", min_recommendation_requests_per_second)
+        if training_data_config is not None:
+            pulumi.set(__self__, "training_data_config", training_data_config)
+
+    @_builtins.property
+    @pulumi.getter(name="enableMetadataWithRecommendations")
+    def enable_metadata_with_recommendations(self) -> Optional[_builtins.bool]:
+        """
+        Whether metadata with recommendations is enabled for the recommender.
+        """
+        return pulumi.get(self, "enable_metadata_with_recommendations")
+
+    @_builtins.property
+    @pulumi.getter(name="itemExplorationConfig")
+    def item_exploration_config(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Specifies the exploration configuration hyperparameters.
+        """
+        return pulumi.get(self, "item_exploration_config")
+
+    @_builtins.property
+    @pulumi.getter(name="minRecommendationRequestsPerSecond")
+    def min_recommendation_requests_per_second(self) -> Optional[_builtins.int]:
+        """
+        Specifies the requested minimum provisioned recommendation requests per second.
+        """
+        return pulumi.get(self, "min_recommendation_requests_per_second")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingDataConfig")
+    def training_data_config(self) -> Optional['outputs.RecommenderTrainingDataConfig']:
+        return pulumi.get(self, "training_data_config")
+
+
+@pulumi.output_type
+class RecommenderTrainingDataConfig(dict):
+    """
+    The training data configuration to use when creating a domain recommender.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedDatasetColumns":
+            suggest = "excluded_dataset_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommenderTrainingDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommenderTrainingDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommenderTrainingDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 excluded_dataset_columns: Optional[Mapping[str, Sequence[_builtins.str]]] = None):
+        """
+        The training data configuration to use when creating a domain recommender.
+
+        :param Mapping[str, Sequence[_builtins.str]] excluded_dataset_columns: Specifies the columns to exclude from training. Each key is a dataset type, and each value is a list of columns.
+        """
+        if excluded_dataset_columns is not None:
+            pulumi.set(__self__, "excluded_dataset_columns", excluded_dataset_columns)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedDatasetColumns")
+    def excluded_dataset_columns(self) -> Optional[Mapping[str, Sequence[_builtins.str]]]:
+        """
+        Specifies the columns to exclude from training. Each key is a dataset type, and each value is a list of columns.
+        """
+        return pulumi.get(self, "excluded_dataset_columns")
 
 
 @pulumi.output_type

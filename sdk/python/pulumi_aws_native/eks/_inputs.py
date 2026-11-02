@@ -56,6 +56,10 @@ __all__ = [
     'ClusterEncryptionConfigArgsDict',
     'ClusterEtcdPlacementArgs',
     'ClusterEtcdPlacementArgsDict',
+    'ClusterGatewayApiArgs',
+    'ClusterGatewayApiArgsDict',
+    'ClusterGatewayApiCrdsArgs',
+    'ClusterGatewayApiCrdsArgsDict',
     'ClusterHorizontalPodAutoscalerControllerConfigArgs',
     'ClusterHorizontalPodAutoscalerControllerConfigArgsDict',
     'ClusterKubeApiServerConfigArgs',
@@ -1069,18 +1073,26 @@ class ClusterElasticLoadBalancingArgsDict(TypedDict):
     """
     Todo: add description
     """
+    gateway_api: NotRequired[pulumi.Input[Optional['ClusterGatewayApiArgsDict']]]
+    """
+    The Gateway API configuration for the cluster.
+    """
 
 @pulumi.input_type
 class ClusterElasticLoadBalancingArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_api: pulumi.Input[Optional['ClusterGatewayApiArgs']] = None):
         """
         Todo: add description
 
         :param pulumi.Input[_builtins.bool] enabled: Todo: add description
+        :param pulumi.Input['ClusterGatewayApiArgs'] gateway_api: The Gateway API configuration for the cluster.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if gateway_api is not None:
+            pulumi.set(__self__, "gateway_api", gateway_api)
 
     @_builtins.property
     @pulumi.getter
@@ -1093,6 +1105,18 @@ class ClusterElasticLoadBalancingArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayApi")
+    def gateway_api(self) -> pulumi.Input[Optional['ClusterGatewayApiArgs']]:
+        """
+        The Gateway API configuration for the cluster.
+        """
+        return pulumi.get(self, "gateway_api")
+
+    @gateway_api.setter
+    def gateway_api(self, value: pulumi.Input[Optional['ClusterGatewayApiArgs']]):
+        pulumi.set(self, "gateway_api", value)
 
 
 class ClusterEncryptionConfigArgsDict(TypedDict):
@@ -1181,6 +1205,72 @@ class ClusterEtcdPlacementArgs:
     @spread_level.setter
     def spread_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spread_level", value)
+
+
+class ClusterGatewayApiArgsDict(TypedDict):
+    """
+    The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+    """
+    crds: pulumi.Input['ClusterGatewayApiCrdsArgsDict']
+    """
+    The Gateway API Custom Resource Definition (CRD) configuration.
+    """
+
+@pulumi.input_type
+class ClusterGatewayApiArgs:
+    def __init__(__self__, *,
+                 crds: pulumi.Input['ClusterGatewayApiCrdsArgs']):
+        """
+        The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+
+        :param pulumi.Input['ClusterGatewayApiCrdsArgs'] crds: The Gateway API Custom Resource Definition (CRD) configuration.
+        """
+        pulumi.set(__self__, "crds", crds)
+
+    @_builtins.property
+    @pulumi.getter
+    def crds(self) -> pulumi.Input['ClusterGatewayApiCrdsArgs']:
+        """
+        The Gateway API Custom Resource Definition (CRD) configuration.
+        """
+        return pulumi.get(self, "crds")
+
+    @crds.setter
+    def crds(self, value: pulumi.Input['ClusterGatewayApiCrdsArgs']):
+        pulumi.set(self, "crds", value)
+
+
+class ClusterGatewayApiCrdsArgsDict(TypedDict):
+    """
+    The Gateway API Custom Resource Definition (CRD) configuration for the cluster.
+    """
+    managed: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+    """
+
+@pulumi.input_type
+class ClusterGatewayApiCrdsArgs:
+    def __init__(__self__, *,
+                 managed: pulumi.Input[_builtins.bool]):
+        """
+        The Gateway API Custom Resource Definition (CRD) configuration for the cluster.
+
+        :param pulumi.Input[_builtins.bool] managed: Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+        """
+        pulumi.set(__self__, "managed", managed)
+
+    @_builtins.property
+    @pulumi.getter
+    def managed(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+        """
+        return pulumi.get(self, "managed")
+
+    @managed.setter
+    def managed(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "managed", value)
 
 
 class ClusterHorizontalPodAutoscalerControllerConfigArgsDict(TypedDict):

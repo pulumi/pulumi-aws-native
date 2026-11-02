@@ -32,7 +32,7 @@ type RouterNetworkInterface struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The type of the router network interface.
 	NetworkInterfaceType RouterNetworkInterfaceTypeOutput `pulumi:"networkInterfaceType"`
-	// The AWS Region for the router network interface. Defaults to the current region if not specified.
+	// The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
 	RegionName pulumi.StringPtrOutput `pulumi:"regionName"`
 	// The current state of the router network interface.
 	State RouterNetworkInterfaceStateEnumOutput `pulumi:"state"`
@@ -92,7 +92,7 @@ type routerNetworkInterfaceArgs struct {
 	Configuration interface{} `pulumi:"configuration"`
 	// The name of the router network interface.
 	Name *string `pulumi:"name"`
-	// The AWS Region for the router network interface. Defaults to the current region if not specified.
+	// The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
 	RegionName *string `pulumi:"regionName"`
 	// Key-value pairs that can be used to tag and organize this router network interface.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -103,7 +103,7 @@ type RouterNetworkInterfaceArgs struct {
 	Configuration pulumi.Input
 	// The name of the router network interface.
 	Name pulumi.StringPtrInput
-	// The AWS Region for the router network interface. Defaults to the current region if not specified.
+	// The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
 	RegionName pulumi.StringPtrInput
 	// Key-value pairs that can be used to tag and organize this router network interface.
 	Tags aws.TagArrayInput
@@ -185,7 +185,7 @@ func (o RouterNetworkInterfaceOutput) NetworkInterfaceType() RouterNetworkInterf
 	return o.ApplyT(func(v *RouterNetworkInterface) RouterNetworkInterfaceTypeOutput { return v.NetworkInterfaceType }).(RouterNetworkInterfaceTypeOutput)
 }
 
-// The AWS Region for the router network interface. Defaults to the current region if not specified.
+// The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
 func (o RouterNetworkInterfaceOutput) RegionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouterNetworkInterface) pulumi.StringPtrOutput { return v.RegionName }).(pulumi.StringPtrOutput)
 }

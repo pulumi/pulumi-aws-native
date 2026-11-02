@@ -51,6 +51,9 @@ type LookupFirewallResult struct {
 	FirewallPolicyArn *string `pulumi:"firewallPolicyArn"`
 	// A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
+	// The number of VPC endpoint associations attached to the firewall.
+	NumberOfAssociations *int                   `pulumi:"numberOfAssociations"`
+	ProxySettings        *FirewallProxySettings `pulumi:"proxySettings"`
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
 	// The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
@@ -147,6 +150,15 @@ func (o LookupFirewallResultOutput) FirewallPolicyArn() pulumi.StringPtrOutput {
 // A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 func (o LookupFirewallResultOutput) FirewallPolicyChangeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupFirewallResult) *bool { return v.FirewallPolicyChangeProtection }).(pulumi.BoolPtrOutput)
+}
+
+// The number of VPC endpoint associations attached to the firewall.
+func (o LookupFirewallResultOutput) NumberOfAssociations() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *int { return v.NumberOfAssociations }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupFirewallResultOutput) ProxySettings() FirewallProxySettingsPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *FirewallProxySettings { return v.ProxySettings }).(FirewallProxySettingsPtrOutput)
 }
 
 // A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .

@@ -2106,6 +2106,9 @@
             },
             {
               "$ref": "#/types/aws-native:bedrockagentcore:GatewayRuleCondition1Properties"
+            },
+            {
+              "$ref": "#/types/aws-native:bedrockagentcore:GatewayRuleCondition2Properties"
             }
           ]
         }
@@ -8103,6 +8106,26 @@
       }
     }
   },
+  "aws-native:ec2:Snapshot": {
+    "cfTypeName": "AWS::EC2::Snapshot",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "A description for the snapshot."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Any tags assigned to the snapshot."
+      },
+      "volumeId": {
+        "type": "string",
+        "description": "The ID of the Amazon EBS volume."
+      }
+    }
+  },
   "aws-native:ec2:SnapshotBlockPublicAccess": {
     "cfTypeName": "AWS::EC2::SnapshotBlockPublicAccess",
     "properties": {
@@ -13978,6 +14001,66 @@
       }
     }
   },
+  "aws-native:mediaconnect:DestinationEndpoint": {
+    "cfTypeName": "AWS::MediaConnect::DestinationEndpoint",
+    "properties": {
+      "configuration": {
+        "oneOf": [
+          {
+            "$ref": "#/types/aws-native:mediaconnect:DestinationEndpointConfiguration0Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:mediaconnect:DestinationEndpointConfiguration1Properties"
+          }
+        ]
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the destination endpoint."
+      },
+      "regionName": {
+        "type": "string",
+        "description": "The name of the Amazon Web Services Region in which the destination endpoint is located."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags associated with the destination endpoint. Each tag is a key-value pair."
+      }
+    }
+  },
+  "aws-native:mediaconnect:SourceEndpoint": {
+    "cfTypeName": "AWS::MediaConnect::SourceEndpoint",
+    "properties": {
+      "configuration": {
+        "oneOf": [
+          {
+            "$ref": "#/types/aws-native:mediaconnect:SourceEndpointConfiguration0Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:mediaconnect:SourceEndpointConfiguration1Properties"
+          }
+        ]
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the source endpoint."
+      },
+      "regionName": {
+        "type": "string",
+        "description": "The name of the Amazon Web Services Region in which the source endpoint is located."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags associated with the source endpoint. Each tag is a key-value pair."
+      }
+    }
+  },
   "aws-native:mediaconvert:CertificateAssociation": {
     "cfTypeName": "AWS::MediaConvert::CertificateAssociation",
     "properties": {
@@ -14415,6 +14498,83 @@
       "targetInstanceTypeRightSizingMethod": {
         "$ref": "#/types/aws-native:mgn:LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod",
         "description": "Target instance type right-sizing method."
+      }
+    }
+  },
+  "aws-native:mgn:ReplicationConfigurationTemplate": {
+    "cfTypeName": "AWS::MGN::ReplicationConfigurationTemplate",
+    "properties": {
+      "associateDefaultSecurityGroup": {
+        "type": "boolean",
+        "description": "Whether to associate the default Application Migration Service Security Group with the Replication Configuration Template."
+      },
+      "bandwidthThrottling": {
+        "type": "integer",
+        "description": "Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps."
+      },
+      "createPublicIp": {
+        "type": "boolean",
+        "description": "Whether to create a Public IP for the Recovery Instance by default."
+      },
+      "dataPlaneRouting": {
+        "$ref": "#/types/aws-native:mgn:ReplicationConfigurationTemplateDataPlaneRouting",
+        "description": "The data plane routing mechanism that will be used for replication."
+      },
+      "defaultLargeStagingDiskType": {
+        "$ref": "#/types/aws-native:mgn:ReplicationConfigurationTemplateDefaultLargeStagingDiskType",
+        "description": "The Staging Disk EBS volume type to be used during replication."
+      },
+      "ebsEncryption": {
+        "$ref": "#/types/aws-native:mgn:ReplicationConfigurationTemplateEbsEncryption",
+        "description": "The type of EBS encryption to be used during replication."
+      },
+      "ebsEncryptionKeyArn": {
+        "type": "string",
+        "description": "The ARN of the EBS encryption key to be used during replication."
+      },
+      "internetProtocol": {
+        "$ref": "#/types/aws-native:mgn:ReplicationConfigurationTemplateInternetProtocol",
+        "description": "Which internet protocol to use for replication of data."
+      },
+      "replicationServerInstanceType": {
+        "type": "string",
+        "description": "The instance type to be used for the replication server."
+      },
+      "replicationServersSecurityGroupsIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The security group IDs that will be used by the replication server."
+      },
+      "stagingAreaSubnetId": {
+        "type": "string",
+        "description": "The subnet to be used by the replication staging area."
+      },
+      "stagingAreaTags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "storeSnapshotOnLocalZone": {
+        "type": "boolean",
+        "description": "Whether to store the Snapshot in the Local Zone of the replication staging area subnet."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A set of tags to be associated with the Replication Configuration Template resource."
+      },
+      "useDedicatedReplicationServer": {
+        "type": "boolean",
+        "description": "Whether to use a dedicated Replication Server in the replication staging area."
+      },
+      "useFipsEndpoint": {
+        "type": "boolean",
+        "description": "Whether to use a FIPS endpoint when initiating the agent connection to the Application Migration Service service."
       }
     }
   },
@@ -18763,6 +18923,10 @@
       "assets": {
         "$ref": "#/types/aws-native:securityagent:PentestAssets",
         "description": "Collection of assets to be tested or used during the penetration test"
+      },
+      "ciCdConfiguration": {
+        "$ref": "#/types/aws-native:securityagent:PentestCiCdConfiguration",
+        "description": "Configuration for running pentests automatically from a CI/CD pipeline"
       },
       "cleanUpStrategy": {
         "$ref": "#/types/aws-native:securityagent:PentestCleanUpStrategy",

@@ -65,7 +65,7 @@ class GetOmniDashboardResult:
     @pulumi.getter
     def body(self) -> Optional[_builtins.str]:
         """
-        The dashboard body, a JSON document describing the dashboard's widgets and layout.
+        The dashboard definition.
         """
         return pulumi.get(self, "body")
 
@@ -73,7 +73,7 @@ class GetOmniDashboardResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[_builtins.str]:
         """
-        The time the dashboard was created.
+        The timestamp when the dashboard was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -89,7 +89,7 @@ class GetOmniDashboardResult:
     @pulumi.getter(name="dashboardId")
     def dashboard_id(self) -> Optional[_builtins.str]:
         """
-        The unique identifier of the dashboard.
+        The unique ID of the dashboard.
         """
         return pulumi.get(self, "dashboard_id")
 
@@ -97,7 +97,7 @@ class GetOmniDashboardResult:
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        The description of the dashboard.
+        An optional description of the dashboard.
         """
         return pulumi.get(self, "description")
 
@@ -105,7 +105,7 @@ class GetOmniDashboardResult:
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of the dashboard.
+        A name that identifies the dashboard.
         """
         return pulumi.get(self, "name")
 
@@ -121,7 +121,7 @@ class GetOmniDashboardResult:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[_builtins.str]:
         """
-        The time the dashboard was last updated.
+        The timestamp when the dashboard was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -147,10 +147,10 @@ def get_omni_dashboard(dashboard_id: Optional[_builtins.str] = None,
                        space_id: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOmniDashboardResult:
     """
-    Resource type definition for AWS::CloudWatch::OmniDashboard
+    Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
 
-    :param _builtins.str dashboard_id: The unique identifier of the dashboard.
-    :param _builtins.str space_id: The unique identifier of the space the dashboard belongs to.
+    :param _builtins.str dashboard_id: The unique ID of the dashboard.
+    :param _builtins.str space_id: The unique ID of the space to create the dashboard in.
     """
     __args__ = dict()
     __args__['dashboardId'] = dashboard_id
@@ -172,10 +172,10 @@ def get_omni_dashboard_output(dashboard_id: pulumi.Input[Optional[_builtins.str]
                               space_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOmniDashboardResult]:
     """
-    Resource type definition for AWS::CloudWatch::OmniDashboard
+    Resource Type definition for AWS::CloudWatch::OmniDashboard. A dashboard is a saved arrangement of panels that shows your team one agreed view of a system, backed by queries against your space's telemetry.
 
-    :param _builtins.str dashboard_id: The unique identifier of the dashboard.
-    :param _builtins.str space_id: The unique identifier of the space the dashboard belongs to.
+    :param _builtins.str dashboard_id: The unique ID of the dashboard.
+    :param _builtins.str space_id: The unique ID of the space to create the dashboard in.
     """
     __args__ = dict()
     __args__['dashboardId'] = dashboard_id

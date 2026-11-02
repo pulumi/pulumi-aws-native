@@ -287,7 +287,7 @@ class QuotaShare(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="quotaShareName")
-    def quota_share_name(self) -> pulumi.Output[_builtins.str]:
+    def quota_share_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         """

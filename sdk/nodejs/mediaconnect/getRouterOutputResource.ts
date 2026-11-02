@@ -29,7 +29,11 @@ export interface GetRouterOutputResourceResult {
      * The Amazon Resource Name (ARN) of the router output.
      */
     readonly arn?: string;
-    readonly configuration?: outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration0Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration1Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration2Properties;
+    /**
+     * The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+     */
+    readonly associatedSourceEndpointArns?: string[];
+    readonly configuration?: outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration0Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration1Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration2Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration3Properties;
     /**
      * The timestamp when the router output was created.
      */

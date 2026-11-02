@@ -19,6 +19,9 @@ __all__ = [
     'DomainRuleBasedMatchingStatus',
     'EventStreamState',
     'EventStreamStatus',
+    'EventTriggerIntentFilterConditionComparisonOperator',
+    'EventTriggerIntentIntentDomain',
+    'EventTriggerIntentType',
     'EventTriggerLogicalOperator',
     'EventTriggerObjectAttributeComparisonOperator',
     'EventTriggerPeriodUnit',
@@ -174,6 +177,39 @@ class EventStreamStatus(_builtins.str, Enum):
     """
     HEALTHY = "HEALTHY"
     UNHEALTHY = "UNHEALTHY"
+
+
+@pulumi.type_token("aws-native:customerprofiles:EventTriggerIntentFilterConditionComparisonOperator")
+class EventTriggerIntentFilterConditionComparisonOperator(_builtins.str, Enum):
+    """
+    The operator used to compare the predicted intent against a list of values.
+    """
+    INCLUSIVE = "INCLUSIVE"
+    EXCLUSIVE = "EXCLUSIVE"
+    CONTAINS = "CONTAINS"
+    GREATER_THAN = "GREATER_THAN"
+    LESS_THAN = "LESS_THAN"
+    GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL"
+    LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
+    EQUAL = "EQUAL"
+
+
+@pulumi.type_token("aws-native:customerprofiles:EventTriggerIntentIntentDomain")
+class EventTriggerIntentIntentDomain(_builtins.str, Enum):
+    """
+    The domain of the intent.
+    """
+    DEFAULT = "DEFAULT"
+
+
+@pulumi.type_token("aws-native:customerprofiles:EventTriggerIntentType")
+class EventTriggerIntentType(_builtins.str, Enum):
+    """
+    The type of the intent.
+    """
+    PRICE_SENSITIVITY = "PRICE_SENSITIVITY"
+    UPGRADE_UPSELL_PROPENSITY = "UPGRADE_UPSELL_PROPENSITY"
+    LAST_SEARCH_INTENT = "LAST_SEARCH_INTENT"
 
 
 @pulumi.type_token("aws-native:customerprofiles:EventTriggerLogicalOperator")

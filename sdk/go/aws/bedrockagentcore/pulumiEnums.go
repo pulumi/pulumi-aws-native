@@ -4679,6 +4679,218 @@ func (o GatewayRateLimitStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
+type GatewayRuleFallbackError string
+
+const (
+	GatewayRuleFallbackErrorConnectionError  = GatewayRuleFallbackError("CONNECTION_ERROR")
+	GatewayRuleFallbackErrorFirstByteTimeout = GatewayRuleFallbackError("FIRST_BYTE_TIMEOUT")
+	GatewayRuleFallbackErrorUnroutable       = GatewayRuleFallbackError("UNROUTABLE")
+)
+
+func (GatewayRuleFallbackError) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleFallbackError)(nil)).Elem()
+}
+
+func (e GatewayRuleFallbackError) ToGatewayRuleFallbackErrorOutput() GatewayRuleFallbackErrorOutput {
+	return pulumi.ToOutput(e).(GatewayRuleFallbackErrorOutput)
+}
+
+func (e GatewayRuleFallbackError) ToGatewayRuleFallbackErrorOutputWithContext(ctx context.Context) GatewayRuleFallbackErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayRuleFallbackErrorOutput)
+}
+
+func (e GatewayRuleFallbackError) ToGatewayRuleFallbackErrorPtrOutput() GatewayRuleFallbackErrorPtrOutput {
+	return e.ToGatewayRuleFallbackErrorPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayRuleFallbackError) ToGatewayRuleFallbackErrorPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackErrorPtrOutput {
+	return GatewayRuleFallbackError(e).ToGatewayRuleFallbackErrorOutputWithContext(ctx).ToGatewayRuleFallbackErrorPtrOutputWithContext(ctx)
+}
+
+func (e GatewayRuleFallbackError) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayRuleFallbackError) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayRuleFallbackError) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayRuleFallbackError) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayRuleFallbackErrorOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleFallbackErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleFallbackError)(nil)).Elem()
+}
+
+func (o GatewayRuleFallbackErrorOutput) ToGatewayRuleFallbackErrorOutput() GatewayRuleFallbackErrorOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackErrorOutput) ToGatewayRuleFallbackErrorOutputWithContext(ctx context.Context) GatewayRuleFallbackErrorOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackErrorOutput) ToGatewayRuleFallbackErrorPtrOutput() GatewayRuleFallbackErrorPtrOutput {
+	return o.ToGatewayRuleFallbackErrorPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleFallbackErrorOutput) ToGatewayRuleFallbackErrorPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackErrorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRuleFallbackError) *GatewayRuleFallbackError {
+		return &v
+	}).(GatewayRuleFallbackErrorPtrOutput)
+}
+
+func (o GatewayRuleFallbackErrorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleFallbackErrorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRuleFallbackError) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayRuleFallbackErrorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleFallbackErrorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRuleFallbackError) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRuleFallbackErrorPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleFallbackErrorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRuleFallbackError)(nil)).Elem()
+}
+
+func (o GatewayRuleFallbackErrorPtrOutput) ToGatewayRuleFallbackErrorPtrOutput() GatewayRuleFallbackErrorPtrOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackErrorPtrOutput) ToGatewayRuleFallbackErrorPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackErrorPtrOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackErrorPtrOutput) Elem() GatewayRuleFallbackErrorOutput {
+	return o.ApplyT(func(v *GatewayRuleFallbackError) GatewayRuleFallbackError {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRuleFallbackError
+		return ret
+	}).(GatewayRuleFallbackErrorOutput)
+}
+
+func (o GatewayRuleFallbackErrorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleFallbackErrorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayRuleFallbackError) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayRuleFallbackErrorInput is an input type that accepts values of the GatewayRuleFallbackError enum
+// A concrete instance of `GatewayRuleFallbackErrorInput` can be one of the following:
+//
+//	GatewayRuleFallbackErrorConnectionError
+//	GatewayRuleFallbackErrorFirstByteTimeout
+//	GatewayRuleFallbackErrorUnroutable
+type GatewayRuleFallbackErrorInput interface {
+	pulumi.Input
+
+	ToGatewayRuleFallbackErrorOutput() GatewayRuleFallbackErrorOutput
+	ToGatewayRuleFallbackErrorOutputWithContext(context.Context) GatewayRuleFallbackErrorOutput
+}
+
+var gatewayRuleFallbackErrorPtrType = reflect.TypeOf((**GatewayRuleFallbackError)(nil)).Elem()
+
+type GatewayRuleFallbackErrorPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRuleFallbackErrorPtrOutput() GatewayRuleFallbackErrorPtrOutput
+	ToGatewayRuleFallbackErrorPtrOutputWithContext(context.Context) GatewayRuleFallbackErrorPtrOutput
+}
+
+type gatewayRuleFallbackErrorPtr string
+
+func GatewayRuleFallbackErrorPtr(v string) GatewayRuleFallbackErrorPtrInput {
+	return (*gatewayRuleFallbackErrorPtr)(&v)
+}
+
+func (*gatewayRuleFallbackErrorPtr) ElementType() reflect.Type {
+	return gatewayRuleFallbackErrorPtrType
+}
+
+func (in *gatewayRuleFallbackErrorPtr) ToGatewayRuleFallbackErrorPtrOutput() GatewayRuleFallbackErrorPtrOutput {
+	return pulumi.ToOutput(in).(GatewayRuleFallbackErrorPtrOutput)
+}
+
+func (in *gatewayRuleFallbackErrorPtr) ToGatewayRuleFallbackErrorPtrOutputWithContext(ctx context.Context) GatewayRuleFallbackErrorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayRuleFallbackErrorPtrOutput)
+}
+
+// GatewayRuleFallbackErrorArrayInput is an input type that accepts GatewayRuleFallbackErrorArray and GatewayRuleFallbackErrorArrayOutput values.
+// You can construct a concrete instance of `GatewayRuleFallbackErrorArrayInput` via:
+//
+//	GatewayRuleFallbackErrorArray{ GatewayRuleFallbackErrorArgs{...} }
+type GatewayRuleFallbackErrorArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRuleFallbackErrorArrayOutput() GatewayRuleFallbackErrorArrayOutput
+	ToGatewayRuleFallbackErrorArrayOutputWithContext(context.Context) GatewayRuleFallbackErrorArrayOutput
+}
+
+type GatewayRuleFallbackErrorArray []GatewayRuleFallbackError
+
+func (GatewayRuleFallbackErrorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleFallbackError)(nil)).Elem()
+}
+
+func (i GatewayRuleFallbackErrorArray) ToGatewayRuleFallbackErrorArrayOutput() GatewayRuleFallbackErrorArrayOutput {
+	return i.ToGatewayRuleFallbackErrorArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleFallbackErrorArray) ToGatewayRuleFallbackErrorArrayOutputWithContext(ctx context.Context) GatewayRuleFallbackErrorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleFallbackErrorArrayOutput)
+}
+
+type GatewayRuleFallbackErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleFallbackErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleFallbackError)(nil)).Elem()
+}
+
+func (o GatewayRuleFallbackErrorArrayOutput) ToGatewayRuleFallbackErrorArrayOutput() GatewayRuleFallbackErrorArrayOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackErrorArrayOutput) ToGatewayRuleFallbackErrorArrayOutputWithContext(ctx context.Context) GatewayRuleFallbackErrorArrayOutput {
+	return o
+}
+
+func (o GatewayRuleFallbackErrorArrayOutput) Index(i pulumi.IntInput) GatewayRuleFallbackErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRuleFallbackError {
+		return vs[0].([]GatewayRuleFallbackError)[vs[1].(int)]
+	}).(GatewayRuleFallbackErrorOutput)
+}
+
 type GatewayRulePrincipalMatchOperator string
 
 const (
@@ -18065,6 +18277,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineModePtrInput)(nil)).Elem(), GatewayPolicyEngineMode("LOG_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitPeriodInput)(nil)).Elem(), GatewayRateLimitPeriod("second"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitPeriodPtrInput)(nil)).Elem(), GatewayRateLimitPeriod("second"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackErrorInput)(nil)).Elem(), GatewayRuleFallbackError("CONNECTION_ERROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackErrorPtrInput)(nil)).Elem(), GatewayRuleFallbackError("CONNECTION_ERROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackErrorArrayInput)(nil)).Elem(), GatewayRuleFallbackErrorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRulePrincipalMatchOperatorInput)(nil)).Elem(), GatewayRulePrincipalMatchOperator("StringEquals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRulePrincipalMatchOperatorPtrInput)(nil)).Elem(), GatewayRulePrincipalMatchOperator("StringEquals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySearchTypeInput)(nil)).Elem(), GatewaySearchType("SEMANTIC"))
@@ -18271,6 +18486,9 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRateLimitPeriodPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRateLimitStatusOutput{})
 	pulumi.RegisterOutputType(GatewayRateLimitStatusPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRuleFallbackErrorOutput{})
+	pulumi.RegisterOutputType(GatewayRuleFallbackErrorPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRuleFallbackErrorArrayOutput{})
 	pulumi.RegisterOutputType(GatewayRulePrincipalMatchOperatorOutput{})
 	pulumi.RegisterOutputType(GatewayRulePrincipalMatchOperatorPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRuleStatusOutput{})

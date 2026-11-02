@@ -46,6 +46,9 @@ export class Daemon extends pulumi.CustomResource {
      */
     declare public readonly clusterArn: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    /**
+     * If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
+     */
     declare public readonly critical: pulumi.Output<boolean | undefined>;
     declare public /*out*/ readonly daemonArn: pulumi.Output<string>;
     declare public readonly daemonName: pulumi.Output<string | undefined>;
@@ -136,6 +139,9 @@ export interface DaemonArgs {
      * The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
      */
     clusterArn?: pulumi.Input<string | undefined>;
+    /**
+     * If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
+     */
     critical?: pulumi.Input<boolean | undefined>;
     daemonName?: pulumi.Input<string | undefined>;
     /**

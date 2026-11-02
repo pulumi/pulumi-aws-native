@@ -89,9 +89,7 @@ func NewConnector(ctx *pulumi.Context,
 		"kafkaConnectVersion",
 		"logDelivery",
 		"networkType",
-		"plugins[*]",
 		"serviceExecutionRoleArn",
-		"workerConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

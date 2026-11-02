@@ -20,6 +20,11 @@ export type BridgeSource = import("./bridgeSource").BridgeSource;
 export const BridgeSource: typeof import("./bridgeSource").BridgeSource = null as any;
 utilities.lazyLoad(exports, ["BridgeSource"], () => require("./bridgeSource"));
 
+export { DestinationEndpointArgs } from "./destinationEndpoint";
+export type DestinationEndpoint = import("./destinationEndpoint").DestinationEndpoint;
+export const DestinationEndpoint: typeof import("./destinationEndpoint").DestinationEndpoint = null as any;
+utilities.lazyLoad(exports, ["DestinationEndpoint"], () => require("./destinationEndpoint"));
+
 export { FlowArgs } from "./flow";
 export type Flow = import("./flow").Flow;
 export const Flow: typeof import("./flow").Flow = null as any;
@@ -70,6 +75,11 @@ export const getBridgeSource: typeof import("./getBridgeSource").getBridgeSource
 export const getBridgeSourceOutput: typeof import("./getBridgeSource").getBridgeSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getBridgeSource","getBridgeSourceOutput"], () => require("./getBridgeSource"));
 
+export { GetDestinationEndpointArgs, GetDestinationEndpointResult, GetDestinationEndpointOutputArgs } from "./getDestinationEndpoint";
+export const getDestinationEndpoint: typeof import("./getDestinationEndpoint").getDestinationEndpoint = null as any;
+export const getDestinationEndpointOutput: typeof import("./getDestinationEndpoint").getDestinationEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getDestinationEndpoint","getDestinationEndpointOutput"], () => require("./getDestinationEndpoint"));
+
 export { GetFlowArgs, GetFlowResult, GetFlowOutputArgs } from "./getFlow";
 export const getFlow: typeof import("./getFlow").getFlow = null as any;
 export const getFlowOutput: typeof import("./getFlow").getFlowOutput = null as any;
@@ -115,6 +125,11 @@ export const getRouterOutputResource: typeof import("./getRouterOutputResource")
 export const getRouterOutputResourceOutput: typeof import("./getRouterOutputResource").getRouterOutputResourceOutput = null as any;
 utilities.lazyLoad(exports, ["getRouterOutputResource","getRouterOutputResourceOutput"], () => require("./getRouterOutputResource"));
 
+export { GetSourceEndpointArgs, GetSourceEndpointResult, GetSourceEndpointOutputArgs } from "./getSourceEndpoint";
+export const getSourceEndpoint: typeof import("./getSourceEndpoint").getSourceEndpoint = null as any;
+export const getSourceEndpointOutput: typeof import("./getSourceEndpoint").getSourceEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceEndpoint","getSourceEndpointOutput"], () => require("./getSourceEndpoint"));
+
 export { RouterInputArgs } from "./routerInput";
 export type RouterInput = import("./routerInput").RouterInput;
 export const RouterInput: typeof import("./routerInput").RouterInput = null as any;
@@ -130,6 +145,11 @@ export type RouterOutputResource = import("./routerOutputResource").RouterOutput
 export const RouterOutputResource: typeof import("./routerOutputResource").RouterOutputResource = null as any;
 utilities.lazyLoad(exports, ["RouterOutputResource"], () => require("./routerOutputResource"));
 
+export { SourceEndpointArgs } from "./sourceEndpoint";
+export type SourceEndpoint = import("./sourceEndpoint").SourceEndpoint;
+export const SourceEndpoint: typeof import("./sourceEndpoint").SourceEndpoint = null as any;
+utilities.lazyLoad(exports, ["SourceEndpoint"], () => require("./sourceEndpoint"));
+
 
 // Export enums:
 export * from "../types/enums/mediaconnect";
@@ -144,6 +164,8 @@ const _module = {
                 return new BridgeOutputResource(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:BridgeSource":
                 return new BridgeSource(name, <any>undefined, { urn })
+            case "aws-native:mediaconnect:DestinationEndpoint":
+                return new DestinationEndpoint(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:Flow":
                 return new Flow(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:FlowEntitlement":
@@ -164,6 +186,8 @@ const _module = {
                 return new RouterNetworkInterface(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:RouterOutputResource":
                 return new RouterOutputResource(name, <any>undefined, { urn })
+            case "aws-native:mediaconnect:SourceEndpoint":
+                return new SourceEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -453,7 +453,7 @@ func (in *organizationFeatureSetPtr) ToOrganizationFeatureSetPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationFeatureSetPtrOutput)
 }
 
-// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, BEDROCK_POLICY, CHATBOT_POLICY, DECLARATIVE_POLICY_EC2, INSPECTOR_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, RESOURCE_CONTROL_POLICY, S3_POLICY, SECURITYHUB_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, UPGRADE_ROLLOUT_POLICY
+// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, BEDROCK_POLICY, CHATBOT_POLICY, DECLARATIVE_POLICY_EC2, GUARDDUTY_POLICY, INSPECTOR_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, RESOURCE_CONTROL_POLICY, S3_POLICY, SECURITYHUB_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, UPGRADE_ROLLOUT_POLICY
 type PolicyType string
 
 const (
@@ -462,6 +462,7 @@ const (
 	PolicyTypeBedrockPolicy                 = PolicyType("BEDROCK_POLICY")
 	PolicyTypeChatbotPolicy                 = PolicyType("CHATBOT_POLICY")
 	PolicyTypeDeclarativePolicyEc2          = PolicyType("DECLARATIVE_POLICY_EC2")
+	PolicyTypeGuarddutyPolicy               = PolicyType("GUARDDUTY_POLICY")
 	PolicyTypeInspectorPolicy               = PolicyType("INSPECTOR_POLICY")
 	PolicyTypeNetworkSecurityDirectorPolicy = PolicyType("NETWORK_SECURITY_DIRECTOR_POLICY")
 	PolicyTypeResourceControlPolicy         = PolicyType("RESOURCE_CONTROL_POLICY")
@@ -599,6 +600,7 @@ func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 //	PolicyTypeBedrockPolicy
 //	PolicyTypeChatbotPolicy
 //	PolicyTypeDeclarativePolicyEc2
+//	PolicyTypeGuarddutyPolicy
 //	PolicyTypeInspectorPolicy
 //	PolicyTypeNetworkSecurityDirectorPolicy
 //	PolicyTypeResourceControlPolicy

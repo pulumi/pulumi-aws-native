@@ -133,16 +133,16 @@
   "readOnlyProperties" : [ "/properties/DomainNameArn", "/properties/RegionalHostedZoneId", "/properties/DistributionDomainName", "/properties/RegionalDomainName", "/properties/DistributionHostedZoneId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST", "apigateway:PUT", "apigateway:GET" ]
+      "permissions" : [ "apigateway:POST", "apigateway:PUT", "apigateway:GET", "apigateway:AddCertificateToDomain", "s3:GetObject", "s3:GetObjectVersion", "cloudfront:UpdateDistribution" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:GET", "apigateway:PUT", "apigateway:PATCH", "apigateway:DELETE" ]
+      "permissions" : [ "apigateway:GET", "apigateway:PUT", "apigateway:PATCH", "apigateway:DELETE", "apigateway:AddCertificateToDomain", "apigateway:RemoveCertificateFromDomain", "s3:GetObject", "s3:GetObjectVersion", "cloudfront:UpdateDistribution" ]
     },
     "delete" : {
-      "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
+      "permissions" : [ "apigateway:GET", "apigateway:DELETE", "apigateway:RemoveCertificateFromDomain" ]
     },
     "list" : {
       "permissions" : [ "apigateway:GET" ]

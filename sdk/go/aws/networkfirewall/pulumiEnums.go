@@ -480,6 +480,172 @@ func (o FirewallEnabledAnalysisTypeArrayOutput) Index(i pulumi.IntInput) Firewal
 	}).(FirewallEnabledAnalysisTypeOutput)
 }
 
+// The protocol the proxy listener uses.
+type FirewallListenerPropertyType string
+
+const (
+	FirewallListenerPropertyTypeHttp  = FirewallListenerPropertyType("HTTP")
+	FirewallListenerPropertyTypeHttps = FirewallListenerPropertyType("HTTPS")
+)
+
+func (FirewallListenerPropertyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallListenerPropertyType)(nil)).Elem()
+}
+
+func (e FirewallListenerPropertyType) ToFirewallListenerPropertyTypeOutput() FirewallListenerPropertyTypeOutput {
+	return pulumi.ToOutput(e).(FirewallListenerPropertyTypeOutput)
+}
+
+func (e FirewallListenerPropertyType) ToFirewallListenerPropertyTypeOutputWithContext(ctx context.Context) FirewallListenerPropertyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallListenerPropertyTypeOutput)
+}
+
+func (e FirewallListenerPropertyType) ToFirewallListenerPropertyTypePtrOutput() FirewallListenerPropertyTypePtrOutput {
+	return e.ToFirewallListenerPropertyTypePtrOutputWithContext(context.Background())
+}
+
+func (e FirewallListenerPropertyType) ToFirewallListenerPropertyTypePtrOutputWithContext(ctx context.Context) FirewallListenerPropertyTypePtrOutput {
+	return FirewallListenerPropertyType(e).ToFirewallListenerPropertyTypeOutputWithContext(ctx).ToFirewallListenerPropertyTypePtrOutputWithContext(ctx)
+}
+
+func (e FirewallListenerPropertyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallListenerPropertyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallListenerPropertyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallListenerPropertyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallListenerPropertyTypeOutput struct{ *pulumi.OutputState }
+
+func (FirewallListenerPropertyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallListenerPropertyType)(nil)).Elem()
+}
+
+func (o FirewallListenerPropertyTypeOutput) ToFirewallListenerPropertyTypeOutput() FirewallListenerPropertyTypeOutput {
+	return o
+}
+
+func (o FirewallListenerPropertyTypeOutput) ToFirewallListenerPropertyTypeOutputWithContext(ctx context.Context) FirewallListenerPropertyTypeOutput {
+	return o
+}
+
+func (o FirewallListenerPropertyTypeOutput) ToFirewallListenerPropertyTypePtrOutput() FirewallListenerPropertyTypePtrOutput {
+	return o.ToFirewallListenerPropertyTypePtrOutputWithContext(context.Background())
+}
+
+func (o FirewallListenerPropertyTypeOutput) ToFirewallListenerPropertyTypePtrOutputWithContext(ctx context.Context) FirewallListenerPropertyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallListenerPropertyType) *FirewallListenerPropertyType {
+		return &v
+	}).(FirewallListenerPropertyTypePtrOutput)
+}
+
+func (o FirewallListenerPropertyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallListenerPropertyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallListenerPropertyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallListenerPropertyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallListenerPropertyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallListenerPropertyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallListenerPropertyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallListenerPropertyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallListenerPropertyType)(nil)).Elem()
+}
+
+func (o FirewallListenerPropertyTypePtrOutput) ToFirewallListenerPropertyTypePtrOutput() FirewallListenerPropertyTypePtrOutput {
+	return o
+}
+
+func (o FirewallListenerPropertyTypePtrOutput) ToFirewallListenerPropertyTypePtrOutputWithContext(ctx context.Context) FirewallListenerPropertyTypePtrOutput {
+	return o
+}
+
+func (o FirewallListenerPropertyTypePtrOutput) Elem() FirewallListenerPropertyTypeOutput {
+	return o.ApplyT(func(v *FirewallListenerPropertyType) FirewallListenerPropertyType {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallListenerPropertyType
+		return ret
+	}).(FirewallListenerPropertyTypeOutput)
+}
+
+func (o FirewallListenerPropertyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallListenerPropertyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallListenerPropertyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallListenerPropertyTypeInput is an input type that accepts values of the FirewallListenerPropertyType enum
+// A concrete instance of `FirewallListenerPropertyTypeInput` can be one of the following:
+//
+//	FirewallListenerPropertyTypeHttp
+//	FirewallListenerPropertyTypeHttps
+type FirewallListenerPropertyTypeInput interface {
+	pulumi.Input
+
+	ToFirewallListenerPropertyTypeOutput() FirewallListenerPropertyTypeOutput
+	ToFirewallListenerPropertyTypeOutputWithContext(context.Context) FirewallListenerPropertyTypeOutput
+}
+
+var firewallListenerPropertyTypePtrType = reflect.TypeOf((**FirewallListenerPropertyType)(nil)).Elem()
+
+type FirewallListenerPropertyTypePtrInput interface {
+	pulumi.Input
+
+	ToFirewallListenerPropertyTypePtrOutput() FirewallListenerPropertyTypePtrOutput
+	ToFirewallListenerPropertyTypePtrOutputWithContext(context.Context) FirewallListenerPropertyTypePtrOutput
+}
+
+type firewallListenerPropertyTypePtr string
+
+func FirewallListenerPropertyTypePtr(v string) FirewallListenerPropertyTypePtrInput {
+	return (*firewallListenerPropertyTypePtr)(&v)
+}
+
+func (*firewallListenerPropertyTypePtr) ElementType() reflect.Type {
+	return firewallListenerPropertyTypePtrType
+}
+
+func (in *firewallListenerPropertyTypePtr) ToFirewallListenerPropertyTypePtrOutput() FirewallListenerPropertyTypePtrOutput {
+	return pulumi.ToOutput(in).(FirewallListenerPropertyTypePtrOutput)
+}
+
+func (in *firewallListenerPropertyTypePtr) ToFirewallListenerPropertyTypePtrOutputWithContext(ctx context.Context) FirewallListenerPropertyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallListenerPropertyTypePtrOutput)
+}
+
 type FirewallPolicyOverrideAction string
 
 const (
@@ -641,6 +807,340 @@ func (in *firewallPolicyOverrideActionPtr) ToFirewallPolicyOverrideActionPtrOutp
 
 func (in *firewallPolicyOverrideActionPtr) ToFirewallPolicyOverrideActionPtrOutputWithContext(ctx context.Context) FirewallPolicyOverrideActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyOverrideActionPtrOutput)
+}
+
+type FirewallPolicyRoute53ResolvedIpValidationAction string
+
+const (
+	FirewallPolicyRoute53ResolvedIpValidationActionReject = FirewallPolicyRoute53ResolvedIpValidationAction("REJECT")
+	FirewallPolicyRoute53ResolvedIpValidationActionDrop   = FirewallPolicyRoute53ResolvedIpValidationAction("DROP")
+	FirewallPolicyRoute53ResolvedIpValidationActionAlert  = FirewallPolicyRoute53ResolvedIpValidationAction("ALERT")
+)
+
+func (FirewallPolicyRoute53ResolvedIpValidationAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationAction)(nil)).Elem()
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationAction) ToFirewallPolicyRoute53ResolvedIpValidationActionOutput() FirewallPolicyRoute53ResolvedIpValidationActionOutput {
+	return pulumi.ToOutput(e).(FirewallPolicyRoute53ResolvedIpValidationActionOutput)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationAction) ToFirewallPolicyRoute53ResolvedIpValidationActionOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallPolicyRoute53ResolvedIpValidationActionOutput)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationAction) ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutput() FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput {
+	return e.ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationAction) ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput {
+	return FirewallPolicyRoute53ResolvedIpValidationAction(e).ToFirewallPolicyRoute53ResolvedIpValidationActionOutputWithContext(ctx).ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutputWithContext(ctx)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallPolicyRoute53ResolvedIpValidationActionOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRoute53ResolvedIpValidationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationAction)(nil)).Elem()
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionOutput) ToFirewallPolicyRoute53ResolvedIpValidationActionOutput() FirewallPolicyRoute53ResolvedIpValidationActionOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionOutput) ToFirewallPolicyRoute53ResolvedIpValidationActionOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationActionOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionOutput) ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutput() FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput {
+	return o.ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionOutput) ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyRoute53ResolvedIpValidationAction) *FirewallPolicyRoute53ResolvedIpValidationAction {
+		return &v
+	}).(FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyRoute53ResolvedIpValidationAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyRoute53ResolvedIpValidationAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyRoute53ResolvedIpValidationAction)(nil)).Elem()
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput) ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutput() FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput) ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput) Elem() FirewallPolicyRoute53ResolvedIpValidationActionOutput {
+	return o.ApplyT(func(v *FirewallPolicyRoute53ResolvedIpValidationAction) FirewallPolicyRoute53ResolvedIpValidationAction {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyRoute53ResolvedIpValidationAction
+		return ret
+	}).(FirewallPolicyRoute53ResolvedIpValidationActionOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallPolicyRoute53ResolvedIpValidationAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallPolicyRoute53ResolvedIpValidationActionInput is an input type that accepts values of the FirewallPolicyRoute53ResolvedIpValidationAction enum
+// A concrete instance of `FirewallPolicyRoute53ResolvedIpValidationActionInput` can be one of the following:
+//
+//	FirewallPolicyRoute53ResolvedIpValidationActionReject
+//	FirewallPolicyRoute53ResolvedIpValidationActionDrop
+//	FirewallPolicyRoute53ResolvedIpValidationActionAlert
+type FirewallPolicyRoute53ResolvedIpValidationActionInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRoute53ResolvedIpValidationActionOutput() FirewallPolicyRoute53ResolvedIpValidationActionOutput
+	ToFirewallPolicyRoute53ResolvedIpValidationActionOutputWithContext(context.Context) FirewallPolicyRoute53ResolvedIpValidationActionOutput
+}
+
+var firewallPolicyRoute53ResolvedIpValidationActionPtrType = reflect.TypeOf((**FirewallPolicyRoute53ResolvedIpValidationAction)(nil)).Elem()
+
+type FirewallPolicyRoute53ResolvedIpValidationActionPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutput() FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput
+	ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutputWithContext(context.Context) FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput
+}
+
+type firewallPolicyRoute53ResolvedIpValidationActionPtr string
+
+func FirewallPolicyRoute53ResolvedIpValidationActionPtr(v string) FirewallPolicyRoute53ResolvedIpValidationActionPtrInput {
+	return (*firewallPolicyRoute53ResolvedIpValidationActionPtr)(&v)
+}
+
+func (*firewallPolicyRoute53ResolvedIpValidationActionPtr) ElementType() reflect.Type {
+	return firewallPolicyRoute53ResolvedIpValidationActionPtrType
+}
+
+func (in *firewallPolicyRoute53ResolvedIpValidationActionPtr) ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutput() FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput {
+	return pulumi.ToOutput(in).(FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput)
+}
+
+func (in *firewallPolicyRoute53ResolvedIpValidationActionPtr) ToFirewallPolicyRoute53ResolvedIpValidationActionPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput)
+}
+
+type FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy string
+
+const (
+	FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyReject   = FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy("REJECT")
+	FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyDrop     = FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy("DROP")
+	FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyContinue = FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy("CONTINUE")
+)
+
+func (FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy)(nil)).Elem()
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput {
+	return pulumi.ToOutput(e).(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput {
+	return e.ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput {
+	return FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy(e).ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutputWithContext(ctx).ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutputWithContext(ctx)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy)(nil)).Elem()
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput {
+	return o.ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) *FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy {
+		return &v
+	}).(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy)(nil)).Elem()
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput) Elem() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput {
+	return o.ApplyT(func(v *FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy
+		return ret
+	}).(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput)
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyInput is an input type that accepts values of the FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy enum
+// A concrete instance of `FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyInput` can be one of the following:
+//
+//	FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyReject
+//	FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyDrop
+//	FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyContinue
+type FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput
+	ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutputWithContext(context.Context) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput
+}
+
+var firewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrType = reflect.TypeOf((**FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy)(nil)).Elem()
+
+type FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput
+	ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutputWithContext(context.Context) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput
+}
+
+type firewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtr string
+
+func FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtr(v string) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrInput {
+	return (*firewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtr)(&v)
+}
+
+func (*firewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtr) ElementType() reflect.Type {
+	return firewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrType
+}
+
+func (in *firewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtr) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput() FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput {
+	return pulumi.ToOutput(in).(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput)
+}
+
+func (in *firewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtr) ToFirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput)
 }
 
 type FirewallPolicyRuleOrder string
@@ -2412,8 +2912,9 @@ func (o RuleGroupSummaryRuleOptionArrayOutput) Index(i pulumi.IntInput) RuleGrou
 type RuleGroupTargetType string
 
 const (
-	RuleGroupTargetTypeTlsSni   = RuleGroupTargetType("TLS_SNI")
-	RuleGroupTargetTypeHttpHost = RuleGroupTargetType("HTTP_HOST")
+	RuleGroupTargetTypeTlsSni                   = RuleGroupTargetType("TLS_SNI")
+	RuleGroupTargetTypeHttpHost                 = RuleGroupTargetType("HTTP_HOST")
+	RuleGroupTargetTypeAwsRoute53ResolvedDomain = RuleGroupTargetType("AWS_ROUTE_53_RESOLVED_DOMAIN")
 )
 
 func (RuleGroupTargetType) ElementType() reflect.Type {
@@ -2540,6 +3041,7 @@ func (o RuleGroupTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 //
 //	RuleGroupTargetTypeTlsSni
 //	RuleGroupTargetTypeHttpHost
+//	RuleGroupTargetTypeAwsRoute53ResolvedDomain
 type RuleGroupTargetTypeInput interface {
 	pulumi.Input
 
@@ -3348,8 +3850,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEnabledAnalysisTypeInput)(nil)).Elem(), FirewallEnabledAnalysisType("TLS_SNI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEnabledAnalysisTypePtrInput)(nil)).Elem(), FirewallEnabledAnalysisType("TLS_SNI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEnabledAnalysisTypeArrayInput)(nil)).Elem(), FirewallEnabledAnalysisTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallListenerPropertyTypeInput)(nil)).Elem(), FirewallListenerPropertyType("HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallListenerPropertyTypePtrInput)(nil)).Elem(), FirewallListenerPropertyType("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyOverrideActionInput)(nil)).Elem(), FirewallPolicyOverrideAction("DROP_TO_ALERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyOverrideActionPtrInput)(nil)).Elem(), FirewallPolicyOverrideAction("DROP_TO_ALERT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationActionInput)(nil)).Elem(), FirewallPolicyRoute53ResolvedIpValidationAction("REJECT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationActionPtrInput)(nil)).Elem(), FirewallPolicyRoute53ResolvedIpValidationAction("REJECT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyInput)(nil)).Elem(), FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy("REJECT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrInput)(nil)).Elem(), FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy("REJECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleOrderInput)(nil)).Elem(), FirewallPolicyRuleOrder("DEFAULT_ACTION_ORDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleOrderPtrInput)(nil)).Elem(), FirewallPolicyRuleOrder("DEFAULT_ACTION_ORDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStreamExceptionPolicyInput)(nil)).Elem(), FirewallPolicyStreamExceptionPolicy("DROP"))
@@ -3390,8 +3898,14 @@ func init() {
 	pulumi.RegisterOutputType(FirewallEnabledAnalysisTypeOutput{})
 	pulumi.RegisterOutputType(FirewallEnabledAnalysisTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallEnabledAnalysisTypeArrayOutput{})
+	pulumi.RegisterOutputType(FirewallListenerPropertyTypeOutput{})
+	pulumi.RegisterOutputType(FirewallListenerPropertyTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyOverrideActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyOverrideActionPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRoute53ResolvedIpValidationActionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRoute53ResolvedIpValidationActionPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleOrderOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleOrderPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStreamExceptionPolicyOutput{})

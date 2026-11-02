@@ -41,6 +41,10 @@ __all__ = [
     'DomainStats',
     'EventTriggerCondition',
     'EventTriggerDimension',
+    'EventTriggerIntent',
+    'EventTriggerIntentFilterCondition',
+    'EventTriggerIntentFilterDefinition',
+    'EventTriggerIntentFilterGroup',
     'EventTriggerLimits',
     'EventTriggerObjectAttribute',
     'EventTriggerPeriod',
@@ -1406,6 +1410,199 @@ class EventTriggerDimension(dict):
     @pulumi.getter(name="objectAttributes")
     def object_attributes(self) -> Sequence['outputs.EventTriggerObjectAttribute']:
         return pulumi.get(self, "object_attributes")
+
+
+@pulumi.output_type
+class EventTriggerIntent(dict):
+    """
+    Identifies a predicted intent by domain and type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intentDomain":
+            suggest = "intent_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTriggerIntent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTriggerIntent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTriggerIntent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 intent_domain: 'EventTriggerIntentIntentDomain',
+                 type: 'EventTriggerIntentType'):
+        """
+        Identifies a predicted intent by domain and type.
+
+        :param 'EventTriggerIntentIntentDomain' intent_domain: The domain of the intent.
+        :param 'EventTriggerIntentType' type: The type of the intent.
+        """
+        pulumi.set(__self__, "intent_domain", intent_domain)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="intentDomain")
+    def intent_domain(self) -> 'EventTriggerIntentIntentDomain':
+        """
+        The domain of the intent.
+        """
+        return pulumi.get(self, "intent_domain")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'EventTriggerIntentType':
+        """
+        The type of the intent.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class EventTriggerIntentFilterCondition(dict):
+    """
+    The criteria that a predicted intent must meet.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTriggerIntentFilterCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTriggerIntentFilterCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTriggerIntentFilterCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparison_operator: 'EventTriggerIntentFilterConditionComparisonOperator',
+                 intent: 'outputs.EventTriggerIntent',
+                 values: Sequence[_builtins.str]):
+        """
+        The criteria that a predicted intent must meet.
+
+        :param 'EventTriggerIntentFilterConditionComparisonOperator' comparison_operator: The operator used to compare the predicted intent against a list of values.
+        :param Sequence[_builtins.str] values: A list of intent values used for comparison.
+        """
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "intent", intent)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> 'EventTriggerIntentFilterConditionComparisonOperator':
+        """
+        The operator used to compare the predicted intent against a list of values.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def intent(self) -> 'outputs.EventTriggerIntent':
+        return pulumi.get(self, "intent")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        A list of intent values used for comparison.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class EventTriggerIntentFilterDefinition(dict):
+    """
+    Filters the destination to profiles whose predicted intents meet the specified conditions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logicalOperator":
+            suggest = "logical_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTriggerIntentFilterDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTriggerIntentFilterDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTriggerIntentFilterDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 groups: Sequence['outputs.EventTriggerIntentFilterGroup'],
+                 logical_operator: 'EventTriggerLogicalOperator'):
+        """
+        Filters the destination to profiles whose predicted intents meet the specified conditions.
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "logical_operator", logical_operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Sequence['outputs.EventTriggerIntentFilterGroup']:
+        return pulumi.get(self, "groups")
+
+    @_builtins.property
+    @pulumi.getter(name="logicalOperator")
+    def logical_operator(self) -> 'EventTriggerLogicalOperator':
+        return pulumi.get(self, "logical_operator")
+
+
+@pulumi.output_type
+class EventTriggerIntentFilterGroup(dict):
+    """
+    A group of intent filter conditions combined by the group's logical operator.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logicalOperator":
+            suggest = "logical_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTriggerIntentFilterGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTriggerIntentFilterGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTriggerIntentFilterGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.EventTriggerIntentFilterCondition'],
+                 logical_operator: 'EventTriggerLogicalOperator'):
+        """
+        A group of intent filter conditions combined by the group's logical operator.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "logical_operator", logical_operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.EventTriggerIntentFilterCondition']:
+        return pulumi.get(self, "conditions")
+
+    @_builtins.property
+    @pulumi.getter(name="logicalOperator")
+    def logical_operator(self) -> 'EventTriggerLogicalOperator':
+        return pulumi.get(self, "logical_operator")
 
 
 @pulumi.output_type

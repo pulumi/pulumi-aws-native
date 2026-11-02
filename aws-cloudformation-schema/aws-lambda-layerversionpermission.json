@@ -37,7 +37,7 @@
   "readOnlyProperties" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "lambda:AddLayerVersionPermission" ]
+      "permissions" : [ "lambda:AddLayerVersionPermission", "lambda:GetLayerVersionPolicy" ]
     },
     "read" : {
       "permissions" : [ "lambda:GetLayerVersionPolicy" ]

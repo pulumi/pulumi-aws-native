@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Lex.Inputs
         /// <summary>
         /// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
         /// </summary>
-        [Input("continueResponse", required: true)]
-        public Input<Inputs.BotResponseSpecificationArgs> ContinueResponse { get; set; } = null!;
+        [Input("continueResponse")]
+        public Input<Inputs.BotResponseSpecificationArgs>? ContinueResponse { get; set; }
 
         /// <summary>
         /// Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
@@ -33,8 +33,8 @@ namespace Pulumi.AwsNative.Lex.Inputs
         /// <summary>
         /// The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
         /// </summary>
-        [Input("waitingResponse", required: true)]
-        public Input<Inputs.BotResponseSpecificationArgs> WaitingResponse { get; set; } = null!;
+        [Input("waitingResponse")]
+        public Input<Inputs.BotResponseSpecificationArgs>? WaitingResponse { get; set; }
 
         public BotWaitAndContinueSpecificationArgs()
         {

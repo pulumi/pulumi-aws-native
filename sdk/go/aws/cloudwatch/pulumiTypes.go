@@ -13,6 +13,568 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The principal receiving the grant. Specify PrincipalId, PrincipalAttributes, or both.
+type AccessGrantPrincipal struct {
+	// Attribute conditions for attribute-based access. When provided, the grant targets any principal matching all specified conditions. Supported only for IDC_USER principals.
+	PrincipalAttributes []AccessGrantPrincipalAttribute `pulumi:"principalAttributes"`
+	// The ID of the principal receiving the grant. An IAM principal ARN, an Identity Center UUID, or a service-defined identifier.
+	PrincipalId *string `pulumi:"principalId"`
+	// The type of principal receiving the grant.
+	PrincipalType AccessGrantPrincipalPrincipalType `pulumi:"principalType"`
+}
+
+// AccessGrantPrincipalInput is an input type that accepts AccessGrantPrincipalArgs and AccessGrantPrincipalOutput values.
+// You can construct a concrete instance of `AccessGrantPrincipalInput` via:
+//
+//	AccessGrantPrincipalArgs{...}
+type AccessGrantPrincipalInput interface {
+	pulumi.Input
+
+	ToAccessGrantPrincipalOutput() AccessGrantPrincipalOutput
+	ToAccessGrantPrincipalOutputWithContext(context.Context) AccessGrantPrincipalOutput
+}
+
+// The principal receiving the grant. Specify PrincipalId, PrincipalAttributes, or both.
+type AccessGrantPrincipalArgs struct {
+	// Attribute conditions for attribute-based access. When provided, the grant targets any principal matching all specified conditions. Supported only for IDC_USER principals.
+	PrincipalAttributes AccessGrantPrincipalAttributeArrayInput `pulumi:"principalAttributes"`
+	// The ID of the principal receiving the grant. An IAM principal ARN, an Identity Center UUID, or a service-defined identifier.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The type of principal receiving the grant.
+	PrincipalType AccessGrantPrincipalPrincipalTypeInput `pulumi:"principalType"`
+}
+
+func (AccessGrantPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipal)(nil)).Elem()
+}
+
+func (i AccessGrantPrincipalArgs) ToAccessGrantPrincipalOutput() AccessGrantPrincipalOutput {
+	return i.ToAccessGrantPrincipalOutputWithContext(context.Background())
+}
+
+func (i AccessGrantPrincipalArgs) ToAccessGrantPrincipalOutputWithContext(ctx context.Context) AccessGrantPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantPrincipalOutput)
+}
+
+// The principal receiving the grant. Specify PrincipalId, PrincipalAttributes, or both.
+type AccessGrantPrincipalOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipal)(nil)).Elem()
+}
+
+func (o AccessGrantPrincipalOutput) ToAccessGrantPrincipalOutput() AccessGrantPrincipalOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalOutput) ToAccessGrantPrincipalOutputWithContext(ctx context.Context) AccessGrantPrincipalOutput {
+	return o
+}
+
+// Attribute conditions for attribute-based access. When provided, the grant targets any principal matching all specified conditions. Supported only for IDC_USER principals.
+func (o AccessGrantPrincipalOutput) PrincipalAttributes() AccessGrantPrincipalAttributeArrayOutput {
+	return o.ApplyT(func(v AccessGrantPrincipal) []AccessGrantPrincipalAttribute { return v.PrincipalAttributes }).(AccessGrantPrincipalAttributeArrayOutput)
+}
+
+// The ID of the principal receiving the grant. An IAM principal ARN, an Identity Center UUID, or a service-defined identifier.
+func (o AccessGrantPrincipalOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessGrantPrincipal) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The type of principal receiving the grant.
+func (o AccessGrantPrincipalOutput) PrincipalType() AccessGrantPrincipalPrincipalTypeOutput {
+	return o.ApplyT(func(v AccessGrantPrincipal) AccessGrantPrincipalPrincipalType { return v.PrincipalType }).(AccessGrantPrincipalPrincipalTypeOutput)
+}
+
+// A single attribute condition used to match principals for attribute-based access.
+type AccessGrantPrincipalAttribute struct {
+	// The Identity Center user attribute to match on. One of userName, active, userStatus, displayName, email, name.givenName, name.familyName, enterprise.department, enterprise.division, enterprise.organization, enterprise.costCenter, or enterprise.employeeNumber.
+	Key string `pulumi:"key"`
+	// The attribute value.
+	Value string `pulumi:"value"`
+}
+
+// AccessGrantPrincipalAttributeInput is an input type that accepts AccessGrantPrincipalAttributeArgs and AccessGrantPrincipalAttributeOutput values.
+// You can construct a concrete instance of `AccessGrantPrincipalAttributeInput` via:
+//
+//	AccessGrantPrincipalAttributeArgs{...}
+type AccessGrantPrincipalAttributeInput interface {
+	pulumi.Input
+
+	ToAccessGrantPrincipalAttributeOutput() AccessGrantPrincipalAttributeOutput
+	ToAccessGrantPrincipalAttributeOutputWithContext(context.Context) AccessGrantPrincipalAttributeOutput
+}
+
+// A single attribute condition used to match principals for attribute-based access.
+type AccessGrantPrincipalAttributeArgs struct {
+	// The Identity Center user attribute to match on. One of userName, active, userStatus, displayName, email, name.givenName, name.familyName, enterprise.department, enterprise.division, enterprise.organization, enterprise.costCenter, or enterprise.employeeNumber.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The attribute value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AccessGrantPrincipalAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipalAttribute)(nil)).Elem()
+}
+
+func (i AccessGrantPrincipalAttributeArgs) ToAccessGrantPrincipalAttributeOutput() AccessGrantPrincipalAttributeOutput {
+	return i.ToAccessGrantPrincipalAttributeOutputWithContext(context.Background())
+}
+
+func (i AccessGrantPrincipalAttributeArgs) ToAccessGrantPrincipalAttributeOutputWithContext(ctx context.Context) AccessGrantPrincipalAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantPrincipalAttributeOutput)
+}
+
+// AccessGrantPrincipalAttributeArrayInput is an input type that accepts AccessGrantPrincipalAttributeArray and AccessGrantPrincipalAttributeArrayOutput values.
+// You can construct a concrete instance of `AccessGrantPrincipalAttributeArrayInput` via:
+//
+//	AccessGrantPrincipalAttributeArray{ AccessGrantPrincipalAttributeArgs{...} }
+type AccessGrantPrincipalAttributeArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantPrincipalAttributeArrayOutput() AccessGrantPrincipalAttributeArrayOutput
+	ToAccessGrantPrincipalAttributeArrayOutputWithContext(context.Context) AccessGrantPrincipalAttributeArrayOutput
+}
+
+type AccessGrantPrincipalAttributeArray []AccessGrantPrincipalAttributeInput
+
+func (AccessGrantPrincipalAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantPrincipalAttribute)(nil)).Elem()
+}
+
+func (i AccessGrantPrincipalAttributeArray) ToAccessGrantPrincipalAttributeArrayOutput() AccessGrantPrincipalAttributeArrayOutput {
+	return i.ToAccessGrantPrincipalAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantPrincipalAttributeArray) ToAccessGrantPrincipalAttributeArrayOutputWithContext(ctx context.Context) AccessGrantPrincipalAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantPrincipalAttributeArrayOutput)
+}
+
+// A single attribute condition used to match principals for attribute-based access.
+type AccessGrantPrincipalAttributeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPrincipalAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipalAttribute)(nil)).Elem()
+}
+
+func (o AccessGrantPrincipalAttributeOutput) ToAccessGrantPrincipalAttributeOutput() AccessGrantPrincipalAttributeOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalAttributeOutput) ToAccessGrantPrincipalAttributeOutputWithContext(ctx context.Context) AccessGrantPrincipalAttributeOutput {
+	return o
+}
+
+// The Identity Center user attribute to match on. One of userName, active, userStatus, displayName, email, name.givenName, name.familyName, enterprise.department, enterprise.division, enterprise.organization, enterprise.costCenter, or enterprise.employeeNumber.
+func (o AccessGrantPrincipalAttributeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantPrincipalAttribute) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The attribute value.
+func (o AccessGrantPrincipalAttributeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantPrincipalAttribute) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AccessGrantPrincipalAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPrincipalAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantPrincipalAttribute)(nil)).Elem()
+}
+
+func (o AccessGrantPrincipalAttributeArrayOutput) ToAccessGrantPrincipalAttributeArrayOutput() AccessGrantPrincipalAttributeArrayOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalAttributeArrayOutput) ToAccessGrantPrincipalAttributeArrayOutputWithContext(ctx context.Context) AccessGrantPrincipalAttributeArrayOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalAttributeArrayOutput) Index(i pulumi.IntInput) AccessGrantPrincipalAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantPrincipalAttribute {
+		return vs[0].([]AccessGrantPrincipalAttribute)[vs[1].(int)]
+	}).(AccessGrantPrincipalAttributeOutput)
+}
+
+// A single resource scope entry within an access grant. Associates a resource type with optional ARN patterns, tag conditions, and row-level filters.
+type AccessGrantResourceScope struct {
+	// Specific resource ARNs or ARN patterns. When set, actions are limited to these resources. When absent, defaults to all resources of the type.
+	ResourceArns []string `pulumi:"resourceArns"`
+	// The resource type name, for example DataSet or OmniDashboard.
+	ResourceType string `pulumi:"resourceType"`
+	// Row-level filters for this scope, as an OR of AND-groups: a row is visible when it matches every filter in any one group. Requires SignalTypes.
+	RowScopeGroups [][]AccessGrantRowScope `pulumi:"rowScopeGroups"`
+	// Signal types this scope's row filtering applies to. Required when RowScopeGroups is set.
+	SignalTypes []AccessGrantResourceScopeSignalTypesItem `pulumi:"signalTypes"`
+	// Tag-based conditions for dynamic resource scoping. Access applies only to resources carrying all of the specified tag key-value pairs.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// AccessGrantResourceScopeInput is an input type that accepts AccessGrantResourceScopeArgs and AccessGrantResourceScopeOutput values.
+// You can construct a concrete instance of `AccessGrantResourceScopeInput` via:
+//
+//	AccessGrantResourceScopeArgs{...}
+type AccessGrantResourceScopeInput interface {
+	pulumi.Input
+
+	ToAccessGrantResourceScopeOutput() AccessGrantResourceScopeOutput
+	ToAccessGrantResourceScopeOutputWithContext(context.Context) AccessGrantResourceScopeOutput
+}
+
+// A single resource scope entry within an access grant. Associates a resource type with optional ARN patterns, tag conditions, and row-level filters.
+type AccessGrantResourceScopeArgs struct {
+	// Specific resource ARNs or ARN patterns. When set, actions are limited to these resources. When absent, defaults to all resources of the type.
+	ResourceArns pulumi.StringArrayInput `pulumi:"resourceArns"`
+	// The resource type name, for example DataSet or OmniDashboard.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Row-level filters for this scope, as an OR of AND-groups: a row is visible when it matches every filter in any one group. Requires SignalTypes.
+	RowScopeGroups AccessGrantRowScopeArrayArrayInput `pulumi:"rowScopeGroups"`
+	// Signal types this scope's row filtering applies to. Required when RowScopeGroups is set.
+	SignalTypes AccessGrantResourceScopeSignalTypesItemArrayInput `pulumi:"signalTypes"`
+	// Tag-based conditions for dynamic resource scoping. Access applies only to resources carrying all of the specified tag key-value pairs.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (AccessGrantResourceScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantResourceScope)(nil)).Elem()
+}
+
+func (i AccessGrantResourceScopeArgs) ToAccessGrantResourceScopeOutput() AccessGrantResourceScopeOutput {
+	return i.ToAccessGrantResourceScopeOutputWithContext(context.Background())
+}
+
+func (i AccessGrantResourceScopeArgs) ToAccessGrantResourceScopeOutputWithContext(ctx context.Context) AccessGrantResourceScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantResourceScopeOutput)
+}
+
+// AccessGrantResourceScopeArrayInput is an input type that accepts AccessGrantResourceScopeArray and AccessGrantResourceScopeArrayOutput values.
+// You can construct a concrete instance of `AccessGrantResourceScopeArrayInput` via:
+//
+//	AccessGrantResourceScopeArray{ AccessGrantResourceScopeArgs{...} }
+type AccessGrantResourceScopeArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantResourceScopeArrayOutput() AccessGrantResourceScopeArrayOutput
+	ToAccessGrantResourceScopeArrayOutputWithContext(context.Context) AccessGrantResourceScopeArrayOutput
+}
+
+type AccessGrantResourceScopeArray []AccessGrantResourceScopeInput
+
+func (AccessGrantResourceScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantResourceScope)(nil)).Elem()
+}
+
+func (i AccessGrantResourceScopeArray) ToAccessGrantResourceScopeArrayOutput() AccessGrantResourceScopeArrayOutput {
+	return i.ToAccessGrantResourceScopeArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantResourceScopeArray) ToAccessGrantResourceScopeArrayOutputWithContext(ctx context.Context) AccessGrantResourceScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantResourceScopeArrayOutput)
+}
+
+// A single resource scope entry within an access grant. Associates a resource type with optional ARN patterns, tag conditions, and row-level filters.
+type AccessGrantResourceScopeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantResourceScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantResourceScope)(nil)).Elem()
+}
+
+func (o AccessGrantResourceScopeOutput) ToAccessGrantResourceScopeOutput() AccessGrantResourceScopeOutput {
+	return o
+}
+
+func (o AccessGrantResourceScopeOutput) ToAccessGrantResourceScopeOutputWithContext(ctx context.Context) AccessGrantResourceScopeOutput {
+	return o
+}
+
+// Specific resource ARNs or ARN patterns. When set, actions are limited to these resources. When absent, defaults to all resources of the type.
+func (o AccessGrantResourceScopeOutput) ResourceArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessGrantResourceScope) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
+}
+
+// The resource type name, for example DataSet or OmniDashboard.
+func (o AccessGrantResourceScopeOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantResourceScope) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Row-level filters for this scope, as an OR of AND-groups: a row is visible when it matches every filter in any one group. Requires SignalTypes.
+func (o AccessGrantResourceScopeOutput) RowScopeGroups() AccessGrantRowScopeArrayArrayOutput {
+	return o.ApplyT(func(v AccessGrantResourceScope) [][]AccessGrantRowScope { return v.RowScopeGroups }).(AccessGrantRowScopeArrayArrayOutput)
+}
+
+// Signal types this scope's row filtering applies to. Required when RowScopeGroups is set.
+func (o AccessGrantResourceScopeOutput) SignalTypes() AccessGrantResourceScopeSignalTypesItemArrayOutput {
+	return o.ApplyT(func(v AccessGrantResourceScope) []AccessGrantResourceScopeSignalTypesItem { return v.SignalTypes }).(AccessGrantResourceScopeSignalTypesItemArrayOutput)
+}
+
+// Tag-based conditions for dynamic resource scoping. Access applies only to resources carrying all of the specified tag key-value pairs.
+func (o AccessGrantResourceScopeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AccessGrantResourceScope) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type AccessGrantResourceScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantResourceScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantResourceScope)(nil)).Elem()
+}
+
+func (o AccessGrantResourceScopeArrayOutput) ToAccessGrantResourceScopeArrayOutput() AccessGrantResourceScopeArrayOutput {
+	return o
+}
+
+func (o AccessGrantResourceScopeArrayOutput) ToAccessGrantResourceScopeArrayOutputWithContext(ctx context.Context) AccessGrantResourceScopeArrayOutput {
+	return o
+}
+
+func (o AccessGrantResourceScopeArrayOutput) Index(i pulumi.IntInput) AccessGrantResourceScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantResourceScope {
+		return vs[0].([]AccessGrantResourceScope)[vs[1].(int)]
+	}).(AccessGrantResourceScopeOutput)
+}
+
+// A single additive row-level filter on an access grant. A row is visible when its value for the given field matches the filter's values.
+type AccessGrantRowScope struct {
+	// The field the allowlist applies to, for example serviceName or accountId.
+	Field string `pulumi:"field"`
+	// Match operator applied to this filter's values.
+	Operator AccessGrantRowScopeOperator `pulumi:"operator"`
+	// The values the field is matched against.
+	Values []string `pulumi:"values"`
+}
+
+// AccessGrantRowScopeInput is an input type that accepts AccessGrantRowScopeArgs and AccessGrantRowScopeOutput values.
+// You can construct a concrete instance of `AccessGrantRowScopeInput` via:
+//
+//	AccessGrantRowScopeArgs{...}
+type AccessGrantRowScopeInput interface {
+	pulumi.Input
+
+	ToAccessGrantRowScopeOutput() AccessGrantRowScopeOutput
+	ToAccessGrantRowScopeOutputWithContext(context.Context) AccessGrantRowScopeOutput
+}
+
+// A single additive row-level filter on an access grant. A row is visible when its value for the given field matches the filter's values.
+type AccessGrantRowScopeArgs struct {
+	// The field the allowlist applies to, for example serviceName or accountId.
+	Field pulumi.StringInput `pulumi:"field"`
+	// Match operator applied to this filter's values.
+	Operator AccessGrantRowScopeOperatorInput `pulumi:"operator"`
+	// The values the field is matched against.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AccessGrantRowScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantRowScope)(nil)).Elem()
+}
+
+func (i AccessGrantRowScopeArgs) ToAccessGrantRowScopeOutput() AccessGrantRowScopeOutput {
+	return i.ToAccessGrantRowScopeOutputWithContext(context.Background())
+}
+
+func (i AccessGrantRowScopeArgs) ToAccessGrantRowScopeOutputWithContext(ctx context.Context) AccessGrantRowScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantRowScopeOutput)
+}
+
+// AccessGrantRowScopeArrayInput is an input type that accepts AccessGrantRowScopeArray and AccessGrantRowScopeArrayOutput values.
+// You can construct a concrete instance of `AccessGrantRowScopeArrayInput` via:
+//
+//	AccessGrantRowScopeArray{ AccessGrantRowScopeArgs{...} }
+type AccessGrantRowScopeArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantRowScopeArrayOutput() AccessGrantRowScopeArrayOutput
+	ToAccessGrantRowScopeArrayOutputWithContext(context.Context) AccessGrantRowScopeArrayOutput
+}
+
+type AccessGrantRowScopeArray []AccessGrantRowScopeInput
+
+func (AccessGrantRowScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantRowScope)(nil)).Elem()
+}
+
+func (i AccessGrantRowScopeArray) ToAccessGrantRowScopeArrayOutput() AccessGrantRowScopeArrayOutput {
+	return i.ToAccessGrantRowScopeArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantRowScopeArray) ToAccessGrantRowScopeArrayOutputWithContext(ctx context.Context) AccessGrantRowScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantRowScopeArrayOutput)
+}
+
+// A single additive row-level filter on an access grant. A row is visible when its value for the given field matches the filter's values.
+type AccessGrantRowScopeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantRowScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantRowScope)(nil)).Elem()
+}
+
+func (o AccessGrantRowScopeOutput) ToAccessGrantRowScopeOutput() AccessGrantRowScopeOutput {
+	return o
+}
+
+func (o AccessGrantRowScopeOutput) ToAccessGrantRowScopeOutputWithContext(ctx context.Context) AccessGrantRowScopeOutput {
+	return o
+}
+
+// The field the allowlist applies to, for example serviceName or accountId.
+func (o AccessGrantRowScopeOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantRowScope) string { return v.Field }).(pulumi.StringOutput)
+}
+
+// Match operator applied to this filter's values.
+func (o AccessGrantRowScopeOutput) Operator() AccessGrantRowScopeOperatorOutput {
+	return o.ApplyT(func(v AccessGrantRowScope) AccessGrantRowScopeOperator { return v.Operator }).(AccessGrantRowScopeOperatorOutput)
+}
+
+// The values the field is matched against.
+func (o AccessGrantRowScopeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessGrantRowScope) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AccessGrantRowScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantRowScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantRowScope)(nil)).Elem()
+}
+
+func (o AccessGrantRowScopeArrayOutput) ToAccessGrantRowScopeArrayOutput() AccessGrantRowScopeArrayOutput {
+	return o
+}
+
+func (o AccessGrantRowScopeArrayOutput) ToAccessGrantRowScopeArrayOutputWithContext(ctx context.Context) AccessGrantRowScopeArrayOutput {
+	return o
+}
+
+func (o AccessGrantRowScopeArrayOutput) Index(i pulumi.IntInput) AccessGrantRowScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantRowScope {
+		return vs[0].([]AccessGrantRowScope)[vs[1].(int)]
+	}).(AccessGrantRowScopeOutput)
+}
+
+// A group of actions within an access grant, together with the resource scopes and context conditions that apply to exactly those actions.
+type AccessGrantScopedActions struct {
+	// The actions this group applies to, each in vendor-code:Action form.
+	Actions []string `pulumi:"actions"`
+	// Context conditions for fine-grained access control on these actions, as a map of condition keys to lists of allowed values.
+	ContextConditions map[string][]string `pulumi:"contextConditions"`
+	// Resource scopes constraining these actions to specific resources.
+	Resources []AccessGrantResourceScope `pulumi:"resources"`
+}
+
+// AccessGrantScopedActionsInput is an input type that accepts AccessGrantScopedActionsArgs and AccessGrantScopedActionsOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionsInput` via:
+//
+//	AccessGrantScopedActionsArgs{...}
+type AccessGrantScopedActionsInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionsOutput() AccessGrantScopedActionsOutput
+	ToAccessGrantScopedActionsOutputWithContext(context.Context) AccessGrantScopedActionsOutput
+}
+
+// A group of actions within an access grant, together with the resource scopes and context conditions that apply to exactly those actions.
+type AccessGrantScopedActionsArgs struct {
+	// The actions this group applies to, each in vendor-code:Action form.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// Context conditions for fine-grained access control on these actions, as a map of condition keys to lists of allowed values.
+	ContextConditions pulumi.StringArrayMapInput `pulumi:"contextConditions"`
+	// Resource scopes constraining these actions to specific resources.
+	Resources AccessGrantResourceScopeArrayInput `pulumi:"resources"`
+}
+
+func (AccessGrantScopedActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedActions)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionsArgs) ToAccessGrantScopedActionsOutput() AccessGrantScopedActionsOutput {
+	return i.ToAccessGrantScopedActionsOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionsArgs) ToAccessGrantScopedActionsOutputWithContext(ctx context.Context) AccessGrantScopedActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionsOutput)
+}
+
+// AccessGrantScopedActionsArrayInput is an input type that accepts AccessGrantScopedActionsArray and AccessGrantScopedActionsArrayOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionsArrayInput` via:
+//
+//	AccessGrantScopedActionsArray{ AccessGrantScopedActionsArgs{...} }
+type AccessGrantScopedActionsArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionsArrayOutput() AccessGrantScopedActionsArrayOutput
+	ToAccessGrantScopedActionsArrayOutputWithContext(context.Context) AccessGrantScopedActionsArrayOutput
+}
+
+type AccessGrantScopedActionsArray []AccessGrantScopedActionsInput
+
+func (AccessGrantScopedActionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedActions)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionsArray) ToAccessGrantScopedActionsArrayOutput() AccessGrantScopedActionsArrayOutput {
+	return i.ToAccessGrantScopedActionsArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionsArray) ToAccessGrantScopedActionsArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionsArrayOutput)
+}
+
+// A group of actions within an access grant, together with the resource scopes and context conditions that apply to exactly those actions.
+type AccessGrantScopedActionsOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedActions)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionsOutput) ToAccessGrantScopedActionsOutput() AccessGrantScopedActionsOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionsOutput) ToAccessGrantScopedActionsOutputWithContext(ctx context.Context) AccessGrantScopedActionsOutput {
+	return o
+}
+
+// The actions this group applies to, each in vendor-code:Action form.
+func (o AccessGrantScopedActionsOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessGrantScopedActions) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// Context conditions for fine-grained access control on these actions, as a map of condition keys to lists of allowed values.
+func (o AccessGrantScopedActionsOutput) ContextConditions() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v AccessGrantScopedActions) map[string][]string { return v.ContextConditions }).(pulumi.StringArrayMapOutput)
+}
+
+// Resource scopes constraining these actions to specific resources.
+func (o AccessGrantScopedActionsOutput) Resources() AccessGrantResourceScopeArrayOutput {
+	return o.ApplyT(func(v AccessGrantScopedActions) []AccessGrantResourceScope { return v.Resources }).(AccessGrantResourceScopeArrayOutput)
+}
+
+type AccessGrantScopedActionsArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedActions)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionsArrayOutput) ToAccessGrantScopedActionsArrayOutput() AccessGrantScopedActionsArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionsArrayOutput) ToAccessGrantScopedActionsArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionsArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionsArrayOutput) Index(i pulumi.IntInput) AccessGrantScopedActionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantScopedActions {
+		return vs[0].([]AccessGrantScopedActions)[vs[1].(int)]
+	}).(AccessGrantScopedActionsOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AccessGrantTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type AccessProfileTag struct {
 	// The key name of the tag.
@@ -2183,6 +2745,200 @@ type DashboardTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The principal the grant is issued to. Supply PrincipalId, or PrincipalAttributes for an attribute-based grant.
+type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal struct {
+	// Attribute key-value pairs that select the principals the grant applies to.
+	PrincipalAttributes []DomainAccessGrantForOrganizationPrincipalAttribute `pulumi:"principalAttributes"`
+	// The identifier of the principal, such as an IAM role ARN or an Identity Center user ID.
+	PrincipalId *string `pulumi:"principalId"`
+	// The type of principal the grant is issued to.
+	PrincipalType DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType `pulumi:"principalType"`
+}
+
+// DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalInput is an input type that accepts DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs and DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput values.
+// You can construct a concrete instance of `DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalInput` via:
+//
+//	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs{...}
+type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalInput interface {
+	pulumi.Input
+
+	ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput
+	ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutputWithContext(context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput
+}
+
+// The principal the grant is issued to. Supply PrincipalId, or PrincipalAttributes for an attribute-based grant.
+type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs struct {
+	// Attribute key-value pairs that select the principals the grant applies to.
+	PrincipalAttributes DomainAccessGrantForOrganizationPrincipalAttributeArrayInput `pulumi:"principalAttributes"`
+	// The identifier of the principal, such as an IAM role ARN or an Identity Center user ID.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The type of principal the grant is issued to.
+	PrincipalType DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeInput `pulumi:"principalType"`
+}
+
+func (DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal)(nil)).Elem()
+}
+
+func (i DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput {
+	return i.ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutputWithContext(context.Background())
+}
+
+func (i DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput)
+}
+
+// The principal the grant is issued to. Supply PrincipalId, or PrincipalAttributes for an attribute-based grant.
+type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput struct{ *pulumi.OutputState }
+
+func (DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal)(nil)).Elem()
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput {
+	return o
+}
+
+// Attribute key-value pairs that select the principals the grant applies to.
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput) PrincipalAttributes() DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput {
+	return o.ApplyT(func(v DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal) []DomainAccessGrantForOrganizationPrincipalAttribute {
+		return v.PrincipalAttributes
+	}).(DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput)
+}
+
+// The identifier of the principal, such as an IAM role ARN or an Identity Center user ID.
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The type of principal the grant is issued to.
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput) PrincipalType() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput {
+	return o.ApplyT(func(v DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType {
+		return v.PrincipalType
+	}).(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput)
+}
+
+// An attribute key-value pair used to select principals.
+type DomainAccessGrantForOrganizationPrincipalAttribute struct {
+	// The attribute name.
+	Key string `pulumi:"key"`
+	// The attribute value.
+	Value string `pulumi:"value"`
+}
+
+// DomainAccessGrantForOrganizationPrincipalAttributeInput is an input type that accepts DomainAccessGrantForOrganizationPrincipalAttributeArgs and DomainAccessGrantForOrganizationPrincipalAttributeOutput values.
+// You can construct a concrete instance of `DomainAccessGrantForOrganizationPrincipalAttributeInput` via:
+//
+//	DomainAccessGrantForOrganizationPrincipalAttributeArgs{...}
+type DomainAccessGrantForOrganizationPrincipalAttributeInput interface {
+	pulumi.Input
+
+	ToDomainAccessGrantForOrganizationPrincipalAttributeOutput() DomainAccessGrantForOrganizationPrincipalAttributeOutput
+	ToDomainAccessGrantForOrganizationPrincipalAttributeOutputWithContext(context.Context) DomainAccessGrantForOrganizationPrincipalAttributeOutput
+}
+
+// An attribute key-value pair used to select principals.
+type DomainAccessGrantForOrganizationPrincipalAttributeArgs struct {
+	// The attribute name.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The attribute value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DomainAccessGrantForOrganizationPrincipalAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAccessGrantForOrganizationPrincipalAttribute)(nil)).Elem()
+}
+
+func (i DomainAccessGrantForOrganizationPrincipalAttributeArgs) ToDomainAccessGrantForOrganizationPrincipalAttributeOutput() DomainAccessGrantForOrganizationPrincipalAttributeOutput {
+	return i.ToDomainAccessGrantForOrganizationPrincipalAttributeOutputWithContext(context.Background())
+}
+
+func (i DomainAccessGrantForOrganizationPrincipalAttributeArgs) ToDomainAccessGrantForOrganizationPrincipalAttributeOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPrincipalAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAccessGrantForOrganizationPrincipalAttributeOutput)
+}
+
+// DomainAccessGrantForOrganizationPrincipalAttributeArrayInput is an input type that accepts DomainAccessGrantForOrganizationPrincipalAttributeArray and DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput values.
+// You can construct a concrete instance of `DomainAccessGrantForOrganizationPrincipalAttributeArrayInput` via:
+//
+//	DomainAccessGrantForOrganizationPrincipalAttributeArray{ DomainAccessGrantForOrganizationPrincipalAttributeArgs{...} }
+type DomainAccessGrantForOrganizationPrincipalAttributeArrayInput interface {
+	pulumi.Input
+
+	ToDomainAccessGrantForOrganizationPrincipalAttributeArrayOutput() DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput
+	ToDomainAccessGrantForOrganizationPrincipalAttributeArrayOutputWithContext(context.Context) DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput
+}
+
+type DomainAccessGrantForOrganizationPrincipalAttributeArray []DomainAccessGrantForOrganizationPrincipalAttributeInput
+
+func (DomainAccessGrantForOrganizationPrincipalAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAccessGrantForOrganizationPrincipalAttribute)(nil)).Elem()
+}
+
+func (i DomainAccessGrantForOrganizationPrincipalAttributeArray) ToDomainAccessGrantForOrganizationPrincipalAttributeArrayOutput() DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput {
+	return i.ToDomainAccessGrantForOrganizationPrincipalAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i DomainAccessGrantForOrganizationPrincipalAttributeArray) ToDomainAccessGrantForOrganizationPrincipalAttributeArrayOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput)
+}
+
+// An attribute key-value pair used to select principals.
+type DomainAccessGrantForOrganizationPrincipalAttributeOutput struct{ *pulumi.OutputState }
+
+func (DomainAccessGrantForOrganizationPrincipalAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAccessGrantForOrganizationPrincipalAttribute)(nil)).Elem()
+}
+
+func (o DomainAccessGrantForOrganizationPrincipalAttributeOutput) ToDomainAccessGrantForOrganizationPrincipalAttributeOutput() DomainAccessGrantForOrganizationPrincipalAttributeOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationPrincipalAttributeOutput) ToDomainAccessGrantForOrganizationPrincipalAttributeOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPrincipalAttributeOutput {
+	return o
+}
+
+// The attribute name.
+func (o DomainAccessGrantForOrganizationPrincipalAttributeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAccessGrantForOrganizationPrincipalAttribute) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The attribute value.
+func (o DomainAccessGrantForOrganizationPrincipalAttributeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAccessGrantForOrganizationPrincipalAttribute) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAccessGrantForOrganizationPrincipalAttribute)(nil)).Elem()
+}
+
+func (o DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput) ToDomainAccessGrantForOrganizationPrincipalAttributeArrayOutput() DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput) ToDomainAccessGrantForOrganizationPrincipalAttributeArrayOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput) Index(i pulumi.IntInput) DomainAccessGrantForOrganizationPrincipalAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainAccessGrantForOrganizationPrincipalAttribute {
+		return vs[0].([]DomainAccessGrantForOrganizationPrincipalAttribute)[vs[1].(int)]
+	}).(DomainAccessGrantForOrganizationPrincipalAttributeOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DomainAccessGrantForOrganizationTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // Identity Center configuration. Required when identityProviders includes IDC.
 type DomainForOrganizationIdentityCenterConfiguration struct {
 	// Identity Center instance ARN
@@ -2463,6 +3219,292 @@ func (o DomainForOrganizationIdentityProviderConfigurationPtrOutput) IdentityCen
 
 // A key-value pair to associate with a resource.
 type DomainForOrganizationTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// Identity Center configuration. Required when identityProviders includes IDC.
+type DomainIdentityCenterConfiguration struct {
+	// Identity Center instance ARN
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+}
+
+// DomainIdentityCenterConfigurationInput is an input type that accepts DomainIdentityCenterConfigurationArgs and DomainIdentityCenterConfigurationOutput values.
+// You can construct a concrete instance of `DomainIdentityCenterConfigurationInput` via:
+//
+//	DomainIdentityCenterConfigurationArgs{...}
+type DomainIdentityCenterConfigurationInput interface {
+	pulumi.Input
+
+	ToDomainIdentityCenterConfigurationOutput() DomainIdentityCenterConfigurationOutput
+	ToDomainIdentityCenterConfigurationOutputWithContext(context.Context) DomainIdentityCenterConfigurationOutput
+}
+
+// Identity Center configuration. Required when identityProviders includes IDC.
+type DomainIdentityCenterConfigurationArgs struct {
+	// Identity Center instance ARN
+	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
+}
+
+func (DomainIdentityCenterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i DomainIdentityCenterConfigurationArgs) ToDomainIdentityCenterConfigurationOutput() DomainIdentityCenterConfigurationOutput {
+	return i.ToDomainIdentityCenterConfigurationOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityCenterConfigurationArgs) ToDomainIdentityCenterConfigurationOutputWithContext(ctx context.Context) DomainIdentityCenterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityCenterConfigurationOutput)
+}
+
+func (i DomainIdentityCenterConfigurationArgs) ToDomainIdentityCenterConfigurationPtrOutput() DomainIdentityCenterConfigurationPtrOutput {
+	return i.ToDomainIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityCenterConfigurationArgs) ToDomainIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DomainIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityCenterConfigurationOutput).ToDomainIdentityCenterConfigurationPtrOutputWithContext(ctx)
+}
+
+// DomainIdentityCenterConfigurationPtrInput is an input type that accepts DomainIdentityCenterConfigurationArgs, DomainIdentityCenterConfigurationPtr and DomainIdentityCenterConfigurationPtrOutput values.
+// You can construct a concrete instance of `DomainIdentityCenterConfigurationPtrInput` via:
+//
+//	        DomainIdentityCenterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainIdentityCenterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDomainIdentityCenterConfigurationPtrOutput() DomainIdentityCenterConfigurationPtrOutput
+	ToDomainIdentityCenterConfigurationPtrOutputWithContext(context.Context) DomainIdentityCenterConfigurationPtrOutput
+}
+
+type domainIdentityCenterConfigurationPtrType DomainIdentityCenterConfigurationArgs
+
+func DomainIdentityCenterConfigurationPtr(v *DomainIdentityCenterConfigurationArgs) DomainIdentityCenterConfigurationPtrInput {
+	return (*domainIdentityCenterConfigurationPtrType)(v)
+}
+
+func (*domainIdentityCenterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i *domainIdentityCenterConfigurationPtrType) ToDomainIdentityCenterConfigurationPtrOutput() DomainIdentityCenterConfigurationPtrOutput {
+	return i.ToDomainIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainIdentityCenterConfigurationPtrType) ToDomainIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DomainIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityCenterConfigurationPtrOutput)
+}
+
+// Identity Center configuration. Required when identityProviders includes IDC.
+type DomainIdentityCenterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityCenterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o DomainIdentityCenterConfigurationOutput) ToDomainIdentityCenterConfigurationOutput() DomainIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o DomainIdentityCenterConfigurationOutput) ToDomainIdentityCenterConfigurationOutputWithContext(ctx context.Context) DomainIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o DomainIdentityCenterConfigurationOutput) ToDomainIdentityCenterConfigurationPtrOutput() DomainIdentityCenterConfigurationPtrOutput {
+	return o.ToDomainIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdentityCenterConfigurationOutput) ToDomainIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DomainIdentityCenterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentityCenterConfiguration) *DomainIdentityCenterConfiguration {
+		return &v
+	}).(DomainIdentityCenterConfigurationPtrOutput)
+}
+
+// Identity Center instance ARN
+func (o DomainIdentityCenterConfigurationOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterConfiguration) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+type DomainIdentityCenterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityCenterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o DomainIdentityCenterConfigurationPtrOutput) ToDomainIdentityCenterConfigurationPtrOutput() DomainIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainIdentityCenterConfigurationPtrOutput) ToDomainIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DomainIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainIdentityCenterConfigurationPtrOutput) Elem() DomainIdentityCenterConfigurationOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterConfiguration) DomainIdentityCenterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIdentityCenterConfiguration
+		return ret
+	}).(DomainIdentityCenterConfigurationOutput)
+}
+
+// Identity Center instance ARN
+func (o DomainIdentityCenterConfigurationPtrOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity provider configuration for the domain.
+type DomainIdentityProviderConfiguration struct {
+	IdentityCenterConfiguration *DomainIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
+}
+
+// DomainIdentityProviderConfigurationInput is an input type that accepts DomainIdentityProviderConfigurationArgs and DomainIdentityProviderConfigurationOutput values.
+// You can construct a concrete instance of `DomainIdentityProviderConfigurationInput` via:
+//
+//	DomainIdentityProviderConfigurationArgs{...}
+type DomainIdentityProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToDomainIdentityProviderConfigurationOutput() DomainIdentityProviderConfigurationOutput
+	ToDomainIdentityProviderConfigurationOutputWithContext(context.Context) DomainIdentityProviderConfigurationOutput
+}
+
+// Identity provider configuration for the domain.
+type DomainIdentityProviderConfigurationArgs struct {
+	IdentityCenterConfiguration DomainIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
+}
+
+func (DomainIdentityProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (i DomainIdentityProviderConfigurationArgs) ToDomainIdentityProviderConfigurationOutput() DomainIdentityProviderConfigurationOutput {
+	return i.ToDomainIdentityProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityProviderConfigurationArgs) ToDomainIdentityProviderConfigurationOutputWithContext(ctx context.Context) DomainIdentityProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityProviderConfigurationOutput)
+}
+
+func (i DomainIdentityProviderConfigurationArgs) ToDomainIdentityProviderConfigurationPtrOutput() DomainIdentityProviderConfigurationPtrOutput {
+	return i.ToDomainIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityProviderConfigurationArgs) ToDomainIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) DomainIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityProviderConfigurationOutput).ToDomainIdentityProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// DomainIdentityProviderConfigurationPtrInput is an input type that accepts DomainIdentityProviderConfigurationArgs, DomainIdentityProviderConfigurationPtr and DomainIdentityProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `DomainIdentityProviderConfigurationPtrInput` via:
+//
+//	        DomainIdentityProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainIdentityProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDomainIdentityProviderConfigurationPtrOutput() DomainIdentityProviderConfigurationPtrOutput
+	ToDomainIdentityProviderConfigurationPtrOutputWithContext(context.Context) DomainIdentityProviderConfigurationPtrOutput
+}
+
+type domainIdentityProviderConfigurationPtrType DomainIdentityProviderConfigurationArgs
+
+func DomainIdentityProviderConfigurationPtr(v *DomainIdentityProviderConfigurationArgs) DomainIdentityProviderConfigurationPtrInput {
+	return (*domainIdentityProviderConfigurationPtrType)(v)
+}
+
+func (*domainIdentityProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (i *domainIdentityProviderConfigurationPtrType) ToDomainIdentityProviderConfigurationPtrOutput() DomainIdentityProviderConfigurationPtrOutput {
+	return i.ToDomainIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainIdentityProviderConfigurationPtrType) ToDomainIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) DomainIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityProviderConfigurationPtrOutput)
+}
+
+// Identity provider configuration for the domain.
+type DomainIdentityProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (o DomainIdentityProviderConfigurationOutput) ToDomainIdentityProviderConfigurationOutput() DomainIdentityProviderConfigurationOutput {
+	return o
+}
+
+func (o DomainIdentityProviderConfigurationOutput) ToDomainIdentityProviderConfigurationOutputWithContext(ctx context.Context) DomainIdentityProviderConfigurationOutput {
+	return o
+}
+
+func (o DomainIdentityProviderConfigurationOutput) ToDomainIdentityProviderConfigurationPtrOutput() DomainIdentityProviderConfigurationPtrOutput {
+	return o.ToDomainIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdentityProviderConfigurationOutput) ToDomainIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) DomainIdentityProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentityProviderConfiguration) *DomainIdentityProviderConfiguration {
+		return &v
+	}).(DomainIdentityProviderConfigurationPtrOutput)
+}
+
+func (o DomainIdentityProviderConfigurationOutput) IdentityCenterConfiguration() DomainIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v DomainIdentityProviderConfiguration) *DomainIdentityCenterConfiguration {
+		return v.IdentityCenterConfiguration
+	}).(DomainIdentityCenterConfigurationPtrOutput)
+}
+
+type DomainIdentityProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (o DomainIdentityProviderConfigurationPtrOutput) ToDomainIdentityProviderConfigurationPtrOutput() DomainIdentityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainIdentityProviderConfigurationPtrOutput) ToDomainIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) DomainIdentityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainIdentityProviderConfigurationPtrOutput) Elem() DomainIdentityProviderConfigurationOutput {
+	return o.ApplyT(func(v *DomainIdentityProviderConfiguration) DomainIdentityProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIdentityProviderConfiguration
+		return ret
+	}).(DomainIdentityProviderConfigurationOutput)
+}
+
+func (o DomainIdentityProviderConfigurationPtrOutput) IdentityCenterConfiguration() DomainIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityProviderConfiguration) *DomainIdentityCenterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterConfiguration
+	}).(DomainIdentityCenterConfigurationPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DomainTag struct {
 	// The key name of the tag.
 	Key string `pulumi:"key"`
 	// The value for the tag.
@@ -4559,6 +5601,175 @@ func (o RulePropertiesSchedulePropertiesPtrOutput) Timezone() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The encryption configuration for the space.
+type SpaceEncryptionConfiguration struct {
+	// Whether the space is encrypted with an AWS owned key or a customer managed key.
+	EncryptionStrategy SpaceEncryptionConfigurationEncryptionStrategy `pulumi:"encryptionStrategy"`
+	// The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// SpaceEncryptionConfigurationInput is an input type that accepts SpaceEncryptionConfigurationArgs and SpaceEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SpaceEncryptionConfigurationInput` via:
+//
+//	SpaceEncryptionConfigurationArgs{...}
+type SpaceEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSpaceEncryptionConfigurationOutput() SpaceEncryptionConfigurationOutput
+	ToSpaceEncryptionConfigurationOutputWithContext(context.Context) SpaceEncryptionConfigurationOutput
+}
+
+// The encryption configuration for the space.
+type SpaceEncryptionConfigurationArgs struct {
+	// Whether the space is encrypted with an AWS owned key or a customer managed key.
+	EncryptionStrategy SpaceEncryptionConfigurationEncryptionStrategyInput `pulumi:"encryptionStrategy"`
+	// The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (SpaceEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i SpaceEncryptionConfigurationArgs) ToSpaceEncryptionConfigurationOutput() SpaceEncryptionConfigurationOutput {
+	return i.ToSpaceEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i SpaceEncryptionConfigurationArgs) ToSpaceEncryptionConfigurationOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceEncryptionConfigurationOutput)
+}
+
+func (i SpaceEncryptionConfigurationArgs) ToSpaceEncryptionConfigurationPtrOutput() SpaceEncryptionConfigurationPtrOutput {
+	return i.ToSpaceEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceEncryptionConfigurationArgs) ToSpaceEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceEncryptionConfigurationOutput).ToSpaceEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// SpaceEncryptionConfigurationPtrInput is an input type that accepts SpaceEncryptionConfigurationArgs, SpaceEncryptionConfigurationPtr and SpaceEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `SpaceEncryptionConfigurationPtrInput` via:
+//
+//	        SpaceEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSpaceEncryptionConfigurationPtrOutput() SpaceEncryptionConfigurationPtrOutput
+	ToSpaceEncryptionConfigurationPtrOutputWithContext(context.Context) SpaceEncryptionConfigurationPtrOutput
+}
+
+type spaceEncryptionConfigurationPtrType SpaceEncryptionConfigurationArgs
+
+func SpaceEncryptionConfigurationPtr(v *SpaceEncryptionConfigurationArgs) SpaceEncryptionConfigurationPtrInput {
+	return (*spaceEncryptionConfigurationPtrType)(v)
+}
+
+func (*spaceEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *spaceEncryptionConfigurationPtrType) ToSpaceEncryptionConfigurationPtrOutput() SpaceEncryptionConfigurationPtrOutput {
+	return i.ToSpaceEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceEncryptionConfigurationPtrType) ToSpaceEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceEncryptionConfigurationPtrOutput)
+}
+
+// The encryption configuration for the space.
+type SpaceEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SpaceEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SpaceEncryptionConfigurationOutput) ToSpaceEncryptionConfigurationOutput() SpaceEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SpaceEncryptionConfigurationOutput) ToSpaceEncryptionConfigurationOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SpaceEncryptionConfigurationOutput) ToSpaceEncryptionConfigurationPtrOutput() SpaceEncryptionConfigurationPtrOutput {
+	return o.ToSpaceEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceEncryptionConfigurationOutput) ToSpaceEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceEncryptionConfiguration) *SpaceEncryptionConfiguration {
+		return &v
+	}).(SpaceEncryptionConfigurationPtrOutput)
+}
+
+// Whether the space is encrypted with an AWS owned key or a customer managed key.
+func (o SpaceEncryptionConfigurationOutput) EncryptionStrategy() SpaceEncryptionConfigurationEncryptionStrategyOutput {
+	return o.ApplyT(func(v SpaceEncryptionConfiguration) SpaceEncryptionConfigurationEncryptionStrategy {
+		return v.EncryptionStrategy
+	}).(SpaceEncryptionConfigurationEncryptionStrategyOutput)
+}
+
+// The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+func (o SpaceEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type SpaceEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SpaceEncryptionConfigurationPtrOutput) ToSpaceEncryptionConfigurationPtrOutput() SpaceEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SpaceEncryptionConfigurationPtrOutput) ToSpaceEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SpaceEncryptionConfigurationPtrOutput) Elem() SpaceEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SpaceEncryptionConfiguration) SpaceEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceEncryptionConfiguration
+		return ret
+	}).(SpaceEncryptionConfigurationOutput)
+}
+
+// Whether the space is encrypted with an AWS owned key or a customer managed key.
+func (o SpaceEncryptionConfigurationPtrOutput) EncryptionStrategy() SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
+	return o.ApplyT(func(v *SpaceEncryptionConfiguration) *SpaceEncryptionConfigurationEncryptionStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionStrategy
+	}).(SpaceEncryptionConfigurationEncryptionStrategyPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+func (o SpaceEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type SpaceTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type TagsItemProperties struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -4572,7 +5783,61 @@ type ViewTag struct {
 	Value string `pulumi:"value"`
 }
 
+type AccessGrantRowScopeArrayArray []AccessGrantRowScopeArrayInput
+
+func (AccessGrantRowScopeArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]AccessGrantRowScope)(nil)).Elem()
+}
+
+func (i AccessGrantRowScopeArrayArray) ToAccessGrantRowScopeArrayArrayOutput() AccessGrantRowScopeArrayArrayOutput {
+	return i.ToAccessGrantRowScopeArrayArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantRowScopeArrayArray) ToAccessGrantRowScopeArrayArrayOutputWithContext(ctx context.Context) AccessGrantRowScopeArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantRowScopeArrayArrayOutput)
+}
+
+// AccessGrantRowScopeArrayArrayInput is an input type that accepts AccessGrantRowScopeArrayArray and AccessGrantRowScopeArrayArrayOutput values.
+// You can construct a concrete instance of `AccessGrantRowScopeArrayArrayInput` via:
+//
+//	AccessGrantRowScopeArrayArray{ AccessGrantRowScopeArray{ AccessGrantRowScopeArgs{...} } }
+type AccessGrantRowScopeArrayArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantRowScopeArrayArrayOutput() AccessGrantRowScopeArrayArrayOutput
+	ToAccessGrantRowScopeArrayArrayOutputWithContext(context.Context) AccessGrantRowScopeArrayArrayOutput
+}
+
+type AccessGrantRowScopeArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantRowScopeArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]AccessGrantRowScope)(nil)).Elem()
+}
+
+func (o AccessGrantRowScopeArrayArrayOutput) ToAccessGrantRowScopeArrayArrayOutput() AccessGrantRowScopeArrayArrayOutput {
+	return o
+}
+
+func (o AccessGrantRowScopeArrayArrayOutput) ToAccessGrantRowScopeArrayArrayOutputWithContext(ctx context.Context) AccessGrantRowScopeArrayArrayOutput {
+	return o
+}
+
+func (o AccessGrantRowScopeArrayArrayOutput) Index(i pulumi.IntInput) AccessGrantRowScopeArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []AccessGrantRowScope {
+		return vs[0].([][]AccessGrantRowScope)[vs[1].(int)]
+	}).(AccessGrantRowScopeArrayOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPrincipalInput)(nil)).Elem(), AccessGrantPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPrincipalAttributeInput)(nil)).Elem(), AccessGrantPrincipalAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPrincipalAttributeArrayInput)(nil)).Elem(), AccessGrantPrincipalAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantResourceScopeInput)(nil)).Elem(), AccessGrantResourceScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantResourceScopeArrayInput)(nil)).Elem(), AccessGrantResourceScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantRowScopeInput)(nil)).Elem(), AccessGrantRowScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantRowScopeArrayInput)(nil)).Elem(), AccessGrantRowScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionsInput)(nil)).Elem(), AccessGrantScopedActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionsArrayInput)(nil)).Elem(), AccessGrantScopedActionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmActionConfigurationInput)(nil)).Elem(), AlarmActionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmActionConfigurationPtrInput)(nil)).Elem(), AlarmActionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionInput)(nil)).Elem(), AlarmDimensionArgs{})
@@ -4599,10 +5864,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionConfigurationPtrInput)(nil)).Elem(), CompositeAlarmActionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmAlarmTagsPropagationInput)(nil)).Elem(), CompositeAlarmAlarmTagsPropagationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmAlarmTagsPropagationPtrInput)(nil)).Elem(), CompositeAlarmAlarmTagsPropagationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalInput)(nil)).Elem(), DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationPrincipalAttributeInput)(nil)).Elem(), DomainAccessGrantForOrganizationPrincipalAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationPrincipalAttributeArrayInput)(nil)).Elem(), DomainAccessGrantForOrganizationPrincipalAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityCenterConfigurationInput)(nil)).Elem(), DomainForOrganizationIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityCenterConfigurationPtrInput)(nil)).Elem(), DomainForOrganizationIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProviderConfigurationInput)(nil)).Elem(), DomainForOrganizationIdentityProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProviderConfigurationPtrInput)(nil)).Elem(), DomainForOrganizationIdentityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityCenterConfigurationInput)(nil)).Elem(), DomainIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityCenterConfigurationPtrInput)(nil)).Elem(), DomainIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProviderConfigurationInput)(nil)).Elem(), DomainIdentityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProviderConfigurationPtrInput)(nil)).Elem(), DomainIdentityProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationCredentialInput)(nil)).Elem(), IntegrationCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationCredentialPtrInput)(nil)).Elem(), IntegrationCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationCredentialApiKeyCredentialPropertiesInput)(nil)).Elem(), IntegrationCredentialApiKeyCredentialPropertiesArgs{})
@@ -4631,6 +5903,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMetricsConfigurationResourceMetricSelectionArrayInput)(nil)).Elem(), ResourceMetricsConfigurationResourceMetricSelectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePropertiesInput)(nil)).Elem(), RulePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePropertiesSchedulePropertiesInput)(nil)).Elem(), RulePropertiesSchedulePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationInput)(nil)).Elem(), SpaceEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationPtrInput)(nil)).Elem(), SpaceEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantRowScopeArrayArrayInput)(nil)).Elem(), AccessGrantRowScopeArrayArray{})
+	pulumi.RegisterOutputType(AccessGrantPrincipalOutput{})
+	pulumi.RegisterOutputType(AccessGrantPrincipalAttributeOutput{})
+	pulumi.RegisterOutputType(AccessGrantPrincipalAttributeArrayOutput{})
+	pulumi.RegisterOutputType(AccessGrantResourceScopeOutput{})
+	pulumi.RegisterOutputType(AccessGrantResourceScopeArrayOutput{})
+	pulumi.RegisterOutputType(AccessGrantRowScopeOutput{})
+	pulumi.RegisterOutputType(AccessGrantRowScopeArrayOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionsOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionsArrayOutput{})
 	pulumi.RegisterOutputType(AlarmActionConfigurationOutput{})
 	pulumi.RegisterOutputType(AlarmActionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AlarmDimensionOutput{})
@@ -4657,10 +5941,17 @@ func init() {
 	pulumi.RegisterOutputType(CompositeAlarmActionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmAlarmTagsPropagationOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmAlarmTagsPropagationPtrOutput{})
+	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalOutput{})
+	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationPrincipalAttributeOutput{})
+	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationPrincipalAttributeArrayOutput{})
 	pulumi.RegisterOutputType(DomainForOrganizationIdentityCenterConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainForOrganizationIdentityCenterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainForOrganizationIdentityProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainForOrganizationIdentityProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DomainIdentityCenterConfigurationOutput{})
+	pulumi.RegisterOutputType(DomainIdentityCenterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DomainIdentityProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(DomainIdentityProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationCredentialOutput{})
 	pulumi.RegisterOutputType(IntegrationCredentialPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationCredentialApiKeyCredentialPropertiesOutput{})
@@ -4693,4 +5984,7 @@ func init() {
 	pulumi.RegisterOutputType(RulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RulePropertiesSchedulePropertiesOutput{})
 	pulumi.RegisterOutputType(RulePropertiesSchedulePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SpaceEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SpaceEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AccessGrantRowScopeArrayArrayOutput{})
 }

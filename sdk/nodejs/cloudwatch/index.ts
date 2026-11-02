@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessGrantArgs } from "./accessGrant";
+export type AccessGrant = import("./accessGrant").AccessGrant;
+export const AccessGrant: typeof import("./accessGrant").AccessGrant = null as any;
+utilities.lazyLoad(exports, ["AccessGrant"], () => require("./accessGrant"));
+
 export { AccessProfileArgs } from "./accessProfile";
 export type AccessProfile = import("./accessProfile").AccessProfile;
 export const AccessProfile: typeof import("./accessProfile").AccessProfile = null as any;
@@ -30,10 +35,25 @@ export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
 utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
 
+export { DomainArgs } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+
+export { DomainAccessGrantForOrganizationArgs } from "./domainAccessGrantForOrganization";
+export type DomainAccessGrantForOrganization = import("./domainAccessGrantForOrganization").DomainAccessGrantForOrganization;
+export const DomainAccessGrantForOrganization: typeof import("./domainAccessGrantForOrganization").DomainAccessGrantForOrganization = null as any;
+utilities.lazyLoad(exports, ["DomainAccessGrantForOrganization"], () => require("./domainAccessGrantForOrganization"));
+
 export { DomainForOrganizationArgs } from "./domainForOrganization";
 export type DomainForOrganization = import("./domainForOrganization").DomainForOrganization;
 export const DomainForOrganization: typeof import("./domainForOrganization").DomainForOrganization = null as any;
 utilities.lazyLoad(exports, ["DomainForOrganization"], () => require("./domainForOrganization"));
+
+export { GetAccessGrantArgs, GetAccessGrantResult, GetAccessGrantOutputArgs } from "./getAccessGrant";
+export const getAccessGrant: typeof import("./getAccessGrant").getAccessGrant = null as any;
+export const getAccessGrantOutput: typeof import("./getAccessGrant").getAccessGrantOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessGrant","getAccessGrantOutput"], () => require("./getAccessGrant"));
 
 export { GetAccessProfileArgs, GetAccessProfileResult, GetAccessProfileOutputArgs } from "./getAccessProfile";
 export const getAccessProfile: typeof import("./getAccessProfile").getAccessProfile = null as any;
@@ -59,6 +79,16 @@ export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
+
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
+export { GetDomainAccessGrantForOrganizationArgs, GetDomainAccessGrantForOrganizationResult, GetDomainAccessGrantForOrganizationOutputArgs } from "./getDomainAccessGrantForOrganization";
+export const getDomainAccessGrantForOrganization: typeof import("./getDomainAccessGrantForOrganization").getDomainAccessGrantForOrganization = null as any;
+export const getDomainAccessGrantForOrganizationOutput: typeof import("./getDomainAccessGrantForOrganization").getDomainAccessGrantForOrganizationOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainAccessGrantForOrganization","getDomainAccessGrantForOrganizationOutput"], () => require("./getDomainAccessGrantForOrganization"));
 
 export { GetDomainForOrganizationArgs, GetDomainForOrganizationResult, GetDomainForOrganizationOutputArgs } from "./getDomainForOrganization";
 export const getDomainForOrganization: typeof import("./getDomainForOrganization").getDomainForOrganization = null as any;
@@ -100,6 +130,11 @@ export const getResourceMetricsConfiguration: typeof import("./getResourceMetric
 export const getResourceMetricsConfigurationOutput: typeof import("./getResourceMetricsConfiguration").getResourceMetricsConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getResourceMetricsConfiguration","getResourceMetricsConfigurationOutput"], () => require("./getResourceMetricsConfiguration"));
 
+export { GetSpaceArgs, GetSpaceResult, GetSpaceOutputArgs } from "./getSpace";
+export const getSpace: typeof import("./getSpace").getSpace = null as any;
+export const getSpaceOutput: typeof import("./getSpace").getSpaceOutput = null as any;
+utilities.lazyLoad(exports, ["getSpace","getSpaceOutput"], () => require("./getSpace"));
+
 export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
 export const getView: typeof import("./getView").getView = null as any;
 export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
@@ -140,6 +175,11 @@ export type ResourceMetricsConfiguration = import("./resourceMetricsConfiguratio
 export const ResourceMetricsConfiguration: typeof import("./resourceMetricsConfiguration").ResourceMetricsConfiguration = null as any;
 utilities.lazyLoad(exports, ["ResourceMetricsConfiguration"], () => require("./resourceMetricsConfiguration"));
 
+export { SpaceArgs } from "./space";
+export type Space = import("./space").Space;
+export const Space: typeof import("./space").Space = null as any;
+utilities.lazyLoad(exports, ["Space"], () => require("./space"));
+
 export { ViewArgs } from "./view";
 export type View = import("./view").View;
 export const View: typeof import("./view").View = null as any;
@@ -153,6 +193,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cloudwatch:AccessGrant":
+                return new AccessGrant(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:AccessProfile":
                 return new AccessProfile(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:Alarm":
@@ -163,6 +205,10 @@ const _module = {
                 return new CompositeAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:Domain":
+                return new Domain(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:DomainAccessGrantForOrganization":
+                return new DomainAccessGrantForOrganization(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:DomainForOrganization":
                 return new DomainForOrganization(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:InsightRule":
@@ -179,6 +225,8 @@ const _module = {
                 return new OmniDashboard(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:ResourceMetricsConfiguration":
                 return new ResourceMetricsConfiguration(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:Space":
+                return new Space(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:View":
                 return new View(name, <any>undefined, { urn })
             default:

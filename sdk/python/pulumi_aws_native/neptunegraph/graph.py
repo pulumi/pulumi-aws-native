@@ -305,9 +305,11 @@ class Graph(pulumi.CustomResource):
             __props__.__dict__["replica_count"] = replica_count
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vector_search_configuration"] = vector_search_configuration
+            __props__.__dict__["create_time"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["graph_arn"] = None
             __props__.__dict__["graph_id"] = None
+            __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["graphName", "importTask", "kmsKeyIdentifier", "replicaCount", "vectorSearchConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Graph, __self__).__init__(
@@ -332,6 +334,7 @@ class Graph(pulumi.CustomResource):
 
         __props__ = GraphArgs.__new__(GraphArgs)
 
+        __props__.__dict__["create_time"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["graph_arn"] = None
@@ -342,9 +345,18 @@ class Graph(pulumi.CustomResource):
         __props__.__dict__["provisioned_memory"] = None
         __props__.__dict__["public_connectivity"] = None
         __props__.__dict__["replica_count"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vector_search_configuration"] = None
         return Graph(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        The time at which the graph was created.
+        """
+        return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
@@ -441,6 +453,14 @@ class Graph(pulumi.CustomResource):
         _Default_: If not specified, the default value is 1.
         """
         return pulumi.get(self, "replica_count")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[_builtins.str]:
+        """
+        The current status of the graph.
+        """
+        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter

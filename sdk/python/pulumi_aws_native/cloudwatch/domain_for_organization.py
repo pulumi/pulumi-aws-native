@@ -32,9 +32,10 @@ class DomainForOrganizationArgs:
         """
         The set of arguments for constructing a DomainForOrganization resource.
 
-        :param pulumi.Input[_builtins.str] domain_access_role_arn: The ARN of an IAM role in the management account that CloudWatch Omni assumes for domain-scoped credential vending.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainForOrganizationIdentityProvidersItem']]] identity_providers: The identity providers configured for the domain.
-        :param pulumi.Input[_builtins.str] name: A name that identifies the domain.
+        :param pulumi.Input[_builtins.str] domain_access_role_arn: The ARN of the customer-provided IAM role in the management account used for domain access.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainForOrganizationIdentityProvidersItem']]] identity_providers: The identity providers configured for the organization domain.
+        :param pulumi.Input['DomainForOrganizationIdentityProviderConfigurationArgs'] identity_provider_configuration: Identity provider configuration for the organization domain.
+        :param pulumi.Input[_builtins.str] name: A name that identifies the organization domain.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "domain_access_role_arn", domain_access_role_arn)
@@ -50,7 +51,7 @@ class DomainForOrganizationArgs:
     @pulumi.getter(name="domainAccessRoleArn")
     def domain_access_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of an IAM role in the management account that CloudWatch Omni assumes for domain-scoped credential vending.
+        The ARN of the customer-provided IAM role in the management account used for domain access.
         """
         return pulumi.get(self, "domain_access_role_arn")
 
@@ -62,7 +63,7 @@ class DomainForOrganizationArgs:
     @pulumi.getter(name="identityProviders")
     def identity_providers(self) -> pulumi.Input[Sequence[pulumi.Input['DomainForOrganizationIdentityProvidersItem']]]:
         """
-        The identity providers configured for the domain.
+        The identity providers configured for the organization domain.
         """
         return pulumi.get(self, "identity_providers")
 
@@ -73,6 +74,9 @@ class DomainForOrganizationArgs:
     @_builtins.property
     @pulumi.getter(name="identityProviderConfiguration")
     def identity_provider_configuration(self) -> pulumi.Input[Optional['DomainForOrganizationIdentityProviderConfigurationArgs']]:
+        """
+        Identity provider configuration for the organization domain.
+        """
         return pulumi.get(self, "identity_provider_configuration")
 
     @identity_provider_configuration.setter
@@ -83,7 +87,7 @@ class DomainForOrganizationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name that identifies the domain.
+        A name that identifies the organization domain.
         """
         return pulumi.get(self, "name")
 
@@ -117,13 +121,14 @@ class DomainForOrganization(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+        Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_access_role_arn: The ARN of an IAM role in the management account that CloudWatch Omni assumes for domain-scoped credential vending.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainForOrganizationIdentityProvidersItem']]] identity_providers: The identity providers configured for the domain.
-        :param pulumi.Input[_builtins.str] name: A name that identifies the domain.
+        :param pulumi.Input[_builtins.str] domain_access_role_arn: The ARN of the customer-provided IAM role in the management account used for domain access.
+        :param pulumi.Input[Union['DomainForOrganizationIdentityProviderConfigurationArgs', 'DomainForOrganizationIdentityProviderConfigurationArgsDict']] identity_provider_configuration: Identity provider configuration for the organization domain.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainForOrganizationIdentityProvidersItem']]] identity_providers: The identity providers configured for the organization domain.
+        :param pulumi.Input[_builtins.str] name: A name that identifies the organization domain.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -133,7 +138,7 @@ class DomainForOrganization(pulumi.CustomResource):
                  args: DomainForOrganizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+        Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
 
         :param str resource_name: The name of the resource.
         :param DomainForOrganizationArgs args: The arguments to use to populate this resource's properties.
@@ -230,7 +235,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        The Amazon Resource Name (ARN) of the organization domain.
         """
         return pulumi.get(self, "arn")
 
@@ -238,7 +243,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The timestamp when the domain was created.
+        The timestamp when the organization domain was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -254,7 +259,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter(name="domainAccessRoleArn")
     def domain_access_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of an IAM role in the management account that CloudWatch Omni assumes for domain-scoped credential vending.
+        The ARN of the customer-provided IAM role in the management account used for domain access.
         """
         return pulumi.get(self, "domain_access_role_arn")
 
@@ -262,7 +267,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter(name="domainEndpointUrl")
     def domain_endpoint_url(self) -> pulumi.Output[_builtins.str]:
         """
-        The HTTPS endpoint URL for accessing the domain.
+        The HTTPS endpoint URL for accessing the organization domain.
         """
         return pulumi.get(self, "domain_endpoint_url")
 
@@ -270,7 +275,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique ID of the domain.
+        The unique ID of the organization domain.
         """
         return pulumi.get(self, "domain_id")
 
@@ -285,13 +290,16 @@ class DomainForOrganization(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="identityProviderConfiguration")
     def identity_provider_configuration(self) -> pulumi.Output[Optional['outputs.DomainForOrganizationIdentityProviderConfiguration']]:
+        """
+        Identity provider configuration for the organization domain.
+        """
         return pulumi.get(self, "identity_provider_configuration")
 
     @_builtins.property
     @pulumi.getter(name="identityProviders")
     def identity_providers(self) -> pulumi.Output[Sequence['DomainForOrganizationIdentityProvidersItem']]:
         """
-        The identity providers configured for the domain.
+        The identity providers configured for the organization domain.
         """
         return pulumi.get(self, "identity_providers")
 
@@ -299,7 +307,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A name that identifies the domain.
+        A name that identifies the organization domain.
         """
         return pulumi.get(self, "name")
 
@@ -307,7 +315,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the AWS Organization this domain belongs to.
+        The ID of the AWS Organization that owns the domain.
         """
         return pulumi.get(self, "organization_id")
 
@@ -315,7 +323,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The account ID of the organization's management account, which owns this domain.
+        The AWS account ID that owns the organization domain.
         """
         return pulumi.get(self, "owner_account_id")
 
@@ -323,7 +331,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        The Region where this domain was created.
+        The Region where this organization domain was created.
         """
         return pulumi.get(self, "region")
 
@@ -331,7 +339,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output['DomainForOrganizationStatus']:
         """
-        Current status of the domain.
+        Current status of the organization domain.
         """
         return pulumi.get(self, "status")
 
@@ -347,7 +355,7 @@ class DomainForOrganization(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The timestamp when the domain was last updated.
+        The timestamp when the organization domain was last updated.
         """
         return pulumi.get(self, "updated_at")
 

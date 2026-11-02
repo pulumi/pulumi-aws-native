@@ -2,6 +2,60 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessGrantGrantType = {
+    ServiceManaged: "SERVICE_MANAGED",
+    CustomerManaged: "CUSTOMER_MANAGED",
+} as const;
+
+/**
+ * Who manages the grant.
+ */
+export type AccessGrantGrantType = (typeof AccessGrantGrantType)[keyof typeof AccessGrantGrantType];
+
+export const AccessGrantPermission = {
+    SpaceAdmin: "SPACE_ADMIN",
+    Read: "READ",
+    ReadWriteDelete: "READ_WRITE_DELETE",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * The permission granted.
+ */
+export type AccessGrantPermission = (typeof AccessGrantPermission)[keyof typeof AccessGrantPermission];
+
+export const AccessGrantPrincipalPrincipalType = {
+    IdcUser: "IDC_USER",
+    IdcGroup: "IDC_GROUP",
+    IamUser: "IAM_USER",
+    IamRole: "IAM_ROLE",
+    IamRoot: "IAM_ROOT",
+    AccessProfile: "ACCESS_PROFILE",
+    Alert: "ALERT",
+    Agent: "AGENT",
+} as const;
+
+/**
+ * The type of principal receiving the grant.
+ */
+export type AccessGrantPrincipalPrincipalType = (typeof AccessGrantPrincipalPrincipalType)[keyof typeof AccessGrantPrincipalPrincipalType];
+
+export const AccessGrantResourceScopeSignalTypesItem = {
+    Logs: "LOGS",
+    Traces: "TRACES",
+} as const;
+
+export type AccessGrantResourceScopeSignalTypesItem = (typeof AccessGrantResourceScopeSignalTypesItem)[keyof typeof AccessGrantResourceScopeSignalTypesItem];
+
+export const AccessGrantRowScopeOperator = {
+    In: "IN",
+} as const;
+
+/**
+ * Match operator applied to this filter's values.
+ */
+export type AccessGrantRowScopeOperator = (typeof AccessGrantRowScopeOperator)[keyof typeof AccessGrantRowScopeOperator];
+
 export const AccessProfileAssumeStatus = {
     Allowed: "ALLOWED",
     Denied: "DENIED",
@@ -33,6 +87,38 @@ export const AlarmMuteRuleStatus = {
  */
 export type AlarmMuteRuleStatus = (typeof AlarmMuteRuleStatus)[keyof typeof AlarmMuteRuleStatus];
 
+export const DomainAccessGrantForOrganizationGrantType = {
+    ServiceManaged: "SERVICE_MANAGED",
+    CustomerManaged: "CUSTOMER_MANAGED",
+} as const;
+
+/**
+ * Who manages the grant.
+ */
+export type DomainAccessGrantForOrganizationGrantType = (typeof DomainAccessGrantForOrganizationGrantType)[keyof typeof DomainAccessGrantForOrganizationGrantType];
+
+export const DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType = {
+    IdcUser: "IDC_USER",
+    IdcGroup: "IDC_GROUP",
+    IamUser: "IAM_USER",
+    IamRole: "IAM_ROLE",
+    IamRoot: "IAM_ROOT",
+} as const;
+
+/**
+ * The type of principal the grant is issued to.
+ */
+export type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType = (typeof DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType)[keyof typeof DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType];
+
+export const DomainAccessGrantForOrganizationPermission = {
+    Admin: "ADMIN",
+} as const;
+
+/**
+ * The permission granted.
+ */
+export type DomainAccessGrantForOrganizationPermission = (typeof DomainAccessGrantForOrganizationPermission)[keyof typeof DomainAccessGrantForOrganizationPermission];
+
 export const DomainForOrganizationIdentityProvidersItem = {
     Iam: "IAM",
     Idc: "IDC",
@@ -45,9 +131,25 @@ export const DomainForOrganizationStatus = {
 } as const;
 
 /**
- * Current status of the domain.
+ * Current status of the organization domain.
  */
 export type DomainForOrganizationStatus = (typeof DomainForOrganizationStatus)[keyof typeof DomainForOrganizationStatus];
+
+export const DomainIdentityProvidersItem = {
+    Iam: "IAM",
+    Idc: "IDC",
+} as const;
+
+export type DomainIdentityProvidersItem = (typeof DomainIdentityProvidersItem)[keyof typeof DomainIdentityProvidersItem];
+
+export const DomainStatus = {
+    Active: "ACTIVE",
+} as const;
+
+/**
+ * Current status of the domain.
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
 export const InsightRuleRuleState = {
     Enabled: "ENABLED",
@@ -93,6 +195,27 @@ export const OTelEnrichmentStatus = {
  * Current status of OTel enrichment (RUNNING or STOPPED).
  */
 export type OTelEnrichmentStatus = (typeof OTelEnrichmentStatus)[keyof typeof OTelEnrichmentStatus];
+
+export const SpaceEncryptionConfigurationEncryptionStrategy = {
+    AwsOwned: "AWS_OWNED",
+    CustomerManaged: "CUSTOMER_MANAGED",
+} as const;
+
+/**
+ * Whether the space is encrypted with an AWS owned key or a customer managed key.
+ */
+export type SpaceEncryptionConfigurationEncryptionStrategy = (typeof SpaceEncryptionConfigurationEncryptionStrategy)[keyof typeof SpaceEncryptionConfigurationEncryptionStrategy];
+
+export const SpaceStatus = {
+    Active: "ACTIVE",
+    Suspended: "SUSPENDED",
+    Moving: "MOVING",
+} as const;
+
+/**
+ * The status of the space.
+ */
+export type SpaceStatus = (typeof SpaceStatus)[keyof typeof SpaceStatus];
 
 export const ViewType = {
     User: "USER",

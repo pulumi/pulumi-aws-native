@@ -25,7 +25,7 @@ type QuotaShare struct {
 	// The Amazon Resource Name (ARN) of the quota share.
 	QuotaShareArn pulumi.StringOutput `pulumi:"quotaShareArn"`
 	// The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	QuotaShareName pulumi.StringOutput `pulumi:"quotaShareName"`
+	QuotaShareName pulumi.StringPtrOutput `pulumi:"quotaShareName"`
 	// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
 	ResourceSharingConfiguration QuotaShareResourceSharingConfigurationOutput `pulumi:"resourceSharingConfiguration"`
 	// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
@@ -183,8 +183,8 @@ func (o QuotaShareOutput) QuotaShareArn() pulumi.StringOutput {
 }
 
 // The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-func (o QuotaShareOutput) QuotaShareName() pulumi.StringOutput {
-	return o.ApplyT(func(v *QuotaShare) pulumi.StringOutput { return v.QuotaShareName }).(pulumi.StringOutput)
+func (o QuotaShareOutput) QuotaShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuotaShare) pulumi.StringPtrOutput { return v.QuotaShareName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.

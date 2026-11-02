@@ -519,7 +519,7 @@ func (o ApplicationCodeConfigurationPtrOutput) CodeContentType() ApplicationCode
 type ApplicationCodeContent struct {
 	// Information about the Amazon S3 bucket that contains the application code.
 	S3ContentLocation *ApplicationS3ContentLocation `pulumi:"s3ContentLocation"`
-	// The text-format code for a Flink-based Kinesis Data Analytics application.
+	// The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
 	TextContent *string `pulumi:"textContent"`
 	// The zip-format code for a Flink-based Kinesis Data Analytics application.
 	ZipFileContent *string `pulumi:"zipFileContent"`
@@ -540,7 +540,7 @@ type ApplicationCodeContentInput interface {
 type ApplicationCodeContentArgs struct {
 	// Information about the Amazon S3 bucket that contains the application code.
 	S3ContentLocation ApplicationS3ContentLocationPtrInput `pulumi:"s3ContentLocation"`
-	// The text-format code for a Flink-based Kinesis Data Analytics application.
+	// The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
 	TextContent pulumi.StringPtrInput `pulumi:"textContent"`
 	// The zip-format code for a Flink-based Kinesis Data Analytics application.
 	ZipFileContent pulumi.StringPtrInput `pulumi:"zipFileContent"`
@@ -629,7 +629,7 @@ func (o ApplicationCodeContentOutput) S3ContentLocation() ApplicationS3ContentLo
 	return o.ApplyT(func(v ApplicationCodeContent) *ApplicationS3ContentLocation { return v.S3ContentLocation }).(ApplicationS3ContentLocationPtrOutput)
 }
 
-// The text-format code for a Flink-based Kinesis Data Analytics application.
+// The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
 func (o ApplicationCodeContentOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCodeContent) *string { return v.TextContent }).(pulumi.StringPtrOutput)
 }
@@ -673,7 +673,7 @@ func (o ApplicationCodeContentPtrOutput) S3ContentLocation() ApplicationS3Conten
 	}).(ApplicationS3ContentLocationPtrOutput)
 }
 
-// The text-format code for a Flink-based Kinesis Data Analytics application.
+// The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
 func (o ApplicationCodeContentPtrOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationCodeContent) *string {
 		if v == nil {
@@ -707,8 +707,6 @@ type ApplicationConfiguration struct {
 	EnvironmentProperties *ApplicationEnvironmentProperties `pulumi:"environmentProperties"`
 	// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
 	FlinkApplicationConfiguration *ApplicationFlinkApplicationConfiguration `pulumi:"flinkApplicationConfiguration"`
-	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-	SqlApplicationConfiguration *ApplicationSqlApplicationConfiguration `pulumi:"sqlApplicationConfiguration"`
 	// The array of descriptions of VPC configurations available to the application.
 	VpcConfigurations []ApplicationVpcConfiguration `pulumi:"vpcConfigurations"`
 	// The configuration parameters for a Kinesis Data Analytics Studio notebook.
@@ -740,8 +738,6 @@ type ApplicationConfigurationArgs struct {
 	EnvironmentProperties ApplicationEnvironmentPropertiesPtrInput `pulumi:"environmentProperties"`
 	// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
 	FlinkApplicationConfiguration ApplicationFlinkApplicationConfigurationPtrInput `pulumi:"flinkApplicationConfiguration"`
-	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-	SqlApplicationConfiguration ApplicationSqlApplicationConfigurationPtrInput `pulumi:"sqlApplicationConfiguration"`
 	// The array of descriptions of VPC configurations available to the application.
 	VpcConfigurations ApplicationVpcConfigurationArrayInput `pulumi:"vpcConfigurations"`
 	// The configuration parameters for a Kinesis Data Analytics Studio notebook.
@@ -864,13 +860,6 @@ func (o ApplicationConfigurationOutput) FlinkApplicationConfiguration() Applicat
 	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
 }
 
-// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-func (o ApplicationConfigurationOutput) SqlApplicationConfiguration() ApplicationSqlApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationSqlApplicationConfiguration {
-		return v.SqlApplicationConfiguration
-	}).(ApplicationSqlApplicationConfigurationPtrOutput)
-}
-
 // The array of descriptions of VPC configurations available to the application.
 func (o ApplicationConfigurationOutput) VpcConfigurations() ApplicationVpcConfigurationArrayOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) []ApplicationVpcConfiguration { return v.VpcConfigurations }).(ApplicationVpcConfigurationArrayOutput)
@@ -967,16 +956,6 @@ func (o ApplicationConfigurationPtrOutput) FlinkApplicationConfiguration() Appli
 	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
 }
 
-// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-func (o ApplicationConfigurationPtrOutput) SqlApplicationConfiguration() ApplicationSqlApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationSqlApplicationConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SqlApplicationConfiguration
-	}).(ApplicationSqlApplicationConfigurationPtrOutput)
-}
-
 // The array of descriptions of VPC configurations available to the application.
 func (o ApplicationConfigurationPtrOutput) VpcConfigurations() ApplicationVpcConfigurationArrayOutput {
 	return o.ApplyT(func(v *ApplicationConfiguration) []ApplicationVpcConfiguration {
@@ -995,171 +974,6 @@ func (o ApplicationConfigurationPtrOutput) ZeppelinApplicationConfiguration() Ap
 		}
 		return v.ZeppelinApplicationConfiguration
 	}).(ApplicationZeppelinApplicationConfigurationPtrOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
-// `"name1", "address1"`
-// `"name2", "address2"`
-type ApplicationCsvMappingParameters struct {
-	// The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
-	// The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
-	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
-}
-
-// ApplicationCsvMappingParametersInput is an input type that accepts ApplicationCsvMappingParametersArgs and ApplicationCsvMappingParametersOutput values.
-// You can construct a concrete instance of `ApplicationCsvMappingParametersInput` via:
-//
-//	ApplicationCsvMappingParametersArgs{...}
-type ApplicationCsvMappingParametersInput interface {
-	pulumi.Input
-
-	ToApplicationCsvMappingParametersOutput() ApplicationCsvMappingParametersOutput
-	ToApplicationCsvMappingParametersOutputWithContext(context.Context) ApplicationCsvMappingParametersOutput
-}
-
-// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
-// `"name1", "address1"`
-// `"name2", "address2"`
-type ApplicationCsvMappingParametersArgs struct {
-	// The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
-	// The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
-	RecordRowDelimiter pulumi.StringInput `pulumi:"recordRowDelimiter"`
-}
-
-func (ApplicationCsvMappingParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationCsvMappingParameters)(nil)).Elem()
-}
-
-func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersOutput() ApplicationCsvMappingParametersOutput {
-	return i.ToApplicationCsvMappingParametersOutputWithContext(context.Background())
-}
-
-func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersOutput)
-}
-
-func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
-	return i.ToApplicationCsvMappingParametersPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationCsvMappingParametersArgs) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersOutput).ToApplicationCsvMappingParametersPtrOutputWithContext(ctx)
-}
-
-// ApplicationCsvMappingParametersPtrInput is an input type that accepts ApplicationCsvMappingParametersArgs, ApplicationCsvMappingParametersPtr and ApplicationCsvMappingParametersPtrOutput values.
-// You can construct a concrete instance of `ApplicationCsvMappingParametersPtrInput` via:
-//
-//	        ApplicationCsvMappingParametersArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationCsvMappingParametersPtrInput interface {
-	pulumi.Input
-
-	ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput
-	ToApplicationCsvMappingParametersPtrOutputWithContext(context.Context) ApplicationCsvMappingParametersPtrOutput
-}
-
-type applicationCsvMappingParametersPtrType ApplicationCsvMappingParametersArgs
-
-func ApplicationCsvMappingParametersPtr(v *ApplicationCsvMappingParametersArgs) ApplicationCsvMappingParametersPtrInput {
-	return (*applicationCsvMappingParametersPtrType)(v)
-}
-
-func (*applicationCsvMappingParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationCsvMappingParameters)(nil)).Elem()
-}
-
-func (i *applicationCsvMappingParametersPtrType) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
-	return i.ToApplicationCsvMappingParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationCsvMappingParametersPtrType) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCsvMappingParametersPtrOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
-// `"name1", "address1"`
-// `"name2", "address2"`
-type ApplicationCsvMappingParametersOutput struct{ *pulumi.OutputState }
-
-func (ApplicationCsvMappingParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationCsvMappingParameters)(nil)).Elem()
-}
-
-func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParametersOutput() ApplicationCsvMappingParametersOutput {
-	return o
-}
-
-func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParametersOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersOutput {
-	return o
-}
-
-func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
-	return o.ToApplicationCsvMappingParametersPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationCsvMappingParametersOutput) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCsvMappingParameters) *ApplicationCsvMappingParameters {
-		return &v
-	}).(ApplicationCsvMappingParametersPtrOutput)
-}
-
-// The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-func (o ApplicationCsvMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationCsvMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
-}
-
-// The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
-func (o ApplicationCsvMappingParametersOutput) RecordRowDelimiter() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationCsvMappingParameters) string { return v.RecordRowDelimiter }).(pulumi.StringOutput)
-}
-
-type ApplicationCsvMappingParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationCsvMappingParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationCsvMappingParameters)(nil)).Elem()
-}
-
-func (o ApplicationCsvMappingParametersPtrOutput) ToApplicationCsvMappingParametersPtrOutput() ApplicationCsvMappingParametersPtrOutput {
-	return o
-}
-
-func (o ApplicationCsvMappingParametersPtrOutput) ToApplicationCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationCsvMappingParametersPtrOutput {
-	return o
-}
-
-func (o ApplicationCsvMappingParametersPtrOutput) Elem() ApplicationCsvMappingParametersOutput {
-	return o.ApplyT(func(v *ApplicationCsvMappingParameters) ApplicationCsvMappingParameters {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationCsvMappingParameters
-		return ret
-	}).(ApplicationCsvMappingParametersOutput)
-}
-
-// The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-func (o ApplicationCsvMappingParametersPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationCsvMappingParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RecordColumnDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
-func (o ApplicationCsvMappingParametersPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationCsvMappingParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RecordRowDelimiter
-	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration of connectors and user-defined functions.
@@ -2189,1068 +2003,6 @@ func (o ApplicationGlueDataCatalogConfigurationPtrOutput) DatabaseArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
-type ApplicationInputType struct {
-	// Describes the number of in-application streams to create.
-	InputParallelism *ApplicationInputParallelism `pulumi:"inputParallelism"`
-	// The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
-	InputProcessingConfiguration *ApplicationInputProcessingConfiguration `pulumi:"inputProcessingConfiguration"`
-	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-	InputSchema ApplicationInputSchema `pulumi:"inputSchema"`
-	// If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-	KinesisFirehoseInput *ApplicationKinesisFirehoseInput `pulumi:"kinesisFirehoseInput"`
-	// If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-	KinesisStreamsInput *ApplicationKinesisStreamsInput `pulumi:"kinesisStreamsInput"`
-	// The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
-	NamePrefix string `pulumi:"namePrefix"`
-}
-
-// ApplicationInputTypeInput is an input type that accepts ApplicationInputTypeArgs and ApplicationInputTypeOutput values.
-// You can construct a concrete instance of `ApplicationInputTypeInput` via:
-//
-//	ApplicationInputTypeArgs{...}
-type ApplicationInputTypeInput interface {
-	pulumi.Input
-
-	ToApplicationInputTypeOutput() ApplicationInputTypeOutput
-	ToApplicationInputTypeOutputWithContext(context.Context) ApplicationInputTypeOutput
-}
-
-// When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
-type ApplicationInputTypeArgs struct {
-	// Describes the number of in-application streams to create.
-	InputParallelism ApplicationInputParallelismPtrInput `pulumi:"inputParallelism"`
-	// The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
-	InputProcessingConfiguration ApplicationInputProcessingConfigurationPtrInput `pulumi:"inputProcessingConfiguration"`
-	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-	InputSchema ApplicationInputSchemaInput `pulumi:"inputSchema"`
-	// If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-	KinesisFirehoseInput ApplicationKinesisFirehoseInputPtrInput `pulumi:"kinesisFirehoseInput"`
-	// If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-	KinesisStreamsInput ApplicationKinesisStreamsInputPtrInput `pulumi:"kinesisStreamsInput"`
-	// The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
-	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
-}
-
-func (ApplicationInputTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputType)(nil)).Elem()
-}
-
-func (i ApplicationInputTypeArgs) ToApplicationInputTypeOutput() ApplicationInputTypeOutput {
-	return i.ToApplicationInputTypeOutputWithContext(context.Background())
-}
-
-func (i ApplicationInputTypeArgs) ToApplicationInputTypeOutputWithContext(ctx context.Context) ApplicationInputTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputTypeOutput)
-}
-
-// ApplicationInputTypeArrayInput is an input type that accepts ApplicationInputTypeArray and ApplicationInputTypeArrayOutput values.
-// You can construct a concrete instance of `ApplicationInputTypeArrayInput` via:
-//
-//	ApplicationInputTypeArray{ ApplicationInputTypeArgs{...} }
-type ApplicationInputTypeArrayInput interface {
-	pulumi.Input
-
-	ToApplicationInputTypeArrayOutput() ApplicationInputTypeArrayOutput
-	ToApplicationInputTypeArrayOutputWithContext(context.Context) ApplicationInputTypeArrayOutput
-}
-
-type ApplicationInputTypeArray []ApplicationInputTypeInput
-
-func (ApplicationInputTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationInputType)(nil)).Elem()
-}
-
-func (i ApplicationInputTypeArray) ToApplicationInputTypeArrayOutput() ApplicationInputTypeArrayOutput {
-	return i.ToApplicationInputTypeArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationInputTypeArray) ToApplicationInputTypeArrayOutputWithContext(ctx context.Context) ApplicationInputTypeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputTypeArrayOutput)
-}
-
-// When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
-type ApplicationInputTypeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputType)(nil)).Elem()
-}
-
-func (o ApplicationInputTypeOutput) ToApplicationInputTypeOutput() ApplicationInputTypeOutput {
-	return o
-}
-
-func (o ApplicationInputTypeOutput) ToApplicationInputTypeOutputWithContext(ctx context.Context) ApplicationInputTypeOutput {
-	return o
-}
-
-// Describes the number of in-application streams to create.
-func (o ApplicationInputTypeOutput) InputParallelism() ApplicationInputParallelismPtrOutput {
-	return o.ApplyT(func(v ApplicationInputType) *ApplicationInputParallelism { return v.InputParallelism }).(ApplicationInputParallelismPtrOutput)
-}
-
-// The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
-func (o ApplicationInputTypeOutput) InputProcessingConfiguration() ApplicationInputProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationInputType) *ApplicationInputProcessingConfiguration {
-		return v.InputProcessingConfiguration
-	}).(ApplicationInputProcessingConfigurationPtrOutput)
-}
-
-// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-func (o ApplicationInputTypeOutput) InputSchema() ApplicationInputSchemaOutput {
-	return o.ApplyT(func(v ApplicationInputType) ApplicationInputSchema { return v.InputSchema }).(ApplicationInputSchemaOutput)
-}
-
-// If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-func (o ApplicationInputTypeOutput) KinesisFirehoseInput() ApplicationKinesisFirehoseInputPtrOutput {
-	return o.ApplyT(func(v ApplicationInputType) *ApplicationKinesisFirehoseInput { return v.KinesisFirehoseInput }).(ApplicationKinesisFirehoseInputPtrOutput)
-}
-
-// If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-func (o ApplicationInputTypeOutput) KinesisStreamsInput() ApplicationKinesisStreamsInputPtrOutput {
-	return o.ApplyT(func(v ApplicationInputType) *ApplicationKinesisStreamsInput { return v.KinesisStreamsInput }).(ApplicationKinesisStreamsInputPtrOutput)
-}
-
-// The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
-func (o ApplicationInputTypeOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationInputType) string { return v.NamePrefix }).(pulumi.StringOutput)
-}
-
-type ApplicationInputTypeArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationInputType)(nil)).Elem()
-}
-
-func (o ApplicationInputTypeArrayOutput) ToApplicationInputTypeArrayOutput() ApplicationInputTypeArrayOutput {
-	return o
-}
-
-func (o ApplicationInputTypeArrayOutput) ToApplicationInputTypeArrayOutputWithContext(ctx context.Context) ApplicationInputTypeArrayOutput {
-	return o
-}
-
-func (o ApplicationInputTypeArrayOutput) Index(i pulumi.IntInput) ApplicationInputTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationInputType {
-		return vs[0].([]ApplicationInputType)[vs[1].(int)]
-	}).(ApplicationInputTypeOutput)
-}
-
-// An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
-type ApplicationInputLambdaProcessor struct {
-	// The ARN of the Amazon Lambda function that operates on records in the stream.
-	ResourceArn string `pulumi:"resourceArn"`
-}
-
-// ApplicationInputLambdaProcessorInput is an input type that accepts ApplicationInputLambdaProcessorArgs and ApplicationInputLambdaProcessorOutput values.
-// You can construct a concrete instance of `ApplicationInputLambdaProcessorInput` via:
-//
-//	ApplicationInputLambdaProcessorArgs{...}
-type ApplicationInputLambdaProcessorInput interface {
-	pulumi.Input
-
-	ToApplicationInputLambdaProcessorOutput() ApplicationInputLambdaProcessorOutput
-	ToApplicationInputLambdaProcessorOutputWithContext(context.Context) ApplicationInputLambdaProcessorOutput
-}
-
-// An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
-type ApplicationInputLambdaProcessorArgs struct {
-	// The ARN of the Amazon Lambda function that operates on records in the stream.
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-}
-
-func (ApplicationInputLambdaProcessorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputLambdaProcessor)(nil)).Elem()
-}
-
-func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorOutput() ApplicationInputLambdaProcessorOutput {
-	return i.ToApplicationInputLambdaProcessorOutputWithContext(context.Background())
-}
-
-func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputLambdaProcessorOutput)
-}
-
-func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorPtrOutput() ApplicationInputLambdaProcessorPtrOutput {
-	return i.ToApplicationInputLambdaProcessorPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorPtrOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputLambdaProcessorOutput).ToApplicationInputLambdaProcessorPtrOutputWithContext(ctx)
-}
-
-// ApplicationInputLambdaProcessorPtrInput is an input type that accepts ApplicationInputLambdaProcessorArgs, ApplicationInputLambdaProcessorPtr and ApplicationInputLambdaProcessorPtrOutput values.
-// You can construct a concrete instance of `ApplicationInputLambdaProcessorPtrInput` via:
-//
-//	        ApplicationInputLambdaProcessorArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationInputLambdaProcessorPtrInput interface {
-	pulumi.Input
-
-	ToApplicationInputLambdaProcessorPtrOutput() ApplicationInputLambdaProcessorPtrOutput
-	ToApplicationInputLambdaProcessorPtrOutputWithContext(context.Context) ApplicationInputLambdaProcessorPtrOutput
-}
-
-type applicationInputLambdaProcessorPtrType ApplicationInputLambdaProcessorArgs
-
-func ApplicationInputLambdaProcessorPtr(v *ApplicationInputLambdaProcessorArgs) ApplicationInputLambdaProcessorPtrInput {
-	return (*applicationInputLambdaProcessorPtrType)(v)
-}
-
-func (*applicationInputLambdaProcessorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInputLambdaProcessor)(nil)).Elem()
-}
-
-func (i *applicationInputLambdaProcessorPtrType) ToApplicationInputLambdaProcessorPtrOutput() ApplicationInputLambdaProcessorPtrOutput {
-	return i.ToApplicationInputLambdaProcessorPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationInputLambdaProcessorPtrType) ToApplicationInputLambdaProcessorPtrOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputLambdaProcessorPtrOutput)
-}
-
-// An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
-type ApplicationInputLambdaProcessorOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputLambdaProcessorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputLambdaProcessor)(nil)).Elem()
-}
-
-func (o ApplicationInputLambdaProcessorOutput) ToApplicationInputLambdaProcessorOutput() ApplicationInputLambdaProcessorOutput {
-	return o
-}
-
-func (o ApplicationInputLambdaProcessorOutput) ToApplicationInputLambdaProcessorOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorOutput {
-	return o
-}
-
-func (o ApplicationInputLambdaProcessorOutput) ToApplicationInputLambdaProcessorPtrOutput() ApplicationInputLambdaProcessorPtrOutput {
-	return o.ToApplicationInputLambdaProcessorPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInputLambdaProcessorOutput) ToApplicationInputLambdaProcessorPtrOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInputLambdaProcessor) *ApplicationInputLambdaProcessor {
-		return &v
-	}).(ApplicationInputLambdaProcessorPtrOutput)
-}
-
-// The ARN of the Amazon Lambda function that operates on records in the stream.
-func (o ApplicationInputLambdaProcessorOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.ResourceArn }).(pulumi.StringOutput)
-}
-
-type ApplicationInputLambdaProcessorPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputLambdaProcessorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInputLambdaProcessor)(nil)).Elem()
-}
-
-func (o ApplicationInputLambdaProcessorPtrOutput) ToApplicationInputLambdaProcessorPtrOutput() ApplicationInputLambdaProcessorPtrOutput {
-	return o
-}
-
-func (o ApplicationInputLambdaProcessorPtrOutput) ToApplicationInputLambdaProcessorPtrOutputWithContext(ctx context.Context) ApplicationInputLambdaProcessorPtrOutput {
-	return o
-}
-
-func (o ApplicationInputLambdaProcessorPtrOutput) Elem() ApplicationInputLambdaProcessorOutput {
-	return o.ApplyT(func(v *ApplicationInputLambdaProcessor) ApplicationInputLambdaProcessor {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationInputLambdaProcessor
-		return ret
-	}).(ApplicationInputLambdaProcessorOutput)
-}
-
-// The ARN of the Amazon Lambda function that operates on records in the stream.
-func (o ApplicationInputLambdaProcessorPtrOutput) ResourceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationInputLambdaProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
-type ApplicationInputParallelism struct {
-	// The number of in-application streams to create.
-	Count *int `pulumi:"count"`
-}
-
-// ApplicationInputParallelismInput is an input type that accepts ApplicationInputParallelismArgs and ApplicationInputParallelismOutput values.
-// You can construct a concrete instance of `ApplicationInputParallelismInput` via:
-//
-//	ApplicationInputParallelismArgs{...}
-type ApplicationInputParallelismInput interface {
-	pulumi.Input
-
-	ToApplicationInputParallelismOutput() ApplicationInputParallelismOutput
-	ToApplicationInputParallelismOutputWithContext(context.Context) ApplicationInputParallelismOutput
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
-type ApplicationInputParallelismArgs struct {
-	// The number of in-application streams to create.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-}
-
-func (ApplicationInputParallelismArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputParallelism)(nil)).Elem()
-}
-
-func (i ApplicationInputParallelismArgs) ToApplicationInputParallelismOutput() ApplicationInputParallelismOutput {
-	return i.ToApplicationInputParallelismOutputWithContext(context.Background())
-}
-
-func (i ApplicationInputParallelismArgs) ToApplicationInputParallelismOutputWithContext(ctx context.Context) ApplicationInputParallelismOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputParallelismOutput)
-}
-
-func (i ApplicationInputParallelismArgs) ToApplicationInputParallelismPtrOutput() ApplicationInputParallelismPtrOutput {
-	return i.ToApplicationInputParallelismPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationInputParallelismArgs) ToApplicationInputParallelismPtrOutputWithContext(ctx context.Context) ApplicationInputParallelismPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputParallelismOutput).ToApplicationInputParallelismPtrOutputWithContext(ctx)
-}
-
-// ApplicationInputParallelismPtrInput is an input type that accepts ApplicationInputParallelismArgs, ApplicationInputParallelismPtr and ApplicationInputParallelismPtrOutput values.
-// You can construct a concrete instance of `ApplicationInputParallelismPtrInput` via:
-//
-//	        ApplicationInputParallelismArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationInputParallelismPtrInput interface {
-	pulumi.Input
-
-	ToApplicationInputParallelismPtrOutput() ApplicationInputParallelismPtrOutput
-	ToApplicationInputParallelismPtrOutputWithContext(context.Context) ApplicationInputParallelismPtrOutput
-}
-
-type applicationInputParallelismPtrType ApplicationInputParallelismArgs
-
-func ApplicationInputParallelismPtr(v *ApplicationInputParallelismArgs) ApplicationInputParallelismPtrInput {
-	return (*applicationInputParallelismPtrType)(v)
-}
-
-func (*applicationInputParallelismPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInputParallelism)(nil)).Elem()
-}
-
-func (i *applicationInputParallelismPtrType) ToApplicationInputParallelismPtrOutput() ApplicationInputParallelismPtrOutput {
-	return i.ToApplicationInputParallelismPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationInputParallelismPtrType) ToApplicationInputParallelismPtrOutputWithContext(ctx context.Context) ApplicationInputParallelismPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputParallelismPtrOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
-type ApplicationInputParallelismOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputParallelismOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputParallelism)(nil)).Elem()
-}
-
-func (o ApplicationInputParallelismOutput) ToApplicationInputParallelismOutput() ApplicationInputParallelismOutput {
-	return o
-}
-
-func (o ApplicationInputParallelismOutput) ToApplicationInputParallelismOutputWithContext(ctx context.Context) ApplicationInputParallelismOutput {
-	return o
-}
-
-func (o ApplicationInputParallelismOutput) ToApplicationInputParallelismPtrOutput() ApplicationInputParallelismPtrOutput {
-	return o.ToApplicationInputParallelismPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInputParallelismOutput) ToApplicationInputParallelismPtrOutputWithContext(ctx context.Context) ApplicationInputParallelismPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInputParallelism) *ApplicationInputParallelism {
-		return &v
-	}).(ApplicationInputParallelismPtrOutput)
-}
-
-// The number of in-application streams to create.
-func (o ApplicationInputParallelismOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationInputParallelism) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-type ApplicationInputParallelismPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputParallelismPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInputParallelism)(nil)).Elem()
-}
-
-func (o ApplicationInputParallelismPtrOutput) ToApplicationInputParallelismPtrOutput() ApplicationInputParallelismPtrOutput {
-	return o
-}
-
-func (o ApplicationInputParallelismPtrOutput) ToApplicationInputParallelismPtrOutputWithContext(ctx context.Context) ApplicationInputParallelismPtrOutput {
-	return o
-}
-
-func (o ApplicationInputParallelismPtrOutput) Elem() ApplicationInputParallelismOutput {
-	return o.ApplyT(func(v *ApplicationInputParallelism) ApplicationInputParallelism {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationInputParallelism
-		return ret
-	}).(ApplicationInputParallelismOutput)
-}
-
-// The number of in-application streams to create.
-func (o ApplicationInputParallelismPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ApplicationInputParallelism) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Count
-	}).(pulumi.IntPtrOutput)
-}
-
-// For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
-type ApplicationInputProcessingConfiguration struct {
-	// The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-	InputLambdaProcessor *ApplicationInputLambdaProcessor `pulumi:"inputLambdaProcessor"`
-}
-
-// ApplicationInputProcessingConfigurationInput is an input type that accepts ApplicationInputProcessingConfigurationArgs and ApplicationInputProcessingConfigurationOutput values.
-// You can construct a concrete instance of `ApplicationInputProcessingConfigurationInput` via:
-//
-//	ApplicationInputProcessingConfigurationArgs{...}
-type ApplicationInputProcessingConfigurationInput interface {
-	pulumi.Input
-
-	ToApplicationInputProcessingConfigurationOutput() ApplicationInputProcessingConfigurationOutput
-	ToApplicationInputProcessingConfigurationOutputWithContext(context.Context) ApplicationInputProcessingConfigurationOutput
-}
-
-// For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
-type ApplicationInputProcessingConfigurationArgs struct {
-	// The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-	InputLambdaProcessor ApplicationInputLambdaProcessorPtrInput `pulumi:"inputLambdaProcessor"`
-}
-
-func (ApplicationInputProcessingConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputProcessingConfiguration)(nil)).Elem()
-}
-
-func (i ApplicationInputProcessingConfigurationArgs) ToApplicationInputProcessingConfigurationOutput() ApplicationInputProcessingConfigurationOutput {
-	return i.ToApplicationInputProcessingConfigurationOutputWithContext(context.Background())
-}
-
-func (i ApplicationInputProcessingConfigurationArgs) ToApplicationInputProcessingConfigurationOutputWithContext(ctx context.Context) ApplicationInputProcessingConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputProcessingConfigurationOutput)
-}
-
-func (i ApplicationInputProcessingConfigurationArgs) ToApplicationInputProcessingConfigurationPtrOutput() ApplicationInputProcessingConfigurationPtrOutput {
-	return i.ToApplicationInputProcessingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationInputProcessingConfigurationArgs) ToApplicationInputProcessingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInputProcessingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputProcessingConfigurationOutput).ToApplicationInputProcessingConfigurationPtrOutputWithContext(ctx)
-}
-
-// ApplicationInputProcessingConfigurationPtrInput is an input type that accepts ApplicationInputProcessingConfigurationArgs, ApplicationInputProcessingConfigurationPtr and ApplicationInputProcessingConfigurationPtrOutput values.
-// You can construct a concrete instance of `ApplicationInputProcessingConfigurationPtrInput` via:
-//
-//	        ApplicationInputProcessingConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationInputProcessingConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToApplicationInputProcessingConfigurationPtrOutput() ApplicationInputProcessingConfigurationPtrOutput
-	ToApplicationInputProcessingConfigurationPtrOutputWithContext(context.Context) ApplicationInputProcessingConfigurationPtrOutput
-}
-
-type applicationInputProcessingConfigurationPtrType ApplicationInputProcessingConfigurationArgs
-
-func ApplicationInputProcessingConfigurationPtr(v *ApplicationInputProcessingConfigurationArgs) ApplicationInputProcessingConfigurationPtrInput {
-	return (*applicationInputProcessingConfigurationPtrType)(v)
-}
-
-func (*applicationInputProcessingConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInputProcessingConfiguration)(nil)).Elem()
-}
-
-func (i *applicationInputProcessingConfigurationPtrType) ToApplicationInputProcessingConfigurationPtrOutput() ApplicationInputProcessingConfigurationPtrOutput {
-	return i.ToApplicationInputProcessingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationInputProcessingConfigurationPtrType) ToApplicationInputProcessingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInputProcessingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputProcessingConfigurationPtrOutput)
-}
-
-// For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
-type ApplicationInputProcessingConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputProcessingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputProcessingConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationInputProcessingConfigurationOutput) ToApplicationInputProcessingConfigurationOutput() ApplicationInputProcessingConfigurationOutput {
-	return o
-}
-
-func (o ApplicationInputProcessingConfigurationOutput) ToApplicationInputProcessingConfigurationOutputWithContext(ctx context.Context) ApplicationInputProcessingConfigurationOutput {
-	return o
-}
-
-func (o ApplicationInputProcessingConfigurationOutput) ToApplicationInputProcessingConfigurationPtrOutput() ApplicationInputProcessingConfigurationPtrOutput {
-	return o.ToApplicationInputProcessingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInputProcessingConfigurationOutput) ToApplicationInputProcessingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInputProcessingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInputProcessingConfiguration) *ApplicationInputProcessingConfiguration {
-		return &v
-	}).(ApplicationInputProcessingConfigurationPtrOutput)
-}
-
-// The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-func (o ApplicationInputProcessingConfigurationOutput) InputLambdaProcessor() ApplicationInputLambdaProcessorPtrOutput {
-	return o.ApplyT(func(v ApplicationInputProcessingConfiguration) *ApplicationInputLambdaProcessor {
-		return v.InputLambdaProcessor
-	}).(ApplicationInputLambdaProcessorPtrOutput)
-}
-
-type ApplicationInputProcessingConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputProcessingConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInputProcessingConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationInputProcessingConfigurationPtrOutput) ToApplicationInputProcessingConfigurationPtrOutput() ApplicationInputProcessingConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationInputProcessingConfigurationPtrOutput) ToApplicationInputProcessingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationInputProcessingConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationInputProcessingConfigurationPtrOutput) Elem() ApplicationInputProcessingConfigurationOutput {
-	return o.ApplyT(func(v *ApplicationInputProcessingConfiguration) ApplicationInputProcessingConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationInputProcessingConfiguration
-		return ret
-	}).(ApplicationInputProcessingConfigurationOutput)
-}
-
-// The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-func (o ApplicationInputProcessingConfigurationPtrOutput) InputLambdaProcessor() ApplicationInputLambdaProcessorPtrOutput {
-	return o.ApplyT(func(v *ApplicationInputProcessingConfiguration) *ApplicationInputLambdaProcessor {
-		if v == nil {
-			return nil
-		}
-		return v.InputLambdaProcessor
-	}).(ApplicationInputLambdaProcessorPtrOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-type ApplicationInputSchema struct {
-	// A list of `RecordColumn` objects.
-	RecordColumns []ApplicationRecordColumn `pulumi:"recordColumns"`
-	// Specifies the encoding of the records in the streaming source. For example, UTF-8.
-	RecordEncoding *ApplicationInputSchemaRecordEncoding `pulumi:"recordEncoding"`
-	// Specifies the format of the records on the streaming source.
-	RecordFormat ApplicationRecordFormat `pulumi:"recordFormat"`
-}
-
-// ApplicationInputSchemaInput is an input type that accepts ApplicationInputSchemaArgs and ApplicationInputSchemaOutput values.
-// You can construct a concrete instance of `ApplicationInputSchemaInput` via:
-//
-//	ApplicationInputSchemaArgs{...}
-type ApplicationInputSchemaInput interface {
-	pulumi.Input
-
-	ToApplicationInputSchemaOutput() ApplicationInputSchemaOutput
-	ToApplicationInputSchemaOutputWithContext(context.Context) ApplicationInputSchemaOutput
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-type ApplicationInputSchemaArgs struct {
-	// A list of `RecordColumn` objects.
-	RecordColumns ApplicationRecordColumnArrayInput `pulumi:"recordColumns"`
-	// Specifies the encoding of the records in the streaming source. For example, UTF-8.
-	RecordEncoding ApplicationInputSchemaRecordEncodingPtrInput `pulumi:"recordEncoding"`
-	// Specifies the format of the records on the streaming source.
-	RecordFormat ApplicationRecordFormatInput `pulumi:"recordFormat"`
-}
-
-func (ApplicationInputSchemaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputSchema)(nil)).Elem()
-}
-
-func (i ApplicationInputSchemaArgs) ToApplicationInputSchemaOutput() ApplicationInputSchemaOutput {
-	return i.ToApplicationInputSchemaOutputWithContext(context.Background())
-}
-
-func (i ApplicationInputSchemaArgs) ToApplicationInputSchemaOutputWithContext(ctx context.Context) ApplicationInputSchemaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputSchemaOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-type ApplicationInputSchemaOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputSchema)(nil)).Elem()
-}
-
-func (o ApplicationInputSchemaOutput) ToApplicationInputSchemaOutput() ApplicationInputSchemaOutput {
-	return o
-}
-
-func (o ApplicationInputSchemaOutput) ToApplicationInputSchemaOutputWithContext(ctx context.Context) ApplicationInputSchemaOutput {
-	return o
-}
-
-// A list of `RecordColumn` objects.
-func (o ApplicationInputSchemaOutput) RecordColumns() ApplicationRecordColumnArrayOutput {
-	return o.ApplyT(func(v ApplicationInputSchema) []ApplicationRecordColumn { return v.RecordColumns }).(ApplicationRecordColumnArrayOutput)
-}
-
-// Specifies the encoding of the records in the streaming source. For example, UTF-8.
-func (o ApplicationInputSchemaOutput) RecordEncoding() ApplicationInputSchemaRecordEncodingPtrOutput {
-	return o.ApplyT(func(v ApplicationInputSchema) *ApplicationInputSchemaRecordEncoding { return v.RecordEncoding }).(ApplicationInputSchemaRecordEncodingPtrOutput)
-}
-
-// Specifies the format of the records on the streaming source.
-func (o ApplicationInputSchemaOutput) RecordFormat() ApplicationRecordFormatOutput {
-	return o.ApplyT(func(v ApplicationInputSchema) ApplicationRecordFormat { return v.RecordFormat }).(ApplicationRecordFormatOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
-type ApplicationJsonMappingParameters struct {
-	// The path to the top-level parent that contains the records.
-	RecordRowPath string `pulumi:"recordRowPath"`
-}
-
-// ApplicationJsonMappingParametersInput is an input type that accepts ApplicationJsonMappingParametersArgs and ApplicationJsonMappingParametersOutput values.
-// You can construct a concrete instance of `ApplicationJsonMappingParametersInput` via:
-//
-//	ApplicationJsonMappingParametersArgs{...}
-type ApplicationJsonMappingParametersInput interface {
-	pulumi.Input
-
-	ToApplicationJsonMappingParametersOutput() ApplicationJsonMappingParametersOutput
-	ToApplicationJsonMappingParametersOutputWithContext(context.Context) ApplicationJsonMappingParametersOutput
-}
-
-// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
-type ApplicationJsonMappingParametersArgs struct {
-	// The path to the top-level parent that contains the records.
-	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
-}
-
-func (ApplicationJsonMappingParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationJsonMappingParameters)(nil)).Elem()
-}
-
-func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersOutput() ApplicationJsonMappingParametersOutput {
-	return i.ToApplicationJsonMappingParametersOutputWithContext(context.Background())
-}
-
-func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersOutput)
-}
-
-func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
-	return i.ToApplicationJsonMappingParametersPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationJsonMappingParametersArgs) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersOutput).ToApplicationJsonMappingParametersPtrOutputWithContext(ctx)
-}
-
-// ApplicationJsonMappingParametersPtrInput is an input type that accepts ApplicationJsonMappingParametersArgs, ApplicationJsonMappingParametersPtr and ApplicationJsonMappingParametersPtrOutput values.
-// You can construct a concrete instance of `ApplicationJsonMappingParametersPtrInput` via:
-//
-//	        ApplicationJsonMappingParametersArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationJsonMappingParametersPtrInput interface {
-	pulumi.Input
-
-	ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput
-	ToApplicationJsonMappingParametersPtrOutputWithContext(context.Context) ApplicationJsonMappingParametersPtrOutput
-}
-
-type applicationJsonMappingParametersPtrType ApplicationJsonMappingParametersArgs
-
-func ApplicationJsonMappingParametersPtr(v *ApplicationJsonMappingParametersArgs) ApplicationJsonMappingParametersPtrInput {
-	return (*applicationJsonMappingParametersPtrType)(v)
-}
-
-func (*applicationJsonMappingParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationJsonMappingParameters)(nil)).Elem()
-}
-
-func (i *applicationJsonMappingParametersPtrType) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
-	return i.ToApplicationJsonMappingParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationJsonMappingParametersPtrType) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJsonMappingParametersPtrOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
-type ApplicationJsonMappingParametersOutput struct{ *pulumi.OutputState }
-
-func (ApplicationJsonMappingParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationJsonMappingParameters)(nil)).Elem()
-}
-
-func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParametersOutput() ApplicationJsonMappingParametersOutput {
-	return o
-}
-
-func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParametersOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersOutput {
-	return o
-}
-
-func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
-	return o.ToApplicationJsonMappingParametersPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationJsonMappingParametersOutput) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJsonMappingParameters) *ApplicationJsonMappingParameters {
-		return &v
-	}).(ApplicationJsonMappingParametersPtrOutput)
-}
-
-// The path to the top-level parent that contains the records.
-func (o ApplicationJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationJsonMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
-}
-
-type ApplicationJsonMappingParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationJsonMappingParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationJsonMappingParameters)(nil)).Elem()
-}
-
-func (o ApplicationJsonMappingParametersPtrOutput) ToApplicationJsonMappingParametersPtrOutput() ApplicationJsonMappingParametersPtrOutput {
-	return o
-}
-
-func (o ApplicationJsonMappingParametersPtrOutput) ToApplicationJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationJsonMappingParametersPtrOutput {
-	return o
-}
-
-func (o ApplicationJsonMappingParametersPtrOutput) Elem() ApplicationJsonMappingParametersOutput {
-	return o.ApplyT(func(v *ApplicationJsonMappingParameters) ApplicationJsonMappingParameters {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationJsonMappingParameters
-		return ret
-	}).(ApplicationJsonMappingParametersOutput)
-}
-
-// The path to the top-level parent that contains the records.
-func (o ApplicationJsonMappingParametersPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationJsonMappingParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RecordRowPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
-type ApplicationKinesisFirehoseInput struct {
-	// The Amazon Resource Name (ARN) of the delivery stream.
-	ResourceArn string `pulumi:"resourceArn"`
-}
-
-// ApplicationKinesisFirehoseInputInput is an input type that accepts ApplicationKinesisFirehoseInputArgs and ApplicationKinesisFirehoseInputOutput values.
-// You can construct a concrete instance of `ApplicationKinesisFirehoseInputInput` via:
-//
-//	ApplicationKinesisFirehoseInputArgs{...}
-type ApplicationKinesisFirehoseInputInput interface {
-	pulumi.Input
-
-	ToApplicationKinesisFirehoseInputOutput() ApplicationKinesisFirehoseInputOutput
-	ToApplicationKinesisFirehoseInputOutputWithContext(context.Context) ApplicationKinesisFirehoseInputOutput
-}
-
-// For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
-type ApplicationKinesisFirehoseInputArgs struct {
-	// The Amazon Resource Name (ARN) of the delivery stream.
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-}
-
-func (ApplicationKinesisFirehoseInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationKinesisFirehoseInput)(nil)).Elem()
-}
-
-func (i ApplicationKinesisFirehoseInputArgs) ToApplicationKinesisFirehoseInputOutput() ApplicationKinesisFirehoseInputOutput {
-	return i.ToApplicationKinesisFirehoseInputOutputWithContext(context.Background())
-}
-
-func (i ApplicationKinesisFirehoseInputArgs) ToApplicationKinesisFirehoseInputOutputWithContext(ctx context.Context) ApplicationKinesisFirehoseInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisFirehoseInputOutput)
-}
-
-func (i ApplicationKinesisFirehoseInputArgs) ToApplicationKinesisFirehoseInputPtrOutput() ApplicationKinesisFirehoseInputPtrOutput {
-	return i.ToApplicationKinesisFirehoseInputPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationKinesisFirehoseInputArgs) ToApplicationKinesisFirehoseInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisFirehoseInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisFirehoseInputOutput).ToApplicationKinesisFirehoseInputPtrOutputWithContext(ctx)
-}
-
-// ApplicationKinesisFirehoseInputPtrInput is an input type that accepts ApplicationKinesisFirehoseInputArgs, ApplicationKinesisFirehoseInputPtr and ApplicationKinesisFirehoseInputPtrOutput values.
-// You can construct a concrete instance of `ApplicationKinesisFirehoseInputPtrInput` via:
-//
-//	        ApplicationKinesisFirehoseInputArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationKinesisFirehoseInputPtrInput interface {
-	pulumi.Input
-
-	ToApplicationKinesisFirehoseInputPtrOutput() ApplicationKinesisFirehoseInputPtrOutput
-	ToApplicationKinesisFirehoseInputPtrOutputWithContext(context.Context) ApplicationKinesisFirehoseInputPtrOutput
-}
-
-type applicationKinesisFirehoseInputPtrType ApplicationKinesisFirehoseInputArgs
-
-func ApplicationKinesisFirehoseInputPtr(v *ApplicationKinesisFirehoseInputArgs) ApplicationKinesisFirehoseInputPtrInput {
-	return (*applicationKinesisFirehoseInputPtrType)(v)
-}
-
-func (*applicationKinesisFirehoseInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationKinesisFirehoseInput)(nil)).Elem()
-}
-
-func (i *applicationKinesisFirehoseInputPtrType) ToApplicationKinesisFirehoseInputPtrOutput() ApplicationKinesisFirehoseInputPtrOutput {
-	return i.ToApplicationKinesisFirehoseInputPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationKinesisFirehoseInputPtrType) ToApplicationKinesisFirehoseInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisFirehoseInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisFirehoseInputPtrOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
-type ApplicationKinesisFirehoseInputOutput struct{ *pulumi.OutputState }
-
-func (ApplicationKinesisFirehoseInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationKinesisFirehoseInput)(nil)).Elem()
-}
-
-func (o ApplicationKinesisFirehoseInputOutput) ToApplicationKinesisFirehoseInputOutput() ApplicationKinesisFirehoseInputOutput {
-	return o
-}
-
-func (o ApplicationKinesisFirehoseInputOutput) ToApplicationKinesisFirehoseInputOutputWithContext(ctx context.Context) ApplicationKinesisFirehoseInputOutput {
-	return o
-}
-
-func (o ApplicationKinesisFirehoseInputOutput) ToApplicationKinesisFirehoseInputPtrOutput() ApplicationKinesisFirehoseInputPtrOutput {
-	return o.ToApplicationKinesisFirehoseInputPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationKinesisFirehoseInputOutput) ToApplicationKinesisFirehoseInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisFirehoseInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationKinesisFirehoseInput) *ApplicationKinesisFirehoseInput {
-		return &v
-	}).(ApplicationKinesisFirehoseInputPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) of the delivery stream.
-func (o ApplicationKinesisFirehoseInputOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.ResourceArn }).(pulumi.StringOutput)
-}
-
-type ApplicationKinesisFirehoseInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationKinesisFirehoseInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationKinesisFirehoseInput)(nil)).Elem()
-}
-
-func (o ApplicationKinesisFirehoseInputPtrOutput) ToApplicationKinesisFirehoseInputPtrOutput() ApplicationKinesisFirehoseInputPtrOutput {
-	return o
-}
-
-func (o ApplicationKinesisFirehoseInputPtrOutput) ToApplicationKinesisFirehoseInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisFirehoseInputPtrOutput {
-	return o
-}
-
-func (o ApplicationKinesisFirehoseInputPtrOutput) Elem() ApplicationKinesisFirehoseInputOutput {
-	return o.ApplyT(func(v *ApplicationKinesisFirehoseInput) ApplicationKinesisFirehoseInput {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationKinesisFirehoseInput
-		return ret
-	}).(ApplicationKinesisFirehoseInputOutput)
-}
-
-// The Amazon Resource Name (ARN) of the delivery stream.
-func (o ApplicationKinesisFirehoseInputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationKinesisFirehoseInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
-type ApplicationKinesisStreamsInput struct {
-	// The ARN of the input Kinesis data stream to read.
-	ResourceArn string `pulumi:"resourceArn"`
-}
-
-// ApplicationKinesisStreamsInputInput is an input type that accepts ApplicationKinesisStreamsInputArgs and ApplicationKinesisStreamsInputOutput values.
-// You can construct a concrete instance of `ApplicationKinesisStreamsInputInput` via:
-//
-//	ApplicationKinesisStreamsInputArgs{...}
-type ApplicationKinesisStreamsInputInput interface {
-	pulumi.Input
-
-	ToApplicationKinesisStreamsInputOutput() ApplicationKinesisStreamsInputOutput
-	ToApplicationKinesisStreamsInputOutputWithContext(context.Context) ApplicationKinesisStreamsInputOutput
-}
-
-// Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
-type ApplicationKinesisStreamsInputArgs struct {
-	// The ARN of the input Kinesis data stream to read.
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-}
-
-func (ApplicationKinesisStreamsInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationKinesisStreamsInput)(nil)).Elem()
-}
-
-func (i ApplicationKinesisStreamsInputArgs) ToApplicationKinesisStreamsInputOutput() ApplicationKinesisStreamsInputOutput {
-	return i.ToApplicationKinesisStreamsInputOutputWithContext(context.Background())
-}
-
-func (i ApplicationKinesisStreamsInputArgs) ToApplicationKinesisStreamsInputOutputWithContext(ctx context.Context) ApplicationKinesisStreamsInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisStreamsInputOutput)
-}
-
-func (i ApplicationKinesisStreamsInputArgs) ToApplicationKinesisStreamsInputPtrOutput() ApplicationKinesisStreamsInputPtrOutput {
-	return i.ToApplicationKinesisStreamsInputPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationKinesisStreamsInputArgs) ToApplicationKinesisStreamsInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisStreamsInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisStreamsInputOutput).ToApplicationKinesisStreamsInputPtrOutputWithContext(ctx)
-}
-
-// ApplicationKinesisStreamsInputPtrInput is an input type that accepts ApplicationKinesisStreamsInputArgs, ApplicationKinesisStreamsInputPtr and ApplicationKinesisStreamsInputPtrOutput values.
-// You can construct a concrete instance of `ApplicationKinesisStreamsInputPtrInput` via:
-//
-//	        ApplicationKinesisStreamsInputArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationKinesisStreamsInputPtrInput interface {
-	pulumi.Input
-
-	ToApplicationKinesisStreamsInputPtrOutput() ApplicationKinesisStreamsInputPtrOutput
-	ToApplicationKinesisStreamsInputPtrOutputWithContext(context.Context) ApplicationKinesisStreamsInputPtrOutput
-}
-
-type applicationKinesisStreamsInputPtrType ApplicationKinesisStreamsInputArgs
-
-func ApplicationKinesisStreamsInputPtr(v *ApplicationKinesisStreamsInputArgs) ApplicationKinesisStreamsInputPtrInput {
-	return (*applicationKinesisStreamsInputPtrType)(v)
-}
-
-func (*applicationKinesisStreamsInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationKinesisStreamsInput)(nil)).Elem()
-}
-
-func (i *applicationKinesisStreamsInputPtrType) ToApplicationKinesisStreamsInputPtrOutput() ApplicationKinesisStreamsInputPtrOutput {
-	return i.ToApplicationKinesisStreamsInputPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationKinesisStreamsInputPtrType) ToApplicationKinesisStreamsInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisStreamsInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisStreamsInputPtrOutput)
-}
-
-// Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
-type ApplicationKinesisStreamsInputOutput struct{ *pulumi.OutputState }
-
-func (ApplicationKinesisStreamsInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationKinesisStreamsInput)(nil)).Elem()
-}
-
-func (o ApplicationKinesisStreamsInputOutput) ToApplicationKinesisStreamsInputOutput() ApplicationKinesisStreamsInputOutput {
-	return o
-}
-
-func (o ApplicationKinesisStreamsInputOutput) ToApplicationKinesisStreamsInputOutputWithContext(ctx context.Context) ApplicationKinesisStreamsInputOutput {
-	return o
-}
-
-func (o ApplicationKinesisStreamsInputOutput) ToApplicationKinesisStreamsInputPtrOutput() ApplicationKinesisStreamsInputPtrOutput {
-	return o.ToApplicationKinesisStreamsInputPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationKinesisStreamsInputOutput) ToApplicationKinesisStreamsInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisStreamsInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationKinesisStreamsInput) *ApplicationKinesisStreamsInput {
-		return &v
-	}).(ApplicationKinesisStreamsInputPtrOutput)
-}
-
-// The ARN of the input Kinesis data stream to read.
-func (o ApplicationKinesisStreamsInputOutput) ResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.ResourceArn }).(pulumi.StringOutput)
-}
-
-type ApplicationKinesisStreamsInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationKinesisStreamsInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationKinesisStreamsInput)(nil)).Elem()
-}
-
-func (o ApplicationKinesisStreamsInputPtrOutput) ToApplicationKinesisStreamsInputPtrOutput() ApplicationKinesisStreamsInputPtrOutput {
-	return o
-}
-
-func (o ApplicationKinesisStreamsInputPtrOutput) ToApplicationKinesisStreamsInputPtrOutputWithContext(ctx context.Context) ApplicationKinesisStreamsInputPtrOutput {
-	return o
-}
-
-func (o ApplicationKinesisStreamsInputPtrOutput) Elem() ApplicationKinesisStreamsInputOutput {
-	return o.ApplyT(func(v *ApplicationKinesisStreamsInput) ApplicationKinesisStreamsInput {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationKinesisStreamsInput
-		return ret
-	}).(ApplicationKinesisStreamsInputOutput)
-}
-
-// The ARN of the input Kinesis data stream to read.
-func (o ApplicationKinesisStreamsInputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationKinesisStreamsInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceArn
-	}).(pulumi.StringPtrOutput)
-}
-
 // Describes the maintenance configuration for the application.
 type ApplicationMaintenanceConfiguration struct {
 	// The start time for the maintenance window.
@@ -3389,165 +2141,6 @@ func (o ApplicationMaintenanceConfigurationPtrOutput) ApplicationMaintenanceWind
 		}
 		return &v.ApplicationMaintenanceWindowStartTime
 	}).(pulumi.StringPtrOutput)
-}
-
-// When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-type ApplicationMappingParameters struct {
-	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
-	CsvMappingParameters *ApplicationCsvMappingParameters `pulumi:"csvMappingParameters"`
-	// Provides additional mapping information when JSON is the record format on the streaming source.
-	JsonMappingParameters *ApplicationJsonMappingParameters `pulumi:"jsonMappingParameters"`
-}
-
-// ApplicationMappingParametersInput is an input type that accepts ApplicationMappingParametersArgs and ApplicationMappingParametersOutput values.
-// You can construct a concrete instance of `ApplicationMappingParametersInput` via:
-//
-//	ApplicationMappingParametersArgs{...}
-type ApplicationMappingParametersInput interface {
-	pulumi.Input
-
-	ToApplicationMappingParametersOutput() ApplicationMappingParametersOutput
-	ToApplicationMappingParametersOutputWithContext(context.Context) ApplicationMappingParametersOutput
-}
-
-// When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-type ApplicationMappingParametersArgs struct {
-	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
-	CsvMappingParameters ApplicationCsvMappingParametersPtrInput `pulumi:"csvMappingParameters"`
-	// Provides additional mapping information when JSON is the record format on the streaming source.
-	JsonMappingParameters ApplicationJsonMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
-}
-
-func (ApplicationMappingParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationMappingParameters)(nil)).Elem()
-}
-
-func (i ApplicationMappingParametersArgs) ToApplicationMappingParametersOutput() ApplicationMappingParametersOutput {
-	return i.ToApplicationMappingParametersOutputWithContext(context.Background())
-}
-
-func (i ApplicationMappingParametersArgs) ToApplicationMappingParametersOutputWithContext(ctx context.Context) ApplicationMappingParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMappingParametersOutput)
-}
-
-func (i ApplicationMappingParametersArgs) ToApplicationMappingParametersPtrOutput() ApplicationMappingParametersPtrOutput {
-	return i.ToApplicationMappingParametersPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationMappingParametersArgs) ToApplicationMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMappingParametersOutput).ToApplicationMappingParametersPtrOutputWithContext(ctx)
-}
-
-// ApplicationMappingParametersPtrInput is an input type that accepts ApplicationMappingParametersArgs, ApplicationMappingParametersPtr and ApplicationMappingParametersPtrOutput values.
-// You can construct a concrete instance of `ApplicationMappingParametersPtrInput` via:
-//
-//	        ApplicationMappingParametersArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationMappingParametersPtrInput interface {
-	pulumi.Input
-
-	ToApplicationMappingParametersPtrOutput() ApplicationMappingParametersPtrOutput
-	ToApplicationMappingParametersPtrOutputWithContext(context.Context) ApplicationMappingParametersPtrOutput
-}
-
-type applicationMappingParametersPtrType ApplicationMappingParametersArgs
-
-func ApplicationMappingParametersPtr(v *ApplicationMappingParametersArgs) ApplicationMappingParametersPtrInput {
-	return (*applicationMappingParametersPtrType)(v)
-}
-
-func (*applicationMappingParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationMappingParameters)(nil)).Elem()
-}
-
-func (i *applicationMappingParametersPtrType) ToApplicationMappingParametersPtrOutput() ApplicationMappingParametersPtrOutput {
-	return i.ToApplicationMappingParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationMappingParametersPtrType) ToApplicationMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationMappingParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMappingParametersPtrOutput)
-}
-
-// When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-type ApplicationMappingParametersOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMappingParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationMappingParameters)(nil)).Elem()
-}
-
-func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersOutput() ApplicationMappingParametersOutput {
-	return o
-}
-
-func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersOutputWithContext(ctx context.Context) ApplicationMappingParametersOutput {
-	return o
-}
-
-func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersPtrOutput() ApplicationMappingParametersPtrOutput {
-	return o.ToApplicationMappingParametersPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationMappingParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMappingParameters) *ApplicationMappingParameters {
-		return &v
-	}).(ApplicationMappingParametersPtrOutput)
-}
-
-// Provides additional mapping information when the record format uses delimiters (for example, CSV).
-func (o ApplicationMappingParametersOutput) CsvMappingParameters() ApplicationCsvMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCsvMappingParameters { return v.CsvMappingParameters }).(ApplicationCsvMappingParametersPtrOutput)
-}
-
-// Provides additional mapping information when JSON is the record format on the streaming source.
-func (o ApplicationMappingParametersOutput) JsonMappingParameters() ApplicationJsonMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationJsonMappingParameters { return v.JsonMappingParameters }).(ApplicationJsonMappingParametersPtrOutput)
-}
-
-type ApplicationMappingParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMappingParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationMappingParameters)(nil)).Elem()
-}
-
-func (o ApplicationMappingParametersPtrOutput) ToApplicationMappingParametersPtrOutput() ApplicationMappingParametersPtrOutput {
-	return o
-}
-
-func (o ApplicationMappingParametersPtrOutput) ToApplicationMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationMappingParametersPtrOutput {
-	return o
-}
-
-func (o ApplicationMappingParametersPtrOutput) Elem() ApplicationMappingParametersOutput {
-	return o.ApplyT(func(v *ApplicationMappingParameters) ApplicationMappingParameters {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationMappingParameters
-		return ret
-	}).(ApplicationMappingParametersOutput)
-}
-
-// Provides additional mapping information when the record format uses delimiters (for example, CSV).
-func (o ApplicationMappingParametersPtrOutput) CsvMappingParameters() ApplicationCsvMappingParametersPtrOutput {
-	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationCsvMappingParameters {
-		if v == nil {
-			return nil
-		}
-		return v.CsvMappingParameters
-	}).(ApplicationCsvMappingParametersPtrOutput)
-}
-
-// Provides additional mapping information when JSON is the record format on the streaming source.
-func (o ApplicationMappingParametersPtrOutput) JsonMappingParameters() ApplicationJsonMappingParametersPtrOutput {
-	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationJsonMappingParameters {
-		if v == nil {
-			return nil
-		}
-		return v.JsonMappingParameters
-	}).(ApplicationJsonMappingParametersPtrOutput)
 }
 
 // The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
@@ -4220,196 +2813,13 @@ func (o ApplicationPropertyGroupArrayOutput) Index(i pulumi.IntInput) Applicatio
 	}).(ApplicationPropertyGroupOutput)
 }
 
-// For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-// Also used to describe the format of the reference data source.
-type ApplicationRecordColumn struct {
-	// A reference to the data element in the streaming input or the reference data source.
-	Mapping *string `pulumi:"mapping"`
-	// The name of the column that is created in the in-application input stream or reference table.
-	Name string `pulumi:"name"`
-	// The type of column created in the in-application input stream or reference table.
-	SqlType string `pulumi:"sqlType"`
-}
-
-// ApplicationRecordColumnInput is an input type that accepts ApplicationRecordColumnArgs and ApplicationRecordColumnOutput values.
-// You can construct a concrete instance of `ApplicationRecordColumnInput` via:
-//
-//	ApplicationRecordColumnArgs{...}
-type ApplicationRecordColumnInput interface {
-	pulumi.Input
-
-	ToApplicationRecordColumnOutput() ApplicationRecordColumnOutput
-	ToApplicationRecordColumnOutputWithContext(context.Context) ApplicationRecordColumnOutput
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-// Also used to describe the format of the reference data source.
-type ApplicationRecordColumnArgs struct {
-	// A reference to the data element in the streaming input or the reference data source.
-	Mapping pulumi.StringPtrInput `pulumi:"mapping"`
-	// The name of the column that is created in the in-application input stream or reference table.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of column created in the in-application input stream or reference table.
-	SqlType pulumi.StringInput `pulumi:"sqlType"`
-}
-
-func (ApplicationRecordColumnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationRecordColumn)(nil)).Elem()
-}
-
-func (i ApplicationRecordColumnArgs) ToApplicationRecordColumnOutput() ApplicationRecordColumnOutput {
-	return i.ToApplicationRecordColumnOutputWithContext(context.Background())
-}
-
-func (i ApplicationRecordColumnArgs) ToApplicationRecordColumnOutputWithContext(ctx context.Context) ApplicationRecordColumnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordColumnOutput)
-}
-
-// ApplicationRecordColumnArrayInput is an input type that accepts ApplicationRecordColumnArray and ApplicationRecordColumnArrayOutput values.
-// You can construct a concrete instance of `ApplicationRecordColumnArrayInput` via:
-//
-//	ApplicationRecordColumnArray{ ApplicationRecordColumnArgs{...} }
-type ApplicationRecordColumnArrayInput interface {
-	pulumi.Input
-
-	ToApplicationRecordColumnArrayOutput() ApplicationRecordColumnArrayOutput
-	ToApplicationRecordColumnArrayOutputWithContext(context.Context) ApplicationRecordColumnArrayOutput
-}
-
-type ApplicationRecordColumnArray []ApplicationRecordColumnInput
-
-func (ApplicationRecordColumnArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationRecordColumn)(nil)).Elem()
-}
-
-func (i ApplicationRecordColumnArray) ToApplicationRecordColumnArrayOutput() ApplicationRecordColumnArrayOutput {
-	return i.ToApplicationRecordColumnArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationRecordColumnArray) ToApplicationRecordColumnArrayOutputWithContext(ctx context.Context) ApplicationRecordColumnArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordColumnArrayOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-// Also used to describe the format of the reference data source.
-type ApplicationRecordColumnOutput struct{ *pulumi.OutputState }
-
-func (ApplicationRecordColumnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationRecordColumn)(nil)).Elem()
-}
-
-func (o ApplicationRecordColumnOutput) ToApplicationRecordColumnOutput() ApplicationRecordColumnOutput {
-	return o
-}
-
-func (o ApplicationRecordColumnOutput) ToApplicationRecordColumnOutputWithContext(ctx context.Context) ApplicationRecordColumnOutput {
-	return o
-}
-
-// A reference to the data element in the streaming input or the reference data source.
-func (o ApplicationRecordColumnOutput) Mapping() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationRecordColumn) *string { return v.Mapping }).(pulumi.StringPtrOutput)
-}
-
-// The name of the column that is created in the in-application input stream or reference table.
-func (o ApplicationRecordColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationRecordColumn) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The type of column created in the in-application input stream or reference table.
-func (o ApplicationRecordColumnOutput) SqlType() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationRecordColumn) string { return v.SqlType }).(pulumi.StringOutput)
-}
-
-type ApplicationRecordColumnArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationRecordColumnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationRecordColumn)(nil)).Elem()
-}
-
-func (o ApplicationRecordColumnArrayOutput) ToApplicationRecordColumnArrayOutput() ApplicationRecordColumnArrayOutput {
-	return o
-}
-
-func (o ApplicationRecordColumnArrayOutput) ToApplicationRecordColumnArrayOutputWithContext(ctx context.Context) ApplicationRecordColumnArrayOutput {
-	return o
-}
-
-func (o ApplicationRecordColumnArrayOutput) Index(i pulumi.IntInput) ApplicationRecordColumnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationRecordColumn {
-		return vs[0].([]ApplicationRecordColumn)[vs[1].(int)]
-	}).(ApplicationRecordColumnOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
-type ApplicationRecordFormat struct {
-	// When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-	MappingParameters *ApplicationMappingParameters `pulumi:"mappingParameters"`
-	// The type of record format.
-	RecordFormatType ApplicationRecordFormatRecordFormatType `pulumi:"recordFormatType"`
-}
-
-// ApplicationRecordFormatInput is an input type that accepts ApplicationRecordFormatArgs and ApplicationRecordFormatOutput values.
-// You can construct a concrete instance of `ApplicationRecordFormatInput` via:
-//
-//	ApplicationRecordFormatArgs{...}
-type ApplicationRecordFormatInput interface {
-	pulumi.Input
-
-	ToApplicationRecordFormatOutput() ApplicationRecordFormatOutput
-	ToApplicationRecordFormatOutputWithContext(context.Context) ApplicationRecordFormatOutput
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
-type ApplicationRecordFormatArgs struct {
-	// When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-	MappingParameters ApplicationMappingParametersPtrInput `pulumi:"mappingParameters"`
-	// The type of record format.
-	RecordFormatType ApplicationRecordFormatRecordFormatTypeInput `pulumi:"recordFormatType"`
-}
-
-func (ApplicationRecordFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationRecordFormat)(nil)).Elem()
-}
-
-func (i ApplicationRecordFormatArgs) ToApplicationRecordFormatOutput() ApplicationRecordFormatOutput {
-	return i.ToApplicationRecordFormatOutputWithContext(context.Background())
-}
-
-func (i ApplicationRecordFormatArgs) ToApplicationRecordFormatOutputWithContext(ctx context.Context) ApplicationRecordFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordFormatOutput)
-}
-
-// For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
-type ApplicationRecordFormatOutput struct{ *pulumi.OutputState }
-
-func (ApplicationRecordFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationRecordFormat)(nil)).Elem()
-}
-
-func (o ApplicationRecordFormatOutput) ToApplicationRecordFormatOutput() ApplicationRecordFormatOutput {
-	return o
-}
-
-func (o ApplicationRecordFormatOutput) ToApplicationRecordFormatOutputWithContext(ctx context.Context) ApplicationRecordFormatOutput {
-	return o
-}
-
-// When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-func (o ApplicationRecordFormatOutput) MappingParameters() ApplicationMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationRecordFormat) *ApplicationMappingParameters { return v.MappingParameters }).(ApplicationMappingParametersPtrOutput)
-}
-
-// The type of record format.
-func (o ApplicationRecordFormatOutput) RecordFormatType() ApplicationRecordFormatRecordFormatTypeOutput {
-	return o.ApplyT(func(v ApplicationRecordFormat) ApplicationRecordFormatRecordFormatType { return v.RecordFormatType }).(ApplicationRecordFormatRecordFormatTypeOutput)
-}
-
 // Describes the restore behavior of a restarting application.
 type ApplicationRestoreConfiguration struct {
 	// Specifies how the application should be restored.
 	ApplicationRestoreType ApplicationRestoreConfigurationApplicationRestoreType `pulumi:"applicationRestoreType"`
-	// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+	// The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+	SnapshotArn *string `pulumi:"snapshotArn"`
+	// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
 	SnapshotName *string `pulumi:"snapshotName"`
 }
 
@@ -4428,7 +2838,9 @@ type ApplicationRestoreConfigurationInput interface {
 type ApplicationRestoreConfigurationArgs struct {
 	// Specifies how the application should be restored.
 	ApplicationRestoreType ApplicationRestoreConfigurationApplicationRestoreTypeInput `pulumi:"applicationRestoreType"`
-	// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+	// The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+	SnapshotArn pulumi.StringPtrInput `pulumi:"snapshotArn"`
+	// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
 	SnapshotName pulumi.StringPtrInput `pulumi:"snapshotName"`
 }
 
@@ -4517,7 +2929,12 @@ func (o ApplicationRestoreConfigurationOutput) ApplicationRestoreType() Applicat
 	}).(ApplicationRestoreConfigurationApplicationRestoreTypeOutput)
 }
 
-// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+// The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+func (o ApplicationRestoreConfigurationOutput) SnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationRestoreConfiguration) *string { return v.SnapshotArn }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
 func (o ApplicationRestoreConfigurationOutput) SnapshotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationRestoreConfiguration) *string { return v.SnapshotName }).(pulumi.StringPtrOutput)
 }
@@ -4556,7 +2973,17 @@ func (o ApplicationRestoreConfigurationPtrOutput) ApplicationRestoreType() Appli
 	}).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
 }
 
-// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+// The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+func (o ApplicationRestoreConfigurationPtrOutput) SnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationRestoreConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
 func (o ApplicationRestoreConfigurationPtrOutput) SnapshotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationRestoreConfiguration) *string {
 		if v == nil {
@@ -5066,6 +3493,8 @@ func (o ApplicationS3ContentLocationPtrOutput) ObjectVersion() pulumi.StringPtrO
 
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 type ApplicationSnapshotConfiguration struct {
+	// The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+	SnapshotMode *ApplicationSnapshotConfigurationSnapshotMode `pulumi:"snapshotMode"`
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 	SnapshotsEnabled bool `pulumi:"snapshotsEnabled"`
 }
@@ -5083,6 +3512,8 @@ type ApplicationSnapshotConfigurationInput interface {
 
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 type ApplicationSnapshotConfigurationArgs struct {
+	// The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+	SnapshotMode ApplicationSnapshotConfigurationSnapshotModePtrInput `pulumi:"snapshotMode"`
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 	SnapshotsEnabled pulumi.BoolInput `pulumi:"snapshotsEnabled"`
 }
@@ -5165,6 +3596,13 @@ func (o ApplicationSnapshotConfigurationOutput) ToApplicationSnapshotConfigurati
 	}).(ApplicationSnapshotConfigurationPtrOutput)
 }
 
+// The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+func (o ApplicationSnapshotConfigurationOutput) SnapshotMode() ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return o.ApplyT(func(v ApplicationSnapshotConfiguration) *ApplicationSnapshotConfigurationSnapshotMode {
+		return v.SnapshotMode
+	}).(ApplicationSnapshotConfigurationSnapshotModePtrOutput)
+}
+
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationSnapshotConfigurationOutput) SnapshotsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationSnapshotConfiguration) bool { return v.SnapshotsEnabled }).(pulumi.BoolOutput)
@@ -5194,6 +3632,16 @@ func (o ApplicationSnapshotConfigurationPtrOutput) Elem() ApplicationSnapshotCon
 	}).(ApplicationSnapshotConfigurationOutput)
 }
 
+// The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+func (o ApplicationSnapshotConfigurationPtrOutput) SnapshotMode() ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return o.ApplyT(func(v *ApplicationSnapshotConfiguration) *ApplicationSnapshotConfigurationSnapshotMode {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotMode
+	}).(ApplicationSnapshotConfigurationSnapshotModePtrOutput)
+}
+
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationSnapshotConfigurationPtrOutput) SnapshotsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationSnapshotConfiguration) *bool {
@@ -5202,146 +3650,6 @@ func (o ApplicationSnapshotConfigurationPtrOutput) SnapshotsEnabled() pulumi.Boo
 		}
 		return &v.SnapshotsEnabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
-type ApplicationSqlApplicationConfiguration struct {
-	// The array of Input objects describing the input streams used by the application.
-	Inputs []ApplicationInputType `pulumi:"inputs"`
-}
-
-// ApplicationSqlApplicationConfigurationInput is an input type that accepts ApplicationSqlApplicationConfigurationArgs and ApplicationSqlApplicationConfigurationOutput values.
-// You can construct a concrete instance of `ApplicationSqlApplicationConfigurationInput` via:
-//
-//	ApplicationSqlApplicationConfigurationArgs{...}
-type ApplicationSqlApplicationConfigurationInput interface {
-	pulumi.Input
-
-	ToApplicationSqlApplicationConfigurationOutput() ApplicationSqlApplicationConfigurationOutput
-	ToApplicationSqlApplicationConfigurationOutputWithContext(context.Context) ApplicationSqlApplicationConfigurationOutput
-}
-
-// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
-type ApplicationSqlApplicationConfigurationArgs struct {
-	// The array of Input objects describing the input streams used by the application.
-	Inputs ApplicationInputTypeArrayInput `pulumi:"inputs"`
-}
-
-func (ApplicationSqlApplicationConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSqlApplicationConfiguration)(nil)).Elem()
-}
-
-func (i ApplicationSqlApplicationConfigurationArgs) ToApplicationSqlApplicationConfigurationOutput() ApplicationSqlApplicationConfigurationOutput {
-	return i.ToApplicationSqlApplicationConfigurationOutputWithContext(context.Background())
-}
-
-func (i ApplicationSqlApplicationConfigurationArgs) ToApplicationSqlApplicationConfigurationOutputWithContext(ctx context.Context) ApplicationSqlApplicationConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSqlApplicationConfigurationOutput)
-}
-
-func (i ApplicationSqlApplicationConfigurationArgs) ToApplicationSqlApplicationConfigurationPtrOutput() ApplicationSqlApplicationConfigurationPtrOutput {
-	return i.ToApplicationSqlApplicationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSqlApplicationConfigurationArgs) ToApplicationSqlApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSqlApplicationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSqlApplicationConfigurationOutput).ToApplicationSqlApplicationConfigurationPtrOutputWithContext(ctx)
-}
-
-// ApplicationSqlApplicationConfigurationPtrInput is an input type that accepts ApplicationSqlApplicationConfigurationArgs, ApplicationSqlApplicationConfigurationPtr and ApplicationSqlApplicationConfigurationPtrOutput values.
-// You can construct a concrete instance of `ApplicationSqlApplicationConfigurationPtrInput` via:
-//
-//	        ApplicationSqlApplicationConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSqlApplicationConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSqlApplicationConfigurationPtrOutput() ApplicationSqlApplicationConfigurationPtrOutput
-	ToApplicationSqlApplicationConfigurationPtrOutputWithContext(context.Context) ApplicationSqlApplicationConfigurationPtrOutput
-}
-
-type applicationSqlApplicationConfigurationPtrType ApplicationSqlApplicationConfigurationArgs
-
-func ApplicationSqlApplicationConfigurationPtr(v *ApplicationSqlApplicationConfigurationArgs) ApplicationSqlApplicationConfigurationPtrInput {
-	return (*applicationSqlApplicationConfigurationPtrType)(v)
-}
-
-func (*applicationSqlApplicationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSqlApplicationConfiguration)(nil)).Elem()
-}
-
-func (i *applicationSqlApplicationConfigurationPtrType) ToApplicationSqlApplicationConfigurationPtrOutput() ApplicationSqlApplicationConfigurationPtrOutput {
-	return i.ToApplicationSqlApplicationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSqlApplicationConfigurationPtrType) ToApplicationSqlApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSqlApplicationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSqlApplicationConfigurationPtrOutput)
-}
-
-// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
-type ApplicationSqlApplicationConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSqlApplicationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSqlApplicationConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationSqlApplicationConfigurationOutput) ToApplicationSqlApplicationConfigurationOutput() ApplicationSqlApplicationConfigurationOutput {
-	return o
-}
-
-func (o ApplicationSqlApplicationConfigurationOutput) ToApplicationSqlApplicationConfigurationOutputWithContext(ctx context.Context) ApplicationSqlApplicationConfigurationOutput {
-	return o
-}
-
-func (o ApplicationSqlApplicationConfigurationOutput) ToApplicationSqlApplicationConfigurationPtrOutput() ApplicationSqlApplicationConfigurationPtrOutput {
-	return o.ToApplicationSqlApplicationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSqlApplicationConfigurationOutput) ToApplicationSqlApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSqlApplicationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSqlApplicationConfiguration) *ApplicationSqlApplicationConfiguration {
-		return &v
-	}).(ApplicationSqlApplicationConfigurationPtrOutput)
-}
-
-// The array of Input objects describing the input streams used by the application.
-func (o ApplicationSqlApplicationConfigurationOutput) Inputs() ApplicationInputTypeArrayOutput {
-	return o.ApplyT(func(v ApplicationSqlApplicationConfiguration) []ApplicationInputType { return v.Inputs }).(ApplicationInputTypeArrayOutput)
-}
-
-type ApplicationSqlApplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSqlApplicationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSqlApplicationConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationSqlApplicationConfigurationPtrOutput) ToApplicationSqlApplicationConfigurationPtrOutput() ApplicationSqlApplicationConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationSqlApplicationConfigurationPtrOutput) ToApplicationSqlApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSqlApplicationConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationSqlApplicationConfigurationPtrOutput) Elem() ApplicationSqlApplicationConfigurationOutput {
-	return o.ApplyT(func(v *ApplicationSqlApplicationConfiguration) ApplicationSqlApplicationConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSqlApplicationConfiguration
-		return ret
-	}).(ApplicationSqlApplicationConfigurationOutput)
-}
-
-// The array of Input objects describing the input streams used by the application.
-func (o ApplicationSqlApplicationConfigurationPtrOutput) Inputs() ApplicationInputTypeArrayOutput {
-	return o.ApplyT(func(v *ApplicationSqlApplicationConfiguration) []ApplicationInputType {
-		if v == nil {
-			return nil
-		}
-		return v.Inputs
-	}).(ApplicationInputTypeArrayOutput)
 }
 
 // Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
@@ -5959,8 +4267,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCodeContentPtrInput)(nil)).Elem(), ApplicationCodeContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationInput)(nil)).Elem(), ApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCsvMappingParametersInput)(nil)).Elem(), ApplicationCsvMappingParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCsvMappingParametersPtrInput)(nil)).Elem(), ApplicationCsvMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactConfigurationInput)(nil)).Elem(), ApplicationCustomArtifactConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactConfigurationArrayInput)(nil)).Elem(), ApplicationCustomArtifactConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDeployAsApplicationConfigurationInput)(nil)).Elem(), ApplicationDeployAsApplicationConfigurationArgs{})
@@ -5975,25 +4281,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationFlinkRunConfigurationPtrInput)(nil)).Elem(), ApplicationFlinkRunConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGlueDataCatalogConfigurationInput)(nil)).Elem(), ApplicationGlueDataCatalogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGlueDataCatalogConfigurationPtrInput)(nil)).Elem(), ApplicationGlueDataCatalogConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputTypeInput)(nil)).Elem(), ApplicationInputTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputTypeArrayInput)(nil)).Elem(), ApplicationInputTypeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputLambdaProcessorInput)(nil)).Elem(), ApplicationInputLambdaProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputLambdaProcessorPtrInput)(nil)).Elem(), ApplicationInputLambdaProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputParallelismInput)(nil)).Elem(), ApplicationInputParallelismArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputParallelismPtrInput)(nil)).Elem(), ApplicationInputParallelismArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputProcessingConfigurationInput)(nil)).Elem(), ApplicationInputProcessingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputProcessingConfigurationPtrInput)(nil)).Elem(), ApplicationInputProcessingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputSchemaInput)(nil)).Elem(), ApplicationInputSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJsonMappingParametersInput)(nil)).Elem(), ApplicationJsonMappingParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJsonMappingParametersPtrInput)(nil)).Elem(), ApplicationJsonMappingParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisFirehoseInputInput)(nil)).Elem(), ApplicationKinesisFirehoseInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisFirehoseInputPtrInput)(nil)).Elem(), ApplicationKinesisFirehoseInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisStreamsInputInput)(nil)).Elem(), ApplicationKinesisStreamsInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisStreamsInputPtrInput)(nil)).Elem(), ApplicationKinesisStreamsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaintenanceConfigurationInput)(nil)).Elem(), ApplicationMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaintenanceConfigurationPtrInput)(nil)).Elem(), ApplicationMaintenanceConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMappingParametersInput)(nil)).Elem(), ApplicationMappingParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMappingParametersPtrInput)(nil)).Elem(), ApplicationMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMavenReferenceInput)(nil)).Elem(), ApplicationMavenReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMavenReferencePtrInput)(nil)).Elem(), ApplicationMavenReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
@@ -6002,9 +4291,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationParallelismConfigurationPtrInput)(nil)).Elem(), ApplicationParallelismConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPropertyGroupInput)(nil)).Elem(), ApplicationPropertyGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPropertyGroupArrayInput)(nil)).Elem(), ApplicationPropertyGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordColumnInput)(nil)).Elem(), ApplicationRecordColumnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordColumnArrayInput)(nil)).Elem(), ApplicationRecordColumnArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordFormatInput)(nil)).Elem(), ApplicationRecordFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRestoreConfigurationInput)(nil)).Elem(), ApplicationRestoreConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRestoreConfigurationPtrInput)(nil)).Elem(), ApplicationRestoreConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRunConfigurationInput)(nil)).Elem(), ApplicationRunConfigurationArgs{})
@@ -6015,8 +4301,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3ContentLocationPtrInput)(nil)).Elem(), ApplicationS3ContentLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotConfigurationInput)(nil)).Elem(), ApplicationSnapshotConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotConfigurationPtrInput)(nil)).Elem(), ApplicationSnapshotConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSqlApplicationConfigurationInput)(nil)).Elem(), ApplicationSqlApplicationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSqlApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationSqlApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSystemRollbackConfigurationInput)(nil)).Elem(), ApplicationSystemRollbackConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSystemRollbackConfigurationPtrInput)(nil)).Elem(), ApplicationSystemRollbackConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVpcConfigurationInput)(nil)).Elem(), ApplicationVpcConfigurationArgs{})
@@ -6035,8 +4319,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationCodeContentPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationCsvMappingParametersOutput{})
-	pulumi.RegisterOutputType(ApplicationCsvMappingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomArtifactConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomArtifactConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDeployAsApplicationConfigurationOutput{})
@@ -6051,25 +4333,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationFlinkRunConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGlueDataCatalogConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationGlueDataCatalogConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationInputTypeOutput{})
-	pulumi.RegisterOutputType(ApplicationInputTypeArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationInputLambdaProcessorOutput{})
-	pulumi.RegisterOutputType(ApplicationInputLambdaProcessorPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationInputParallelismOutput{})
-	pulumi.RegisterOutputType(ApplicationInputParallelismPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationInputProcessingConfigurationOutput{})
-	pulumi.RegisterOutputType(ApplicationInputProcessingConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationInputSchemaOutput{})
-	pulumi.RegisterOutputType(ApplicationJsonMappingParametersOutput{})
-	pulumi.RegisterOutputType(ApplicationJsonMappingParametersPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationKinesisFirehoseInputOutput{})
-	pulumi.RegisterOutputType(ApplicationKinesisFirehoseInputPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationKinesisStreamsInputOutput{})
-	pulumi.RegisterOutputType(ApplicationKinesisStreamsInputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationMaintenanceConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationMappingParametersOutput{})
-	pulumi.RegisterOutputType(ApplicationMappingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMavenReferenceOutput{})
 	pulumi.RegisterOutputType(ApplicationMavenReferencePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationOutput{})
@@ -6078,9 +4343,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationParallelismConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPropertyGroupOutput{})
 	pulumi.RegisterOutputType(ApplicationPropertyGroupArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationRecordColumnOutput{})
-	pulumi.RegisterOutputType(ApplicationRecordColumnArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationRecordFormatOutput{})
 	pulumi.RegisterOutputType(ApplicationRestoreConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationRestoreConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationRunConfigurationOutput{})
@@ -6091,8 +4353,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationS3ContentLocationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSnapshotConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationSnapshotConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSqlApplicationConfigurationOutput{})
-	pulumi.RegisterOutputType(ApplicationSqlApplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSystemRollbackConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationSystemRollbackConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationVpcConfigurationOutput{})

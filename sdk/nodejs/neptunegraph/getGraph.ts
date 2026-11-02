@@ -26,6 +26,10 @@ export interface GetGraphArgs {
 
 export interface GetGraphResult {
     /**
+     * The time at which the graph was created.
+     */
+    readonly createTime?: string;
+    /**
      * Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
      *
      * _Default_: If not specified, the default value is true.
@@ -57,6 +61,10 @@ export interface GetGraphResult {
      * _Default_: If not specified, the default value is false.
      */
     readonly publicConnectivity?: boolean;
+    /**
+     * The current status of the graph.
+     */
+    readonly status?: string;
     /**
      * The tags associated with this graph.
      */

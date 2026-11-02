@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// Contains variables that you can use to override default Suricata settings in your firewall policy.
         /// </summary>
         public readonly Outputs.FirewallPolicyPolicyVariablesProperties? PolicyVariables;
+        public readonly Outputs.FirewallPolicyRoute53ResolvedIpValidation? Route53ResolvedIpValidation;
         /// <summary>
         /// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
         /// 
@@ -77,6 +78,8 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
             Outputs.FirewallPolicyPolicyVariablesProperties? policyVariables,
 
+            Outputs.FirewallPolicyRoute53ResolvedIpValidation? route53ResolvedIpValidation,
+
             ImmutableArray<string> statefulDefaultActions,
 
             Outputs.FirewallPolicyStatefulEngineOptions? statefulEngineOptions,
@@ -95,6 +98,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         {
             EnableTlsSessionHolding = enableTlsSessionHolding;
             PolicyVariables = policyVariables;
+            Route53ResolvedIpValidation = route53ResolvedIpValidation;
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;
             StatefulRuleGroupReferences = statefulRuleGroupReferences;

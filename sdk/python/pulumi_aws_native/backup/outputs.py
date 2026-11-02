@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BackupAccessPointAccessPointMetadata',
     'BackupPlanAdvancedBackupSettingResourceType',
     'BackupPlanBackupRuleResourceType',
     'BackupPlanCopyActionResourceType',
@@ -45,6 +46,75 @@ __all__ = [
     'RestoreTestingSelectionProtectedResourceConditions',
     'TieringConfigurationResourceSelection',
 ]
+
+@pulumi.output_type
+class BackupAccessPointAccessPointMetadata(dict):
+    """
+    Metadata the service reports for the backup access point. Once the access point reaches the AVAILABLE status this carries the Amazon S3 access point ARN and alias; for continuous recovery points it also echoes the AccessPointInTime that was supplied at create time.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointInTime":
+            suggest = "access_point_in_time"
+        elif key == "s3AccessPointAlias":
+            suggest = "s3_access_point_alias"
+        elif key == "s3AccessPointArn":
+            suggest = "s3_access_point_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupAccessPointAccessPointMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupAccessPointAccessPointMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupAccessPointAccessPointMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_in_time: Optional[_builtins.str] = None,
+                 s3_access_point_alias: Optional[_builtins.str] = None,
+                 s3_access_point_arn: Optional[_builtins.str] = None):
+        """
+        Metadata the service reports for the backup access point. Once the access point reaches the AVAILABLE status this carries the Amazon S3 access point ARN and alias; for continuous recovery points it also echoes the AccessPointInTime that was supplied at create time.
+
+        :param _builtins.str access_point_in_time: For a continuous recovery point, the point in time the backup access point exposes, echoed back by the service as supplied at create time. Absent for snapshot recovery points. A plain string rather than a date-time, because it is one entry of the service's string-to-string metadata map.
+        :param _builtins.str s3_access_point_alias: The alias of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+        :param _builtins.str s3_access_point_arn: The Amazon Resource Name (ARN) of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+        """
+        if access_point_in_time is not None:
+            pulumi.set(__self__, "access_point_in_time", access_point_in_time)
+        if s3_access_point_alias is not None:
+            pulumi.set(__self__, "s3_access_point_alias", s3_access_point_alias)
+        if s3_access_point_arn is not None:
+            pulumi.set(__self__, "s3_access_point_arn", s3_access_point_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointInTime")
+    def access_point_in_time(self) -> Optional[_builtins.str]:
+        """
+        For a continuous recovery point, the point in time the backup access point exposes, echoed back by the service as supplied at create time. Absent for snapshot recovery points. A plain string rather than a date-time, because it is one entry of the service's string-to-string metadata map.
+        """
+        return pulumi.get(self, "access_point_in_time")
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessPointAlias")
+    def s3_access_point_alias(self) -> Optional[_builtins.str]:
+        """
+        The alias of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+        """
+        return pulumi.get(self, "s3_access_point_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessPointArn")
+    def s3_access_point_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+        """
+        return pulumi.get(self, "s3_access_point_arn")
+
 
 @pulumi.output_type
 class BackupPlanAdvancedBackupSettingResourceType(dict):

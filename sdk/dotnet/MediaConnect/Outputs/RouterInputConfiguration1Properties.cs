@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
     [OutputType]
     public sealed class RouterInputConfiguration1Properties
     {
-        public readonly Outputs.RouterInputFailoverRouterInputConfiguration Failover;
+        public readonly Outputs.RouterInputStandardRouterInputConfiguration Standard;
 
         [OutputConstructor]
-        private RouterInputConfiguration1Properties(Outputs.RouterInputFailoverRouterInputConfiguration failover)
+        private RouterInputConfiguration1Properties(Outputs.RouterInputStandardRouterInputConfiguration standard)
         {
-            Failover = failover;
+            Standard = standard;
         }
     }
 }

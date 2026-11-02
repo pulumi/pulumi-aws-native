@@ -84,6 +84,27 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<bool?> FirewallPolicyChangeProtection { get; private set; } = null!;
 
         /// <summary>
+        /// The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+        /// </summary>
+        [Output("natGatewayMappings")]
+        public Output<ImmutableArray<Outputs.FirewallNatGatewayMapping>> NatGatewayMappings { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+        /// </summary>
+        [Output("noSourcePreservation")]
+        public Output<bool?> NoSourcePreservation { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of VPC endpoint associations attached to the firewall.
+        /// </summary>
+        [Output("numberOfAssociations")]
+        public Output<int> NumberOfAssociations { get; private set; } = null!;
+
+        [Output("proxySettings")]
+        public Output<Outputs.FirewallProxySettings?> ProxySettings { get; private set; } = null!;
+
+        /// <summary>
         /// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
         /// </summary>
         [Output("subnetChangeProtection")]
@@ -119,6 +140,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [Output("transitGatewayId")]
         public Output<string?> TransitGatewayId { get; private set; } = null!;
 
+        [Output("vpcEndpoint")]
+        public Output<Outputs.FirewallVpcEndpoint?> VpcEndpoint { get; private set; } = null!;
+
         /// <summary>
         /// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
         /// </summary>
@@ -151,6 +175,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
                 ReplaceOnChanges =
                 {
                     "firewallName",
+                    "natGatewayMappings[*]",
+                    "noSourcePreservation",
+                    "vpcEndpoint",
                     "vpcId",
                 },
             };
@@ -237,6 +264,27 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
 
+        [Input("natGatewayMappings")]
+        private InputList<Inputs.FirewallNatGatewayMappingArgs>? _natGatewayMappings;
+
+        /// <summary>
+        /// The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+        /// </summary>
+        public InputList<Inputs.FirewallNatGatewayMappingArgs> NatGatewayMappings
+        {
+            get => _natGatewayMappings ?? (_natGatewayMappings = new InputList<Inputs.FirewallNatGatewayMappingArgs>());
+            set => _natGatewayMappings = value;
+        }
+
+        /// <summary>
+        /// Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+        /// </summary>
+        [Input("noSourcePreservation")]
+        public Input<bool>? NoSourcePreservation { get; set; }
+
+        [Input("proxySettings")]
+        public Input<Inputs.FirewallProxySettingsArgs>? ProxySettings { get; set; }
+
         /// <summary>
         /// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
         /// </summary>
@@ -278,6 +326,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
+
+        [Input("vpcEndpoint")]
+        public Input<Inputs.FirewallVpcEndpointArgs>? VpcEndpoint { get; set; }
 
         /// <summary>
         /// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.

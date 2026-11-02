@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public sealed class GetGatewayRuleResult
     {
         public readonly ImmutableArray<Union<Outputs.GatewayRuleAction0Properties, Outputs.GatewayRuleAction1Properties>> Actions;
-        public readonly ImmutableArray<Union<Outputs.GatewayRuleCondition0Properties, Outputs.GatewayRuleCondition1Properties>> Conditions;
+        public readonly ImmutableArray<object> Conditions;
         public readonly string? CreatedAt;
         public readonly string? Description;
         public readonly string? GatewayArn;
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         private GetGatewayRuleResult(
             ImmutableArray<Union<Outputs.GatewayRuleAction0Properties, Outputs.GatewayRuleAction1Properties>> actions,
 
-            ImmutableArray<Union<Outputs.GatewayRuleCondition0Properties, Outputs.GatewayRuleCondition1Properties>> conditions,
+            ImmutableArray<object> conditions,
 
             string? createdAt,
 

@@ -189,6 +189,244 @@ namespace Pulumi.AwsNative.MediaConnect
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DestinationEndpointConnectionState : IEquatable<DestinationEndpointConnectionState>
+    {
+        private readonly string _value;
+
+        private DestinationEndpointConnectionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DestinationEndpointConnectionState Connected { get; } = new DestinationEndpointConnectionState("CONNECTED");
+        public static DestinationEndpointConnectionState Disconnected { get; } = new DestinationEndpointConnectionState("DISCONNECTED");
+        public static DestinationEndpointConnectionState Connecting { get; } = new DestinationEndpointConnectionState("CONNECTING");
+        public static DestinationEndpointConnectionState Disconnecting { get; } = new DestinationEndpointConnectionState("DISCONNECTING");
+
+        public static bool operator ==(DestinationEndpointConnectionState left, DestinationEndpointConnectionState right) => left.Equals(right);
+        public static bool operator !=(DestinationEndpointConnectionState left, DestinationEndpointConnectionState right) => !left.Equals(right);
+
+        public static explicit operator string(DestinationEndpointConnectionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DestinationEndpointConnectionState other && Equals(other);
+        public bool Equals(DestinationEndpointConnectionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DestinationEndpointEndpointLifecycle : IEquatable<DestinationEndpointEndpointLifecycle>
+    {
+        private readonly string _value;
+
+        private DestinationEndpointEndpointLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DestinationEndpointEndpointLifecycle Managed { get; } = new DestinationEndpointEndpointLifecycle("MANAGED");
+        public static DestinationEndpointEndpointLifecycle Unmanaged { get; } = new DestinationEndpointEndpointLifecycle("UNMANAGED");
+
+        public static bool operator ==(DestinationEndpointEndpointLifecycle left, DestinationEndpointEndpointLifecycle right) => left.Equals(right);
+        public static bool operator !=(DestinationEndpointEndpointLifecycle left, DestinationEndpointEndpointLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(DestinationEndpointEndpointLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DestinationEndpointEndpointLifecycle other && Equals(other);
+        public bool Equals(DestinationEndpointEndpointLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DestinationEndpointForwardErrorCorrectionState : IEquatable<DestinationEndpointForwardErrorCorrectionState>
+    {
+        private readonly string _value;
+
+        private DestinationEndpointForwardErrorCorrectionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DestinationEndpointForwardErrorCorrectionState Enabled { get; } = new DestinationEndpointForwardErrorCorrectionState("ENABLED");
+        public static DestinationEndpointForwardErrorCorrectionState Disabled { get; } = new DestinationEndpointForwardErrorCorrectionState("DISABLED");
+
+        public static bool operator ==(DestinationEndpointForwardErrorCorrectionState left, DestinationEndpointForwardErrorCorrectionState right) => left.Equals(right);
+        public static bool operator !=(DestinationEndpointForwardErrorCorrectionState left, DestinationEndpointForwardErrorCorrectionState right) => !left.Equals(right);
+
+        public static explicit operator string(DestinationEndpointForwardErrorCorrectionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DestinationEndpointForwardErrorCorrectionState other && Equals(other);
+        public bool Equals(DestinationEndpointForwardErrorCorrectionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DestinationEndpointNetworkingType : IEquatable<DestinationEndpointNetworkingType>
+    {
+        private readonly string _value;
+
+        private DestinationEndpointNetworkingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DestinationEndpointNetworkingType Public { get; } = new DestinationEndpointNetworkingType("PUBLIC");
+        public static DestinationEndpointNetworkingType Vpc { get; } = new DestinationEndpointNetworkingType("VPC");
+
+        public static bool operator ==(DestinationEndpointNetworkingType left, DestinationEndpointNetworkingType right) => left.Equals(right);
+        public static bool operator !=(DestinationEndpointNetworkingType left, DestinationEndpointNetworkingType right) => !left.Equals(right);
+
+        public static explicit operator string(DestinationEndpointNetworkingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DestinationEndpointNetworkingType other && Equals(other);
+        public bool Equals(DestinationEndpointNetworkingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DestinationEndpointProtocol : IEquatable<DestinationEndpointProtocol>
+    {
+        private readonly string _value;
+
+        private DestinationEndpointProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DestinationEndpointProtocol Rtp { get; } = new DestinationEndpointProtocol("RTP");
+        public static DestinationEndpointProtocol Rist { get; } = new DestinationEndpointProtocol("RIST");
+        public static DestinationEndpointProtocol SrtCaller { get; } = new DestinationEndpointProtocol("SRT_CALLER");
+        public static DestinationEndpointProtocol SrtListener { get; } = new DestinationEndpointProtocol("SRT_LISTENER");
+
+        public static bool operator ==(DestinationEndpointProtocol left, DestinationEndpointProtocol right) => left.Equals(right);
+        public static bool operator !=(DestinationEndpointProtocol left, DestinationEndpointProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(DestinationEndpointProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DestinationEndpointProtocol other && Equals(other);
+        public bool Equals(DestinationEndpointProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DestinationEndpointRegistrationState : IEquatable<DestinationEndpointRegistrationState>
+    {
+        private readonly string _value;
+
+        private DestinationEndpointRegistrationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DestinationEndpointRegistrationState Registered { get; } = new DestinationEndpointRegistrationState("REGISTERED");
+        public static DestinationEndpointRegistrationState Registering { get; } = new DestinationEndpointRegistrationState("REGISTERING");
+        public static DestinationEndpointRegistrationState Deregistering { get; } = new DestinationEndpointRegistrationState("DEREGISTERING");
+        public static DestinationEndpointRegistrationState RegistrationFailed { get; } = new DestinationEndpointRegistrationState("REGISTRATION_FAILED");
+
+        public static bool operator ==(DestinationEndpointRegistrationState left, DestinationEndpointRegistrationState right) => left.Equals(right);
+        public static bool operator !=(DestinationEndpointRegistrationState left, DestinationEndpointRegistrationState right) => !left.Equals(right);
+
+        public static explicit operator string(DestinationEndpointRegistrationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DestinationEndpointRegistrationState other && Equals(other);
+        public bool Equals(DestinationEndpointRegistrationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DestinationEndpointRouterInputState : IEquatable<DestinationEndpointRouterInputState>
+    {
+        private readonly string _value;
+
+        private DestinationEndpointRouterInputState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DestinationEndpointRouterInputState Creating { get; } = new DestinationEndpointRouterInputState("CREATING");
+        public static DestinationEndpointRouterInputState Standby { get; } = new DestinationEndpointRouterInputState("STANDBY");
+        public static DestinationEndpointRouterInputState Starting { get; } = new DestinationEndpointRouterInputState("STARTING");
+        public static DestinationEndpointRouterInputState Active { get; } = new DestinationEndpointRouterInputState("ACTIVE");
+        public static DestinationEndpointRouterInputState Stopping { get; } = new DestinationEndpointRouterInputState("STOPPING");
+        public static DestinationEndpointRouterInputState Deleting { get; } = new DestinationEndpointRouterInputState("DELETING");
+        public static DestinationEndpointRouterInputState Updating { get; } = new DestinationEndpointRouterInputState("UPDATING");
+        public static DestinationEndpointRouterInputState Error { get; } = new DestinationEndpointRouterInputState("ERROR");
+        public static DestinationEndpointRouterInputState Recovering { get; } = new DestinationEndpointRouterInputState("RECOVERING");
+        public static DestinationEndpointRouterInputState Migrating { get; } = new DestinationEndpointRouterInputState("MIGRATING");
+
+        public static bool operator ==(DestinationEndpointRouterInputState left, DestinationEndpointRouterInputState right) => left.Equals(right);
+        public static bool operator !=(DestinationEndpointRouterInputState left, DestinationEndpointRouterInputState right) => !left.Equals(right);
+
+        public static explicit operator string(DestinationEndpointRouterInputState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DestinationEndpointRouterInputState other && Equals(other);
+        public bool Equals(DestinationEndpointRouterInputState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DestinationEndpointType : IEquatable<DestinationEndpointType>
+    {
+        private readonly string _value;
+
+        private DestinationEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DestinationEndpointType Standard { get; } = new DestinationEndpointType("STANDARD");
+        public static DestinationEndpointType RouterInput { get; } = new DestinationEndpointType("ROUTER_INPUT");
+
+        public static bool operator ==(DestinationEndpointType left, DestinationEndpointType right) => left.Equals(right);
+        public static bool operator !=(DestinationEndpointType left, DestinationEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(DestinationEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DestinationEndpointType other && Equals(other);
+        public bool Equals(DestinationEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Indicates whether the BlackFrames metric is enabled or disabled.
     /// </summary>
@@ -1639,6 +1877,92 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     [EnumType]
+    public readonly struct RouterInputEndpointEncryptionSecretType : IEquatable<RouterInputEndpointEncryptionSecretType>
+    {
+        private readonly string _value;
+
+        private RouterInputEndpointEncryptionSecretType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputEndpointEncryptionSecretType Aes128Key { get; } = new RouterInputEndpointEncryptionSecretType("AES_128_KEY");
+        public static RouterInputEndpointEncryptionSecretType Aes192Key { get; } = new RouterInputEndpointEncryptionSecretType("AES_192_KEY");
+        public static RouterInputEndpointEncryptionSecretType Aes256Key { get; } = new RouterInputEndpointEncryptionSecretType("AES_256_KEY");
+        public static RouterInputEndpointEncryptionSecretType SrtPassphrase { get; } = new RouterInputEndpointEncryptionSecretType("SRT_PASSPHRASE");
+
+        public static bool operator ==(RouterInputEndpointEncryptionSecretType left, RouterInputEndpointEncryptionSecretType right) => left.Equals(right);
+        public static bool operator !=(RouterInputEndpointEncryptionSecretType left, RouterInputEndpointEncryptionSecretType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputEndpointEncryptionSecretType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputEndpointEncryptionSecretType other && Equals(other);
+        public bool Equals(RouterInputEndpointEncryptionSecretType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputEndpointEncryptionType : IEquatable<RouterInputEndpointEncryptionType>
+    {
+        private readonly string _value;
+
+        private RouterInputEndpointEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputEndpointEncryptionType SecretsManager { get; } = new RouterInputEndpointEncryptionType("SECRETS_MANAGER");
+        public static RouterInputEndpointEncryptionType Automatic { get; } = new RouterInputEndpointEncryptionType("AUTOMATIC");
+
+        public static bool operator ==(RouterInputEndpointEncryptionType left, RouterInputEndpointEncryptionType right) => left.Equals(right);
+        public static bool operator !=(RouterInputEndpointEncryptionType left, RouterInputEndpointEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputEndpointEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputEndpointEncryptionType other && Equals(other);
+        public bool Equals(RouterInputEndpointEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputEndpointLifecycle : IEquatable<RouterInputEndpointLifecycle>
+    {
+        private readonly string _value;
+
+        private RouterInputEndpointLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputEndpointLifecycle Managed { get; } = new RouterInputEndpointLifecycle("MANAGED");
+        public static RouterInputEndpointLifecycle Unmanaged { get; } = new RouterInputEndpointLifecycle("UNMANAGED");
+
+        public static bool operator ==(RouterInputEndpointLifecycle left, RouterInputEndpointLifecycle right) => left.Equals(right);
+        public static bool operator !=(RouterInputEndpointLifecycle left, RouterInputEndpointLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputEndpointLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputEndpointLifecycle other && Equals(other);
+        public bool Equals(RouterInputEndpointLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct RouterInputFailoverInputSourcePriorityMode : IEquatable<RouterInputFailoverInputSourcePriorityMode>
     {
         private readonly string _value;
@@ -1940,6 +2264,8 @@ namespace Pulumi.AwsNative.MediaConnect
         public static RouterInputTier Input100 { get; } = new RouterInputTier("INPUT_100");
         public static RouterInputTier Input50 { get; } = new RouterInputTier("INPUT_50");
         public static RouterInputTier Input20 { get; } = new RouterInputTier("INPUT_20");
+        public static RouterInputTier Input500 { get; } = new RouterInputTier("INPUT_500");
+        public static RouterInputTier Input250 { get; } = new RouterInputTier("INPUT_250");
 
         public static bool operator ==(RouterInputTier left, RouterInputTier right) => left.Equals(right);
         public static bool operator !=(RouterInputTier left, RouterInputTier right) => !left.Equals(right);
@@ -1999,6 +2325,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static RouterInputType Merge { get; } = new RouterInputType("MERGE");
         public static RouterInputType MediaconnectFlow { get; } = new RouterInputType("MEDIACONNECT_FLOW");
         public static RouterInputType MedialiveChannel { get; } = new RouterInputType("MEDIALIVE_CHANNEL");
+        public static RouterInputType DestinationEndpoint { get; } = new RouterInputType("DESTINATION_ENDPOINT");
 
         public static bool operator ==(RouterInputType left, RouterInputType right) => left.Equals(right);
         public static bool operator !=(RouterInputType left, RouterInputType right) => !left.Equals(right);
@@ -2101,6 +2428,92 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RouterOutputResourceDay other && Equals(other);
         public bool Equals(RouterOutputResourceDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceEndpointEncryptionSecretType : IEquatable<RouterOutputResourceEndpointEncryptionSecretType>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceEndpointEncryptionSecretType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceEndpointEncryptionSecretType Aes128Key { get; } = new RouterOutputResourceEndpointEncryptionSecretType("AES_128_KEY");
+        public static RouterOutputResourceEndpointEncryptionSecretType Aes192Key { get; } = new RouterOutputResourceEndpointEncryptionSecretType("AES_192_KEY");
+        public static RouterOutputResourceEndpointEncryptionSecretType Aes256Key { get; } = new RouterOutputResourceEndpointEncryptionSecretType("AES_256_KEY");
+        public static RouterOutputResourceEndpointEncryptionSecretType SrtPassphrase { get; } = new RouterOutputResourceEndpointEncryptionSecretType("SRT_PASSPHRASE");
+
+        public static bool operator ==(RouterOutputResourceEndpointEncryptionSecretType left, RouterOutputResourceEndpointEncryptionSecretType right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceEndpointEncryptionSecretType left, RouterOutputResourceEndpointEncryptionSecretType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceEndpointEncryptionSecretType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceEndpointEncryptionSecretType other && Equals(other);
+        public bool Equals(RouterOutputResourceEndpointEncryptionSecretType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceEndpointEncryptionType : IEquatable<RouterOutputResourceEndpointEncryptionType>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceEndpointEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceEndpointEncryptionType SecretsManager { get; } = new RouterOutputResourceEndpointEncryptionType("SECRETS_MANAGER");
+        public static RouterOutputResourceEndpointEncryptionType Automatic { get; } = new RouterOutputResourceEndpointEncryptionType("AUTOMATIC");
+
+        public static bool operator ==(RouterOutputResourceEndpointEncryptionType left, RouterOutputResourceEndpointEncryptionType right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceEndpointEncryptionType left, RouterOutputResourceEndpointEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceEndpointEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceEndpointEncryptionType other && Equals(other);
+        public bool Equals(RouterOutputResourceEndpointEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceEndpointLifecycle : IEquatable<RouterOutputResourceEndpointLifecycle>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceEndpointLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceEndpointLifecycle Managed { get; } = new RouterOutputResourceEndpointLifecycle("MANAGED");
+        public static RouterOutputResourceEndpointLifecycle Unmanaged { get; } = new RouterOutputResourceEndpointLifecycle("UNMANAGED");
+
+        public static bool operator ==(RouterOutputResourceEndpointLifecycle left, RouterOutputResourceEndpointLifecycle right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceEndpointLifecycle left, RouterOutputResourceEndpointLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceEndpointLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceEndpointLifecycle other && Equals(other);
+        public bool Equals(RouterOutputResourceEndpointLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2385,6 +2798,8 @@ namespace Pulumi.AwsNative.MediaConnect
         public static RouterOutputResourceRouterOutputTier Output100 { get; } = new RouterOutputResourceRouterOutputTier("OUTPUT_100");
         public static RouterOutputResourceRouterOutputTier Output50 { get; } = new RouterOutputResourceRouterOutputTier("OUTPUT_50");
         public static RouterOutputResourceRouterOutputTier Output20 { get; } = new RouterOutputResourceRouterOutputTier("OUTPUT_20");
+        public static RouterOutputResourceRouterOutputTier Output500 { get; } = new RouterOutputResourceRouterOutputTier("OUTPUT_500");
+        public static RouterOutputResourceRouterOutputTier Output250 { get; } = new RouterOutputResourceRouterOutputTier("OUTPUT_250");
 
         public static bool operator ==(RouterOutputResourceRouterOutputTier left, RouterOutputResourceRouterOutputTier right) => left.Equals(right);
         public static bool operator !=(RouterOutputResourceRouterOutputTier left, RouterOutputResourceRouterOutputTier right) => !left.Equals(right);
@@ -2414,6 +2829,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static RouterOutputResourceRouterOutputType Standard { get; } = new RouterOutputResourceRouterOutputType("STANDARD");
         public static RouterOutputResourceRouterOutputType MediaconnectFlow { get; } = new RouterOutputResourceRouterOutputType("MEDIACONNECT_FLOW");
         public static RouterOutputResourceRouterOutputType MedialiveInput { get; } = new RouterOutputResourceRouterOutputType("MEDIALIVE_INPUT");
+        public static RouterOutputResourceRouterOutputType SourceEndpoint { get; } = new RouterOutputResourceRouterOutputType("SOURCE_ENDPOINT");
 
         public static bool operator ==(RouterOutputResourceRouterOutputType left, RouterOutputResourceRouterOutputType right) => left.Equals(right);
         public static bool operator !=(RouterOutputResourceRouterOutputType left, RouterOutputResourceRouterOutputType right) => !left.Equals(right);
@@ -2478,6 +2894,244 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RouterOutputResourceTlsEncryptionType other && Equals(other);
         public bool Equals(RouterOutputResourceTlsEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SourceEndpointConnectionState : IEquatable<SourceEndpointConnectionState>
+    {
+        private readonly string _value;
+
+        private SourceEndpointConnectionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceEndpointConnectionState Connected { get; } = new SourceEndpointConnectionState("CONNECTED");
+        public static SourceEndpointConnectionState Disconnected { get; } = new SourceEndpointConnectionState("DISCONNECTED");
+        public static SourceEndpointConnectionState Connecting { get; } = new SourceEndpointConnectionState("CONNECTING");
+        public static SourceEndpointConnectionState Disconnecting { get; } = new SourceEndpointConnectionState("DISCONNECTING");
+
+        public static bool operator ==(SourceEndpointConnectionState left, SourceEndpointConnectionState right) => left.Equals(right);
+        public static bool operator !=(SourceEndpointConnectionState left, SourceEndpointConnectionState right) => !left.Equals(right);
+
+        public static explicit operator string(SourceEndpointConnectionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceEndpointConnectionState other && Equals(other);
+        public bool Equals(SourceEndpointConnectionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SourceEndpointEndpointLifecycle : IEquatable<SourceEndpointEndpointLifecycle>
+    {
+        private readonly string _value;
+
+        private SourceEndpointEndpointLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceEndpointEndpointLifecycle Managed { get; } = new SourceEndpointEndpointLifecycle("MANAGED");
+        public static SourceEndpointEndpointLifecycle Unmanaged { get; } = new SourceEndpointEndpointLifecycle("UNMANAGED");
+
+        public static bool operator ==(SourceEndpointEndpointLifecycle left, SourceEndpointEndpointLifecycle right) => left.Equals(right);
+        public static bool operator !=(SourceEndpointEndpointLifecycle left, SourceEndpointEndpointLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(SourceEndpointEndpointLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceEndpointEndpointLifecycle other && Equals(other);
+        public bool Equals(SourceEndpointEndpointLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SourceEndpointForwardErrorCorrectionState : IEquatable<SourceEndpointForwardErrorCorrectionState>
+    {
+        private readonly string _value;
+
+        private SourceEndpointForwardErrorCorrectionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceEndpointForwardErrorCorrectionState Enabled { get; } = new SourceEndpointForwardErrorCorrectionState("ENABLED");
+        public static SourceEndpointForwardErrorCorrectionState Disabled { get; } = new SourceEndpointForwardErrorCorrectionState("DISABLED");
+
+        public static bool operator ==(SourceEndpointForwardErrorCorrectionState left, SourceEndpointForwardErrorCorrectionState right) => left.Equals(right);
+        public static bool operator !=(SourceEndpointForwardErrorCorrectionState left, SourceEndpointForwardErrorCorrectionState right) => !left.Equals(right);
+
+        public static explicit operator string(SourceEndpointForwardErrorCorrectionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceEndpointForwardErrorCorrectionState other && Equals(other);
+        public bool Equals(SourceEndpointForwardErrorCorrectionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SourceEndpointNetworkingType : IEquatable<SourceEndpointNetworkingType>
+    {
+        private readonly string _value;
+
+        private SourceEndpointNetworkingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceEndpointNetworkingType Public { get; } = new SourceEndpointNetworkingType("PUBLIC");
+        public static SourceEndpointNetworkingType Vpc { get; } = new SourceEndpointNetworkingType("VPC");
+
+        public static bool operator ==(SourceEndpointNetworkingType left, SourceEndpointNetworkingType right) => left.Equals(right);
+        public static bool operator !=(SourceEndpointNetworkingType left, SourceEndpointNetworkingType right) => !left.Equals(right);
+
+        public static explicit operator string(SourceEndpointNetworkingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceEndpointNetworkingType other && Equals(other);
+        public bool Equals(SourceEndpointNetworkingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SourceEndpointProtocol : IEquatable<SourceEndpointProtocol>
+    {
+        private readonly string _value;
+
+        private SourceEndpointProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceEndpointProtocol Rtp { get; } = new SourceEndpointProtocol("RTP");
+        public static SourceEndpointProtocol Rist { get; } = new SourceEndpointProtocol("RIST");
+        public static SourceEndpointProtocol SrtCaller { get; } = new SourceEndpointProtocol("SRT_CALLER");
+        public static SourceEndpointProtocol SrtListener { get; } = new SourceEndpointProtocol("SRT_LISTENER");
+
+        public static bool operator ==(SourceEndpointProtocol left, SourceEndpointProtocol right) => left.Equals(right);
+        public static bool operator !=(SourceEndpointProtocol left, SourceEndpointProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(SourceEndpointProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceEndpointProtocol other && Equals(other);
+        public bool Equals(SourceEndpointProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SourceEndpointRegistrationState : IEquatable<SourceEndpointRegistrationState>
+    {
+        private readonly string _value;
+
+        private SourceEndpointRegistrationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceEndpointRegistrationState Registered { get; } = new SourceEndpointRegistrationState("REGISTERED");
+        public static SourceEndpointRegistrationState Registering { get; } = new SourceEndpointRegistrationState("REGISTERING");
+        public static SourceEndpointRegistrationState Deregistering { get; } = new SourceEndpointRegistrationState("DEREGISTERING");
+        public static SourceEndpointRegistrationState RegistrationFailed { get; } = new SourceEndpointRegistrationState("REGISTRATION_FAILED");
+
+        public static bool operator ==(SourceEndpointRegistrationState left, SourceEndpointRegistrationState right) => left.Equals(right);
+        public static bool operator !=(SourceEndpointRegistrationState left, SourceEndpointRegistrationState right) => !left.Equals(right);
+
+        public static explicit operator string(SourceEndpointRegistrationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceEndpointRegistrationState other && Equals(other);
+        public bool Equals(SourceEndpointRegistrationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SourceEndpointRouterOutputState : IEquatable<SourceEndpointRouterOutputState>
+    {
+        private readonly string _value;
+
+        private SourceEndpointRouterOutputState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceEndpointRouterOutputState Creating { get; } = new SourceEndpointRouterOutputState("CREATING");
+        public static SourceEndpointRouterOutputState Standby { get; } = new SourceEndpointRouterOutputState("STANDBY");
+        public static SourceEndpointRouterOutputState Starting { get; } = new SourceEndpointRouterOutputState("STARTING");
+        public static SourceEndpointRouterOutputState Active { get; } = new SourceEndpointRouterOutputState("ACTIVE");
+        public static SourceEndpointRouterOutputState Stopping { get; } = new SourceEndpointRouterOutputState("STOPPING");
+        public static SourceEndpointRouterOutputState Deleting { get; } = new SourceEndpointRouterOutputState("DELETING");
+        public static SourceEndpointRouterOutputState Updating { get; } = new SourceEndpointRouterOutputState("UPDATING");
+        public static SourceEndpointRouterOutputState Error { get; } = new SourceEndpointRouterOutputState("ERROR");
+        public static SourceEndpointRouterOutputState Recovering { get; } = new SourceEndpointRouterOutputState("RECOVERING");
+        public static SourceEndpointRouterOutputState Migrating { get; } = new SourceEndpointRouterOutputState("MIGRATING");
+
+        public static bool operator ==(SourceEndpointRouterOutputState left, SourceEndpointRouterOutputState right) => left.Equals(right);
+        public static bool operator !=(SourceEndpointRouterOutputState left, SourceEndpointRouterOutputState right) => !left.Equals(right);
+
+        public static explicit operator string(SourceEndpointRouterOutputState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceEndpointRouterOutputState other && Equals(other);
+        public bool Equals(SourceEndpointRouterOutputState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SourceEndpointType : IEquatable<SourceEndpointType>
+    {
+        private readonly string _value;
+
+        private SourceEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceEndpointType Standard { get; } = new SourceEndpointType("STANDARD");
+        public static SourceEndpointType RouterOutput { get; } = new SourceEndpointType("ROUTER_OUTPUT");
+
+        public static bool operator ==(SourceEndpointType left, SourceEndpointType right) => left.Equals(right);
+        public static bool operator !=(SourceEndpointType left, SourceEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(SourceEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceEndpointType other && Equals(other);
+        public bool Equals(SourceEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

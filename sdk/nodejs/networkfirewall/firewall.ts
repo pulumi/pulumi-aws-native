@@ -84,6 +84,19 @@ export class Firewall extends pulumi.CustomResource {
      */
     declare public readonly firewallPolicyChangeProtection: pulumi.Output<boolean | undefined>;
     /**
+     * The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+     */
+    declare public readonly natGatewayMappings: pulumi.Output<outputs.networkfirewall.FirewallNatGatewayMapping[] | undefined>;
+    /**
+     * Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+     */
+    declare public readonly noSourcePreservation: pulumi.Output<boolean | undefined>;
+    /**
+     * The number of VPC endpoint associations attached to the firewall.
+     */
+    declare public /*out*/ readonly numberOfAssociations: pulumi.Output<number>;
+    declare public readonly proxySettings: pulumi.Output<outputs.networkfirewall.FirewallProxySettings | undefined>;
+    /**
      * A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
      */
     declare public readonly subnetChangeProtection: pulumi.Output<boolean | undefined>;
@@ -109,6 +122,7 @@ export class Firewall extends pulumi.CustomResource {
      * The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
      */
     declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
+    declare public readonly vpcEndpoint: pulumi.Output<outputs.networkfirewall.FirewallVpcEndpoint | undefined>;
     /**
      * The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
      */
@@ -136,14 +150,19 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["firewallName"] = args?.firewallName;
             resourceInputs["firewallPolicyArn"] = args?.firewallPolicyArn;
             resourceInputs["firewallPolicyChangeProtection"] = args?.firewallPolicyChangeProtection;
+            resourceInputs["natGatewayMappings"] = args?.natGatewayMappings;
+            resourceInputs["noSourcePreservation"] = args?.noSourcePreservation;
+            resourceInputs["proxySettings"] = args?.proxySettings;
             resourceInputs["subnetChangeProtection"] = args?.subnetChangeProtection;
             resourceInputs["subnetMappings"] = args?.subnetMappings;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["vpcEndpoint"] = args?.vpcEndpoint;
             resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["endpointIds"] = undefined /*out*/;
             resourceInputs["firewallArn"] = undefined /*out*/;
             resourceInputs["firewallId"] = undefined /*out*/;
+            resourceInputs["numberOfAssociations"] = undefined /*out*/;
             resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZoneChangeProtection"] = undefined /*out*/;
@@ -157,15 +176,20 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["firewallName"] = undefined /*out*/;
             resourceInputs["firewallPolicyArn"] = undefined /*out*/;
             resourceInputs["firewallPolicyChangeProtection"] = undefined /*out*/;
+            resourceInputs["natGatewayMappings"] = undefined /*out*/;
+            resourceInputs["noSourcePreservation"] = undefined /*out*/;
+            resourceInputs["numberOfAssociations"] = undefined /*out*/;
+            resourceInputs["proxySettings"] = undefined /*out*/;
             resourceInputs["subnetChangeProtection"] = undefined /*out*/;
             resourceInputs["subnetMappings"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["vpcEndpoint"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["firewallName", "vpcId"] };
+        const replaceOnChanges = { replaceOnChanges: ["firewallName", "natGatewayMappings[*]", "noSourcePreservation", "vpcEndpoint", "vpcId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Firewall.__pulumiType, name, resourceInputs, opts);
     }
@@ -210,6 +234,15 @@ export interface FirewallArgs {
      */
     firewallPolicyChangeProtection?: pulumi.Input<boolean | undefined>;
     /**
+     * The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+     */
+    natGatewayMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallNatGatewayMappingArgs>[] | undefined>;
+    /**
+     * Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+     */
+    noSourcePreservation?: pulumi.Input<boolean | undefined>;
+    proxySettings?: pulumi.Input<inputs.networkfirewall.FirewallProxySettingsArgs | undefined>;
+    /**
      * A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
      */
     subnetChangeProtection?: pulumi.Input<boolean | undefined>;
@@ -231,6 +264,7 @@ export interface FirewallArgs {
      * The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
      */
     transitGatewayId?: pulumi.Input<string | undefined>;
+    vpcEndpoint?: pulumi.Input<inputs.networkfirewall.FirewallVpcEndpointArgs | undefined>;
     /**
      * The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
      */

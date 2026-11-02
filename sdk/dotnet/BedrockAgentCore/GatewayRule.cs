@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<ImmutableArray<Union<Outputs.GatewayRuleAction0Properties, Outputs.GatewayRuleAction1Properties>>> Actions { get; private set; } = null!;
 
         [Output("conditions")]
-        public Output<ImmutableArray<Union<Outputs.GatewayRuleCondition0Properties, Outputs.GatewayRuleCondition1Properties>>> Conditions { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Conditions { get; private set; } = null!;
 
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -106,10 +106,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         }
 
         [Input("conditions")]
-        private InputList<Union<Inputs.GatewayRuleCondition0PropertiesArgs, Inputs.GatewayRuleCondition1PropertiesArgs>>? _conditions;
-        public InputList<Union<Inputs.GatewayRuleCondition0PropertiesArgs, Inputs.GatewayRuleCondition1PropertiesArgs>> Conditions
+        private InputList<object>? _conditions;
+        public InputList<object> Conditions
         {
-            get => _conditions ?? (_conditions = new InputList<Union<Inputs.GatewayRuleCondition0PropertiesArgs, Inputs.GatewayRuleCondition1PropertiesArgs>>());
+            get => _conditions ?? (_conditions = new InputList<object>());
             set => _conditions = value;
         }
 

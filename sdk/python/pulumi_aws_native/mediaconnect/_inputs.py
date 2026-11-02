@@ -48,6 +48,42 @@ __all__ = [
     'BridgeSourceVpcInterfaceAttachmentArgsDict',
     'BridgeVpcInterfaceAttachmentArgs',
     'BridgeVpcInterfaceAttachmentArgsDict',
+    'DestinationEndpointConfiguration0PropertiesArgs',
+    'DestinationEndpointConfiguration0PropertiesArgsDict',
+    'DestinationEndpointConfiguration1PropertiesArgs',
+    'DestinationEndpointConfiguration1PropertiesArgsDict',
+    'DestinationEndpointEndpointEncryptionSecretConfigurationArgs',
+    'DestinationEndpointEndpointEncryptionSecretConfigurationArgsDict',
+    'DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs',
+    'DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgsDict',
+    'DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs',
+    'DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgsDict',
+    'DestinationEndpointRistStandardDestinationEndpointConfigurationArgs',
+    'DestinationEndpointRistStandardDestinationEndpointConfigurationArgsDict',
+    'DestinationEndpointRouterInputDestinationEndpointConfigurationArgs',
+    'DestinationEndpointRouterInputDestinationEndpointConfigurationArgsDict',
+    'DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs',
+    'DestinationEndpointRtpStandardDestinationEndpointConfigurationArgsDict',
+    'DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs',
+    'DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgsDict',
+    'DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs',
+    'DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgsDict',
+    'DestinationEndpointStandardDestinationEndpointConfigurationArgs',
+    'DestinationEndpointStandardDestinationEndpointConfigurationArgsDict',
+    'DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs',
+    'DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgsDict',
+    'DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs',
+    'DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgsDict',
+    'DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs',
+    'DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgsDict',
+    'DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs',
+    'DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgsDict',
+    'DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs',
+    'DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgsDict',
+    'DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs',
+    'DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgsDict',
+    'DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs',
+    'DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgsDict',
     'FlowAudioMonitoringSettingArgs',
     'FlowAudioMonitoringSettingArgsDict',
     'FlowAutomaticEncryptionKeyConfigurationArgs',
@@ -146,6 +182,8 @@ __all__ = [
     'GatewayNetworkArgsDict',
     'RouterInputAutomaticEncryptionKeyConfigurationArgs',
     'RouterInputAutomaticEncryptionKeyConfigurationArgsDict',
+    'RouterInputAutomaticEndpointEncryptionConfigurationArgs',
+    'RouterInputAutomaticEndpointEncryptionConfigurationArgsDict',
     'RouterInputBlackFramesConfigurationArgs',
     'RouterInputBlackFramesConfigurationArgsDict',
     'RouterInputConfiguration0PropertiesArgs',
@@ -158,10 +196,20 @@ __all__ = [
     'RouterInputConfiguration3PropertiesArgsDict',
     'RouterInputConfiguration4PropertiesArgs',
     'RouterInputConfiguration4PropertiesArgsDict',
+    'RouterInputConfiguration5PropertiesArgs',
+    'RouterInputConfiguration5PropertiesArgsDict',
     'RouterInputContentQualityAnalysisFeatureConfigurationArgs',
     'RouterInputContentQualityAnalysisFeatureConfigurationArgsDict',
     'RouterInputDefaultMaintenanceConfigurationArgs',
     'RouterInputDefaultMaintenanceConfigurationArgsDict',
+    'RouterInputDestinationEndpointRouterInputConfigurationArgs',
+    'RouterInputDestinationEndpointRouterInputConfigurationArgsDict',
+    'RouterInputEndpointEncryptionConfiguration0PropertiesArgs',
+    'RouterInputEndpointEncryptionConfiguration0PropertiesArgsDict',
+    'RouterInputEndpointEncryptionConfiguration1PropertiesArgs',
+    'RouterInputEndpointEncryptionConfiguration1PropertiesArgsDict',
+    'RouterInputEndpointEncryptionSecretConfigurationArgs',
+    'RouterInputEndpointEncryptionSecretConfigurationArgsDict',
     'RouterInputFailoverRouterInputConfigurationArgs',
     'RouterInputFailoverRouterInputConfigurationArgsDict',
     'RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs',
@@ -218,6 +266,8 @@ __all__ = [
     'RouterInputRtpRouterInputConfigurationArgsDict',
     'RouterInputSecretsManagerEncryptionKeyConfigurationArgs',
     'RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict',
+    'RouterInputSecretsManagerEndpointEncryptionConfigurationArgs',
+    'RouterInputSecretsManagerEndpointEncryptionConfigurationArgsDict',
     'RouterInputSilentAudioConfigurationArgs',
     'RouterInputSilentAudioConfigurationArgsDict',
     'RouterInputSrtCallerRouterInputConfigurationArgs',
@@ -246,8 +296,16 @@ __all__ = [
     'RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgsDict',
     'RouterOutputResourceAutomaticEncryptionKeyConfigurationArgs',
     'RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict',
+    'RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs',
+    'RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgsDict',
     'RouterOutputResourceDefaultMaintenanceConfigurationArgs',
     'RouterOutputResourceDefaultMaintenanceConfigurationArgsDict',
+    'RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs',
+    'RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgsDict',
+    'RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs',
+    'RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgsDict',
+    'RouterOutputResourceEndpointEncryptionSecretConfigurationArgs',
+    'RouterOutputResourceEndpointEncryptionSecretConfigurationArgsDict',
     'RouterOutputResourceFabricConfigurationArgs',
     'RouterOutputResourceFabricConfigurationArgsDict',
     'RouterOutputResourceFlowTransitEncryptionArgs',
@@ -282,6 +340,8 @@ __all__ = [
     'RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict',
     'RouterOutputResourceRouterOutputConfiguration2PropertiesArgs',
     'RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict',
+    'RouterOutputResourceRouterOutputConfiguration3PropertiesArgs',
+    'RouterOutputResourceRouterOutputConfiguration3PropertiesArgsDict',
     'RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs',
     'RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgsDict',
     'RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs',
@@ -298,6 +358,10 @@ __all__ = [
     'RouterOutputResourceRtpRouterOutputConfigurationArgsDict',
     'RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs',
     'RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict',
+    'RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs',
+    'RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgsDict',
+    'RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs',
+    'RouterOutputResourceSourceEndpointRouterOutputConfigurationArgsDict',
     'RouterOutputResourceSrtCallerRouterOutputConfigurationArgs',
     'RouterOutputResourceSrtCallerRouterOutputConfigurationArgsDict',
     'RouterOutputResourceSrtEncryptionConfigurationArgs',
@@ -310,6 +374,42 @@ __all__ = [
     'RouterOutputResourceTlsEncryptionArgsDict',
     'RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs',
     'RouterOutputResourceTlsEncryptionConfigurationPropertiesArgsDict',
+    'SourceEndpointConfiguration0PropertiesArgs',
+    'SourceEndpointConfiguration0PropertiesArgsDict',
+    'SourceEndpointConfiguration1PropertiesArgs',
+    'SourceEndpointConfiguration1PropertiesArgsDict',
+    'SourceEndpointEndpointEncryptionSecretConfigurationArgs',
+    'SourceEndpointEndpointEncryptionSecretConfigurationArgsDict',
+    'SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs',
+    'SourceEndpointPublicSourceEndpointNetworkingConfigurationArgsDict',
+    'SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs',
+    'SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgsDict',
+    'SourceEndpointRistStandardSourceEndpointConfigurationArgs',
+    'SourceEndpointRistStandardSourceEndpointConfigurationArgsDict',
+    'SourceEndpointRouterOutputSourceEndpointConfigurationArgs',
+    'SourceEndpointRouterOutputSourceEndpointConfigurationArgsDict',
+    'SourceEndpointRtpStandardSourceEndpointConfigurationArgs',
+    'SourceEndpointRtpStandardSourceEndpointConfigurationArgsDict',
+    'SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs',
+    'SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgsDict',
+    'SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs',
+    'SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgsDict',
+    'SourceEndpointStandardSourceEndpointConfigurationArgs',
+    'SourceEndpointStandardSourceEndpointConfigurationArgsDict',
+    'SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs',
+    'SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgsDict',
+    'SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs',
+    'SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgsDict',
+    'SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs',
+    'SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgsDict',
+    'SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs',
+    'SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgsDict',
+    'SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs',
+    'SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgsDict',
+    'SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs',
+    'SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgsDict',
+    'SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs',
+    'SourceEndpointVpcSourceEndpointNetworkingConfigurationArgsDict',
 ]
 
 class BridgeEgressGatewayBridgeArgsDict(TypedDict):
@@ -1317,6 +1417,758 @@ class BridgeVpcInterfaceAttachmentArgs:
     @vpc_interface_name.setter
     def vpc_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_interface_name", value)
+
+
+class DestinationEndpointConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+    """
+    standard: pulumi.Input['DestinationEndpointStandardDestinationEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class DestinationEndpointConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 standard: pulumi.Input['DestinationEndpointStandardDestinationEndpointConfigurationArgs']):
+        """
+        The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+        """
+        pulumi.set(__self__, "standard", standard)
+
+    @_builtins.property
+    @pulumi.getter
+    def standard(self) -> pulumi.Input['DestinationEndpointStandardDestinationEndpointConfigurationArgs']:
+        return pulumi.get(self, "standard")
+
+    @standard.setter
+    def standard(self, value: pulumi.Input['DestinationEndpointStandardDestinationEndpointConfigurationArgs']):
+        pulumi.set(self, "standard", value)
+
+
+class DestinationEndpointConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+    """
+    router_input: pulumi.Input['DestinationEndpointRouterInputDestinationEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class DestinationEndpointConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 router_input: pulumi.Input['DestinationEndpointRouterInputDestinationEndpointConfigurationArgs']):
+        """
+        The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+        """
+        pulumi.set(__self__, "router_input", router_input)
+
+    @_builtins.property
+    @pulumi.getter(name="routerInput")
+    def router_input(self) -> pulumi.Input['DestinationEndpointRouterInputDestinationEndpointConfigurationArgs']:
+        return pulumi.get(self, "router_input")
+
+    @router_input.setter
+    def router_input(self, value: pulumi.Input['DestinationEndpointRouterInputDestinationEndpointConfigurationArgs']):
+        pulumi.set(self, "router_input", value)
+
+
+class DestinationEndpointEndpointEncryptionSecretConfigurationArgsDict(TypedDict):
+    """
+    The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+    """
+
+@pulumi.input_type
+class DestinationEndpointEndpointEncryptionSecretConfigurationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgsDict(TypedDict):
+    """
+    The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.
+    """
+    destination_allow_rules: pulumi.Input[Sequence[pulumi.Input['DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgsDict']]]
+    """
+    The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+    """
+
+@pulumi.input_type
+class DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_allow_rules: pulumi.Input[Sequence[pulumi.Input['DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs']]]):
+        """
+        The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.
+
+        :param pulumi.Input[Sequence[pulumi.Input['DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs']]] destination_allow_rules: The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+        """
+        pulumi.set(__self__, "destination_allow_rules", destination_allow_rules)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAllowRules")
+    def destination_allow_rules(self) -> pulumi.Input[Sequence[pulumi.Input['DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs']]]:
+        """
+        The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+        """
+        return pulumi.get(self, "destination_allow_rules")
+
+    @destination_allow_rules.setter
+    def destination_allow_rules(self, value: pulumi.Input[Sequence[pulumi.Input['DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs']]]):
+        pulumi.set(self, "destination_allow_rules", value)
+
+
+class DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgsDict(TypedDict):
+    """
+    A rule that allows a specific CIDR block to connect to the public destination endpoint.
+    """
+    cidr: pulumi.Input[_builtins.str]
+    """
+    The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.
+    """
+
+@pulumi.input_type
+class DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs:
+    def __init__(__self__, *,
+                 cidr: pulumi.Input[_builtins.str]):
+        """
+        A rule that allows a specific CIDR block to connect to the public destination endpoint.
+
+        :param pulumi.Input[_builtins.str] cidr: The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.
+        """
+        pulumi.set(__self__, "cidr", cidr)
+
+    @_builtins.property
+    @pulumi.getter
+    def cidr(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cidr", value)
+
+
+class DestinationEndpointRistStandardDestinationEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a destination endpoint that uses the RIST protocol.
+    """
+    destination_address: pulumi.Input[_builtins.str]
+    """
+    The IP address on which the destination endpoint receives content.
+    """
+    destination_ingest_port: pulumi.Input[_builtins.int]
+    """
+    The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+    """
+
+@pulumi.input_type
+class DestinationEndpointRistStandardDestinationEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_address: pulumi.Input[_builtins.str],
+                 destination_ingest_port: pulumi.Input[_builtins.int]):
+        """
+        The configuration settings for a destination endpoint that uses the RIST protocol.
+
+        :param pulumi.Input[_builtins.str] destination_address: The IP address on which the destination endpoint receives content.
+        :param pulumi.Input[_builtins.int] destination_ingest_port: The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+        """
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "destination_ingest_port", destination_ingest_port)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IP address on which the destination endpoint receives content.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @destination_address.setter
+    def destination_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIngestPort")
+    def destination_ingest_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+        """
+        return pulumi.get(self, "destination_ingest_port")
+
+    @destination_ingest_port.setter
+    def destination_ingest_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "destination_ingest_port", value)
+
+
+class DestinationEndpointRouterInputDestinationEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a destination endpoint that represents a router input.
+    """
+    router_input_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+    """
+
+@pulumi.input_type
+class DestinationEndpointRouterInputDestinationEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 router_input_arn: pulumi.Input[_builtins.str]):
+        """
+        The configuration settings for a destination endpoint that represents a router input.
+
+        :param pulumi.Input[_builtins.str] router_input_arn: The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+        """
+        pulumi.set(__self__, "router_input_arn", router_input_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="routerInputArn")
+    def router_input_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+        """
+        return pulumi.get(self, "router_input_arn")
+
+    @router_input_arn.setter
+    def router_input_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "router_input_arn", value)
+
+
+class DestinationEndpointRtpStandardDestinationEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a destination endpoint that uses the RTP protocol.
+    """
+    destination_address: pulumi.Input[_builtins.str]
+    """
+    The IP address on which the destination endpoint receives content.
+    """
+    destination_ingest_port: pulumi.Input[_builtins.int]
+    """
+    The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+    """
+    forward_error_correction_state: pulumi.Input['DestinationEndpointForwardErrorCorrectionState']
+
+@pulumi.input_type
+class DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_address: pulumi.Input[_builtins.str],
+                 destination_ingest_port: pulumi.Input[_builtins.int],
+                 forward_error_correction_state: pulumi.Input['DestinationEndpointForwardErrorCorrectionState']):
+        """
+        The configuration settings for a destination endpoint that uses the RTP protocol.
+
+        :param pulumi.Input[_builtins.str] destination_address: The IP address on which the destination endpoint receives content.
+        :param pulumi.Input[_builtins.int] destination_ingest_port: The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+        """
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "destination_ingest_port", destination_ingest_port)
+        pulumi.set(__self__, "forward_error_correction_state", forward_error_correction_state)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IP address on which the destination endpoint receives content.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @destination_address.setter
+    def destination_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIngestPort")
+    def destination_ingest_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+        """
+        return pulumi.get(self, "destination_ingest_port")
+
+    @destination_ingest_port.setter
+    def destination_ingest_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "destination_ingest_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forwardErrorCorrectionState")
+    def forward_error_correction_state(self) -> pulumi.Input['DestinationEndpointForwardErrorCorrectionState']:
+        return pulumi.get(self, "forward_error_correction_state")
+
+    @forward_error_correction_state.setter
+    def forward_error_correction_state(self, value: pulumi.Input['DestinationEndpointForwardErrorCorrectionState']):
+        pulumi.set(self, "forward_error_correction_state", value)
+
+
+class DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a destination endpoint that uses SRT in caller mode.
+    """
+    minimum_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+    """
+    source_listener_port: pulumi.Input[_builtins.int]
+    """
+    The port on which the source listens for the connection. The valid range is 3000 to 30000.
+    """
+    encryption_passphrase: NotRequired[pulumi.Input[Optional['DestinationEndpointEndpointEncryptionSecretConfigurationArgsDict']]]
+
+@pulumi.input_type
+class DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 minimum_latency_milliseconds: pulumi.Input[_builtins.int],
+                 source_listener_port: pulumi.Input[_builtins.int],
+                 encryption_passphrase: pulumi.Input[Optional['DestinationEndpointEndpointEncryptionSecretConfigurationArgs']] = None):
+        """
+        The configuration settings for a destination endpoint that uses SRT in caller mode.
+
+        :param pulumi.Input[_builtins.int] minimum_latency_milliseconds: The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+        :param pulumi.Input[_builtins.int] source_listener_port: The port on which the source listens for the connection. The valid range is 3000 to 30000.
+        """
+        pulumi.set(__self__, "minimum_latency_milliseconds", minimum_latency_milliseconds)
+        pulumi.set(__self__, "source_listener_port", source_listener_port)
+        if encryption_passphrase is not None:
+            pulumi.set(__self__, "encryption_passphrase", encryption_passphrase)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatencyMilliseconds")
+    def minimum_latency_milliseconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+        """
+        return pulumi.get(self, "minimum_latency_milliseconds")
+
+    @minimum_latency_milliseconds.setter
+    def minimum_latency_milliseconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_latency_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceListenerPort")
+    def source_listener_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port on which the source listens for the connection. The valid range is 3000 to 30000.
+        """
+        return pulumi.get(self, "source_listener_port")
+
+    @source_listener_port.setter
+    def source_listener_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "source_listener_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionPassphrase")
+    def encryption_passphrase(self) -> pulumi.Input[Optional['DestinationEndpointEndpointEncryptionSecretConfigurationArgs']]:
+        return pulumi.get(self, "encryption_passphrase")
+
+    @encryption_passphrase.setter
+    def encryption_passphrase(self, value: pulumi.Input[Optional['DestinationEndpointEndpointEncryptionSecretConfigurationArgs']]):
+        pulumi.set(self, "encryption_passphrase", value)
+
+
+class DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a destination endpoint that uses SRT in listener mode.
+    """
+    destination_address: pulumi.Input[_builtins.str]
+    """
+    The IP address on which the destination endpoint listens for incoming connections.
+    """
+    destination_ingest_port: pulumi.Input[_builtins.int]
+    """
+    The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+    """
+    minimum_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+    """
+    encryption_passphrase: NotRequired[pulumi.Input[Optional['DestinationEndpointEndpointEncryptionSecretConfigurationArgsDict']]]
+    stream_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The stream ID that identifies the content for the SRT connection.
+    """
+
+@pulumi.input_type
+class DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_address: pulumi.Input[_builtins.str],
+                 destination_ingest_port: pulumi.Input[_builtins.int],
+                 minimum_latency_milliseconds: pulumi.Input[_builtins.int],
+                 encryption_passphrase: pulumi.Input[Optional['DestinationEndpointEndpointEncryptionSecretConfigurationArgs']] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The configuration settings for a destination endpoint that uses SRT in listener mode.
+
+        :param pulumi.Input[_builtins.str] destination_address: The IP address on which the destination endpoint listens for incoming connections.
+        :param pulumi.Input[_builtins.int] destination_ingest_port: The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+        :param pulumi.Input[_builtins.int] minimum_latency_milliseconds: The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+        :param pulumi.Input[_builtins.str] stream_id: The stream ID that identifies the content for the SRT connection.
+        """
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "destination_ingest_port", destination_ingest_port)
+        pulumi.set(__self__, "minimum_latency_milliseconds", minimum_latency_milliseconds)
+        if encryption_passphrase is not None:
+            pulumi.set(__self__, "encryption_passphrase", encryption_passphrase)
+        if stream_id is not None:
+            pulumi.set(__self__, "stream_id", stream_id)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IP address on which the destination endpoint listens for incoming connections.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @destination_address.setter
+    def destination_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIngestPort")
+    def destination_ingest_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+        """
+        return pulumi.get(self, "destination_ingest_port")
+
+    @destination_ingest_port.setter
+    def destination_ingest_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "destination_ingest_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatencyMilliseconds")
+    def minimum_latency_milliseconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+        """
+        return pulumi.get(self, "minimum_latency_milliseconds")
+
+    @minimum_latency_milliseconds.setter
+    def minimum_latency_milliseconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_latency_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionPassphrase")
+    def encryption_passphrase(self) -> pulumi.Input[Optional['DestinationEndpointEndpointEncryptionSecretConfigurationArgs']]:
+        return pulumi.get(self, "encryption_passphrase")
+
+    @encryption_passphrase.setter
+    def encryption_passphrase(self, value: pulumi.Input[Optional['DestinationEndpointEndpointEncryptionSecretConfigurationArgs']]):
+        pulumi.set(self, "encryption_passphrase", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamId")
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The stream ID that identifies the content for the SRT connection.
+        """
+        return pulumi.get(self, "stream_id")
+
+    @stream_id.setter
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stream_id", value)
+
+
+class DestinationEndpointStandardDestinationEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a standard destination endpoint.
+    """
+    destination_networking_configuration: pulumi.Input[Union['DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgsDict', 'DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgsDict']]
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the destination endpoint.
+    """
+    protocol_configuration: pulumi.Input[Union['DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgsDict', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgsDict', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgsDict', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgsDict']]
+    destination_networking_type: NotRequired[pulumi.Input[Optional['DestinationEndpointNetworkingType']]]
+    protocol: NotRequired[pulumi.Input[Optional['DestinationEndpointProtocol']]]
+
+@pulumi.input_type
+class DestinationEndpointStandardDestinationEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_networking_configuration: pulumi.Input[Union['DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs']],
+                 name: pulumi.Input[_builtins.str],
+                 protocol_configuration: pulumi.Input[Union['DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs']],
+                 destination_networking_type: pulumi.Input[Optional['DestinationEndpointNetworkingType']] = None,
+                 protocol: pulumi.Input[Optional['DestinationEndpointProtocol']] = None):
+        """
+        The configuration settings for a standard destination endpoint.
+
+        :param pulumi.Input[_builtins.str] name: The name of the destination endpoint.
+        """
+        pulumi.set(__self__, "destination_networking_configuration", destination_networking_configuration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocol_configuration", protocol_configuration)
+        if destination_networking_type is not None:
+            pulumi.set(__self__, "destination_networking_type", destination_networking_type)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationNetworkingConfiguration")
+    def destination_networking_configuration(self) -> pulumi.Input[Union['DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "destination_networking_configuration")
+
+    @destination_networking_configuration.setter
+    def destination_networking_configuration(self, value: pulumi.Input[Union['DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "destination_networking_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the destination endpoint.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="protocolConfiguration")
+    def protocol_configuration(self) -> pulumi.Input[Union['DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs']]:
+        return pulumi.get(self, "protocol_configuration")
+
+    @protocol_configuration.setter
+    def protocol_configuration(self, value: pulumi.Input[Union['DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs', 'DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs']]):
+        pulumi.set(self, "protocol_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationNetworkingType")
+    def destination_networking_type(self) -> pulumi.Input[Optional['DestinationEndpointNetworkingType']]:
+        return pulumi.get(self, "destination_networking_type")
+
+    @destination_networking_type.setter
+    def destination_networking_type(self, value: pulumi.Input[Optional['DestinationEndpointNetworkingType']]):
+        pulumi.set(self, "destination_networking_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Optional['DestinationEndpointProtocol']]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Optional['DestinationEndpointProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+
+class DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+    """
+    public: pulumi.Input['DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgsDict']
+
+@pulumi.input_type
+class DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 public: pulumi.Input['DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs']):
+        """
+        The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+        """
+        pulumi.set(__self__, "public", public)
+
+    @_builtins.property
+    @pulumi.getter
+    def public(self) -> pulumi.Input['DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs']:
+        return pulumi.get(self, "public")
+
+    @public.setter
+    def public(self, value: pulumi.Input['DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs']):
+        pulumi.set(self, "public", value)
+
+
+class DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+    """
+    vpc: pulumi.Input['DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgsDict']
+
+@pulumi.input_type
+class DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 vpc: pulumi.Input['DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs']):
+        """
+        The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+        """
+        pulumi.set(__self__, "vpc", vpc)
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> pulumi.Input['DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs']:
+        return pulumi.get(self, "vpc")
+
+    @vpc.setter
+    def vpc(self, value: pulumi.Input['DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs']):
+        pulumi.set(self, "vpc", value)
+
+
+class DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+    """
+    rist: pulumi.Input['DestinationEndpointRistStandardDestinationEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 rist: pulumi.Input['DestinationEndpointRistStandardDestinationEndpointConfigurationArgs']):
+        """
+        The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+        """
+        pulumi.set(__self__, "rist", rist)
+
+    @_builtins.property
+    @pulumi.getter
+    def rist(self) -> pulumi.Input['DestinationEndpointRistStandardDestinationEndpointConfigurationArgs']:
+        return pulumi.get(self, "rist")
+
+    @rist.setter
+    def rist(self, value: pulumi.Input['DestinationEndpointRistStandardDestinationEndpointConfigurationArgs']):
+        pulumi.set(self, "rist", value)
+
+
+class DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+    """
+    srt_listener: pulumi.Input['DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 srt_listener: pulumi.Input['DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs']):
+        """
+        The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+        """
+        pulumi.set(__self__, "srt_listener", srt_listener)
+
+    @_builtins.property
+    @pulumi.getter(name="srtListener")
+    def srt_listener(self) -> pulumi.Input['DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs']:
+        return pulumi.get(self, "srt_listener")
+
+    @srt_listener.setter
+    def srt_listener(self, value: pulumi.Input['DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs']):
+        pulumi.set(self, "srt_listener", value)
+
+
+class DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+    """
+    srt_caller: pulumi.Input['DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 srt_caller: pulumi.Input['DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs']):
+        """
+        The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+        """
+        pulumi.set(__self__, "srt_caller", srt_caller)
+
+    @_builtins.property
+    @pulumi.getter(name="srtCaller")
+    def srt_caller(self) -> pulumi.Input['DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs']:
+        return pulumi.get(self, "srt_caller")
+
+    @srt_caller.setter
+    def srt_caller(self, value: pulumi.Input['DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs']):
+        pulumi.set(self, "srt_caller", value)
+
+
+class DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+    """
+    rtp: pulumi.Input['DestinationEndpointRtpStandardDestinationEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs:
+    def __init__(__self__, *,
+                 rtp: pulumi.Input['DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs']):
+        """
+        The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+        """
+        pulumi.set(__self__, "rtp", rtp)
+
+    @_builtins.property
+    @pulumi.getter
+    def rtp(self) -> pulumi.Input['DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs']:
+        return pulumi.get(self, "rtp")
+
+    @rtp.setter
+    def rtp(self, value: pulumi.Input['DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs']):
+        pulumi.set(self, "rtp", value)
+
+
+class DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgsDict(TypedDict):
+    """
+    The networking configuration for a destination endpoint in a virtual private cloud (VPC).
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet to use for the destination endpoint.
+    """
+
+@pulumi.input_type
+class DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnet_id: pulumi.Input[_builtins.str]):
+        """
+        The networking configuration for a destination endpoint in a virtual private cloud (VPC).
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to use for the destination endpoint.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the subnet to use for the destination endpoint.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class FlowAudioMonitoringSettingArgsDict(TypedDict):
@@ -5048,6 +5900,21 @@ class RouterInputAutomaticEncryptionKeyConfigurationArgs:
         pass
 
 
+class RouterInputAutomaticEndpointEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+    """
+    pass
+
+@pulumi.input_type
+class RouterInputAutomaticEndpointEncryptionConfigurationArgs:
+    def __init__(__self__):
+        """
+        The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+        """
+        pass
+
+
 class RouterInputBlackFramesConfigurationArgsDict(TypedDict):
     """
     Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
@@ -5097,10 +5964,35 @@ class RouterInputConfiguration0PropertiesArgsDict(TypedDict):
     """
     The configuration settings for a router input.
     """
-    standard: pulumi.Input['RouterInputStandardRouterInputConfigurationArgsDict']
+    destination_endpoint: pulumi.Input['RouterInputDestinationEndpointRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 destination_endpoint: pulumi.Input['RouterInputDestinationEndpointRouterInputConfigurationArgs']):
+        """
+        The configuration settings for a router input.
+        """
+        pulumi.set(__self__, "destination_endpoint", destination_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationEndpoint")
+    def destination_endpoint(self) -> pulumi.Input['RouterInputDestinationEndpointRouterInputConfigurationArgs']:
+        return pulumi.get(self, "destination_endpoint")
+
+    @destination_endpoint.setter
+    def destination_endpoint(self, value: pulumi.Input['RouterInputDestinationEndpointRouterInputConfigurationArgs']):
+        pulumi.set(self, "destination_endpoint", value)
+
+
+class RouterInputConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router input.
+    """
+    standard: pulumi.Input['RouterInputStandardRouterInputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputConfiguration1PropertiesArgs:
     def __init__(__self__, *,
                  standard: pulumi.Input['RouterInputStandardRouterInputConfigurationArgs']):
         """
@@ -5118,14 +6010,39 @@ class RouterInputConfiguration0PropertiesArgs:
         pulumi.set(self, "standard", value)
 
 
-class RouterInputConfiguration1PropertiesArgsDict(TypedDict):
+class RouterInputConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router input.
+    """
+    media_live_channel: pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 media_live_channel: pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgs']):
+        """
+        The configuration settings for a router input.
+        """
+        pulumi.set(__self__, "media_live_channel", media_live_channel)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaLiveChannel")
+    def media_live_channel(self) -> pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgs']:
+        return pulumi.get(self, "media_live_channel")
+
+    @media_live_channel.setter
+    def media_live_channel(self, value: pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgs']):
+        pulumi.set(self, "media_live_channel", value)
+
+
+class RouterInputConfiguration3PropertiesArgsDict(TypedDict):
     """
     The configuration settings for a router input.
     """
     failover: pulumi.Input['RouterInputFailoverRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputConfiguration1PropertiesArgs:
+class RouterInputConfiguration3PropertiesArgs:
     def __init__(__self__, *,
                  failover: pulumi.Input['RouterInputFailoverRouterInputConfigurationArgs']):
         """
@@ -5143,39 +6060,14 @@ class RouterInputConfiguration1PropertiesArgs:
         pulumi.set(self, "failover", value)
 
 
-class RouterInputConfiguration2PropertiesArgsDict(TypedDict):
-    """
-    The configuration settings for a router input.
-    """
-    merge: pulumi.Input['RouterInputMergeRouterInputConfigurationArgsDict']
-
-@pulumi.input_type
-class RouterInputConfiguration2PropertiesArgs:
-    def __init__(__self__, *,
-                 merge: pulumi.Input['RouterInputMergeRouterInputConfigurationArgs']):
-        """
-        The configuration settings for a router input.
-        """
-        pulumi.set(__self__, "merge", merge)
-
-    @_builtins.property
-    @pulumi.getter
-    def merge(self) -> pulumi.Input['RouterInputMergeRouterInputConfigurationArgs']:
-        return pulumi.get(self, "merge")
-
-    @merge.setter
-    def merge(self, value: pulumi.Input['RouterInputMergeRouterInputConfigurationArgs']):
-        pulumi.set(self, "merge", value)
-
-
-class RouterInputConfiguration3PropertiesArgsDict(TypedDict):
+class RouterInputConfiguration4PropertiesArgsDict(TypedDict):
     """
     The configuration settings for a router input.
     """
     media_connect_flow: pulumi.Input['RouterInputMediaConnectFlowRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputConfiguration3PropertiesArgs:
+class RouterInputConfiguration4PropertiesArgs:
     def __init__(__self__, *,
                  media_connect_flow: pulumi.Input['RouterInputMediaConnectFlowRouterInputConfigurationArgs']):
         """
@@ -5193,29 +6085,29 @@ class RouterInputConfiguration3PropertiesArgs:
         pulumi.set(self, "media_connect_flow", value)
 
 
-class RouterInputConfiguration4PropertiesArgsDict(TypedDict):
+class RouterInputConfiguration5PropertiesArgsDict(TypedDict):
     """
     The configuration settings for a router input.
     """
-    media_live_channel: pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgsDict']
+    merge: pulumi.Input['RouterInputMergeRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputConfiguration4PropertiesArgs:
+class RouterInputConfiguration5PropertiesArgs:
     def __init__(__self__, *,
-                 media_live_channel: pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgs']):
+                 merge: pulumi.Input['RouterInputMergeRouterInputConfigurationArgs']):
         """
         The configuration settings for a router input.
         """
-        pulumi.set(__self__, "media_live_channel", media_live_channel)
+        pulumi.set(__self__, "merge", merge)
 
     @_builtins.property
-    @pulumi.getter(name="mediaLiveChannel")
-    def media_live_channel(self) -> pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgs']:
-        return pulumi.get(self, "media_live_channel")
+    @pulumi.getter
+    def merge(self) -> pulumi.Input['RouterInputMergeRouterInputConfigurationArgs']:
+        return pulumi.get(self, "merge")
 
-    @media_live_channel.setter
-    def media_live_channel(self, value: pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgs']):
-        pulumi.set(self, "media_live_channel", value)
+    @merge.setter
+    def merge(self, value: pulumi.Input['RouterInputMergeRouterInputConfigurationArgs']):
+        pulumi.set(self, "merge", value)
 
 
 class RouterInputContentQualityAnalysisFeatureConfigurationArgsDict(TypedDict):
@@ -5283,6 +6175,139 @@ class RouterInputDefaultMaintenanceConfigurationArgs:
         Configuration settings for default maintenance scheduling.
         """
         pass
+
+
+class RouterInputDestinationEndpointRouterInputConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for a router input that is represented by a destination endpoint.
+    """
+    endpoint_lifecycle_management: pulumi.Input['RouterInputEndpointLifecycle']
+    source_transit_decryption: pulumi.Input[Union['RouterInputEndpointEncryptionConfiguration0PropertiesArgsDict', 'RouterInputEndpointEncryptionConfiguration1PropertiesArgsDict']]
+    source_transit_decryption_type: NotRequired[pulumi.Input[Optional['RouterInputEndpointEncryptionType']]]
+
+@pulumi.input_type
+class RouterInputDestinationEndpointRouterInputConfigurationArgs:
+    def __init__(__self__, *,
+                 endpoint_lifecycle_management: pulumi.Input['RouterInputEndpointLifecycle'],
+                 source_transit_decryption: pulumi.Input[Union['RouterInputEndpointEncryptionConfiguration0PropertiesArgs', 'RouterInputEndpointEncryptionConfiguration1PropertiesArgs']],
+                 source_transit_decryption_type: pulumi.Input[Optional['RouterInputEndpointEncryptionType']] = None):
+        """
+        Configuration settings for a router input that is represented by a destination endpoint.
+        """
+        pulumi.set(__self__, "endpoint_lifecycle_management", endpoint_lifecycle_management)
+        pulumi.set(__self__, "source_transit_decryption", source_transit_decryption)
+        if source_transit_decryption_type is not None:
+            pulumi.set(__self__, "source_transit_decryption_type", source_transit_decryption_type)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointLifecycleManagement")
+    def endpoint_lifecycle_management(self) -> pulumi.Input['RouterInputEndpointLifecycle']:
+        return pulumi.get(self, "endpoint_lifecycle_management")
+
+    @endpoint_lifecycle_management.setter
+    def endpoint_lifecycle_management(self, value: pulumi.Input['RouterInputEndpointLifecycle']):
+        pulumi.set(self, "endpoint_lifecycle_management", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceTransitDecryption")
+    def source_transit_decryption(self) -> pulumi.Input[Union['RouterInputEndpointEncryptionConfiguration0PropertiesArgs', 'RouterInputEndpointEncryptionConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "source_transit_decryption")
+
+    @source_transit_decryption.setter
+    def source_transit_decryption(self, value: pulumi.Input[Union['RouterInputEndpointEncryptionConfiguration0PropertiesArgs', 'RouterInputEndpointEncryptionConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "source_transit_decryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceTransitDecryptionType")
+    def source_transit_decryption_type(self) -> pulumi.Input[Optional['RouterInputEndpointEncryptionType']]:
+        return pulumi.get(self, "source_transit_decryption_type")
+
+    @source_transit_decryption_type.setter
+    def source_transit_decryption_type(self, value: pulumi.Input[Optional['RouterInputEndpointEncryptionType']]):
+        pulumi.set(self, "source_transit_decryption_type", value)
+
+
+class RouterInputEndpointEncryptionConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+    """
+    secrets_manager: pulumi.Input['RouterInputSecretsManagerEndpointEncryptionConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputEndpointEncryptionConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 secrets_manager: pulumi.Input['RouterInputSecretsManagerEndpointEncryptionConfigurationArgs']):
+        """
+        The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+        """
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> pulumi.Input['RouterInputSecretsManagerEndpointEncryptionConfigurationArgs']:
+        return pulumi.get(self, "secrets_manager")
+
+    @secrets_manager.setter
+    def secrets_manager(self, value: pulumi.Input['RouterInputSecretsManagerEndpointEncryptionConfigurationArgs']):
+        pulumi.set(self, "secrets_manager", value)
+
+
+class RouterInputEndpointEncryptionConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+    """
+    automatic: pulumi.Input['RouterInputAutomaticEndpointEncryptionConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputEndpointEncryptionConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 automatic: pulumi.Input['RouterInputAutomaticEndpointEncryptionConfigurationArgs']):
+        """
+        The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> pulumi.Input['RouterInputAutomaticEndpointEncryptionConfigurationArgs']:
+        return pulumi.get(self, "automatic")
+
+    @automatic.setter
+    def automatic(self, value: pulumi.Input['RouterInputAutomaticEndpointEncryptionConfigurationArgs']):
+        pulumi.set(self, "automatic", value)
+
+
+class RouterInputEndpointEncryptionSecretConfigurationArgsDict(TypedDict):
+    """
+    The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+    """
+
+@pulumi.input_type
+class RouterInputEndpointEncryptionSecretConfigurationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
 
 
 class RouterInputFailoverRouterInputConfigurationArgsDict(TypedDict):
@@ -5373,35 +6398,10 @@ class RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgsDict(Typ
     """
     Protocol configuration settings for failover router inputs.
     """
-    rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
-
-@pulumi.input_type
-class RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs:
-    def __init__(__self__, *,
-                 rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
-        """
-        Protocol configuration settings for failover router inputs.
-        """
-        pulumi.set(__self__, "rtp", rtp)
-
-    @_builtins.property
-    @pulumi.getter
-    def rtp(self) -> pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']:
-        return pulumi.get(self, "rtp")
-
-    @rtp.setter
-    def rtp(self, value: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
-        pulumi.set(self, "rtp", value)
-
-
-class RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
-    """
-    Protocol configuration settings for failover router inputs.
-    """
     rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs:
+class RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs:
     def __init__(__self__, *,
                  rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgs']):
         """
@@ -5419,14 +6419,14 @@ class RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs:
         pulumi.set(self, "rist", value)
 
 
-class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
+class RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
     """
     Protocol configuration settings for failover router inputs.
     """
     srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs:
+class RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs:
     def __init__(__self__, *,
                  srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgs']):
         """
@@ -5444,14 +6444,14 @@ class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs:
         pulumi.set(self, "srt_listener", value)
 
 
-class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
     """
     Protocol configuration settings for failover router inputs.
     """
     srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs:
+class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs:
     def __init__(__self__, *,
                  srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgs']):
         """
@@ -5467,6 +6467,31 @@ class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs:
     @srt_caller.setter
     def srt_caller(self, value: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgs']):
         pulumi.set(self, "srt_caller", value)
+
+
+class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs:
+    def __init__(__self__, *,
+                 rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
+        """
+        Protocol configuration settings for failover router inputs.
+        """
+        pulumi.set(__self__, "rtp", rtp)
+
+    @_builtins.property
+    @pulumi.getter
+    def rtp(self) -> pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']:
+        return pulumi.get(self, "rtp")
+
+    @rtp.setter
+    def rtp(self, value: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
+        pulumi.set(self, "rtp", value)
 
 
 class RouterInputFlowTransitEncryptionArgsDict(TypedDict):
@@ -5654,7 +6679,7 @@ class RouterInputMaintenanceConfiguration1PropertiesArgs:
 
 class RouterInputMediaConnectFlowRouterInputConfigurationArgsDict(TypedDict):
     """
-    Configuration settings for connecting a router input to a flow output.
+    Configuration settings for connecting a router input to a flow output. To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
     """
     source_transit_decryption: pulumi.Input['RouterInputFlowTransitEncryptionArgsDict']
     flow_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -5673,7 +6698,7 @@ class RouterInputMediaConnectFlowRouterInputConfigurationArgs:
                  flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  flow_output_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        Configuration settings for connecting a router input to a flow output.
+        Configuration settings for connecting a router input to a flow output. To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
 
         :param pulumi.Input[_builtins.str] flow_arn: The ARN of the flow to connect to.
         :param pulumi.Input[_builtins.str] flow_output_arn: The ARN of the flow output to connect to this router input.
@@ -5720,7 +6745,7 @@ class RouterInputMediaConnectFlowRouterInputConfigurationArgs:
 
 class RouterInputMediaLiveChannelRouterInputConfigurationArgsDict(TypedDict):
     """
-    Configuration settings for connecting a router input to a MediaLive channel output.
+    Configuration settings for connecting a router input to a MediaLive channel output. To connect the router input to the MediaLive channel output, provide all three of mediaLiveChannelArn, mediaLivePipelineId, and mediaLiveChannelOutputName. To disconnect it, call the update operation and omit all three fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
     """
     source_transit_decryption: pulumi.Input['RouterInputMediaLiveTransitEncryptionArgsDict']
     media_live_channel_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -5741,7 +6766,7 @@ class RouterInputMediaLiveChannelRouterInputConfigurationArgs:
                  media_live_channel_output_name: pulumi.Input[Optional[_builtins.str]] = None,
                  media_live_pipeline_id: pulumi.Input[Optional['RouterInputMediaLiveChannelPipelineId']] = None):
         """
-        Configuration settings for connecting a router input to a MediaLive channel output.
+        Configuration settings for connecting a router input to a MediaLive channel output. To connect the router input to the MediaLive channel output, provide all three of mediaLiveChannelArn, mediaLivePipelineId, and mediaLiveChannelOutputName. To disconnect it, call the update operation and omit all three fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
 
         :param pulumi.Input[_builtins.str] media_live_channel_arn: The ARN of the MediaLive channel to connect to this router input.
         :param pulumi.Input[_builtins.str] media_live_channel_output_name: The name of the MediaLive channel output to connect to this router input.
@@ -6055,35 +7080,10 @@ class RouterInputProtocolConfiguration0PropertiesArgsDict(TypedDict):
     """
     The protocol configuration settings for a router input.
     """
-    rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
-
-@pulumi.input_type
-class RouterInputProtocolConfiguration0PropertiesArgs:
-    def __init__(__self__, *,
-                 rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
-        """
-        The protocol configuration settings for a router input.
-        """
-        pulumi.set(__self__, "rtp", rtp)
-
-    @_builtins.property
-    @pulumi.getter
-    def rtp(self) -> pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']:
-        return pulumi.get(self, "rtp")
-
-    @rtp.setter
-    def rtp(self, value: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
-        pulumi.set(self, "rtp", value)
-
-
-class RouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
-    """
-    The protocol configuration settings for a router input.
-    """
     rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputProtocolConfiguration1PropertiesArgs:
+class RouterInputProtocolConfiguration0PropertiesArgs:
     def __init__(__self__, *,
                  rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgs']):
         """
@@ -6101,14 +7101,14 @@ class RouterInputProtocolConfiguration1PropertiesArgs:
         pulumi.set(self, "rist", value)
 
 
-class RouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
+class RouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
     """
     The protocol configuration settings for a router input.
     """
     srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputProtocolConfiguration2PropertiesArgs:
+class RouterInputProtocolConfiguration1PropertiesArgs:
     def __init__(__self__, *,
                  srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgs']):
         """
@@ -6126,14 +7126,14 @@ class RouterInputProtocolConfiguration2PropertiesArgs:
         pulumi.set(self, "srt_listener", value)
 
 
-class RouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+class RouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
     """
     The protocol configuration settings for a router input.
     """
     srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputProtocolConfiguration3PropertiesArgs:
+class RouterInputProtocolConfiguration2PropertiesArgs:
     def __init__(__self__, *,
                  srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgs']):
         """
@@ -6149,6 +7149,31 @@ class RouterInputProtocolConfiguration3PropertiesArgs:
     @srt_caller.setter
     def srt_caller(self, value: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgs']):
         pulumi.set(self, "srt_caller", value)
+
+
+class RouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputProtocolConfiguration3PropertiesArgs:
+    def __init__(__self__, *,
+                 rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
+        """
+        The protocol configuration settings for a router input.
+        """
+        pulumi.set(__self__, "rtp", rtp)
+
+    @_builtins.property
+    @pulumi.getter
+    def rtp(self) -> pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']:
+        return pulumi.get(self, "rtp")
+
+    @rtp.setter
+    def rtp(self, value: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
+        pulumi.set(self, "rtp", value)
 
 
 class RouterInputRistRouterInputConfigurationArgsDict(TypedDict):
@@ -6324,6 +7349,44 @@ class RouterInputSecretsManagerEncryptionKeyConfigurationArgs:
     @secret_arn.setter
     def secret_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "secret_arn", value)
+
+
+class RouterInputSecretsManagerEndpointEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+    """
+    encryption_secret: pulumi.Input['RouterInputEndpointEncryptionSecretConfigurationArgsDict']
+    encryption_secret_type: NotRequired[pulumi.Input[Optional['RouterInputEndpointEncryptionSecretType']]]
+
+@pulumi.input_type
+class RouterInputSecretsManagerEndpointEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 encryption_secret: pulumi.Input['RouterInputEndpointEncryptionSecretConfigurationArgs'],
+                 encryption_secret_type: pulumi.Input[Optional['RouterInputEndpointEncryptionSecretType']] = None):
+        """
+        The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+        """
+        pulumi.set(__self__, "encryption_secret", encryption_secret)
+        if encryption_secret_type is not None:
+            pulumi.set(__self__, "encryption_secret_type", encryption_secret_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSecret")
+    def encryption_secret(self) -> pulumi.Input['RouterInputEndpointEncryptionSecretConfigurationArgs']:
+        return pulumi.get(self, "encryption_secret")
+
+    @encryption_secret.setter
+    def encryption_secret(self, value: pulumi.Input['RouterInputEndpointEncryptionSecretConfigurationArgs']):
+        pulumi.set(self, "encryption_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSecretType")
+    def encryption_secret_type(self) -> pulumi.Input[Optional['RouterInputEndpointEncryptionSecretType']]:
+        return pulumi.get(self, "encryption_secret_type")
+
+    @encryption_secret_type.setter
+    def encryption_secret_type(self, value: pulumi.Input[Optional['RouterInputEndpointEncryptionSecretType']]):
+        pulumi.set(self, "encryption_secret_type", value)
 
 
 class RouterInputSilentAudioConfigurationArgsDict(TypedDict):
@@ -6894,6 +7957,21 @@ class RouterOutputResourceAutomaticEncryptionKeyConfigurationArgs:
         pass
 
 
+class RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+    """
+    pass
+
+@pulumi.input_type
+class RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs:
+    def __init__(__self__):
+        """
+        The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+        """
+        pass
+
+
 class RouterOutputResourceDefaultMaintenanceConfigurationArgsDict(TypedDict):
     """
     Configuration settings for default maintenance scheduling.
@@ -6907,6 +7985,89 @@ class RouterOutputResourceDefaultMaintenanceConfigurationArgs:
         Configuration settings for default maintenance scheduling.
         """
         pass
+
+
+class RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+    """
+    secrets_manager: pulumi.Input['RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 secrets_manager: pulumi.Input['RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs']):
+        """
+        The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+        """
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> pulumi.Input['RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs']:
+        return pulumi.get(self, "secrets_manager")
+
+    @secrets_manager.setter
+    def secrets_manager(self, value: pulumi.Input['RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs']):
+        pulumi.set(self, "secrets_manager", value)
+
+
+class RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+    """
+    automatic: pulumi.Input['RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 automatic: pulumi.Input['RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs']):
+        """
+        The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> pulumi.Input['RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs']:
+        return pulumi.get(self, "automatic")
+
+    @automatic.setter
+    def automatic(self, value: pulumi.Input['RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs']):
+        pulumi.set(self, "automatic", value)
+
+
+class RouterOutputResourceEndpointEncryptionSecretConfigurationArgsDict(TypedDict):
+    """
+    The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+    """
+
+@pulumi.input_type
+class RouterOutputResourceEndpointEncryptionSecretConfigurationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
 
 
 class RouterOutputResourceFabricConfigurationArgsDict(TypedDict):
@@ -7074,7 +8235,7 @@ class RouterOutputResourceMaintenanceConfiguration1PropertiesArgs:
 
 class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgsDict(TypedDict):
     """
-    Configuration settings for connecting a router output to a MediaConnect flow source.
+    Configuration settings for connecting a router output to a MediaConnect flow source. To connect the router output to the flow source, provide both flowArn and flowSourceArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
     """
     destination_transit_encryption: pulumi.Input['RouterOutputResourceFlowTransitEncryptionArgsDict']
     flow_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -7093,7 +8254,7 @@ class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs:
                  flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  flow_source_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        Configuration settings for connecting a router output to a MediaConnect flow source.
+        Configuration settings for connecting a router output to a MediaConnect flow source. To connect the router output to the flow source, provide both flowArn and flowSourceArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
 
         :param pulumi.Input[_builtins.str] flow_arn: The ARN of the flow to connect to this router output.
         :param pulumi.Input[_builtins.str] flow_source_arn: The ARN of the flow source to connect to this router output.
@@ -7140,7 +8301,7 @@ class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs:
 
 class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgsDict(TypedDict):
     """
-    Configuration settings for connecting a router output to a MediaLive input.
+    Configuration settings for connecting a router output to a MediaLive input. To connect the router output to the MediaLive input, provide both mediaLiveInputArn and mediaLivePipelineId. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
     """
     destination_transit_encryption: pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionArgsDict']
     media_live_input_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -7156,7 +8317,7 @@ class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs:
                  media_live_input_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  media_live_pipeline_id: pulumi.Input[Optional['RouterOutputResourceMediaLiveInputPipelineId']] = None):
         """
-        Configuration settings for connecting a router output to a MediaLive input.
+        Configuration settings for connecting a router output to a MediaLive input. To connect the router output to the MediaLive input, provide both mediaLiveInputArn and mediaLivePipelineId. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
 
         :param pulumi.Input[_builtins.str] media_live_input_arn: The ARN of the MediaLive input to connect to this router output.
         """
@@ -7472,39 +8633,39 @@ class RouterOutputResourceRouterOutputConfiguration2PropertiesArgs:
         pulumi.set(self, "media_live_input", value)
 
 
-class RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgsDict(TypedDict):
+class RouterOutputResourceRouterOutputConfiguration3PropertiesArgsDict(TypedDict):
     """
-    The protocol configuration settings for a router output.
+    The configuration settings for a router output.
     """
-    rtp: pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgsDict']
+    source_endpoint: pulumi.Input['RouterOutputResourceSourceEndpointRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs:
+class RouterOutputResourceRouterOutputConfiguration3PropertiesArgs:
     def __init__(__self__, *,
-                 rtp: pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgs']):
+                 source_endpoint: pulumi.Input['RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs']):
         """
-        The protocol configuration settings for a router output.
+        The configuration settings for a router output.
         """
-        pulumi.set(__self__, "rtp", rtp)
+        pulumi.set(__self__, "source_endpoint", source_endpoint)
 
     @_builtins.property
-    @pulumi.getter
-    def rtp(self) -> pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgs']:
-        return pulumi.get(self, "rtp")
+    @pulumi.getter(name="sourceEndpoint")
+    def source_endpoint(self) -> pulumi.Input['RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs']:
+        return pulumi.get(self, "source_endpoint")
 
-    @rtp.setter
-    def rtp(self, value: pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgs']):
-        pulumi.set(self, "rtp", value)
+    @source_endpoint.setter
+    def source_endpoint(self, value: pulumi.Input['RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs']):
+        pulumi.set(self, "source_endpoint", value)
 
 
-class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgsDict(TypedDict):
+class RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgsDict(TypedDict):
     """
     The protocol configuration settings for a router output.
     """
     rist: pulumi.Input['RouterOutputResourceRistRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs:
+class RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs:
     def __init__(__self__, *,
                  rist: pulumi.Input['RouterOutputResourceRistRouterOutputConfigurationArgs']):
         """
@@ -7522,14 +8683,14 @@ class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs:
         pulumi.set(self, "rist", value)
 
 
-class RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgsDict(TypedDict):
+class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgsDict(TypedDict):
     """
     The protocol configuration settings for a router output.
     """
     srt_listener: pulumi.Input['RouterOutputResourceSrtListenerRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs:
+class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs:
     def __init__(__self__, *,
                  srt_listener: pulumi.Input['RouterOutputResourceSrtListenerRouterOutputConfigurationArgs']):
         """
@@ -7545,6 +8706,31 @@ class RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs:
     @srt_listener.setter
     def srt_listener(self, value: pulumi.Input['RouterOutputResourceSrtListenerRouterOutputConfigurationArgs']):
         pulumi.set(self, "srt_listener", value)
+
+
+class RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    rtmp_push: pulumi.Input['RouterOutputResourceRtmpPushRouterOutputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 rtmp_push: pulumi.Input['RouterOutputResourceRtmpPushRouterOutputConfigurationArgs']):
+        """
+        The protocol configuration settings for a router output.
+        """
+        pulumi.set(__self__, "rtmp_push", rtmp_push)
+
+    @_builtins.property
+    @pulumi.getter(name="rtmpPush")
+    def rtmp_push(self) -> pulumi.Input['RouterOutputResourceRtmpPushRouterOutputConfigurationArgs']:
+        return pulumi.get(self, "rtmp_push")
+
+    @rtmp_push.setter
+    def rtmp_push(self, value: pulumi.Input['RouterOutputResourceRtmpPushRouterOutputConfigurationArgs']):
+        pulumi.set(self, "rtmp_push", value)
 
 
 class RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgsDict(TypedDict):
@@ -7576,25 +8762,25 @@ class RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgsDict(T
     """
     The protocol configuration settings for a router output.
     """
-    rtmp_push: pulumi.Input['RouterOutputResourceRtmpPushRouterOutputConfigurationArgsDict']
+    rtp: pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs:
     def __init__(__self__, *,
-                 rtmp_push: pulumi.Input['RouterOutputResourceRtmpPushRouterOutputConfigurationArgs']):
+                 rtp: pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgs']):
         """
         The protocol configuration settings for a router output.
         """
-        pulumi.set(__self__, "rtmp_push", rtmp_push)
+        pulumi.set(__self__, "rtp", rtp)
 
     @_builtins.property
-    @pulumi.getter(name="rtmpPush")
-    def rtmp_push(self) -> pulumi.Input['RouterOutputResourceRtmpPushRouterOutputConfigurationArgs']:
-        return pulumi.get(self, "rtmp_push")
+    @pulumi.getter
+    def rtp(self) -> pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgs']:
+        return pulumi.get(self, "rtp")
 
-    @rtmp_push.setter
-    def rtmp_push(self, value: pulumi.Input['RouterOutputResourceRtmpPushRouterOutputConfigurationArgs']):
-        pulumi.set(self, "rtmp_push", value)
+    @rtp.setter
+    def rtp(self, value: pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgs']):
+        pulumi.set(self, "rtp", value)
 
 
 class RouterOutputResourceRtmpPushRouterOutputConfigurationArgsDict(TypedDict):
@@ -7815,6 +9001,94 @@ class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs:
     @secret_arn.setter
     def secret_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "secret_arn", value)
+
+
+class RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+    """
+    encryption_secret: pulumi.Input['RouterOutputResourceEndpointEncryptionSecretConfigurationArgsDict']
+    encryption_secret_type: NotRequired[pulumi.Input[Optional['RouterOutputResourceEndpointEncryptionSecretType']]]
+
+@pulumi.input_type
+class RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 encryption_secret: pulumi.Input['RouterOutputResourceEndpointEncryptionSecretConfigurationArgs'],
+                 encryption_secret_type: pulumi.Input[Optional['RouterOutputResourceEndpointEncryptionSecretType']] = None):
+        """
+        The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+        """
+        pulumi.set(__self__, "encryption_secret", encryption_secret)
+        if encryption_secret_type is not None:
+            pulumi.set(__self__, "encryption_secret_type", encryption_secret_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSecret")
+    def encryption_secret(self) -> pulumi.Input['RouterOutputResourceEndpointEncryptionSecretConfigurationArgs']:
+        return pulumi.get(self, "encryption_secret")
+
+    @encryption_secret.setter
+    def encryption_secret(self, value: pulumi.Input['RouterOutputResourceEndpointEncryptionSecretConfigurationArgs']):
+        pulumi.set(self, "encryption_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSecretType")
+    def encryption_secret_type(self) -> pulumi.Input[Optional['RouterOutputResourceEndpointEncryptionSecretType']]:
+        return pulumi.get(self, "encryption_secret_type")
+
+    @encryption_secret_type.setter
+    def encryption_secret_type(self, value: pulumi.Input[Optional['RouterOutputResourceEndpointEncryptionSecretType']]):
+        pulumi.set(self, "encryption_secret_type", value)
+
+
+class RouterOutputResourceSourceEndpointRouterOutputConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for a router output that is represented by a source endpoint.
+    """
+    destination_transit_encryption: pulumi.Input[Union['RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgsDict', 'RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgsDict']]
+    endpoint_lifecycle_management: pulumi.Input['RouterOutputResourceEndpointLifecycle']
+    destination_transit_encryption_type: NotRequired[pulumi.Input[Optional['RouterOutputResourceEndpointEncryptionType']]]
+
+@pulumi.input_type
+class RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_transit_encryption: pulumi.Input[Union['RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs', 'RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs']],
+                 endpoint_lifecycle_management: pulumi.Input['RouterOutputResourceEndpointLifecycle'],
+                 destination_transit_encryption_type: pulumi.Input[Optional['RouterOutputResourceEndpointEncryptionType']] = None):
+        """
+        Configuration settings for a router output that is represented by a source endpoint.
+        """
+        pulumi.set(__self__, "destination_transit_encryption", destination_transit_encryption)
+        pulumi.set(__self__, "endpoint_lifecycle_management", endpoint_lifecycle_management)
+        if destination_transit_encryption_type is not None:
+            pulumi.set(__self__, "destination_transit_encryption_type", destination_transit_encryption_type)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTransitEncryption")
+    def destination_transit_encryption(self) -> pulumi.Input[Union['RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs', 'RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "destination_transit_encryption")
+
+    @destination_transit_encryption.setter
+    def destination_transit_encryption(self, value: pulumi.Input[Union['RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs', 'RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "destination_transit_encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointLifecycleManagement")
+    def endpoint_lifecycle_management(self) -> pulumi.Input['RouterOutputResourceEndpointLifecycle']:
+        return pulumi.get(self, "endpoint_lifecycle_management")
+
+    @endpoint_lifecycle_management.setter
+    def endpoint_lifecycle_management(self, value: pulumi.Input['RouterOutputResourceEndpointLifecycle']):
+        pulumi.set(self, "endpoint_lifecycle_management", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTransitEncryptionType")
+    def destination_transit_encryption_type(self) -> pulumi.Input[Optional['RouterOutputResourceEndpointEncryptionType']]:
+        return pulumi.get(self, "destination_transit_encryption_type")
+
+    @destination_transit_encryption_type.setter
+    def destination_transit_encryption_type(self, value: pulumi.Input[Optional['RouterOutputResourceEndpointEncryptionType']]):
+        pulumi.set(self, "destination_transit_encryption_type", value)
 
 
 class RouterOutputResourceSrtCallerRouterOutputConfigurationArgsDict(TypedDict):
@@ -8130,5 +9404,738 @@ class RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs:
     @public.setter
     def public(self, value: pulumi.Input['RouterOutputResourcePublicTlsEncryptionConfigurationArgs']):
         pulumi.set(self, "public", value)
+
+
+class SourceEndpointConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+    """
+    standard: pulumi.Input['SourceEndpointStandardSourceEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class SourceEndpointConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 standard: pulumi.Input['SourceEndpointStandardSourceEndpointConfigurationArgs']):
+        """
+        The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+        """
+        pulumi.set(__self__, "standard", standard)
+
+    @_builtins.property
+    @pulumi.getter
+    def standard(self) -> pulumi.Input['SourceEndpointStandardSourceEndpointConfigurationArgs']:
+        return pulumi.get(self, "standard")
+
+    @standard.setter
+    def standard(self, value: pulumi.Input['SourceEndpointStandardSourceEndpointConfigurationArgs']):
+        pulumi.set(self, "standard", value)
+
+
+class SourceEndpointConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+    """
+    router_output: pulumi.Input['SourceEndpointRouterOutputSourceEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class SourceEndpointConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 router_output: pulumi.Input['SourceEndpointRouterOutputSourceEndpointConfigurationArgs']):
+        """
+        The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+        """
+        pulumi.set(__self__, "router_output", router_output)
+
+    @_builtins.property
+    @pulumi.getter(name="routerOutput")
+    def router_output(self) -> pulumi.Input['SourceEndpointRouterOutputSourceEndpointConfigurationArgs']:
+        return pulumi.get(self, "router_output")
+
+    @router_output.setter
+    def router_output(self, value: pulumi.Input['SourceEndpointRouterOutputSourceEndpointConfigurationArgs']):
+        pulumi.set(self, "router_output", value)
+
+
+class SourceEndpointEndpointEncryptionSecretConfigurationArgsDict(TypedDict):
+    """
+    The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+    """
+
+@pulumi.input_type
+class SourceEndpointEndpointEncryptionSecretConfigurationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class SourceEndpointPublicSourceEndpointNetworkingConfigurationArgsDict(TypedDict):
+    """
+    The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.
+    """
+    source_allow_rules: pulumi.Input[Sequence[pulumi.Input['SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgsDict']]]
+    """
+    The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+    """
+
+@pulumi.input_type
+class SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs:
+    def __init__(__self__, *,
+                 source_allow_rules: pulumi.Input[Sequence[pulumi.Input['SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs']]]):
+        """
+        The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.
+
+        :param pulumi.Input[Sequence[pulumi.Input['SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs']]] source_allow_rules: The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+        """
+        pulumi.set(__self__, "source_allow_rules", source_allow_rules)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAllowRules")
+    def source_allow_rules(self) -> pulumi.Input[Sequence[pulumi.Input['SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs']]]:
+        """
+        The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+        """
+        return pulumi.get(self, "source_allow_rules")
+
+    @source_allow_rules.setter
+    def source_allow_rules(self, value: pulumi.Input[Sequence[pulumi.Input['SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs']]]):
+        pulumi.set(self, "source_allow_rules", value)
+
+
+class SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgsDict(TypedDict):
+    """
+    A rule that allows a specific CIDR block to connect to the public source endpoint.
+    """
+    cidr: pulumi.Input[_builtins.str]
+    """
+    The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.
+    """
+
+@pulumi.input_type
+class SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs:
+    def __init__(__self__, *,
+                 cidr: pulumi.Input[_builtins.str]):
+        """
+        A rule that allows a specific CIDR block to connect to the public source endpoint.
+
+        :param pulumi.Input[_builtins.str] cidr: The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.
+        """
+        pulumi.set(__self__, "cidr", cidr)
+
+    @_builtins.property
+    @pulumi.getter
+    def cidr(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cidr", value)
+
+
+class SourceEndpointRistStandardSourceEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a source endpoint that uses the RIST protocol.
+    """
+    destination_ingest_port: pulumi.Input[_builtins.int]
+    """
+    The port on the destination that receives the content. The valid range is 3000 to 30000.
+    """
+    recovery_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+    """
+
+@pulumi.input_type
+class SourceEndpointRistStandardSourceEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_ingest_port: pulumi.Input[_builtins.int],
+                 recovery_latency_milliseconds: pulumi.Input[_builtins.int]):
+        """
+        The configuration settings for a source endpoint that uses the RIST protocol.
+
+        :param pulumi.Input[_builtins.int] destination_ingest_port: The port on the destination that receives the content. The valid range is 3000 to 30000.
+        :param pulumi.Input[_builtins.int] recovery_latency_milliseconds: The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+        """
+        pulumi.set(__self__, "destination_ingest_port", destination_ingest_port)
+        pulumi.set(__self__, "recovery_latency_milliseconds", recovery_latency_milliseconds)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIngestPort")
+    def destination_ingest_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port on the destination that receives the content. The valid range is 3000 to 30000.
+        """
+        return pulumi.get(self, "destination_ingest_port")
+
+    @destination_ingest_port.setter
+    def destination_ingest_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "destination_ingest_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryLatencyMilliseconds")
+    def recovery_latency_milliseconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+        """
+        return pulumi.get(self, "recovery_latency_milliseconds")
+
+    @recovery_latency_milliseconds.setter
+    def recovery_latency_milliseconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "recovery_latency_milliseconds", value)
+
+
+class SourceEndpointRouterOutputSourceEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a source endpoint that represents a router output.
+    """
+    router_output_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+    """
+
+@pulumi.input_type
+class SourceEndpointRouterOutputSourceEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 router_output_arn: pulumi.Input[_builtins.str]):
+        """
+        The configuration settings for a source endpoint that represents a router output.
+
+        :param pulumi.Input[_builtins.str] router_output_arn: The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+        """
+        pulumi.set(__self__, "router_output_arn", router_output_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="routerOutputArn")
+    def router_output_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+        """
+        return pulumi.get(self, "router_output_arn")
+
+    @router_output_arn.setter
+    def router_output_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "router_output_arn", value)
+
+
+class SourceEndpointRtpStandardSourceEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a source endpoint that uses the RTP protocol.
+    """
+    destination_ingest_port: pulumi.Input[_builtins.int]
+    """
+    The port on the destination that receives the content. The valid range is 3000 to 30000.
+    """
+    forward_error_correction_state: pulumi.Input['SourceEndpointForwardErrorCorrectionState']
+
+@pulumi.input_type
+class SourceEndpointRtpStandardSourceEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_ingest_port: pulumi.Input[_builtins.int],
+                 forward_error_correction_state: pulumi.Input['SourceEndpointForwardErrorCorrectionState']):
+        """
+        The configuration settings for a source endpoint that uses the RTP protocol.
+
+        :param pulumi.Input[_builtins.int] destination_ingest_port: The port on the destination that receives the content. The valid range is 3000 to 30000.
+        """
+        pulumi.set(__self__, "destination_ingest_port", destination_ingest_port)
+        pulumi.set(__self__, "forward_error_correction_state", forward_error_correction_state)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIngestPort")
+    def destination_ingest_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port on the destination that receives the content. The valid range is 3000 to 30000.
+        """
+        return pulumi.get(self, "destination_ingest_port")
+
+    @destination_ingest_port.setter
+    def destination_ingest_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "destination_ingest_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forwardErrorCorrectionState")
+    def forward_error_correction_state(self) -> pulumi.Input['SourceEndpointForwardErrorCorrectionState']:
+        return pulumi.get(self, "forward_error_correction_state")
+
+    @forward_error_correction_state.setter
+    def forward_error_correction_state(self, value: pulumi.Input['SourceEndpointForwardErrorCorrectionState']):
+        pulumi.set(self, "forward_error_correction_state", value)
+
+
+class SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a source endpoint that uses SRT in caller mode.
+    """
+    destination_ingest_port: pulumi.Input[_builtins.int]
+    """
+    The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+    """
+    minimum_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+    """
+    encryption_passphrase: NotRequired[pulumi.Input[Optional['SourceEndpointEndpointEncryptionSecretConfigurationArgsDict']]]
+
+@pulumi.input_type
+class SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_ingest_port: pulumi.Input[_builtins.int],
+                 minimum_latency_milliseconds: pulumi.Input[_builtins.int],
+                 encryption_passphrase: pulumi.Input[Optional['SourceEndpointEndpointEncryptionSecretConfigurationArgs']] = None):
+        """
+        The configuration settings for a source endpoint that uses SRT in caller mode.
+
+        :param pulumi.Input[_builtins.int] destination_ingest_port: The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+        :param pulumi.Input[_builtins.int] minimum_latency_milliseconds: The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+        """
+        pulumi.set(__self__, "destination_ingest_port", destination_ingest_port)
+        pulumi.set(__self__, "minimum_latency_milliseconds", minimum_latency_milliseconds)
+        if encryption_passphrase is not None:
+            pulumi.set(__self__, "encryption_passphrase", encryption_passphrase)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIngestPort")
+    def destination_ingest_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+        """
+        return pulumi.get(self, "destination_ingest_port")
+
+    @destination_ingest_port.setter
+    def destination_ingest_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "destination_ingest_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatencyMilliseconds")
+    def minimum_latency_milliseconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+        """
+        return pulumi.get(self, "minimum_latency_milliseconds")
+
+    @minimum_latency_milliseconds.setter
+    def minimum_latency_milliseconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_latency_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionPassphrase")
+    def encryption_passphrase(self) -> pulumi.Input[Optional['SourceEndpointEndpointEncryptionSecretConfigurationArgs']]:
+        return pulumi.get(self, "encryption_passphrase")
+
+    @encryption_passphrase.setter
+    def encryption_passphrase(self, value: pulumi.Input[Optional['SourceEndpointEndpointEncryptionSecretConfigurationArgs']]):
+        pulumi.set(self, "encryption_passphrase", value)
+
+
+class SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a source endpoint that uses SRT in listener mode.
+    """
+    minimum_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+    """
+    source_address: pulumi.Input[_builtins.str]
+    """
+    The IP address that the source endpoint listens on for incoming connections.
+    """
+    source_listener_port: pulumi.Input[_builtins.int]
+    """
+    The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+    """
+    encryption_passphrase: NotRequired[pulumi.Input[Optional['SourceEndpointEndpointEncryptionSecretConfigurationArgsDict']]]
+    stream_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The stream ID that identifies the content for the SRT connection.
+    """
+
+@pulumi.input_type
+class SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 minimum_latency_milliseconds: pulumi.Input[_builtins.int],
+                 source_address: pulumi.Input[_builtins.str],
+                 source_listener_port: pulumi.Input[_builtins.int],
+                 encryption_passphrase: pulumi.Input[Optional['SourceEndpointEndpointEncryptionSecretConfigurationArgs']] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The configuration settings for a source endpoint that uses SRT in listener mode.
+
+        :param pulumi.Input[_builtins.int] minimum_latency_milliseconds: The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+        :param pulumi.Input[_builtins.str] source_address: The IP address that the source endpoint listens on for incoming connections.
+        :param pulumi.Input[_builtins.int] source_listener_port: The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+        :param pulumi.Input[_builtins.str] stream_id: The stream ID that identifies the content for the SRT connection.
+        """
+        pulumi.set(__self__, "minimum_latency_milliseconds", minimum_latency_milliseconds)
+        pulumi.set(__self__, "source_address", source_address)
+        pulumi.set(__self__, "source_listener_port", source_listener_port)
+        if encryption_passphrase is not None:
+            pulumi.set(__self__, "encryption_passphrase", encryption_passphrase)
+        if stream_id is not None:
+            pulumi.set(__self__, "stream_id", stream_id)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatencyMilliseconds")
+    def minimum_latency_milliseconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+        """
+        return pulumi.get(self, "minimum_latency_milliseconds")
+
+    @minimum_latency_milliseconds.setter
+    def minimum_latency_milliseconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_latency_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IP address that the source endpoint listens on for incoming connections.
+        """
+        return pulumi.get(self, "source_address")
+
+    @source_address.setter
+    def source_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceListenerPort")
+    def source_listener_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+        """
+        return pulumi.get(self, "source_listener_port")
+
+    @source_listener_port.setter
+    def source_listener_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "source_listener_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionPassphrase")
+    def encryption_passphrase(self) -> pulumi.Input[Optional['SourceEndpointEndpointEncryptionSecretConfigurationArgs']]:
+        return pulumi.get(self, "encryption_passphrase")
+
+    @encryption_passphrase.setter
+    def encryption_passphrase(self, value: pulumi.Input[Optional['SourceEndpointEndpointEncryptionSecretConfigurationArgs']]):
+        pulumi.set(self, "encryption_passphrase", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamId")
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The stream ID that identifies the content for the SRT connection.
+        """
+        return pulumi.get(self, "stream_id")
+
+    @stream_id.setter
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stream_id", value)
+
+
+class SourceEndpointStandardSourceEndpointConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a standard source endpoint.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the source endpoint.
+    """
+    protocol_configuration: pulumi.Input[Union['SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgsDict', 'SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgsDict', 'SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgsDict', 'SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgsDict']]
+    source_networking_configuration: pulumi.Input[Union['SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgsDict', 'SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgsDict']]
+    protocol: NotRequired[pulumi.Input[Optional['SourceEndpointProtocol']]]
+    source_networking_type: NotRequired[pulumi.Input[Optional['SourceEndpointNetworkingType']]]
+
+@pulumi.input_type
+class SourceEndpointStandardSourceEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 protocol_configuration: pulumi.Input[Union['SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs', 'SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs', 'SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs', 'SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs']],
+                 source_networking_configuration: pulumi.Input[Union['SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs', 'SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs']],
+                 protocol: pulumi.Input[Optional['SourceEndpointProtocol']] = None,
+                 source_networking_type: pulumi.Input[Optional['SourceEndpointNetworkingType']] = None):
+        """
+        The configuration settings for a standard source endpoint.
+
+        :param pulumi.Input[_builtins.str] name: The name of the source endpoint.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocol_configuration", protocol_configuration)
+        pulumi.set(__self__, "source_networking_configuration", source_networking_configuration)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_networking_type is not None:
+            pulumi.set(__self__, "source_networking_type", source_networking_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the source endpoint.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="protocolConfiguration")
+    def protocol_configuration(self) -> pulumi.Input[Union['SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs', 'SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs', 'SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs', 'SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs']]:
+        return pulumi.get(self, "protocol_configuration")
+
+    @protocol_configuration.setter
+    def protocol_configuration(self, value: pulumi.Input[Union['SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs', 'SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs', 'SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs', 'SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs']]):
+        pulumi.set(self, "protocol_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceNetworkingConfiguration")
+    def source_networking_configuration(self) -> pulumi.Input[Union['SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs', 'SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "source_networking_configuration")
+
+    @source_networking_configuration.setter
+    def source_networking_configuration(self, value: pulumi.Input[Union['SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs', 'SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "source_networking_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Optional['SourceEndpointProtocol']]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Optional['SourceEndpointProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceNetworkingType")
+    def source_networking_type(self) -> pulumi.Input[Optional['SourceEndpointNetworkingType']]:
+        return pulumi.get(self, "source_networking_type")
+
+    @source_networking_type.setter
+    def source_networking_type(self, value: pulumi.Input[Optional['SourceEndpointNetworkingType']]):
+        pulumi.set(self, "source_networking_type", value)
+
+
+class SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+    """
+    public: pulumi.Input['SourceEndpointPublicSourceEndpointNetworkingConfigurationArgsDict']
+
+@pulumi.input_type
+class SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 public: pulumi.Input['SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs']):
+        """
+        The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+        """
+        pulumi.set(__self__, "public", public)
+
+    @_builtins.property
+    @pulumi.getter
+    def public(self) -> pulumi.Input['SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs']:
+        return pulumi.get(self, "public")
+
+    @public.setter
+    def public(self, value: pulumi.Input['SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs']):
+        pulumi.set(self, "public", value)
+
+
+class SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+    """
+    vpc: pulumi.Input['SourceEndpointVpcSourceEndpointNetworkingConfigurationArgsDict']
+
+@pulumi.input_type
+class SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 vpc: pulumi.Input['SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs']):
+        """
+        The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+        """
+        pulumi.set(__self__, "vpc", vpc)
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> pulumi.Input['SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs']:
+        return pulumi.get(self, "vpc")
+
+    @vpc.setter
+    def vpc(self, value: pulumi.Input['SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs']):
+        pulumi.set(self, "vpc", value)
+
+
+class SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+    """
+    rist: pulumi.Input['SourceEndpointRistStandardSourceEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 rist: pulumi.Input['SourceEndpointRistStandardSourceEndpointConfigurationArgs']):
+        """
+        The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+        """
+        pulumi.set(__self__, "rist", rist)
+
+    @_builtins.property
+    @pulumi.getter
+    def rist(self) -> pulumi.Input['SourceEndpointRistStandardSourceEndpointConfigurationArgs']:
+        return pulumi.get(self, "rist")
+
+    @rist.setter
+    def rist(self, value: pulumi.Input['SourceEndpointRistStandardSourceEndpointConfigurationArgs']):
+        pulumi.set(self, "rist", value)
+
+
+class SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+    """
+    srt_listener: pulumi.Input['SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 srt_listener: pulumi.Input['SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs']):
+        """
+        The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+        """
+        pulumi.set(__self__, "srt_listener", srt_listener)
+
+    @_builtins.property
+    @pulumi.getter(name="srtListener")
+    def srt_listener(self) -> pulumi.Input['SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs']:
+        return pulumi.get(self, "srt_listener")
+
+    @srt_listener.setter
+    def srt_listener(self, value: pulumi.Input['SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs']):
+        pulumi.set(self, "srt_listener", value)
+
+
+class SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+    """
+    srt_caller: pulumi.Input['SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 srt_caller: pulumi.Input['SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs']):
+        """
+        The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+        """
+        pulumi.set(__self__, "srt_caller", srt_caller)
+
+    @_builtins.property
+    @pulumi.getter(name="srtCaller")
+    def srt_caller(self) -> pulumi.Input['SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs']:
+        return pulumi.get(self, "srt_caller")
+
+    @srt_caller.setter
+    def srt_caller(self, value: pulumi.Input['SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs']):
+        pulumi.set(self, "srt_caller", value)
+
+
+class SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+    """
+    rtp: pulumi.Input['SourceEndpointRtpStandardSourceEndpointConfigurationArgsDict']
+
+@pulumi.input_type
+class SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs:
+    def __init__(__self__, *,
+                 rtp: pulumi.Input['SourceEndpointRtpStandardSourceEndpointConfigurationArgs']):
+        """
+        The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+        """
+        pulumi.set(__self__, "rtp", rtp)
+
+    @_builtins.property
+    @pulumi.getter
+    def rtp(self) -> pulumi.Input['SourceEndpointRtpStandardSourceEndpointConfigurationArgs']:
+        return pulumi.get(self, "rtp")
+
+    @rtp.setter
+    def rtp(self, value: pulumi.Input['SourceEndpointRtpStandardSourceEndpointConfigurationArgs']):
+        pulumi.set(self, "rtp", value)
+
+
+class SourceEndpointVpcSourceEndpointNetworkingConfigurationArgsDict(TypedDict):
+    """
+    The networking configuration for a source endpoint in a virtual private cloud (VPC).
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet to use for the source endpoint.
+    """
+
+@pulumi.input_type
+class SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnet_id: pulumi.Input[_builtins.str]):
+        """
+        The networking configuration for a source endpoint in a virtual private cloud (VPC).
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to use for the source endpoint.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the subnet to use for the source endpoint.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subnet_id", value)
 
 

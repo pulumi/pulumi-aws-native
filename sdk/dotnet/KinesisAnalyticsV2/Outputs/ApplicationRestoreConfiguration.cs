@@ -21,7 +21,11 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationRestoreConfigurationApplicationRestoreType ApplicationRestoreType;
         /// <summary>
-        /// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+        /// The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+        /// </summary>
+        public readonly string? SnapshotArn;
+        /// <summary>
+        /// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
         /// </summary>
         public readonly string? SnapshotName;
 
@@ -29,9 +33,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         private ApplicationRestoreConfiguration(
             Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationRestoreConfigurationApplicationRestoreType applicationRestoreType,
 
+            string? snapshotArn,
+
             string? snapshotName)
         {
             ApplicationRestoreType = applicationRestoreType;
+            SnapshotArn = snapshotArn;
             SnapshotName = snapshotName;
         }
     }

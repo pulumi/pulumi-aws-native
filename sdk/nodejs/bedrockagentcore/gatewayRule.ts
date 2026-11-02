@@ -38,7 +38,7 @@ export class GatewayRule extends pulumi.CustomResource {
     }
 
     declare public readonly actions: pulumi.Output<(outputs.bedrockagentcore.GatewayRuleAction0Properties | outputs.bedrockagentcore.GatewayRuleAction1Properties)[]>;
-    declare public readonly conditions: pulumi.Output<(outputs.bedrockagentcore.GatewayRuleCondition0Properties | outputs.bedrockagentcore.GatewayRuleCondition1Properties)[] | undefined>;
+    declare public readonly conditions: pulumi.Output<(outputs.bedrockagentcore.GatewayRuleCondition0Properties | outputs.bedrockagentcore.GatewayRuleCondition1Properties | outputs.bedrockagentcore.GatewayRuleCondition2Properties)[] | undefined>;
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly gatewayArn: pulumi.Output<string>;
@@ -102,7 +102,7 @@ export class GatewayRule extends pulumi.CustomResource {
  */
 export interface GatewayRuleArgs {
     actions: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayRuleAction0PropertiesArgs | inputs.bedrockagentcore.GatewayRuleAction1PropertiesArgs>[]>;
-    conditions?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayRuleCondition0PropertiesArgs | inputs.bedrockagentcore.GatewayRuleCondition1PropertiesArgs>[] | undefined>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayRuleCondition0PropertiesArgs | inputs.bedrockagentcore.GatewayRuleCondition1PropertiesArgs | inputs.bedrockagentcore.GatewayRuleCondition2PropertiesArgs>[] | undefined>;
     description?: pulumi.Input<string | undefined>;
     gatewayIdentifier?: pulumi.Input<string | undefined>;
     priority: pulumi.Input<number>;

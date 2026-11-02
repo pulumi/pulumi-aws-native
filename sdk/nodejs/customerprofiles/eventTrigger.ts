@@ -61,6 +61,7 @@ export class EventTrigger extends pulumi.CustomResource {
      * The unique name of the event trigger.
      */
     declare public readonly eventTriggerName: pulumi.Output<string>;
+    declare public readonly intentFilterDefinition: pulumi.Output<outputs.customerprofiles.EventTriggerIntentFilterDefinition | undefined>;
     /**
      * The timestamp of when the event trigger was most recently updated.
      */
@@ -103,6 +104,7 @@ export class EventTrigger extends pulumi.CustomResource {
             resourceInputs["eventTriggerConditions"] = args?.eventTriggerConditions;
             resourceInputs["eventTriggerLimits"] = args?.eventTriggerLimits;
             resourceInputs["eventTriggerName"] = args?.eventTriggerName;
+            resourceInputs["intentFilterDefinition"] = args?.intentFilterDefinition;
             resourceInputs["objectTypeName"] = args?.objectTypeName;
             resourceInputs["segmentFilter"] = args?.segmentFilter;
             resourceInputs["tags"] = args?.tags;
@@ -115,6 +117,7 @@ export class EventTrigger extends pulumi.CustomResource {
             resourceInputs["eventTriggerConditions"] = undefined /*out*/;
             resourceInputs["eventTriggerLimits"] = undefined /*out*/;
             resourceInputs["eventTriggerName"] = undefined /*out*/;
+            resourceInputs["intentFilterDefinition"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["objectTypeName"] = undefined /*out*/;
             resourceInputs["segmentFilter"] = undefined /*out*/;
@@ -151,6 +154,7 @@ export interface EventTriggerArgs {
      * The unique name of the event trigger.
      */
     eventTriggerName?: pulumi.Input<string | undefined>;
+    intentFilterDefinition?: pulumi.Input<inputs.customerprofiles.EventTriggerIntentFilterDefinitionArgs | undefined>;
     /**
      * The unique name of the object type.
      */

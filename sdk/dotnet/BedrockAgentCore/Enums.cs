@@ -1018,6 +1018,35 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
+    public readonly struct GatewayRuleFallbackError : IEquatable<GatewayRuleFallbackError>
+    {
+        private readonly string _value;
+
+        private GatewayRuleFallbackError(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayRuleFallbackError ConnectionError { get; } = new GatewayRuleFallbackError("CONNECTION_ERROR");
+        public static GatewayRuleFallbackError FirstByteTimeout { get; } = new GatewayRuleFallbackError("FIRST_BYTE_TIMEOUT");
+        public static GatewayRuleFallbackError Unroutable { get; } = new GatewayRuleFallbackError("UNROUTABLE");
+
+        public static bool operator ==(GatewayRuleFallbackError left, GatewayRuleFallbackError right) => left.Equals(right);
+        public static bool operator !=(GatewayRuleFallbackError left, GatewayRuleFallbackError right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayRuleFallbackError value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayRuleFallbackError other && Equals(other);
+        public bool Equals(GatewayRuleFallbackError other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct GatewayRulePrincipalMatchOperator : IEquatable<GatewayRulePrincipalMatchOperator>
     {
         private readonly string _value;

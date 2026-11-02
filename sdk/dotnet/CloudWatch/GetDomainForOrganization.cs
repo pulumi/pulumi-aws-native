@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.CloudWatch
     public static class GetDomainForOrganization
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+        /// Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
         /// </summary>
         public static Task<GetDomainForOrganizationResult> InvokeAsync(GetDomainForOrganizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainForOrganizationResult>("aws-native:cloudwatch:getDomainForOrganization", args ?? new GetDomainForOrganizationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+        /// Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
         /// </summary>
         public static Output<GetDomainForOrganizationResult> Invoke(GetDomainForOrganizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainForOrganizationResult>("aws-native:cloudwatch:getDomainForOrganization", args ?? new GetDomainForOrganizationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+        /// Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
         /// </summary>
         public static Output<GetDomainForOrganizationResult> Invoke(GetDomainForOrganizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainForOrganizationResult>("aws-native:cloudwatch:getDomainForOrganization", args ?? new GetDomainForOrganizationInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetDomainForOrganizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// The Amazon Resource Name (ARN) of the organization domain.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetDomainForOrganizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// The Amazon Resource Name (ARN) of the organization domain.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -64,11 +64,11 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetDomainForOrganizationResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// The Amazon Resource Name (ARN) of the organization domain.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The timestamp when the domain was created.
+        /// The timestamp when the organization domain was created.
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
@@ -76,40 +76,43 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public readonly ImmutableArray<string> CustomEndpointUrls;
         /// <summary>
-        /// The HTTPS endpoint URL for accessing the domain.
+        /// The HTTPS endpoint URL for accessing the organization domain.
         /// </summary>
         public readonly string? DomainEndpointUrl;
         /// <summary>
-        /// The unique ID of the domain.
+        /// The unique ID of the organization domain.
         /// </summary>
         public readonly string? DomainId;
         /// <summary>
         /// The ARN of the Identity Center application. Absent for IAM-only domains.
         /// </summary>
         public readonly string? IdentityCenterApplicationArn;
+        /// <summary>
+        /// Identity provider configuration for the organization domain.
+        /// </summary>
         public readonly Outputs.DomainForOrganizationIdentityProviderConfiguration? IdentityProviderConfiguration;
         /// <summary>
-        /// The identity providers configured for the domain.
+        /// The identity providers configured for the organization domain.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.CloudWatch.DomainForOrganizationIdentityProvidersItem> IdentityProviders;
         /// <summary>
-        /// A name that identifies the domain.
+        /// A name that identifies the organization domain.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The ID of the AWS Organization this domain belongs to.
+        /// The ID of the AWS Organization that owns the domain.
         /// </summary>
         public readonly string? OrganizationId;
         /// <summary>
-        /// The account ID of the organization's management account, which owns this domain.
+        /// The AWS account ID that owns the organization domain.
         /// </summary>
         public readonly string? OwnerAccountId;
         /// <summary>
-        /// The Region where this domain was created.
+        /// The Region where this organization domain was created.
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// Current status of the domain.
+        /// Current status of the organization domain.
         /// </summary>
         public readonly Pulumi.AwsNative.CloudWatch.DomainForOrganizationStatus? Status;
         /// <summary>
@@ -117,7 +120,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The timestamp when the domain was last updated.
+        /// The timestamp when the organization domain was last updated.
         /// </summary>
         public readonly string? UpdatedAt;
 

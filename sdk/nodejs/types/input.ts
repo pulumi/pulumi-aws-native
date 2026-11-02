@@ -17627,6 +17627,7 @@ export namespace bedrockagentcore {
     }
 
     export interface GatewayMcpGatewayConfigurationArgs {
+        disableMcpListToolsPagination?: pulumi.Input<boolean | undefined>;
         instructions?: pulumi.Input<string | undefined>;
         searchType?: pulumi.Input<enums.bedrockagentcore.GatewaySearchType | undefined>;
         sessionConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewaySessionConfigurationArgs | undefined>;
@@ -17686,12 +17687,20 @@ export namespace bedrockagentcore {
         routeToTarget: pulumi.Input<inputs.bedrockagentcore.GatewayRuleRouteToTargetAction0PropertiesArgs | inputs.bedrockagentcore.GatewayRuleRouteToTargetAction1PropertiesArgs>;
     }
 
+    export interface GatewayRuleCircuitBreakerConfigurationArgs {
+        mode?: any | undefined;
+    }
+
     export interface GatewayRuleCondition0PropertiesArgs {
         matchPrincipals: pulumi.Input<inputs.bedrockagentcore.GatewayRuleMatchPrincipalsArgs>;
     }
 
     export interface GatewayRuleCondition1PropertiesArgs {
         matchPaths: pulumi.Input<inputs.bedrockagentcore.GatewayRuleMatchPathsArgs>;
+    }
+
+    export interface GatewayRuleCondition2PropertiesArgs {
+        matchModels: pulumi.Input<inputs.bedrockagentcore.GatewayRuleMatchModelsArgs>;
     }
 
     export interface GatewayRuleConfigurationBundleAction0PropertiesArgs {
@@ -17707,9 +17716,37 @@ export namespace bedrockagentcore {
         bundleVersion: pulumi.Input<string>;
     }
 
+    export interface GatewayRuleFallbackArgs {
+        circuitBreaker?: pulumi.Input<inputs.bedrockagentcore.GatewayRuleCircuitBreakerConfigurationArgs | undefined>;
+        firstByteTimeoutMilliseconds?: pulumi.Input<number | undefined>;
+        targetFallback: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayRuleFallbackTargetArgs>[]>;
+        triggerOn?: pulumi.Input<inputs.bedrockagentcore.GatewayRuleFallbackTriggersArgs | undefined>;
+    }
+
+    export interface GatewayRuleFallbackTargetArgs {
+        firstByteTimeoutMilliseconds?: pulumi.Input<number | undefined>;
+        model?: pulumi.Input<string | undefined>;
+        targetName: pulumi.Input<string>;
+        triggerOn?: pulumi.Input<inputs.bedrockagentcore.GatewayRuleFallbackTriggersArgs | undefined>;
+    }
+
+    export interface GatewayRuleFallbackTriggersArgs {
+        errors?: pulumi.Input<pulumi.Input<enums.bedrockagentcore.GatewayRuleFallbackError>[] | undefined>;
+        statusCodes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     export interface GatewayRuleIamPrincipalArgs {
         arn: pulumi.Input<string>;
         operator?: pulumi.Input<enums.bedrockagentcore.GatewayRulePrincipalMatchOperator | undefined>;
+    }
+
+    export interface GatewayRuleMatchModelEntryArgs {
+        operator?: any | undefined;
+        value: pulumi.Input<string>;
+    }
+
+    export interface GatewayRuleMatchModelsArgs {
+        anyOf: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayRuleMatchModelEntryArgs>[]>;
     }
 
     export interface GatewayRuleMatchPathsArgs {
@@ -17738,12 +17775,16 @@ export namespace bedrockagentcore {
     }
 
     export interface GatewayRuleStaticRouteArgs {
+        fallback?: pulumi.Input<inputs.bedrockagentcore.GatewayRuleFallbackArgs | undefined>;
+        model?: pulumi.Input<string | undefined>;
         targetName: pulumi.Input<string>;
     }
 
     export interface GatewayRuleTargetTrafficSplitEntryArgs {
         description?: pulumi.Input<string | undefined>;
+        fallback?: pulumi.Input<inputs.bedrockagentcore.GatewayRuleFallbackArgs | undefined>;
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        model?: pulumi.Input<string | undefined>;
         name: pulumi.Input<string>;
         targetName: pulumi.Input<string>;
         weight: pulumi.Input<number>;
@@ -17813,6 +17854,14 @@ export namespace bedrockagentcore {
 
     export interface GatewayTargetApiSchemaConfiguration1PropertiesArgs {
         inlinePayload: pulumi.Input<string>;
+    }
+
+    export interface GatewayTargetCertificateConfiguration0PropertiesArgs {
+        s3: pulumi.Input<inputs.bedrockagentcore.GatewayTargetS3CertificateConfigurationArgs>;
+    }
+
+    export interface GatewayTargetCertificateConfiguration1PropertiesArgs {
+        secretsManager: pulumi.Input<inputs.bedrockagentcore.GatewayTargetSecretsManagerCertificateConfigurationArgs>;
     }
 
     export interface GatewayTargetConnectorConfigurationArgs {
@@ -18020,6 +18069,11 @@ export namespace bedrockagentcore {
         schema?: pulumi.Input<inputs.bedrockagentcore.GatewayTargetHttpApiSchemaConfigurationArgs | undefined>;
     }
 
+    export interface GatewayTargetS3CertificateConfigurationArgs {
+        bucketOwnerAccountId?: pulumi.Input<string | undefined>;
+        uri: pulumi.Input<string>;
+    }
+
     export interface GatewayTargetS3ConfigurationArgs {
         bucketOwnerAccountId?: pulumi.Input<string | undefined>;
         uri?: pulumi.Input<string | undefined>;
@@ -18031,6 +18085,10 @@ export namespace bedrockagentcore {
         properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.bedrockagentcore.GatewayTargetSchemaDefinitionArgs>} | undefined>;
         required?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         type: pulumi.Input<enums.bedrockagentcore.GatewayTargetSchemaType>;
+    }
+
+    export interface GatewayTargetSecretsManagerCertificateConfigurationArgs {
+        secretArn: pulumi.Input<string>;
     }
 
     export interface GatewayTargetSelfManagedLatticeResourcePropertiesArgs {
@@ -21548,6 +21606,22 @@ export namespace cleanrooms {
         allowedLiteralComparisonColumns: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface ConfiguredTableDatabricksConnectionTypePropertiesArgs {
+        deltaSharing: pulumi.Input<inputs.cleanrooms.ConfiguredTableDatabricksDeltaSharingConnectionArgs>;
+    }
+
+    export interface ConfiguredTableDatabricksDeltaSharingConnectionArgs {
+        deltaShareEndpoint: pulumi.Input<string>;
+        shareName: pulumi.Input<string>;
+    }
+
+    export interface ConfiguredTableDatabricksTableReferenceArgs {
+        connectionType: pulumi.Input<inputs.cleanrooms.ConfiguredTableDatabricksConnectionTypePropertiesArgs>;
+        schemaName: pulumi.Input<string>;
+        tableName: pulumi.Input<string>;
+        workspaceUrl: pulumi.Input<string>;
+    }
+
     export interface ConfiguredTableDifferentialPrivacyArgs {
         columns: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableDifferentialPrivacyColumnArgs>[]>;
     }
@@ -21595,6 +21669,10 @@ export namespace cleanrooms {
 
     export interface ConfiguredTableTableReference2PropertiesArgs {
         athena: pulumi.Input<inputs.cleanrooms.ConfiguredTableAthenaTableReferenceArgs>;
+    }
+
+    export interface ConfiguredTableTableReference3PropertiesArgs {
+        databricks: pulumi.Input<inputs.cleanrooms.ConfiguredTableDatabricksTableReferenceArgs>;
     }
 
     export interface IdMappingTableInputReferenceConfigArgs {
@@ -24740,6 +24818,100 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
+    /**
+     * The principal receiving the grant. Specify PrincipalId, PrincipalAttributes, or both.
+     */
+    export interface AccessGrantPrincipalArgs {
+        /**
+         * Attribute conditions for attribute-based access. When provided, the grant targets any principal matching all specified conditions. Supported only for IDC_USER principals.
+         */
+        principalAttributes?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AccessGrantPrincipalAttributeArgs>[] | undefined>;
+        /**
+         * The ID of the principal receiving the grant. An IAM principal ARN, an Identity Center UUID, or a service-defined identifier.
+         */
+        principalId?: pulumi.Input<string | undefined>;
+        /**
+         * The type of principal receiving the grant.
+         */
+        principalType: pulumi.Input<enums.cloudwatch.AccessGrantPrincipalPrincipalType>;
+    }
+
+    /**
+     * A single attribute condition used to match principals for attribute-based access.
+     */
+    export interface AccessGrantPrincipalAttributeArgs {
+        /**
+         * The Identity Center user attribute to match on. One of userName, active, userStatus, displayName, email, name.givenName, name.familyName, enterprise.department, enterprise.division, enterprise.organization, enterprise.costCenter, or enterprise.employeeNumber.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The attribute value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A single resource scope entry within an access grant. Associates a resource type with optional ARN patterns, tag conditions, and row-level filters.
+     */
+    export interface AccessGrantResourceScopeArgs {
+        /**
+         * Specific resource ARNs or ARN patterns. When set, actions are limited to these resources. When absent, defaults to all resources of the type.
+         */
+        resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The resource type name, for example DataSet or OmniDashboard.
+         */
+        resourceType: pulumi.Input<string>;
+        /**
+         * Row-level filters for this scope, as an OR of AND-groups: a row is visible when it matches every filter in any one group. Requires SignalTypes.
+         */
+        rowScopeGroups?: pulumi.Input<pulumi.Input<pulumi.Input<inputs.cloudwatch.AccessGrantRowScopeArgs>[]>[] | undefined>;
+        /**
+         * Signal types this scope's row filtering applies to. Required when RowScopeGroups is set.
+         */
+        signalTypes?: pulumi.Input<pulumi.Input<enums.cloudwatch.AccessGrantResourceScopeSignalTypesItem>[] | undefined>;
+        /**
+         * Tag-based conditions for dynamic resource scoping. Access applies only to resources carrying all of the specified tag key-value pairs.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    /**
+     * A single additive row-level filter on an access grant. A row is visible when its value for the given field matches the filter's values.
+     */
+    export interface AccessGrantRowScopeArgs {
+        /**
+         * The field the allowlist applies to, for example serviceName or accountId.
+         */
+        field: pulumi.Input<string>;
+        /**
+         * Match operator applied to this filter's values.
+         */
+        operator: pulumi.Input<enums.cloudwatch.AccessGrantRowScopeOperator>;
+        /**
+         * The values the field is matched against.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A group of actions within an access grant, together with the resource scopes and context conditions that apply to exactly those actions.
+     */
+    export interface AccessGrantScopedActionsArgs {
+        /**
+         * The actions this group applies to, each in vendor-code:Action form.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Context conditions for fine-grained access control on these actions, as a map of condition keys to lists of allowed values.
+         */
+        contextConditions?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
+        /**
+         * Resource scopes constraining these actions to specific resources.
+         */
+        resources?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AccessGrantResourceScopeArgs>[] | undefined>;
+    }
+
     export interface AlarmActionConfigurationArgs {
         /**
          * Whether the alarm's tags are included in its action notifications and state-change events.
@@ -24962,6 +25134,38 @@ export namespace cloudwatch {
     }
 
     /**
+     * The principal the grant is issued to. Supply PrincipalId, or PrincipalAttributes for an attribute-based grant.
+     */
+    export interface DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs {
+        /**
+         * Attribute key-value pairs that select the principals the grant applies to.
+         */
+        principalAttributes?: pulumi.Input<pulumi.Input<inputs.cloudwatch.DomainAccessGrantForOrganizationPrincipalAttributeArgs>[] | undefined>;
+        /**
+         * The identifier of the principal, such as an IAM role ARN or an Identity Center user ID.
+         */
+        principalId?: pulumi.Input<string | undefined>;
+        /**
+         * The type of principal the grant is issued to.
+         */
+        principalType: pulumi.Input<enums.cloudwatch.DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType>;
+    }
+
+    /**
+     * An attribute key-value pair used to select principals.
+     */
+    export interface DomainAccessGrantForOrganizationPrincipalAttributeArgs {
+        /**
+         * The attribute name.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The attribute value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * Identity Center configuration. Required when identityProviders includes IDC.
      */
     export interface DomainForOrganizationIdentityCenterConfigurationArgs {
@@ -24976,6 +25180,23 @@ export namespace cloudwatch {
      */
     export interface DomainForOrganizationIdentityProviderConfigurationArgs {
         identityCenterConfiguration?: pulumi.Input<inputs.cloudwatch.DomainForOrganizationIdentityCenterConfigurationArgs | undefined>;
+    }
+
+    /**
+     * Identity Center configuration. Required when identityProviders includes IDC.
+     */
+    export interface DomainIdentityCenterConfigurationArgs {
+        /**
+         * Identity Center instance ARN
+         */
+        identityCenterInstanceArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Identity provider configuration for the domain.
+     */
+    export interface DomainIdentityProviderConfigurationArgs {
+        identityCenterConfiguration?: pulumi.Input<inputs.cloudwatch.DomainIdentityCenterConfigurationArgs | undefined>;
     }
 
     /**
@@ -25201,6 +25422,20 @@ export namespace cloudwatch {
          * The timezone of the schedule
          */
         timezone?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The encryption configuration for the space.
+     */
+    export interface SpaceEncryptionConfigurationArgs {
+        /**
+         * Whether the space is encrypted with an AWS owned key or a customer managed key.
+         */
+        encryptionStrategy: pulumi.Input<enums.cloudwatch.SpaceEncryptionConfigurationEncryptionStrategy>;
+        /**
+         * The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+         */
+        kmsKeyArn?: pulumi.Input<string | undefined>;
     }
 
 }
@@ -31816,6 +32051,51 @@ export namespace customerprofiles {
      */
     export interface EventTriggerDimensionArgs {
         objectAttributes: pulumi.Input<pulumi.Input<inputs.customerprofiles.EventTriggerObjectAttributeArgs>[]>;
+    }
+
+    /**
+     * Identifies a predicted intent by domain and type.
+     */
+    export interface EventTriggerIntentArgs {
+        /**
+         * The domain of the intent.
+         */
+        intentDomain: pulumi.Input<enums.customerprofiles.EventTriggerIntentIntentDomain>;
+        /**
+         * The type of the intent.
+         */
+        type: pulumi.Input<enums.customerprofiles.EventTriggerIntentType>;
+    }
+
+    /**
+     * The criteria that a predicted intent must meet.
+     */
+    export interface EventTriggerIntentFilterConditionArgs {
+        /**
+         * The operator used to compare the predicted intent against a list of values.
+         */
+        comparisonOperator: pulumi.Input<enums.customerprofiles.EventTriggerIntentFilterConditionComparisonOperator>;
+        intent: pulumi.Input<inputs.customerprofiles.EventTriggerIntentArgs>;
+        /**
+         * A list of intent values used for comparison.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Filters the destination to profiles whose predicted intents meet the specified conditions.
+     */
+    export interface EventTriggerIntentFilterDefinitionArgs {
+        groups: pulumi.Input<pulumi.Input<inputs.customerprofiles.EventTriggerIntentFilterGroupArgs>[]>;
+        logicalOperator: pulumi.Input<enums.customerprofiles.EventTriggerLogicalOperator>;
+    }
+
+    /**
+     * A group of intent filter conditions combined by the group's logical operator.
+     */
+    export interface EventTriggerIntentFilterGroupArgs {
+        conditions: pulumi.Input<pulumi.Input<inputs.customerprofiles.EventTriggerIntentFilterConditionArgs>[]>;
+        logicalOperator: pulumi.Input<enums.customerprofiles.EventTriggerLogicalOperator>;
     }
 
     /**
@@ -48185,6 +48465,10 @@ export namespace eks {
          * Todo: add description
          */
         enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * The Gateway API configuration for the cluster.
+         */
+        gatewayApi?: pulumi.Input<inputs.eks.ClusterGatewayApiArgs | undefined>;
     }
 
     /**
@@ -48209,6 +48493,26 @@ export namespace eks {
          * Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
          */
         spreadLevel?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+     */
+    export interface ClusterGatewayApiArgs {
+        /**
+         * The Gateway API Custom Resource Definition (CRD) configuration.
+         */
+        crds: pulumi.Input<inputs.eks.ClusterGatewayApiCrdsArgs>;
+    }
+
+    /**
+     * The Gateway API Custom Resource Definition (CRD) configuration for the cluster.
+     */
+    export interface ClusterGatewayApiCrdsArgs {
+        /**
+         * Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+         */
+        managed: pulumi.Input<boolean>;
     }
 
     /**
@@ -68099,7 +68403,7 @@ export namespace kinesisanalyticsv2 {
          */
         s3ContentLocation?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationS3ContentLocationArgs | undefined>;
         /**
-         * The text-format code for a Flink-based Kinesis Data Analytics application.
+         * The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
          */
         textContent?: pulumi.Input<string | undefined>;
         /**
@@ -68137,10 +68441,6 @@ export namespace kinesisanalyticsv2 {
          */
         flinkApplicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationFlinkApplicationConfigurationArgs | undefined>;
         /**
-         * The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-         */
-        sqlApplicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationSqlApplicationConfigurationArgs | undefined>;
-        /**
          * The array of descriptions of VPC configurations available to the application.
          */
         vpcConfigurations?: pulumi.Input<pulumi.Input<inputs.kinesisanalyticsv2.ApplicationVpcConfigurationArgs>[] | undefined>;
@@ -68148,22 +68448,6 @@ export namespace kinesisanalyticsv2 {
          * The configuration parameters for a Kinesis Data Analytics Studio notebook.
          */
         zeppelinApplicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationZeppelinApplicationConfigurationArgs | undefined>;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
-     * `"name1", "address1"`
-     * `"name2", "address2"`
-     */
-    export interface ApplicationCsvMappingParametersArgs {
-        /**
-         * The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-         */
-        recordColumnDelimiter: pulumi.Input<string>;
-        /**
-         * The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
-         */
-        recordRowDelimiter: pulumi.Input<string>;
     }
 
     /**
@@ -68257,114 +68541,6 @@ export namespace kinesisanalyticsv2 {
     }
 
     /**
-     * When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
-     */
-    export interface ApplicationInputArgs {
-        /**
-         * Describes the number of in-application streams to create.
-         */
-        inputParallelism?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationInputParallelismArgs | undefined>;
-        /**
-         * The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
-         */
-        inputProcessingConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationInputProcessingConfigurationArgs | undefined>;
-        /**
-         * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-         */
-        inputSchema: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationInputSchemaArgs>;
-        /**
-         * If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-         */
-        kinesisFirehoseInput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationKinesisFirehoseInputArgs | undefined>;
-        /**
-         * If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-         */
-        kinesisStreamsInput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationKinesisStreamsInputArgs | undefined>;
-        /**
-         * The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
-         */
-        namePrefix: pulumi.Input<string>;
-    }
-
-    /**
-     * An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
-     */
-    export interface ApplicationInputLambdaProcessorArgs {
-        /**
-         * The ARN of the Amazon Lambda function that operates on records in the stream.
-         */
-        resourceArn: pulumi.Input<string>;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
-     */
-    export interface ApplicationInputParallelismArgs {
-        /**
-         * The number of in-application streams to create.
-         */
-        count?: pulumi.Input<number | undefined>;
-    }
-
-    /**
-     * For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
-     */
-    export interface ApplicationInputProcessingConfigurationArgs {
-        /**
-         * The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-         */
-        inputLambdaProcessor?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationInputLambdaProcessorArgs | undefined>;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-     */
-    export interface ApplicationInputSchemaArgs {
-        /**
-         * A list of `RecordColumn` objects.
-         */
-        recordColumns: pulumi.Input<pulumi.Input<inputs.kinesisanalyticsv2.ApplicationRecordColumnArgs>[]>;
-        /**
-         * Specifies the encoding of the records in the streaming source. For example, UTF-8.
-         */
-        recordEncoding?: pulumi.Input<enums.kinesisanalyticsv2.ApplicationInputSchemaRecordEncoding | undefined>;
-        /**
-         * Specifies the format of the records on the streaming source.
-         */
-        recordFormat: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationRecordFormatArgs>;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
-     */
-    export interface ApplicationJsonMappingParametersArgs {
-        /**
-         * The path to the top-level parent that contains the records.
-         */
-        recordRowPath: pulumi.Input<string>;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
-     */
-    export interface ApplicationKinesisFirehoseInputArgs {
-        /**
-         * The Amazon Resource Name (ARN) of the delivery stream.
-         */
-        resourceArn: pulumi.Input<string>;
-    }
-
-    /**
-     * Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
-     */
-    export interface ApplicationKinesisStreamsInputArgs {
-        /**
-         * The ARN of the input Kinesis data stream to read.
-         */
-        resourceArn: pulumi.Input<string>;
-    }
-
-    /**
      * Describes the maintenance configuration for the application.
      */
     export interface ApplicationMaintenanceConfigurationArgs {
@@ -68372,20 +68548,6 @@ export namespace kinesisanalyticsv2 {
          * The start time for the maintenance window.
          */
         applicationMaintenanceWindowStartTime: pulumi.Input<string>;
-    }
-
-    /**
-     * When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-     */
-    export interface ApplicationMappingParametersArgs {
-        /**
-         * Provides additional mapping information when the record format uses delimiters (for example, CSV).
-         */
-        csvMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCsvMappingParametersArgs | undefined>;
-        /**
-         * Provides additional mapping information when JSON is the record format on the streaming source.
-         */
-        jsonMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationJsonMappingParametersArgs | undefined>;
     }
 
     /**
@@ -68461,39 +68623,6 @@ export namespace kinesisanalyticsv2 {
     }
 
     /**
-     * For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-     * Also used to describe the format of the reference data source.
-     */
-    export interface ApplicationRecordColumnArgs {
-        /**
-         * A reference to the data element in the streaming input or the reference data source.
-         */
-        mapping?: pulumi.Input<string | undefined>;
-        /**
-         * The name of the column that is created in the in-application input stream or reference table.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The type of column created in the in-application input stream or reference table.
-         */
-        sqlType: pulumi.Input<string>;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
-     */
-    export interface ApplicationRecordFormatArgs {
-        /**
-         * When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-         */
-        mappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationMappingParametersArgs | undefined>;
-        /**
-         * The type of record format.
-         */
-        recordFormatType: pulumi.Input<enums.kinesisanalyticsv2.ApplicationRecordFormatRecordFormatType>;
-    }
-
-    /**
      * Describes the restore behavior of a restarting application.
      */
     export interface ApplicationRestoreConfigurationArgs {
@@ -68502,7 +68631,11 @@ export namespace kinesisanalyticsv2 {
          */
         applicationRestoreType: pulumi.Input<enums.kinesisanalyticsv2.ApplicationRestoreConfigurationApplicationRestoreType>;
         /**
-         * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+         * The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+         */
+        snapshotArn?: pulumi.Input<string | undefined>;
+        /**
+         * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
          */
         snapshotName?: pulumi.Input<string | undefined>;
     }
@@ -68558,19 +68691,13 @@ export namespace kinesisanalyticsv2 {
      */
     export interface ApplicationSnapshotConfigurationArgs {
         /**
+         * The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+         */
+        snapshotMode?: pulumi.Input<enums.kinesisanalyticsv2.ApplicationSnapshotConfigurationSnapshotMode | undefined>;
+        /**
          * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
          */
         snapshotsEnabled: pulumi.Input<boolean>;
-    }
-
-    /**
-     * Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
-     */
-    export interface ApplicationSqlApplicationConfigurationArgs {
-        /**
-         * The array of Input objects describing the input streams used by the application.
-         */
-        inputs?: pulumi.Input<pulumi.Input<inputs.kinesisanalyticsv2.ApplicationInputArgs>[] | undefined>;
     }
 
     /**
@@ -71913,7 +72040,7 @@ export namespace lex {
          *
          * Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
          */
-        promptSpecification: pulumi.Input<inputs.lex.BotPromptSpecificationArgs>;
+        promptSpecification?: pulumi.Input<inputs.lex.BotPromptSpecificationArgs | undefined>;
     }
 
     export interface BotIntentDisambiguationSettingsArgs {
@@ -72679,7 +72806,7 @@ export namespace lex {
         /**
          * The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
          */
-        continueResponse: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        continueResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs | undefined>;
         /**
          * Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
          */
@@ -72691,7 +72818,7 @@ export namespace lex {
         /**
          * The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
          */
-        waitingResponse: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        waitingResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs | undefined>;
     }
 
     /**
@@ -74419,6 +74546,197 @@ export namespace mediaconnect {
     }
 
     /**
+     * The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+     */
+    export interface DestinationEndpointConfiguration0PropertiesArgs {
+        standard: pulumi.Input<inputs.mediaconnect.DestinationEndpointStandardDestinationEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+     */
+    export interface DestinationEndpointConfiguration1PropertiesArgs {
+        routerInput: pulumi.Input<inputs.mediaconnect.DestinationEndpointRouterInputDestinationEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+     */
+    export interface DestinationEndpointEndpointEncryptionSecretConfigurationArgs {
+        /**
+         * The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+         */
+        secretArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.
+     */
+    export interface DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs {
+        /**
+         * The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+         */
+        destinationAllowRules: pulumi.Input<pulumi.Input<inputs.mediaconnect.DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs>[]>;
+    }
+
+    /**
+     * A rule that allows a specific CIDR block to connect to the public destination endpoint.
+     */
+    export interface DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRuleArgs {
+        /**
+         * The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.
+         */
+        cidr: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that uses the RIST protocol.
+     */
+    export interface DestinationEndpointRistStandardDestinationEndpointConfigurationArgs {
+        /**
+         * The IP address on which the destination endpoint receives content.
+         */
+        destinationAddress: pulumi.Input<string>;
+        /**
+         * The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+         */
+        destinationIngestPort: pulumi.Input<number>;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that represents a router input.
+     */
+    export interface DestinationEndpointRouterInputDestinationEndpointConfigurationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+         */
+        routerInputArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that uses the RTP protocol.
+     */
+    export interface DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs {
+        /**
+         * The IP address on which the destination endpoint receives content.
+         */
+        destinationAddress: pulumi.Input<string>;
+        /**
+         * The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+         */
+        destinationIngestPort: pulumi.Input<number>;
+        forwardErrorCorrectionState: pulumi.Input<enums.mediaconnect.DestinationEndpointForwardErrorCorrectionState>;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that uses SRT in caller mode.
+     */
+    export interface DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs {
+        encryptionPassphrase?: pulumi.Input<inputs.mediaconnect.DestinationEndpointEndpointEncryptionSecretConfigurationArgs | undefined>;
+        /**
+         * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+         */
+        minimumLatencyMilliseconds: pulumi.Input<number>;
+        /**
+         * The port on which the source listens for the connection. The valid range is 3000 to 30000.
+         */
+        sourceListenerPort: pulumi.Input<number>;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that uses SRT in listener mode.
+     */
+    export interface DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs {
+        /**
+         * The IP address on which the destination endpoint listens for incoming connections.
+         */
+        destinationAddress: pulumi.Input<string>;
+        /**
+         * The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+         */
+        destinationIngestPort: pulumi.Input<number>;
+        encryptionPassphrase?: pulumi.Input<inputs.mediaconnect.DestinationEndpointEndpointEncryptionSecretConfigurationArgs | undefined>;
+        /**
+         * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+         */
+        minimumLatencyMilliseconds: pulumi.Input<number>;
+        /**
+         * The stream ID that identifies the content for the SRT connection.
+         */
+        streamId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The configuration settings for a standard destination endpoint.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointConfigurationArgs {
+        destinationNetworkingConfiguration: pulumi.Input<inputs.mediaconnect.DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs | inputs.mediaconnect.DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs>;
+        destinationNetworkingType?: pulumi.Input<enums.mediaconnect.DestinationEndpointNetworkingType | undefined>;
+        /**
+         * The name of the destination endpoint.
+         */
+        name: pulumi.Input<string>;
+        protocol?: pulumi.Input<enums.mediaconnect.DestinationEndpointProtocol | undefined>;
+        protocolConfiguration: pulumi.Input<inputs.mediaconnect.DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs | inputs.mediaconnect.DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs | inputs.mediaconnect.DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs | inputs.mediaconnect.DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs>;
+    }
+
+    /**
+     * The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+     */
+    export interface DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0PropertiesArgs {
+        public: pulumi.Input<inputs.mediaconnect.DestinationEndpointPublicDestinationEndpointNetworkingConfigurationArgs>;
+    }
+
+    /**
+     * The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+     */
+    export interface DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1PropertiesArgs {
+        vpc: pulumi.Input<inputs.mediaconnect.DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointProtocolConfiguration0PropertiesArgs {
+        rist: pulumi.Input<inputs.mediaconnect.DestinationEndpointRistStandardDestinationEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointProtocolConfiguration1PropertiesArgs {
+        srtListener: pulumi.Input<inputs.mediaconnect.DestinationEndpointSrtListenerStandardDestinationEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointProtocolConfiguration2PropertiesArgs {
+        srtCaller: pulumi.Input<inputs.mediaconnect.DestinationEndpointSrtCallerStandardDestinationEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointProtocolConfiguration3PropertiesArgs {
+        rtp: pulumi.Input<inputs.mediaconnect.DestinationEndpointRtpStandardDestinationEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The networking configuration for a destination endpoint in a virtual private cloud (VPC).
+     */
+    export interface DestinationEndpointVpcDestinationEndpointNetworkingConfigurationArgs {
+        /**
+         * The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the subnet to use for the destination endpoint.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
+    /**
      * Specifies the configuration for audio stream metrics monitoring.
      */
     export interface FlowAudioMonitoringSettingArgs {
@@ -75305,6 +75623,12 @@ export namespace mediaconnect {
     }
 
     /**
+     * The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+     */
+    export interface RouterInputAutomaticEndpointEncryptionConfigurationArgs {
+    }
+
+    /**
      * Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
      */
     export interface RouterInputBlackFramesConfigurationArgs {
@@ -75319,35 +75643,42 @@ export namespace mediaconnect {
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration0PropertiesArgs {
-        standard: pulumi.Input<inputs.mediaconnect.RouterInputStandardRouterInputConfigurationArgs>;
+        destinationEndpoint: pulumi.Input<inputs.mediaconnect.RouterInputDestinationEndpointRouterInputConfigurationArgs>;
     }
 
     /**
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration1PropertiesArgs {
-        failover: pulumi.Input<inputs.mediaconnect.RouterInputFailoverRouterInputConfigurationArgs>;
+        standard: pulumi.Input<inputs.mediaconnect.RouterInputStandardRouterInputConfigurationArgs>;
     }
 
     /**
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration2PropertiesArgs {
-        merge: pulumi.Input<inputs.mediaconnect.RouterInputMergeRouterInputConfigurationArgs>;
+        mediaLiveChannel: pulumi.Input<inputs.mediaconnect.RouterInputMediaLiveChannelRouterInputConfigurationArgs>;
     }
 
     /**
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration3PropertiesArgs {
-        mediaConnectFlow: pulumi.Input<inputs.mediaconnect.RouterInputMediaConnectFlowRouterInputConfigurationArgs>;
+        failover: pulumi.Input<inputs.mediaconnect.RouterInputFailoverRouterInputConfigurationArgs>;
     }
 
     /**
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration4PropertiesArgs {
-        mediaLiveChannel: pulumi.Input<inputs.mediaconnect.RouterInputMediaLiveChannelRouterInputConfigurationArgs>;
+        mediaConnectFlow: pulumi.Input<inputs.mediaconnect.RouterInputMediaConnectFlowRouterInputConfigurationArgs>;
+    }
+
+    /**
+     * The configuration settings for a router input.
+     */
+    export interface RouterInputConfiguration5PropertiesArgs {
+        merge: pulumi.Input<inputs.mediaconnect.RouterInputMergeRouterInputConfigurationArgs>;
     }
 
     /**
@@ -75363,6 +75694,39 @@ export namespace mediaconnect {
      * Configuration settings for default maintenance scheduling.
      */
     export interface RouterInputDefaultMaintenanceConfigurationArgs {
+    }
+
+    /**
+     * Configuration settings for a router input that is represented by a destination endpoint.
+     */
+    export interface RouterInputDestinationEndpointRouterInputConfigurationArgs {
+        endpointLifecycleManagement: pulumi.Input<enums.mediaconnect.RouterInputEndpointLifecycle>;
+        sourceTransitDecryption: pulumi.Input<inputs.mediaconnect.RouterInputEndpointEncryptionConfiguration0PropertiesArgs | inputs.mediaconnect.RouterInputEndpointEncryptionConfiguration1PropertiesArgs>;
+        sourceTransitDecryptionType?: pulumi.Input<enums.mediaconnect.RouterInputEndpointEncryptionType | undefined>;
+    }
+
+    /**
+     * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+     */
+    export interface RouterInputEndpointEncryptionConfiguration0PropertiesArgs {
+        secretsManager: pulumi.Input<inputs.mediaconnect.RouterInputSecretsManagerEndpointEncryptionConfigurationArgs>;
+    }
+
+    /**
+     * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+     */
+    export interface RouterInputEndpointEncryptionConfiguration1PropertiesArgs {
+        automatic: pulumi.Input<inputs.mediaconnect.RouterInputAutomaticEndpointEncryptionConfigurationArgs>;
+    }
+
+    /**
+     * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+     */
+    export interface RouterInputEndpointEncryptionSecretConfigurationArgs {
+        /**
+         * The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+         */
+        secretArn: pulumi.Input<string>;
     }
 
     /**
@@ -75388,28 +75752,28 @@ export namespace mediaconnect {
      * Protocol configuration settings for failover router inputs.
      */
     export interface RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs {
-        rtp: pulumi.Input<inputs.mediaconnect.RouterInputRtpRouterInputConfigurationArgs>;
-    }
-
-    /**
-     * Protocol configuration settings for failover router inputs.
-     */
-    export interface RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs {
         rist: pulumi.Input<inputs.mediaconnect.RouterInputRistRouterInputConfigurationArgs>;
     }
 
     /**
      * Protocol configuration settings for failover router inputs.
      */
-    export interface RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs {
+    export interface RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs {
         srtListener: pulumi.Input<inputs.mediaconnect.RouterInputSrtListenerRouterInputConfigurationArgs>;
     }
 
     /**
      * Protocol configuration settings for failover router inputs.
      */
-    export interface RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs {
+    export interface RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs {
         srtCaller: pulumi.Input<inputs.mediaconnect.RouterInputSrtCallerRouterInputConfigurationArgs>;
+    }
+
+    /**
+     * Protocol configuration settings for failover router inputs.
+     */
+    export interface RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs {
+        rtp: pulumi.Input<inputs.mediaconnect.RouterInputRtpRouterInputConfigurationArgs>;
     }
 
     /**
@@ -75460,7 +75824,7 @@ export namespace mediaconnect {
     }
 
     /**
-     * Configuration settings for connecting a router input to a flow output.
+     * Configuration settings for connecting a router input to a flow output. To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
      */
     export interface RouterInputMediaConnectFlowRouterInputConfigurationArgs {
         /**
@@ -75475,7 +75839,7 @@ export namespace mediaconnect {
     }
 
     /**
-     * Configuration settings for connecting a router input to a MediaLive channel output.
+     * Configuration settings for connecting a router input to a MediaLive channel output. To connect the router input to the MediaLive channel output, provide all three of mediaLiveChannelArn, mediaLivePipelineId, and mediaLiveChannelOutputName. To disconnect it, call the update operation and omit all three fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
      */
     export interface RouterInputMediaLiveChannelRouterInputConfigurationArgs {
         /**
@@ -75559,28 +75923,28 @@ export namespace mediaconnect {
      * The protocol configuration settings for a router input.
      */
     export interface RouterInputProtocolConfiguration0PropertiesArgs {
-        rtp: pulumi.Input<inputs.mediaconnect.RouterInputRtpRouterInputConfigurationArgs>;
-    }
-
-    /**
-     * The protocol configuration settings for a router input.
-     */
-    export interface RouterInputProtocolConfiguration1PropertiesArgs {
         rist: pulumi.Input<inputs.mediaconnect.RouterInputRistRouterInputConfigurationArgs>;
     }
 
     /**
      * The protocol configuration settings for a router input.
      */
-    export interface RouterInputProtocolConfiguration2PropertiesArgs {
+    export interface RouterInputProtocolConfiguration1PropertiesArgs {
         srtListener: pulumi.Input<inputs.mediaconnect.RouterInputSrtListenerRouterInputConfigurationArgs>;
     }
 
     /**
      * The protocol configuration settings for a router input.
      */
-    export interface RouterInputProtocolConfiguration3PropertiesArgs {
+    export interface RouterInputProtocolConfiguration2PropertiesArgs {
         srtCaller: pulumi.Input<inputs.mediaconnect.RouterInputSrtCallerRouterInputConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration settings for a router input.
+     */
+    export interface RouterInputProtocolConfiguration3PropertiesArgs {
+        rtp: pulumi.Input<inputs.mediaconnect.RouterInputRtpRouterInputConfigurationArgs>;
     }
 
     /**
@@ -75627,6 +75991,14 @@ export namespace mediaconnect {
          * The ARN of the Secrets Manager secret used for transit encryption.
          */
         secretArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+     */
+    export interface RouterInputSecretsManagerEndpointEncryptionConfigurationArgs {
+        encryptionSecret: pulumi.Input<inputs.mediaconnect.RouterInputEndpointEncryptionSecretConfigurationArgs>;
+        encryptionSecretType?: pulumi.Input<enums.mediaconnect.RouterInputEndpointEncryptionSecretType | undefined>;
     }
 
     /**
@@ -75774,9 +76146,39 @@ export namespace mediaconnect {
     }
 
     /**
+     * The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+     */
+    export interface RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs {
+    }
+
+    /**
      * Configuration settings for default maintenance scheduling.
      */
     export interface RouterOutputResourceDefaultMaintenanceConfigurationArgs {
+    }
+
+    /**
+     * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+     */
+    export interface RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs {
+        secretsManager: pulumi.Input<inputs.mediaconnect.RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs>;
+    }
+
+    /**
+     * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+     */
+    export interface RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs {
+        automatic: pulumi.Input<inputs.mediaconnect.RouterOutputResourceAutomaticEndpointEncryptionConfigurationArgs>;
+    }
+
+    /**
+     * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+     */
+    export interface RouterOutputResourceEndpointEncryptionSecretConfigurationArgs {
+        /**
+         * The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+         */
+        secretArn: pulumi.Input<string>;
     }
 
     /**
@@ -75823,7 +76225,7 @@ export namespace mediaconnect {
     }
 
     /**
-     * Configuration settings for connecting a router output to a MediaConnect flow source.
+     * Configuration settings for connecting a router output to a MediaConnect flow source. To connect the router output to the flow source, provide both flowArn and flowSourceArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
      */
     export interface RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs {
         destinationTransitEncryption: pulumi.Input<inputs.mediaconnect.RouterOutputResourceFlowTransitEncryptionArgs>;
@@ -75838,7 +76240,7 @@ export namespace mediaconnect {
     }
 
     /**
-     * Configuration settings for connecting a router output to a MediaLive input.
+     * Configuration settings for connecting a router output to a MediaLive input. To connect the router output to the MediaLive input, provide both mediaLiveInputArn and mediaLivePipelineId. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
      */
     export interface RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs {
         destinationTransitEncryption: pulumi.Input<inputs.mediaconnect.RouterOutputResourceMediaLiveTransitEncryptionArgs>;
@@ -75924,24 +76326,31 @@ export namespace mediaconnect {
     }
 
     /**
-     * The protocol configuration settings for a router output.
+     * The configuration settings for a router output.
      */
-    export interface RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs {
-        rtp: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRtpRouterOutputConfigurationArgs>;
+    export interface RouterOutputResourceRouterOutputConfiguration3PropertiesArgs {
+        sourceEndpoint: pulumi.Input<inputs.mediaconnect.RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs>;
     }
 
     /**
      * The protocol configuration settings for a router output.
      */
-    export interface RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs {
+    export interface RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs {
         rist: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRistRouterOutputConfigurationArgs>;
     }
 
     /**
      * The protocol configuration settings for a router output.
      */
-    export interface RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs {
+    export interface RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs {
         srtListener: pulumi.Input<inputs.mediaconnect.RouterOutputResourceSrtListenerRouterOutputConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration settings for a router output.
+     */
+    export interface RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs {
+        rtmpPush: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRtmpPushRouterOutputConfigurationArgs>;
     }
 
     /**
@@ -75955,7 +76364,7 @@ export namespace mediaconnect {
      * The protocol configuration settings for a router output.
      */
     export interface RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs {
-        rtmpPush: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRtmpPushRouterOutputConfigurationArgs>;
+        rtp: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRtpRouterOutputConfigurationArgs>;
     }
 
     /**
@@ -76008,6 +76417,23 @@ export namespace mediaconnect {
          * The ARN of the Secrets Manager secret used for transit encryption.
          */
         secretArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+     */
+    export interface RouterOutputResourceSecretsManagerEndpointEncryptionConfigurationArgs {
+        encryptionSecret: pulumi.Input<inputs.mediaconnect.RouterOutputResourceEndpointEncryptionSecretConfigurationArgs>;
+        encryptionSecretType?: pulumi.Input<enums.mediaconnect.RouterOutputResourceEndpointEncryptionSecretType | undefined>;
+    }
+
+    /**
+     * Configuration settings for a router output that is represented by a source endpoint.
+     */
+    export interface RouterOutputResourceSourceEndpointRouterOutputConfigurationArgs {
+        destinationTransitEncryption: pulumi.Input<inputs.mediaconnect.RouterOutputResourceEndpointEncryptionConfiguration0PropertiesArgs | inputs.mediaconnect.RouterOutputResourceEndpointEncryptionConfiguration1PropertiesArgs>;
+        destinationTransitEncryptionType?: pulumi.Input<enums.mediaconnect.RouterOutputResourceEndpointEncryptionType | undefined>;
+        endpointLifecycleManagement: pulumi.Input<enums.mediaconnect.RouterOutputResourceEndpointLifecycle>;
     }
 
     /**
@@ -76080,6 +76506,193 @@ export namespace mediaconnect {
      */
     export interface RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs {
         public: pulumi.Input<inputs.mediaconnect.RouterOutputResourcePublicTlsEncryptionConfigurationArgs>;
+    }
+
+    /**
+     * The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+     */
+    export interface SourceEndpointConfiguration0PropertiesArgs {
+        standard: pulumi.Input<inputs.mediaconnect.SourceEndpointStandardSourceEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+     */
+    export interface SourceEndpointConfiguration1PropertiesArgs {
+        routerOutput: pulumi.Input<inputs.mediaconnect.SourceEndpointRouterOutputSourceEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+     */
+    export interface SourceEndpointEndpointEncryptionSecretConfigurationArgs {
+        /**
+         * The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+         */
+        secretArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.
+     */
+    export interface SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs {
+        /**
+         * The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+         */
+        sourceAllowRules: pulumi.Input<pulumi.Input<inputs.mediaconnect.SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs>[]>;
+    }
+
+    /**
+     * A rule that allows a specific CIDR block to connect to the public source endpoint.
+     */
+    export interface SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRuleArgs {
+        /**
+         * The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.
+         */
+        cidr: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that uses the RIST protocol.
+     */
+    export interface SourceEndpointRistStandardSourceEndpointConfigurationArgs {
+        /**
+         * The port on the destination that receives the content. The valid range is 3000 to 30000.
+         */
+        destinationIngestPort: pulumi.Input<number>;
+        /**
+         * The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+         */
+        recoveryLatencyMilliseconds: pulumi.Input<number>;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that represents a router output.
+     */
+    export interface SourceEndpointRouterOutputSourceEndpointConfigurationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+         */
+        routerOutputArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that uses the RTP protocol.
+     */
+    export interface SourceEndpointRtpStandardSourceEndpointConfigurationArgs {
+        /**
+         * The port on the destination that receives the content. The valid range is 3000 to 30000.
+         */
+        destinationIngestPort: pulumi.Input<number>;
+        forwardErrorCorrectionState: pulumi.Input<enums.mediaconnect.SourceEndpointForwardErrorCorrectionState>;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that uses SRT in caller mode.
+     */
+    export interface SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs {
+        /**
+         * The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+         */
+        destinationIngestPort: pulumi.Input<number>;
+        encryptionPassphrase?: pulumi.Input<inputs.mediaconnect.SourceEndpointEndpointEncryptionSecretConfigurationArgs | undefined>;
+        /**
+         * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+         */
+        minimumLatencyMilliseconds: pulumi.Input<number>;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that uses SRT in listener mode.
+     */
+    export interface SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs {
+        encryptionPassphrase?: pulumi.Input<inputs.mediaconnect.SourceEndpointEndpointEncryptionSecretConfigurationArgs | undefined>;
+        /**
+         * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+         */
+        minimumLatencyMilliseconds: pulumi.Input<number>;
+        /**
+         * The IP address that the source endpoint listens on for incoming connections.
+         */
+        sourceAddress: pulumi.Input<string>;
+        /**
+         * The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+         */
+        sourceListenerPort: pulumi.Input<number>;
+        /**
+         * The stream ID that identifies the content for the SRT connection.
+         */
+        streamId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The configuration settings for a standard source endpoint.
+     */
+    export interface SourceEndpointStandardSourceEndpointConfigurationArgs {
+        /**
+         * The name of the source endpoint.
+         */
+        name: pulumi.Input<string>;
+        protocol?: pulumi.Input<enums.mediaconnect.SourceEndpointProtocol | undefined>;
+        protocolConfiguration: pulumi.Input<inputs.mediaconnect.SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs | inputs.mediaconnect.SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs | inputs.mediaconnect.SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs | inputs.mediaconnect.SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs>;
+        sourceNetworkingConfiguration: pulumi.Input<inputs.mediaconnect.SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs | inputs.mediaconnect.SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs>;
+        sourceNetworkingType?: pulumi.Input<enums.mediaconnect.SourceEndpointNetworkingType | undefined>;
+    }
+
+    /**
+     * The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+     */
+    export interface SourceEndpointStandardSourceEndpointNetworkingConfiguration0PropertiesArgs {
+        public: pulumi.Input<inputs.mediaconnect.SourceEndpointPublicSourceEndpointNetworkingConfigurationArgs>;
+    }
+
+    /**
+     * The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+     */
+    export interface SourceEndpointStandardSourceEndpointNetworkingConfiguration1PropertiesArgs {
+        vpc: pulumi.Input<inputs.mediaconnect.SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+     */
+    export interface SourceEndpointStandardSourceEndpointProtocolConfiguration0PropertiesArgs {
+        rist: pulumi.Input<inputs.mediaconnect.SourceEndpointRistStandardSourceEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+     */
+    export interface SourceEndpointStandardSourceEndpointProtocolConfiguration1PropertiesArgs {
+        srtListener: pulumi.Input<inputs.mediaconnect.SourceEndpointSrtListenerStandardSourceEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+     */
+    export interface SourceEndpointStandardSourceEndpointProtocolConfiguration2PropertiesArgs {
+        srtCaller: pulumi.Input<inputs.mediaconnect.SourceEndpointSrtCallerStandardSourceEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+     */
+    export interface SourceEndpointStandardSourceEndpointProtocolConfiguration3PropertiesArgs {
+        rtp: pulumi.Input<inputs.mediaconnect.SourceEndpointRtpStandardSourceEndpointConfigurationArgs>;
+    }
+
+    /**
+     * The networking configuration for a source endpoint in a virtual private cloud (VPC).
+     */
+    export interface SourceEndpointVpcSourceEndpointNetworkingConfigurationArgs {
+        /**
+         * The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the subnet to use for the source endpoint.
+         */
+        subnetId: pulumi.Input<string>;
     }
 }
 
@@ -79312,6 +79925,7 @@ export namespace mgn {
          */
         s3BucketOwner: pulumi.Input<string>;
     }
+
 }
 
 export namespace msk {
@@ -80587,6 +81201,30 @@ export namespace networkfirewall {
         availabilityZone: pulumi.Input<string>;
     }
 
+    /**
+     * A port and protocol that a proxy-mode firewall's proxy listener accepts traffic on.
+     */
+    export interface FirewallListenerPropertyArgs {
+        /**
+         * The port the proxy listener accepts traffic on.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * The protocol the proxy listener uses.
+         */
+        type?: pulumi.Input<enums.networkfirewall.FirewallListenerPropertyType | undefined>;
+    }
+
+    /**
+     * A mapping to a NAT gateway that a proxy-mode firewall proxies egress traffic through.
+     */
+    export interface FirewallNatGatewayMappingArgs {
+        /**
+         * The unique identifier of a NAT gateway.
+         */
+        natGatewayId: pulumi.Input<string>;
+    }
+
     export interface FirewallPolicyArgs {
         /**
          * When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
@@ -80596,6 +81234,7 @@ export namespace networkfirewall {
          * Contains variables that you can use to override default Suricata settings in your firewall policy.
          */
         policyVariables?: pulumi.Input<inputs.networkfirewall.FirewallPolicyPolicyVariablesPropertiesArgs | undefined>;
+        route53ResolvedIpValidation?: pulumi.Input<inputs.networkfirewall.FirewallPolicyRoute53ResolvedIpValidationArgs | undefined>;
         /**
          * The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
          *
@@ -80656,6 +81295,10 @@ export namespace networkfirewall {
         publishMetricAction?: pulumi.Input<inputs.networkfirewall.FirewallPolicyPublishMetricActionArgs | undefined>;
     }
 
+    export interface FirewallPolicyAddressArgs {
+        addressDefinition: pulumi.Input<string>;
+    }
+
     export interface FirewallPolicyCustomActionArgs {
         /**
          * The custom action associated with the action name.
@@ -80690,6 +81333,14 @@ export namespace networkfirewall {
 
     export interface FirewallPolicyPublishMetricActionArgs {
         dimensions: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyDimensionArgs>[]>;
+    }
+
+    export interface FirewallPolicyRoute53ResolvedIpValidationArgs {
+        action: pulumi.Input<enums.networkfirewall.FirewallPolicyRoute53ResolvedIpValidationAction>;
+        bypassDestinationValidationIpRanges?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyAddressArgs>[] | undefined>;
+        dnsExpiryExceptionPolicy: pulumi.Input<enums.networkfirewall.FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy>;
+        dnsFirewallRuleGroupId: pulumi.Input<string>;
+        sourceIpRanges?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyAddressArgs>[] | undefined>;
     }
 
     export interface FirewallPolicyStatefulEngineOptionsArgs {
@@ -80761,6 +81412,13 @@ export namespace networkfirewall {
         resourceArn: pulumi.Input<string>;
     }
 
+    /**
+     * The proxy listener configuration for a proxy-mode (no source preservation) firewall.
+     */
+    export interface FirewallProxySettingsArgs {
+        listenerProperties?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallListenerPropertyArgs>[] | undefined>;
+    }
+
     export interface FirewallSubnetMappingArgs {
         /**
          * A IPAddressType
@@ -80770,6 +81428,17 @@ export namespace networkfirewall {
          * A SubnetId.
          */
         subnetId: pulumi.Input<string>;
+    }
+
+    /**
+     * The VPC and subnets for a proxy-mode firewall's endpoint. Provide this instead of the top-level VpcId and SubnetMappings when NoSourcePreservation is true.
+     */
+    export interface FirewallVpcEndpointArgs {
+        subnetMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMappingArgs>[] | undefined>;
+        /**
+         * The unique identifier of the VPC for the firewall endpoint.
+         */
+        vpcId?: pulumi.Input<string | undefined>;
     }
 
     export interface LoggingConfigurationArgs {
@@ -81445,6 +82114,62 @@ export namespace networkmanager {
 }
 
 export namespace networkmonitor {
+}
+
+export namespace networksecuritymanager {
+    /**
+     * Associates either a template or a rule with a policy.
+     */
+    export interface PolicyAssociatedTemplateAndRuleArgs {
+        /**
+         * ARN of the associated rule.
+         */
+        ruleArn?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the associated template.
+         */
+        templateArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Configuration settings for policy behavior.
+     */
+    export interface PolicyConfigurationArgs {
+        /**
+         * Controls automatic remediation of non-compliant resources.
+         */
+        remediationEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Controls automatic cleanup of unused resources.
+         */
+        resourcesCleanUp?: pulumi.Input<boolean | undefined>;
+        wafConfig?: pulumi.Input<inputs.networksecuritymanager.PolicyWafConfigArgs | undefined>;
+    }
+
+    /**
+     * WAF-specific policy settings. Populated only for WAF firewall type policies.
+     */
+    export interface PolicyWafConfigArgs {
+        /**
+         * Conflict-resolution strategy applied to AWS WAF policies.
+         */
+        conflictResolution: pulumi.Input<enums.networksecuritymanager.PolicyWafConfigConflictResolution>;
+        /**
+         * Controls how Network Security Manager handles remediation when a resource already has a customer-created WebACL.
+         */
+        existingCustomerWebAclResolution: pulumi.Input<enums.networksecuritymanager.PolicyWafConfigExistingCustomerWebAclResolution>;
+    }
+
+    /**
+     * An association between a template and a rule.
+     */
+    export interface TemplateAssociatedRuleArgs {
+        /**
+         * ARN of the associated rule.
+         */
+        ruleArn: pulumi.Input<string>;
+    }
+
 }
 
 export namespace nimblestudio {
@@ -82561,6 +83286,10 @@ export namespace omics {
     export interface ConfigurationVpcConfigArgs {
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+         */
+        vpcOwnerAccountId?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -84348,6 +85077,35 @@ export namespace personalize {
          * The file path of the Amazon S3 bucket.
          */
         path: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration details of the recommender.
+     */
+    export interface RecommenderConfigArgs {
+        /**
+         * Whether metadata with recommendations is enabled for the recommender.
+         */
+        enableMetadataWithRecommendations?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the exploration configuration hyperparameters.
+         */
+        itemExplorationConfig?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Specifies the requested minimum provisioned recommendation requests per second.
+         */
+        minRecommendationRequestsPerSecond?: pulumi.Input<number | undefined>;
+        trainingDataConfig?: pulumi.Input<inputs.personalize.RecommenderTrainingDataConfigArgs | undefined>;
+    }
+
+    /**
+     * The training data configuration to use when creating a domain recommender.
+     */
+    export interface RecommenderTrainingDataConfigArgs {
+        /**
+         * Specifies the columns to exclude from training. Each key is a dataset type, and each value is a list of columns.
+         */
+        excludedDatasetColumns?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     }
 
     /**
@@ -95870,6 +96628,7 @@ export namespace quicksight {
          * The ability to add or run anomaly detection.
          */
         addOrRunAnomalyDetectionForAnalyses?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        adobeAnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         amazonBedrockArsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         amazonBedrockFsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         amazonBedrockKrsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
@@ -95881,15 +96640,21 @@ export namespace quicksight {
         approveFlowShareRequests?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         apps?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         asanaAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        athenaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        auroraDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         automate?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         bambooHrAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        bedrockManagedKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         boxAgentAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        boxKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         buildCalculatedFieldWithQ?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         canvaAgentAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         chatAgent?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         comprehendAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         comprehendMedicalAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         confluenceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        confluenceKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAdobeAnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateAmazonBedrockArsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateAmazonBedrockFsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateAmazonBedrockKrsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
@@ -95897,11 +96662,14 @@ export namespace quicksight {
         createAndUpdateApps?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateAsanaAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateBambooHrAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateBedrockManagedKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateBoxAgentAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateBoxKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateCanvaAgentAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateComprehendAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateComprehendMedicalAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateConfluenceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateConfluenceKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to create and update email reports.
          */
@@ -95918,8 +96686,10 @@ export namespace quicksight {
         createAndUpdateGenericHttpAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateGithubAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateGoogleCalendarAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateGoogleDriveKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateHubspotAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateHuggingFaceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateIdcKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateIntercomAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateJiraAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateKnowledgeBases?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
@@ -95931,8 +96701,11 @@ export namespace quicksight {
         createAndUpdateNewRelicAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateNotionAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateOneDriveAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateOneDriveKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateOpenApiAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdatePagerDutyAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateQBusinessKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateS3KnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateSalesforceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateSandPGlobalEnergyAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateSandPgmiAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
@@ -95943,6 +96716,7 @@ export namespace quicksight {
         createAndUpdateSapProductMasterDataAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateServiceNowAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateSharePointAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateSharePointKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateSlackAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateSmartsheetAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateTextractAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
@@ -95954,23 +96728,75 @@ export namespace quicksight {
          * The ability to create and update threshold alerts.
          */
         createAndUpdateThresholdAlerts?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAndUpdateWebCrawlerKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createAndUpdateZendeskAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAthenaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createAuroraDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createChatAgents?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createDashboardExecutiveSummaryWithQ?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createDatabricksDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createDb2DataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createDenodoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createDocumentDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createDremioDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createDynamoDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createExasolDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createFileDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createGitHubDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createGoogleAnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createGoogleBigQueryDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createGoogleSheetsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createImpalaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createJiraDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createMariaDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createMongoAtlasDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createMongoDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createMySqlDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createOpenSearchDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createOracleDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createPayPalDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createPostgreSqlDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createPrestoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createRadiantDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createRdsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createRedshiftAutoDiscoveredDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createRedshiftManualDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createS3AnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createS3DataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createS3TablesDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createSalesforceDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createSapHanaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createServiceNowDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to create shared folders.
          */
         createSharedFolders?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createSnowflakeDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         createSpaces?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createSparkDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to create a SPICE dataset.
          */
         createSpiceDataset?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createSqlServerDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createSquareDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createStarburstDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createTeradataDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createTimestreamDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createTrinoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        createTwitterDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to perform dashboard-related actions.
          */
         dashboard?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        databricksDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        db2DataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        denodoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        documentDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        dremioDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        dynamoDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         editVisualWithQ?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        exasolDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to export to CSV files from the UI.
          */
@@ -95997,12 +96823,21 @@ export namespace quicksight {
         exportToPdfInScheduledReports?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         extension?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         factSetAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        fileDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         flow?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         genericHttpAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        gitHubDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         githubAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        googleAnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        googleBigQueryDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         googleCalendarAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        googleDriveKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        googleSheetsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         hubspotAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         huggingFaceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        idcKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        impalaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        inboundEmailTrigger?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to include content in scheduled email reports.
          */
@@ -96010,38 +96845,64 @@ export namespace quicksight {
         intercomAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         invokeAppsAiInference?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         jiraAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        jiraDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         knowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         linearAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         manageSharedFolders?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        mariaDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         mcpAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         mondayAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        mongoAtlasDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        mongoDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         msExchangeAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         msTeamsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        mySqlDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         newRelicAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         notionAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         oneDriveAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        oneDriveKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         openApiAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        openSearchDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        oracleDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         pagerDutyAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        payPalDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         performFlowUiTask?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        postgreSqlDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        prestoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to print reports.
          */
         printReports?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         publishWithoutApproval?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        qBusinessKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        quickEventTrigger?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        radiantDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        rdsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        redshiftAutoDiscoveredDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        redshiftManualDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to rename shared folders.
          */
         renameSharedFolders?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         research?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        s3AnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        s3DataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        s3KnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        s3TablesDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         salesforceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        salesforceDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         sandPGlobalEnergyAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         sandPgmiAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         sapBillOfMaterialAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         sapBusinessPartnerAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        sapHanaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         sapMaterialStockAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         sapPhysicalInventoryAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         sapProductMasterDataAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        scheduleTrigger?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         serviceNowAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        serviceNowDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareAdobeAnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareAmazonBedrockArsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareAmazonBedrockFsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareAmazonBedrockKrsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
@@ -96052,13 +96913,18 @@ export namespace quicksight {
         shareAnalyses?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareApps?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareAsanaAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareAthenaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareAuroraDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareBambooHrAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareBedrockManagedKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareBoxAgentAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareBoxKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareCanvaAgentAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareChatAgents?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareComprehendAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareComprehendMedicalAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareConfluenceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareConfluenceKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to share dashboards.
          */
@@ -96067,54 +96933,159 @@ export namespace quicksight {
          * The ability to share data sources.
          */
         shareDataSources?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareDatabricksDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to share datasets.
          */
         shareDatasets?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareDb2DataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareDenodoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareDocumentDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareDremioDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareDynamoDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareExasolDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareFactSetAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareFileDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareGenericHttpAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareGitHubDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareGithubAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareGoogleAnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareGoogleBigQueryDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareGoogleCalendarAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareGoogleDriveKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareGoogleSheetsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareHubspotAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareHuggingFaceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareIdcKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareImpalaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareIntercomAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareJiraAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareJiraDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareKnowledgeBases?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareLinearAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareMariaDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareMcpAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareMondayAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareMongoAtlasDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareMongoDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareMsExchangeAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareMsTeamsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareMySqlDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareNewRelicAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareNotionAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareOneDriveAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareOneDriveKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareOpenApiAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareOpenSearchDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareOracleDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         sharePagerDutyAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        sharePayPalDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         sharePointAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        sharePointKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        sharePostgreSqlDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        sharePrestoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareQBusinessKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareRadiantDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareRdsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareRedshiftAutoDiscoveredDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareRedshiftManualDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareS3AnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareS3DataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareS3KnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareS3TablesDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSalesforceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareSalesforceDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSandPGlobalEnergyAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSandPgmiAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSapBillOfMaterialAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSapBusinessPartnerAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareSapHanaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSapMaterialStockAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSapPhysicalInventoryAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSapProductMasterDataAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareServiceNowAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareServiceNowDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSharePointAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareSharePointKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSlackAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSmartsheetAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareSnowflakeDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareSpaces?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareSparkDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareSqlServerDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareSquareDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareStarburstDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareTeradataDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareTextractAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareTimestreamDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareTrinoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareTwitterDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        shareWebCrawlerKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         shareZendeskAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         slackAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         smartsheetAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        snowflakeDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         space?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        sparkDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        sqlServerDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        squareDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        starburstDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to subscribe to email reports.
          */
         subscribeDashboardEmailReports?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        teradataDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         textractAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        timestreamDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         topic?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        trigger?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        trinoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        twitterDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateAdobeAnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateAthenaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateAuroraDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateDatabricksDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateDb2DataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateDenodoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateDocumentDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateDremioDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateDynamoDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateExasolDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateFileDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateGitHubDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateGoogleAnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateGoogleBigQueryDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateGoogleSheetsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateImpalaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateJiraDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateMariaDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateMongoAtlasDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateMongoDbDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateMySqlDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateOpenSearchDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateOracleDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updatePayPalDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updatePostgreSqlDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updatePrestoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateRadiantDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateRdsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateRedshiftAutoDiscoveredDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateRedshiftManualDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateS3AnalyticsDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateS3DataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateS3TablesDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateSalesforceDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateSapHanaDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateServiceNowDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateSnowflakeDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateSparkDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateSqlServerDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateSquareDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateStarburstDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateTeradataDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateTimestreamDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateTrinoDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        updateTwitterDataSource?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useAgentWebSearch?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useAmazonBedrockArsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useAmazonBedrockFsAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
@@ -96122,18 +97093,25 @@ export namespace quicksight {
         useAmazonSThreeAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useAsanaAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useBambooHrAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useBedrockManagedKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useBedrockModels?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useBoxAgentAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useBoxKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useBrowserExtension?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useCanvaAgentAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useComprehendAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useComprehendMedicalAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useConfluenceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useConfluenceKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useExcelAddInExtension?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useFactSetAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useGenericHttpAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useGithubAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useGoogleCalendarAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useGoogleDriveKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useHubspotAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useHuggingFaceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useIdcKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useIntercomAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useJiraAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useLinearAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
@@ -96144,8 +97122,13 @@ export namespace quicksight {
         useNewRelicAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useNotionAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useOneDriveAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useOneDriveKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useOpenApiAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useOutlookAddInExtension?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         usePagerDutyAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        usePowerpointAddInExtension?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useQBusinessKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useS3KnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useSalesforceAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useSandPGlobalEnergyAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useSandPgmiAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
@@ -96156,14 +97139,18 @@ export namespace quicksight {
         useSapProductMasterDataAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useServiceNowAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useSharePointAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useSharePointKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useSlackAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useSmartsheetAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useTextractAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useWebCrawlerKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        useWordAddInExtension?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         useZendeskAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         /**
          * The ability to view account SPICE capacity.
          */
         viewAccountSpiceCapacity?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
+        webCrawlerKnowledgeBase?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
         zendeskAction?: pulumi.Input<enums.quicksight.CustomPermissionsCapabilityState | undefined>;
     }
 
@@ -130987,6 +131974,16 @@ export namespace securityagent {
          * Amazon S3 location URI of a customer-staged certificate
          */
         s3Location?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Configuration for running pentests automatically from a CI/CD pipeline
+     */
+    export interface PentestCiCdConfigurationArgs {
+        /**
+         * Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+         */
+        enabled: pulumi.Input<boolean>;
     }
 
     /**

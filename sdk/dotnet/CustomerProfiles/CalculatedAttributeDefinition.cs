@@ -115,10 +115,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "attributeDetails",
                     "calculatedAttributeName",
                     "conditions.range.timestampFormat",
                     "conditions.range.timestampSource",
                     "domainName",
+                    "statistic",
                     "useHistoricalData",
                 },
             };

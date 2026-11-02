@@ -35,8 +35,12 @@ type LookupConnectorResult struct {
 	ConnectorArn *string `pulumi:"connectorArn"`
 	// The configuration for the connector.
 	ConnectorConfiguration map[string]string `pulumi:"connectorConfiguration"`
+	// List of plugins to use with the connector.
+	Plugins []ConnectorPlugin `pulumi:"plugins"`
 	// A collection of tags associated with a resource
 	Tags []aws.Tag `pulumi:"tags"`
+	// The worker configurations that are in use with the connector.
+	WorkerConfiguration *ConnectorWorkerConfiguration `pulumi:"workerConfiguration"`
 }
 
 func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
@@ -82,9 +86,19 @@ func (o LookupConnectorResultOutput) ConnectorConfiguration() pulumi.StringMapOu
 	return o.ApplyT(func(v LookupConnectorResult) map[string]string { return v.ConnectorConfiguration }).(pulumi.StringMapOutput)
 }
 
+// List of plugins to use with the connector.
+func (o LookupConnectorResultOutput) Plugins() ConnectorPluginArrayOutput {
+	return o.ApplyT(func(v LookupConnectorResult) []ConnectorPlugin { return v.Plugins }).(ConnectorPluginArrayOutput)
+}
+
 // A collection of tags associated with a resource
 func (o LookupConnectorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupConnectorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The worker configurations that are in use with the connector.
+func (o LookupConnectorResultOutput) WorkerConfiguration() ConnectorWorkerConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *ConnectorWorkerConfiguration { return v.WorkerConfiguration }).(ConnectorWorkerConfigurationPtrOutput)
 }
 
 func init() {

@@ -91,12 +91,19 @@ __all__ = [
     'GatewayRateLimitRateConfig',
     'GatewayRuleAction0Properties',
     'GatewayRuleAction1Properties',
+    'GatewayRuleCircuitBreakerConfiguration',
     'GatewayRuleCondition0Properties',
     'GatewayRuleCondition1Properties',
+    'GatewayRuleCondition2Properties',
     'GatewayRuleConfigurationBundleAction0Properties',
     'GatewayRuleConfigurationBundleAction1Properties',
     'GatewayRuleConfigurationBundleReference',
+    'GatewayRuleFallback',
+    'GatewayRuleFallbackTarget',
+    'GatewayRuleFallbackTriggers',
     'GatewayRuleIamPrincipal',
+    'GatewayRuleMatchModelEntry',
+    'GatewayRuleMatchModels',
     'GatewayRuleMatchPaths',
     'GatewayRuleMatchPrincipalEntryProperties',
     'GatewayRuleMatchPrincipals',
@@ -120,6 +127,8 @@ __all__ = [
     'GatewayTargetApiSchemaConfiguration0Properties',
     'GatewayTargetApiSchemaConfiguration1Properties',
     'GatewayTargetAuthorizationDataProperties',
+    'GatewayTargetCertificateConfiguration0Properties',
+    'GatewayTargetCertificateConfiguration1Properties',
     'GatewayTargetConnectorConfiguration',
     'GatewayTargetConnectorParameterOverride',
     'GatewayTargetConnectorSource',
@@ -163,8 +172,10 @@ __all__ = [
     'GatewayTargetPrivateEndpoint1Properties',
     'GatewayTargetProviderPrefix',
     'GatewayTargetRuntimeTargetConfiguration',
+    'GatewayTargetS3CertificateConfiguration',
     'GatewayTargetS3Configuration',
     'GatewayTargetSchemaDefinition',
+    'GatewayTargetSecretsManagerCertificateConfiguration',
     'GatewayTargetSelfManagedLatticeResourceProperties',
     'GatewayTargetStickinessConfiguration',
     'GatewayTargetTargetConfiguration0Properties',
@@ -3590,7 +3601,9 @@ class GatewayMcpGatewayConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "searchType":
+        if key == "disableMcpListToolsPagination":
+            suggest = "disable_mcp_list_tools_pagination"
+        elif key == "searchType":
             suggest = "search_type"
         elif key == "sessionConfiguration":
             suggest = "session_configuration"
@@ -3611,11 +3624,14 @@ class GatewayMcpGatewayConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 disable_mcp_list_tools_pagination: Optional[_builtins.bool] = None,
                  instructions: Optional[_builtins.str] = None,
                  search_type: Optional['GatewaySearchType'] = None,
                  session_configuration: Optional['outputs.GatewaySessionConfiguration'] = None,
                  streaming_configuration: Optional['outputs.GatewayStreamingConfiguration'] = None,
                  supported_versions: Optional[Sequence[_builtins.str]] = None):
+        if disable_mcp_list_tools_pagination is not None:
+            pulumi.set(__self__, "disable_mcp_list_tools_pagination", disable_mcp_list_tools_pagination)
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
         if search_type is not None:
@@ -3626,6 +3642,11 @@ class GatewayMcpGatewayConfiguration(dict):
             pulumi.set(__self__, "streaming_configuration", streaming_configuration)
         if supported_versions is not None:
             pulumi.set(__self__, "supported_versions", supported_versions)
+
+    @_builtins.property
+    @pulumi.getter(name="disableMcpListToolsPagination")
+    def disable_mcp_list_tools_pagination(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_mcp_list_tools_pagination")
 
     @_builtins.property
     @pulumi.getter
@@ -3881,6 +3902,19 @@ class GatewayRuleAction1Properties(dict):
 
 
 @pulumi.output_type
+class GatewayRuleCircuitBreakerConfiguration(dict):
+    def __init__(__self__, *,
+                 mode: Optional[Any] = None):
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[Any]:
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
 class GatewayRuleCondition0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3936,6 +3970,35 @@ class GatewayRuleCondition1Properties(dict):
     @pulumi.getter(name="matchPaths")
     def match_paths(self) -> 'outputs.GatewayRuleMatchPaths':
         return pulumi.get(self, "match_paths")
+
+
+@pulumi.output_type
+class GatewayRuleCondition2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchModels":
+            suggest = "match_models"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleCondition2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleCondition2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleCondition2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_models: 'outputs.GatewayRuleMatchModels'):
+        pulumi.set(__self__, "match_models", match_models)
+
+    @_builtins.property
+    @pulumi.getter(name="matchModels")
+    def match_models(self) -> 'outputs.GatewayRuleMatchModels':
+        return pulumi.get(self, "match_models")
 
 
 @pulumi.output_type
@@ -4035,6 +4098,160 @@ class GatewayRuleConfigurationBundleReference(dict):
 
 
 @pulumi.output_type
+class GatewayRuleFallback(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetFallback":
+            suggest = "target_fallback"
+        elif key == "circuitBreaker":
+            suggest = "circuit_breaker"
+        elif key == "firstByteTimeoutMilliseconds":
+            suggest = "first_byte_timeout_milliseconds"
+        elif key == "triggerOn":
+            suggest = "trigger_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleFallback. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleFallback.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleFallback.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_fallback: Sequence['outputs.GatewayRuleFallbackTarget'],
+                 circuit_breaker: Optional['outputs.GatewayRuleCircuitBreakerConfiguration'] = None,
+                 first_byte_timeout_milliseconds: Optional[_builtins.int] = None,
+                 trigger_on: Optional['outputs.GatewayRuleFallbackTriggers'] = None):
+        pulumi.set(__self__, "target_fallback", target_fallback)
+        if circuit_breaker is not None:
+            pulumi.set(__self__, "circuit_breaker", circuit_breaker)
+        if first_byte_timeout_milliseconds is not None:
+            pulumi.set(__self__, "first_byte_timeout_milliseconds", first_byte_timeout_milliseconds)
+        if trigger_on is not None:
+            pulumi.set(__self__, "trigger_on", trigger_on)
+
+    @_builtins.property
+    @pulumi.getter(name="targetFallback")
+    def target_fallback(self) -> Sequence['outputs.GatewayRuleFallbackTarget']:
+        return pulumi.get(self, "target_fallback")
+
+    @_builtins.property
+    @pulumi.getter(name="circuitBreaker")
+    def circuit_breaker(self) -> Optional['outputs.GatewayRuleCircuitBreakerConfiguration']:
+        return pulumi.get(self, "circuit_breaker")
+
+    @_builtins.property
+    @pulumi.getter(name="firstByteTimeoutMilliseconds")
+    def first_byte_timeout_milliseconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "first_byte_timeout_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter(name="triggerOn")
+    def trigger_on(self) -> Optional['outputs.GatewayRuleFallbackTriggers']:
+        return pulumi.get(self, "trigger_on")
+
+
+@pulumi.output_type
+class GatewayRuleFallbackTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetName":
+            suggest = "target_name"
+        elif key == "firstByteTimeoutMilliseconds":
+            suggest = "first_byte_timeout_milliseconds"
+        elif key == "triggerOn":
+            suggest = "trigger_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleFallbackTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleFallbackTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleFallbackTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_name: _builtins.str,
+                 first_byte_timeout_milliseconds: Optional[_builtins.int] = None,
+                 model: Optional[_builtins.str] = None,
+                 trigger_on: Optional['outputs.GatewayRuleFallbackTriggers'] = None):
+        pulumi.set(__self__, "target_name", target_name)
+        if first_byte_timeout_milliseconds is not None:
+            pulumi.set(__self__, "first_byte_timeout_milliseconds", first_byte_timeout_milliseconds)
+        if model is not None:
+            pulumi.set(__self__, "model", model)
+        if trigger_on is not None:
+            pulumi.set(__self__, "trigger_on", trigger_on)
+
+    @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> _builtins.str:
+        return pulumi.get(self, "target_name")
+
+    @_builtins.property
+    @pulumi.getter(name="firstByteTimeoutMilliseconds")
+    def first_byte_timeout_milliseconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "first_byte_timeout_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "model")
+
+    @_builtins.property
+    @pulumi.getter(name="triggerOn")
+    def trigger_on(self) -> Optional['outputs.GatewayRuleFallbackTriggers']:
+        return pulumi.get(self, "trigger_on")
+
+
+@pulumi.output_type
+class GatewayRuleFallbackTriggers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCodes":
+            suggest = "status_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleFallbackTriggers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleFallbackTriggers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleFallbackTriggers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 errors: Optional[Sequence['GatewayRuleFallbackError']] = None,
+                 status_codes: Optional[Sequence[_builtins.str]] = None):
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+
+    @_builtins.property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['GatewayRuleFallbackError']]:
+        return pulumi.get(self, "errors")
+
+    @_builtins.property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "status_codes")
+
+
+@pulumi.output_type
 class GatewayRuleIamPrincipal(dict):
     def __init__(__self__, *,
                  arn: _builtins.str,
@@ -4052,6 +4269,55 @@ class GatewayRuleIamPrincipal(dict):
     @pulumi.getter
     def operator(self) -> Optional['GatewayRulePrincipalMatchOperator']:
         return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class GatewayRuleMatchModelEntry(dict):
+    def __init__(__self__, *,
+                 value: _builtins.str,
+                 operator: Optional[Any] = None):
+        pulumi.set(__self__, "value", value)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> Optional[Any]:
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class GatewayRuleMatchModels(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyOf":
+            suggest = "any_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleMatchModels. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleMatchModels.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleMatchModels.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_of: Sequence['outputs.GatewayRuleMatchModelEntry']):
+        pulumi.set(__self__, "any_of", any_of)
+
+    @_builtins.property
+    @pulumi.getter(name="anyOf")
+    def any_of(self) -> Sequence['outputs.GatewayRuleMatchModelEntry']:
+        return pulumi.get(self, "any_of")
 
 
 @pulumi.output_type
@@ -4257,13 +4523,29 @@ class GatewayRuleStaticRoute(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 target_name: _builtins.str):
+                 target_name: _builtins.str,
+                 fallback: Optional['outputs.GatewayRuleFallback'] = None,
+                 model: Optional[_builtins.str] = None):
         pulumi.set(__self__, "target_name", target_name)
+        if fallback is not None:
+            pulumi.set(__self__, "fallback", fallback)
+        if model is not None:
+            pulumi.set(__self__, "model", model)
 
     @_builtins.property
     @pulumi.getter(name="targetName")
     def target_name(self) -> _builtins.str:
         return pulumi.get(self, "target_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def fallback(self) -> Optional['outputs.GatewayRuleFallback']:
+        return pulumi.get(self, "fallback")
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "model")
 
 
 @pulumi.output_type
@@ -4319,14 +4601,20 @@ class GatewayRuleTargetTrafficSplitEntry(dict):
                  target_name: _builtins.str,
                  weight: _builtins.float,
                  description: Optional[_builtins.str] = None,
-                 metadata: Optional[Mapping[str, _builtins.str]] = None):
+                 fallback: Optional['outputs.GatewayRuleFallback'] = None,
+                 metadata: Optional[Mapping[str, _builtins.str]] = None,
+                 model: Optional[_builtins.str] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "target_name", target_name)
         pulumi.set(__self__, "weight", weight)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if fallback is not None:
+            pulumi.set(__self__, "fallback", fallback)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if model is not None:
+            pulumi.set(__self__, "model", model)
 
     @_builtins.property
     @pulumi.getter
@@ -4350,8 +4638,18 @@ class GatewayRuleTargetTrafficSplitEntry(dict):
 
     @_builtins.property
     @pulumi.getter
+    def fallback(self) -> Optional['outputs.GatewayRuleFallback']:
+        return pulumi.get(self, "fallback")
+
+    @_builtins.property
+    @pulumi.getter
     def metadata(self) -> Optional[Mapping[str, _builtins.str]]:
         return pulumi.get(self, "metadata")
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "model")
 
 
 @pulumi.output_type
@@ -4824,6 +5122,47 @@ class GatewayTargetAuthorizationDataProperties(dict):
     @pulumi.getter
     def oauth2(self) -> 'outputs.GatewayTargetOAuth2AuthorizationData':
         return pulumi.get(self, "oauth2")
+
+
+@pulumi.output_type
+class GatewayTargetCertificateConfiguration0Properties(dict):
+    def __init__(__self__, *,
+                 s3: 'outputs.GatewayTargetS3CertificateConfiguration'):
+        pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> 'outputs.GatewayTargetS3CertificateConfiguration':
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class GatewayTargetCertificateConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetCertificateConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetCertificateConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetCertificateConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: 'outputs.GatewayTargetSecretsManagerCertificateConfiguration'):
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> 'outputs.GatewayTargetSecretsManagerCertificateConfiguration':
+        return pulumi.get(self, "secrets_manager")
 
 
 @pulumi.output_type
@@ -6166,6 +6505,43 @@ class GatewayTargetRuntimeTargetConfiguration(dict):
 
 
 @pulumi.output_type
+class GatewayTargetS3CertificateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwnerAccountId":
+            suggest = "bucket_owner_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetS3CertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetS3CertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetS3CertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: _builtins.str,
+                 bucket_owner_account_id: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "uri", uri)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> _builtins.str:
+        return pulumi.get(self, "uri")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "bucket_owner_account_id")
+
+
+@pulumi.output_type
 class GatewayTargetS3Configuration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6245,6 +6621,35 @@ class GatewayTargetSchemaDefinition(dict):
     @pulumi.getter
     def required(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class GatewayTargetSecretsManagerCertificateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetSecretsManagerCertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetSecretsManagerCertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetSecretsManagerCertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type

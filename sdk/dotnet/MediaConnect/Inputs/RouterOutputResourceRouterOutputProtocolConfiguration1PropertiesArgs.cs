@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// </summary>
     public sealed class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("rist", required: true)]
-        public Input<Inputs.RouterOutputResourceRistRouterOutputConfigurationArgs> Rist { get; set; } = null!;
+        [Input("srtListener", required: true)]
+        public Input<Inputs.RouterOutputResourceSrtListenerRouterOutputConfigurationArgs> SrtListener { get; set; } = null!;
 
         public RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs()
         {

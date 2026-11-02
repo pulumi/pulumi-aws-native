@@ -86,6 +86,8 @@ __all__ = [
     'SecondaryNetworkNetworkType',
     'SecurityGroupVpcAssociationState',
     'SnapshotBlockPublicAccessState',
+    'SnapshotState',
+    'SnapshotStorageTier',
     'SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem',
     'SpotFleetInstanceRequirementsRequestAcceleratorNamesItem',
     'SpotFleetInstanceRequirementsRequestAcceleratorTypesItem',
@@ -1001,6 +1003,27 @@ class SnapshotBlockPublicAccessState(_builtins.str, Enum):
     """
     BLOCK_ALL_SHARING = "block-all-sharing"
     BLOCK_NEW_SHARING = "block-new-sharing"
+
+
+@pulumi.type_token("aws-native:ec2:SnapshotState")
+class SnapshotState(_builtins.str, Enum):
+    """
+    The snapshot state.
+    """
+    PENDING = "pending"
+    COMPLETED = "completed"
+    ERROR = "error"
+    RECOVERABLE = "recoverable"
+    RECOVERING = "recovering"
+
+
+@pulumi.type_token("aws-native:ec2:SnapshotStorageTier")
+class SnapshotStorageTier(_builtins.str, Enum):
+    """
+    The storage tier in which the snapshot is stored.
+    """
+    ARCHIVE = "archive"
+    STANDARD = "standard"
 
 
 @pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem")

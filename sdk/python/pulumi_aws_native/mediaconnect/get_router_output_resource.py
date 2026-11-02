@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetRouterOutputResourceResult:
-    def __init__(__self__, arn=None, configuration=None, created_at=None, fabric_configuration=None, id=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, output_type=None, routed_state=None, routing_scope=None, state=None, tags=None, tier=None, updated_at=None):
+    def __init__(__self__, arn=None, associated_source_endpoint_arns=None, configuration=None, created_at=None, fabric_configuration=None, id=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, output_type=None, routed_state=None, routing_scope=None, state=None, tags=None, tier=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if associated_source_endpoint_arns and not isinstance(associated_source_endpoint_arns, list):
+            raise TypeError("Expected argument 'associated_source_endpoint_arns' to be a list")
+        pulumi.set(__self__, "associated_source_endpoint_arns", associated_source_endpoint_arns)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -86,6 +89,14 @@ class GetRouterOutputResourceResult:
         The Amazon Resource Name (ARN) of the router output.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedSourceEndpointArns")
+    def associated_source_endpoint_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+        """
+        return pulumi.get(self, "associated_source_endpoint_arns")
 
     @_builtins.property
     @pulumi.getter
@@ -217,6 +228,7 @@ class AwaitableGetRouterOutputResourceResult(GetRouterOutputResourceResult):
             yield self
         return GetRouterOutputResourceResult(
             arn=self.arn,
+            associated_source_endpoint_arns=self.associated_source_endpoint_arns,
             configuration=self.configuration,
             created_at=self.created_at,
             fabric_configuration=self.fabric_configuration,
@@ -249,6 +261,7 @@ def get_router_output_resource(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetRouterOutputResourceResult(
         arn=pulumi.get(__ret__, 'arn'),
+        associated_source_endpoint_arns=pulumi.get(__ret__, 'associated_source_endpoint_arns'),
         configuration=pulumi.get(__ret__, 'configuration'),
         created_at=pulumi.get(__ret__, 'created_at'),
         fabric_configuration=pulumi.get(__ret__, 'fabric_configuration'),
@@ -278,6 +291,7 @@ def get_router_output_resource_output(arn: pulumi.Input[Optional[_builtins.str]]
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getRouterOutputResource', __args__, opts=opts, typ=GetRouterOutputResourceResult)
     return __ret__.apply(lambda __response__: GetRouterOutputResourceResult(
         arn=pulumi.get(__response__, 'arn'),
+        associated_source_endpoint_arns=pulumi.get(__response__, 'associated_source_endpoint_arns'),
         configuration=pulumi.get(__response__, 'configuration'),
         created_at=pulumi.get(__response__, 'created_at'),
         fabric_configuration=pulumi.get(__response__, 'fabric_configuration'),

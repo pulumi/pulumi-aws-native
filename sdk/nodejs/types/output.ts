@@ -10523,6 +10523,24 @@ export namespace b2bi {
 }
 
 export namespace backup {
+    /**
+     * Metadata the service reports for the backup access point. Once the access point reaches the AVAILABLE status this carries the Amazon S3 access point ARN and alias; for continuous recovery points it also echoes the AccessPointInTime that was supplied at create time.
+     */
+    export interface BackupAccessPointAccessPointMetadata {
+        /**
+         * For a continuous recovery point, the point in time the backup access point exposes, echoed back by the service as supplied at create time. Absent for snapshot recovery points. A plain string rather than a date-time, because it is one entry of the service's string-to-string metadata map.
+         */
+        accessPointInTime?: string;
+        /**
+         * The alias of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+         */
+        s3AccessPointAlias?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+         */
+        s3AccessPointArn?: string;
+    }
+
     export interface BackupPlanAdvancedBackupSettingResourceType {
         /**
          * The backup option for the resource. Each option is a key-value pair. This option is only available for Windows VSS backup jobs.
@@ -18580,6 +18598,7 @@ export namespace bedrockagentcore {
     }
 
     export interface GatewayMcpGatewayConfiguration {
+        disableMcpListToolsPagination?: boolean;
         instructions?: string;
         searchType?: enums.bedrockagentcore.GatewaySearchType;
         sessionConfiguration?: outputs.bedrockagentcore.GatewaySessionConfiguration;
@@ -18639,12 +18658,20 @@ export namespace bedrockagentcore {
         routeToTarget: outputs.bedrockagentcore.GatewayRuleRouteToTargetAction0Properties | outputs.bedrockagentcore.GatewayRuleRouteToTargetAction1Properties;
     }
 
+    export interface GatewayRuleCircuitBreakerConfiguration {
+        mode?: any;
+    }
+
     export interface GatewayRuleCondition0Properties {
         matchPrincipals: outputs.bedrockagentcore.GatewayRuleMatchPrincipals;
     }
 
     export interface GatewayRuleCondition1Properties {
         matchPaths: outputs.bedrockagentcore.GatewayRuleMatchPaths;
+    }
+
+    export interface GatewayRuleCondition2Properties {
+        matchModels: outputs.bedrockagentcore.GatewayRuleMatchModels;
     }
 
     export interface GatewayRuleConfigurationBundleAction0Properties {
@@ -18660,9 +18687,37 @@ export namespace bedrockagentcore {
         bundleVersion: string;
     }
 
+    export interface GatewayRuleFallback {
+        circuitBreaker?: outputs.bedrockagentcore.GatewayRuleCircuitBreakerConfiguration;
+        firstByteTimeoutMilliseconds?: number;
+        targetFallback: outputs.bedrockagentcore.GatewayRuleFallbackTarget[];
+        triggerOn?: outputs.bedrockagentcore.GatewayRuleFallbackTriggers;
+    }
+
+    export interface GatewayRuleFallbackTarget {
+        firstByteTimeoutMilliseconds?: number;
+        model?: string;
+        targetName: string;
+        triggerOn?: outputs.bedrockagentcore.GatewayRuleFallbackTriggers;
+    }
+
+    export interface GatewayRuleFallbackTriggers {
+        errors?: enums.bedrockagentcore.GatewayRuleFallbackError[];
+        statusCodes?: string[];
+    }
+
     export interface GatewayRuleIamPrincipal {
         arn: string;
         operator?: enums.bedrockagentcore.GatewayRulePrincipalMatchOperator;
+    }
+
+    export interface GatewayRuleMatchModelEntry {
+        operator?: any;
+        value: string;
+    }
+
+    export interface GatewayRuleMatchModels {
+        anyOf: outputs.bedrockagentcore.GatewayRuleMatchModelEntry[];
     }
 
     export interface GatewayRuleMatchPaths {
@@ -18691,6 +18746,8 @@ export namespace bedrockagentcore {
     }
 
     export interface GatewayRuleStaticRoute {
+        fallback?: outputs.bedrockagentcore.GatewayRuleFallback;
+        model?: string;
         targetName: string;
     }
 
@@ -18700,7 +18757,9 @@ export namespace bedrockagentcore {
 
     export interface GatewayRuleTargetTrafficSplitEntry {
         description?: string;
+        fallback?: outputs.bedrockagentcore.GatewayRuleFallback;
         metadata?: {[key: string]: string};
+        model?: string;
         name: string;
         targetName: string;
         weight: number;
@@ -18774,6 +18833,14 @@ export namespace bedrockagentcore {
 
     export interface GatewayTargetAuthorizationDataProperties {
         oauth2: outputs.bedrockagentcore.GatewayTargetOAuth2AuthorizationData;
+    }
+
+    export interface GatewayTargetCertificateConfiguration0Properties {
+        s3: outputs.bedrockagentcore.GatewayTargetS3CertificateConfiguration;
+    }
+
+    export interface GatewayTargetCertificateConfiguration1Properties {
+        secretsManager: outputs.bedrockagentcore.GatewayTargetSecretsManagerCertificateConfiguration;
     }
 
     export interface GatewayTargetConnectorConfiguration {
@@ -18992,6 +19059,11 @@ export namespace bedrockagentcore {
         schema?: outputs.bedrockagentcore.GatewayTargetHttpApiSchemaConfiguration;
     }
 
+    export interface GatewayTargetS3CertificateConfiguration {
+        bucketOwnerAccountId?: string;
+        uri: string;
+    }
+
     export interface GatewayTargetS3Configuration {
         bucketOwnerAccountId?: string;
         uri?: string;
@@ -19003,6 +19075,10 @@ export namespace bedrockagentcore {
         properties?: {[key: string]: outputs.bedrockagentcore.GatewayTargetSchemaDefinition};
         required?: string[];
         type: enums.bedrockagentcore.GatewayTargetSchemaType;
+    }
+
+    export interface GatewayTargetSecretsManagerCertificateConfiguration {
+        secretArn: string;
     }
 
     export interface GatewayTargetSelfManagedLatticeResourceProperties {
@@ -22640,6 +22716,22 @@ export namespace cleanrooms {
         allowedLiteralComparisonColumns: string[];
     }
 
+    export interface ConfiguredTableDatabricksConnectionTypeProperties {
+        deltaSharing: outputs.cleanrooms.ConfiguredTableDatabricksDeltaSharingConnection;
+    }
+
+    export interface ConfiguredTableDatabricksDeltaSharingConnection {
+        deltaShareEndpoint: string;
+        shareName: string;
+    }
+
+    export interface ConfiguredTableDatabricksTableReference {
+        connectionType: outputs.cleanrooms.ConfiguredTableDatabricksConnectionTypeProperties;
+        schemaName: string;
+        tableName: string;
+        workspaceUrl: string;
+    }
+
     export interface ConfiguredTableDifferentialPrivacy {
         columns: outputs.cleanrooms.ConfiguredTableDifferentialPrivacyColumn[];
     }
@@ -22687,6 +22779,10 @@ export namespace cleanrooms {
 
     export interface ConfiguredTableTableReference2Properties {
         athena: outputs.cleanrooms.ConfiguredTableAthenaTableReference;
+    }
+
+    export interface ConfiguredTableTableReference3Properties {
+        databricks: outputs.cleanrooms.ConfiguredTableDatabricksTableReference;
     }
 
     export interface IdMappingTableInputReferenceConfig {
@@ -25920,6 +26016,100 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
+    /**
+     * The principal receiving the grant. Specify PrincipalId, PrincipalAttributes, or both.
+     */
+    export interface AccessGrantPrincipal {
+        /**
+         * Attribute conditions for attribute-based access. When provided, the grant targets any principal matching all specified conditions. Supported only for IDC_USER principals.
+         */
+        principalAttributes?: outputs.cloudwatch.AccessGrantPrincipalAttribute[];
+        /**
+         * The ID of the principal receiving the grant. An IAM principal ARN, an Identity Center UUID, or a service-defined identifier.
+         */
+        principalId?: string;
+        /**
+         * The type of principal receiving the grant.
+         */
+        principalType: enums.cloudwatch.AccessGrantPrincipalPrincipalType;
+    }
+
+    /**
+     * A single attribute condition used to match principals for attribute-based access.
+     */
+    export interface AccessGrantPrincipalAttribute {
+        /**
+         * The Identity Center user attribute to match on. One of userName, active, userStatus, displayName, email, name.givenName, name.familyName, enterprise.department, enterprise.division, enterprise.organization, enterprise.costCenter, or enterprise.employeeNumber.
+         */
+        key: string;
+        /**
+         * The attribute value.
+         */
+        value: string;
+    }
+
+    /**
+     * A single resource scope entry within an access grant. Associates a resource type with optional ARN patterns, tag conditions, and row-level filters.
+     */
+    export interface AccessGrantResourceScope {
+        /**
+         * Specific resource ARNs or ARN patterns. When set, actions are limited to these resources. When absent, defaults to all resources of the type.
+         */
+        resourceArns?: string[];
+        /**
+         * The resource type name, for example DataSet or OmniDashboard.
+         */
+        resourceType: string;
+        /**
+         * Row-level filters for this scope, as an OR of AND-groups: a row is visible when it matches every filter in any one group. Requires SignalTypes.
+         */
+        rowScopeGroups?: outputs.cloudwatch.AccessGrantRowScope[][];
+        /**
+         * Signal types this scope's row filtering applies to. Required when RowScopeGroups is set.
+         */
+        signalTypes?: enums.cloudwatch.AccessGrantResourceScopeSignalTypesItem[];
+        /**
+         * Tag-based conditions for dynamic resource scoping. Access applies only to resources carrying all of the specified tag key-value pairs.
+         */
+        tags?: {[key: string]: string};
+    }
+
+    /**
+     * A single additive row-level filter on an access grant. A row is visible when its value for the given field matches the filter's values.
+     */
+    export interface AccessGrantRowScope {
+        /**
+         * The field the allowlist applies to, for example serviceName or accountId.
+         */
+        field: string;
+        /**
+         * Match operator applied to this filter's values.
+         */
+        operator: enums.cloudwatch.AccessGrantRowScopeOperator;
+        /**
+         * The values the field is matched against.
+         */
+        values: string[];
+    }
+
+    /**
+     * A group of actions within an access grant, together with the resource scopes and context conditions that apply to exactly those actions.
+     */
+    export interface AccessGrantScopedActions {
+        /**
+         * The actions this group applies to, each in vendor-code:Action form.
+         */
+        actions: string[];
+        /**
+         * Context conditions for fine-grained access control on these actions, as a map of condition keys to lists of allowed values.
+         */
+        contextConditions?: {[key: string]: string[]};
+        /**
+         * Resource scopes constraining these actions to specific resources.
+         */
+        resources?: outputs.cloudwatch.AccessGrantResourceScope[];
+    }
+
     export interface AlarmActionConfiguration {
         /**
          * Whether the alarm's tags are included in its action notifications and state-change events.
@@ -26142,6 +26332,38 @@ export namespace cloudwatch {
     }
 
     /**
+     * The principal the grant is issued to. Supply PrincipalId, or PrincipalAttributes for an attribute-based grant.
+     */
+    export interface DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal {
+        /**
+         * Attribute key-value pairs that select the principals the grant applies to.
+         */
+        principalAttributes?: outputs.cloudwatch.DomainAccessGrantForOrganizationPrincipalAttribute[];
+        /**
+         * The identifier of the principal, such as an IAM role ARN or an Identity Center user ID.
+         */
+        principalId?: string;
+        /**
+         * The type of principal the grant is issued to.
+         */
+        principalType: enums.cloudwatch.DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType;
+    }
+
+    /**
+     * An attribute key-value pair used to select principals.
+     */
+    export interface DomainAccessGrantForOrganizationPrincipalAttribute {
+        /**
+         * The attribute name.
+         */
+        key: string;
+        /**
+         * The attribute value.
+         */
+        value: string;
+    }
+
+    /**
      * Identity Center configuration. Required when identityProviders includes IDC.
      */
     export interface DomainForOrganizationIdentityCenterConfiguration {
@@ -26156,6 +26378,23 @@ export namespace cloudwatch {
      */
     export interface DomainForOrganizationIdentityProviderConfiguration {
         identityCenterConfiguration?: outputs.cloudwatch.DomainForOrganizationIdentityCenterConfiguration;
+    }
+
+    /**
+     * Identity Center configuration. Required when identityProviders includes IDC.
+     */
+    export interface DomainIdentityCenterConfiguration {
+        /**
+         * Identity Center instance ARN
+         */
+        identityCenterInstanceArn?: string;
+    }
+
+    /**
+     * Identity provider configuration for the domain.
+     */
+    export interface DomainIdentityProviderConfiguration {
+        identityCenterConfiguration?: outputs.cloudwatch.DomainIdentityCenterConfiguration;
     }
 
     /**
@@ -26381,6 +26620,20 @@ export namespace cloudwatch {
          * The timezone of the schedule
          */
         timezone?: string;
+    }
+
+    /**
+     * The encryption configuration for the space.
+     */
+    export interface SpaceEncryptionConfiguration {
+        /**
+         * Whether the space is encrypted with an AWS owned key or a customer managed key.
+         */
+        encryptionStrategy: enums.cloudwatch.SpaceEncryptionConfigurationEncryptionStrategy;
+        /**
+         * The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+         */
+        kmsKeyArn?: string;
     }
 
 }
@@ -33187,6 +33440,51 @@ export namespace customerprofiles {
      */
     export interface EventTriggerDimension {
         objectAttributes: outputs.customerprofiles.EventTriggerObjectAttribute[];
+    }
+
+    /**
+     * Identifies a predicted intent by domain and type.
+     */
+    export interface EventTriggerIntent {
+        /**
+         * The domain of the intent.
+         */
+        intentDomain: enums.customerprofiles.EventTriggerIntentIntentDomain;
+        /**
+         * The type of the intent.
+         */
+        type: enums.customerprofiles.EventTriggerIntentType;
+    }
+
+    /**
+     * The criteria that a predicted intent must meet.
+     */
+    export interface EventTriggerIntentFilterCondition {
+        /**
+         * The operator used to compare the predicted intent against a list of values.
+         */
+        comparisonOperator: enums.customerprofiles.EventTriggerIntentFilterConditionComparisonOperator;
+        intent: outputs.customerprofiles.EventTriggerIntent;
+        /**
+         * A list of intent values used for comparison.
+         */
+        values: string[];
+    }
+
+    /**
+     * Filters the destination to profiles whose predicted intents meet the specified conditions.
+     */
+    export interface EventTriggerIntentFilterDefinition {
+        groups: outputs.customerprofiles.EventTriggerIntentFilterGroup[];
+        logicalOperator: enums.customerprofiles.EventTriggerLogicalOperator;
+    }
+
+    /**
+     * A group of intent filter conditions combined by the group's logical operator.
+     */
+    export interface EventTriggerIntentFilterGroup {
+        conditions: outputs.customerprofiles.EventTriggerIntentFilterCondition[];
+        logicalOperator: enums.customerprofiles.EventTriggerLogicalOperator;
     }
 
     /**
@@ -50767,6 +51065,10 @@ export namespace eks {
          * Todo: add description
          */
         enabled?: boolean;
+        /**
+         * The Gateway API configuration for the cluster.
+         */
+        gatewayApi?: outputs.eks.ClusterGatewayApi;
     }
 
     /**
@@ -50791,6 +51093,26 @@ export namespace eks {
          * Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
          */
         spreadLevel?: string;
+    }
+
+    /**
+     * The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+     */
+    export interface ClusterGatewayApi {
+        /**
+         * The Gateway API Custom Resource Definition (CRD) configuration.
+         */
+        crds: outputs.eks.ClusterGatewayApiCrds;
+    }
+
+    /**
+     * The Gateway API Custom Resource Definition (CRD) configuration for the cluster.
+     */
+    export interface ClusterGatewayApiCrds {
+        /**
+         * Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+         */
+        managed: boolean;
     }
 
     /**
@@ -71151,7 +71473,7 @@ export namespace kinesisanalyticsv2 {
          */
         s3ContentLocation?: outputs.kinesisanalyticsv2.ApplicationS3ContentLocation;
         /**
-         * The text-format code for a Flink-based Kinesis Data Analytics application.
+         * The text-format code for a Kinesis Data Analytics Studio notebook, as a Zeppelin note JSON object.
          */
         textContent?: string;
         /**
@@ -71189,10 +71511,6 @@ export namespace kinesisanalyticsv2 {
          */
         flinkApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationFlinkApplicationConfiguration;
         /**
-         * The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-         */
-        sqlApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationSqlApplicationConfiguration;
-        /**
          * The array of descriptions of VPC configurations available to the application.
          */
         vpcConfigurations?: outputs.kinesisanalyticsv2.ApplicationVpcConfiguration[];
@@ -71200,22 +71518,6 @@ export namespace kinesisanalyticsv2 {
          * The configuration parameters for a Kinesis Data Analytics Studio notebook.
          */
         zeppelinApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinApplicationConfiguration;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
-     * `"name1", "address1"`
-     * `"name2", "address2"`
-     */
-    export interface ApplicationCsvMappingParameters {
-        /**
-         * The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-         */
-        recordColumnDelimiter: string;
-        /**
-         * The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
-         */
-        recordRowDelimiter: string;
     }
 
     /**
@@ -71309,114 +71611,6 @@ export namespace kinesisanalyticsv2 {
     }
 
     /**
-     * When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
-     */
-    export interface ApplicationInput {
-        /**
-         * Describes the number of in-application streams to create.
-         */
-        inputParallelism?: outputs.kinesisanalyticsv2.ApplicationInputParallelism;
-        /**
-         * The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
-         */
-        inputProcessingConfiguration?: outputs.kinesisanalyticsv2.ApplicationInputProcessingConfiguration;
-        /**
-         * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-         */
-        inputSchema: outputs.kinesisanalyticsv2.ApplicationInputSchema;
-        /**
-         * If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-         */
-        kinesisFirehoseInput?: outputs.kinesisanalyticsv2.ApplicationKinesisFirehoseInput;
-        /**
-         * If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-         */
-        kinesisStreamsInput?: outputs.kinesisanalyticsv2.ApplicationKinesisStreamsInput;
-        /**
-         * The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
-         */
-        namePrefix: string;
-    }
-
-    /**
-     * An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
-     */
-    export interface ApplicationInputLambdaProcessor {
-        /**
-         * The ARN of the Amazon Lambda function that operates on records in the stream.
-         */
-        resourceArn: string;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
-     */
-    export interface ApplicationInputParallelism {
-        /**
-         * The number of in-application streams to create.
-         */
-        count?: number;
-    }
-
-    /**
-     * For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
-     */
-    export interface ApplicationInputProcessingConfiguration {
-        /**
-         * The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-         */
-        inputLambdaProcessor?: outputs.kinesisanalyticsv2.ApplicationInputLambdaProcessor;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-     */
-    export interface ApplicationInputSchema {
-        /**
-         * A list of `RecordColumn` objects.
-         */
-        recordColumns: outputs.kinesisanalyticsv2.ApplicationRecordColumn[];
-        /**
-         * Specifies the encoding of the records in the streaming source. For example, UTF-8.
-         */
-        recordEncoding?: enums.kinesisanalyticsv2.ApplicationInputSchemaRecordEncoding;
-        /**
-         * Specifies the format of the records on the streaming source.
-         */
-        recordFormat: outputs.kinesisanalyticsv2.ApplicationRecordFormat;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
-     */
-    export interface ApplicationJsonMappingParameters {
-        /**
-         * The path to the top-level parent that contains the records.
-         */
-        recordRowPath: string;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
-     */
-    export interface ApplicationKinesisFirehoseInput {
-        /**
-         * The Amazon Resource Name (ARN) of the delivery stream.
-         */
-        resourceArn: string;
-    }
-
-    /**
-     * Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
-     */
-    export interface ApplicationKinesisStreamsInput {
-        /**
-         * The ARN of the input Kinesis data stream to read.
-         */
-        resourceArn: string;
-    }
-
-    /**
      * Describes the maintenance configuration for the application.
      */
     export interface ApplicationMaintenanceConfiguration {
@@ -71424,20 +71618,6 @@ export namespace kinesisanalyticsv2 {
          * The start time for the maintenance window.
          */
         applicationMaintenanceWindowStartTime: string;
-    }
-
-    /**
-     * When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-     */
-    export interface ApplicationMappingParameters {
-        /**
-         * Provides additional mapping information when the record format uses delimiters (for example, CSV).
-         */
-        csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationCsvMappingParameters;
-        /**
-         * Provides additional mapping information when JSON is the record format on the streaming source.
-         */
-        jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationJsonMappingParameters;
     }
 
     /**
@@ -71513,39 +71693,6 @@ export namespace kinesisanalyticsv2 {
     }
 
     /**
-     * For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-     * Also used to describe the format of the reference data source.
-     */
-    export interface ApplicationRecordColumn {
-        /**
-         * A reference to the data element in the streaming input or the reference data source.
-         */
-        mapping?: string;
-        /**
-         * The name of the column that is created in the in-application input stream or reference table.
-         */
-        name: string;
-        /**
-         * The type of column created in the in-application input stream or reference table.
-         */
-        sqlType: string;
-    }
-
-    /**
-     * For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
-     */
-    export interface ApplicationRecordFormat {
-        /**
-         * When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-         */
-        mappingParameters?: outputs.kinesisanalyticsv2.ApplicationMappingParameters;
-        /**
-         * The type of record format.
-         */
-        recordFormatType: enums.kinesisanalyticsv2.ApplicationRecordFormatRecordFormatType;
-    }
-
-    /**
      * Describes the restore behavior of a restarting application.
      */
     export interface ApplicationRestoreConfiguration {
@@ -71554,7 +71701,11 @@ export namespace kinesisanalyticsv2 {
          */
         applicationRestoreType: enums.kinesisanalyticsv2.ApplicationRestoreConfigurationApplicationRestoreType;
         /**
-         * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+         * The ARN of an existing snapshot to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+         */
+        snapshotArn?: string;
+        /**
+         * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
          */
         snapshotName?: string;
     }
@@ -71610,19 +71761,13 @@ export namespace kinesisanalyticsv2 {
      */
     export interface ApplicationSnapshotConfiguration {
         /**
+         * The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+         */
+        snapshotMode?: enums.kinesisanalyticsv2.ApplicationSnapshotConfigurationSnapshotMode;
+        /**
          * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
          */
         snapshotsEnabled: boolean;
-    }
-
-    /**
-     * Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
-     */
-    export interface ApplicationSqlApplicationConfiguration {
-        /**
-         * The array of Input objects describing the input streams used by the application.
-         */
-        inputs?: outputs.kinesisanalyticsv2.ApplicationInput[];
     }
 
     /**
@@ -75024,7 +75169,7 @@ export namespace lex {
          *
          * Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
          */
-        promptSpecification: outputs.lex.BotPromptSpecification;
+        promptSpecification?: outputs.lex.BotPromptSpecification;
     }
 
     export interface BotIntentDisambiguationSettings {
@@ -75790,7 +75935,7 @@ export namespace lex {
         /**
          * The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
          */
-        continueResponse: outputs.lex.BotResponseSpecification;
+        continueResponse?: outputs.lex.BotResponseSpecification;
         /**
          * Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
          */
@@ -75802,7 +75947,7 @@ export namespace lex {
         /**
          * The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
          */
-        waitingResponse: outputs.lex.BotResponseSpecification;
+        waitingResponse?: outputs.lex.BotResponseSpecification;
     }
 
     /**
@@ -77605,6 +77750,232 @@ export namespace mediaconnect {
     }
 
     /**
+     * The details of the resource that is associated with a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+     */
+    export interface DestinationEndpointAssociatedResourceDetails0Properties {
+        standard: outputs.mediaconnect.DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails;
+    }
+
+    /**
+     * The details of the resource that is associated with a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+     */
+    export interface DestinationEndpointAssociatedResourceDetails1Properties {
+        routerInput: outputs.mediaconnect.DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+     */
+    export interface DestinationEndpointConfiguration0Properties {
+        standard: outputs.mediaconnect.DestinationEndpointStandardDestinationEndpointConfiguration;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint. This is a union type, so exactly one of its members is set, depending on the type of the destination endpoint.
+     */
+    export interface DestinationEndpointConfiguration1Properties {
+        routerInput: outputs.mediaconnect.DestinationEndpointRouterInputDestinationEndpointConfiguration;
+    }
+
+    /**
+     * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+     */
+    export interface DestinationEndpointEndpointEncryptionSecretConfiguration {
+        /**
+         * The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+         */
+        secretArn: string;
+    }
+
+    /**
+     * The networking configuration for a publicly accessible destination endpoint, including the CIDR blocks that are allowed to connect.
+     */
+    export interface DestinationEndpointPublicDestinationEndpointNetworkingConfiguration {
+        /**
+         * The rules that specify which CIDR blocks can connect to the destination endpoint. You can specify up to 10 rules.
+         */
+        destinationAllowRules: outputs.mediaconnect.DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule[];
+    }
+
+    /**
+     * A rule that allows a specific CIDR block to connect to the public destination endpoint.
+     */
+    export interface DestinationEndpointPublicDestinationEndpointNetworkingConfigurationAllowRule {
+        /**
+         * The CIDR block that is allowed to connect to the destination endpoint, in CIDR notation.
+         */
+        cidr: string;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that uses the RIST protocol.
+     */
+    export interface DestinationEndpointRistStandardDestinationEndpointConfiguration {
+        /**
+         * The IP address on which the destination endpoint receives content.
+         */
+        destinationAddress: string;
+        /**
+         * The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+         */
+        destinationIngestPort: number;
+    }
+
+    /**
+     * The details of the router input that is associated with a destination endpoint.
+     */
+    export interface DestinationEndpointRouterInputDestinationEndpointAssociatedResourceDetails {
+        /**
+         * The maximum bitrate of the router input, in bits per second.
+         */
+        maximumBitrate: number;
+        /**
+         * The name of the router input.
+         */
+        name: string;
+        state: enums.mediaconnect.DestinationEndpointRouterInputState;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that represents a router input.
+     */
+    export interface DestinationEndpointRouterInputDestinationEndpointConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the router input that the destination endpoint represents.
+         */
+        routerInputArn: string;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that uses the RTP protocol.
+     */
+    export interface DestinationEndpointRtpStandardDestinationEndpointConfiguration {
+        /**
+         * The IP address on which the destination endpoint receives content.
+         */
+        destinationAddress: string;
+        /**
+         * The port on which the destination endpoint receives content. The valid range is 1024 to 65531.
+         */
+        destinationIngestPort: number;
+        forwardErrorCorrectionState: enums.mediaconnect.DestinationEndpointForwardErrorCorrectionState;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that uses SRT in caller mode.
+     */
+    export interface DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration {
+        encryptionPassphrase?: outputs.mediaconnect.DestinationEndpointEndpointEncryptionSecretConfiguration;
+        /**
+         * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+         */
+        minimumLatencyMilliseconds: number;
+        /**
+         * The port on which the source listens for the connection. The valid range is 3000 to 30000.
+         */
+        sourceListenerPort: number;
+    }
+
+    /**
+     * The configuration settings for a destination endpoint that uses SRT in listener mode.
+     */
+    export interface DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration {
+        /**
+         * The IP address on which the destination endpoint listens for incoming connections.
+         */
+        destinationAddress: string;
+        /**
+         * The port on which the destination endpoint listens for incoming connections. The valid range is 0 to 65531.
+         */
+        destinationIngestPort: number;
+        encryptionPassphrase?: outputs.mediaconnect.DestinationEndpointEndpointEncryptionSecretConfiguration;
+        /**
+         * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+         */
+        minimumLatencyMilliseconds: number;
+        /**
+         * The stream ID that identifies the content for the SRT connection.
+         */
+        streamId?: string;
+    }
+
+    /**
+     * The associated resource details for a standard destination endpoint. This type does not require any additional settings.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointAssociatedResourceDetails {
+    }
+
+    /**
+     * The configuration settings for a standard destination endpoint.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointConfiguration {
+        destinationNetworkingConfiguration: outputs.mediaconnect.DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties | outputs.mediaconnect.DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties;
+        destinationNetworkingType?: enums.mediaconnect.DestinationEndpointNetworkingType;
+        /**
+         * The name of the destination endpoint.
+         */
+        name: string;
+        protocol?: enums.mediaconnect.DestinationEndpointProtocol;
+        protocolConfiguration: outputs.mediaconnect.DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties | outputs.mediaconnect.DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties | outputs.mediaconnect.DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties | outputs.mediaconnect.DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties;
+    }
+
+    /**
+     * The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+     */
+    export interface DestinationEndpointStandardDestinationEndpointNetworkingConfiguration0Properties {
+        public: outputs.mediaconnect.DestinationEndpointPublicDestinationEndpointNetworkingConfiguration;
+    }
+
+    /**
+     * The networking configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+     */
+    export interface DestinationEndpointStandardDestinationEndpointNetworkingConfiguration1Properties {
+        vpc: outputs.mediaconnect.DestinationEndpointVpcDestinationEndpointNetworkingConfiguration;
+    }
+
+    /**
+     * The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointProtocolConfiguration0Properties {
+        rist: outputs.mediaconnect.DestinationEndpointRistStandardDestinationEndpointConfiguration;
+    }
+
+    /**
+     * The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointProtocolConfiguration1Properties {
+        srtListener: outputs.mediaconnect.DestinationEndpointSrtListenerStandardDestinationEndpointConfiguration;
+    }
+
+    /**
+     * The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointProtocolConfiguration2Properties {
+        srtCaller: outputs.mediaconnect.DestinationEndpointSrtCallerStandardDestinationEndpointConfiguration;
+    }
+
+    /**
+     * The protocol configuration for a standard destination endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the destination endpoint uses.
+     */
+    export interface DestinationEndpointStandardDestinationEndpointProtocolConfiguration3Properties {
+        rtp: outputs.mediaconnect.DestinationEndpointRtpStandardDestinationEndpointConfiguration;
+    }
+
+    /**
+     * The networking configuration for a destination endpoint in a virtual private cloud (VPC).
+     */
+    export interface DestinationEndpointVpcDestinationEndpointNetworkingConfiguration {
+        /**
+         * The IDs of the security groups to associate with the destination endpoint. You can specify from 1 to 5 security groups.
+         */
+        securityGroupIds: string[];
+        /**
+         * The ID of the subnet to use for the destination endpoint.
+         */
+        subnetId: string;
+    }
+
+    /**
      * Specifies the configuration for audio stream metrics monitoring.
      */
     export interface FlowAudioMonitoringSetting {
@@ -78491,6 +78862,12 @@ export namespace mediaconnect {
     }
 
     /**
+     * The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+     */
+    export interface RouterInputAutomaticEndpointEncryptionConfiguration {
+    }
+
+    /**
      * Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
      */
     export interface RouterInputBlackFramesConfiguration {
@@ -78505,35 +78882,42 @@ export namespace mediaconnect {
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration0Properties {
-        standard: outputs.mediaconnect.RouterInputStandardRouterInputConfiguration;
+        destinationEndpoint: outputs.mediaconnect.RouterInputDestinationEndpointRouterInputConfiguration;
     }
 
     /**
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration1Properties {
-        failover: outputs.mediaconnect.RouterInputFailoverRouterInputConfiguration;
+        standard: outputs.mediaconnect.RouterInputStandardRouterInputConfiguration;
     }
 
     /**
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration2Properties {
-        merge: outputs.mediaconnect.RouterInputMergeRouterInputConfiguration;
+        mediaLiveChannel: outputs.mediaconnect.RouterInputMediaLiveChannelRouterInputConfiguration;
     }
 
     /**
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration3Properties {
-        mediaConnectFlow: outputs.mediaconnect.RouterInputMediaConnectFlowRouterInputConfiguration;
+        failover: outputs.mediaconnect.RouterInputFailoverRouterInputConfiguration;
     }
 
     /**
      * The configuration settings for a router input.
      */
     export interface RouterInputConfiguration4Properties {
-        mediaLiveChannel: outputs.mediaconnect.RouterInputMediaLiveChannelRouterInputConfiguration;
+        mediaConnectFlow: outputs.mediaconnect.RouterInputMediaConnectFlowRouterInputConfiguration;
+    }
+
+    /**
+     * The configuration settings for a router input.
+     */
+    export interface RouterInputConfiguration5Properties {
+        merge: outputs.mediaconnect.RouterInputMergeRouterInputConfiguration;
     }
 
     /**
@@ -78549,6 +78933,39 @@ export namespace mediaconnect {
      * Configuration settings for default maintenance scheduling.
      */
     export interface RouterInputDefaultMaintenanceConfiguration {
+    }
+
+    /**
+     * Configuration settings for a router input that is represented by a destination endpoint.
+     */
+    export interface RouterInputDestinationEndpointRouterInputConfiguration {
+        endpointLifecycleManagement: enums.mediaconnect.RouterInputEndpointLifecycle;
+        sourceTransitDecryption: outputs.mediaconnect.RouterInputEndpointEncryptionConfiguration0Properties | outputs.mediaconnect.RouterInputEndpointEncryptionConfiguration1Properties;
+        sourceTransitDecryptionType?: enums.mediaconnect.RouterInputEndpointEncryptionType;
+    }
+
+    /**
+     * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+     */
+    export interface RouterInputEndpointEncryptionConfiguration0Properties {
+        secretsManager: outputs.mediaconnect.RouterInputSecretsManagerEndpointEncryptionConfiguration;
+    }
+
+    /**
+     * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+     */
+    export interface RouterInputEndpointEncryptionConfiguration1Properties {
+        automatic: outputs.mediaconnect.RouterInputAutomaticEndpointEncryptionConfiguration;
+    }
+
+    /**
+     * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+     */
+    export interface RouterInputEndpointEncryptionSecretConfiguration {
+        /**
+         * The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+         */
+        secretArn: string;
     }
 
     /**
@@ -78574,28 +78991,28 @@ export namespace mediaconnect {
      * Protocol configuration settings for failover router inputs.
      */
     export interface RouterInputFailoverRouterInputProtocolConfiguration0Properties {
-        rtp: outputs.mediaconnect.RouterInputRtpRouterInputConfiguration;
-    }
-
-    /**
-     * Protocol configuration settings for failover router inputs.
-     */
-    export interface RouterInputFailoverRouterInputProtocolConfiguration1Properties {
         rist: outputs.mediaconnect.RouterInputRistRouterInputConfiguration;
     }
 
     /**
      * Protocol configuration settings for failover router inputs.
      */
-    export interface RouterInputFailoverRouterInputProtocolConfiguration2Properties {
+    export interface RouterInputFailoverRouterInputProtocolConfiguration1Properties {
         srtListener: outputs.mediaconnect.RouterInputSrtListenerRouterInputConfiguration;
     }
 
     /**
      * Protocol configuration settings for failover router inputs.
      */
-    export interface RouterInputFailoverRouterInputProtocolConfiguration3Properties {
+    export interface RouterInputFailoverRouterInputProtocolConfiguration2Properties {
         srtCaller: outputs.mediaconnect.RouterInputSrtCallerRouterInputConfiguration;
+    }
+
+    /**
+     * Protocol configuration settings for failover router inputs.
+     */
+    export interface RouterInputFailoverRouterInputProtocolConfiguration3Properties {
+        rtp: outputs.mediaconnect.RouterInputRtpRouterInputConfiguration;
     }
 
     /**
@@ -78646,7 +79063,7 @@ export namespace mediaconnect {
     }
 
     /**
-     * Configuration settings for connecting a router input to a flow output.
+     * Configuration settings for connecting a router input to a flow output. To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
      */
     export interface RouterInputMediaConnectFlowRouterInputConfiguration {
         /**
@@ -78661,7 +79078,7 @@ export namespace mediaconnect {
     }
 
     /**
-     * Configuration settings for connecting a router input to a MediaLive channel output.
+     * Configuration settings for connecting a router input to a MediaLive channel output. To connect the router input to the MediaLive channel output, provide all three of mediaLiveChannelArn, mediaLivePipelineId, and mediaLiveChannelOutputName. To disconnect it, call the update operation and omit all three fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
      */
     export interface RouterInputMediaLiveChannelRouterInputConfiguration {
         /**
@@ -78745,28 +79162,28 @@ export namespace mediaconnect {
      * The protocol configuration settings for a router input.
      */
     export interface RouterInputProtocolConfiguration0Properties {
-        rtp: outputs.mediaconnect.RouterInputRtpRouterInputConfiguration;
-    }
-
-    /**
-     * The protocol configuration settings for a router input.
-     */
-    export interface RouterInputProtocolConfiguration1Properties {
         rist: outputs.mediaconnect.RouterInputRistRouterInputConfiguration;
     }
 
     /**
      * The protocol configuration settings for a router input.
      */
-    export interface RouterInputProtocolConfiguration2Properties {
+    export interface RouterInputProtocolConfiguration1Properties {
         srtListener: outputs.mediaconnect.RouterInputSrtListenerRouterInputConfiguration;
     }
 
     /**
      * The protocol configuration settings for a router input.
      */
-    export interface RouterInputProtocolConfiguration3Properties {
+    export interface RouterInputProtocolConfiguration2Properties {
         srtCaller: outputs.mediaconnect.RouterInputSrtCallerRouterInputConfiguration;
+    }
+
+    /**
+     * The protocol configuration settings for a router input.
+     */
+    export interface RouterInputProtocolConfiguration3Properties {
+        rtp: outputs.mediaconnect.RouterInputRtpRouterInputConfiguration;
     }
 
     /**
@@ -78813,6 +79230,14 @@ export namespace mediaconnect {
          * The ARN of the Secrets Manager secret used for transit encryption.
          */
         secretArn: string;
+    }
+
+    /**
+     * The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+     */
+    export interface RouterInputSecretsManagerEndpointEncryptionConfiguration {
+        encryptionSecret: outputs.mediaconnect.RouterInputEndpointEncryptionSecretConfiguration;
+        encryptionSecretType?: enums.mediaconnect.RouterInputEndpointEncryptionSecretType;
     }
 
     /**
@@ -78960,9 +79385,39 @@ export namespace mediaconnect {
     }
 
     /**
+     * The configuration for automatic endpoint encryption. In this mode, MediaConnect determines the encryption key when the endpoint connects. This type does not require any additional settings.
+     */
+    export interface RouterOutputResourceAutomaticEndpointEncryptionConfiguration {
+    }
+
+    /**
      * Configuration settings for default maintenance scheduling.
      */
     export interface RouterOutputResourceDefaultMaintenanceConfiguration {
+    }
+
+    /**
+     * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+     */
+    export interface RouterOutputResourceEndpointEncryptionConfiguration0Properties {
+        secretsManager: outputs.mediaconnect.RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration;
+    }
+
+    /**
+     * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
+     */
+    export interface RouterOutputResourceEndpointEncryptionConfiguration1Properties {
+        automatic: outputs.mediaconnect.RouterOutputResourceAutomaticEndpointEncryptionConfiguration;
+    }
+
+    /**
+     * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+     */
+    export interface RouterOutputResourceEndpointEncryptionSecretConfiguration {
+        /**
+         * The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+         */
+        secretArn: string;
     }
 
     /**
@@ -79009,7 +79464,7 @@ export namespace mediaconnect {
     }
 
     /**
-     * Configuration settings for connecting a router output to a MediaConnect flow source.
+     * Configuration settings for connecting a router output to a MediaConnect flow source. To connect the router output to the flow source, provide both flowArn and flowSourceArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
      */
     export interface RouterOutputResourceMediaConnectFlowRouterOutputConfiguration {
         destinationTransitEncryption: outputs.mediaconnect.RouterOutputResourceFlowTransitEncryption;
@@ -79024,7 +79479,7 @@ export namespace mediaconnect {
     }
 
     /**
-     * Configuration settings for connecting a router output to a MediaLive input.
+     * Configuration settings for connecting a router output to a MediaLive input. To connect the router output to the MediaLive input, provide both mediaLiveInputArn and mediaLivePipelineId. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
      */
     export interface RouterOutputResourceMediaLiveInputRouterOutputConfiguration {
         destinationTransitEncryption: outputs.mediaconnect.RouterOutputResourceMediaLiveTransitEncryption;
@@ -79110,24 +79565,31 @@ export namespace mediaconnect {
     }
 
     /**
-     * The protocol configuration settings for a router output.
+     * The configuration settings for a router output.
      */
-    export interface RouterOutputResourceRouterOutputProtocolConfiguration0Properties {
-        rtp: outputs.mediaconnect.RouterOutputResourceRtpRouterOutputConfiguration;
+    export interface RouterOutputResourceRouterOutputConfiguration3Properties {
+        sourceEndpoint: outputs.mediaconnect.RouterOutputResourceSourceEndpointRouterOutputConfiguration;
     }
 
     /**
      * The protocol configuration settings for a router output.
      */
-    export interface RouterOutputResourceRouterOutputProtocolConfiguration1Properties {
+    export interface RouterOutputResourceRouterOutputProtocolConfiguration0Properties {
         rist: outputs.mediaconnect.RouterOutputResourceRistRouterOutputConfiguration;
     }
 
     /**
      * The protocol configuration settings for a router output.
      */
-    export interface RouterOutputResourceRouterOutputProtocolConfiguration2Properties {
+    export interface RouterOutputResourceRouterOutputProtocolConfiguration1Properties {
         srtListener: outputs.mediaconnect.RouterOutputResourceSrtListenerRouterOutputConfiguration;
+    }
+
+    /**
+     * The protocol configuration settings for a router output.
+     */
+    export interface RouterOutputResourceRouterOutputProtocolConfiguration2Properties {
+        rtmpPush: outputs.mediaconnect.RouterOutputResourceRtmpPushRouterOutputConfiguration;
     }
 
     /**
@@ -79141,7 +79603,7 @@ export namespace mediaconnect {
      * The protocol configuration settings for a router output.
      */
     export interface RouterOutputResourceRouterOutputProtocolConfiguration4Properties {
-        rtmpPush: outputs.mediaconnect.RouterOutputResourceRtmpPushRouterOutputConfiguration;
+        rtp: outputs.mediaconnect.RouterOutputResourceRtpRouterOutputConfiguration;
     }
 
     /**
@@ -79194,6 +79656,23 @@ export namespace mediaconnect {
          * The ARN of the Secrets Manager secret used for transit encryption.
          */
         secretArn: string;
+    }
+
+    /**
+     * The endpoint encryption configuration for connections that use a key or passphrase that you store in Secrets Manager.
+     */
+    export interface RouterOutputResourceSecretsManagerEndpointEncryptionConfiguration {
+        encryptionSecret: outputs.mediaconnect.RouterOutputResourceEndpointEncryptionSecretConfiguration;
+        encryptionSecretType?: enums.mediaconnect.RouterOutputResourceEndpointEncryptionSecretType;
+    }
+
+    /**
+     * Configuration settings for a router output that is represented by a source endpoint.
+     */
+    export interface RouterOutputResourceSourceEndpointRouterOutputConfiguration {
+        destinationTransitEncryption: outputs.mediaconnect.RouterOutputResourceEndpointEncryptionConfiguration0Properties | outputs.mediaconnect.RouterOutputResourceEndpointEncryptionConfiguration1Properties;
+        destinationTransitEncryptionType?: enums.mediaconnect.RouterOutputResourceEndpointEncryptionType;
+        endpointLifecycleManagement: enums.mediaconnect.RouterOutputResourceEndpointLifecycle;
     }
 
     /**
@@ -79266,6 +79745,228 @@ export namespace mediaconnect {
      */
     export interface RouterOutputResourceTlsEncryptionConfigurationProperties {
         public: outputs.mediaconnect.RouterOutputResourcePublicTlsEncryptionConfiguration;
+    }
+
+    /**
+     * The details of the resource that is associated with a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+     */
+    export interface SourceEndpointAssociatedResourceDetails0Properties {
+        standard: outputs.mediaconnect.SourceEndpointStandardSourceEndpointAssociatedResourceDetails;
+    }
+
+    /**
+     * The details of the resource that is associated with a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+     */
+    export interface SourceEndpointAssociatedResourceDetails1Properties {
+        routerOutput: outputs.mediaconnect.SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails;
+    }
+
+    /**
+     * The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+     */
+    export interface SourceEndpointConfiguration0Properties {
+        standard: outputs.mediaconnect.SourceEndpointStandardSourceEndpointConfiguration;
+    }
+
+    /**
+     * The configuration settings for a source endpoint. This is a union type, so exactly one of its members is set, depending on the type of the source endpoint.
+     */
+    export interface SourceEndpointConfiguration1Properties {
+        routerOutput: outputs.mediaconnect.SourceEndpointRouterOutputSourceEndpointConfiguration;
+    }
+
+    /**
+     * The configuration for the Secrets Manager secret that holds the key or passphrase used to encrypt an endpoint connection.
+     */
+    export interface SourceEndpointEndpointEncryptionSecretConfiguration {
+        /**
+         * The ARN of the Secrets Manager secret that holds the key or passphrase. The secret must be encrypted with a customer managed Amazon Web Services KMS key that is enabled and symmetric; it cannot use the Amazon Web Services managed key aws/secretsmanager. The secret must be in the same Amazon Web Services account and Region as the endpoint.
+         */
+        secretArn: string;
+    }
+
+    /**
+     * The networking configuration for a publicly accessible source endpoint, including the CIDR blocks that are allowed to connect.
+     */
+    export interface SourceEndpointPublicSourceEndpointNetworkingConfiguration {
+        /**
+         * The rules that specify which CIDR blocks can connect to the source endpoint. You can specify up to 10 rules.
+         */
+        sourceAllowRules: outputs.mediaconnect.SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule[];
+    }
+
+    /**
+     * A rule that allows a specific CIDR block to connect to the public source endpoint.
+     */
+    export interface SourceEndpointPublicSourceEndpointNetworkingConfigurationAllowRule {
+        /**
+         * The CIDR block that is allowed to connect to the source endpoint, in CIDR notation.
+         */
+        cidr: string;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that uses the RIST protocol.
+     */
+    export interface SourceEndpointRistStandardSourceEndpointConfiguration {
+        /**
+         * The port on the destination that receives the content. The valid range is 3000 to 30000.
+         */
+        destinationIngestPort: number;
+        /**
+         * The amount of time, in milliseconds, that the source endpoint allows for recovering lost packets. The valid range is 10 to 10000.
+         */
+        recoveryLatencyMilliseconds: number;
+    }
+
+    /**
+     * The details of the router output that is associated with a source endpoint.
+     */
+    export interface SourceEndpointRouterOutputSourceEndpointAssociatedResourceDetails {
+        /**
+         * The maximum bitrate of the router output, in bits per second.
+         */
+        maximumBitrate: number;
+        /**
+         * The name of the router output.
+         */
+        name: string;
+        state: enums.mediaconnect.SourceEndpointRouterOutputState;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that represents a router output.
+     */
+    export interface SourceEndpointRouterOutputSourceEndpointConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the router output that the source endpoint represents.
+         */
+        routerOutputArn: string;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that uses the RTP protocol.
+     */
+    export interface SourceEndpointRtpStandardSourceEndpointConfiguration {
+        /**
+         * The port on the destination that receives the content. The valid range is 3000 to 30000.
+         */
+        destinationIngestPort: number;
+        forwardErrorCorrectionState: enums.mediaconnect.SourceEndpointForwardErrorCorrectionState;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that uses SRT in caller mode.
+     */
+    export interface SourceEndpointSrtCallerStandardSourceEndpointConfiguration {
+        /**
+         * The port on which the destination listens for the connection. The valid range is 3000 to 30000.
+         */
+        destinationIngestPort: number;
+        encryptionPassphrase?: outputs.mediaconnect.SourceEndpointEndpointEncryptionSecretConfiguration;
+        /**
+         * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+         */
+        minimumLatencyMilliseconds: number;
+    }
+
+    /**
+     * The configuration settings for a source endpoint that uses SRT in listener mode.
+     */
+    export interface SourceEndpointSrtListenerStandardSourceEndpointConfiguration {
+        encryptionPassphrase?: outputs.mediaconnect.SourceEndpointEndpointEncryptionSecretConfiguration;
+        /**
+         * The minimum latency, in milliseconds, for the SRT connection. The valid range is 10 to 10000.
+         */
+        minimumLatencyMilliseconds: number;
+        /**
+         * The IP address that the source endpoint listens on for incoming connections.
+         */
+        sourceAddress: string;
+        /**
+         * The port that the source endpoint listens on for incoming connections. The valid range is 1024 to 65535.
+         */
+        sourceListenerPort: number;
+        /**
+         * The stream ID that identifies the content for the SRT connection.
+         */
+        streamId?: string;
+    }
+
+    /**
+     * The associated resource details for a standard source endpoint. This type does not require any additional settings.
+     */
+    export interface SourceEndpointStandardSourceEndpointAssociatedResourceDetails {
+    }
+
+    /**
+     * The configuration settings for a standard source endpoint.
+     */
+    export interface SourceEndpointStandardSourceEndpointConfiguration {
+        /**
+         * The name of the source endpoint.
+         */
+        name: string;
+        protocol?: enums.mediaconnect.SourceEndpointProtocol;
+        protocolConfiguration: outputs.mediaconnect.SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties | outputs.mediaconnect.SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties | outputs.mediaconnect.SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties | outputs.mediaconnect.SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties;
+        sourceNetworkingConfiguration: outputs.mediaconnect.SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties | outputs.mediaconnect.SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties;
+        sourceNetworkingType?: enums.mediaconnect.SourceEndpointNetworkingType;
+    }
+
+    /**
+     * The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+     */
+    export interface SourceEndpointStandardSourceEndpointNetworkingConfiguration0Properties {
+        public: outputs.mediaconnect.SourceEndpointPublicSourceEndpointNetworkingConfiguration;
+    }
+
+    /**
+     * The networking configuration for a standard source endpoint. This is a union type, so exactly one of its members is set: public for a publicly accessible endpoint, or vpc for an endpoint in a virtual private cloud (VPC).
+     */
+    export interface SourceEndpointStandardSourceEndpointNetworkingConfiguration1Properties {
+        vpc: outputs.mediaconnect.SourceEndpointVpcSourceEndpointNetworkingConfiguration;
+    }
+
+    /**
+     * The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+     */
+    export interface SourceEndpointStandardSourceEndpointProtocolConfiguration0Properties {
+        rist: outputs.mediaconnect.SourceEndpointRistStandardSourceEndpointConfiguration;
+    }
+
+    /**
+     * The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+     */
+    export interface SourceEndpointStandardSourceEndpointProtocolConfiguration1Properties {
+        srtListener: outputs.mediaconnect.SourceEndpointSrtListenerStandardSourceEndpointConfiguration;
+    }
+
+    /**
+     * The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+     */
+    export interface SourceEndpointStandardSourceEndpointProtocolConfiguration2Properties {
+        srtCaller: outputs.mediaconnect.SourceEndpointSrtCallerStandardSourceEndpointConfiguration;
+    }
+
+    /**
+     * The protocol configuration for a standard source endpoint. This is a union type, so exactly one of its members is set, depending on the protocol that the source endpoint uses.
+     */
+    export interface SourceEndpointStandardSourceEndpointProtocolConfiguration3Properties {
+        rtp: outputs.mediaconnect.SourceEndpointRtpStandardSourceEndpointConfiguration;
+    }
+
+    /**
+     * The networking configuration for a source endpoint in a virtual private cloud (VPC).
+     */
+    export interface SourceEndpointVpcSourceEndpointNetworkingConfiguration {
+        /**
+         * The IDs of the security groups to associate with the source endpoint. You can specify from 1 to 5 security groups.
+         */
+        securityGroupIds: string[];
+        /**
+         * The ID of the subnet to use for the source endpoint.
+         */
+        subnetId: string;
     }
 
 }
@@ -82638,6 +83339,24 @@ export namespace mgn {
         s3BucketOwner: string;
     }
 
+    /**
+     * The aggregated migration status of the wave.
+     */
+    export interface WaveAggregatedStatus {
+        /**
+         * The health status of the wave.
+         */
+        healthStatus?: enums.mgn.WaveAggregatedStatusHealthStatus;
+        /**
+         * The progress status of the wave.
+         */
+        progressStatus?: enums.mgn.WaveAggregatedStatusProgressStatus;
+        /**
+         * The total number of applications in the wave.
+         */
+        totalApplications?: number;
+    }
+
 }
 
 export namespace msk {
@@ -83934,6 +84653,30 @@ export namespace networkfirewall {
         availabilityZone: string;
     }
 
+    /**
+     * A port and protocol that a proxy-mode firewall's proxy listener accepts traffic on.
+     */
+    export interface FirewallListenerProperty {
+        /**
+         * The port the proxy listener accepts traffic on.
+         */
+        port?: number;
+        /**
+         * The protocol the proxy listener uses.
+         */
+        type?: enums.networkfirewall.FirewallListenerPropertyType;
+    }
+
+    /**
+     * A mapping to a NAT gateway that a proxy-mode firewall proxies egress traffic through.
+     */
+    export interface FirewallNatGatewayMapping {
+        /**
+         * The unique identifier of a NAT gateway.
+         */
+        natGatewayId: string;
+    }
+
     export interface FirewallPolicy {
         /**
          * When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
@@ -83943,6 +84686,7 @@ export namespace networkfirewall {
          * Contains variables that you can use to override default Suricata settings in your firewall policy.
          */
         policyVariables?: outputs.networkfirewall.FirewallPolicyPolicyVariablesProperties;
+        route53ResolvedIpValidation?: outputs.networkfirewall.FirewallPolicyRoute53ResolvedIpValidation;
         /**
          * The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
          *
@@ -84003,6 +84747,10 @@ export namespace networkfirewall {
         publishMetricAction?: outputs.networkfirewall.FirewallPolicyPublishMetricAction;
     }
 
+    export interface FirewallPolicyAddress {
+        addressDefinition: string;
+    }
+
     export interface FirewallPolicyCustomAction {
         /**
          * The custom action associated with the action name.
@@ -84037,6 +84785,14 @@ export namespace networkfirewall {
 
     export interface FirewallPolicyPublishMetricAction {
         dimensions: outputs.networkfirewall.FirewallPolicyDimension[];
+    }
+
+    export interface FirewallPolicyRoute53ResolvedIpValidation {
+        action: enums.networkfirewall.FirewallPolicyRoute53ResolvedIpValidationAction;
+        bypassDestinationValidationIpRanges?: outputs.networkfirewall.FirewallPolicyAddress[];
+        dnsExpiryExceptionPolicy: enums.networkfirewall.FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy;
+        dnsFirewallRuleGroupId: string;
+        sourceIpRanges?: outputs.networkfirewall.FirewallPolicyAddress[];
     }
 
     export interface FirewallPolicyStatefulEngineOptions {
@@ -84108,6 +84864,13 @@ export namespace networkfirewall {
         resourceArn: string;
     }
 
+    /**
+     * The proxy listener configuration for a proxy-mode (no source preservation) firewall.
+     */
+    export interface FirewallProxySettings {
+        listenerProperties?: outputs.networkfirewall.FirewallListenerProperty[];
+    }
+
     export interface FirewallSubnetMapping {
         /**
          * A IPAddressType
@@ -84117,6 +84880,17 @@ export namespace networkfirewall {
          * A SubnetId.
          */
         subnetId: string;
+    }
+
+    /**
+     * The VPC and subnets for a proxy-mode firewall's endpoint. Provide this instead of the top-level VpcId and SubnetMappings when NoSourcePreservation is true.
+     */
+    export interface FirewallVpcEndpoint {
+        subnetMappings?: outputs.networkfirewall.FirewallSubnetMapping[];
+        /**
+         * The unique identifier of the VPC for the firewall endpoint.
+         */
+        vpcId?: string;
     }
 
     export interface LoggingConfiguration {
@@ -85142,6 +85916,62 @@ export namespace networkmanager {
 }
 
 export namespace networkmonitor {
+}
+
+export namespace networksecuritymanager {
+    /**
+     * Associates either a template or a rule with a policy.
+     */
+    export interface PolicyAssociatedTemplateAndRule {
+        /**
+         * ARN of the associated rule.
+         */
+        ruleArn?: string;
+        /**
+         * ARN of the associated template.
+         */
+        templateArn?: string;
+    }
+
+    /**
+     * Configuration settings for policy behavior.
+     */
+    export interface PolicyConfiguration {
+        /**
+         * Controls automatic remediation of non-compliant resources.
+         */
+        remediationEnabled?: boolean;
+        /**
+         * Controls automatic cleanup of unused resources.
+         */
+        resourcesCleanUp?: boolean;
+        wafConfig?: outputs.networksecuritymanager.PolicyWafConfig;
+    }
+
+    /**
+     * WAF-specific policy settings. Populated only for WAF firewall type policies.
+     */
+    export interface PolicyWafConfig {
+        /**
+         * Conflict-resolution strategy applied to AWS WAF policies.
+         */
+        conflictResolution: enums.networksecuritymanager.PolicyWafConfigConflictResolution;
+        /**
+         * Controls how Network Security Manager handles remediation when a resource already has a customer-created WebACL.
+         */
+        existingCustomerWebAclResolution: enums.networksecuritymanager.PolicyWafConfigExistingCustomerWebAclResolution;
+    }
+
+    /**
+     * An association between a template and a rule.
+     */
+    export interface TemplateAssociatedRule {
+        /**
+         * ARN of the associated rule.
+         */
+        ruleArn: string;
+    }
+
 }
 
 export namespace nimblestudio {
@@ -86530,6 +87360,10 @@ export namespace omics {
     export interface ConfigurationVpcConfig {
         securityGroupIds?: string[];
         subnetIds?: string[];
+        /**
+         * The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+         */
+        vpcOwnerAccountId?: string;
     }
 
     /**
@@ -88488,6 +89322,35 @@ export namespace personalize {
          * The file path of the Amazon S3 bucket.
          */
         path: string;
+    }
+
+    /**
+     * The configuration details of the recommender.
+     */
+    export interface RecommenderConfig {
+        /**
+         * Whether metadata with recommendations is enabled for the recommender.
+         */
+        enableMetadataWithRecommendations?: boolean;
+        /**
+         * Specifies the exploration configuration hyperparameters.
+         */
+        itemExplorationConfig?: {[key: string]: string};
+        /**
+         * Specifies the requested minimum provisioned recommendation requests per second.
+         */
+        minRecommendationRequestsPerSecond?: number;
+        trainingDataConfig?: outputs.personalize.RecommenderTrainingDataConfig;
+    }
+
+    /**
+     * The training data configuration to use when creating a domain recommender.
+     */
+    export interface RecommenderTrainingDataConfig {
+        /**
+         * Specifies the columns to exclude from training. Each key is a dataset type, and each value is a list of columns.
+         */
+        excludedDatasetColumns?: {[key: string]: string[]};
     }
 
     /**
@@ -100072,6 +100935,7 @@ export namespace quicksight {
          * The ability to add or run anomaly detection.
          */
         addOrRunAnomalyDetectionForAnalyses?: enums.quicksight.CustomPermissionsCapabilityState;
+        adobeAnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         amazonBedrockArsAction?: enums.quicksight.CustomPermissionsCapabilityState;
         amazonBedrockFsAction?: enums.quicksight.CustomPermissionsCapabilityState;
         amazonBedrockKrsAction?: enums.quicksight.CustomPermissionsCapabilityState;
@@ -100083,15 +100947,21 @@ export namespace quicksight {
         approveFlowShareRequests?: enums.quicksight.CustomPermissionsCapabilityState;
         apps?: enums.quicksight.CustomPermissionsCapabilityState;
         asanaAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        athenaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        auroraDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         automate?: enums.quicksight.CustomPermissionsCapabilityState;
         bambooHrAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        bedrockManagedKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         boxAgentAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        boxKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         buildCalculatedFieldWithQ?: enums.quicksight.CustomPermissionsCapabilityState;
         canvaAgentAction?: enums.quicksight.CustomPermissionsCapabilityState;
         chatAgent?: enums.quicksight.CustomPermissionsCapabilityState;
         comprehendAction?: enums.quicksight.CustomPermissionsCapabilityState;
         comprehendMedicalAction?: enums.quicksight.CustomPermissionsCapabilityState;
         confluenceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        confluenceKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAdobeAnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateAmazonBedrockArsAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateAmazonBedrockFsAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateAmazonBedrockKrsAction?: enums.quicksight.CustomPermissionsCapabilityState;
@@ -100099,11 +100969,14 @@ export namespace quicksight {
         createAndUpdateApps?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateAsanaAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateBambooHrAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateBedrockManagedKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateBoxAgentAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateBoxKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateCanvaAgentAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateComprehendAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateComprehendMedicalAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateConfluenceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateConfluenceKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to create and update email reports.
          */
@@ -100120,8 +100993,10 @@ export namespace quicksight {
         createAndUpdateGenericHttpAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateGithubAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateGoogleCalendarAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateGoogleDriveKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateHubspotAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateHuggingFaceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateIdcKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateIntercomAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateJiraAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateKnowledgeBases?: enums.quicksight.CustomPermissionsCapabilityState;
@@ -100133,8 +101008,11 @@ export namespace quicksight {
         createAndUpdateNewRelicAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateNotionAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateOneDriveAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateOneDriveKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateOpenApiAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdatePagerDutyAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateQBusinessKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateS3KnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateSalesforceAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateSandPGlobalEnergyAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateSandPgmiAction?: enums.quicksight.CustomPermissionsCapabilityState;
@@ -100145,6 +101023,7 @@ export namespace quicksight {
         createAndUpdateSapProductMasterDataAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateServiceNowAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateSharePointAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateSharePointKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateSlackAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateSmartsheetAction?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateTextractAction?: enums.quicksight.CustomPermissionsCapabilityState;
@@ -100156,23 +101035,75 @@ export namespace quicksight {
          * The ability to create and update threshold alerts.
          */
         createAndUpdateThresholdAlerts?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAndUpdateWebCrawlerKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         createAndUpdateZendeskAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAthenaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createAuroraDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         createChatAgents?: enums.quicksight.CustomPermissionsCapabilityState;
         createDashboardExecutiveSummaryWithQ?: enums.quicksight.CustomPermissionsCapabilityState;
+        createDatabricksDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createDb2DataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createDenodoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createDocumentDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createDremioDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createDynamoDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createExasolDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createFileDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createGitHubDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createGoogleAnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createGoogleBigQueryDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createGoogleSheetsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createImpalaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createJiraDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createMariaDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createMongoAtlasDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createMongoDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createMySqlDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createOpenSearchDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createOracleDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createPayPalDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createPostgreSqlDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createPrestoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createRadiantDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createRdsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createRedshiftAutoDiscoveredDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createRedshiftManualDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createS3AnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createS3DataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createS3TablesDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createSalesforceDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createSapHanaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createServiceNowDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to create shared folders.
          */
         createSharedFolders?: enums.quicksight.CustomPermissionsCapabilityState;
+        createSnowflakeDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         createSpaces?: enums.quicksight.CustomPermissionsCapabilityState;
+        createSparkDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to create a SPICE dataset.
          */
         createSpiceDataset?: enums.quicksight.CustomPermissionsCapabilityState;
+        createSqlServerDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createSquareDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createStarburstDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createTeradataDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createTimestreamDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createTrinoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        createTwitterDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to perform dashboard-related actions.
          */
         dashboard?: enums.quicksight.CustomPermissionsCapabilityState;
+        databricksDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        db2DataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        denodoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        documentDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        dremioDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        dynamoDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         editVisualWithQ?: enums.quicksight.CustomPermissionsCapabilityState;
+        exasolDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to export to CSV files from the UI.
          */
@@ -100199,12 +101130,21 @@ export namespace quicksight {
         exportToPdfInScheduledReports?: enums.quicksight.CustomPermissionsCapabilityState;
         extension?: enums.quicksight.CustomPermissionsCapabilityState;
         factSetAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        fileDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         flow?: enums.quicksight.CustomPermissionsCapabilityState;
         genericHttpAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        gitHubDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         githubAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        googleAnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        googleBigQueryDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         googleCalendarAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        googleDriveKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        googleSheetsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         hubspotAction?: enums.quicksight.CustomPermissionsCapabilityState;
         huggingFaceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        idcKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        impalaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        inboundEmailTrigger?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to include content in scheduled email reports.
          */
@@ -100212,38 +101152,64 @@ export namespace quicksight {
         intercomAction?: enums.quicksight.CustomPermissionsCapabilityState;
         invokeAppsAiInference?: enums.quicksight.CustomPermissionsCapabilityState;
         jiraAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        jiraDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         knowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         linearAction?: enums.quicksight.CustomPermissionsCapabilityState;
         manageSharedFolders?: enums.quicksight.CustomPermissionsCapabilityState;
+        mariaDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         mcpAction?: enums.quicksight.CustomPermissionsCapabilityState;
         mondayAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        mongoAtlasDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        mongoDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         msExchangeAction?: enums.quicksight.CustomPermissionsCapabilityState;
         msTeamsAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        mySqlDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         newRelicAction?: enums.quicksight.CustomPermissionsCapabilityState;
         notionAction?: enums.quicksight.CustomPermissionsCapabilityState;
         oneDriveAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        oneDriveKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         openApiAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        openSearchDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        oracleDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         pagerDutyAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        payPalDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         performFlowUiTask?: enums.quicksight.CustomPermissionsCapabilityState;
+        postgreSqlDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        prestoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to print reports.
          */
         printReports?: enums.quicksight.CustomPermissionsCapabilityState;
         publishWithoutApproval?: enums.quicksight.CustomPermissionsCapabilityState;
+        qBusinessKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        quickEventTrigger?: enums.quicksight.CustomPermissionsCapabilityState;
+        radiantDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        rdsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        redshiftAutoDiscoveredDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        redshiftManualDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to rename shared folders.
          */
         renameSharedFolders?: enums.quicksight.CustomPermissionsCapabilityState;
         research?: enums.quicksight.CustomPermissionsCapabilityState;
+        s3AnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        s3DataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        s3KnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        s3TablesDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         salesforceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        salesforceDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         sandPGlobalEnergyAction?: enums.quicksight.CustomPermissionsCapabilityState;
         sandPgmiAction?: enums.quicksight.CustomPermissionsCapabilityState;
         sapBillOfMaterialAction?: enums.quicksight.CustomPermissionsCapabilityState;
         sapBusinessPartnerAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        sapHanaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         sapMaterialStockAction?: enums.quicksight.CustomPermissionsCapabilityState;
         sapPhysicalInventoryAction?: enums.quicksight.CustomPermissionsCapabilityState;
         sapProductMasterDataAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        scheduleTrigger?: enums.quicksight.CustomPermissionsCapabilityState;
         serviceNowAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        serviceNowDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareAdobeAnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareAmazonBedrockArsAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareAmazonBedrockFsAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareAmazonBedrockKrsAction?: enums.quicksight.CustomPermissionsCapabilityState;
@@ -100254,13 +101220,18 @@ export namespace quicksight {
         shareAnalyses?: enums.quicksight.CustomPermissionsCapabilityState;
         shareApps?: enums.quicksight.CustomPermissionsCapabilityState;
         shareAsanaAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareAthenaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareAuroraDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareBambooHrAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareBedrockManagedKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         shareBoxAgentAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareBoxKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         shareCanvaAgentAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareChatAgents?: enums.quicksight.CustomPermissionsCapabilityState;
         shareComprehendAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareComprehendMedicalAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareConfluenceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareConfluenceKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to share dashboards.
          */
@@ -100269,54 +101240,159 @@ export namespace quicksight {
          * The ability to share data sources.
          */
         shareDataSources?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareDatabricksDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to share datasets.
          */
         shareDatasets?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareDb2DataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareDenodoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareDocumentDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareDremioDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareDynamoDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareExasolDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareFactSetAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareFileDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareGenericHttpAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareGitHubDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareGithubAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareGoogleAnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareGoogleBigQueryDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareGoogleCalendarAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareGoogleDriveKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareGoogleSheetsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareHubspotAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareHuggingFaceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareIdcKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareImpalaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareIntercomAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareJiraAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareJiraDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareKnowledgeBases?: enums.quicksight.CustomPermissionsCapabilityState;
         shareLinearAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareMariaDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareMcpAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareMondayAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareMongoAtlasDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareMongoDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareMsExchangeAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareMsTeamsAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareMySqlDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareNewRelicAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareNotionAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareOneDriveAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareOneDriveKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         shareOpenApiAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareOpenSearchDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareOracleDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         sharePagerDutyAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        sharePayPalDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         sharePointAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        sharePointKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        sharePostgreSqlDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        sharePrestoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareQBusinessKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareRadiantDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareRdsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareRedshiftAutoDiscoveredDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareRedshiftManualDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareS3AnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareS3DataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareS3KnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareS3TablesDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSalesforceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareSalesforceDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSandPGlobalEnergyAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSandPgmiAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSapBillOfMaterialAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSapBusinessPartnerAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareSapHanaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSapMaterialStockAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSapPhysicalInventoryAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSapProductMasterDataAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareServiceNowAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareServiceNowDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSharePointAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareSharePointKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSlackAction?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSmartsheetAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareSnowflakeDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareSpaces?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareSparkDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareSqlServerDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareSquareDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareStarburstDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareTeradataDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         shareTextractAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareTimestreamDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareTrinoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareTwitterDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        shareWebCrawlerKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         shareZendeskAction?: enums.quicksight.CustomPermissionsCapabilityState;
         slackAction?: enums.quicksight.CustomPermissionsCapabilityState;
         smartsheetAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        snowflakeDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         space?: enums.quicksight.CustomPermissionsCapabilityState;
+        sparkDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        sqlServerDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        squareDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        starburstDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to subscribe to email reports.
          */
         subscribeDashboardEmailReports?: enums.quicksight.CustomPermissionsCapabilityState;
+        teradataDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         textractAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        timestreamDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         topic?: enums.quicksight.CustomPermissionsCapabilityState;
+        trigger?: enums.quicksight.CustomPermissionsCapabilityState;
+        trinoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        twitterDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateAdobeAnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateAthenaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateAuroraDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateDatabricksDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateDb2DataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateDenodoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateDocumentDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateDremioDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateDynamoDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateExasolDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateFileDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateGitHubDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateGoogleAnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateGoogleBigQueryDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateGoogleSheetsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateImpalaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateJiraDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateMariaDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateMongoAtlasDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateMongoDbDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateMySqlDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateOpenSearchDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateOracleDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updatePayPalDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updatePostgreSqlDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updatePrestoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateRadiantDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateRdsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateRedshiftAutoDiscoveredDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateRedshiftManualDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateS3AnalyticsDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateS3DataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateS3TablesDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateSalesforceDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateSapHanaDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateServiceNowDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateSnowflakeDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateSparkDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateSqlServerDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateSquareDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateStarburstDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateTeradataDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateTimestreamDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateTrinoDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
+        updateTwitterDataSource?: enums.quicksight.CustomPermissionsCapabilityState;
         useAgentWebSearch?: enums.quicksight.CustomPermissionsCapabilityState;
         useAmazonBedrockArsAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useAmazonBedrockFsAction?: enums.quicksight.CustomPermissionsCapabilityState;
@@ -100324,18 +101400,25 @@ export namespace quicksight {
         useAmazonSThreeAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useAsanaAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useBambooHrAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        useBedrockManagedKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         useBedrockModels?: enums.quicksight.CustomPermissionsCapabilityState;
         useBoxAgentAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        useBoxKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        useBrowserExtension?: enums.quicksight.CustomPermissionsCapabilityState;
         useCanvaAgentAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useComprehendAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useComprehendMedicalAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useConfluenceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        useConfluenceKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        useExcelAddInExtension?: enums.quicksight.CustomPermissionsCapabilityState;
         useFactSetAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useGenericHttpAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useGithubAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useGoogleCalendarAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        useGoogleDriveKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         useHubspotAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useHuggingFaceAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        useIdcKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         useIntercomAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useJiraAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useLinearAction?: enums.quicksight.CustomPermissionsCapabilityState;
@@ -100346,8 +101429,13 @@ export namespace quicksight {
         useNewRelicAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useNotionAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useOneDriveAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        useOneDriveKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         useOpenApiAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        useOutlookAddInExtension?: enums.quicksight.CustomPermissionsCapabilityState;
         usePagerDutyAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        usePowerpointAddInExtension?: enums.quicksight.CustomPermissionsCapabilityState;
+        useQBusinessKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        useS3KnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         useSalesforceAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useSandPGlobalEnergyAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useSandPgmiAction?: enums.quicksight.CustomPermissionsCapabilityState;
@@ -100358,14 +101446,18 @@ export namespace quicksight {
         useSapProductMasterDataAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useServiceNowAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useSharePointAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        useSharePointKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         useSlackAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useSmartsheetAction?: enums.quicksight.CustomPermissionsCapabilityState;
         useTextractAction?: enums.quicksight.CustomPermissionsCapabilityState;
+        useWebCrawlerKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
+        useWordAddInExtension?: enums.quicksight.CustomPermissionsCapabilityState;
         useZendeskAction?: enums.quicksight.CustomPermissionsCapabilityState;
         /**
          * The ability to view account SPICE capacity.
          */
         viewAccountSpiceCapacity?: enums.quicksight.CustomPermissionsCapabilityState;
+        webCrawlerKnowledgeBase?: enums.quicksight.CustomPermissionsCapabilityState;
         zendeskAction?: enums.quicksight.CustomPermissionsCapabilityState;
     }
 
@@ -135891,6 +136983,16 @@ export namespace securityagent {
          * Amazon S3 location URI of a customer-staged certificate
          */
         s3Location?: string;
+    }
+
+    /**
+     * Configuration for running pentests automatically from a CI/CD pipeline
+     */
+    export interface PentestCiCdConfiguration {
+        /**
+         * Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+         */
+        enabled: boolean;
     }
 
     /**

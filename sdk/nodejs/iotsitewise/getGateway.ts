@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::IoTSiteWise::Gateway
+ * Resource Type definition for AWS::IoTSiteWise::Gateway
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +43,7 @@ export interface GetGatewayResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource schema for AWS::IoTSiteWise::Gateway
+ * Resource Type definition for AWS::IoTSiteWise::Gateway
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

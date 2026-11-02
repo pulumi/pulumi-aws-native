@@ -87,7 +87,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
 def get_gateway(gateway_id: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
-    Resource schema for AWS::IoTSiteWise::Gateway
+    Resource Type definition for AWS::IoTSiteWise::Gateway
 
     :param _builtins.str gateway_id: The ID of the gateway device.
     """
@@ -104,7 +104,7 @@ def get_gateway(gateway_id: Optional[_builtins.str] = None,
 def get_gateway_output(gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
-    Resource schema for AWS::IoTSiteWise::Gateway
+    Resource Type definition for AWS::IoTSiteWise::Gateway
 
     :param _builtins.str gateway_id: The ID of the gateway device.
     """

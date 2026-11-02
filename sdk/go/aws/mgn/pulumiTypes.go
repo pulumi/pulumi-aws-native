@@ -13,6 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type ApplicationTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // SSM command configuration for the connector.
 type ConnectorSsmCommandConfig struct {
 	// The CloudWatch Logs group name for SSM command output.
@@ -1462,6 +1470,116 @@ func (o NetworkMigrationDefinitionTargetS3ConfigurationPtrOutput) S3BucketOwner(
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with the Replication Configuration Template.
+type ReplicationConfigurationTemplateTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// The aggregated migration status of the wave.
+type WaveAggregatedStatus struct {
+	// The health status of the wave.
+	HealthStatus *WaveAggregatedStatusHealthStatus `pulumi:"healthStatus"`
+	// The progress status of the wave.
+	ProgressStatus *WaveAggregatedStatusProgressStatus `pulumi:"progressStatus"`
+	// The total number of applications in the wave.
+	TotalApplications *int `pulumi:"totalApplications"`
+}
+
+// The aggregated migration status of the wave.
+type WaveAggregatedStatusOutput struct{ *pulumi.OutputState }
+
+func (WaveAggregatedStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaveAggregatedStatus)(nil)).Elem()
+}
+
+func (o WaveAggregatedStatusOutput) ToWaveAggregatedStatusOutput() WaveAggregatedStatusOutput {
+	return o
+}
+
+func (o WaveAggregatedStatusOutput) ToWaveAggregatedStatusOutputWithContext(ctx context.Context) WaveAggregatedStatusOutput {
+	return o
+}
+
+// The health status of the wave.
+func (o WaveAggregatedStatusOutput) HealthStatus() WaveAggregatedStatusHealthStatusPtrOutput {
+	return o.ApplyT(func(v WaveAggregatedStatus) *WaveAggregatedStatusHealthStatus { return v.HealthStatus }).(WaveAggregatedStatusHealthStatusPtrOutput)
+}
+
+// The progress status of the wave.
+func (o WaveAggregatedStatusOutput) ProgressStatus() WaveAggregatedStatusProgressStatusPtrOutput {
+	return o.ApplyT(func(v WaveAggregatedStatus) *WaveAggregatedStatusProgressStatus { return v.ProgressStatus }).(WaveAggregatedStatusProgressStatusPtrOutput)
+}
+
+// The total number of applications in the wave.
+func (o WaveAggregatedStatusOutput) TotalApplications() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WaveAggregatedStatus) *int { return v.TotalApplications }).(pulumi.IntPtrOutput)
+}
+
+type WaveAggregatedStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WaveAggregatedStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WaveAggregatedStatus)(nil)).Elem()
+}
+
+func (o WaveAggregatedStatusPtrOutput) ToWaveAggregatedStatusPtrOutput() WaveAggregatedStatusPtrOutput {
+	return o
+}
+
+func (o WaveAggregatedStatusPtrOutput) ToWaveAggregatedStatusPtrOutputWithContext(ctx context.Context) WaveAggregatedStatusPtrOutput {
+	return o
+}
+
+func (o WaveAggregatedStatusPtrOutput) Elem() WaveAggregatedStatusOutput {
+	return o.ApplyT(func(v *WaveAggregatedStatus) WaveAggregatedStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WaveAggregatedStatus
+		return ret
+	}).(WaveAggregatedStatusOutput)
+}
+
+// The health status of the wave.
+func (o WaveAggregatedStatusPtrOutput) HealthStatus() WaveAggregatedStatusHealthStatusPtrOutput {
+	return o.ApplyT(func(v *WaveAggregatedStatus) *WaveAggregatedStatusHealthStatus {
+		if v == nil {
+			return nil
+		}
+		return v.HealthStatus
+	}).(WaveAggregatedStatusHealthStatusPtrOutput)
+}
+
+// The progress status of the wave.
+func (o WaveAggregatedStatusPtrOutput) ProgressStatus() WaveAggregatedStatusProgressStatusPtrOutput {
+	return o.ApplyT(func(v *WaveAggregatedStatus) *WaveAggregatedStatusProgressStatus {
+		if v == nil {
+			return nil
+		}
+		return v.ProgressStatus
+	}).(WaveAggregatedStatusProgressStatusPtrOutput)
+}
+
+// The total number of applications in the wave.
+func (o WaveAggregatedStatusPtrOutput) TotalApplications() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WaveAggregatedStatus) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TotalApplications
+	}).(pulumi.IntPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type WaveTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorSsmCommandConfigInput)(nil)).Elem(), ConnectorSsmCommandConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorSsmCommandConfigPtrInput)(nil)).Elem(), ConnectorSsmCommandConfigArgs{})
@@ -1499,4 +1617,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkMigrationDefinitionTargetNetworkPtrOutput{})
 	pulumi.RegisterOutputType(NetworkMigrationDefinitionTargetS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkMigrationDefinitionTargetS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WaveAggregatedStatusOutput{})
+	pulumi.RegisterOutputType(WaveAggregatedStatusPtrOutput{})
 }

@@ -10,6 +10,7 @@ from ._enums import *
 from .bridge import *
 from .bridge_output_resource import *
 from .bridge_source import *
+from .destination_endpoint import *
 from .flow import *
 from .flow_entitlement import *
 from .flow_media_stream import *
@@ -20,6 +21,7 @@ from .gateway import *
 from .get_bridge import *
 from .get_bridge_output_resource import *
 from .get_bridge_source import *
+from .get_destination_endpoint import *
 from .get_flow import *
 from .get_flow_entitlement import *
 from .get_flow_media_stream import *
@@ -29,8 +31,10 @@ from .get_gateway import *
 from .get_router_input import *
 from .get_router_network_interface import *
 from .get_router_output_resource import *
+from .get_source_endpoint import *
 from .router_input import *
 from .router_network_interface import *
 from .router_output_resource import *
+from .source_endpoint import *
 from ._inputs import *
 from . import outputs

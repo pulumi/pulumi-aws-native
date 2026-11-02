@@ -250,6 +250,30 @@
         }
       }
     },
+    "GatewayApiCrds" : {
+      "description" : "The Gateway API Custom Resource Definition (CRD) configuration for the cluster.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Managed" : {
+          "description" : "Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.",
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Managed" ]
+    },
+    "GatewayApi" : {
+      "description" : "The Gateway API configuration for the load balancing capability of EKS Auto Mode.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Crds" : {
+          "description" : "The Gateway API Custom Resource Definition (CRD) configuration.",
+          "$ref" : "#/definitions/GatewayApiCrds"
+        }
+      },
+      "required" : [ "Crds" ]
+    },
     "ElasticLoadBalancing" : {
       "description" : "Todo: add description",
       "additionalProperties" : false,
@@ -258,6 +282,10 @@
         "Enabled" : {
           "description" : "Todo: add description",
           "type" : "boolean"
+        },
+        "GatewayApi" : {
+          "description" : "The Gateway API configuration for the cluster.",
+          "$ref" : "#/definitions/GatewayApi"
         }
       }
     },

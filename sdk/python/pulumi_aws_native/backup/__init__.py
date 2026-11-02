@@ -7,10 +7,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .backup_access_point import *
 from .backup_plan import *
 from .backup_selection import *
 from .backup_vault import *
 from .framework import *
+from .get_backup_access_point import *
 from .get_backup_plan import *
 from .get_backup_selection import *
 from .get_backup_vault import *

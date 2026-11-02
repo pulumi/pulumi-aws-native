@@ -264,7 +264,7 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["readiness"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["calculatedAttributeName", "conditions.range.timestampFormat", "conditions.range.timestampSource", "domainName", "useHistoricalData"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["attributeDetails", "calculatedAttributeName", "conditions.range.timestampFormat", "conditions.range.timestampSource", "domainName", "statistic", "useHistoricalData"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CalculatedAttributeDefinition, __self__).__init__(
             'aws-native:customerprofiles:CalculatedAttributeDefinition',

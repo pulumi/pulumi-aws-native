@@ -17,6 +17,8 @@ import (
 type Graph struct {
 	pulumi.CustomResourceState
 
+	// The time at which the graph was created.
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
 	//
 	// _Default_: If not specified, the default value is true.
@@ -53,6 +55,8 @@ type Graph struct {
 	//
 	// _Default_: If not specified, the default value is 1.
 	ReplicaCount pulumi.IntPtrOutput `pulumi:"replicaCount"`
+	// The current status of the graph.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags associated with this graph.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Vector Search Configuration
@@ -221,6 +225,11 @@ func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 	return o
 }
 
+// The time at which the graph was created.
+func (o GraphOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+}
+
 // Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
 //
 // _Default_: If not specified, the default value is true.
@@ -285,6 +294,11 @@ func (o GraphOutput) PublicConnectivity() pulumi.BoolPtrOutput {
 // _Default_: If not specified, the default value is 1.
 func (o GraphOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Graph) pulumi.IntPtrOutput { return v.ReplicaCount }).(pulumi.IntPtrOutput)
+}
+
+// The current status of the graph.
+func (o GraphOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
 // The tags associated with this graph.

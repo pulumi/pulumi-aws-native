@@ -67,6 +67,10 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The Amazon Resource Name (ARN) of the router input.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+        /// </summary>
+        public readonly ImmutableArray<string> AssociatedDestinationEndpointArns;
         public readonly object? Configuration;
         public readonly Outputs.RouterInputRouterContentQualityAnalysisConfigurationProperties? ContentQualityAnalysisConfiguration;
         public readonly Pulumi.AwsNative.MediaConnect.RouterInputRouterContentQualityAnalysisType? ContentQualityAnalysisType;
@@ -135,6 +139,8 @@ namespace Pulumi.AwsNative.MediaConnect
         private GetRouterInputResult(
             string? arn,
 
+            ImmutableArray<string> associatedDestinationEndpointArns,
+
             object? configuration,
 
             Outputs.RouterInputRouterContentQualityAnalysisConfigurationProperties? contentQualityAnalysisConfiguration,
@@ -172,6 +178,7 @@ namespace Pulumi.AwsNative.MediaConnect
             string? updatedAt)
         {
             Arn = arn;
+            AssociatedDestinationEndpointArns = associatedDestinationEndpointArns;
             Configuration = configuration;
             ContentQualityAnalysisConfiguration = contentQualityAnalysisConfiguration;
             ContentQualityAnalysisType = contentQualityAnalysisType;

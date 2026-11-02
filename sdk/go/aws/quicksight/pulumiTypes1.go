@@ -17347,36 +17347,46 @@ type CustomPermissionsCapabilities struct {
 	Action                    *CustomPermissionsCapabilityState `pulumi:"action"`
 	// The ability to add or run anomaly detection.
 	AddOrRunAnomalyDetectionForAnalyses *CustomPermissionsCapabilityState `pulumi:"addOrRunAnomalyDetectionForAnalyses"`
+	AdobeAnalyticsDataSource            *CustomPermissionsCapabilityState `pulumi:"adobeAnalyticsDataSource"`
 	AmazonBedrockArsAction              *CustomPermissionsCapabilityState `pulumi:"amazonBedrockArsAction"`
 	AmazonBedrockFsAction               *CustomPermissionsCapabilityState `pulumi:"amazonBedrockFsAction"`
 	AmazonBedrockKrsAction              *CustomPermissionsCapabilityState `pulumi:"amazonBedrockKrsAction"`
 	AmazonSThreeAction                  *CustomPermissionsCapabilityState `pulumi:"amazonSThreeAction"`
 	// The ability to perform analysis-related actions.
-	Analysis                               *CustomPermissionsCapabilityState `pulumi:"analysis"`
-	ApproveFlowShareRequests               *CustomPermissionsCapabilityState `pulumi:"approveFlowShareRequests"`
-	Apps                                   *CustomPermissionsCapabilityState `pulumi:"apps"`
-	AsanaAction                            *CustomPermissionsCapabilityState `pulumi:"asanaAction"`
-	Automate                               *CustomPermissionsCapabilityState `pulumi:"automate"`
-	BambooHrAction                         *CustomPermissionsCapabilityState `pulumi:"bambooHrAction"`
-	BoxAgentAction                         *CustomPermissionsCapabilityState `pulumi:"boxAgentAction"`
-	BuildCalculatedFieldWithQ              *CustomPermissionsCapabilityState `pulumi:"buildCalculatedFieldWithQ"`
-	CanvaAgentAction                       *CustomPermissionsCapabilityState `pulumi:"canvaAgentAction"`
-	ChatAgent                              *CustomPermissionsCapabilityState `pulumi:"chatAgent"`
-	ComprehendAction                       *CustomPermissionsCapabilityState `pulumi:"comprehendAction"`
-	ComprehendMedicalAction                *CustomPermissionsCapabilityState `pulumi:"comprehendMedicalAction"`
-	ConfluenceAction                       *CustomPermissionsCapabilityState `pulumi:"confluenceAction"`
-	CreateAndUpdateAmazonBedrockArsAction  *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAmazonBedrockArsAction"`
-	CreateAndUpdateAmazonBedrockFsAction   *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAmazonBedrockFsAction"`
-	CreateAndUpdateAmazonBedrockKrsAction  *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAmazonBedrockKrsAction"`
-	CreateAndUpdateAmazonSThreeAction      *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAmazonSThreeAction"`
-	CreateAndUpdateApps                    *CustomPermissionsCapabilityState `pulumi:"createAndUpdateApps"`
-	CreateAndUpdateAsanaAction             *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAsanaAction"`
-	CreateAndUpdateBambooHrAction          *CustomPermissionsCapabilityState `pulumi:"createAndUpdateBambooHrAction"`
-	CreateAndUpdateBoxAgentAction          *CustomPermissionsCapabilityState `pulumi:"createAndUpdateBoxAgentAction"`
-	CreateAndUpdateCanvaAgentAction        *CustomPermissionsCapabilityState `pulumi:"createAndUpdateCanvaAgentAction"`
-	CreateAndUpdateComprehendAction        *CustomPermissionsCapabilityState `pulumi:"createAndUpdateComprehendAction"`
-	CreateAndUpdateComprehendMedicalAction *CustomPermissionsCapabilityState `pulumi:"createAndUpdateComprehendMedicalAction"`
-	CreateAndUpdateConfluenceAction        *CustomPermissionsCapabilityState `pulumi:"createAndUpdateConfluenceAction"`
+	Analysis                                   *CustomPermissionsCapabilityState `pulumi:"analysis"`
+	ApproveFlowShareRequests                   *CustomPermissionsCapabilityState `pulumi:"approveFlowShareRequests"`
+	Apps                                       *CustomPermissionsCapabilityState `pulumi:"apps"`
+	AsanaAction                                *CustomPermissionsCapabilityState `pulumi:"asanaAction"`
+	AthenaDataSource                           *CustomPermissionsCapabilityState `pulumi:"athenaDataSource"`
+	AuroraDataSource                           *CustomPermissionsCapabilityState `pulumi:"auroraDataSource"`
+	Automate                                   *CustomPermissionsCapabilityState `pulumi:"automate"`
+	BambooHrAction                             *CustomPermissionsCapabilityState `pulumi:"bambooHrAction"`
+	BedrockManagedKnowledgeBase                *CustomPermissionsCapabilityState `pulumi:"bedrockManagedKnowledgeBase"`
+	BoxAgentAction                             *CustomPermissionsCapabilityState `pulumi:"boxAgentAction"`
+	BoxKnowledgeBase                           *CustomPermissionsCapabilityState `pulumi:"boxKnowledgeBase"`
+	BuildCalculatedFieldWithQ                  *CustomPermissionsCapabilityState `pulumi:"buildCalculatedFieldWithQ"`
+	CanvaAgentAction                           *CustomPermissionsCapabilityState `pulumi:"canvaAgentAction"`
+	ChatAgent                                  *CustomPermissionsCapabilityState `pulumi:"chatAgent"`
+	ComprehendAction                           *CustomPermissionsCapabilityState `pulumi:"comprehendAction"`
+	ComprehendMedicalAction                    *CustomPermissionsCapabilityState `pulumi:"comprehendMedicalAction"`
+	ConfluenceAction                           *CustomPermissionsCapabilityState `pulumi:"confluenceAction"`
+	ConfluenceKnowledgeBase                    *CustomPermissionsCapabilityState `pulumi:"confluenceKnowledgeBase"`
+	CreateAdobeAnalyticsDataSource             *CustomPermissionsCapabilityState `pulumi:"createAdobeAnalyticsDataSource"`
+	CreateAndUpdateAmazonBedrockArsAction      *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAmazonBedrockArsAction"`
+	CreateAndUpdateAmazonBedrockFsAction       *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAmazonBedrockFsAction"`
+	CreateAndUpdateAmazonBedrockKrsAction      *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAmazonBedrockKrsAction"`
+	CreateAndUpdateAmazonSThreeAction          *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAmazonSThreeAction"`
+	CreateAndUpdateApps                        *CustomPermissionsCapabilityState `pulumi:"createAndUpdateApps"`
+	CreateAndUpdateAsanaAction                 *CustomPermissionsCapabilityState `pulumi:"createAndUpdateAsanaAction"`
+	CreateAndUpdateBambooHrAction              *CustomPermissionsCapabilityState `pulumi:"createAndUpdateBambooHrAction"`
+	CreateAndUpdateBedrockManagedKnowledgeBase *CustomPermissionsCapabilityState `pulumi:"createAndUpdateBedrockManagedKnowledgeBase"`
+	CreateAndUpdateBoxAgentAction              *CustomPermissionsCapabilityState `pulumi:"createAndUpdateBoxAgentAction"`
+	CreateAndUpdateBoxKnowledgeBase            *CustomPermissionsCapabilityState `pulumi:"createAndUpdateBoxKnowledgeBase"`
+	CreateAndUpdateCanvaAgentAction            *CustomPermissionsCapabilityState `pulumi:"createAndUpdateCanvaAgentAction"`
+	CreateAndUpdateComprehendAction            *CustomPermissionsCapabilityState `pulumi:"createAndUpdateComprehendAction"`
+	CreateAndUpdateComprehendMedicalAction     *CustomPermissionsCapabilityState `pulumi:"createAndUpdateComprehendMedicalAction"`
+	CreateAndUpdateConfluenceAction            *CustomPermissionsCapabilityState `pulumi:"createAndUpdateConfluenceAction"`
+	CreateAndUpdateConfluenceKnowledgeBase     *CustomPermissionsCapabilityState `pulumi:"createAndUpdateConfluenceKnowledgeBase"`
 	// The ability to create and update email reports.
 	CreateAndUpdateDashboardEmailReports *CustomPermissionsCapabilityState `pulumi:"createAndUpdateDashboardEmailReports"`
 	// The ability to create and update data sources.
@@ -17387,8 +17397,10 @@ type CustomPermissionsCapabilities struct {
 	CreateAndUpdateGenericHttpAction          *CustomPermissionsCapabilityState `pulumi:"createAndUpdateGenericHttpAction"`
 	CreateAndUpdateGithubAction               *CustomPermissionsCapabilityState `pulumi:"createAndUpdateGithubAction"`
 	CreateAndUpdateGoogleCalendarAction       *CustomPermissionsCapabilityState `pulumi:"createAndUpdateGoogleCalendarAction"`
+	CreateAndUpdateGoogleDriveKnowledgeBase   *CustomPermissionsCapabilityState `pulumi:"createAndUpdateGoogleDriveKnowledgeBase"`
 	CreateAndUpdateHubspotAction              *CustomPermissionsCapabilityState `pulumi:"createAndUpdateHubspotAction"`
 	CreateAndUpdateHuggingFaceAction          *CustomPermissionsCapabilityState `pulumi:"createAndUpdateHuggingFaceAction"`
+	CreateAndUpdateIdcKnowledgeBase           *CustomPermissionsCapabilityState `pulumi:"createAndUpdateIdcKnowledgeBase"`
 	CreateAndUpdateIntercomAction             *CustomPermissionsCapabilityState `pulumi:"createAndUpdateIntercomAction"`
 	CreateAndUpdateJiraAction                 *CustomPermissionsCapabilityState `pulumi:"createAndUpdateJiraAction"`
 	CreateAndUpdateKnowledgeBases             *CustomPermissionsCapabilityState `pulumi:"createAndUpdateKnowledgeBases"`
@@ -17400,8 +17412,11 @@ type CustomPermissionsCapabilities struct {
 	CreateAndUpdateNewRelicAction             *CustomPermissionsCapabilityState `pulumi:"createAndUpdateNewRelicAction"`
 	CreateAndUpdateNotionAction               *CustomPermissionsCapabilityState `pulumi:"createAndUpdateNotionAction"`
 	CreateAndUpdateOneDriveAction             *CustomPermissionsCapabilityState `pulumi:"createAndUpdateOneDriveAction"`
+	CreateAndUpdateOneDriveKnowledgeBase      *CustomPermissionsCapabilityState `pulumi:"createAndUpdateOneDriveKnowledgeBase"`
 	CreateAndUpdateOpenApiAction              *CustomPermissionsCapabilityState `pulumi:"createAndUpdateOpenApiAction"`
 	CreateAndUpdatePagerDutyAction            *CustomPermissionsCapabilityState `pulumi:"createAndUpdatePagerDutyAction"`
+	CreateAndUpdateQBusinessKnowledgeBase     *CustomPermissionsCapabilityState `pulumi:"createAndUpdateQBusinessKnowledgeBase"`
+	CreateAndUpdateS3KnowledgeBase            *CustomPermissionsCapabilityState `pulumi:"createAndUpdateS3KnowledgeBase"`
 	CreateAndUpdateSalesforceAction           *CustomPermissionsCapabilityState `pulumi:"createAndUpdateSalesforceAction"`
 	CreateAndUpdateSandPGlobalEnergyAction    *CustomPermissionsCapabilityState `pulumi:"createAndUpdateSandPGlobalEnergyAction"`
 	CreateAndUpdateSandPgmiAction             *CustomPermissionsCapabilityState `pulumi:"createAndUpdateSandPgmiAction"`
@@ -17412,24 +17427,77 @@ type CustomPermissionsCapabilities struct {
 	CreateAndUpdateSapProductMasterDataAction *CustomPermissionsCapabilityState `pulumi:"createAndUpdateSapProductMasterDataAction"`
 	CreateAndUpdateServiceNowAction           *CustomPermissionsCapabilityState `pulumi:"createAndUpdateServiceNowAction"`
 	CreateAndUpdateSharePointAction           *CustomPermissionsCapabilityState `pulumi:"createAndUpdateSharePointAction"`
+	CreateAndUpdateSharePointKnowledgeBase    *CustomPermissionsCapabilityState `pulumi:"createAndUpdateSharePointKnowledgeBase"`
 	CreateAndUpdateSlackAction                *CustomPermissionsCapabilityState `pulumi:"createAndUpdateSlackAction"`
 	CreateAndUpdateSmartsheetAction           *CustomPermissionsCapabilityState `pulumi:"createAndUpdateSmartsheetAction"`
 	CreateAndUpdateTextractAction             *CustomPermissionsCapabilityState `pulumi:"createAndUpdateTextractAction"`
 	// The ability to export to Create and Update themes.
 	CreateAndUpdateThemes *CustomPermissionsCapabilityState `pulumi:"createAndUpdateThemes"`
 	// The ability to create and update threshold alerts.
-	CreateAndUpdateThresholdAlerts       *CustomPermissionsCapabilityState `pulumi:"createAndUpdateThresholdAlerts"`
-	CreateAndUpdateZendeskAction         *CustomPermissionsCapabilityState `pulumi:"createAndUpdateZendeskAction"`
-	CreateChatAgents                     *CustomPermissionsCapabilityState `pulumi:"createChatAgents"`
-	CreateDashboardExecutiveSummaryWithQ *CustomPermissionsCapabilityState `pulumi:"createDashboardExecutiveSummaryWithQ"`
+	CreateAndUpdateThresholdAlerts         *CustomPermissionsCapabilityState `pulumi:"createAndUpdateThresholdAlerts"`
+	CreateAndUpdateWebCrawlerKnowledgeBase *CustomPermissionsCapabilityState `pulumi:"createAndUpdateWebCrawlerKnowledgeBase"`
+	CreateAndUpdateZendeskAction           *CustomPermissionsCapabilityState `pulumi:"createAndUpdateZendeskAction"`
+	CreateAthenaDataSource                 *CustomPermissionsCapabilityState `pulumi:"createAthenaDataSource"`
+	CreateAuroraDataSource                 *CustomPermissionsCapabilityState `pulumi:"createAuroraDataSource"`
+	CreateChatAgents                       *CustomPermissionsCapabilityState `pulumi:"createChatAgents"`
+	CreateDashboardExecutiveSummaryWithQ   *CustomPermissionsCapabilityState `pulumi:"createDashboardExecutiveSummaryWithQ"`
+	CreateDatabricksDataSource             *CustomPermissionsCapabilityState `pulumi:"createDatabricksDataSource"`
+	CreateDb2DataSource                    *CustomPermissionsCapabilityState `pulumi:"createDb2DataSource"`
+	CreateDenodoDataSource                 *CustomPermissionsCapabilityState `pulumi:"createDenodoDataSource"`
+	CreateDocumentDbDataSource             *CustomPermissionsCapabilityState `pulumi:"createDocumentDbDataSource"`
+	CreateDremioDataSource                 *CustomPermissionsCapabilityState `pulumi:"createDremioDataSource"`
+	CreateDynamoDbDataSource               *CustomPermissionsCapabilityState `pulumi:"createDynamoDbDataSource"`
+	CreateExasolDataSource                 *CustomPermissionsCapabilityState `pulumi:"createExasolDataSource"`
+	CreateFileDataSource                   *CustomPermissionsCapabilityState `pulumi:"createFileDataSource"`
+	CreateGitHubDataSource                 *CustomPermissionsCapabilityState `pulumi:"createGitHubDataSource"`
+	CreateGoogleAnalyticsDataSource        *CustomPermissionsCapabilityState `pulumi:"createGoogleAnalyticsDataSource"`
+	CreateGoogleBigQueryDataSource         *CustomPermissionsCapabilityState `pulumi:"createGoogleBigQueryDataSource"`
+	CreateGoogleSheetsDataSource           *CustomPermissionsCapabilityState `pulumi:"createGoogleSheetsDataSource"`
+	CreateImpalaDataSource                 *CustomPermissionsCapabilityState `pulumi:"createImpalaDataSource"`
+	CreateJiraDataSource                   *CustomPermissionsCapabilityState `pulumi:"createJiraDataSource"`
+	CreateMariaDbDataSource                *CustomPermissionsCapabilityState `pulumi:"createMariaDbDataSource"`
+	CreateMongoAtlasDataSource             *CustomPermissionsCapabilityState `pulumi:"createMongoAtlasDataSource"`
+	CreateMongoDbDataSource                *CustomPermissionsCapabilityState `pulumi:"createMongoDbDataSource"`
+	CreateMySqlDataSource                  *CustomPermissionsCapabilityState `pulumi:"createMySqlDataSource"`
+	CreateOpenSearchDataSource             *CustomPermissionsCapabilityState `pulumi:"createOpenSearchDataSource"`
+	CreateOracleDataSource                 *CustomPermissionsCapabilityState `pulumi:"createOracleDataSource"`
+	CreatePayPalDataSource                 *CustomPermissionsCapabilityState `pulumi:"createPayPalDataSource"`
+	CreatePostgreSqlDataSource             *CustomPermissionsCapabilityState `pulumi:"createPostgreSqlDataSource"`
+	CreatePrestoDataSource                 *CustomPermissionsCapabilityState `pulumi:"createPrestoDataSource"`
+	CreateRadiantDataSource                *CustomPermissionsCapabilityState `pulumi:"createRadiantDataSource"`
+	CreateRdsDataSource                    *CustomPermissionsCapabilityState `pulumi:"createRdsDataSource"`
+	CreateRedshiftAutoDiscoveredDataSource *CustomPermissionsCapabilityState `pulumi:"createRedshiftAutoDiscoveredDataSource"`
+	CreateRedshiftManualDataSource         *CustomPermissionsCapabilityState `pulumi:"createRedshiftManualDataSource"`
+	CreateS3AnalyticsDataSource            *CustomPermissionsCapabilityState `pulumi:"createS3AnalyticsDataSource"`
+	CreateS3DataSource                     *CustomPermissionsCapabilityState `pulumi:"createS3DataSource"`
+	CreateS3TablesDataSource               *CustomPermissionsCapabilityState `pulumi:"createS3TablesDataSource"`
+	CreateSalesforceDataSource             *CustomPermissionsCapabilityState `pulumi:"createSalesforceDataSource"`
+	CreateSapHanaDataSource                *CustomPermissionsCapabilityState `pulumi:"createSapHanaDataSource"`
+	CreateServiceNowDataSource             *CustomPermissionsCapabilityState `pulumi:"createServiceNowDataSource"`
 	// The ability to create shared folders.
-	CreateSharedFolders *CustomPermissionsCapabilityState `pulumi:"createSharedFolders"`
-	CreateSpaces        *CustomPermissionsCapabilityState `pulumi:"createSpaces"`
+	CreateSharedFolders       *CustomPermissionsCapabilityState `pulumi:"createSharedFolders"`
+	CreateSnowflakeDataSource *CustomPermissionsCapabilityState `pulumi:"createSnowflakeDataSource"`
+	CreateSpaces              *CustomPermissionsCapabilityState `pulumi:"createSpaces"`
+	CreateSparkDataSource     *CustomPermissionsCapabilityState `pulumi:"createSparkDataSource"`
 	// The ability to create a SPICE dataset.
-	CreateSpiceDataset *CustomPermissionsCapabilityState `pulumi:"createSpiceDataset"`
+	CreateSpiceDataset         *CustomPermissionsCapabilityState `pulumi:"createSpiceDataset"`
+	CreateSqlServerDataSource  *CustomPermissionsCapabilityState `pulumi:"createSqlServerDataSource"`
+	CreateSquareDataSource     *CustomPermissionsCapabilityState `pulumi:"createSquareDataSource"`
+	CreateStarburstDataSource  *CustomPermissionsCapabilityState `pulumi:"createStarburstDataSource"`
+	CreateTeradataDataSource   *CustomPermissionsCapabilityState `pulumi:"createTeradataDataSource"`
+	CreateTimestreamDataSource *CustomPermissionsCapabilityState `pulumi:"createTimestreamDataSource"`
+	CreateTrinoDataSource      *CustomPermissionsCapabilityState `pulumi:"createTrinoDataSource"`
+	CreateTwitterDataSource    *CustomPermissionsCapabilityState `pulumi:"createTwitterDataSource"`
 	// The ability to perform dashboard-related actions.
-	Dashboard       *CustomPermissionsCapabilityState `pulumi:"dashboard"`
-	EditVisualWithQ *CustomPermissionsCapabilityState `pulumi:"editVisualWithQ"`
+	Dashboard            *CustomPermissionsCapabilityState `pulumi:"dashboard"`
+	DatabricksDataSource *CustomPermissionsCapabilityState `pulumi:"databricksDataSource"`
+	Db2DataSource        *CustomPermissionsCapabilityState `pulumi:"db2DataSource"`
+	DenodoDataSource     *CustomPermissionsCapabilityState `pulumi:"denodoDataSource"`
+	DocumentDbDataSource *CustomPermissionsCapabilityState `pulumi:"documentDbDataSource"`
+	DremioDataSource     *CustomPermissionsCapabilityState `pulumi:"dremioDataSource"`
+	DynamoDbDataSource   *CustomPermissionsCapabilityState `pulumi:"dynamoDbDataSource"`
+	EditVisualWithQ      *CustomPermissionsCapabilityState `pulumi:"editVisualWithQ"`
+	ExasolDataSource     *CustomPermissionsCapabilityState `pulumi:"exasolDataSource"`
 	// The ability to export to CSV files from the UI.
 	ExportToCsv *CustomPermissionsCapabilityState `pulumi:"exportToCsv"`
 	// The ability to export to CSV files in scheduled email reports.
@@ -17444,155 +17512,316 @@ type CustomPermissionsCapabilities struct {
 	ExportToPdfInScheduledReports *CustomPermissionsCapabilityState `pulumi:"exportToPdfInScheduledReports"`
 	Extension                     *CustomPermissionsCapabilityState `pulumi:"extension"`
 	FactSetAction                 *CustomPermissionsCapabilityState `pulumi:"factSetAction"`
+	FileDataSource                *CustomPermissionsCapabilityState `pulumi:"fileDataSource"`
 	Flow                          *CustomPermissionsCapabilityState `pulumi:"flow"`
 	GenericHttpAction             *CustomPermissionsCapabilityState `pulumi:"genericHttpAction"`
+	GitHubDataSource              *CustomPermissionsCapabilityState `pulumi:"gitHubDataSource"`
 	GithubAction                  *CustomPermissionsCapabilityState `pulumi:"githubAction"`
+	GoogleAnalyticsDataSource     *CustomPermissionsCapabilityState `pulumi:"googleAnalyticsDataSource"`
+	GoogleBigQueryDataSource      *CustomPermissionsCapabilityState `pulumi:"googleBigQueryDataSource"`
 	GoogleCalendarAction          *CustomPermissionsCapabilityState `pulumi:"googleCalendarAction"`
+	GoogleDriveKnowledgeBase      *CustomPermissionsCapabilityState `pulumi:"googleDriveKnowledgeBase"`
+	GoogleSheetsDataSource        *CustomPermissionsCapabilityState `pulumi:"googleSheetsDataSource"`
 	HubspotAction                 *CustomPermissionsCapabilityState `pulumi:"hubspotAction"`
 	HuggingFaceAction             *CustomPermissionsCapabilityState `pulumi:"huggingFaceAction"`
+	IdcKnowledgeBase              *CustomPermissionsCapabilityState `pulumi:"idcKnowledgeBase"`
+	ImpalaDataSource              *CustomPermissionsCapabilityState `pulumi:"impalaDataSource"`
+	InboundEmailTrigger           *CustomPermissionsCapabilityState `pulumi:"inboundEmailTrigger"`
 	// The ability to include content in scheduled email reports.
 	IncludeContentInScheduledReportsEmail *CustomPermissionsCapabilityState `pulumi:"includeContentInScheduledReportsEmail"`
 	IntercomAction                        *CustomPermissionsCapabilityState `pulumi:"intercomAction"`
 	InvokeAppsAiInference                 *CustomPermissionsCapabilityState `pulumi:"invokeAppsAiInference"`
 	JiraAction                            *CustomPermissionsCapabilityState `pulumi:"jiraAction"`
+	JiraDataSource                        *CustomPermissionsCapabilityState `pulumi:"jiraDataSource"`
 	KnowledgeBase                         *CustomPermissionsCapabilityState `pulumi:"knowledgeBase"`
 	LinearAction                          *CustomPermissionsCapabilityState `pulumi:"linearAction"`
 	ManageSharedFolders                   *CustomPermissionsCapabilityState `pulumi:"manageSharedFolders"`
+	MariaDbDataSource                     *CustomPermissionsCapabilityState `pulumi:"mariaDbDataSource"`
 	McpAction                             *CustomPermissionsCapabilityState `pulumi:"mcpAction"`
 	MondayAction                          *CustomPermissionsCapabilityState `pulumi:"mondayAction"`
+	MongoAtlasDataSource                  *CustomPermissionsCapabilityState `pulumi:"mongoAtlasDataSource"`
+	MongoDbDataSource                     *CustomPermissionsCapabilityState `pulumi:"mongoDbDataSource"`
 	MsExchangeAction                      *CustomPermissionsCapabilityState `pulumi:"msExchangeAction"`
 	MsTeamsAction                         *CustomPermissionsCapabilityState `pulumi:"msTeamsAction"`
+	MySqlDataSource                       *CustomPermissionsCapabilityState `pulumi:"mySqlDataSource"`
 	NewRelicAction                        *CustomPermissionsCapabilityState `pulumi:"newRelicAction"`
 	NotionAction                          *CustomPermissionsCapabilityState `pulumi:"notionAction"`
 	OneDriveAction                        *CustomPermissionsCapabilityState `pulumi:"oneDriveAction"`
+	OneDriveKnowledgeBase                 *CustomPermissionsCapabilityState `pulumi:"oneDriveKnowledgeBase"`
 	OpenApiAction                         *CustomPermissionsCapabilityState `pulumi:"openApiAction"`
+	OpenSearchDataSource                  *CustomPermissionsCapabilityState `pulumi:"openSearchDataSource"`
+	OracleDataSource                      *CustomPermissionsCapabilityState `pulumi:"oracleDataSource"`
 	PagerDutyAction                       *CustomPermissionsCapabilityState `pulumi:"pagerDutyAction"`
+	PayPalDataSource                      *CustomPermissionsCapabilityState `pulumi:"payPalDataSource"`
 	PerformFlowUiTask                     *CustomPermissionsCapabilityState `pulumi:"performFlowUiTask"`
+	PostgreSqlDataSource                  *CustomPermissionsCapabilityState `pulumi:"postgreSqlDataSource"`
+	PrestoDataSource                      *CustomPermissionsCapabilityState `pulumi:"prestoDataSource"`
 	// The ability to print reports.
-	PrintReports           *CustomPermissionsCapabilityState `pulumi:"printReports"`
-	PublishWithoutApproval *CustomPermissionsCapabilityState `pulumi:"publishWithoutApproval"`
+	PrintReports                     *CustomPermissionsCapabilityState `pulumi:"printReports"`
+	PublishWithoutApproval           *CustomPermissionsCapabilityState `pulumi:"publishWithoutApproval"`
+	QBusinessKnowledgeBase           *CustomPermissionsCapabilityState `pulumi:"qBusinessKnowledgeBase"`
+	QuickEventTrigger                *CustomPermissionsCapabilityState `pulumi:"quickEventTrigger"`
+	RadiantDataSource                *CustomPermissionsCapabilityState `pulumi:"radiantDataSource"`
+	RdsDataSource                    *CustomPermissionsCapabilityState `pulumi:"rdsDataSource"`
+	RedshiftAutoDiscoveredDataSource *CustomPermissionsCapabilityState `pulumi:"redshiftAutoDiscoveredDataSource"`
+	RedshiftManualDataSource         *CustomPermissionsCapabilityState `pulumi:"redshiftManualDataSource"`
 	// The ability to rename shared folders.
-	RenameSharedFolders         *CustomPermissionsCapabilityState `pulumi:"renameSharedFolders"`
-	Research                    *CustomPermissionsCapabilityState `pulumi:"research"`
-	SalesforceAction            *CustomPermissionsCapabilityState `pulumi:"salesforceAction"`
-	SandPGlobalEnergyAction     *CustomPermissionsCapabilityState `pulumi:"sandPGlobalEnergyAction"`
-	SandPgmiAction              *CustomPermissionsCapabilityState `pulumi:"sandPgmiAction"`
-	SapBillOfMaterialAction     *CustomPermissionsCapabilityState `pulumi:"sapBillOfMaterialAction"`
-	SapBusinessPartnerAction    *CustomPermissionsCapabilityState `pulumi:"sapBusinessPartnerAction"`
-	SapMaterialStockAction      *CustomPermissionsCapabilityState `pulumi:"sapMaterialStockAction"`
-	SapPhysicalInventoryAction  *CustomPermissionsCapabilityState `pulumi:"sapPhysicalInventoryAction"`
-	SapProductMasterDataAction  *CustomPermissionsCapabilityState `pulumi:"sapProductMasterDataAction"`
-	ServiceNowAction            *CustomPermissionsCapabilityState `pulumi:"serviceNowAction"`
-	ShareAmazonBedrockArsAction *CustomPermissionsCapabilityState `pulumi:"shareAmazonBedrockArsAction"`
-	ShareAmazonBedrockFsAction  *CustomPermissionsCapabilityState `pulumi:"shareAmazonBedrockFsAction"`
-	ShareAmazonBedrockKrsAction *CustomPermissionsCapabilityState `pulumi:"shareAmazonBedrockKrsAction"`
-	ShareAmazonSThreeAction     *CustomPermissionsCapabilityState `pulumi:"shareAmazonSThreeAction"`
+	RenameSharedFolders           *CustomPermissionsCapabilityState `pulumi:"renameSharedFolders"`
+	Research                      *CustomPermissionsCapabilityState `pulumi:"research"`
+	S3AnalyticsDataSource         *CustomPermissionsCapabilityState `pulumi:"s3AnalyticsDataSource"`
+	S3DataSource                  *CustomPermissionsCapabilityState `pulumi:"s3DataSource"`
+	S3KnowledgeBase               *CustomPermissionsCapabilityState `pulumi:"s3KnowledgeBase"`
+	S3TablesDataSource            *CustomPermissionsCapabilityState `pulumi:"s3TablesDataSource"`
+	SalesforceAction              *CustomPermissionsCapabilityState `pulumi:"salesforceAction"`
+	SalesforceDataSource          *CustomPermissionsCapabilityState `pulumi:"salesforceDataSource"`
+	SandPGlobalEnergyAction       *CustomPermissionsCapabilityState `pulumi:"sandPGlobalEnergyAction"`
+	SandPgmiAction                *CustomPermissionsCapabilityState `pulumi:"sandPgmiAction"`
+	SapBillOfMaterialAction       *CustomPermissionsCapabilityState `pulumi:"sapBillOfMaterialAction"`
+	SapBusinessPartnerAction      *CustomPermissionsCapabilityState `pulumi:"sapBusinessPartnerAction"`
+	SapHanaDataSource             *CustomPermissionsCapabilityState `pulumi:"sapHanaDataSource"`
+	SapMaterialStockAction        *CustomPermissionsCapabilityState `pulumi:"sapMaterialStockAction"`
+	SapPhysicalInventoryAction    *CustomPermissionsCapabilityState `pulumi:"sapPhysicalInventoryAction"`
+	SapProductMasterDataAction    *CustomPermissionsCapabilityState `pulumi:"sapProductMasterDataAction"`
+	ScheduleTrigger               *CustomPermissionsCapabilityState `pulumi:"scheduleTrigger"`
+	ServiceNowAction              *CustomPermissionsCapabilityState `pulumi:"serviceNowAction"`
+	ServiceNowDataSource          *CustomPermissionsCapabilityState `pulumi:"serviceNowDataSource"`
+	ShareAdobeAnalyticsDataSource *CustomPermissionsCapabilityState `pulumi:"shareAdobeAnalyticsDataSource"`
+	ShareAmazonBedrockArsAction   *CustomPermissionsCapabilityState `pulumi:"shareAmazonBedrockArsAction"`
+	ShareAmazonBedrockFsAction    *CustomPermissionsCapabilityState `pulumi:"shareAmazonBedrockFsAction"`
+	ShareAmazonBedrockKrsAction   *CustomPermissionsCapabilityState `pulumi:"shareAmazonBedrockKrsAction"`
+	ShareAmazonSThreeAction       *CustomPermissionsCapabilityState `pulumi:"shareAmazonSThreeAction"`
 	// The ability to share analyses.
-	ShareAnalyses                *CustomPermissionsCapabilityState `pulumi:"shareAnalyses"`
-	ShareApps                    *CustomPermissionsCapabilityState `pulumi:"shareApps"`
-	ShareAsanaAction             *CustomPermissionsCapabilityState `pulumi:"shareAsanaAction"`
-	ShareBambooHrAction          *CustomPermissionsCapabilityState `pulumi:"shareBambooHrAction"`
-	ShareBoxAgentAction          *CustomPermissionsCapabilityState `pulumi:"shareBoxAgentAction"`
-	ShareCanvaAgentAction        *CustomPermissionsCapabilityState `pulumi:"shareCanvaAgentAction"`
-	ShareChatAgents              *CustomPermissionsCapabilityState `pulumi:"shareChatAgents"`
-	ShareComprehendAction        *CustomPermissionsCapabilityState `pulumi:"shareComprehendAction"`
-	ShareComprehendMedicalAction *CustomPermissionsCapabilityState `pulumi:"shareComprehendMedicalAction"`
-	ShareConfluenceAction        *CustomPermissionsCapabilityState `pulumi:"shareConfluenceAction"`
+	ShareAnalyses                    *CustomPermissionsCapabilityState `pulumi:"shareAnalyses"`
+	ShareApps                        *CustomPermissionsCapabilityState `pulumi:"shareApps"`
+	ShareAsanaAction                 *CustomPermissionsCapabilityState `pulumi:"shareAsanaAction"`
+	ShareAthenaDataSource            *CustomPermissionsCapabilityState `pulumi:"shareAthenaDataSource"`
+	ShareAuroraDataSource            *CustomPermissionsCapabilityState `pulumi:"shareAuroraDataSource"`
+	ShareBambooHrAction              *CustomPermissionsCapabilityState `pulumi:"shareBambooHrAction"`
+	ShareBedrockManagedKnowledgeBase *CustomPermissionsCapabilityState `pulumi:"shareBedrockManagedKnowledgeBase"`
+	ShareBoxAgentAction              *CustomPermissionsCapabilityState `pulumi:"shareBoxAgentAction"`
+	ShareBoxKnowledgeBase            *CustomPermissionsCapabilityState `pulumi:"shareBoxKnowledgeBase"`
+	ShareCanvaAgentAction            *CustomPermissionsCapabilityState `pulumi:"shareCanvaAgentAction"`
+	ShareChatAgents                  *CustomPermissionsCapabilityState `pulumi:"shareChatAgents"`
+	ShareComprehendAction            *CustomPermissionsCapabilityState `pulumi:"shareComprehendAction"`
+	ShareComprehendMedicalAction     *CustomPermissionsCapabilityState `pulumi:"shareComprehendMedicalAction"`
+	ShareConfluenceAction            *CustomPermissionsCapabilityState `pulumi:"shareConfluenceAction"`
+	ShareConfluenceKnowledgeBase     *CustomPermissionsCapabilityState `pulumi:"shareConfluenceKnowledgeBase"`
 	// The ability to share dashboards.
 	ShareDashboards *CustomPermissionsCapabilityState `pulumi:"shareDashboards"`
 	// The ability to share data sources.
-	ShareDataSources *CustomPermissionsCapabilityState `pulumi:"shareDataSources"`
+	ShareDataSources          *CustomPermissionsCapabilityState `pulumi:"shareDataSources"`
+	ShareDatabricksDataSource *CustomPermissionsCapabilityState `pulumi:"shareDatabricksDataSource"`
 	// The ability to share datasets.
-	ShareDatasets                   *CustomPermissionsCapabilityState `pulumi:"shareDatasets"`
-	ShareFactSetAction              *CustomPermissionsCapabilityState `pulumi:"shareFactSetAction"`
-	ShareGenericHttpAction          *CustomPermissionsCapabilityState `pulumi:"shareGenericHttpAction"`
-	ShareGithubAction               *CustomPermissionsCapabilityState `pulumi:"shareGithubAction"`
-	ShareGoogleCalendarAction       *CustomPermissionsCapabilityState `pulumi:"shareGoogleCalendarAction"`
-	ShareHubspotAction              *CustomPermissionsCapabilityState `pulumi:"shareHubspotAction"`
-	ShareHuggingFaceAction          *CustomPermissionsCapabilityState `pulumi:"shareHuggingFaceAction"`
-	ShareIntercomAction             *CustomPermissionsCapabilityState `pulumi:"shareIntercomAction"`
-	ShareJiraAction                 *CustomPermissionsCapabilityState `pulumi:"shareJiraAction"`
-	ShareKnowledgeBases             *CustomPermissionsCapabilityState `pulumi:"shareKnowledgeBases"`
-	ShareLinearAction               *CustomPermissionsCapabilityState `pulumi:"shareLinearAction"`
-	ShareMcpAction                  *CustomPermissionsCapabilityState `pulumi:"shareMcpAction"`
-	ShareMondayAction               *CustomPermissionsCapabilityState `pulumi:"shareMondayAction"`
-	ShareMsExchangeAction           *CustomPermissionsCapabilityState `pulumi:"shareMsExchangeAction"`
-	ShareMsTeamsAction              *CustomPermissionsCapabilityState `pulumi:"shareMsTeamsAction"`
-	ShareNewRelicAction             *CustomPermissionsCapabilityState `pulumi:"shareNewRelicAction"`
-	ShareNotionAction               *CustomPermissionsCapabilityState `pulumi:"shareNotionAction"`
-	ShareOneDriveAction             *CustomPermissionsCapabilityState `pulumi:"shareOneDriveAction"`
-	ShareOpenApiAction              *CustomPermissionsCapabilityState `pulumi:"shareOpenApiAction"`
-	SharePagerDutyAction            *CustomPermissionsCapabilityState `pulumi:"sharePagerDutyAction"`
-	SharePointAction                *CustomPermissionsCapabilityState `pulumi:"sharePointAction"`
-	ShareSalesforceAction           *CustomPermissionsCapabilityState `pulumi:"shareSalesforceAction"`
-	ShareSandPGlobalEnergyAction    *CustomPermissionsCapabilityState `pulumi:"shareSandPGlobalEnergyAction"`
-	ShareSandPgmiAction             *CustomPermissionsCapabilityState `pulumi:"shareSandPgmiAction"`
-	ShareSapBillOfMaterialAction    *CustomPermissionsCapabilityState `pulumi:"shareSapBillOfMaterialAction"`
-	ShareSapBusinessPartnerAction   *CustomPermissionsCapabilityState `pulumi:"shareSapBusinessPartnerAction"`
-	ShareSapMaterialStockAction     *CustomPermissionsCapabilityState `pulumi:"shareSapMaterialStockAction"`
-	ShareSapPhysicalInventoryAction *CustomPermissionsCapabilityState `pulumi:"shareSapPhysicalInventoryAction"`
-	ShareSapProductMasterDataAction *CustomPermissionsCapabilityState `pulumi:"shareSapProductMasterDataAction"`
-	ShareServiceNowAction           *CustomPermissionsCapabilityState `pulumi:"shareServiceNowAction"`
-	ShareSharePointAction           *CustomPermissionsCapabilityState `pulumi:"shareSharePointAction"`
-	ShareSlackAction                *CustomPermissionsCapabilityState `pulumi:"shareSlackAction"`
-	ShareSmartsheetAction           *CustomPermissionsCapabilityState `pulumi:"shareSmartsheetAction"`
-	ShareSpaces                     *CustomPermissionsCapabilityState `pulumi:"shareSpaces"`
-	ShareTextractAction             *CustomPermissionsCapabilityState `pulumi:"shareTextractAction"`
-	ShareZendeskAction              *CustomPermissionsCapabilityState `pulumi:"shareZendeskAction"`
-	SlackAction                     *CustomPermissionsCapabilityState `pulumi:"slackAction"`
-	SmartsheetAction                *CustomPermissionsCapabilityState `pulumi:"smartsheetAction"`
-	Space                           *CustomPermissionsCapabilityState `pulumi:"space"`
+	ShareDatasets                         *CustomPermissionsCapabilityState `pulumi:"shareDatasets"`
+	ShareDb2DataSource                    *CustomPermissionsCapabilityState `pulumi:"shareDb2DataSource"`
+	ShareDenodoDataSource                 *CustomPermissionsCapabilityState `pulumi:"shareDenodoDataSource"`
+	ShareDocumentDbDataSource             *CustomPermissionsCapabilityState `pulumi:"shareDocumentDbDataSource"`
+	ShareDremioDataSource                 *CustomPermissionsCapabilityState `pulumi:"shareDremioDataSource"`
+	ShareDynamoDbDataSource               *CustomPermissionsCapabilityState `pulumi:"shareDynamoDbDataSource"`
+	ShareExasolDataSource                 *CustomPermissionsCapabilityState `pulumi:"shareExasolDataSource"`
+	ShareFactSetAction                    *CustomPermissionsCapabilityState `pulumi:"shareFactSetAction"`
+	ShareFileDataSource                   *CustomPermissionsCapabilityState `pulumi:"shareFileDataSource"`
+	ShareGenericHttpAction                *CustomPermissionsCapabilityState `pulumi:"shareGenericHttpAction"`
+	ShareGitHubDataSource                 *CustomPermissionsCapabilityState `pulumi:"shareGitHubDataSource"`
+	ShareGithubAction                     *CustomPermissionsCapabilityState `pulumi:"shareGithubAction"`
+	ShareGoogleAnalyticsDataSource        *CustomPermissionsCapabilityState `pulumi:"shareGoogleAnalyticsDataSource"`
+	ShareGoogleBigQueryDataSource         *CustomPermissionsCapabilityState `pulumi:"shareGoogleBigQueryDataSource"`
+	ShareGoogleCalendarAction             *CustomPermissionsCapabilityState `pulumi:"shareGoogleCalendarAction"`
+	ShareGoogleDriveKnowledgeBase         *CustomPermissionsCapabilityState `pulumi:"shareGoogleDriveKnowledgeBase"`
+	ShareGoogleSheetsDataSource           *CustomPermissionsCapabilityState `pulumi:"shareGoogleSheetsDataSource"`
+	ShareHubspotAction                    *CustomPermissionsCapabilityState `pulumi:"shareHubspotAction"`
+	ShareHuggingFaceAction                *CustomPermissionsCapabilityState `pulumi:"shareHuggingFaceAction"`
+	ShareIdcKnowledgeBase                 *CustomPermissionsCapabilityState `pulumi:"shareIdcKnowledgeBase"`
+	ShareImpalaDataSource                 *CustomPermissionsCapabilityState `pulumi:"shareImpalaDataSource"`
+	ShareIntercomAction                   *CustomPermissionsCapabilityState `pulumi:"shareIntercomAction"`
+	ShareJiraAction                       *CustomPermissionsCapabilityState `pulumi:"shareJiraAction"`
+	ShareJiraDataSource                   *CustomPermissionsCapabilityState `pulumi:"shareJiraDataSource"`
+	ShareKnowledgeBases                   *CustomPermissionsCapabilityState `pulumi:"shareKnowledgeBases"`
+	ShareLinearAction                     *CustomPermissionsCapabilityState `pulumi:"shareLinearAction"`
+	ShareMariaDbDataSource                *CustomPermissionsCapabilityState `pulumi:"shareMariaDbDataSource"`
+	ShareMcpAction                        *CustomPermissionsCapabilityState `pulumi:"shareMcpAction"`
+	ShareMondayAction                     *CustomPermissionsCapabilityState `pulumi:"shareMondayAction"`
+	ShareMongoAtlasDataSource             *CustomPermissionsCapabilityState `pulumi:"shareMongoAtlasDataSource"`
+	ShareMongoDbDataSource                *CustomPermissionsCapabilityState `pulumi:"shareMongoDbDataSource"`
+	ShareMsExchangeAction                 *CustomPermissionsCapabilityState `pulumi:"shareMsExchangeAction"`
+	ShareMsTeamsAction                    *CustomPermissionsCapabilityState `pulumi:"shareMsTeamsAction"`
+	ShareMySqlDataSource                  *CustomPermissionsCapabilityState `pulumi:"shareMySqlDataSource"`
+	ShareNewRelicAction                   *CustomPermissionsCapabilityState `pulumi:"shareNewRelicAction"`
+	ShareNotionAction                     *CustomPermissionsCapabilityState `pulumi:"shareNotionAction"`
+	ShareOneDriveAction                   *CustomPermissionsCapabilityState `pulumi:"shareOneDriveAction"`
+	ShareOneDriveKnowledgeBase            *CustomPermissionsCapabilityState `pulumi:"shareOneDriveKnowledgeBase"`
+	ShareOpenApiAction                    *CustomPermissionsCapabilityState `pulumi:"shareOpenApiAction"`
+	ShareOpenSearchDataSource             *CustomPermissionsCapabilityState `pulumi:"shareOpenSearchDataSource"`
+	ShareOracleDataSource                 *CustomPermissionsCapabilityState `pulumi:"shareOracleDataSource"`
+	SharePagerDutyAction                  *CustomPermissionsCapabilityState `pulumi:"sharePagerDutyAction"`
+	SharePayPalDataSource                 *CustomPermissionsCapabilityState `pulumi:"sharePayPalDataSource"`
+	SharePointAction                      *CustomPermissionsCapabilityState `pulumi:"sharePointAction"`
+	SharePointKnowledgeBase               *CustomPermissionsCapabilityState `pulumi:"sharePointKnowledgeBase"`
+	SharePostgreSqlDataSource             *CustomPermissionsCapabilityState `pulumi:"sharePostgreSqlDataSource"`
+	SharePrestoDataSource                 *CustomPermissionsCapabilityState `pulumi:"sharePrestoDataSource"`
+	ShareQBusinessKnowledgeBase           *CustomPermissionsCapabilityState `pulumi:"shareQBusinessKnowledgeBase"`
+	ShareRadiantDataSource                *CustomPermissionsCapabilityState `pulumi:"shareRadiantDataSource"`
+	ShareRdsDataSource                    *CustomPermissionsCapabilityState `pulumi:"shareRdsDataSource"`
+	ShareRedshiftAutoDiscoveredDataSource *CustomPermissionsCapabilityState `pulumi:"shareRedshiftAutoDiscoveredDataSource"`
+	ShareRedshiftManualDataSource         *CustomPermissionsCapabilityState `pulumi:"shareRedshiftManualDataSource"`
+	ShareS3AnalyticsDataSource            *CustomPermissionsCapabilityState `pulumi:"shareS3AnalyticsDataSource"`
+	ShareS3DataSource                     *CustomPermissionsCapabilityState `pulumi:"shareS3DataSource"`
+	ShareS3KnowledgeBase                  *CustomPermissionsCapabilityState `pulumi:"shareS3KnowledgeBase"`
+	ShareS3TablesDataSource               *CustomPermissionsCapabilityState `pulumi:"shareS3TablesDataSource"`
+	ShareSalesforceAction                 *CustomPermissionsCapabilityState `pulumi:"shareSalesforceAction"`
+	ShareSalesforceDataSource             *CustomPermissionsCapabilityState `pulumi:"shareSalesforceDataSource"`
+	ShareSandPGlobalEnergyAction          *CustomPermissionsCapabilityState `pulumi:"shareSandPGlobalEnergyAction"`
+	ShareSandPgmiAction                   *CustomPermissionsCapabilityState `pulumi:"shareSandPgmiAction"`
+	ShareSapBillOfMaterialAction          *CustomPermissionsCapabilityState `pulumi:"shareSapBillOfMaterialAction"`
+	ShareSapBusinessPartnerAction         *CustomPermissionsCapabilityState `pulumi:"shareSapBusinessPartnerAction"`
+	ShareSapHanaDataSource                *CustomPermissionsCapabilityState `pulumi:"shareSapHanaDataSource"`
+	ShareSapMaterialStockAction           *CustomPermissionsCapabilityState `pulumi:"shareSapMaterialStockAction"`
+	ShareSapPhysicalInventoryAction       *CustomPermissionsCapabilityState `pulumi:"shareSapPhysicalInventoryAction"`
+	ShareSapProductMasterDataAction       *CustomPermissionsCapabilityState `pulumi:"shareSapProductMasterDataAction"`
+	ShareServiceNowAction                 *CustomPermissionsCapabilityState `pulumi:"shareServiceNowAction"`
+	ShareServiceNowDataSource             *CustomPermissionsCapabilityState `pulumi:"shareServiceNowDataSource"`
+	ShareSharePointAction                 *CustomPermissionsCapabilityState `pulumi:"shareSharePointAction"`
+	ShareSharePointKnowledgeBase          *CustomPermissionsCapabilityState `pulumi:"shareSharePointKnowledgeBase"`
+	ShareSlackAction                      *CustomPermissionsCapabilityState `pulumi:"shareSlackAction"`
+	ShareSmartsheetAction                 *CustomPermissionsCapabilityState `pulumi:"shareSmartsheetAction"`
+	ShareSnowflakeDataSource              *CustomPermissionsCapabilityState `pulumi:"shareSnowflakeDataSource"`
+	ShareSpaces                           *CustomPermissionsCapabilityState `pulumi:"shareSpaces"`
+	ShareSparkDataSource                  *CustomPermissionsCapabilityState `pulumi:"shareSparkDataSource"`
+	ShareSqlServerDataSource              *CustomPermissionsCapabilityState `pulumi:"shareSqlServerDataSource"`
+	ShareSquareDataSource                 *CustomPermissionsCapabilityState `pulumi:"shareSquareDataSource"`
+	ShareStarburstDataSource              *CustomPermissionsCapabilityState `pulumi:"shareStarburstDataSource"`
+	ShareTeradataDataSource               *CustomPermissionsCapabilityState `pulumi:"shareTeradataDataSource"`
+	ShareTextractAction                   *CustomPermissionsCapabilityState `pulumi:"shareTextractAction"`
+	ShareTimestreamDataSource             *CustomPermissionsCapabilityState `pulumi:"shareTimestreamDataSource"`
+	ShareTrinoDataSource                  *CustomPermissionsCapabilityState `pulumi:"shareTrinoDataSource"`
+	ShareTwitterDataSource                *CustomPermissionsCapabilityState `pulumi:"shareTwitterDataSource"`
+	ShareWebCrawlerKnowledgeBase          *CustomPermissionsCapabilityState `pulumi:"shareWebCrawlerKnowledgeBase"`
+	ShareZendeskAction                    *CustomPermissionsCapabilityState `pulumi:"shareZendeskAction"`
+	SlackAction                           *CustomPermissionsCapabilityState `pulumi:"slackAction"`
+	SmartsheetAction                      *CustomPermissionsCapabilityState `pulumi:"smartsheetAction"`
+	SnowflakeDataSource                   *CustomPermissionsCapabilityState `pulumi:"snowflakeDataSource"`
+	Space                                 *CustomPermissionsCapabilityState `pulumi:"space"`
+	SparkDataSource                       *CustomPermissionsCapabilityState `pulumi:"sparkDataSource"`
+	SqlServerDataSource                   *CustomPermissionsCapabilityState `pulumi:"sqlServerDataSource"`
+	SquareDataSource                      *CustomPermissionsCapabilityState `pulumi:"squareDataSource"`
+	StarburstDataSource                   *CustomPermissionsCapabilityState `pulumi:"starburstDataSource"`
 	// The ability to subscribe to email reports.
-	SubscribeDashboardEmailReports *CustomPermissionsCapabilityState `pulumi:"subscribeDashboardEmailReports"`
-	TextractAction                 *CustomPermissionsCapabilityState `pulumi:"textractAction"`
-	Topic                          *CustomPermissionsCapabilityState `pulumi:"topic"`
-	UseAgentWebSearch              *CustomPermissionsCapabilityState `pulumi:"useAgentWebSearch"`
-	UseAmazonBedrockArsAction      *CustomPermissionsCapabilityState `pulumi:"useAmazonBedrockArsAction"`
-	UseAmazonBedrockFsAction       *CustomPermissionsCapabilityState `pulumi:"useAmazonBedrockFsAction"`
-	UseAmazonBedrockKrsAction      *CustomPermissionsCapabilityState `pulumi:"useAmazonBedrockKrsAction"`
-	UseAmazonSThreeAction          *CustomPermissionsCapabilityState `pulumi:"useAmazonSThreeAction"`
-	UseAsanaAction                 *CustomPermissionsCapabilityState `pulumi:"useAsanaAction"`
-	UseBambooHrAction              *CustomPermissionsCapabilityState `pulumi:"useBambooHrAction"`
-	UseBedrockModels               *CustomPermissionsCapabilityState `pulumi:"useBedrockModels"`
-	UseBoxAgentAction              *CustomPermissionsCapabilityState `pulumi:"useBoxAgentAction"`
-	UseCanvaAgentAction            *CustomPermissionsCapabilityState `pulumi:"useCanvaAgentAction"`
-	UseComprehendAction            *CustomPermissionsCapabilityState `pulumi:"useComprehendAction"`
-	UseComprehendMedicalAction     *CustomPermissionsCapabilityState `pulumi:"useComprehendMedicalAction"`
-	UseConfluenceAction            *CustomPermissionsCapabilityState `pulumi:"useConfluenceAction"`
-	UseFactSetAction               *CustomPermissionsCapabilityState `pulumi:"useFactSetAction"`
-	UseGenericHttpAction           *CustomPermissionsCapabilityState `pulumi:"useGenericHttpAction"`
-	UseGithubAction                *CustomPermissionsCapabilityState `pulumi:"useGithubAction"`
-	UseGoogleCalendarAction        *CustomPermissionsCapabilityState `pulumi:"useGoogleCalendarAction"`
-	UseHubspotAction               *CustomPermissionsCapabilityState `pulumi:"useHubspotAction"`
-	UseHuggingFaceAction           *CustomPermissionsCapabilityState `pulumi:"useHuggingFaceAction"`
-	UseIntercomAction              *CustomPermissionsCapabilityState `pulumi:"useIntercomAction"`
-	UseJiraAction                  *CustomPermissionsCapabilityState `pulumi:"useJiraAction"`
-	UseLinearAction                *CustomPermissionsCapabilityState `pulumi:"useLinearAction"`
-	UseMcpAction                   *CustomPermissionsCapabilityState `pulumi:"useMcpAction"`
-	UseMondayAction                *CustomPermissionsCapabilityState `pulumi:"useMondayAction"`
-	UseMsExchangeAction            *CustomPermissionsCapabilityState `pulumi:"useMsExchangeAction"`
-	UseMsTeamsAction               *CustomPermissionsCapabilityState `pulumi:"useMsTeamsAction"`
-	UseNewRelicAction              *CustomPermissionsCapabilityState `pulumi:"useNewRelicAction"`
-	UseNotionAction                *CustomPermissionsCapabilityState `pulumi:"useNotionAction"`
-	UseOneDriveAction              *CustomPermissionsCapabilityState `pulumi:"useOneDriveAction"`
-	UseOpenApiAction               *CustomPermissionsCapabilityState `pulumi:"useOpenApiAction"`
-	UsePagerDutyAction             *CustomPermissionsCapabilityState `pulumi:"usePagerDutyAction"`
-	UseSalesforceAction            *CustomPermissionsCapabilityState `pulumi:"useSalesforceAction"`
-	UseSandPGlobalEnergyAction     *CustomPermissionsCapabilityState `pulumi:"useSandPGlobalEnergyAction"`
-	UseSandPgmiAction              *CustomPermissionsCapabilityState `pulumi:"useSandPgmiAction"`
-	UseSapBillOfMaterialAction     *CustomPermissionsCapabilityState `pulumi:"useSapBillOfMaterialAction"`
-	UseSapBusinessPartnerAction    *CustomPermissionsCapabilityState `pulumi:"useSapBusinessPartnerAction"`
-	UseSapMaterialStockAction      *CustomPermissionsCapabilityState `pulumi:"useSapMaterialStockAction"`
-	UseSapPhysicalInventoryAction  *CustomPermissionsCapabilityState `pulumi:"useSapPhysicalInventoryAction"`
-	UseSapProductMasterDataAction  *CustomPermissionsCapabilityState `pulumi:"useSapProductMasterDataAction"`
-	UseServiceNowAction            *CustomPermissionsCapabilityState `pulumi:"useServiceNowAction"`
-	UseSharePointAction            *CustomPermissionsCapabilityState `pulumi:"useSharePointAction"`
-	UseSlackAction                 *CustomPermissionsCapabilityState `pulumi:"useSlackAction"`
-	UseSmartsheetAction            *CustomPermissionsCapabilityState `pulumi:"useSmartsheetAction"`
-	UseTextractAction              *CustomPermissionsCapabilityState `pulumi:"useTextractAction"`
-	UseZendeskAction               *CustomPermissionsCapabilityState `pulumi:"useZendeskAction"`
+	SubscribeDashboardEmailReports         *CustomPermissionsCapabilityState `pulumi:"subscribeDashboardEmailReports"`
+	TeradataDataSource                     *CustomPermissionsCapabilityState `pulumi:"teradataDataSource"`
+	TextractAction                         *CustomPermissionsCapabilityState `pulumi:"textractAction"`
+	TimestreamDataSource                   *CustomPermissionsCapabilityState `pulumi:"timestreamDataSource"`
+	Topic                                  *CustomPermissionsCapabilityState `pulumi:"topic"`
+	Trigger                                *CustomPermissionsCapabilityState `pulumi:"trigger"`
+	TrinoDataSource                        *CustomPermissionsCapabilityState `pulumi:"trinoDataSource"`
+	TwitterDataSource                      *CustomPermissionsCapabilityState `pulumi:"twitterDataSource"`
+	UpdateAdobeAnalyticsDataSource         *CustomPermissionsCapabilityState `pulumi:"updateAdobeAnalyticsDataSource"`
+	UpdateAthenaDataSource                 *CustomPermissionsCapabilityState `pulumi:"updateAthenaDataSource"`
+	UpdateAuroraDataSource                 *CustomPermissionsCapabilityState `pulumi:"updateAuroraDataSource"`
+	UpdateDatabricksDataSource             *CustomPermissionsCapabilityState `pulumi:"updateDatabricksDataSource"`
+	UpdateDb2DataSource                    *CustomPermissionsCapabilityState `pulumi:"updateDb2DataSource"`
+	UpdateDenodoDataSource                 *CustomPermissionsCapabilityState `pulumi:"updateDenodoDataSource"`
+	UpdateDocumentDbDataSource             *CustomPermissionsCapabilityState `pulumi:"updateDocumentDbDataSource"`
+	UpdateDremioDataSource                 *CustomPermissionsCapabilityState `pulumi:"updateDremioDataSource"`
+	UpdateDynamoDbDataSource               *CustomPermissionsCapabilityState `pulumi:"updateDynamoDbDataSource"`
+	UpdateExasolDataSource                 *CustomPermissionsCapabilityState `pulumi:"updateExasolDataSource"`
+	UpdateFileDataSource                   *CustomPermissionsCapabilityState `pulumi:"updateFileDataSource"`
+	UpdateGitHubDataSource                 *CustomPermissionsCapabilityState `pulumi:"updateGitHubDataSource"`
+	UpdateGoogleAnalyticsDataSource        *CustomPermissionsCapabilityState `pulumi:"updateGoogleAnalyticsDataSource"`
+	UpdateGoogleBigQueryDataSource         *CustomPermissionsCapabilityState `pulumi:"updateGoogleBigQueryDataSource"`
+	UpdateGoogleSheetsDataSource           *CustomPermissionsCapabilityState `pulumi:"updateGoogleSheetsDataSource"`
+	UpdateImpalaDataSource                 *CustomPermissionsCapabilityState `pulumi:"updateImpalaDataSource"`
+	UpdateJiraDataSource                   *CustomPermissionsCapabilityState `pulumi:"updateJiraDataSource"`
+	UpdateMariaDbDataSource                *CustomPermissionsCapabilityState `pulumi:"updateMariaDbDataSource"`
+	UpdateMongoAtlasDataSource             *CustomPermissionsCapabilityState `pulumi:"updateMongoAtlasDataSource"`
+	UpdateMongoDbDataSource                *CustomPermissionsCapabilityState `pulumi:"updateMongoDbDataSource"`
+	UpdateMySqlDataSource                  *CustomPermissionsCapabilityState `pulumi:"updateMySqlDataSource"`
+	UpdateOpenSearchDataSource             *CustomPermissionsCapabilityState `pulumi:"updateOpenSearchDataSource"`
+	UpdateOracleDataSource                 *CustomPermissionsCapabilityState `pulumi:"updateOracleDataSource"`
+	UpdatePayPalDataSource                 *CustomPermissionsCapabilityState `pulumi:"updatePayPalDataSource"`
+	UpdatePostgreSqlDataSource             *CustomPermissionsCapabilityState `pulumi:"updatePostgreSqlDataSource"`
+	UpdatePrestoDataSource                 *CustomPermissionsCapabilityState `pulumi:"updatePrestoDataSource"`
+	UpdateRadiantDataSource                *CustomPermissionsCapabilityState `pulumi:"updateRadiantDataSource"`
+	UpdateRdsDataSource                    *CustomPermissionsCapabilityState `pulumi:"updateRdsDataSource"`
+	UpdateRedshiftAutoDiscoveredDataSource *CustomPermissionsCapabilityState `pulumi:"updateRedshiftAutoDiscoveredDataSource"`
+	UpdateRedshiftManualDataSource         *CustomPermissionsCapabilityState `pulumi:"updateRedshiftManualDataSource"`
+	UpdateS3AnalyticsDataSource            *CustomPermissionsCapabilityState `pulumi:"updateS3AnalyticsDataSource"`
+	UpdateS3DataSource                     *CustomPermissionsCapabilityState `pulumi:"updateS3DataSource"`
+	UpdateS3TablesDataSource               *CustomPermissionsCapabilityState `pulumi:"updateS3TablesDataSource"`
+	UpdateSalesforceDataSource             *CustomPermissionsCapabilityState `pulumi:"updateSalesforceDataSource"`
+	UpdateSapHanaDataSource                *CustomPermissionsCapabilityState `pulumi:"updateSapHanaDataSource"`
+	UpdateServiceNowDataSource             *CustomPermissionsCapabilityState `pulumi:"updateServiceNowDataSource"`
+	UpdateSnowflakeDataSource              *CustomPermissionsCapabilityState `pulumi:"updateSnowflakeDataSource"`
+	UpdateSparkDataSource                  *CustomPermissionsCapabilityState `pulumi:"updateSparkDataSource"`
+	UpdateSqlServerDataSource              *CustomPermissionsCapabilityState `pulumi:"updateSqlServerDataSource"`
+	UpdateSquareDataSource                 *CustomPermissionsCapabilityState `pulumi:"updateSquareDataSource"`
+	UpdateStarburstDataSource              *CustomPermissionsCapabilityState `pulumi:"updateStarburstDataSource"`
+	UpdateTeradataDataSource               *CustomPermissionsCapabilityState `pulumi:"updateTeradataDataSource"`
+	UpdateTimestreamDataSource             *CustomPermissionsCapabilityState `pulumi:"updateTimestreamDataSource"`
+	UpdateTrinoDataSource                  *CustomPermissionsCapabilityState `pulumi:"updateTrinoDataSource"`
+	UpdateTwitterDataSource                *CustomPermissionsCapabilityState `pulumi:"updateTwitterDataSource"`
+	UseAgentWebSearch                      *CustomPermissionsCapabilityState `pulumi:"useAgentWebSearch"`
+	UseAmazonBedrockArsAction              *CustomPermissionsCapabilityState `pulumi:"useAmazonBedrockArsAction"`
+	UseAmazonBedrockFsAction               *CustomPermissionsCapabilityState `pulumi:"useAmazonBedrockFsAction"`
+	UseAmazonBedrockKrsAction              *CustomPermissionsCapabilityState `pulumi:"useAmazonBedrockKrsAction"`
+	UseAmazonSThreeAction                  *CustomPermissionsCapabilityState `pulumi:"useAmazonSThreeAction"`
+	UseAsanaAction                         *CustomPermissionsCapabilityState `pulumi:"useAsanaAction"`
+	UseBambooHrAction                      *CustomPermissionsCapabilityState `pulumi:"useBambooHrAction"`
+	UseBedrockManagedKnowledgeBase         *CustomPermissionsCapabilityState `pulumi:"useBedrockManagedKnowledgeBase"`
+	UseBedrockModels                       *CustomPermissionsCapabilityState `pulumi:"useBedrockModels"`
+	UseBoxAgentAction                      *CustomPermissionsCapabilityState `pulumi:"useBoxAgentAction"`
+	UseBoxKnowledgeBase                    *CustomPermissionsCapabilityState `pulumi:"useBoxKnowledgeBase"`
+	UseBrowserExtension                    *CustomPermissionsCapabilityState `pulumi:"useBrowserExtension"`
+	UseCanvaAgentAction                    *CustomPermissionsCapabilityState `pulumi:"useCanvaAgentAction"`
+	UseComprehendAction                    *CustomPermissionsCapabilityState `pulumi:"useComprehendAction"`
+	UseComprehendMedicalAction             *CustomPermissionsCapabilityState `pulumi:"useComprehendMedicalAction"`
+	UseConfluenceAction                    *CustomPermissionsCapabilityState `pulumi:"useConfluenceAction"`
+	UseConfluenceKnowledgeBase             *CustomPermissionsCapabilityState `pulumi:"useConfluenceKnowledgeBase"`
+	UseExcelAddInExtension                 *CustomPermissionsCapabilityState `pulumi:"useExcelAddInExtension"`
+	UseFactSetAction                       *CustomPermissionsCapabilityState `pulumi:"useFactSetAction"`
+	UseGenericHttpAction                   *CustomPermissionsCapabilityState `pulumi:"useGenericHttpAction"`
+	UseGithubAction                        *CustomPermissionsCapabilityState `pulumi:"useGithubAction"`
+	UseGoogleCalendarAction                *CustomPermissionsCapabilityState `pulumi:"useGoogleCalendarAction"`
+	UseGoogleDriveKnowledgeBase            *CustomPermissionsCapabilityState `pulumi:"useGoogleDriveKnowledgeBase"`
+	UseHubspotAction                       *CustomPermissionsCapabilityState `pulumi:"useHubspotAction"`
+	UseHuggingFaceAction                   *CustomPermissionsCapabilityState `pulumi:"useHuggingFaceAction"`
+	UseIdcKnowledgeBase                    *CustomPermissionsCapabilityState `pulumi:"useIdcKnowledgeBase"`
+	UseIntercomAction                      *CustomPermissionsCapabilityState `pulumi:"useIntercomAction"`
+	UseJiraAction                          *CustomPermissionsCapabilityState `pulumi:"useJiraAction"`
+	UseLinearAction                        *CustomPermissionsCapabilityState `pulumi:"useLinearAction"`
+	UseMcpAction                           *CustomPermissionsCapabilityState `pulumi:"useMcpAction"`
+	UseMondayAction                        *CustomPermissionsCapabilityState `pulumi:"useMondayAction"`
+	UseMsExchangeAction                    *CustomPermissionsCapabilityState `pulumi:"useMsExchangeAction"`
+	UseMsTeamsAction                       *CustomPermissionsCapabilityState `pulumi:"useMsTeamsAction"`
+	UseNewRelicAction                      *CustomPermissionsCapabilityState `pulumi:"useNewRelicAction"`
+	UseNotionAction                        *CustomPermissionsCapabilityState `pulumi:"useNotionAction"`
+	UseOneDriveAction                      *CustomPermissionsCapabilityState `pulumi:"useOneDriveAction"`
+	UseOneDriveKnowledgeBase               *CustomPermissionsCapabilityState `pulumi:"useOneDriveKnowledgeBase"`
+	UseOpenApiAction                       *CustomPermissionsCapabilityState `pulumi:"useOpenApiAction"`
+	UseOutlookAddInExtension               *CustomPermissionsCapabilityState `pulumi:"useOutlookAddInExtension"`
+	UsePagerDutyAction                     *CustomPermissionsCapabilityState `pulumi:"usePagerDutyAction"`
+	UsePowerpointAddInExtension            *CustomPermissionsCapabilityState `pulumi:"usePowerpointAddInExtension"`
+	UseQBusinessKnowledgeBase              *CustomPermissionsCapabilityState `pulumi:"useQBusinessKnowledgeBase"`
+	UseS3KnowledgeBase                     *CustomPermissionsCapabilityState `pulumi:"useS3KnowledgeBase"`
+	UseSalesforceAction                    *CustomPermissionsCapabilityState `pulumi:"useSalesforceAction"`
+	UseSandPGlobalEnergyAction             *CustomPermissionsCapabilityState `pulumi:"useSandPGlobalEnergyAction"`
+	UseSandPgmiAction                      *CustomPermissionsCapabilityState `pulumi:"useSandPgmiAction"`
+	UseSapBillOfMaterialAction             *CustomPermissionsCapabilityState `pulumi:"useSapBillOfMaterialAction"`
+	UseSapBusinessPartnerAction            *CustomPermissionsCapabilityState `pulumi:"useSapBusinessPartnerAction"`
+	UseSapMaterialStockAction              *CustomPermissionsCapabilityState `pulumi:"useSapMaterialStockAction"`
+	UseSapPhysicalInventoryAction          *CustomPermissionsCapabilityState `pulumi:"useSapPhysicalInventoryAction"`
+	UseSapProductMasterDataAction          *CustomPermissionsCapabilityState `pulumi:"useSapProductMasterDataAction"`
+	UseServiceNowAction                    *CustomPermissionsCapabilityState `pulumi:"useServiceNowAction"`
+	UseSharePointAction                    *CustomPermissionsCapabilityState `pulumi:"useSharePointAction"`
+	UseSharePointKnowledgeBase             *CustomPermissionsCapabilityState `pulumi:"useSharePointKnowledgeBase"`
+	UseSlackAction                         *CustomPermissionsCapabilityState `pulumi:"useSlackAction"`
+	UseSmartsheetAction                    *CustomPermissionsCapabilityState `pulumi:"useSmartsheetAction"`
+	UseTextractAction                      *CustomPermissionsCapabilityState `pulumi:"useTextractAction"`
+	UseWebCrawlerKnowledgeBase             *CustomPermissionsCapabilityState `pulumi:"useWebCrawlerKnowledgeBase"`
+	UseWordAddInExtension                  *CustomPermissionsCapabilityState `pulumi:"useWordAddInExtension"`
+	UseZendeskAction                       *CustomPermissionsCapabilityState `pulumi:"useZendeskAction"`
 	// The ability to view account SPICE capacity.
 	ViewAccountSpiceCapacity *CustomPermissionsCapabilityState `pulumi:"viewAccountSpiceCapacity"`
+	WebCrawlerKnowledgeBase  *CustomPermissionsCapabilityState `pulumi:"webCrawlerKnowledgeBase"`
 	ZendeskAction            *CustomPermissionsCapabilityState `pulumi:"zendeskAction"`
 }
 
@@ -17612,36 +17841,46 @@ type CustomPermissionsCapabilitiesArgs struct {
 	Action                    CustomPermissionsCapabilityStatePtrInput `pulumi:"action"`
 	// The ability to add or run anomaly detection.
 	AddOrRunAnomalyDetectionForAnalyses CustomPermissionsCapabilityStatePtrInput `pulumi:"addOrRunAnomalyDetectionForAnalyses"`
+	AdobeAnalyticsDataSource            CustomPermissionsCapabilityStatePtrInput `pulumi:"adobeAnalyticsDataSource"`
 	AmazonBedrockArsAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"amazonBedrockArsAction"`
 	AmazonBedrockFsAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"amazonBedrockFsAction"`
 	AmazonBedrockKrsAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"amazonBedrockKrsAction"`
 	AmazonSThreeAction                  CustomPermissionsCapabilityStatePtrInput `pulumi:"amazonSThreeAction"`
 	// The ability to perform analysis-related actions.
-	Analysis                               CustomPermissionsCapabilityStatePtrInput `pulumi:"analysis"`
-	ApproveFlowShareRequests               CustomPermissionsCapabilityStatePtrInput `pulumi:"approveFlowShareRequests"`
-	Apps                                   CustomPermissionsCapabilityStatePtrInput `pulumi:"apps"`
-	AsanaAction                            CustomPermissionsCapabilityStatePtrInput `pulumi:"asanaAction"`
-	Automate                               CustomPermissionsCapabilityStatePtrInput `pulumi:"automate"`
-	BambooHrAction                         CustomPermissionsCapabilityStatePtrInput `pulumi:"bambooHrAction"`
-	BoxAgentAction                         CustomPermissionsCapabilityStatePtrInput `pulumi:"boxAgentAction"`
-	BuildCalculatedFieldWithQ              CustomPermissionsCapabilityStatePtrInput `pulumi:"buildCalculatedFieldWithQ"`
-	CanvaAgentAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"canvaAgentAction"`
-	ChatAgent                              CustomPermissionsCapabilityStatePtrInput `pulumi:"chatAgent"`
-	ComprehendAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"comprehendAction"`
-	ComprehendMedicalAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"comprehendMedicalAction"`
-	ConfluenceAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"confluenceAction"`
-	CreateAndUpdateAmazonBedrockArsAction  CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAmazonBedrockArsAction"`
-	CreateAndUpdateAmazonBedrockFsAction   CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAmazonBedrockFsAction"`
-	CreateAndUpdateAmazonBedrockKrsAction  CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAmazonBedrockKrsAction"`
-	CreateAndUpdateAmazonSThreeAction      CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAmazonSThreeAction"`
-	CreateAndUpdateApps                    CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateApps"`
-	CreateAndUpdateAsanaAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAsanaAction"`
-	CreateAndUpdateBambooHrAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateBambooHrAction"`
-	CreateAndUpdateBoxAgentAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateBoxAgentAction"`
-	CreateAndUpdateCanvaAgentAction        CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateCanvaAgentAction"`
-	CreateAndUpdateComprehendAction        CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateComprehendAction"`
-	CreateAndUpdateComprehendMedicalAction CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateComprehendMedicalAction"`
-	CreateAndUpdateConfluenceAction        CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateConfluenceAction"`
+	Analysis                                   CustomPermissionsCapabilityStatePtrInput `pulumi:"analysis"`
+	ApproveFlowShareRequests                   CustomPermissionsCapabilityStatePtrInput `pulumi:"approveFlowShareRequests"`
+	Apps                                       CustomPermissionsCapabilityStatePtrInput `pulumi:"apps"`
+	AsanaAction                                CustomPermissionsCapabilityStatePtrInput `pulumi:"asanaAction"`
+	AthenaDataSource                           CustomPermissionsCapabilityStatePtrInput `pulumi:"athenaDataSource"`
+	AuroraDataSource                           CustomPermissionsCapabilityStatePtrInput `pulumi:"auroraDataSource"`
+	Automate                                   CustomPermissionsCapabilityStatePtrInput `pulumi:"automate"`
+	BambooHrAction                             CustomPermissionsCapabilityStatePtrInput `pulumi:"bambooHrAction"`
+	BedrockManagedKnowledgeBase                CustomPermissionsCapabilityStatePtrInput `pulumi:"bedrockManagedKnowledgeBase"`
+	BoxAgentAction                             CustomPermissionsCapabilityStatePtrInput `pulumi:"boxAgentAction"`
+	BoxKnowledgeBase                           CustomPermissionsCapabilityStatePtrInput `pulumi:"boxKnowledgeBase"`
+	BuildCalculatedFieldWithQ                  CustomPermissionsCapabilityStatePtrInput `pulumi:"buildCalculatedFieldWithQ"`
+	CanvaAgentAction                           CustomPermissionsCapabilityStatePtrInput `pulumi:"canvaAgentAction"`
+	ChatAgent                                  CustomPermissionsCapabilityStatePtrInput `pulumi:"chatAgent"`
+	ComprehendAction                           CustomPermissionsCapabilityStatePtrInput `pulumi:"comprehendAction"`
+	ComprehendMedicalAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"comprehendMedicalAction"`
+	ConfluenceAction                           CustomPermissionsCapabilityStatePtrInput `pulumi:"confluenceAction"`
+	ConfluenceKnowledgeBase                    CustomPermissionsCapabilityStatePtrInput `pulumi:"confluenceKnowledgeBase"`
+	CreateAdobeAnalyticsDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"createAdobeAnalyticsDataSource"`
+	CreateAndUpdateAmazonBedrockArsAction      CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAmazonBedrockArsAction"`
+	CreateAndUpdateAmazonBedrockFsAction       CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAmazonBedrockFsAction"`
+	CreateAndUpdateAmazonBedrockKrsAction      CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAmazonBedrockKrsAction"`
+	CreateAndUpdateAmazonSThreeAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAmazonSThreeAction"`
+	CreateAndUpdateApps                        CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateApps"`
+	CreateAndUpdateAsanaAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateAsanaAction"`
+	CreateAndUpdateBambooHrAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateBambooHrAction"`
+	CreateAndUpdateBedrockManagedKnowledgeBase CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateBedrockManagedKnowledgeBase"`
+	CreateAndUpdateBoxAgentAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateBoxAgentAction"`
+	CreateAndUpdateBoxKnowledgeBase            CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateBoxKnowledgeBase"`
+	CreateAndUpdateCanvaAgentAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateCanvaAgentAction"`
+	CreateAndUpdateComprehendAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateComprehendAction"`
+	CreateAndUpdateComprehendMedicalAction     CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateComprehendMedicalAction"`
+	CreateAndUpdateConfluenceAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateConfluenceAction"`
+	CreateAndUpdateConfluenceKnowledgeBase     CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateConfluenceKnowledgeBase"`
 	// The ability to create and update email reports.
 	CreateAndUpdateDashboardEmailReports CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateDashboardEmailReports"`
 	// The ability to create and update data sources.
@@ -17652,8 +17891,10 @@ type CustomPermissionsCapabilitiesArgs struct {
 	CreateAndUpdateGenericHttpAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateGenericHttpAction"`
 	CreateAndUpdateGithubAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateGithubAction"`
 	CreateAndUpdateGoogleCalendarAction       CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateGoogleCalendarAction"`
+	CreateAndUpdateGoogleDriveKnowledgeBase   CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateGoogleDriveKnowledgeBase"`
 	CreateAndUpdateHubspotAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateHubspotAction"`
 	CreateAndUpdateHuggingFaceAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateHuggingFaceAction"`
+	CreateAndUpdateIdcKnowledgeBase           CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateIdcKnowledgeBase"`
 	CreateAndUpdateIntercomAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateIntercomAction"`
 	CreateAndUpdateJiraAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateJiraAction"`
 	CreateAndUpdateKnowledgeBases             CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateKnowledgeBases"`
@@ -17665,8 +17906,11 @@ type CustomPermissionsCapabilitiesArgs struct {
 	CreateAndUpdateNewRelicAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateNewRelicAction"`
 	CreateAndUpdateNotionAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateNotionAction"`
 	CreateAndUpdateOneDriveAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateOneDriveAction"`
+	CreateAndUpdateOneDriveKnowledgeBase      CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateOneDriveKnowledgeBase"`
 	CreateAndUpdateOpenApiAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateOpenApiAction"`
 	CreateAndUpdatePagerDutyAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdatePagerDutyAction"`
+	CreateAndUpdateQBusinessKnowledgeBase     CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateQBusinessKnowledgeBase"`
+	CreateAndUpdateS3KnowledgeBase            CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateS3KnowledgeBase"`
 	CreateAndUpdateSalesforceAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateSalesforceAction"`
 	CreateAndUpdateSandPGlobalEnergyAction    CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateSandPGlobalEnergyAction"`
 	CreateAndUpdateSandPgmiAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateSandPgmiAction"`
@@ -17677,24 +17921,77 @@ type CustomPermissionsCapabilitiesArgs struct {
 	CreateAndUpdateSapProductMasterDataAction CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateSapProductMasterDataAction"`
 	CreateAndUpdateServiceNowAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateServiceNowAction"`
 	CreateAndUpdateSharePointAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateSharePointAction"`
+	CreateAndUpdateSharePointKnowledgeBase    CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateSharePointKnowledgeBase"`
 	CreateAndUpdateSlackAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateSlackAction"`
 	CreateAndUpdateSmartsheetAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateSmartsheetAction"`
 	CreateAndUpdateTextractAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateTextractAction"`
 	// The ability to export to Create and Update themes.
 	CreateAndUpdateThemes CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateThemes"`
 	// The ability to create and update threshold alerts.
-	CreateAndUpdateThresholdAlerts       CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateThresholdAlerts"`
-	CreateAndUpdateZendeskAction         CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateZendeskAction"`
-	CreateChatAgents                     CustomPermissionsCapabilityStatePtrInput `pulumi:"createChatAgents"`
-	CreateDashboardExecutiveSummaryWithQ CustomPermissionsCapabilityStatePtrInput `pulumi:"createDashboardExecutiveSummaryWithQ"`
+	CreateAndUpdateThresholdAlerts         CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateThresholdAlerts"`
+	CreateAndUpdateWebCrawlerKnowledgeBase CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateWebCrawlerKnowledgeBase"`
+	CreateAndUpdateZendeskAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"createAndUpdateZendeskAction"`
+	CreateAthenaDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createAthenaDataSource"`
+	CreateAuroraDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createAuroraDataSource"`
+	CreateChatAgents                       CustomPermissionsCapabilityStatePtrInput `pulumi:"createChatAgents"`
+	CreateDashboardExecutiveSummaryWithQ   CustomPermissionsCapabilityStatePtrInput `pulumi:"createDashboardExecutiveSummaryWithQ"`
+	CreateDatabricksDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"createDatabricksDataSource"`
+	CreateDb2DataSource                    CustomPermissionsCapabilityStatePtrInput `pulumi:"createDb2DataSource"`
+	CreateDenodoDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createDenodoDataSource"`
+	CreateDocumentDbDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"createDocumentDbDataSource"`
+	CreateDremioDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createDremioDataSource"`
+	CreateDynamoDbDataSource               CustomPermissionsCapabilityStatePtrInput `pulumi:"createDynamoDbDataSource"`
+	CreateExasolDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createExasolDataSource"`
+	CreateFileDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"createFileDataSource"`
+	CreateGitHubDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createGitHubDataSource"`
+	CreateGoogleAnalyticsDataSource        CustomPermissionsCapabilityStatePtrInput `pulumi:"createGoogleAnalyticsDataSource"`
+	CreateGoogleBigQueryDataSource         CustomPermissionsCapabilityStatePtrInput `pulumi:"createGoogleBigQueryDataSource"`
+	CreateGoogleSheetsDataSource           CustomPermissionsCapabilityStatePtrInput `pulumi:"createGoogleSheetsDataSource"`
+	CreateImpalaDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createImpalaDataSource"`
+	CreateJiraDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"createJiraDataSource"`
+	CreateMariaDbDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"createMariaDbDataSource"`
+	CreateMongoAtlasDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"createMongoAtlasDataSource"`
+	CreateMongoDbDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"createMongoDbDataSource"`
+	CreateMySqlDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"createMySqlDataSource"`
+	CreateOpenSearchDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"createOpenSearchDataSource"`
+	CreateOracleDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createOracleDataSource"`
+	CreatePayPalDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createPayPalDataSource"`
+	CreatePostgreSqlDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"createPostgreSqlDataSource"`
+	CreatePrestoDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"createPrestoDataSource"`
+	CreateRadiantDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"createRadiantDataSource"`
+	CreateRdsDataSource                    CustomPermissionsCapabilityStatePtrInput `pulumi:"createRdsDataSource"`
+	CreateRedshiftAutoDiscoveredDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"createRedshiftAutoDiscoveredDataSource"`
+	CreateRedshiftManualDataSource         CustomPermissionsCapabilityStatePtrInput `pulumi:"createRedshiftManualDataSource"`
+	CreateS3AnalyticsDataSource            CustomPermissionsCapabilityStatePtrInput `pulumi:"createS3AnalyticsDataSource"`
+	CreateS3DataSource                     CustomPermissionsCapabilityStatePtrInput `pulumi:"createS3DataSource"`
+	CreateS3TablesDataSource               CustomPermissionsCapabilityStatePtrInput `pulumi:"createS3TablesDataSource"`
+	CreateSalesforceDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"createSalesforceDataSource"`
+	CreateSapHanaDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"createSapHanaDataSource"`
+	CreateServiceNowDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"createServiceNowDataSource"`
 	// The ability to create shared folders.
-	CreateSharedFolders CustomPermissionsCapabilityStatePtrInput `pulumi:"createSharedFolders"`
-	CreateSpaces        CustomPermissionsCapabilityStatePtrInput `pulumi:"createSpaces"`
+	CreateSharedFolders       CustomPermissionsCapabilityStatePtrInput `pulumi:"createSharedFolders"`
+	CreateSnowflakeDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"createSnowflakeDataSource"`
+	CreateSpaces              CustomPermissionsCapabilityStatePtrInput `pulumi:"createSpaces"`
+	CreateSparkDataSource     CustomPermissionsCapabilityStatePtrInput `pulumi:"createSparkDataSource"`
 	// The ability to create a SPICE dataset.
-	CreateSpiceDataset CustomPermissionsCapabilityStatePtrInput `pulumi:"createSpiceDataset"`
+	CreateSpiceDataset         CustomPermissionsCapabilityStatePtrInput `pulumi:"createSpiceDataset"`
+	CreateSqlServerDataSource  CustomPermissionsCapabilityStatePtrInput `pulumi:"createSqlServerDataSource"`
+	CreateSquareDataSource     CustomPermissionsCapabilityStatePtrInput `pulumi:"createSquareDataSource"`
+	CreateStarburstDataSource  CustomPermissionsCapabilityStatePtrInput `pulumi:"createStarburstDataSource"`
+	CreateTeradataDataSource   CustomPermissionsCapabilityStatePtrInput `pulumi:"createTeradataDataSource"`
+	CreateTimestreamDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"createTimestreamDataSource"`
+	CreateTrinoDataSource      CustomPermissionsCapabilityStatePtrInput `pulumi:"createTrinoDataSource"`
+	CreateTwitterDataSource    CustomPermissionsCapabilityStatePtrInput `pulumi:"createTwitterDataSource"`
 	// The ability to perform dashboard-related actions.
-	Dashboard       CustomPermissionsCapabilityStatePtrInput `pulumi:"dashboard"`
-	EditVisualWithQ CustomPermissionsCapabilityStatePtrInput `pulumi:"editVisualWithQ"`
+	Dashboard            CustomPermissionsCapabilityStatePtrInput `pulumi:"dashboard"`
+	DatabricksDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"databricksDataSource"`
+	Db2DataSource        CustomPermissionsCapabilityStatePtrInput `pulumi:"db2DataSource"`
+	DenodoDataSource     CustomPermissionsCapabilityStatePtrInput `pulumi:"denodoDataSource"`
+	DocumentDbDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"documentDbDataSource"`
+	DremioDataSource     CustomPermissionsCapabilityStatePtrInput `pulumi:"dremioDataSource"`
+	DynamoDbDataSource   CustomPermissionsCapabilityStatePtrInput `pulumi:"dynamoDbDataSource"`
+	EditVisualWithQ      CustomPermissionsCapabilityStatePtrInput `pulumi:"editVisualWithQ"`
+	ExasolDataSource     CustomPermissionsCapabilityStatePtrInput `pulumi:"exasolDataSource"`
 	// The ability to export to CSV files from the UI.
 	ExportToCsv CustomPermissionsCapabilityStatePtrInput `pulumi:"exportToCsv"`
 	// The ability to export to CSV files in scheduled email reports.
@@ -17709,155 +18006,316 @@ type CustomPermissionsCapabilitiesArgs struct {
 	ExportToPdfInScheduledReports CustomPermissionsCapabilityStatePtrInput `pulumi:"exportToPdfInScheduledReports"`
 	Extension                     CustomPermissionsCapabilityStatePtrInput `pulumi:"extension"`
 	FactSetAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"factSetAction"`
+	FileDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"fileDataSource"`
 	Flow                          CustomPermissionsCapabilityStatePtrInput `pulumi:"flow"`
 	GenericHttpAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"genericHttpAction"`
+	GitHubDataSource              CustomPermissionsCapabilityStatePtrInput `pulumi:"gitHubDataSource"`
 	GithubAction                  CustomPermissionsCapabilityStatePtrInput `pulumi:"githubAction"`
+	GoogleAnalyticsDataSource     CustomPermissionsCapabilityStatePtrInput `pulumi:"googleAnalyticsDataSource"`
+	GoogleBigQueryDataSource      CustomPermissionsCapabilityStatePtrInput `pulumi:"googleBigQueryDataSource"`
 	GoogleCalendarAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"googleCalendarAction"`
+	GoogleDriveKnowledgeBase      CustomPermissionsCapabilityStatePtrInput `pulumi:"googleDriveKnowledgeBase"`
+	GoogleSheetsDataSource        CustomPermissionsCapabilityStatePtrInput `pulumi:"googleSheetsDataSource"`
 	HubspotAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"hubspotAction"`
 	HuggingFaceAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"huggingFaceAction"`
+	IdcKnowledgeBase              CustomPermissionsCapabilityStatePtrInput `pulumi:"idcKnowledgeBase"`
+	ImpalaDataSource              CustomPermissionsCapabilityStatePtrInput `pulumi:"impalaDataSource"`
+	InboundEmailTrigger           CustomPermissionsCapabilityStatePtrInput `pulumi:"inboundEmailTrigger"`
 	// The ability to include content in scheduled email reports.
 	IncludeContentInScheduledReportsEmail CustomPermissionsCapabilityStatePtrInput `pulumi:"includeContentInScheduledReportsEmail"`
 	IntercomAction                        CustomPermissionsCapabilityStatePtrInput `pulumi:"intercomAction"`
 	InvokeAppsAiInference                 CustomPermissionsCapabilityStatePtrInput `pulumi:"invokeAppsAiInference"`
 	JiraAction                            CustomPermissionsCapabilityStatePtrInput `pulumi:"jiraAction"`
+	JiraDataSource                        CustomPermissionsCapabilityStatePtrInput `pulumi:"jiraDataSource"`
 	KnowledgeBase                         CustomPermissionsCapabilityStatePtrInput `pulumi:"knowledgeBase"`
 	LinearAction                          CustomPermissionsCapabilityStatePtrInput `pulumi:"linearAction"`
 	ManageSharedFolders                   CustomPermissionsCapabilityStatePtrInput `pulumi:"manageSharedFolders"`
+	MariaDbDataSource                     CustomPermissionsCapabilityStatePtrInput `pulumi:"mariaDbDataSource"`
 	McpAction                             CustomPermissionsCapabilityStatePtrInput `pulumi:"mcpAction"`
 	MondayAction                          CustomPermissionsCapabilityStatePtrInput `pulumi:"mondayAction"`
+	MongoAtlasDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"mongoAtlasDataSource"`
+	MongoDbDataSource                     CustomPermissionsCapabilityStatePtrInput `pulumi:"mongoDbDataSource"`
 	MsExchangeAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"msExchangeAction"`
 	MsTeamsAction                         CustomPermissionsCapabilityStatePtrInput `pulumi:"msTeamsAction"`
+	MySqlDataSource                       CustomPermissionsCapabilityStatePtrInput `pulumi:"mySqlDataSource"`
 	NewRelicAction                        CustomPermissionsCapabilityStatePtrInput `pulumi:"newRelicAction"`
 	NotionAction                          CustomPermissionsCapabilityStatePtrInput `pulumi:"notionAction"`
 	OneDriveAction                        CustomPermissionsCapabilityStatePtrInput `pulumi:"oneDriveAction"`
+	OneDriveKnowledgeBase                 CustomPermissionsCapabilityStatePtrInput `pulumi:"oneDriveKnowledgeBase"`
 	OpenApiAction                         CustomPermissionsCapabilityStatePtrInput `pulumi:"openApiAction"`
+	OpenSearchDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"openSearchDataSource"`
+	OracleDataSource                      CustomPermissionsCapabilityStatePtrInput `pulumi:"oracleDataSource"`
 	PagerDutyAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"pagerDutyAction"`
+	PayPalDataSource                      CustomPermissionsCapabilityStatePtrInput `pulumi:"payPalDataSource"`
 	PerformFlowUiTask                     CustomPermissionsCapabilityStatePtrInput `pulumi:"performFlowUiTask"`
+	PostgreSqlDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"postgreSqlDataSource"`
+	PrestoDataSource                      CustomPermissionsCapabilityStatePtrInput `pulumi:"prestoDataSource"`
 	// The ability to print reports.
-	PrintReports           CustomPermissionsCapabilityStatePtrInput `pulumi:"printReports"`
-	PublishWithoutApproval CustomPermissionsCapabilityStatePtrInput `pulumi:"publishWithoutApproval"`
+	PrintReports                     CustomPermissionsCapabilityStatePtrInput `pulumi:"printReports"`
+	PublishWithoutApproval           CustomPermissionsCapabilityStatePtrInput `pulumi:"publishWithoutApproval"`
+	QBusinessKnowledgeBase           CustomPermissionsCapabilityStatePtrInput `pulumi:"qBusinessKnowledgeBase"`
+	QuickEventTrigger                CustomPermissionsCapabilityStatePtrInput `pulumi:"quickEventTrigger"`
+	RadiantDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"radiantDataSource"`
+	RdsDataSource                    CustomPermissionsCapabilityStatePtrInput `pulumi:"rdsDataSource"`
+	RedshiftAutoDiscoveredDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"redshiftAutoDiscoveredDataSource"`
+	RedshiftManualDataSource         CustomPermissionsCapabilityStatePtrInput `pulumi:"redshiftManualDataSource"`
 	// The ability to rename shared folders.
-	RenameSharedFolders         CustomPermissionsCapabilityStatePtrInput `pulumi:"renameSharedFolders"`
-	Research                    CustomPermissionsCapabilityStatePtrInput `pulumi:"research"`
-	SalesforceAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"salesforceAction"`
-	SandPGlobalEnergyAction     CustomPermissionsCapabilityStatePtrInput `pulumi:"sandPGlobalEnergyAction"`
-	SandPgmiAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"sandPgmiAction"`
-	SapBillOfMaterialAction     CustomPermissionsCapabilityStatePtrInput `pulumi:"sapBillOfMaterialAction"`
-	SapBusinessPartnerAction    CustomPermissionsCapabilityStatePtrInput `pulumi:"sapBusinessPartnerAction"`
-	SapMaterialStockAction      CustomPermissionsCapabilityStatePtrInput `pulumi:"sapMaterialStockAction"`
-	SapPhysicalInventoryAction  CustomPermissionsCapabilityStatePtrInput `pulumi:"sapPhysicalInventoryAction"`
-	SapProductMasterDataAction  CustomPermissionsCapabilityStatePtrInput `pulumi:"sapProductMasterDataAction"`
-	ServiceNowAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"serviceNowAction"`
-	ShareAmazonBedrockArsAction CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAmazonBedrockArsAction"`
-	ShareAmazonBedrockFsAction  CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAmazonBedrockFsAction"`
-	ShareAmazonBedrockKrsAction CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAmazonBedrockKrsAction"`
-	ShareAmazonSThreeAction     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAmazonSThreeAction"`
+	RenameSharedFolders           CustomPermissionsCapabilityStatePtrInput `pulumi:"renameSharedFolders"`
+	Research                      CustomPermissionsCapabilityStatePtrInput `pulumi:"research"`
+	S3AnalyticsDataSource         CustomPermissionsCapabilityStatePtrInput `pulumi:"s3AnalyticsDataSource"`
+	S3DataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"s3DataSource"`
+	S3KnowledgeBase               CustomPermissionsCapabilityStatePtrInput `pulumi:"s3KnowledgeBase"`
+	S3TablesDataSource            CustomPermissionsCapabilityStatePtrInput `pulumi:"s3TablesDataSource"`
+	SalesforceAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"salesforceAction"`
+	SalesforceDataSource          CustomPermissionsCapabilityStatePtrInput `pulumi:"salesforceDataSource"`
+	SandPGlobalEnergyAction       CustomPermissionsCapabilityStatePtrInput `pulumi:"sandPGlobalEnergyAction"`
+	SandPgmiAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"sandPgmiAction"`
+	SapBillOfMaterialAction       CustomPermissionsCapabilityStatePtrInput `pulumi:"sapBillOfMaterialAction"`
+	SapBusinessPartnerAction      CustomPermissionsCapabilityStatePtrInput `pulumi:"sapBusinessPartnerAction"`
+	SapHanaDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"sapHanaDataSource"`
+	SapMaterialStockAction        CustomPermissionsCapabilityStatePtrInput `pulumi:"sapMaterialStockAction"`
+	SapPhysicalInventoryAction    CustomPermissionsCapabilityStatePtrInput `pulumi:"sapPhysicalInventoryAction"`
+	SapProductMasterDataAction    CustomPermissionsCapabilityStatePtrInput `pulumi:"sapProductMasterDataAction"`
+	ScheduleTrigger               CustomPermissionsCapabilityStatePtrInput `pulumi:"scheduleTrigger"`
+	ServiceNowAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"serviceNowAction"`
+	ServiceNowDataSource          CustomPermissionsCapabilityStatePtrInput `pulumi:"serviceNowDataSource"`
+	ShareAdobeAnalyticsDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAdobeAnalyticsDataSource"`
+	ShareAmazonBedrockArsAction   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAmazonBedrockArsAction"`
+	ShareAmazonBedrockFsAction    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAmazonBedrockFsAction"`
+	ShareAmazonBedrockKrsAction   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAmazonBedrockKrsAction"`
+	ShareAmazonSThreeAction       CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAmazonSThreeAction"`
 	// The ability to share analyses.
-	ShareAnalyses                CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAnalyses"`
-	ShareApps                    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareApps"`
-	ShareAsanaAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAsanaAction"`
-	ShareBambooHrAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"shareBambooHrAction"`
-	ShareBoxAgentAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"shareBoxAgentAction"`
-	ShareCanvaAgentAction        CustomPermissionsCapabilityStatePtrInput `pulumi:"shareCanvaAgentAction"`
-	ShareChatAgents              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareChatAgents"`
-	ShareComprehendAction        CustomPermissionsCapabilityStatePtrInput `pulumi:"shareComprehendAction"`
-	ShareComprehendMedicalAction CustomPermissionsCapabilityStatePtrInput `pulumi:"shareComprehendMedicalAction"`
-	ShareConfluenceAction        CustomPermissionsCapabilityStatePtrInput `pulumi:"shareConfluenceAction"`
+	ShareAnalyses                    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAnalyses"`
+	ShareApps                        CustomPermissionsCapabilityStatePtrInput `pulumi:"shareApps"`
+	ShareAsanaAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAsanaAction"`
+	ShareAthenaDataSource            CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAthenaDataSource"`
+	ShareAuroraDataSource            CustomPermissionsCapabilityStatePtrInput `pulumi:"shareAuroraDataSource"`
+	ShareBambooHrAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareBambooHrAction"`
+	ShareBedrockManagedKnowledgeBase CustomPermissionsCapabilityStatePtrInput `pulumi:"shareBedrockManagedKnowledgeBase"`
+	ShareBoxAgentAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareBoxAgentAction"`
+	ShareBoxKnowledgeBase            CustomPermissionsCapabilityStatePtrInput `pulumi:"shareBoxKnowledgeBase"`
+	ShareCanvaAgentAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"shareCanvaAgentAction"`
+	ShareChatAgents                  CustomPermissionsCapabilityStatePtrInput `pulumi:"shareChatAgents"`
+	ShareComprehendAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"shareComprehendAction"`
+	ShareComprehendMedicalAction     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareComprehendMedicalAction"`
+	ShareConfluenceAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"shareConfluenceAction"`
+	ShareConfluenceKnowledgeBase     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareConfluenceKnowledgeBase"`
 	// The ability to share dashboards.
 	ShareDashboards CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDashboards"`
 	// The ability to share data sources.
-	ShareDataSources CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDataSources"`
+	ShareDataSources          CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDataSources"`
+	ShareDatabricksDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDatabricksDataSource"`
 	// The ability to share datasets.
-	ShareDatasets                   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDatasets"`
-	ShareFactSetAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareFactSetAction"`
-	ShareGenericHttpAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGenericHttpAction"`
-	ShareGithubAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGithubAction"`
-	ShareGoogleCalendarAction       CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGoogleCalendarAction"`
-	ShareHubspotAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareHubspotAction"`
-	ShareHuggingFaceAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"shareHuggingFaceAction"`
-	ShareIntercomAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareIntercomAction"`
-	ShareJiraAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareJiraAction"`
-	ShareKnowledgeBases             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareKnowledgeBases"`
-	ShareLinearAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"shareLinearAction"`
-	ShareMcpAction                  CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMcpAction"`
-	ShareMondayAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMondayAction"`
-	ShareMsExchangeAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMsExchangeAction"`
-	ShareMsTeamsAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMsTeamsAction"`
-	ShareNewRelicAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareNewRelicAction"`
-	ShareNotionAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"shareNotionAction"`
-	ShareOneDriveAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareOneDriveAction"`
-	ShareOpenApiAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareOpenApiAction"`
-	SharePagerDutyAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"sharePagerDutyAction"`
-	SharePointAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"sharePointAction"`
-	ShareSalesforceAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSalesforceAction"`
-	ShareSandPGlobalEnergyAction    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSandPGlobalEnergyAction"`
-	ShareSandPgmiAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSandPgmiAction"`
-	ShareSapBillOfMaterialAction    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapBillOfMaterialAction"`
-	ShareSapBusinessPartnerAction   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapBusinessPartnerAction"`
-	ShareSapMaterialStockAction     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapMaterialStockAction"`
-	ShareSapPhysicalInventoryAction CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapPhysicalInventoryAction"`
-	ShareSapProductMasterDataAction CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapProductMasterDataAction"`
-	ShareServiceNowAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"shareServiceNowAction"`
-	ShareSharePointAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSharePointAction"`
-	ShareSlackAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSlackAction"`
-	ShareSmartsheetAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSmartsheetAction"`
-	ShareSpaces                     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSpaces"`
-	ShareTextractAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareTextractAction"`
-	ShareZendeskAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareZendeskAction"`
-	SlackAction                     CustomPermissionsCapabilityStatePtrInput `pulumi:"slackAction"`
-	SmartsheetAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"smartsheetAction"`
-	Space                           CustomPermissionsCapabilityStatePtrInput `pulumi:"space"`
+	ShareDatasets                         CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDatasets"`
+	ShareDb2DataSource                    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDb2DataSource"`
+	ShareDenodoDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDenodoDataSource"`
+	ShareDocumentDbDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDocumentDbDataSource"`
+	ShareDremioDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDremioDataSource"`
+	ShareDynamoDbDataSource               CustomPermissionsCapabilityStatePtrInput `pulumi:"shareDynamoDbDataSource"`
+	ShareExasolDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareExasolDataSource"`
+	ShareFactSetAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareFactSetAction"`
+	ShareFileDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareFileDataSource"`
+	ShareGenericHttpAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGenericHttpAction"`
+	ShareGitHubDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGitHubDataSource"`
+	ShareGithubAction                     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGithubAction"`
+	ShareGoogleAnalyticsDataSource        CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGoogleAnalyticsDataSource"`
+	ShareGoogleBigQueryDataSource         CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGoogleBigQueryDataSource"`
+	ShareGoogleCalendarAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGoogleCalendarAction"`
+	ShareGoogleDriveKnowledgeBase         CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGoogleDriveKnowledgeBase"`
+	ShareGoogleSheetsDataSource           CustomPermissionsCapabilityStatePtrInput `pulumi:"shareGoogleSheetsDataSource"`
+	ShareHubspotAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareHubspotAction"`
+	ShareHuggingFaceAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"shareHuggingFaceAction"`
+	ShareIdcKnowledgeBase                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareIdcKnowledgeBase"`
+	ShareImpalaDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareImpalaDataSource"`
+	ShareIntercomAction                   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareIntercomAction"`
+	ShareJiraAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"shareJiraAction"`
+	ShareJiraDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareJiraDataSource"`
+	ShareKnowledgeBases                   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareKnowledgeBases"`
+	ShareLinearAction                     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareLinearAction"`
+	ShareMariaDbDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMariaDbDataSource"`
+	ShareMcpAction                        CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMcpAction"`
+	ShareMondayAction                     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMondayAction"`
+	ShareMongoAtlasDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMongoAtlasDataSource"`
+	ShareMongoDbDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMongoDbDataSource"`
+	ShareMsExchangeAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMsExchangeAction"`
+	ShareMsTeamsAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMsTeamsAction"`
+	ShareMySqlDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"shareMySqlDataSource"`
+	ShareNewRelicAction                   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareNewRelicAction"`
+	ShareNotionAction                     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareNotionAction"`
+	ShareOneDriveAction                   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareOneDriveAction"`
+	ShareOneDriveKnowledgeBase            CustomPermissionsCapabilityStatePtrInput `pulumi:"shareOneDriveKnowledgeBase"`
+	ShareOpenApiAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareOpenApiAction"`
+	ShareOpenSearchDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareOpenSearchDataSource"`
+	ShareOracleDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareOracleDataSource"`
+	SharePagerDutyAction                  CustomPermissionsCapabilityStatePtrInput `pulumi:"sharePagerDutyAction"`
+	SharePayPalDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"sharePayPalDataSource"`
+	SharePointAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"sharePointAction"`
+	SharePointKnowledgeBase               CustomPermissionsCapabilityStatePtrInput `pulumi:"sharePointKnowledgeBase"`
+	SharePostgreSqlDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"sharePostgreSqlDataSource"`
+	SharePrestoDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"sharePrestoDataSource"`
+	ShareQBusinessKnowledgeBase           CustomPermissionsCapabilityStatePtrInput `pulumi:"shareQBusinessKnowledgeBase"`
+	ShareRadiantDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"shareRadiantDataSource"`
+	ShareRdsDataSource                    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareRdsDataSource"`
+	ShareRedshiftAutoDiscoveredDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"shareRedshiftAutoDiscoveredDataSource"`
+	ShareRedshiftManualDataSource         CustomPermissionsCapabilityStatePtrInput `pulumi:"shareRedshiftManualDataSource"`
+	ShareS3AnalyticsDataSource            CustomPermissionsCapabilityStatePtrInput `pulumi:"shareS3AnalyticsDataSource"`
+	ShareS3DataSource                     CustomPermissionsCapabilityStatePtrInput `pulumi:"shareS3DataSource"`
+	ShareS3KnowledgeBase                  CustomPermissionsCapabilityStatePtrInput `pulumi:"shareS3KnowledgeBase"`
+	ShareS3TablesDataSource               CustomPermissionsCapabilityStatePtrInput `pulumi:"shareS3TablesDataSource"`
+	ShareSalesforceAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSalesforceAction"`
+	ShareSalesforceDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSalesforceDataSource"`
+	ShareSandPGlobalEnergyAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSandPGlobalEnergyAction"`
+	ShareSandPgmiAction                   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSandPgmiAction"`
+	ShareSapBillOfMaterialAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapBillOfMaterialAction"`
+	ShareSapBusinessPartnerAction         CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapBusinessPartnerAction"`
+	ShareSapHanaDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapHanaDataSource"`
+	ShareSapMaterialStockAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapMaterialStockAction"`
+	ShareSapPhysicalInventoryAction       CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapPhysicalInventoryAction"`
+	ShareSapProductMasterDataAction       CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSapProductMasterDataAction"`
+	ShareServiceNowAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareServiceNowAction"`
+	ShareServiceNowDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareServiceNowDataSource"`
+	ShareSharePointAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSharePointAction"`
+	ShareSharePointKnowledgeBase          CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSharePointKnowledgeBase"`
+	ShareSlackAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSlackAction"`
+	ShareSmartsheetAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSmartsheetAction"`
+	ShareSnowflakeDataSource              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSnowflakeDataSource"`
+	ShareSpaces                           CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSpaces"`
+	ShareSparkDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSparkDataSource"`
+	ShareSqlServerDataSource              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSqlServerDataSource"`
+	ShareSquareDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"shareSquareDataSource"`
+	ShareStarburstDataSource              CustomPermissionsCapabilityStatePtrInput `pulumi:"shareStarburstDataSource"`
+	ShareTeradataDataSource               CustomPermissionsCapabilityStatePtrInput `pulumi:"shareTeradataDataSource"`
+	ShareTextractAction                   CustomPermissionsCapabilityStatePtrInput `pulumi:"shareTextractAction"`
+	ShareTimestreamDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"shareTimestreamDataSource"`
+	ShareTrinoDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"shareTrinoDataSource"`
+	ShareTwitterDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"shareTwitterDataSource"`
+	ShareWebCrawlerKnowledgeBase          CustomPermissionsCapabilityStatePtrInput `pulumi:"shareWebCrawlerKnowledgeBase"`
+	ShareZendeskAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"shareZendeskAction"`
+	SlackAction                           CustomPermissionsCapabilityStatePtrInput `pulumi:"slackAction"`
+	SmartsheetAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"smartsheetAction"`
+	SnowflakeDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"snowflakeDataSource"`
+	Space                                 CustomPermissionsCapabilityStatePtrInput `pulumi:"space"`
+	SparkDataSource                       CustomPermissionsCapabilityStatePtrInput `pulumi:"sparkDataSource"`
+	SqlServerDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"sqlServerDataSource"`
+	SquareDataSource                      CustomPermissionsCapabilityStatePtrInput `pulumi:"squareDataSource"`
+	StarburstDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"starburstDataSource"`
 	// The ability to subscribe to email reports.
-	SubscribeDashboardEmailReports CustomPermissionsCapabilityStatePtrInput `pulumi:"subscribeDashboardEmailReports"`
-	TextractAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"textractAction"`
-	Topic                          CustomPermissionsCapabilityStatePtrInput `pulumi:"topic"`
-	UseAgentWebSearch              CustomPermissionsCapabilityStatePtrInput `pulumi:"useAgentWebSearch"`
-	UseAmazonBedrockArsAction      CustomPermissionsCapabilityStatePtrInput `pulumi:"useAmazonBedrockArsAction"`
-	UseAmazonBedrockFsAction       CustomPermissionsCapabilityStatePtrInput `pulumi:"useAmazonBedrockFsAction"`
-	UseAmazonBedrockKrsAction      CustomPermissionsCapabilityStatePtrInput `pulumi:"useAmazonBedrockKrsAction"`
-	UseAmazonSThreeAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"useAmazonSThreeAction"`
-	UseAsanaAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"useAsanaAction"`
-	UseBambooHrAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useBambooHrAction"`
-	UseBedrockModels               CustomPermissionsCapabilityStatePtrInput `pulumi:"useBedrockModels"`
-	UseBoxAgentAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useBoxAgentAction"`
-	UseCanvaAgentAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"useCanvaAgentAction"`
-	UseComprehendAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"useComprehendAction"`
-	UseComprehendMedicalAction     CustomPermissionsCapabilityStatePtrInput `pulumi:"useComprehendMedicalAction"`
-	UseConfluenceAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"useConfluenceAction"`
-	UseFactSetAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"useFactSetAction"`
-	UseGenericHttpAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"useGenericHttpAction"`
-	UseGithubAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"useGithubAction"`
-	UseGoogleCalendarAction        CustomPermissionsCapabilityStatePtrInput `pulumi:"useGoogleCalendarAction"`
-	UseHubspotAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"useHubspotAction"`
-	UseHuggingFaceAction           CustomPermissionsCapabilityStatePtrInput `pulumi:"useHuggingFaceAction"`
-	UseIntercomAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useIntercomAction"`
-	UseJiraAction                  CustomPermissionsCapabilityStatePtrInput `pulumi:"useJiraAction"`
-	UseLinearAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"useLinearAction"`
-	UseMcpAction                   CustomPermissionsCapabilityStatePtrInput `pulumi:"useMcpAction"`
-	UseMondayAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"useMondayAction"`
-	UseMsExchangeAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"useMsExchangeAction"`
-	UseMsTeamsAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"useMsTeamsAction"`
-	UseNewRelicAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useNewRelicAction"`
-	UseNotionAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"useNotionAction"`
-	UseOneDriveAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useOneDriveAction"`
-	UseOpenApiAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"useOpenApiAction"`
-	UsePagerDutyAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"usePagerDutyAction"`
-	UseSalesforceAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"useSalesforceAction"`
-	UseSandPGlobalEnergyAction     CustomPermissionsCapabilityStatePtrInput `pulumi:"useSandPGlobalEnergyAction"`
-	UseSandPgmiAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useSandPgmiAction"`
-	UseSapBillOfMaterialAction     CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapBillOfMaterialAction"`
-	UseSapBusinessPartnerAction    CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapBusinessPartnerAction"`
-	UseSapMaterialStockAction      CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapMaterialStockAction"`
-	UseSapPhysicalInventoryAction  CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapPhysicalInventoryAction"`
-	UseSapProductMasterDataAction  CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapProductMasterDataAction"`
-	UseServiceNowAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"useServiceNowAction"`
-	UseSharePointAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"useSharePointAction"`
-	UseSlackAction                 CustomPermissionsCapabilityStatePtrInput `pulumi:"useSlackAction"`
-	UseSmartsheetAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"useSmartsheetAction"`
-	UseTextractAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useTextractAction"`
-	UseZendeskAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"useZendeskAction"`
+	SubscribeDashboardEmailReports         CustomPermissionsCapabilityStatePtrInput `pulumi:"subscribeDashboardEmailReports"`
+	TeradataDataSource                     CustomPermissionsCapabilityStatePtrInput `pulumi:"teradataDataSource"`
+	TextractAction                         CustomPermissionsCapabilityStatePtrInput `pulumi:"textractAction"`
+	TimestreamDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"timestreamDataSource"`
+	Topic                                  CustomPermissionsCapabilityStatePtrInput `pulumi:"topic"`
+	Trigger                                CustomPermissionsCapabilityStatePtrInput `pulumi:"trigger"`
+	TrinoDataSource                        CustomPermissionsCapabilityStatePtrInput `pulumi:"trinoDataSource"`
+	TwitterDataSource                      CustomPermissionsCapabilityStatePtrInput `pulumi:"twitterDataSource"`
+	UpdateAdobeAnalyticsDataSource         CustomPermissionsCapabilityStatePtrInput `pulumi:"updateAdobeAnalyticsDataSource"`
+	UpdateAthenaDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updateAthenaDataSource"`
+	UpdateAuroraDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updateAuroraDataSource"`
+	UpdateDatabricksDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"updateDatabricksDataSource"`
+	UpdateDb2DataSource                    CustomPermissionsCapabilityStatePtrInput `pulumi:"updateDb2DataSource"`
+	UpdateDenodoDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updateDenodoDataSource"`
+	UpdateDocumentDbDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"updateDocumentDbDataSource"`
+	UpdateDremioDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updateDremioDataSource"`
+	UpdateDynamoDbDataSource               CustomPermissionsCapabilityStatePtrInput `pulumi:"updateDynamoDbDataSource"`
+	UpdateExasolDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updateExasolDataSource"`
+	UpdateFileDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"updateFileDataSource"`
+	UpdateGitHubDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updateGitHubDataSource"`
+	UpdateGoogleAnalyticsDataSource        CustomPermissionsCapabilityStatePtrInput `pulumi:"updateGoogleAnalyticsDataSource"`
+	UpdateGoogleBigQueryDataSource         CustomPermissionsCapabilityStatePtrInput `pulumi:"updateGoogleBigQueryDataSource"`
+	UpdateGoogleSheetsDataSource           CustomPermissionsCapabilityStatePtrInput `pulumi:"updateGoogleSheetsDataSource"`
+	UpdateImpalaDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updateImpalaDataSource"`
+	UpdateJiraDataSource                   CustomPermissionsCapabilityStatePtrInput `pulumi:"updateJiraDataSource"`
+	UpdateMariaDbDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"updateMariaDbDataSource"`
+	UpdateMongoAtlasDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"updateMongoAtlasDataSource"`
+	UpdateMongoDbDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"updateMongoDbDataSource"`
+	UpdateMySqlDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"updateMySqlDataSource"`
+	UpdateOpenSearchDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"updateOpenSearchDataSource"`
+	UpdateOracleDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updateOracleDataSource"`
+	UpdatePayPalDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updatePayPalDataSource"`
+	UpdatePostgreSqlDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"updatePostgreSqlDataSource"`
+	UpdatePrestoDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updatePrestoDataSource"`
+	UpdateRadiantDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"updateRadiantDataSource"`
+	UpdateRdsDataSource                    CustomPermissionsCapabilityStatePtrInput `pulumi:"updateRdsDataSource"`
+	UpdateRedshiftAutoDiscoveredDataSource CustomPermissionsCapabilityStatePtrInput `pulumi:"updateRedshiftAutoDiscoveredDataSource"`
+	UpdateRedshiftManualDataSource         CustomPermissionsCapabilityStatePtrInput `pulumi:"updateRedshiftManualDataSource"`
+	UpdateS3AnalyticsDataSource            CustomPermissionsCapabilityStatePtrInput `pulumi:"updateS3AnalyticsDataSource"`
+	UpdateS3DataSource                     CustomPermissionsCapabilityStatePtrInput `pulumi:"updateS3DataSource"`
+	UpdateS3TablesDataSource               CustomPermissionsCapabilityStatePtrInput `pulumi:"updateS3TablesDataSource"`
+	UpdateSalesforceDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"updateSalesforceDataSource"`
+	UpdateSapHanaDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"updateSapHanaDataSource"`
+	UpdateServiceNowDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"updateServiceNowDataSource"`
+	UpdateSnowflakeDataSource              CustomPermissionsCapabilityStatePtrInput `pulumi:"updateSnowflakeDataSource"`
+	UpdateSparkDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"updateSparkDataSource"`
+	UpdateSqlServerDataSource              CustomPermissionsCapabilityStatePtrInput `pulumi:"updateSqlServerDataSource"`
+	UpdateSquareDataSource                 CustomPermissionsCapabilityStatePtrInput `pulumi:"updateSquareDataSource"`
+	UpdateStarburstDataSource              CustomPermissionsCapabilityStatePtrInput `pulumi:"updateStarburstDataSource"`
+	UpdateTeradataDataSource               CustomPermissionsCapabilityStatePtrInput `pulumi:"updateTeradataDataSource"`
+	UpdateTimestreamDataSource             CustomPermissionsCapabilityStatePtrInput `pulumi:"updateTimestreamDataSource"`
+	UpdateTrinoDataSource                  CustomPermissionsCapabilityStatePtrInput `pulumi:"updateTrinoDataSource"`
+	UpdateTwitterDataSource                CustomPermissionsCapabilityStatePtrInput `pulumi:"updateTwitterDataSource"`
+	UseAgentWebSearch                      CustomPermissionsCapabilityStatePtrInput `pulumi:"useAgentWebSearch"`
+	UseAmazonBedrockArsAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useAmazonBedrockArsAction"`
+	UseAmazonBedrockFsAction               CustomPermissionsCapabilityStatePtrInput `pulumi:"useAmazonBedrockFsAction"`
+	UseAmazonBedrockKrsAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useAmazonBedrockKrsAction"`
+	UseAmazonSThreeAction                  CustomPermissionsCapabilityStatePtrInput `pulumi:"useAmazonSThreeAction"`
+	UseAsanaAction                         CustomPermissionsCapabilityStatePtrInput `pulumi:"useAsanaAction"`
+	UseBambooHrAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"useBambooHrAction"`
+	UseBedrockManagedKnowledgeBase         CustomPermissionsCapabilityStatePtrInput `pulumi:"useBedrockManagedKnowledgeBase"`
+	UseBedrockModels                       CustomPermissionsCapabilityStatePtrInput `pulumi:"useBedrockModels"`
+	UseBoxAgentAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"useBoxAgentAction"`
+	UseBoxKnowledgeBase                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useBoxKnowledgeBase"`
+	UseBrowserExtension                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useBrowserExtension"`
+	UseCanvaAgentAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useCanvaAgentAction"`
+	UseComprehendAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useComprehendAction"`
+	UseComprehendMedicalAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"useComprehendMedicalAction"`
+	UseConfluenceAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useConfluenceAction"`
+	UseConfluenceKnowledgeBase             CustomPermissionsCapabilityStatePtrInput `pulumi:"useConfluenceKnowledgeBase"`
+	UseExcelAddInExtension                 CustomPermissionsCapabilityStatePtrInput `pulumi:"useExcelAddInExtension"`
+	UseFactSetAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"useFactSetAction"`
+	UseGenericHttpAction                   CustomPermissionsCapabilityStatePtrInput `pulumi:"useGenericHttpAction"`
+	UseGithubAction                        CustomPermissionsCapabilityStatePtrInput `pulumi:"useGithubAction"`
+	UseGoogleCalendarAction                CustomPermissionsCapabilityStatePtrInput `pulumi:"useGoogleCalendarAction"`
+	UseGoogleDriveKnowledgeBase            CustomPermissionsCapabilityStatePtrInput `pulumi:"useGoogleDriveKnowledgeBase"`
+	UseHubspotAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"useHubspotAction"`
+	UseHuggingFaceAction                   CustomPermissionsCapabilityStatePtrInput `pulumi:"useHuggingFaceAction"`
+	UseIdcKnowledgeBase                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useIdcKnowledgeBase"`
+	UseIntercomAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"useIntercomAction"`
+	UseJiraAction                          CustomPermissionsCapabilityStatePtrInput `pulumi:"useJiraAction"`
+	UseLinearAction                        CustomPermissionsCapabilityStatePtrInput `pulumi:"useLinearAction"`
+	UseMcpAction                           CustomPermissionsCapabilityStatePtrInput `pulumi:"useMcpAction"`
+	UseMondayAction                        CustomPermissionsCapabilityStatePtrInput `pulumi:"useMondayAction"`
+	UseMsExchangeAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useMsExchangeAction"`
+	UseMsTeamsAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"useMsTeamsAction"`
+	UseNewRelicAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"useNewRelicAction"`
+	UseNotionAction                        CustomPermissionsCapabilityStatePtrInput `pulumi:"useNotionAction"`
+	UseOneDriveAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"useOneDriveAction"`
+	UseOneDriveKnowledgeBase               CustomPermissionsCapabilityStatePtrInput `pulumi:"useOneDriveKnowledgeBase"`
+	UseOpenApiAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"useOpenApiAction"`
+	UseOutlookAddInExtension               CustomPermissionsCapabilityStatePtrInput `pulumi:"useOutlookAddInExtension"`
+	UsePagerDutyAction                     CustomPermissionsCapabilityStatePtrInput `pulumi:"usePagerDutyAction"`
+	UsePowerpointAddInExtension            CustomPermissionsCapabilityStatePtrInput `pulumi:"usePowerpointAddInExtension"`
+	UseQBusinessKnowledgeBase              CustomPermissionsCapabilityStatePtrInput `pulumi:"useQBusinessKnowledgeBase"`
+	UseS3KnowledgeBase                     CustomPermissionsCapabilityStatePtrInput `pulumi:"useS3KnowledgeBase"`
+	UseSalesforceAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useSalesforceAction"`
+	UseSandPGlobalEnergyAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"useSandPGlobalEnergyAction"`
+	UseSandPgmiAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"useSandPgmiAction"`
+	UseSapBillOfMaterialAction             CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapBillOfMaterialAction"`
+	UseSapBusinessPartnerAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapBusinessPartnerAction"`
+	UseSapMaterialStockAction              CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapMaterialStockAction"`
+	UseSapPhysicalInventoryAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapPhysicalInventoryAction"`
+	UseSapProductMasterDataAction          CustomPermissionsCapabilityStatePtrInput `pulumi:"useSapProductMasterDataAction"`
+	UseServiceNowAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useServiceNowAction"`
+	UseSharePointAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useSharePointAction"`
+	UseSharePointKnowledgeBase             CustomPermissionsCapabilityStatePtrInput `pulumi:"useSharePointKnowledgeBase"`
+	UseSlackAction                         CustomPermissionsCapabilityStatePtrInput `pulumi:"useSlackAction"`
+	UseSmartsheetAction                    CustomPermissionsCapabilityStatePtrInput `pulumi:"useSmartsheetAction"`
+	UseTextractAction                      CustomPermissionsCapabilityStatePtrInput `pulumi:"useTextractAction"`
+	UseWebCrawlerKnowledgeBase             CustomPermissionsCapabilityStatePtrInput `pulumi:"useWebCrawlerKnowledgeBase"`
+	UseWordAddInExtension                  CustomPermissionsCapabilityStatePtrInput `pulumi:"useWordAddInExtension"`
+	UseZendeskAction                       CustomPermissionsCapabilityStatePtrInput `pulumi:"useZendeskAction"`
 	// The ability to view account SPICE capacity.
 	ViewAccountSpiceCapacity CustomPermissionsCapabilityStatePtrInput `pulumi:"viewAccountSpiceCapacity"`
+	WebCrawlerKnowledgeBase  CustomPermissionsCapabilityStatePtrInput `pulumi:"webCrawlerKnowledgeBase"`
 	ZendeskAction            CustomPermissionsCapabilityStatePtrInput `pulumi:"zendeskAction"`
 }
 
@@ -17955,6 +18413,12 @@ func (o CustomPermissionsCapabilitiesOutput) AddOrRunAnomalyDetectionForAnalyses
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) AdobeAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.AdobeAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) AmazonBedrockArsAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.AmazonBedrockArsAction
@@ -17996,6 +18460,14 @@ func (o CustomPermissionsCapabilitiesOutput) AsanaAction() CustomPermissionsCapa
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.AsanaAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) AthenaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.AthenaDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) AuroraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.AuroraDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) Automate() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.Automate }).(CustomPermissionsCapabilityStatePtrOutput)
 }
@@ -18004,8 +18476,18 @@ func (o CustomPermissionsCapabilitiesOutput) BambooHrAction() CustomPermissionsC
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.BambooHrAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) BedrockManagedKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.BedrockManagedKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) BoxAgentAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.BoxAgentAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) BoxKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.BoxKnowledgeBase }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) BuildCalculatedFieldWithQ() CustomPermissionsCapabilityStatePtrOutput {
@@ -18034,6 +18516,18 @@ func (o CustomPermissionsCapabilitiesOutput) ComprehendMedicalAction() CustomPer
 
 func (o CustomPermissionsCapabilitiesOutput) ConfluenceAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ConfluenceAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ConfluenceKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ConfluenceKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateAdobeAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAdobeAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateAmazonBedrockArsAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18076,9 +18570,21 @@ func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateBambooHrAction() Cus
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateBedrockManagedKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateBedrockManagedKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateBoxAgentAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.CreateAndUpdateBoxAgentAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateBoxKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateBoxKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -18103,6 +18609,12 @@ func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateComprehendMedicalAct
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateConfluenceAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.CreateAndUpdateConfluenceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateConfluenceKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateConfluenceKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -18151,6 +18663,12 @@ func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateGoogleCalendarAction
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateGoogleDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateGoogleDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateHubspotAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.CreateAndUpdateHubspotAction
@@ -18160,6 +18678,12 @@ func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateHubspotAction() Cust
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateHuggingFaceAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.CreateAndUpdateHuggingFaceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateIdcKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateIdcKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -18229,6 +18753,12 @@ func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateOneDriveAction() Cus
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateOneDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateOneDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateOpenApiAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.CreateAndUpdateOpenApiAction
@@ -18238,6 +18768,18 @@ func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateOpenApiAction() Cust
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdatePagerDutyAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.CreateAndUpdatePagerDutyAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateQBusinessKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateQBusinessKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateS3KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateS3KnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -18301,6 +18843,12 @@ func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateSharePointAction() C
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateSharePointKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateSharePointKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateSlackAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.CreateAndUpdateSlackAction
@@ -18333,9 +18881,27 @@ func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateThresholdAlerts() Cu
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateWebCrawlerKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAndUpdateWebCrawlerKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateZendeskAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.CreateAndUpdateZendeskAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateAthenaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAthenaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateAuroraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateAuroraDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -18349,13 +18915,213 @@ func (o CustomPermissionsCapabilitiesOutput) CreateDashboardExecutiveSummaryWith
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) CreateDatabricksDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateDatabricksDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateDb2DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.CreateDb2DataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateDenodoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateDenodoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateDocumentDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateDocumentDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateDremioDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateDremioDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateDynamoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateDynamoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateExasolDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateExasolDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateFileDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.CreateFileDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateGitHubDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateGitHubDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateGoogleAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateGoogleAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateGoogleBigQueryDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateGoogleBigQueryDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateGoogleSheetsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateGoogleSheetsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateImpalaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateImpalaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateJiraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.CreateJiraDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateMariaDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateMariaDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateMongoAtlasDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateMongoAtlasDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateMongoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateMongoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateMySqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateMySqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateOpenSearchDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateOpenSearchDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateOracleDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateOracleDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreatePayPalDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreatePayPalDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreatePostgreSqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreatePostgreSqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreatePrestoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreatePrestoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateRadiantDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateRadiantDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateRdsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.CreateRdsDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateRedshiftAutoDiscoveredDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateRedshiftAutoDiscoveredDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateRedshiftManualDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateRedshiftManualDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateS3AnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateS3AnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateS3DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.CreateS3DataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateS3TablesDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateS3TablesDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateSalesforceDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateSalesforceDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateSapHanaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateSapHanaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateServiceNowDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateServiceNowDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to create shared folders.
 func (o CustomPermissionsCapabilitiesOutput) CreateSharedFolders() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.CreateSharedFolders }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) CreateSnowflakeDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateSnowflakeDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) CreateSpaces() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.CreateSpaces }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateSparkDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateSparkDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 // The ability to create a SPICE dataset.
@@ -18363,13 +19129,83 @@ func (o CustomPermissionsCapabilitiesOutput) CreateSpiceDataset() CustomPermissi
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.CreateSpiceDataset }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) CreateSqlServerDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateSqlServerDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateSquareDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateSquareDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateStarburstDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateStarburstDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateTeradataDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateTeradataDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateTimestreamDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateTimestreamDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateTrinoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateTrinoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) CreateTwitterDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.CreateTwitterDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to perform dashboard-related actions.
 func (o CustomPermissionsCapabilitiesOutput) Dashboard() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.Dashboard }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) DatabricksDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.DatabricksDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) Db2DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.Db2DataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) DenodoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.DenodoDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) DocumentDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.DocumentDbDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) DremioDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.DremioDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) DynamoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.DynamoDbDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) EditVisualWithQ() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.EditVisualWithQ }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ExasolDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ExasolDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 // The ability to export to CSV files from the UI.
@@ -18416,6 +19252,10 @@ func (o CustomPermissionsCapabilitiesOutput) FactSetAction() CustomPermissionsCa
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.FactSetAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) FileDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.FileDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) Flow() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.Flow }).(CustomPermissionsCapabilityStatePtrOutput)
 }
@@ -18424,12 +19264,40 @@ func (o CustomPermissionsCapabilitiesOutput) GenericHttpAction() CustomPermissio
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.GenericHttpAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) GitHubDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.GitHubDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) GithubAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.GithubAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) GoogleAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.GoogleAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) GoogleBigQueryDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.GoogleBigQueryDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) GoogleCalendarAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.GoogleCalendarAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) GoogleDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.GoogleDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) GoogleSheetsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.GoogleSheetsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) HubspotAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18438,6 +19306,18 @@ func (o CustomPermissionsCapabilitiesOutput) HubspotAction() CustomPermissionsCa
 
 func (o CustomPermissionsCapabilitiesOutput) HuggingFaceAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.HuggingFaceAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) IdcKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.IdcKnowledgeBase }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ImpalaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ImpalaDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) InboundEmailTrigger() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.InboundEmailTrigger }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 // The ability to include content in scheduled email reports.
@@ -18461,6 +19341,10 @@ func (o CustomPermissionsCapabilitiesOutput) JiraAction() CustomPermissionsCapab
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.JiraAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) JiraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.JiraDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.KnowledgeBase }).(CustomPermissionsCapabilityStatePtrOutput)
 }
@@ -18473,6 +19357,10 @@ func (o CustomPermissionsCapabilitiesOutput) ManageSharedFolders() CustomPermiss
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ManageSharedFolders }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) MariaDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.MariaDbDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) McpAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.McpAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
@@ -18481,12 +19369,24 @@ func (o CustomPermissionsCapabilitiesOutput) MondayAction() CustomPermissionsCap
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.MondayAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) MongoAtlasDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.MongoAtlasDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) MongoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.MongoDbDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) MsExchangeAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.MsExchangeAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) MsTeamsAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.MsTeamsAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) MySqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.MySqlDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) NewRelicAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18501,16 +19401,42 @@ func (o CustomPermissionsCapabilitiesOutput) OneDriveAction() CustomPermissionsC
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.OneDriveAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) OneDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.OneDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) OpenApiAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.OpenApiAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) OpenSearchDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.OpenSearchDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) OracleDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.OracleDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) PagerDutyAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.PagerDutyAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) PayPalDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.PayPalDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) PerformFlowUiTask() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.PerformFlowUiTask }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) PostgreSqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.PostgreSqlDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) PrestoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.PrestoDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 // The ability to print reports.
@@ -18524,6 +19450,36 @@ func (o CustomPermissionsCapabilitiesOutput) PublishWithoutApproval() CustomPerm
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) QBusinessKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.QBusinessKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) QuickEventTrigger() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.QuickEventTrigger }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) RadiantDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.RadiantDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) RdsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.RdsDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) RedshiftAutoDiscoveredDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.RedshiftAutoDiscoveredDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) RedshiftManualDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.RedshiftManualDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to rename shared folders.
 func (o CustomPermissionsCapabilitiesOutput) RenameSharedFolders() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.RenameSharedFolders }).(CustomPermissionsCapabilityStatePtrOutput)
@@ -18533,8 +19489,30 @@ func (o CustomPermissionsCapabilitiesOutput) Research() CustomPermissionsCapabil
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.Research }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) S3AnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.S3AnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) S3DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.S3DataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) S3KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.S3KnowledgeBase }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) S3TablesDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.S3TablesDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) SalesforceAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SalesforceAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) SalesforceDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SalesforceDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) SandPGlobalEnergyAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18559,6 +19537,10 @@ func (o CustomPermissionsCapabilitiesOutput) SapBusinessPartnerAction() CustomPe
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) SapHanaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SapHanaDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) SapMaterialStockAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.SapMaterialStockAction
@@ -18577,8 +19559,22 @@ func (o CustomPermissionsCapabilitiesOutput) SapProductMasterDataAction() Custom
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ScheduleTrigger() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ScheduleTrigger }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ServiceNowAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ServiceNowAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ServiceNowDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ServiceNowDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareAdobeAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareAdobeAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareAmazonBedrockArsAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18618,12 +19614,36 @@ func (o CustomPermissionsCapabilitiesOutput) ShareAsanaAction() CustomPermission
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareAsanaAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareAthenaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareAthenaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareAuroraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareAuroraDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareBambooHrAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareBambooHrAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareBedrockManagedKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareBedrockManagedKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareBoxAgentAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareBoxAgentAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareBoxKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareBoxKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareCanvaAgentAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18654,6 +19674,12 @@ func (o CustomPermissionsCapabilitiesOutput) ShareConfluenceAction() CustomPermi
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareConfluenceKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareConfluenceKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to share dashboards.
 func (o CustomPermissionsCapabilitiesOutput) ShareDashboards() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareDashboards }).(CustomPermissionsCapabilityStatePtrOutput)
@@ -18664,13 +19690,57 @@ func (o CustomPermissionsCapabilitiesOutput) ShareDataSources() CustomPermission
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareDataSources }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareDatabricksDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareDatabricksDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to share datasets.
 func (o CustomPermissionsCapabilitiesOutput) ShareDatasets() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareDatasets }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareDb2DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareDb2DataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareDenodoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareDenodoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareDocumentDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareDocumentDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareDremioDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareDremioDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareDynamoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareDynamoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareExasolDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareExasolDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareFactSetAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareFactSetAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareFileDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareFileDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareGenericHttpAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18679,13 +19749,43 @@ func (o CustomPermissionsCapabilitiesOutput) ShareGenericHttpAction() CustomPerm
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareGitHubDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareGitHubDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareGithubAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareGithubAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareGoogleAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareGoogleAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareGoogleBigQueryDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareGoogleBigQueryDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareGoogleCalendarAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.ShareGoogleCalendarAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareGoogleDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareGoogleDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareGoogleSheetsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareGoogleSheetsDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -18699,12 +19799,28 @@ func (o CustomPermissionsCapabilitiesOutput) ShareHuggingFaceAction() CustomPerm
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareIdcKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareIdcKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareImpalaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareImpalaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareIntercomAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareIntercomAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareJiraAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareJiraAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareJiraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareJiraDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareKnowledgeBases() CustomPermissionsCapabilityStatePtrOutput {
@@ -18715,12 +19831,30 @@ func (o CustomPermissionsCapabilitiesOutput) ShareLinearAction() CustomPermissio
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareLinearAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareMariaDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareMariaDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareMcpAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareMcpAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareMondayAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareMondayAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareMongoAtlasDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareMongoAtlasDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareMongoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareMongoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareMsExchangeAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18731,6 +19865,10 @@ func (o CustomPermissionsCapabilitiesOutput) ShareMsExchangeAction() CustomPermi
 
 func (o CustomPermissionsCapabilitiesOutput) ShareMsTeamsAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareMsTeamsAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareMySqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareMySqlDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareNewRelicAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18745,21 +19883,117 @@ func (o CustomPermissionsCapabilitiesOutput) ShareOneDriveAction() CustomPermiss
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareOneDriveAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareOneDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareOneDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareOpenApiAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareOpenApiAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareOpenSearchDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareOpenSearchDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareOracleDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareOracleDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) SharePagerDutyAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SharePagerDutyAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) SharePayPalDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.SharePayPalDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) SharePointAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SharePointAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) SharePointKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.SharePointKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) SharePostgreSqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.SharePostgreSqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) SharePrestoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.SharePrestoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareQBusinessKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareQBusinessKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareRadiantDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareRadiantDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareRdsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareRdsDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareRedshiftAutoDiscoveredDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareRedshiftAutoDiscoveredDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareRedshiftManualDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareRedshiftManualDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareS3AnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareS3AnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareS3DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareS3DataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareS3KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareS3KnowledgeBase }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareS3TablesDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareS3TablesDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareSalesforceAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.ShareSalesforceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareSalesforceDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareSalesforceDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -18782,6 +20016,12 @@ func (o CustomPermissionsCapabilitiesOutput) ShareSapBillOfMaterialAction() Cust
 func (o CustomPermissionsCapabilitiesOutput) ShareSapBusinessPartnerAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.ShareSapBusinessPartnerAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareSapHanaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareSapHanaDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -18809,9 +20049,21 @@ func (o CustomPermissionsCapabilitiesOutput) ShareServiceNowAction() CustomPermi
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareServiceNowDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareServiceNowDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareSharePointAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.ShareSharePointAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareSharePointKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareSharePointKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -18825,12 +20077,68 @@ func (o CustomPermissionsCapabilitiesOutput) ShareSmartsheetAction() CustomPermi
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareSnowflakeDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareSnowflakeDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareSpaces() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareSpaces }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) ShareSparkDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareSparkDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareSqlServerDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareSqlServerDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareSquareDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareSquareDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareStarburstDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareStarburstDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareTeradataDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareTeradataDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) ShareTextractAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareTextractAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareTimestreamDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareTimestreamDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareTrinoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.ShareTrinoDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareTwitterDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareTwitterDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) ShareWebCrawlerKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.ShareWebCrawlerKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) ShareZendeskAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18845,8 +20153,28 @@ func (o CustomPermissionsCapabilitiesOutput) SmartsheetAction() CustomPermission
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SmartsheetAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) SnowflakeDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SnowflakeDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) Space() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.Space }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) SparkDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SparkDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) SqlServerDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SqlServerDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) SquareDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.SquareDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) StarburstDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.StarburstDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 // The ability to subscribe to email reports.
@@ -18856,12 +20184,292 @@ func (o CustomPermissionsCapabilitiesOutput) SubscribeDashboardEmailReports() Cu
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) TeradataDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.TeradataDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) TextractAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.TextractAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) TimestreamDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.TimestreamDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) Topic() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.Topic }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) Trigger() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.Trigger }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) TrinoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.TrinoDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) TwitterDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.TwitterDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateAdobeAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateAdobeAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateAthenaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateAthenaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateAuroraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateAuroraDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateDatabricksDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateDatabricksDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateDb2DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UpdateDb2DataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateDenodoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateDenodoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateDocumentDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateDocumentDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateDremioDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateDremioDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateDynamoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateDynamoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateExasolDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateExasolDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateFileDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UpdateFileDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateGitHubDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateGitHubDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateGoogleAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateGoogleAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateGoogleBigQueryDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateGoogleBigQueryDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateGoogleSheetsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateGoogleSheetsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateImpalaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateImpalaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateJiraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UpdateJiraDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateMariaDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateMariaDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateMongoAtlasDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateMongoAtlasDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateMongoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateMongoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateMySqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateMySqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateOpenSearchDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateOpenSearchDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateOracleDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateOracleDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdatePayPalDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdatePayPalDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdatePostgreSqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdatePostgreSqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdatePrestoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdatePrestoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateRadiantDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateRadiantDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateRdsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UpdateRdsDataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateRedshiftAutoDiscoveredDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateRedshiftAutoDiscoveredDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateRedshiftManualDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateRedshiftManualDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateS3AnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateS3AnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateS3DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UpdateS3DataSource }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateS3TablesDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateS3TablesDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateSalesforceDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateSalesforceDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateSapHanaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateSapHanaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateServiceNowDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateServiceNowDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateSnowflakeDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateSnowflakeDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateSparkDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateSparkDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateSqlServerDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateSqlServerDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateSquareDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateSquareDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateStarburstDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateStarburstDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateTeradataDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateTeradataDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateTimestreamDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateTimestreamDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateTrinoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateTrinoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UpdateTwitterDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UpdateTwitterDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) UseAgentWebSearch() CustomPermissionsCapabilityStatePtrOutput {
@@ -18900,12 +20508,26 @@ func (o CustomPermissionsCapabilitiesOutput) UseBambooHrAction() CustomPermissio
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseBambooHrAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) UseBedrockManagedKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseBedrockManagedKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) UseBedrockModels() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseBedrockModels }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) UseBoxAgentAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseBoxAgentAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UseBoxKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseBoxKnowledgeBase }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UseBrowserExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseBrowserExtension }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) UseCanvaAgentAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18926,6 +20548,18 @@ func (o CustomPermissionsCapabilitiesOutput) UseConfluenceAction() CustomPermiss
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseConfluenceAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) UseConfluenceKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseConfluenceKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UseExcelAddInExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseExcelAddInExtension
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) UseFactSetAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseFactSetAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
@@ -18944,12 +20578,22 @@ func (o CustomPermissionsCapabilitiesOutput) UseGoogleCalendarAction() CustomPer
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) UseGoogleDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseGoogleDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) UseHubspotAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseHubspotAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) UseHuggingFaceAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseHuggingFaceAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UseIdcKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseIdcKnowledgeBase }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) UseIntercomAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -18992,12 +20636,40 @@ func (o CustomPermissionsCapabilitiesOutput) UseOneDriveAction() CustomPermissio
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseOneDriveAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) UseOneDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseOneDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) UseOpenApiAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseOpenApiAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) UseOutlookAddInExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseOutlookAddInExtension
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) UsePagerDutyAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UsePagerDutyAction }).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UsePowerpointAddInExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UsePowerpointAddInExtension
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UseQBusinessKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseQBusinessKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UseS3KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseS3KnowledgeBase }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
 func (o CustomPermissionsCapabilitiesOutput) UseSalesforceAction() CustomPermissionsCapabilityStatePtrOutput {
@@ -19052,6 +20724,12 @@ func (o CustomPermissionsCapabilitiesOutput) UseSharePointAction() CustomPermiss
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseSharePointAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) UseSharePointKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseSharePointKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) UseSlackAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseSlackAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
@@ -19064,6 +20742,18 @@ func (o CustomPermissionsCapabilitiesOutput) UseTextractAction() CustomPermissio
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseTextractAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesOutput) UseWebCrawlerKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseWebCrawlerKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) UseWordAddInExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.UseWordAddInExtension
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesOutput) UseZendeskAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState { return v.UseZendeskAction }).(CustomPermissionsCapabilityStatePtrOutput)
 }
@@ -19072,6 +20762,12 @@ func (o CustomPermissionsCapabilitiesOutput) UseZendeskAction() CustomPermission
 func (o CustomPermissionsCapabilitiesOutput) ViewAccountSpiceCapacity() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		return v.ViewAccountSpiceCapacity
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesOutput) WebCrawlerKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		return v.WebCrawlerKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19128,6 +20824,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) AddOrRunAnomalyDetectionForAnaly
 			return nil
 		}
 		return v.AddOrRunAnomalyDetectionForAnalyses
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) AdobeAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.AdobeAnalyticsDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19204,6 +20909,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) AsanaAction() CustomPermissionsC
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) AthenaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.AthenaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) AuroraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.AuroraDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) Automate() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -19222,12 +20945,30 @@ func (o CustomPermissionsCapabilitiesPtrOutput) BambooHrAction() CustomPermissio
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) BedrockManagedKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockManagedKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) BoxAgentAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.BoxAgentAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) BoxKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.BoxKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19282,6 +21023,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ConfluenceAction() CustomPermiss
 			return nil
 		}
 		return v.ConfluenceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ConfluenceKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ConfluenceKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAdobeAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAdobeAnalyticsDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19348,12 +21107,30 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateBambooHrAction() 
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateBedrockManagedKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateBedrockManagedKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateBoxAgentAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.CreateAndUpdateBoxAgentAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateBoxKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateBoxKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19390,6 +21167,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateConfluenceAction(
 			return nil
 		}
 		return v.CreateAndUpdateConfluenceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateConfluenceKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateConfluenceKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19459,6 +21245,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateGoogleCalendarAct
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateGoogleDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateGoogleDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateHubspotAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -19474,6 +21269,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateHuggingFaceAction
 			return nil
 		}
 		return v.CreateAndUpdateHuggingFaceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateIdcKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateIdcKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19576,6 +21380,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateOneDriveAction() 
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateOneDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateOneDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateOpenApiAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -19591,6 +21404,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdatePagerDutyAction()
 			return nil
 		}
 		return v.CreateAndUpdatePagerDutyAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateQBusinessKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateQBusinessKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateS3KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateS3KnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19684,6 +21515,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateSharePointAction(
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateSharePointKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateSharePointKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateSlackAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -19731,12 +21571,39 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateThresholdAlerts()
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateWebCrawlerKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAndUpdateWebCrawlerKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateZendeskAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.CreateAndUpdateZendeskAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAthenaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAthenaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateAuroraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAuroraDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19758,6 +21625,303 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateDashboardExecutiveSummaryW
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateDatabricksDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateDatabricksDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateDb2DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateDb2DataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateDenodoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateDenodoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateDocumentDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateDocumentDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateDremioDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateDremioDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateDynamoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateDynamoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateExasolDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateExasolDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateFileDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateFileDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateGitHubDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateGitHubDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateGoogleAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateGoogleAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateGoogleBigQueryDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateGoogleBigQueryDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateGoogleSheetsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateGoogleSheetsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateImpalaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateImpalaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateJiraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateJiraDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateMariaDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateMariaDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateMongoAtlasDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateMongoAtlasDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateMongoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateMongoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateMySqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateMySqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateOpenSearchDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateOpenSearchDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateOracleDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateOracleDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreatePayPalDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreatePayPalDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreatePostgreSqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreatePostgreSqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreatePrestoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreatePrestoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateRadiantDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateRadiantDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateRdsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateRdsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateRedshiftAutoDiscoveredDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateRedshiftAutoDiscoveredDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateRedshiftManualDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateRedshiftManualDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateS3AnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateS3AnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateS3DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateS3DataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateS3TablesDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateS3TablesDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateSalesforceDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateSalesforceDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateSapHanaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateSapHanaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateServiceNowDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateServiceNowDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to create shared folders.
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateSharedFolders() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
@@ -19768,12 +21932,30 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateSharedFolders() CustomPerm
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateSnowflakeDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateSnowflakeDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateSpaces() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.CreateSpaces
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateSparkDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateSparkDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19787,6 +21969,69 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateSpiceDataset() CustomPermi
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateSqlServerDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateSqlServerDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateSquareDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateSquareDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateStarburstDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateStarburstDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateTeradataDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateTeradataDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateTimestreamDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateTimestreamDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateTrinoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateTrinoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateTwitterDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.CreateTwitterDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to perform dashboard-related actions.
 func (o CustomPermissionsCapabilitiesPtrOutput) Dashboard() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
@@ -19797,12 +22042,75 @@ func (o CustomPermissionsCapabilitiesPtrOutput) Dashboard() CustomPermissionsCap
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) DatabricksDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.DatabricksDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) Db2DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.Db2DataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) DenodoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.DenodoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) DocumentDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) DremioDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.DremioDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) DynamoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.DynamoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) EditVisualWithQ() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.EditVisualWithQ
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ExasolDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ExasolDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19884,6 +22192,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) FactSetAction() CustomPermission
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) FileDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.FileDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) Flow() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -19902,6 +22219,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) GenericHttpAction() CustomPermis
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) GitHubDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.GitHubDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) GithubAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -19911,12 +22237,48 @@ func (o CustomPermissionsCapabilitiesPtrOutput) GithubAction() CustomPermissions
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) GoogleAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) GoogleBigQueryDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleBigQueryDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) GoogleCalendarAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.GoogleCalendarAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) GoogleDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) GoogleSheetsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleSheetsDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19935,6 +22297,33 @@ func (o CustomPermissionsCapabilitiesPtrOutput) HuggingFaceAction() CustomPermis
 			return nil
 		}
 		return v.HuggingFaceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) IdcKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.IdcKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ImpalaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ImpalaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) InboundEmailTrigger() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.InboundEmailTrigger
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -19975,6 +22364,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) JiraAction() CustomPermissionsCa
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) JiraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.JiraDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20002,6 +22400,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ManageSharedFolders() CustomPerm
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) MariaDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.MariaDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) McpAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20020,6 +22427,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) MondayAction() CustomPermissions
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) MongoAtlasDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.MongoAtlasDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) MongoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.MongoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) MsExchangeAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20035,6 +22460,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) MsTeamsAction() CustomPermission
 			return nil
 		}
 		return v.MsTeamsAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) MySqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.MySqlDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20065,12 +22499,39 @@ func (o CustomPermissionsCapabilitiesPtrOutput) OneDriveAction() CustomPermissio
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) OneDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.OneDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) OpenApiAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.OpenApiAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) OpenSearchDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.OpenSearchDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) OracleDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.OracleDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20083,12 +22544,39 @@ func (o CustomPermissionsCapabilitiesPtrOutput) PagerDutyAction() CustomPermissi
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) PayPalDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.PayPalDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) PerformFlowUiTask() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.PerformFlowUiTask
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) PostgreSqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.PostgreSqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) PrestoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.PrestoDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20111,6 +22599,60 @@ func (o CustomPermissionsCapabilitiesPtrOutput) PublishWithoutApproval() CustomP
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) QBusinessKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.QBusinessKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) QuickEventTrigger() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.QuickEventTrigger
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) RadiantDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.RadiantDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) RdsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.RdsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) RedshiftAutoDiscoveredDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftAutoDiscoveredDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) RedshiftManualDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftManualDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to rename shared folders.
 func (o CustomPermissionsCapabilitiesPtrOutput) RenameSharedFolders() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
@@ -20130,12 +22672,57 @@ func (o CustomPermissionsCapabilitiesPtrOutput) Research() CustomPermissionsCapa
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) S3AnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.S3AnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) S3DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) S3KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.S3KnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) S3TablesDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.S3TablesDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) SalesforceAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.SalesforceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) SalesforceDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SalesforceDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20175,6 +22762,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) SapBusinessPartnerAction() Custo
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) SapHanaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SapHanaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) SapMaterialStockAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20202,12 +22798,39 @@ func (o CustomPermissionsCapabilitiesPtrOutput) SapProductMasterDataAction() Cus
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ScheduleTrigger() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleTrigger
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ServiceNowAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.ServiceNowAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ServiceNowDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNowDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareAdobeAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareAdobeAnalyticsDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20275,6 +22898,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareAsanaAction() CustomPermiss
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareAthenaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareAthenaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareAuroraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareAuroraDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareBambooHrAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20284,12 +22925,30 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareBambooHrAction() CustomPerm
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareBedrockManagedKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareBedrockManagedKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareBoxAgentAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.ShareBoxAgentAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareBoxKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareBoxKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20338,6 +22997,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareConfluenceAction() CustomPe
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareConfluenceKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareConfluenceKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to share dashboards.
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareDashboards() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
@@ -20358,6 +23026,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareDataSources() CustomPermiss
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareDatabricksDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDatabricksDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 // The ability to share datasets.
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareDatasets() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
@@ -20365,6 +23042,60 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareDatasets() CustomPermission
 			return nil
 		}
 		return v.ShareDatasets
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareDb2DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDb2DataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareDenodoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDenodoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareDocumentDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDocumentDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareDremioDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDremioDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareDynamoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDynamoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareExasolDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareExasolDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20377,12 +23108,30 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareFactSetAction() CustomPermi
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareFileDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareFileDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareGenericHttpAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.ShareGenericHttpAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareGitHubDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareGitHubDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20395,12 +23144,48 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareGithubAction() CustomPermis
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareGoogleAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareGoogleAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareGoogleBigQueryDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareGoogleBigQueryDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareGoogleCalendarAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.ShareGoogleCalendarAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareGoogleDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareGoogleDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareGoogleSheetsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareGoogleSheetsDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20422,6 +23207,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareHuggingFaceAction() CustomP
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareIdcKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareIdcKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareImpalaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareImpalaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareIntercomAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20437,6 +23240,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareJiraAction() CustomPermissi
 			return nil
 		}
 		return v.ShareJiraAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareJiraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareJiraDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20458,6 +23270,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareLinearAction() CustomPermis
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareMariaDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareMariaDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareMcpAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20476,6 +23297,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareMondayAction() CustomPermis
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareMongoAtlasDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareMongoAtlasDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareMongoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareMongoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareMsExchangeAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20491,6 +23330,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareMsTeamsAction() CustomPermi
 			return nil
 		}
 		return v.ShareMsTeamsAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareMySqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareMySqlDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20521,12 +23369,39 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareOneDriveAction() CustomPerm
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareOneDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareOneDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareOpenApiAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.ShareOpenApiAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareOpenSearchDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareOpenSearchDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareOracleDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareOracleDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20539,6 +23414,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) SharePagerDutyAction() CustomPer
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) SharePayPalDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SharePayPalDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) SharePointAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20548,12 +23432,129 @@ func (o CustomPermissionsCapabilitiesPtrOutput) SharePointAction() CustomPermiss
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) SharePointKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SharePointKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) SharePostgreSqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SharePostgreSqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) SharePrestoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SharePrestoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareQBusinessKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareQBusinessKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareRadiantDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareRadiantDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareRdsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareRdsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareRedshiftAutoDiscoveredDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareRedshiftAutoDiscoveredDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareRedshiftManualDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareRedshiftManualDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareS3AnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareS3AnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareS3DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareS3DataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareS3KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareS3KnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareS3TablesDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareS3TablesDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareSalesforceAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.ShareSalesforceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareSalesforceDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareSalesforceDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20593,6 +23594,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareSapBusinessPartnerAction() 
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareSapHanaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareSapHanaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareSapMaterialStockAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20629,12 +23639,30 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareServiceNowAction() CustomPe
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareServiceNowDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareServiceNowDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareSharePointAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.ShareSharePointAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareSharePointKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareSharePointKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20656,6 +23684,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareSmartsheetAction() CustomPe
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareSnowflakeDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareSnowflakeDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareSpaces() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20665,12 +23702,93 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareSpaces() CustomPermissionsC
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareSparkDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareSparkDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareSqlServerDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareSqlServerDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareSquareDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareSquareDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareStarburstDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareStarburstDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareTeradataDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareTeradataDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareTextractAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.ShareTextractAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareTimestreamDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareTimestreamDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareTrinoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareTrinoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareTwitterDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareTwitterDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) ShareWebCrawlerKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.ShareWebCrawlerKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20701,12 +23819,57 @@ func (o CustomPermissionsCapabilitiesPtrOutput) SmartsheetAction() CustomPermiss
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) SnowflakeDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SnowflakeDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) Space() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.Space
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) SparkDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SparkDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) SqlServerDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SqlServerDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) SquareDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.SquareDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) StarburstDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.StarburstDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20720,6 +23883,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) SubscribeDashboardEmailReports()
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) TeradataDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.TeradataDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) TextractAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20729,12 +23901,453 @@ func (o CustomPermissionsCapabilitiesPtrOutput) TextractAction() CustomPermissio
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) TimestreamDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.TimestreamDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) Topic() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.Topic
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) Trigger() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.Trigger
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) TrinoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.TrinoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) TwitterDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.TwitterDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateAdobeAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateAdobeAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateAthenaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateAthenaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateAuroraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateAuroraDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateDatabricksDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateDatabricksDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateDb2DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateDb2DataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateDenodoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateDenodoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateDocumentDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateDocumentDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateDremioDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateDremioDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateDynamoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateDynamoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateExasolDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateExasolDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateFileDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateFileDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateGitHubDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateGitHubDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateGoogleAnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateGoogleAnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateGoogleBigQueryDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateGoogleBigQueryDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateGoogleSheetsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateGoogleSheetsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateImpalaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateImpalaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateJiraDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateJiraDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateMariaDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateMariaDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateMongoAtlasDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateMongoAtlasDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateMongoDbDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateMongoDbDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateMySqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateMySqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateOpenSearchDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateOpenSearchDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateOracleDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateOracleDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdatePayPalDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatePayPalDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdatePostgreSqlDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatePostgreSqlDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdatePrestoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatePrestoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateRadiantDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateRadiantDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateRdsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateRdsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateRedshiftAutoDiscoveredDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateRedshiftAutoDiscoveredDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateRedshiftManualDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateRedshiftManualDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateS3AnalyticsDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateS3AnalyticsDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateS3DataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateS3DataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateS3TablesDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateS3TablesDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateSalesforceDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateSalesforceDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateSapHanaDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateSapHanaDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateServiceNowDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateServiceNowDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateSnowflakeDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateSnowflakeDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateSparkDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateSparkDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateSqlServerDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateSqlServerDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateSquareDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateSquareDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateStarburstDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateStarburstDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateTeradataDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTeradataDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateTimestreamDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTimestreamDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateTrinoDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTrinoDataSource
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UpdateTwitterDataSource() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTwitterDataSource
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20801,6 +24414,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) UseBambooHrAction() CustomPermis
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) UseBedrockManagedKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseBedrockManagedKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) UseBedrockModels() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20816,6 +24438,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) UseBoxAgentAction() CustomPermis
 			return nil
 		}
 		return v.UseBoxAgentAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UseBoxKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseBoxKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UseBrowserExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseBrowserExtension
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20855,6 +24495,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) UseConfluenceAction() CustomPerm
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) UseConfluenceKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseConfluenceKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UseExcelAddInExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseExcelAddInExtension
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) UseFactSetAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20891,6 +24549,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) UseGoogleCalendarAction() Custom
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) UseGoogleDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseGoogleDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) UseHubspotAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -20906,6 +24573,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) UseHuggingFaceAction() CustomPer
 			return nil
 		}
 		return v.UseHuggingFaceAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UseIdcKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseIdcKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -20999,6 +24675,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) UseOneDriveAction() CustomPermis
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) UseOneDriveKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseOneDriveKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) UseOpenApiAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -21008,12 +24693,48 @@ func (o CustomPermissionsCapabilitiesPtrOutput) UseOpenApiAction() CustomPermiss
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) UseOutlookAddInExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseOutlookAddInExtension
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) UsePagerDutyAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
 			return nil
 		}
 		return v.UsePagerDutyAction
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UsePowerpointAddInExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UsePowerpointAddInExtension
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UseQBusinessKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseQBusinessKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UseS3KnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseS3KnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
@@ -21107,6 +24828,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) UseSharePointAction() CustomPerm
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) UseSharePointKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseSharePointKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) UseSlackAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -21134,6 +24864,24 @@ func (o CustomPermissionsCapabilitiesPtrOutput) UseTextractAction() CustomPermis
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 
+func (o CustomPermissionsCapabilitiesPtrOutput) UseWebCrawlerKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseWebCrawlerKnowledgeBase
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) UseWordAddInExtension() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.UseWordAddInExtension
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 func (o CustomPermissionsCapabilitiesPtrOutput) UseZendeskAction() CustomPermissionsCapabilityStatePtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
 		if v == nil {
@@ -21150,6 +24898,15 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ViewAccountSpiceCapacity() Custo
 			return nil
 		}
 		return v.ViewAccountSpiceCapacity
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilitiesPtrOutput) WebCrawlerKnowledgeBase() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *CustomPermissionsCapabilityState {
+		if v == nil {
+			return nil
+		}
+		return v.WebCrawlerKnowledgeBase
 	}).(CustomPermissionsCapabilityStatePtrOutput)
 }
 

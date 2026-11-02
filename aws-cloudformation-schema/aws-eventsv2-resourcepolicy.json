@@ -40,7 +40,7 @@
       "permissions" : [ "events:PutResourcePolicy", "events:GetResourcePolicy" ]
     },
     "delete" : {
-      "permissions" : [ "events:DeleteResourcePolicy", "events:GetResourcePolicy" ]
+      "permissions" : [ "events:DeleteResourcePolicy" ]
     },
     "list" : {
       "permissions" : [ "events:ListEventBuses", "events:ListResourcePolicies" ]

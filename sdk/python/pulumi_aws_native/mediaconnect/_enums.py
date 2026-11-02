@@ -13,6 +13,14 @@ __all__ = [
     'BridgeProtocolEnum',
     'BridgeSourceProtocolEnum',
     'BridgeStateEnum',
+    'DestinationEndpointConnectionState',
+    'DestinationEndpointEndpointLifecycle',
+    'DestinationEndpointForwardErrorCorrectionState',
+    'DestinationEndpointNetworkingType',
+    'DestinationEndpointProtocol',
+    'DestinationEndpointRegistrationState',
+    'DestinationEndpointRouterInputState',
+    'DestinationEndpointType',
     'FlowBlackFramesState',
     'FlowEncodingProfile',
     'FlowEncryptionAlgorithm',
@@ -58,6 +66,9 @@ __all__ = [
     'GatewayState',
     'RouterInputContentQualityAnalysisState',
     'RouterInputDay',
+    'RouterInputEndpointEncryptionSecretType',
+    'RouterInputEndpointEncryptionType',
+    'RouterInputEndpointLifecycle',
     'RouterInputFailoverInputSourcePriorityMode',
     'RouterInputFlowTransitEncryptionKeyType',
     'RouterInputForwardErrorCorrectionState',
@@ -74,6 +85,9 @@ __all__ = [
     'RouterNetworkInterfaceState',
     'RouterNetworkInterfaceType',
     'RouterOutputResourceDay',
+    'RouterOutputResourceEndpointEncryptionSecretType',
+    'RouterOutputResourceEndpointEncryptionType',
+    'RouterOutputResourceEndpointLifecycle',
     'RouterOutputResourceFabricLatencyMode',
     'RouterOutputResourceFlowTransitEncryptionKeyType',
     'RouterOutputResourceForwardErrorCorrectionState',
@@ -87,6 +101,14 @@ __all__ = [
     'RouterOutputResourceRouterOutputType',
     'RouterOutputResourceRoutingScope',
     'RouterOutputResourceTlsEncryptionType',
+    'SourceEndpointConnectionState',
+    'SourceEndpointEndpointLifecycle',
+    'SourceEndpointForwardErrorCorrectionState',
+    'SourceEndpointNetworkingType',
+    'SourceEndpointProtocol',
+    'SourceEndpointRegistrationState',
+    'SourceEndpointRouterOutputState',
+    'SourceEndpointType',
 ]
 
 
@@ -138,6 +160,68 @@ class BridgeStateEnum(_builtins.str, Enum):
     START_FAILED = "START_FAILED"
     START_PENDING = "START_PENDING"
     UPDATING = "UPDATING"
+
+
+@pulumi.type_token("aws-native:mediaconnect:DestinationEndpointConnectionState")
+class DestinationEndpointConnectionState(_builtins.str, Enum):
+    CONNECTED = "CONNECTED"
+    DISCONNECTED = "DISCONNECTED"
+    CONNECTING = "CONNECTING"
+    DISCONNECTING = "DISCONNECTING"
+
+
+@pulumi.type_token("aws-native:mediaconnect:DestinationEndpointEndpointLifecycle")
+class DestinationEndpointEndpointLifecycle(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    UNMANAGED = "UNMANAGED"
+
+
+@pulumi.type_token("aws-native:mediaconnect:DestinationEndpointForwardErrorCorrectionState")
+class DestinationEndpointForwardErrorCorrectionState(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:mediaconnect:DestinationEndpointNetworkingType")
+class DestinationEndpointNetworkingType(_builtins.str, Enum):
+    PUBLIC = "PUBLIC"
+    VPC = "VPC"
+
+
+@pulumi.type_token("aws-native:mediaconnect:DestinationEndpointProtocol")
+class DestinationEndpointProtocol(_builtins.str, Enum):
+    RTP = "RTP"
+    RIST = "RIST"
+    SRT_CALLER = "SRT_CALLER"
+    SRT_LISTENER = "SRT_LISTENER"
+
+
+@pulumi.type_token("aws-native:mediaconnect:DestinationEndpointRegistrationState")
+class DestinationEndpointRegistrationState(_builtins.str, Enum):
+    REGISTERED = "REGISTERED"
+    REGISTERING = "REGISTERING"
+    DEREGISTERING = "DEREGISTERING"
+    REGISTRATION_FAILED = "REGISTRATION_FAILED"
+
+
+@pulumi.type_token("aws-native:mediaconnect:DestinationEndpointRouterInputState")
+class DestinationEndpointRouterInputState(_builtins.str, Enum):
+    CREATING = "CREATING"
+    STANDBY = "STANDBY"
+    STARTING = "STARTING"
+    ACTIVE = "ACTIVE"
+    STOPPING = "STOPPING"
+    DELETING = "DELETING"
+    UPDATING = "UPDATING"
+    ERROR = "ERROR"
+    RECOVERING = "RECOVERING"
+    MIGRATING = "MIGRATING"
+
+
+@pulumi.type_token("aws-native:mediaconnect:DestinationEndpointType")
+class DestinationEndpointType(_builtins.str, Enum):
+    STANDARD = "STANDARD"
+    ROUTER_INPUT = "ROUTER_INPUT"
 
 
 @pulumi.type_token("aws-native:mediaconnect:FlowBlackFramesState")
@@ -599,6 +683,26 @@ class RouterInputDay(_builtins.str, Enum):
     SUNDAY = "SUNDAY"
 
 
+@pulumi.type_token("aws-native:mediaconnect:RouterInputEndpointEncryptionSecretType")
+class RouterInputEndpointEncryptionSecretType(_builtins.str, Enum):
+    AES128_KEY = "AES_128_KEY"
+    AES192_KEY = "AES_192_KEY"
+    AES256_KEY = "AES_256_KEY"
+    SRT_PASSPHRASE = "SRT_PASSPHRASE"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterInputEndpointEncryptionType")
+class RouterInputEndpointEncryptionType(_builtins.str, Enum):
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+    AUTOMATIC = "AUTOMATIC"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterInputEndpointLifecycle")
+class RouterInputEndpointLifecycle(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    UNMANAGED = "UNMANAGED"
+
+
 @pulumi.type_token("aws-native:mediaconnect:RouterInputFailoverInputSourcePriorityMode")
 class RouterInputFailoverInputSourcePriorityMode(_builtins.str, Enum):
     NO_PRIORITY = "NO_PRIORITY"
@@ -673,6 +777,8 @@ class RouterInputTier(_builtins.str, Enum):
     INPUT100 = "INPUT_100"
     INPUT50 = "INPUT_50"
     INPUT20 = "INPUT_20"
+    INPUT500 = "INPUT_500"
+    INPUT250 = "INPUT_250"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterInputTransitEncryptionKeyType")
@@ -688,6 +794,7 @@ class RouterInputType(_builtins.str, Enum):
     MERGE = "MERGE"
     MEDIACONNECT_FLOW = "MEDIACONNECT_FLOW"
     MEDIALIVE_CHANNEL = "MEDIALIVE_CHANNEL"
+    DESTINATION_ENDPOINT = "DESTINATION_ENDPOINT"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterNetworkInterfaceState")
@@ -715,6 +822,26 @@ class RouterOutputResourceDay(_builtins.str, Enum):
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
     SUNDAY = "SUNDAY"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceEndpointEncryptionSecretType")
+class RouterOutputResourceEndpointEncryptionSecretType(_builtins.str, Enum):
+    AES128_KEY = "AES_128_KEY"
+    AES192_KEY = "AES_192_KEY"
+    AES256_KEY = "AES_256_KEY"
+    SRT_PASSPHRASE = "SRT_PASSPHRASE"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceEndpointEncryptionType")
+class RouterOutputResourceEndpointEncryptionType(_builtins.str, Enum):
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+    AUTOMATIC = "AUTOMATIC"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceEndpointLifecycle")
+class RouterOutputResourceEndpointLifecycle(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    UNMANAGED = "UNMANAGED"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceFabricLatencyMode")
@@ -788,6 +915,8 @@ class RouterOutputResourceRouterOutputTier(_builtins.str, Enum):
     OUTPUT100 = "OUTPUT_100"
     OUTPUT50 = "OUTPUT_50"
     OUTPUT20 = "OUTPUT_20"
+    OUTPUT500 = "OUTPUT_500"
+    OUTPUT250 = "OUTPUT_250"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceRouterOutputType")
@@ -795,6 +924,7 @@ class RouterOutputResourceRouterOutputType(_builtins.str, Enum):
     STANDARD = "STANDARD"
     MEDIACONNECT_FLOW = "MEDIACONNECT_FLOW"
     MEDIALIVE_INPUT = "MEDIALIVE_INPUT"
+    SOURCE_ENDPOINT = "SOURCE_ENDPOINT"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceRoutingScope")
@@ -806,3 +936,65 @@ class RouterOutputResourceRoutingScope(_builtins.str, Enum):
 @pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceTlsEncryptionType")
 class RouterOutputResourceTlsEncryptionType(_builtins.str, Enum):
     PUBLIC = "PUBLIC"
+
+
+@pulumi.type_token("aws-native:mediaconnect:SourceEndpointConnectionState")
+class SourceEndpointConnectionState(_builtins.str, Enum):
+    CONNECTED = "CONNECTED"
+    DISCONNECTED = "DISCONNECTED"
+    CONNECTING = "CONNECTING"
+    DISCONNECTING = "DISCONNECTING"
+
+
+@pulumi.type_token("aws-native:mediaconnect:SourceEndpointEndpointLifecycle")
+class SourceEndpointEndpointLifecycle(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    UNMANAGED = "UNMANAGED"
+
+
+@pulumi.type_token("aws-native:mediaconnect:SourceEndpointForwardErrorCorrectionState")
+class SourceEndpointForwardErrorCorrectionState(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:mediaconnect:SourceEndpointNetworkingType")
+class SourceEndpointNetworkingType(_builtins.str, Enum):
+    PUBLIC = "PUBLIC"
+    VPC = "VPC"
+
+
+@pulumi.type_token("aws-native:mediaconnect:SourceEndpointProtocol")
+class SourceEndpointProtocol(_builtins.str, Enum):
+    RTP = "RTP"
+    RIST = "RIST"
+    SRT_CALLER = "SRT_CALLER"
+    SRT_LISTENER = "SRT_LISTENER"
+
+
+@pulumi.type_token("aws-native:mediaconnect:SourceEndpointRegistrationState")
+class SourceEndpointRegistrationState(_builtins.str, Enum):
+    REGISTERED = "REGISTERED"
+    REGISTERING = "REGISTERING"
+    DEREGISTERING = "DEREGISTERING"
+    REGISTRATION_FAILED = "REGISTRATION_FAILED"
+
+
+@pulumi.type_token("aws-native:mediaconnect:SourceEndpointRouterOutputState")
+class SourceEndpointRouterOutputState(_builtins.str, Enum):
+    CREATING = "CREATING"
+    STANDBY = "STANDBY"
+    STARTING = "STARTING"
+    ACTIVE = "ACTIVE"
+    STOPPING = "STOPPING"
+    DELETING = "DELETING"
+    UPDATING = "UPDATING"
+    ERROR = "ERROR"
+    RECOVERING = "RECOVERING"
+    MIGRATING = "MIGRATING"
+
+
+@pulumi.type_token("aws-native:mediaconnect:SourceEndpointType")
+class SourceEndpointType(_builtins.str, Enum):
+    STANDARD = "STANDARD"
+    ROUTER_OUTPUT = "ROUTER_OUTPUT"

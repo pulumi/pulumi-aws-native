@@ -2640,6 +2640,8 @@ func (o ClusterControlPlaneScalingConfigPtrOutput) Tier() ClusterControlPlaneSca
 type ClusterElasticLoadBalancing struct {
 	// Todo: add description
 	Enabled *bool `pulumi:"enabled"`
+	// The Gateway API configuration for the cluster.
+	GatewayApi *ClusterGatewayApi `pulumi:"gatewayApi"`
 }
 
 // ClusterElasticLoadBalancingInput is an input type that accepts ClusterElasticLoadBalancingArgs and ClusterElasticLoadBalancingOutput values.
@@ -2657,6 +2659,8 @@ type ClusterElasticLoadBalancingInput interface {
 type ClusterElasticLoadBalancingArgs struct {
 	// Todo: add description
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The Gateway API configuration for the cluster.
+	GatewayApi ClusterGatewayApiPtrInput `pulumi:"gatewayApi"`
 }
 
 func (ClusterElasticLoadBalancingArgs) ElementType() reflect.Type {
@@ -2742,6 +2746,11 @@ func (o ClusterElasticLoadBalancingOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterElasticLoadBalancing) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Gateway API configuration for the cluster.
+func (o ClusterElasticLoadBalancingOutput) GatewayApi() ClusterGatewayApiPtrOutput {
+	return o.ApplyT(func(v ClusterElasticLoadBalancing) *ClusterGatewayApi { return v.GatewayApi }).(ClusterGatewayApiPtrOutput)
+}
+
 type ClusterElasticLoadBalancingPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterElasticLoadBalancingPtrOutput) ElementType() reflect.Type {
@@ -2774,6 +2783,16 @@ func (o ClusterElasticLoadBalancingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The Gateway API configuration for the cluster.
+func (o ClusterElasticLoadBalancingPtrOutput) GatewayApi() ClusterGatewayApiPtrOutput {
+	return o.ApplyT(func(v *ClusterElasticLoadBalancing) *ClusterGatewayApi {
+		if v == nil {
+			return nil
+		}
+		return v.GatewayApi
+	}).(ClusterGatewayApiPtrOutput)
 }
 
 // The encryption configuration for the cluster
@@ -3023,6 +3042,286 @@ func (o ClusterEtcdPlacementPtrOutput) SpreadLevel() pulumi.StringPtrOutput {
 		}
 		return v.SpreadLevel
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+type ClusterGatewayApi struct {
+	// The Gateway API Custom Resource Definition (CRD) configuration.
+	Crds ClusterGatewayApiCrds `pulumi:"crds"`
+}
+
+// ClusterGatewayApiInput is an input type that accepts ClusterGatewayApiArgs and ClusterGatewayApiOutput values.
+// You can construct a concrete instance of `ClusterGatewayApiInput` via:
+//
+//	ClusterGatewayApiArgs{...}
+type ClusterGatewayApiInput interface {
+	pulumi.Input
+
+	ToClusterGatewayApiOutput() ClusterGatewayApiOutput
+	ToClusterGatewayApiOutputWithContext(context.Context) ClusterGatewayApiOutput
+}
+
+// The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+type ClusterGatewayApiArgs struct {
+	// The Gateway API Custom Resource Definition (CRD) configuration.
+	Crds ClusterGatewayApiCrdsInput `pulumi:"crds"`
+}
+
+func (ClusterGatewayApiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterGatewayApi)(nil)).Elem()
+}
+
+func (i ClusterGatewayApiArgs) ToClusterGatewayApiOutput() ClusterGatewayApiOutput {
+	return i.ToClusterGatewayApiOutputWithContext(context.Background())
+}
+
+func (i ClusterGatewayApiArgs) ToClusterGatewayApiOutputWithContext(ctx context.Context) ClusterGatewayApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterGatewayApiOutput)
+}
+
+func (i ClusterGatewayApiArgs) ToClusterGatewayApiPtrOutput() ClusterGatewayApiPtrOutput {
+	return i.ToClusterGatewayApiPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterGatewayApiArgs) ToClusterGatewayApiPtrOutputWithContext(ctx context.Context) ClusterGatewayApiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterGatewayApiOutput).ToClusterGatewayApiPtrOutputWithContext(ctx)
+}
+
+// ClusterGatewayApiPtrInput is an input type that accepts ClusterGatewayApiArgs, ClusterGatewayApiPtr and ClusterGatewayApiPtrOutput values.
+// You can construct a concrete instance of `ClusterGatewayApiPtrInput` via:
+//
+//	        ClusterGatewayApiArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterGatewayApiPtrInput interface {
+	pulumi.Input
+
+	ToClusterGatewayApiPtrOutput() ClusterGatewayApiPtrOutput
+	ToClusterGatewayApiPtrOutputWithContext(context.Context) ClusterGatewayApiPtrOutput
+}
+
+type clusterGatewayApiPtrType ClusterGatewayApiArgs
+
+func ClusterGatewayApiPtr(v *ClusterGatewayApiArgs) ClusterGatewayApiPtrInput {
+	return (*clusterGatewayApiPtrType)(v)
+}
+
+func (*clusterGatewayApiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterGatewayApi)(nil)).Elem()
+}
+
+func (i *clusterGatewayApiPtrType) ToClusterGatewayApiPtrOutput() ClusterGatewayApiPtrOutput {
+	return i.ToClusterGatewayApiPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterGatewayApiPtrType) ToClusterGatewayApiPtrOutputWithContext(ctx context.Context) ClusterGatewayApiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterGatewayApiPtrOutput)
+}
+
+// The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+type ClusterGatewayApiOutput struct{ *pulumi.OutputState }
+
+func (ClusterGatewayApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterGatewayApi)(nil)).Elem()
+}
+
+func (o ClusterGatewayApiOutput) ToClusterGatewayApiOutput() ClusterGatewayApiOutput {
+	return o
+}
+
+func (o ClusterGatewayApiOutput) ToClusterGatewayApiOutputWithContext(ctx context.Context) ClusterGatewayApiOutput {
+	return o
+}
+
+func (o ClusterGatewayApiOutput) ToClusterGatewayApiPtrOutput() ClusterGatewayApiPtrOutput {
+	return o.ToClusterGatewayApiPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterGatewayApiOutput) ToClusterGatewayApiPtrOutputWithContext(ctx context.Context) ClusterGatewayApiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterGatewayApi) *ClusterGatewayApi {
+		return &v
+	}).(ClusterGatewayApiPtrOutput)
+}
+
+// The Gateway API Custom Resource Definition (CRD) configuration.
+func (o ClusterGatewayApiOutput) Crds() ClusterGatewayApiCrdsOutput {
+	return o.ApplyT(func(v ClusterGatewayApi) ClusterGatewayApiCrds { return v.Crds }).(ClusterGatewayApiCrdsOutput)
+}
+
+type ClusterGatewayApiPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterGatewayApiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterGatewayApi)(nil)).Elem()
+}
+
+func (o ClusterGatewayApiPtrOutput) ToClusterGatewayApiPtrOutput() ClusterGatewayApiPtrOutput {
+	return o
+}
+
+func (o ClusterGatewayApiPtrOutput) ToClusterGatewayApiPtrOutputWithContext(ctx context.Context) ClusterGatewayApiPtrOutput {
+	return o
+}
+
+func (o ClusterGatewayApiPtrOutput) Elem() ClusterGatewayApiOutput {
+	return o.ApplyT(func(v *ClusterGatewayApi) ClusterGatewayApi {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterGatewayApi
+		return ret
+	}).(ClusterGatewayApiOutput)
+}
+
+// The Gateway API Custom Resource Definition (CRD) configuration.
+func (o ClusterGatewayApiPtrOutput) Crds() ClusterGatewayApiCrdsPtrOutput {
+	return o.ApplyT(func(v *ClusterGatewayApi) *ClusterGatewayApiCrds {
+		if v == nil {
+			return nil
+		}
+		return &v.Crds
+	}).(ClusterGatewayApiCrdsPtrOutput)
+}
+
+// The Gateway API Custom Resource Definition (CRD) configuration for the cluster.
+type ClusterGatewayApiCrds struct {
+	// Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+	Managed bool `pulumi:"managed"`
+}
+
+// ClusterGatewayApiCrdsInput is an input type that accepts ClusterGatewayApiCrdsArgs and ClusterGatewayApiCrdsOutput values.
+// You can construct a concrete instance of `ClusterGatewayApiCrdsInput` via:
+//
+//	ClusterGatewayApiCrdsArgs{...}
+type ClusterGatewayApiCrdsInput interface {
+	pulumi.Input
+
+	ToClusterGatewayApiCrdsOutput() ClusterGatewayApiCrdsOutput
+	ToClusterGatewayApiCrdsOutputWithContext(context.Context) ClusterGatewayApiCrdsOutput
+}
+
+// The Gateway API Custom Resource Definition (CRD) configuration for the cluster.
+type ClusterGatewayApiCrdsArgs struct {
+	// Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+	Managed pulumi.BoolInput `pulumi:"managed"`
+}
+
+func (ClusterGatewayApiCrdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterGatewayApiCrds)(nil)).Elem()
+}
+
+func (i ClusterGatewayApiCrdsArgs) ToClusterGatewayApiCrdsOutput() ClusterGatewayApiCrdsOutput {
+	return i.ToClusterGatewayApiCrdsOutputWithContext(context.Background())
+}
+
+func (i ClusterGatewayApiCrdsArgs) ToClusterGatewayApiCrdsOutputWithContext(ctx context.Context) ClusterGatewayApiCrdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterGatewayApiCrdsOutput)
+}
+
+func (i ClusterGatewayApiCrdsArgs) ToClusterGatewayApiCrdsPtrOutput() ClusterGatewayApiCrdsPtrOutput {
+	return i.ToClusterGatewayApiCrdsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterGatewayApiCrdsArgs) ToClusterGatewayApiCrdsPtrOutputWithContext(ctx context.Context) ClusterGatewayApiCrdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterGatewayApiCrdsOutput).ToClusterGatewayApiCrdsPtrOutputWithContext(ctx)
+}
+
+// ClusterGatewayApiCrdsPtrInput is an input type that accepts ClusterGatewayApiCrdsArgs, ClusterGatewayApiCrdsPtr and ClusterGatewayApiCrdsPtrOutput values.
+// You can construct a concrete instance of `ClusterGatewayApiCrdsPtrInput` via:
+//
+//	        ClusterGatewayApiCrdsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterGatewayApiCrdsPtrInput interface {
+	pulumi.Input
+
+	ToClusterGatewayApiCrdsPtrOutput() ClusterGatewayApiCrdsPtrOutput
+	ToClusterGatewayApiCrdsPtrOutputWithContext(context.Context) ClusterGatewayApiCrdsPtrOutput
+}
+
+type clusterGatewayApiCrdsPtrType ClusterGatewayApiCrdsArgs
+
+func ClusterGatewayApiCrdsPtr(v *ClusterGatewayApiCrdsArgs) ClusterGatewayApiCrdsPtrInput {
+	return (*clusterGatewayApiCrdsPtrType)(v)
+}
+
+func (*clusterGatewayApiCrdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterGatewayApiCrds)(nil)).Elem()
+}
+
+func (i *clusterGatewayApiCrdsPtrType) ToClusterGatewayApiCrdsPtrOutput() ClusterGatewayApiCrdsPtrOutput {
+	return i.ToClusterGatewayApiCrdsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterGatewayApiCrdsPtrType) ToClusterGatewayApiCrdsPtrOutputWithContext(ctx context.Context) ClusterGatewayApiCrdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterGatewayApiCrdsPtrOutput)
+}
+
+// The Gateway API Custom Resource Definition (CRD) configuration for the cluster.
+type ClusterGatewayApiCrdsOutput struct{ *pulumi.OutputState }
+
+func (ClusterGatewayApiCrdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterGatewayApiCrds)(nil)).Elem()
+}
+
+func (o ClusterGatewayApiCrdsOutput) ToClusterGatewayApiCrdsOutput() ClusterGatewayApiCrdsOutput {
+	return o
+}
+
+func (o ClusterGatewayApiCrdsOutput) ToClusterGatewayApiCrdsOutputWithContext(ctx context.Context) ClusterGatewayApiCrdsOutput {
+	return o
+}
+
+func (o ClusterGatewayApiCrdsOutput) ToClusterGatewayApiCrdsPtrOutput() ClusterGatewayApiCrdsPtrOutput {
+	return o.ToClusterGatewayApiCrdsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterGatewayApiCrdsOutput) ToClusterGatewayApiCrdsPtrOutputWithContext(ctx context.Context) ClusterGatewayApiCrdsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterGatewayApiCrds) *ClusterGatewayApiCrds {
+		return &v
+	}).(ClusterGatewayApiCrdsPtrOutput)
+}
+
+// Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+func (o ClusterGatewayApiCrdsOutput) Managed() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterGatewayApiCrds) bool { return v.Managed }).(pulumi.BoolOutput)
+}
+
+type ClusterGatewayApiCrdsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterGatewayApiCrdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterGatewayApiCrds)(nil)).Elem()
+}
+
+func (o ClusterGatewayApiCrdsPtrOutput) ToClusterGatewayApiCrdsPtrOutput() ClusterGatewayApiCrdsPtrOutput {
+	return o
+}
+
+func (o ClusterGatewayApiCrdsPtrOutput) ToClusterGatewayApiCrdsPtrOutputWithContext(ctx context.Context) ClusterGatewayApiCrdsPtrOutput {
+	return o
+}
+
+func (o ClusterGatewayApiCrdsPtrOutput) Elem() ClusterGatewayApiCrdsOutput {
+	return o.ApplyT(func(v *ClusterGatewayApiCrds) ClusterGatewayApiCrds {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterGatewayApiCrds
+		return ret
+	}).(ClusterGatewayApiCrdsOutput)
+}
+
+// Indicates whether EKS manages the lifecycle of the Gateway API CRDs on the cluster. If true, EKS installs and upgrades the Gateway API CRDs. Requires ElasticLoadBalancing to be enabled.
+func (o ClusterGatewayApiCrdsPtrOutput) Managed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterGatewayApiCrds) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Managed
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The horizontal pod autoscaler controller configuration.
@@ -8582,6 +8881,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigArrayInput)(nil)).Elem(), ClusterEncryptionConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEtcdPlacementInput)(nil)).Elem(), ClusterEtcdPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEtcdPlacementPtrInput)(nil)).Elem(), ClusterEtcdPlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterGatewayApiInput)(nil)).Elem(), ClusterGatewayApiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterGatewayApiPtrInput)(nil)).Elem(), ClusterGatewayApiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterGatewayApiCrdsInput)(nil)).Elem(), ClusterGatewayApiCrdsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterGatewayApiCrdsPtrInput)(nil)).Elem(), ClusterGatewayApiCrdsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterHorizontalPodAutoscalerControllerConfigInput)(nil)).Elem(), ClusterHorizontalPodAutoscalerControllerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterHorizontalPodAutoscalerControllerConfigPtrInput)(nil)).Elem(), ClusterHorizontalPodAutoscalerControllerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeApiServerConfigInput)(nil)).Elem(), ClusterKubeApiServerConfigArgs{})
@@ -8696,6 +8999,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEncryptionConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterEtcdPlacementOutput{})
 	pulumi.RegisterOutputType(ClusterEtcdPlacementPtrOutput{})
+	pulumi.RegisterOutputType(ClusterGatewayApiOutput{})
+	pulumi.RegisterOutputType(ClusterGatewayApiPtrOutput{})
+	pulumi.RegisterOutputType(ClusterGatewayApiCrdsOutput{})
+	pulumi.RegisterOutputType(ClusterGatewayApiCrdsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterHorizontalPodAutoscalerControllerConfigOutput{})
 	pulumi.RegisterOutputType(ClusterHorizontalPodAutoscalerControllerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubeApiServerConfigOutput{})

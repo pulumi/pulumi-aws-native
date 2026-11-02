@@ -102,6 +102,37 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The protocol the proxy listener uses.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallListenerPropertyType : IEquatable<FirewallListenerPropertyType>
+    {
+        private readonly string _value;
+
+        private FirewallListenerPropertyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallListenerPropertyType Http { get; } = new FirewallListenerPropertyType("HTTP");
+        public static FirewallListenerPropertyType Https { get; } = new FirewallListenerPropertyType("HTTPS");
+
+        public static bool operator ==(FirewallListenerPropertyType left, FirewallListenerPropertyType right) => left.Equals(right);
+        public static bool operator !=(FirewallListenerPropertyType left, FirewallListenerPropertyType right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallListenerPropertyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallListenerPropertyType other && Equals(other);
+        public bool Equals(FirewallListenerPropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct FirewallPolicyOverrideAction : IEquatable<FirewallPolicyOverrideAction>
     {
@@ -122,6 +153,64 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FirewallPolicyOverrideAction other && Equals(other);
         public bool Equals(FirewallPolicyOverrideAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FirewallPolicyRoute53ResolvedIpValidationAction : IEquatable<FirewallPolicyRoute53ResolvedIpValidationAction>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyRoute53ResolvedIpValidationAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyRoute53ResolvedIpValidationAction Reject { get; } = new FirewallPolicyRoute53ResolvedIpValidationAction("REJECT");
+        public static FirewallPolicyRoute53ResolvedIpValidationAction Drop { get; } = new FirewallPolicyRoute53ResolvedIpValidationAction("DROP");
+        public static FirewallPolicyRoute53ResolvedIpValidationAction Alert { get; } = new FirewallPolicyRoute53ResolvedIpValidationAction("ALERT");
+
+        public static bool operator ==(FirewallPolicyRoute53ResolvedIpValidationAction left, FirewallPolicyRoute53ResolvedIpValidationAction right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyRoute53ResolvedIpValidationAction left, FirewallPolicyRoute53ResolvedIpValidationAction right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyRoute53ResolvedIpValidationAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyRoute53ResolvedIpValidationAction other && Equals(other);
+        public bool Equals(FirewallPolicyRoute53ResolvedIpValidationAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy : IEquatable<FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy Reject { get; } = new FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy("REJECT");
+        public static FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy Drop { get; } = new FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy("DROP");
+        public static FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy Continue { get; } = new FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy("CONTINUE");
+
+        public static bool operator ==(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy left, FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy left, FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy other && Equals(other);
+        public bool Equals(FirewallPolicyRoute53ResolvedIpValidationDnsExpiryExceptionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -477,6 +566,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
         public static RuleGroupTargetType TlsSni { get; } = new RuleGroupTargetType("TLS_SNI");
         public static RuleGroupTargetType HttpHost { get; } = new RuleGroupTargetType("HTTP_HOST");
+        public static RuleGroupTargetType AwsRoute53ResolvedDomain { get; } = new RuleGroupTargetType("AWS_ROUTE_53_RESOLVED_DOMAIN");
 
         public static bool operator ==(RuleGroupTargetType left, RuleGroupTargetType right) => left.Equals(right);
         public static bool operator !=(RuleGroupTargetType left, RuleGroupTargetType right) => !left.Equals(right);

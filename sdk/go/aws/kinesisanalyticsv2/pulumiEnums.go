@@ -674,170 +674,6 @@ func (in *applicationEncryptionConfigurationKeyTypePtr) ToApplicationEncryptionC
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationEncryptionConfigurationKeyTypePtrOutput)
 }
 
-// Specifies the encoding of the records in the streaming source. For example, UTF-8.
-type ApplicationInputSchemaRecordEncoding string
-
-const (
-	ApplicationInputSchemaRecordEncodingUtf8 = ApplicationInputSchemaRecordEncoding("UTF-8")
-)
-
-func (ApplicationInputSchemaRecordEncoding) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputSchemaRecordEncoding)(nil)).Elem()
-}
-
-func (e ApplicationInputSchemaRecordEncoding) ToApplicationInputSchemaRecordEncodingOutput() ApplicationInputSchemaRecordEncodingOutput {
-	return pulumi.ToOutput(e).(ApplicationInputSchemaRecordEncodingOutput)
-}
-
-func (e ApplicationInputSchemaRecordEncoding) ToApplicationInputSchemaRecordEncodingOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ApplicationInputSchemaRecordEncodingOutput)
-}
-
-func (e ApplicationInputSchemaRecordEncoding) ToApplicationInputSchemaRecordEncodingPtrOutput() ApplicationInputSchemaRecordEncodingPtrOutput {
-	return e.ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(context.Background())
-}
-
-func (e ApplicationInputSchemaRecordEncoding) ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingPtrOutput {
-	return ApplicationInputSchemaRecordEncoding(e).ToApplicationInputSchemaRecordEncodingOutputWithContext(ctx).ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx)
-}
-
-func (e ApplicationInputSchemaRecordEncoding) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplicationInputSchemaRecordEncoding) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplicationInputSchemaRecordEncoding) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ApplicationInputSchemaRecordEncoding) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ApplicationInputSchemaRecordEncodingOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputSchemaRecordEncodingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInputSchemaRecordEncoding)(nil)).Elem()
-}
-
-func (o ApplicationInputSchemaRecordEncodingOutput) ToApplicationInputSchemaRecordEncodingOutput() ApplicationInputSchemaRecordEncodingOutput {
-	return o
-}
-
-func (o ApplicationInputSchemaRecordEncodingOutput) ToApplicationInputSchemaRecordEncodingOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingOutput {
-	return o
-}
-
-func (o ApplicationInputSchemaRecordEncodingOutput) ToApplicationInputSchemaRecordEncodingPtrOutput() ApplicationInputSchemaRecordEncodingPtrOutput {
-	return o.ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInputSchemaRecordEncodingOutput) ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInputSchemaRecordEncoding) *ApplicationInputSchemaRecordEncoding {
-		return &v
-	}).(ApplicationInputSchemaRecordEncodingPtrOutput)
-}
-
-func (o ApplicationInputSchemaRecordEncodingOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ApplicationInputSchemaRecordEncodingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationInputSchemaRecordEncoding) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ApplicationInputSchemaRecordEncodingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInputSchemaRecordEncodingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationInputSchemaRecordEncoding) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationInputSchemaRecordEncodingPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInputSchemaRecordEncodingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInputSchemaRecordEncoding)(nil)).Elem()
-}
-
-func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToApplicationInputSchemaRecordEncodingPtrOutput() ApplicationInputSchemaRecordEncodingPtrOutput {
-	return o
-}
-
-func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingPtrOutput {
-	return o
-}
-
-func (o ApplicationInputSchemaRecordEncodingPtrOutput) Elem() ApplicationInputSchemaRecordEncodingOutput {
-	return o.ApplyT(func(v *ApplicationInputSchemaRecordEncoding) ApplicationInputSchemaRecordEncoding {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationInputSchemaRecordEncoding
-		return ret
-	}).(ApplicationInputSchemaRecordEncodingOutput)
-}
-
-func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationInputSchemaRecordEncoding) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ApplicationInputSchemaRecordEncodingInput is an input type that accepts values of the ApplicationInputSchemaRecordEncoding enum
-// A concrete instance of `ApplicationInputSchemaRecordEncodingInput` can be one of the following:
-//
-//	ApplicationInputSchemaRecordEncodingUtf8
-type ApplicationInputSchemaRecordEncodingInput interface {
-	pulumi.Input
-
-	ToApplicationInputSchemaRecordEncodingOutput() ApplicationInputSchemaRecordEncodingOutput
-	ToApplicationInputSchemaRecordEncodingOutputWithContext(context.Context) ApplicationInputSchemaRecordEncodingOutput
-}
-
-var applicationInputSchemaRecordEncodingPtrType = reflect.TypeOf((**ApplicationInputSchemaRecordEncoding)(nil)).Elem()
-
-type ApplicationInputSchemaRecordEncodingPtrInput interface {
-	pulumi.Input
-
-	ToApplicationInputSchemaRecordEncodingPtrOutput() ApplicationInputSchemaRecordEncodingPtrOutput
-	ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(context.Context) ApplicationInputSchemaRecordEncodingPtrOutput
-}
-
-type applicationInputSchemaRecordEncodingPtr string
-
-func ApplicationInputSchemaRecordEncodingPtr(v string) ApplicationInputSchemaRecordEncodingPtrInput {
-	return (*applicationInputSchemaRecordEncodingPtr)(&v)
-}
-
-func (*applicationInputSchemaRecordEncodingPtr) ElementType() reflect.Type {
-	return applicationInputSchemaRecordEncodingPtrType
-}
-
-func (in *applicationInputSchemaRecordEncodingPtr) ToApplicationInputSchemaRecordEncodingPtrOutput() ApplicationInputSchemaRecordEncodingPtrOutput {
-	return pulumi.ToOutput(in).(ApplicationInputSchemaRecordEncodingPtrOutput)
-}
-
-func (in *applicationInputSchemaRecordEncodingPtr) ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ApplicationInputSchemaRecordEncodingPtrOutput)
-}
-
 // To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
 type ApplicationMode string
 
@@ -1676,172 +1512,6 @@ func (in *applicationParallelismConfigurationConfigurationTypePtr) ToApplication
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationParallelismConfigurationConfigurationTypePtrOutput)
 }
 
-// The type of record format.
-type ApplicationRecordFormatRecordFormatType string
-
-const (
-	ApplicationRecordFormatRecordFormatTypeCsv  = ApplicationRecordFormatRecordFormatType("CSV")
-	ApplicationRecordFormatRecordFormatTypeJson = ApplicationRecordFormatRecordFormatType("JSON")
-)
-
-func (ApplicationRecordFormatRecordFormatType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationRecordFormatRecordFormatType)(nil)).Elem()
-}
-
-func (e ApplicationRecordFormatRecordFormatType) ToApplicationRecordFormatRecordFormatTypeOutput() ApplicationRecordFormatRecordFormatTypeOutput {
-	return pulumi.ToOutput(e).(ApplicationRecordFormatRecordFormatTypeOutput)
-}
-
-func (e ApplicationRecordFormatRecordFormatType) ToApplicationRecordFormatRecordFormatTypeOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ApplicationRecordFormatRecordFormatTypeOutput)
-}
-
-func (e ApplicationRecordFormatRecordFormatType) ToApplicationRecordFormatRecordFormatTypePtrOutput() ApplicationRecordFormatRecordFormatTypePtrOutput {
-	return e.ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(context.Background())
-}
-
-func (e ApplicationRecordFormatRecordFormatType) ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypePtrOutput {
-	return ApplicationRecordFormatRecordFormatType(e).ToApplicationRecordFormatRecordFormatTypeOutputWithContext(ctx).ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx)
-}
-
-func (e ApplicationRecordFormatRecordFormatType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplicationRecordFormatRecordFormatType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplicationRecordFormatRecordFormatType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ApplicationRecordFormatRecordFormatType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ApplicationRecordFormatRecordFormatTypeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationRecordFormatRecordFormatTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationRecordFormatRecordFormatType)(nil)).Elem()
-}
-
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToApplicationRecordFormatRecordFormatTypeOutput() ApplicationRecordFormatRecordFormatTypeOutput {
-	return o
-}
-
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToApplicationRecordFormatRecordFormatTypeOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypeOutput {
-	return o
-}
-
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToApplicationRecordFormatRecordFormatTypePtrOutput() ApplicationRecordFormatRecordFormatTypePtrOutput {
-	return o.ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationRecordFormatRecordFormatType) *ApplicationRecordFormatRecordFormatType {
-		return &v
-	}).(ApplicationRecordFormatRecordFormatTypePtrOutput)
-}
-
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationRecordFormatRecordFormatType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationRecordFormatRecordFormatType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationRecordFormatRecordFormatTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationRecordFormatRecordFormatTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationRecordFormatRecordFormatType)(nil)).Elem()
-}
-
-func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToApplicationRecordFormatRecordFormatTypePtrOutput() ApplicationRecordFormatRecordFormatTypePtrOutput {
-	return o
-}
-
-func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypePtrOutput {
-	return o
-}
-
-func (o ApplicationRecordFormatRecordFormatTypePtrOutput) Elem() ApplicationRecordFormatRecordFormatTypeOutput {
-	return o.ApplyT(func(v *ApplicationRecordFormatRecordFormatType) ApplicationRecordFormatRecordFormatType {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationRecordFormatRecordFormatType
-		return ret
-	}).(ApplicationRecordFormatRecordFormatTypeOutput)
-}
-
-func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationRecordFormatRecordFormatType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ApplicationRecordFormatRecordFormatTypeInput is an input type that accepts values of the ApplicationRecordFormatRecordFormatType enum
-// A concrete instance of `ApplicationRecordFormatRecordFormatTypeInput` can be one of the following:
-//
-//	ApplicationRecordFormatRecordFormatTypeCsv
-//	ApplicationRecordFormatRecordFormatTypeJson
-type ApplicationRecordFormatRecordFormatTypeInput interface {
-	pulumi.Input
-
-	ToApplicationRecordFormatRecordFormatTypeOutput() ApplicationRecordFormatRecordFormatTypeOutput
-	ToApplicationRecordFormatRecordFormatTypeOutputWithContext(context.Context) ApplicationRecordFormatRecordFormatTypeOutput
-}
-
-var applicationRecordFormatRecordFormatTypePtrType = reflect.TypeOf((**ApplicationRecordFormatRecordFormatType)(nil)).Elem()
-
-type ApplicationRecordFormatRecordFormatTypePtrInput interface {
-	pulumi.Input
-
-	ToApplicationRecordFormatRecordFormatTypePtrOutput() ApplicationRecordFormatRecordFormatTypePtrOutput
-	ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(context.Context) ApplicationRecordFormatRecordFormatTypePtrOutput
-}
-
-type applicationRecordFormatRecordFormatTypePtr string
-
-func ApplicationRecordFormatRecordFormatTypePtr(v string) ApplicationRecordFormatRecordFormatTypePtrInput {
-	return (*applicationRecordFormatRecordFormatTypePtr)(&v)
-}
-
-func (*applicationRecordFormatRecordFormatTypePtr) ElementType() reflect.Type {
-	return applicationRecordFormatRecordFormatTypePtrType
-}
-
-func (in *applicationRecordFormatRecordFormatTypePtr) ToApplicationRecordFormatRecordFormatTypePtrOutput() ApplicationRecordFormatRecordFormatTypePtrOutput {
-	return pulumi.ToOutput(in).(ApplicationRecordFormatRecordFormatTypePtrOutput)
-}
-
-func (in *applicationRecordFormatRecordFormatTypePtr) ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ApplicationRecordFormatRecordFormatTypePtrOutput)
-}
-
 // Specifies how the application should be restored.
 type ApplicationRestoreConfigurationApplicationRestoreType string
 
@@ -2008,6 +1678,172 @@ func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToApplicatio
 
 func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
+}
+
+// The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+type ApplicationSnapshotConfigurationSnapshotMode string
+
+const (
+	ApplicationSnapshotConfigurationSnapshotModeApplicationSnapshotsLegacy = ApplicationSnapshotConfigurationSnapshotMode("APPLICATION_SNAPSHOTS_LEGACY")
+	ApplicationSnapshotConfigurationSnapshotModeEnhancedSnapshots          = ApplicationSnapshotConfigurationSnapshotMode("ENHANCED_SNAPSHOTS")
+)
+
+func (ApplicationSnapshotConfigurationSnapshotMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSnapshotConfigurationSnapshotMode)(nil)).Elem()
+}
+
+func (e ApplicationSnapshotConfigurationSnapshotMode) ToApplicationSnapshotConfigurationSnapshotModeOutput() ApplicationSnapshotConfigurationSnapshotModeOutput {
+	return pulumi.ToOutput(e).(ApplicationSnapshotConfigurationSnapshotModeOutput)
+}
+
+func (e ApplicationSnapshotConfigurationSnapshotMode) ToApplicationSnapshotConfigurationSnapshotModeOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationSnapshotModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationSnapshotConfigurationSnapshotModeOutput)
+}
+
+func (e ApplicationSnapshotConfigurationSnapshotMode) ToApplicationSnapshotConfigurationSnapshotModePtrOutput() ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return e.ToApplicationSnapshotConfigurationSnapshotModePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationSnapshotConfigurationSnapshotMode) ToApplicationSnapshotConfigurationSnapshotModePtrOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return ApplicationSnapshotConfigurationSnapshotMode(e).ToApplicationSnapshotConfigurationSnapshotModeOutputWithContext(ctx).ToApplicationSnapshotConfigurationSnapshotModePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationSnapshotConfigurationSnapshotMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationSnapshotConfigurationSnapshotMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationSnapshotConfigurationSnapshotMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationSnapshotConfigurationSnapshotMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationSnapshotConfigurationSnapshotModeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSnapshotConfigurationSnapshotModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSnapshotConfigurationSnapshotMode)(nil)).Elem()
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModeOutput) ToApplicationSnapshotConfigurationSnapshotModeOutput() ApplicationSnapshotConfigurationSnapshotModeOutput {
+	return o
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModeOutput) ToApplicationSnapshotConfigurationSnapshotModeOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationSnapshotModeOutput {
+	return o
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModeOutput) ToApplicationSnapshotConfigurationSnapshotModePtrOutput() ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return o.ToApplicationSnapshotConfigurationSnapshotModePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModeOutput) ToApplicationSnapshotConfigurationSnapshotModePtrOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSnapshotConfigurationSnapshotMode) *ApplicationSnapshotConfigurationSnapshotMode {
+		return &v
+	}).(ApplicationSnapshotConfigurationSnapshotModePtrOutput)
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationSnapshotConfigurationSnapshotMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationSnapshotConfigurationSnapshotMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSnapshotConfigurationSnapshotModePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSnapshotConfigurationSnapshotModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSnapshotConfigurationSnapshotMode)(nil)).Elem()
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModePtrOutput) ToApplicationSnapshotConfigurationSnapshotModePtrOutput() ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return o
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModePtrOutput) ToApplicationSnapshotConfigurationSnapshotModePtrOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return o
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModePtrOutput) Elem() ApplicationSnapshotConfigurationSnapshotModeOutput {
+	return o.ApplyT(func(v *ApplicationSnapshotConfigurationSnapshotMode) ApplicationSnapshotConfigurationSnapshotMode {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSnapshotConfigurationSnapshotMode
+		return ret
+	}).(ApplicationSnapshotConfigurationSnapshotModeOutput)
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSnapshotConfigurationSnapshotModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationSnapshotConfigurationSnapshotMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationSnapshotConfigurationSnapshotModeInput is an input type that accepts values of the ApplicationSnapshotConfigurationSnapshotMode enum
+// A concrete instance of `ApplicationSnapshotConfigurationSnapshotModeInput` can be one of the following:
+//
+//	ApplicationSnapshotConfigurationSnapshotModeApplicationSnapshotsLegacy
+//	ApplicationSnapshotConfigurationSnapshotModeEnhancedSnapshots
+type ApplicationSnapshotConfigurationSnapshotModeInput interface {
+	pulumi.Input
+
+	ToApplicationSnapshotConfigurationSnapshotModeOutput() ApplicationSnapshotConfigurationSnapshotModeOutput
+	ToApplicationSnapshotConfigurationSnapshotModeOutputWithContext(context.Context) ApplicationSnapshotConfigurationSnapshotModeOutput
+}
+
+var applicationSnapshotConfigurationSnapshotModePtrType = reflect.TypeOf((**ApplicationSnapshotConfigurationSnapshotMode)(nil)).Elem()
+
+type ApplicationSnapshotConfigurationSnapshotModePtrInput interface {
+	pulumi.Input
+
+	ToApplicationSnapshotConfigurationSnapshotModePtrOutput() ApplicationSnapshotConfigurationSnapshotModePtrOutput
+	ToApplicationSnapshotConfigurationSnapshotModePtrOutputWithContext(context.Context) ApplicationSnapshotConfigurationSnapshotModePtrOutput
+}
+
+type applicationSnapshotConfigurationSnapshotModePtr string
+
+func ApplicationSnapshotConfigurationSnapshotModePtr(v string) ApplicationSnapshotConfigurationSnapshotModePtrInput {
+	return (*applicationSnapshotConfigurationSnapshotModePtr)(&v)
+}
+
+func (*applicationSnapshotConfigurationSnapshotModePtr) ElementType() reflect.Type {
+	return applicationSnapshotConfigurationSnapshotModePtrType
+}
+
+func (in *applicationSnapshotConfigurationSnapshotModePtr) ToApplicationSnapshotConfigurationSnapshotModePtrOutput() ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationSnapshotConfigurationSnapshotModePtrOutput)
+}
+
+func (in *applicationSnapshotConfigurationSnapshotModePtr) ToApplicationSnapshotConfigurationSnapshotModePtrOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationSnapshotModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationSnapshotConfigurationSnapshotModePtrOutput)
 }
 
 // The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
@@ -2189,8 +2025,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactConfigurationArtifactTypePtrInput)(nil)).Elem(), ApplicationCustomArtifactConfigurationArtifactType("DEPENDENCY_JAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationKeyTypeInput)(nil)).Elem(), ApplicationEncryptionConfigurationKeyType("AWS_OWNED_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationKeyTypePtrInput)(nil)).Elem(), ApplicationEncryptionConfigurationKeyType("AWS_OWNED_KEY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputSchemaRecordEncodingInput)(nil)).Elem(), ApplicationInputSchemaRecordEncoding("UTF-8"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputSchemaRecordEncodingPtrInput)(nil)).Elem(), ApplicationInputSchemaRecordEncoding("UTF-8"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationModeInput)(nil)).Elem(), ApplicationMode("INTERACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationModePtrInput)(nil)).Elem(), ApplicationMode("INTERACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationConfigurationTypeInput)(nil)).Elem(), ApplicationMonitoringConfigurationConfigurationType("DEFAULT"))
@@ -2201,10 +2035,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationMetricsLevelPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationMetricsLevel("APPLICATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationParallelismConfigurationConfigurationTypeInput)(nil)).Elem(), ApplicationParallelismConfigurationConfigurationType("CUSTOM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationParallelismConfigurationConfigurationTypePtrInput)(nil)).Elem(), ApplicationParallelismConfigurationConfigurationType("CUSTOM"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordFormatRecordFormatTypeInput)(nil)).Elem(), ApplicationRecordFormatRecordFormatType("CSV"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordFormatRecordFormatTypePtrInput)(nil)).Elem(), ApplicationRecordFormatRecordFormatType("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRestoreConfigurationApplicationRestoreTypeInput)(nil)).Elem(), ApplicationRestoreConfigurationApplicationRestoreType("SKIP_RESTORE_FROM_SNAPSHOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRestoreConfigurationApplicationRestoreTypePtrInput)(nil)).Elem(), ApplicationRestoreConfigurationApplicationRestoreType("SKIP_RESTORE_FROM_SNAPSHOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotConfigurationSnapshotModeInput)(nil)).Elem(), ApplicationSnapshotConfigurationSnapshotMode("APPLICATION_SNAPSHOTS_LEGACY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotConfigurationSnapshotModePtrInput)(nil)).Elem(), ApplicationSnapshotConfigurationSnapshotMode("APPLICATION_SNAPSHOTS_LEGACY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinMonitoringConfigurationLogLevelInput)(nil)).Elem(), ApplicationZeppelinMonitoringConfigurationLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinMonitoringConfigurationLogLevelPtrInput)(nil)).Elem(), ApplicationZeppelinMonitoringConfigurationLogLevel("DEBUG"))
 	pulumi.RegisterOutputType(ApplicationCheckpointConfigurationConfigurationTypeOutput{})
@@ -2215,8 +2049,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationCustomArtifactConfigurationArtifactTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationKeyTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationKeyTypePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationInputSchemaRecordEncodingOutput{})
-	pulumi.RegisterOutputType(ApplicationInputSchemaRecordEncodingPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationModeOutput{})
 	pulumi.RegisterOutputType(ApplicationModePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationConfigurationTypeOutput{})
@@ -2227,10 +2059,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationMetricsLevelPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationParallelismConfigurationConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationParallelismConfigurationConfigurationTypePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationRecordFormatRecordFormatTypeOutput{})
-	pulumi.RegisterOutputType(ApplicationRecordFormatRecordFormatTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationRestoreConfigurationApplicationRestoreTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSnapshotConfigurationSnapshotModeOutput{})
+	pulumi.RegisterOutputType(ApplicationSnapshotConfigurationSnapshotModePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinMonitoringConfigurationLogLevelOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput{})
 }

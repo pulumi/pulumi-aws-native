@@ -68,6 +68,11 @@ export interface GetFirewallResult {
      */
     readonly firewallPolicyChangeProtection?: boolean;
     /**
+     * The number of VPC endpoint associations attached to the firewall.
+     */
+    readonly numberOfAssociations?: number;
+    readonly proxySettings?: outputs.networkfirewall.FirewallProxySettings;
+    /**
      * A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
      */
     readonly subnetChangeProtection?: boolean;

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         [Input("policyVariables")]
         public Input<Inputs.FirewallPolicyPolicyVariablesPropertiesArgs>? PolicyVariables { get; set; }
 
+        [Input("route53ResolvedIpValidation")]
+        public Input<Inputs.FirewallPolicyRoute53ResolvedIpValidationArgs>? Route53ResolvedIpValidation { get; set; }
+
         [Input("statefulDefaultActions")]
         private InputList<string>? _statefulDefaultActions;
 

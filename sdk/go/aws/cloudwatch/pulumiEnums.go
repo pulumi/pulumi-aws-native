@@ -10,6 +10,819 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Who manages the grant.
+type AccessGrantGrantType string
+
+const (
+	AccessGrantGrantTypeServiceManaged  = AccessGrantGrantType("SERVICE_MANAGED")
+	AccessGrantGrantTypeCustomerManaged = AccessGrantGrantType("CUSTOMER_MANAGED")
+)
+
+type AccessGrantGrantTypeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantGrantTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantGrantType)(nil)).Elem()
+}
+
+func (o AccessGrantGrantTypeOutput) ToAccessGrantGrantTypeOutput() AccessGrantGrantTypeOutput {
+	return o
+}
+
+func (o AccessGrantGrantTypeOutput) ToAccessGrantGrantTypeOutputWithContext(ctx context.Context) AccessGrantGrantTypeOutput {
+	return o
+}
+
+func (o AccessGrantGrantTypeOutput) ToAccessGrantGrantTypePtrOutput() AccessGrantGrantTypePtrOutput {
+	return o.ToAccessGrantGrantTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantGrantTypeOutput) ToAccessGrantGrantTypePtrOutputWithContext(ctx context.Context) AccessGrantGrantTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantGrantType) *AccessGrantGrantType {
+		return &v
+	}).(AccessGrantGrantTypePtrOutput)
+}
+
+func (o AccessGrantGrantTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessGrantGrantTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantGrantType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessGrantGrantTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantGrantTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantGrantType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantGrantTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantGrantTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantGrantType)(nil)).Elem()
+}
+
+func (o AccessGrantGrantTypePtrOutput) ToAccessGrantGrantTypePtrOutput() AccessGrantGrantTypePtrOutput {
+	return o
+}
+
+func (o AccessGrantGrantTypePtrOutput) ToAccessGrantGrantTypePtrOutputWithContext(ctx context.Context) AccessGrantGrantTypePtrOutput {
+	return o
+}
+
+func (o AccessGrantGrantTypePtrOutput) Elem() AccessGrantGrantTypeOutput {
+	return o.ApplyT(func(v *AccessGrantGrantType) AccessGrantGrantType {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantGrantType
+		return ret
+	}).(AccessGrantGrantTypeOutput)
+}
+
+func (o AccessGrantGrantTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantGrantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessGrantGrantType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The permission granted.
+type AccessGrantPermission string
+
+const (
+	AccessGrantPermissionSpaceAdmin      = AccessGrantPermission("SPACE_ADMIN")
+	AccessGrantPermissionRead            = AccessGrantPermission("READ")
+	AccessGrantPermissionReadWriteDelete = AccessGrantPermission("READ_WRITE_DELETE")
+	AccessGrantPermissionCustom          = AccessGrantPermission("CUSTOM")
+)
+
+func (AccessGrantPermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPermission)(nil)).Elem()
+}
+
+func (e AccessGrantPermission) ToAccessGrantPermissionOutput() AccessGrantPermissionOutput {
+	return pulumi.ToOutput(e).(AccessGrantPermissionOutput)
+}
+
+func (e AccessGrantPermission) ToAccessGrantPermissionOutputWithContext(ctx context.Context) AccessGrantPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessGrantPermissionOutput)
+}
+
+func (e AccessGrantPermission) ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput {
+	return e.ToAccessGrantPermissionPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantPermission) ToAccessGrantPermissionPtrOutputWithContext(ctx context.Context) AccessGrantPermissionPtrOutput {
+	return AccessGrantPermission(e).ToAccessGrantPermissionOutputWithContext(ctx).ToAccessGrantPermissionPtrOutputWithContext(ctx)
+}
+
+func (e AccessGrantPermission) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantPermission) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantPermission) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantPermission) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessGrantPermissionOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPermission)(nil)).Elem()
+}
+
+func (o AccessGrantPermissionOutput) ToAccessGrantPermissionOutput() AccessGrantPermissionOutput {
+	return o
+}
+
+func (o AccessGrantPermissionOutput) ToAccessGrantPermissionOutputWithContext(ctx context.Context) AccessGrantPermissionOutput {
+	return o
+}
+
+func (o AccessGrantPermissionOutput) ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput {
+	return o.ToAccessGrantPermissionPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPermissionOutput) ToAccessGrantPermissionPtrOutputWithContext(ctx context.Context) AccessGrantPermissionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantPermission) *AccessGrantPermission {
+		return &v
+	}).(AccessGrantPermissionPtrOutput)
+}
+
+func (o AccessGrantPermissionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPermissionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantPermission) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessGrantPermissionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPermissionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantPermission) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantPermissionPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPermissionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantPermission)(nil)).Elem()
+}
+
+func (o AccessGrantPermissionPtrOutput) ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput {
+	return o
+}
+
+func (o AccessGrantPermissionPtrOutput) ToAccessGrantPermissionPtrOutputWithContext(ctx context.Context) AccessGrantPermissionPtrOutput {
+	return o
+}
+
+func (o AccessGrantPermissionPtrOutput) Elem() AccessGrantPermissionOutput {
+	return o.ApplyT(func(v *AccessGrantPermission) AccessGrantPermission {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantPermission
+		return ret
+	}).(AccessGrantPermissionOutput)
+}
+
+func (o AccessGrantPermissionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPermissionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessGrantPermission) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessGrantPermissionInput is an input type that accepts values of the AccessGrantPermission enum
+// A concrete instance of `AccessGrantPermissionInput` can be one of the following:
+//
+//	AccessGrantPermissionSpaceAdmin
+//	AccessGrantPermissionRead
+//	AccessGrantPermissionReadWriteDelete
+//	AccessGrantPermissionCustom
+type AccessGrantPermissionInput interface {
+	pulumi.Input
+
+	ToAccessGrantPermissionOutput() AccessGrantPermissionOutput
+	ToAccessGrantPermissionOutputWithContext(context.Context) AccessGrantPermissionOutput
+}
+
+var accessGrantPermissionPtrType = reflect.TypeOf((**AccessGrantPermission)(nil)).Elem()
+
+type AccessGrantPermissionPtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput
+	ToAccessGrantPermissionPtrOutputWithContext(context.Context) AccessGrantPermissionPtrOutput
+}
+
+type accessGrantPermissionPtr string
+
+func AccessGrantPermissionPtr(v string) AccessGrantPermissionPtrInput {
+	return (*accessGrantPermissionPtr)(&v)
+}
+
+func (*accessGrantPermissionPtr) ElementType() reflect.Type {
+	return accessGrantPermissionPtrType
+}
+
+func (in *accessGrantPermissionPtr) ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput {
+	return pulumi.ToOutput(in).(AccessGrantPermissionPtrOutput)
+}
+
+func (in *accessGrantPermissionPtr) ToAccessGrantPermissionPtrOutputWithContext(ctx context.Context) AccessGrantPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessGrantPermissionPtrOutput)
+}
+
+// The type of principal receiving the grant.
+type AccessGrantPrincipalPrincipalType string
+
+const (
+	AccessGrantPrincipalPrincipalTypeIdcUser       = AccessGrantPrincipalPrincipalType("IDC_USER")
+	AccessGrantPrincipalPrincipalTypeIdcGroup      = AccessGrantPrincipalPrincipalType("IDC_GROUP")
+	AccessGrantPrincipalPrincipalTypeIamUser       = AccessGrantPrincipalPrincipalType("IAM_USER")
+	AccessGrantPrincipalPrincipalTypeIamRole       = AccessGrantPrincipalPrincipalType("IAM_ROLE")
+	AccessGrantPrincipalPrincipalTypeIamRoot       = AccessGrantPrincipalPrincipalType("IAM_ROOT")
+	AccessGrantPrincipalPrincipalTypeAccessProfile = AccessGrantPrincipalPrincipalType("ACCESS_PROFILE")
+	AccessGrantPrincipalPrincipalTypeAlert         = AccessGrantPrincipalPrincipalType("ALERT")
+	AccessGrantPrincipalPrincipalTypeAgent         = AccessGrantPrincipalPrincipalType("AGENT")
+)
+
+func (AccessGrantPrincipalPrincipalType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipalPrincipalType)(nil)).Elem()
+}
+
+func (e AccessGrantPrincipalPrincipalType) ToAccessGrantPrincipalPrincipalTypeOutput() AccessGrantPrincipalPrincipalTypeOutput {
+	return pulumi.ToOutput(e).(AccessGrantPrincipalPrincipalTypeOutput)
+}
+
+func (e AccessGrantPrincipalPrincipalType) ToAccessGrantPrincipalPrincipalTypeOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessGrantPrincipalPrincipalTypeOutput)
+}
+
+func (e AccessGrantPrincipalPrincipalType) ToAccessGrantPrincipalPrincipalTypePtrOutput() AccessGrantPrincipalPrincipalTypePtrOutput {
+	return e.ToAccessGrantPrincipalPrincipalTypePtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantPrincipalPrincipalType) ToAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalTypePtrOutput {
+	return AccessGrantPrincipalPrincipalType(e).ToAccessGrantPrincipalPrincipalTypeOutputWithContext(ctx).ToAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx)
+}
+
+func (e AccessGrantPrincipalPrincipalType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantPrincipalPrincipalType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantPrincipalPrincipalType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantPrincipalPrincipalType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessGrantPrincipalPrincipalTypeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPrincipalPrincipalTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipalPrincipalType)(nil)).Elem()
+}
+
+func (o AccessGrantPrincipalPrincipalTypeOutput) ToAccessGrantPrincipalPrincipalTypeOutput() AccessGrantPrincipalPrincipalTypeOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalPrincipalTypeOutput) ToAccessGrantPrincipalPrincipalTypeOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalTypeOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalPrincipalTypeOutput) ToAccessGrantPrincipalPrincipalTypePtrOutput() AccessGrantPrincipalPrincipalTypePtrOutput {
+	return o.ToAccessGrantPrincipalPrincipalTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPrincipalPrincipalTypeOutput) ToAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantPrincipalPrincipalType) *AccessGrantPrincipalPrincipalType {
+		return &v
+	}).(AccessGrantPrincipalPrincipalTypePtrOutput)
+}
+
+func (o AccessGrantPrincipalPrincipalTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPrincipalPrincipalTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantPrincipalPrincipalType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessGrantPrincipalPrincipalTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPrincipalPrincipalTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantPrincipalPrincipalType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantPrincipalPrincipalTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPrincipalPrincipalTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantPrincipalPrincipalType)(nil)).Elem()
+}
+
+func (o AccessGrantPrincipalPrincipalTypePtrOutput) ToAccessGrantPrincipalPrincipalTypePtrOutput() AccessGrantPrincipalPrincipalTypePtrOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalPrincipalTypePtrOutput) ToAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalTypePtrOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalPrincipalTypePtrOutput) Elem() AccessGrantPrincipalPrincipalTypeOutput {
+	return o.ApplyT(func(v *AccessGrantPrincipalPrincipalType) AccessGrantPrincipalPrincipalType {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantPrincipalPrincipalType
+		return ret
+	}).(AccessGrantPrincipalPrincipalTypeOutput)
+}
+
+func (o AccessGrantPrincipalPrincipalTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPrincipalPrincipalTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessGrantPrincipalPrincipalType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessGrantPrincipalPrincipalTypeInput is an input type that accepts values of the AccessGrantPrincipalPrincipalType enum
+// A concrete instance of `AccessGrantPrincipalPrincipalTypeInput` can be one of the following:
+//
+//	AccessGrantPrincipalPrincipalTypeIdcUser
+//	AccessGrantPrincipalPrincipalTypeIdcGroup
+//	AccessGrantPrincipalPrincipalTypeIamUser
+//	AccessGrantPrincipalPrincipalTypeIamRole
+//	AccessGrantPrincipalPrincipalTypeIamRoot
+//	AccessGrantPrincipalPrincipalTypeAccessProfile
+//	AccessGrantPrincipalPrincipalTypeAlert
+//	AccessGrantPrincipalPrincipalTypeAgent
+type AccessGrantPrincipalPrincipalTypeInput interface {
+	pulumi.Input
+
+	ToAccessGrantPrincipalPrincipalTypeOutput() AccessGrantPrincipalPrincipalTypeOutput
+	ToAccessGrantPrincipalPrincipalTypeOutputWithContext(context.Context) AccessGrantPrincipalPrincipalTypeOutput
+}
+
+var accessGrantPrincipalPrincipalTypePtrType = reflect.TypeOf((**AccessGrantPrincipalPrincipalType)(nil)).Elem()
+
+type AccessGrantPrincipalPrincipalTypePtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantPrincipalPrincipalTypePtrOutput() AccessGrantPrincipalPrincipalTypePtrOutput
+	ToAccessGrantPrincipalPrincipalTypePtrOutputWithContext(context.Context) AccessGrantPrincipalPrincipalTypePtrOutput
+}
+
+type accessGrantPrincipalPrincipalTypePtr string
+
+func AccessGrantPrincipalPrincipalTypePtr(v string) AccessGrantPrincipalPrincipalTypePtrInput {
+	return (*accessGrantPrincipalPrincipalTypePtr)(&v)
+}
+
+func (*accessGrantPrincipalPrincipalTypePtr) ElementType() reflect.Type {
+	return accessGrantPrincipalPrincipalTypePtrType
+}
+
+func (in *accessGrantPrincipalPrincipalTypePtr) ToAccessGrantPrincipalPrincipalTypePtrOutput() AccessGrantPrincipalPrincipalTypePtrOutput {
+	return pulumi.ToOutput(in).(AccessGrantPrincipalPrincipalTypePtrOutput)
+}
+
+func (in *accessGrantPrincipalPrincipalTypePtr) ToAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessGrantPrincipalPrincipalTypePtrOutput)
+}
+
+type AccessGrantResourceScopeSignalTypesItem string
+
+const (
+	AccessGrantResourceScopeSignalTypesItemLogs   = AccessGrantResourceScopeSignalTypesItem("LOGS")
+	AccessGrantResourceScopeSignalTypesItemTraces = AccessGrantResourceScopeSignalTypesItem("TRACES")
+)
+
+func (AccessGrantResourceScopeSignalTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantResourceScopeSignalTypesItem)(nil)).Elem()
+}
+
+func (e AccessGrantResourceScopeSignalTypesItem) ToAccessGrantResourceScopeSignalTypesItemOutput() AccessGrantResourceScopeSignalTypesItemOutput {
+	return pulumi.ToOutput(e).(AccessGrantResourceScopeSignalTypesItemOutput)
+}
+
+func (e AccessGrantResourceScopeSignalTypesItem) ToAccessGrantResourceScopeSignalTypesItemOutputWithContext(ctx context.Context) AccessGrantResourceScopeSignalTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessGrantResourceScopeSignalTypesItemOutput)
+}
+
+func (e AccessGrantResourceScopeSignalTypesItem) ToAccessGrantResourceScopeSignalTypesItemPtrOutput() AccessGrantResourceScopeSignalTypesItemPtrOutput {
+	return e.ToAccessGrantResourceScopeSignalTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantResourceScopeSignalTypesItem) ToAccessGrantResourceScopeSignalTypesItemPtrOutputWithContext(ctx context.Context) AccessGrantResourceScopeSignalTypesItemPtrOutput {
+	return AccessGrantResourceScopeSignalTypesItem(e).ToAccessGrantResourceScopeSignalTypesItemOutputWithContext(ctx).ToAccessGrantResourceScopeSignalTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e AccessGrantResourceScopeSignalTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantResourceScopeSignalTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantResourceScopeSignalTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantResourceScopeSignalTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessGrantResourceScopeSignalTypesItemOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantResourceScopeSignalTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantResourceScopeSignalTypesItem)(nil)).Elem()
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemOutput) ToAccessGrantResourceScopeSignalTypesItemOutput() AccessGrantResourceScopeSignalTypesItemOutput {
+	return o
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemOutput) ToAccessGrantResourceScopeSignalTypesItemOutputWithContext(ctx context.Context) AccessGrantResourceScopeSignalTypesItemOutput {
+	return o
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemOutput) ToAccessGrantResourceScopeSignalTypesItemPtrOutput() AccessGrantResourceScopeSignalTypesItemPtrOutput {
+	return o.ToAccessGrantResourceScopeSignalTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemOutput) ToAccessGrantResourceScopeSignalTypesItemPtrOutputWithContext(ctx context.Context) AccessGrantResourceScopeSignalTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantResourceScopeSignalTypesItem) *AccessGrantResourceScopeSignalTypesItem {
+		return &v
+	}).(AccessGrantResourceScopeSignalTypesItemPtrOutput)
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantResourceScopeSignalTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantResourceScopeSignalTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantResourceScopeSignalTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantResourceScopeSignalTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantResourceScopeSignalTypesItem)(nil)).Elem()
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemPtrOutput) ToAccessGrantResourceScopeSignalTypesItemPtrOutput() AccessGrantResourceScopeSignalTypesItemPtrOutput {
+	return o
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemPtrOutput) ToAccessGrantResourceScopeSignalTypesItemPtrOutputWithContext(ctx context.Context) AccessGrantResourceScopeSignalTypesItemPtrOutput {
+	return o
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemPtrOutput) Elem() AccessGrantResourceScopeSignalTypesItemOutput {
+	return o.ApplyT(func(v *AccessGrantResourceScopeSignalTypesItem) AccessGrantResourceScopeSignalTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantResourceScopeSignalTypesItem
+		return ret
+	}).(AccessGrantResourceScopeSignalTypesItemOutput)
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessGrantResourceScopeSignalTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessGrantResourceScopeSignalTypesItemInput is an input type that accepts values of the AccessGrantResourceScopeSignalTypesItem enum
+// A concrete instance of `AccessGrantResourceScopeSignalTypesItemInput` can be one of the following:
+//
+//	AccessGrantResourceScopeSignalTypesItemLogs
+//	AccessGrantResourceScopeSignalTypesItemTraces
+type AccessGrantResourceScopeSignalTypesItemInput interface {
+	pulumi.Input
+
+	ToAccessGrantResourceScopeSignalTypesItemOutput() AccessGrantResourceScopeSignalTypesItemOutput
+	ToAccessGrantResourceScopeSignalTypesItemOutputWithContext(context.Context) AccessGrantResourceScopeSignalTypesItemOutput
+}
+
+var accessGrantResourceScopeSignalTypesItemPtrType = reflect.TypeOf((**AccessGrantResourceScopeSignalTypesItem)(nil)).Elem()
+
+type AccessGrantResourceScopeSignalTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantResourceScopeSignalTypesItemPtrOutput() AccessGrantResourceScopeSignalTypesItemPtrOutput
+	ToAccessGrantResourceScopeSignalTypesItemPtrOutputWithContext(context.Context) AccessGrantResourceScopeSignalTypesItemPtrOutput
+}
+
+type accessGrantResourceScopeSignalTypesItemPtr string
+
+func AccessGrantResourceScopeSignalTypesItemPtr(v string) AccessGrantResourceScopeSignalTypesItemPtrInput {
+	return (*accessGrantResourceScopeSignalTypesItemPtr)(&v)
+}
+
+func (*accessGrantResourceScopeSignalTypesItemPtr) ElementType() reflect.Type {
+	return accessGrantResourceScopeSignalTypesItemPtrType
+}
+
+func (in *accessGrantResourceScopeSignalTypesItemPtr) ToAccessGrantResourceScopeSignalTypesItemPtrOutput() AccessGrantResourceScopeSignalTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(AccessGrantResourceScopeSignalTypesItemPtrOutput)
+}
+
+func (in *accessGrantResourceScopeSignalTypesItemPtr) ToAccessGrantResourceScopeSignalTypesItemPtrOutputWithContext(ctx context.Context) AccessGrantResourceScopeSignalTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessGrantResourceScopeSignalTypesItemPtrOutput)
+}
+
+// AccessGrantResourceScopeSignalTypesItemArrayInput is an input type that accepts AccessGrantResourceScopeSignalTypesItemArray and AccessGrantResourceScopeSignalTypesItemArrayOutput values.
+// You can construct a concrete instance of `AccessGrantResourceScopeSignalTypesItemArrayInput` via:
+//
+//	AccessGrantResourceScopeSignalTypesItemArray{ AccessGrantResourceScopeSignalTypesItemArgs{...} }
+type AccessGrantResourceScopeSignalTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantResourceScopeSignalTypesItemArrayOutput() AccessGrantResourceScopeSignalTypesItemArrayOutput
+	ToAccessGrantResourceScopeSignalTypesItemArrayOutputWithContext(context.Context) AccessGrantResourceScopeSignalTypesItemArrayOutput
+}
+
+type AccessGrantResourceScopeSignalTypesItemArray []AccessGrantResourceScopeSignalTypesItem
+
+func (AccessGrantResourceScopeSignalTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantResourceScopeSignalTypesItem)(nil)).Elem()
+}
+
+func (i AccessGrantResourceScopeSignalTypesItemArray) ToAccessGrantResourceScopeSignalTypesItemArrayOutput() AccessGrantResourceScopeSignalTypesItemArrayOutput {
+	return i.ToAccessGrantResourceScopeSignalTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantResourceScopeSignalTypesItemArray) ToAccessGrantResourceScopeSignalTypesItemArrayOutputWithContext(ctx context.Context) AccessGrantResourceScopeSignalTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantResourceScopeSignalTypesItemArrayOutput)
+}
+
+type AccessGrantResourceScopeSignalTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantResourceScopeSignalTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantResourceScopeSignalTypesItem)(nil)).Elem()
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemArrayOutput) ToAccessGrantResourceScopeSignalTypesItemArrayOutput() AccessGrantResourceScopeSignalTypesItemArrayOutput {
+	return o
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemArrayOutput) ToAccessGrantResourceScopeSignalTypesItemArrayOutputWithContext(ctx context.Context) AccessGrantResourceScopeSignalTypesItemArrayOutput {
+	return o
+}
+
+func (o AccessGrantResourceScopeSignalTypesItemArrayOutput) Index(i pulumi.IntInput) AccessGrantResourceScopeSignalTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantResourceScopeSignalTypesItem {
+		return vs[0].([]AccessGrantResourceScopeSignalTypesItem)[vs[1].(int)]
+	}).(AccessGrantResourceScopeSignalTypesItemOutput)
+}
+
+// Match operator applied to this filter's values.
+type AccessGrantRowScopeOperator string
+
+const (
+	AccessGrantRowScopeOperatorIn = AccessGrantRowScopeOperator("IN")
+)
+
+func (AccessGrantRowScopeOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantRowScopeOperator)(nil)).Elem()
+}
+
+func (e AccessGrantRowScopeOperator) ToAccessGrantRowScopeOperatorOutput() AccessGrantRowScopeOperatorOutput {
+	return pulumi.ToOutput(e).(AccessGrantRowScopeOperatorOutput)
+}
+
+func (e AccessGrantRowScopeOperator) ToAccessGrantRowScopeOperatorOutputWithContext(ctx context.Context) AccessGrantRowScopeOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessGrantRowScopeOperatorOutput)
+}
+
+func (e AccessGrantRowScopeOperator) ToAccessGrantRowScopeOperatorPtrOutput() AccessGrantRowScopeOperatorPtrOutput {
+	return e.ToAccessGrantRowScopeOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantRowScopeOperator) ToAccessGrantRowScopeOperatorPtrOutputWithContext(ctx context.Context) AccessGrantRowScopeOperatorPtrOutput {
+	return AccessGrantRowScopeOperator(e).ToAccessGrantRowScopeOperatorOutputWithContext(ctx).ToAccessGrantRowScopeOperatorPtrOutputWithContext(ctx)
+}
+
+func (e AccessGrantRowScopeOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantRowScopeOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantRowScopeOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantRowScopeOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessGrantRowScopeOperatorOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantRowScopeOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantRowScopeOperator)(nil)).Elem()
+}
+
+func (o AccessGrantRowScopeOperatorOutput) ToAccessGrantRowScopeOperatorOutput() AccessGrantRowScopeOperatorOutput {
+	return o
+}
+
+func (o AccessGrantRowScopeOperatorOutput) ToAccessGrantRowScopeOperatorOutputWithContext(ctx context.Context) AccessGrantRowScopeOperatorOutput {
+	return o
+}
+
+func (o AccessGrantRowScopeOperatorOutput) ToAccessGrantRowScopeOperatorPtrOutput() AccessGrantRowScopeOperatorPtrOutput {
+	return o.ToAccessGrantRowScopeOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantRowScopeOperatorOutput) ToAccessGrantRowScopeOperatorPtrOutputWithContext(ctx context.Context) AccessGrantRowScopeOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantRowScopeOperator) *AccessGrantRowScopeOperator {
+		return &v
+	}).(AccessGrantRowScopeOperatorPtrOutput)
+}
+
+func (o AccessGrantRowScopeOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessGrantRowScopeOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantRowScopeOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessGrantRowScopeOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantRowScopeOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantRowScopeOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantRowScopeOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantRowScopeOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantRowScopeOperator)(nil)).Elem()
+}
+
+func (o AccessGrantRowScopeOperatorPtrOutput) ToAccessGrantRowScopeOperatorPtrOutput() AccessGrantRowScopeOperatorPtrOutput {
+	return o
+}
+
+func (o AccessGrantRowScopeOperatorPtrOutput) ToAccessGrantRowScopeOperatorPtrOutputWithContext(ctx context.Context) AccessGrantRowScopeOperatorPtrOutput {
+	return o
+}
+
+func (o AccessGrantRowScopeOperatorPtrOutput) Elem() AccessGrantRowScopeOperatorOutput {
+	return o.ApplyT(func(v *AccessGrantRowScopeOperator) AccessGrantRowScopeOperator {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantRowScopeOperator
+		return ret
+	}).(AccessGrantRowScopeOperatorOutput)
+}
+
+func (o AccessGrantRowScopeOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantRowScopeOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessGrantRowScopeOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessGrantRowScopeOperatorInput is an input type that accepts values of the AccessGrantRowScopeOperator enum
+// A concrete instance of `AccessGrantRowScopeOperatorInput` can be one of the following:
+//
+//	AccessGrantRowScopeOperatorIn
+type AccessGrantRowScopeOperatorInput interface {
+	pulumi.Input
+
+	ToAccessGrantRowScopeOperatorOutput() AccessGrantRowScopeOperatorOutput
+	ToAccessGrantRowScopeOperatorOutputWithContext(context.Context) AccessGrantRowScopeOperatorOutput
+}
+
+var accessGrantRowScopeOperatorPtrType = reflect.TypeOf((**AccessGrantRowScopeOperator)(nil)).Elem()
+
+type AccessGrantRowScopeOperatorPtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantRowScopeOperatorPtrOutput() AccessGrantRowScopeOperatorPtrOutput
+	ToAccessGrantRowScopeOperatorPtrOutputWithContext(context.Context) AccessGrantRowScopeOperatorPtrOutput
+}
+
+type accessGrantRowScopeOperatorPtr string
+
+func AccessGrantRowScopeOperatorPtr(v string) AccessGrantRowScopeOperatorPtrInput {
+	return (*accessGrantRowScopeOperatorPtr)(&v)
+}
+
+func (*accessGrantRowScopeOperatorPtr) ElementType() reflect.Type {
+	return accessGrantRowScopeOperatorPtrType
+}
+
+func (in *accessGrantRowScopeOperatorPtr) ToAccessGrantRowScopeOperatorPtrOutput() AccessGrantRowScopeOperatorPtrOutput {
+	return pulumi.ToOutput(in).(AccessGrantRowScopeOperatorPtrOutput)
+}
+
+func (in *accessGrantRowScopeOperatorPtr) ToAccessGrantRowScopeOperatorPtrOutputWithContext(ctx context.Context) AccessGrantRowScopeOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessGrantRowScopeOperatorPtrOutput)
+}
+
 // Whether the calling principal is authorized to assume the access profile.
 type AccessProfileAssumeStatus string
 
@@ -284,6 +1097,433 @@ func (o AlarmMuteRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// Who manages the grant.
+type DomainAccessGrantForOrganizationGrantType string
+
+const (
+	DomainAccessGrantForOrganizationGrantTypeServiceManaged  = DomainAccessGrantForOrganizationGrantType("SERVICE_MANAGED")
+	DomainAccessGrantForOrganizationGrantTypeCustomerManaged = DomainAccessGrantForOrganizationGrantType("CUSTOMER_MANAGED")
+)
+
+type DomainAccessGrantForOrganizationGrantTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainAccessGrantForOrganizationGrantTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAccessGrantForOrganizationGrantType)(nil)).Elem()
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypeOutput) ToDomainAccessGrantForOrganizationGrantTypeOutput() DomainAccessGrantForOrganizationGrantTypeOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypeOutput) ToDomainAccessGrantForOrganizationGrantTypeOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationGrantTypeOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypeOutput) ToDomainAccessGrantForOrganizationGrantTypePtrOutput() DomainAccessGrantForOrganizationGrantTypePtrOutput {
+	return o.ToDomainAccessGrantForOrganizationGrantTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypeOutput) ToDomainAccessGrantForOrganizationGrantTypePtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationGrantTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAccessGrantForOrganizationGrantType) *DomainAccessGrantForOrganizationGrantType {
+		return &v
+	}).(DomainAccessGrantForOrganizationGrantTypePtrOutput)
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAccessGrantForOrganizationGrantType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAccessGrantForOrganizationGrantType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAccessGrantForOrganizationGrantTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAccessGrantForOrganizationGrantTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAccessGrantForOrganizationGrantType)(nil)).Elem()
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypePtrOutput) ToDomainAccessGrantForOrganizationGrantTypePtrOutput() DomainAccessGrantForOrganizationGrantTypePtrOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypePtrOutput) ToDomainAccessGrantForOrganizationGrantTypePtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationGrantTypePtrOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypePtrOutput) Elem() DomainAccessGrantForOrganizationGrantTypeOutput {
+	return o.ApplyT(func(v *DomainAccessGrantForOrganizationGrantType) DomainAccessGrantForOrganizationGrantType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAccessGrantForOrganizationGrantType
+		return ret
+	}).(DomainAccessGrantForOrganizationGrantTypeOutput)
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationGrantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainAccessGrantForOrganizationGrantType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of principal the grant is issued to.
+type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType string
+
+const (
+	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIdcUser  = DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IDC_USER")
+	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIdcGroup = DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IDC_GROUP")
+	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIamUser  = DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IAM_USER")
+	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIamRole  = DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IAM_ROLE")
+	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIamRoot  = DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IAM_ROOT")
+)
+
+func (DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType)(nil)).Elem()
+}
+
+func (e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput {
+	return pulumi.ToOutput(e).(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput)
+}
+
+func (e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput)
+}
+
+func (e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput {
+	return e.ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput {
+	return DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType(e).ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutputWithContext(ctx).ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType)(nil)).Elem()
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput {
+	return o.ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) *DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType {
+		return &v
+	}).(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput)
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType)(nil)).Elem()
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput) Elem() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput {
+	return o.ApplyT(func(v *DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType
+		return ret
+	}).(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput)
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeInput is an input type that accepts values of the DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType enum
+// A concrete instance of `DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeInput` can be one of the following:
+//
+//	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIdcUser
+//	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIdcGroup
+//	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIamUser
+//	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIamRole
+//	DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeIamRoot
+type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeInput interface {
+	pulumi.Input
+
+	ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput
+	ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutputWithContext(context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput
+}
+
+var domainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrType = reflect.TypeOf((**DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType)(nil)).Elem()
+
+type DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput
+	ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutputWithContext(context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput
+}
+
+type domainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtr string
+
+func DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtr(v string) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrInput {
+	return (*domainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtr)(&v)
+}
+
+func (*domainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtr) ElementType() reflect.Type {
+	return domainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrType
+}
+
+func (in *domainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtr) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput() DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput)
+}
+
+func (in *domainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtr) ToDomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput)
+}
+
+// The permission granted.
+type DomainAccessGrantForOrganizationPermission string
+
+const (
+	DomainAccessGrantForOrganizationPermissionAdmin = DomainAccessGrantForOrganizationPermission("ADMIN")
+)
+
+func (DomainAccessGrantForOrganizationPermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAccessGrantForOrganizationPermission)(nil)).Elem()
+}
+
+func (e DomainAccessGrantForOrganizationPermission) ToDomainAccessGrantForOrganizationPermissionOutput() DomainAccessGrantForOrganizationPermissionOutput {
+	return pulumi.ToOutput(e).(DomainAccessGrantForOrganizationPermissionOutput)
+}
+
+func (e DomainAccessGrantForOrganizationPermission) ToDomainAccessGrantForOrganizationPermissionOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainAccessGrantForOrganizationPermissionOutput)
+}
+
+func (e DomainAccessGrantForOrganizationPermission) ToDomainAccessGrantForOrganizationPermissionPtrOutput() DomainAccessGrantForOrganizationPermissionPtrOutput {
+	return e.ToDomainAccessGrantForOrganizationPermissionPtrOutputWithContext(context.Background())
+}
+
+func (e DomainAccessGrantForOrganizationPermission) ToDomainAccessGrantForOrganizationPermissionPtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPermissionPtrOutput {
+	return DomainAccessGrantForOrganizationPermission(e).ToDomainAccessGrantForOrganizationPermissionOutputWithContext(ctx).ToDomainAccessGrantForOrganizationPermissionPtrOutputWithContext(ctx)
+}
+
+func (e DomainAccessGrantForOrganizationPermission) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAccessGrantForOrganizationPermission) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAccessGrantForOrganizationPermission) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainAccessGrantForOrganizationPermission) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainAccessGrantForOrganizationPermissionOutput struct{ *pulumi.OutputState }
+
+func (DomainAccessGrantForOrganizationPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAccessGrantForOrganizationPermission)(nil)).Elem()
+}
+
+func (o DomainAccessGrantForOrganizationPermissionOutput) ToDomainAccessGrantForOrganizationPermissionOutput() DomainAccessGrantForOrganizationPermissionOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationPermissionOutput) ToDomainAccessGrantForOrganizationPermissionOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPermissionOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationPermissionOutput) ToDomainAccessGrantForOrganizationPermissionPtrOutput() DomainAccessGrantForOrganizationPermissionPtrOutput {
+	return o.ToDomainAccessGrantForOrganizationPermissionPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationPermissionOutput) ToDomainAccessGrantForOrganizationPermissionPtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPermissionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAccessGrantForOrganizationPermission) *DomainAccessGrantForOrganizationPermission {
+		return &v
+	}).(DomainAccessGrantForOrganizationPermissionPtrOutput)
+}
+
+func (o DomainAccessGrantForOrganizationPermissionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationPermissionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAccessGrantForOrganizationPermission) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainAccessGrantForOrganizationPermissionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationPermissionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAccessGrantForOrganizationPermission) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAccessGrantForOrganizationPermissionPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAccessGrantForOrganizationPermissionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAccessGrantForOrganizationPermission)(nil)).Elem()
+}
+
+func (o DomainAccessGrantForOrganizationPermissionPtrOutput) ToDomainAccessGrantForOrganizationPermissionPtrOutput() DomainAccessGrantForOrganizationPermissionPtrOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationPermissionPtrOutput) ToDomainAccessGrantForOrganizationPermissionPtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPermissionPtrOutput {
+	return o
+}
+
+func (o DomainAccessGrantForOrganizationPermissionPtrOutput) Elem() DomainAccessGrantForOrganizationPermissionOutput {
+	return o.ApplyT(func(v *DomainAccessGrantForOrganizationPermission) DomainAccessGrantForOrganizationPermission {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAccessGrantForOrganizationPermission
+		return ret
+	}).(DomainAccessGrantForOrganizationPermissionOutput)
+}
+
+func (o DomainAccessGrantForOrganizationPermissionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAccessGrantForOrganizationPermissionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainAccessGrantForOrganizationPermission) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainAccessGrantForOrganizationPermissionInput is an input type that accepts values of the DomainAccessGrantForOrganizationPermission enum
+// A concrete instance of `DomainAccessGrantForOrganizationPermissionInput` can be one of the following:
+//
+//	DomainAccessGrantForOrganizationPermissionAdmin
+type DomainAccessGrantForOrganizationPermissionInput interface {
+	pulumi.Input
+
+	ToDomainAccessGrantForOrganizationPermissionOutput() DomainAccessGrantForOrganizationPermissionOutput
+	ToDomainAccessGrantForOrganizationPermissionOutputWithContext(context.Context) DomainAccessGrantForOrganizationPermissionOutput
+}
+
+var domainAccessGrantForOrganizationPermissionPtrType = reflect.TypeOf((**DomainAccessGrantForOrganizationPermission)(nil)).Elem()
+
+type DomainAccessGrantForOrganizationPermissionPtrInput interface {
+	pulumi.Input
+
+	ToDomainAccessGrantForOrganizationPermissionPtrOutput() DomainAccessGrantForOrganizationPermissionPtrOutput
+	ToDomainAccessGrantForOrganizationPermissionPtrOutputWithContext(context.Context) DomainAccessGrantForOrganizationPermissionPtrOutput
+}
+
+type domainAccessGrantForOrganizationPermissionPtr string
+
+func DomainAccessGrantForOrganizationPermissionPtr(v string) DomainAccessGrantForOrganizationPermissionPtrInput {
+	return (*domainAccessGrantForOrganizationPermissionPtr)(&v)
+}
+
+func (*domainAccessGrantForOrganizationPermissionPtr) ElementType() reflect.Type {
+	return domainAccessGrantForOrganizationPermissionPtrType
+}
+
+func (in *domainAccessGrantForOrganizationPermissionPtr) ToDomainAccessGrantForOrganizationPermissionPtrOutput() DomainAccessGrantForOrganizationPermissionPtrOutput {
+	return pulumi.ToOutput(in).(DomainAccessGrantForOrganizationPermissionPtrOutput)
+}
+
+func (in *domainAccessGrantForOrganizationPermissionPtr) ToDomainAccessGrantForOrganizationPermissionPtrOutputWithContext(ctx context.Context) DomainAccessGrantForOrganizationPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainAccessGrantForOrganizationPermissionPtrOutput)
+}
+
 type DomainForOrganizationIdentityProvidersItem string
 
 const (
@@ -494,7 +1734,7 @@ func (o DomainForOrganizationIdentityProvidersItemArrayOutput) Index(i pulumi.In
 	}).(DomainForOrganizationIdentityProvidersItemOutput)
 }
 
-// Current status of the domain.
+// Current status of the organization domain.
 type DomainForOrganizationStatus string
 
 const (
@@ -576,6 +1816,306 @@ func (o DomainForOrganizationStatusPtrOutput) ToStringPtrOutput() pulumi.StringP
 
 func (o DomainForOrganizationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainForOrganizationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainIdentityProvidersItem string
+
+const (
+	DomainIdentityProvidersItemIam = DomainIdentityProvidersItem("IAM")
+	DomainIdentityProvidersItemIdc = DomainIdentityProvidersItem("IDC")
+)
+
+func (DomainIdentityProvidersItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityProvidersItem)(nil)).Elem()
+}
+
+func (e DomainIdentityProvidersItem) ToDomainIdentityProvidersItemOutput() DomainIdentityProvidersItemOutput {
+	return pulumi.ToOutput(e).(DomainIdentityProvidersItemOutput)
+}
+
+func (e DomainIdentityProvidersItem) ToDomainIdentityProvidersItemOutputWithContext(ctx context.Context) DomainIdentityProvidersItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainIdentityProvidersItemOutput)
+}
+
+func (e DomainIdentityProvidersItem) ToDomainIdentityProvidersItemPtrOutput() DomainIdentityProvidersItemPtrOutput {
+	return e.ToDomainIdentityProvidersItemPtrOutputWithContext(context.Background())
+}
+
+func (e DomainIdentityProvidersItem) ToDomainIdentityProvidersItemPtrOutputWithContext(ctx context.Context) DomainIdentityProvidersItemPtrOutput {
+	return DomainIdentityProvidersItem(e).ToDomainIdentityProvidersItemOutputWithContext(ctx).ToDomainIdentityProvidersItemPtrOutputWithContext(ctx)
+}
+
+func (e DomainIdentityProvidersItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainIdentityProvidersItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainIdentityProvidersItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainIdentityProvidersItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainIdentityProvidersItemOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityProvidersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityProvidersItem)(nil)).Elem()
+}
+
+func (o DomainIdentityProvidersItemOutput) ToDomainIdentityProvidersItemOutput() DomainIdentityProvidersItemOutput {
+	return o
+}
+
+func (o DomainIdentityProvidersItemOutput) ToDomainIdentityProvidersItemOutputWithContext(ctx context.Context) DomainIdentityProvidersItemOutput {
+	return o
+}
+
+func (o DomainIdentityProvidersItemOutput) ToDomainIdentityProvidersItemPtrOutput() DomainIdentityProvidersItemPtrOutput {
+	return o.ToDomainIdentityProvidersItemPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdentityProvidersItemOutput) ToDomainIdentityProvidersItemPtrOutputWithContext(ctx context.Context) DomainIdentityProvidersItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentityProvidersItem) *DomainIdentityProvidersItem {
+		return &v
+	}).(DomainIdentityProvidersItemPtrOutput)
+}
+
+func (o DomainIdentityProvidersItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainIdentityProvidersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainIdentityProvidersItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainIdentityProvidersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdentityProvidersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainIdentityProvidersItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainIdentityProvidersItemPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityProvidersItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityProvidersItem)(nil)).Elem()
+}
+
+func (o DomainIdentityProvidersItemPtrOutput) ToDomainIdentityProvidersItemPtrOutput() DomainIdentityProvidersItemPtrOutput {
+	return o
+}
+
+func (o DomainIdentityProvidersItemPtrOutput) ToDomainIdentityProvidersItemPtrOutputWithContext(ctx context.Context) DomainIdentityProvidersItemPtrOutput {
+	return o
+}
+
+func (o DomainIdentityProvidersItemPtrOutput) Elem() DomainIdentityProvidersItemOutput {
+	return o.ApplyT(func(v *DomainIdentityProvidersItem) DomainIdentityProvidersItem {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIdentityProvidersItem
+		return ret
+	}).(DomainIdentityProvidersItemOutput)
+}
+
+func (o DomainIdentityProvidersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdentityProvidersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainIdentityProvidersItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainIdentityProvidersItemInput is an input type that accepts values of the DomainIdentityProvidersItem enum
+// A concrete instance of `DomainIdentityProvidersItemInput` can be one of the following:
+//
+//	DomainIdentityProvidersItemIam
+//	DomainIdentityProvidersItemIdc
+type DomainIdentityProvidersItemInput interface {
+	pulumi.Input
+
+	ToDomainIdentityProvidersItemOutput() DomainIdentityProvidersItemOutput
+	ToDomainIdentityProvidersItemOutputWithContext(context.Context) DomainIdentityProvidersItemOutput
+}
+
+var domainIdentityProvidersItemPtrType = reflect.TypeOf((**DomainIdentityProvidersItem)(nil)).Elem()
+
+type DomainIdentityProvidersItemPtrInput interface {
+	pulumi.Input
+
+	ToDomainIdentityProvidersItemPtrOutput() DomainIdentityProvidersItemPtrOutput
+	ToDomainIdentityProvidersItemPtrOutputWithContext(context.Context) DomainIdentityProvidersItemPtrOutput
+}
+
+type domainIdentityProvidersItemPtr string
+
+func DomainIdentityProvidersItemPtr(v string) DomainIdentityProvidersItemPtrInput {
+	return (*domainIdentityProvidersItemPtr)(&v)
+}
+
+func (*domainIdentityProvidersItemPtr) ElementType() reflect.Type {
+	return domainIdentityProvidersItemPtrType
+}
+
+func (in *domainIdentityProvidersItemPtr) ToDomainIdentityProvidersItemPtrOutput() DomainIdentityProvidersItemPtrOutput {
+	return pulumi.ToOutput(in).(DomainIdentityProvidersItemPtrOutput)
+}
+
+func (in *domainIdentityProvidersItemPtr) ToDomainIdentityProvidersItemPtrOutputWithContext(ctx context.Context) DomainIdentityProvidersItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainIdentityProvidersItemPtrOutput)
+}
+
+// DomainIdentityProvidersItemArrayInput is an input type that accepts DomainIdentityProvidersItemArray and DomainIdentityProvidersItemArrayOutput values.
+// You can construct a concrete instance of `DomainIdentityProvidersItemArrayInput` via:
+//
+//	DomainIdentityProvidersItemArray{ DomainIdentityProvidersItemArgs{...} }
+type DomainIdentityProvidersItemArrayInput interface {
+	pulumi.Input
+
+	ToDomainIdentityProvidersItemArrayOutput() DomainIdentityProvidersItemArrayOutput
+	ToDomainIdentityProvidersItemArrayOutputWithContext(context.Context) DomainIdentityProvidersItemArrayOutput
+}
+
+type DomainIdentityProvidersItemArray []DomainIdentityProvidersItem
+
+func (DomainIdentityProvidersItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainIdentityProvidersItem)(nil)).Elem()
+}
+
+func (i DomainIdentityProvidersItemArray) ToDomainIdentityProvidersItemArrayOutput() DomainIdentityProvidersItemArrayOutput {
+	return i.ToDomainIdentityProvidersItemArrayOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityProvidersItemArray) ToDomainIdentityProvidersItemArrayOutputWithContext(ctx context.Context) DomainIdentityProvidersItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityProvidersItemArrayOutput)
+}
+
+type DomainIdentityProvidersItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityProvidersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainIdentityProvidersItem)(nil)).Elem()
+}
+
+func (o DomainIdentityProvidersItemArrayOutput) ToDomainIdentityProvidersItemArrayOutput() DomainIdentityProvidersItemArrayOutput {
+	return o
+}
+
+func (o DomainIdentityProvidersItemArrayOutput) ToDomainIdentityProvidersItemArrayOutputWithContext(ctx context.Context) DomainIdentityProvidersItemArrayOutput {
+	return o
+}
+
+func (o DomainIdentityProvidersItemArrayOutput) Index(i pulumi.IntInput) DomainIdentityProvidersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainIdentityProvidersItem {
+		return vs[0].([]DomainIdentityProvidersItem)[vs[1].(int)]
+	}).(DomainIdentityProvidersItemOutput)
+}
+
+// Current status of the domain.
+type DomainStatus string
+
+const (
+	DomainStatusActive = DomainStatus("ACTIVE")
+)
+
+type DomainStatusOutput struct{ *pulumi.OutputState }
+
+func (DomainStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainStatus)(nil)).Elem()
+}
+
+func (o DomainStatusOutput) ToDomainStatusOutput() DomainStatusOutput {
+	return o
+}
+
+func (o DomainStatusOutput) ToDomainStatusOutputWithContext(ctx context.Context) DomainStatusOutput {
+	return o
+}
+
+func (o DomainStatusOutput) ToDomainStatusPtrOutput() DomainStatusPtrOutput {
+	return o.ToDomainStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DomainStatusOutput) ToDomainStatusPtrOutputWithContext(ctx context.Context) DomainStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainStatus) *DomainStatus {
+		return &v
+	}).(DomainStatusPtrOutput)
+}
+
+func (o DomainStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainStatus)(nil)).Elem()
+}
+
+func (o DomainStatusPtrOutput) ToDomainStatusPtrOutput() DomainStatusPtrOutput {
+	return o
+}
+
+func (o DomainStatusPtrOutput) ToDomainStatusPtrOutputWithContext(ctx context.Context) DomainStatusPtrOutput {
+	return o
+}
+
+func (o DomainStatusPtrOutput) Elem() DomainStatusOutput {
+	return o.ApplyT(func(v *DomainStatus) DomainStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DomainStatus
+		return ret
+	}).(DomainStatusOutput)
+}
+
+func (o DomainStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -1104,6 +2644,264 @@ func (o OTelEnrichmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether the space is encrypted with an AWS owned key or a customer managed key.
+type SpaceEncryptionConfigurationEncryptionStrategy string
+
+const (
+	SpaceEncryptionConfigurationEncryptionStrategyAwsOwned        = SpaceEncryptionConfigurationEncryptionStrategy("AWS_OWNED")
+	SpaceEncryptionConfigurationEncryptionStrategyCustomerManaged = SpaceEncryptionConfigurationEncryptionStrategy("CUSTOMER_MANAGED")
+)
+
+func (SpaceEncryptionConfigurationEncryptionStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceEncryptionConfigurationEncryptionStrategy)(nil)).Elem()
+}
+
+func (e SpaceEncryptionConfigurationEncryptionStrategy) ToSpaceEncryptionConfigurationEncryptionStrategyOutput() SpaceEncryptionConfigurationEncryptionStrategyOutput {
+	return pulumi.ToOutput(e).(SpaceEncryptionConfigurationEncryptionStrategyOutput)
+}
+
+func (e SpaceEncryptionConfigurationEncryptionStrategy) ToSpaceEncryptionConfigurationEncryptionStrategyOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationEncryptionStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpaceEncryptionConfigurationEncryptionStrategyOutput)
+}
+
+func (e SpaceEncryptionConfigurationEncryptionStrategy) ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutput() SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
+	return e.ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceEncryptionConfigurationEncryptionStrategy) ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
+	return SpaceEncryptionConfigurationEncryptionStrategy(e).ToSpaceEncryptionConfigurationEncryptionStrategyOutputWithContext(ctx).ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutputWithContext(ctx)
+}
+
+func (e SpaceEncryptionConfigurationEncryptionStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceEncryptionConfigurationEncryptionStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceEncryptionConfigurationEncryptionStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceEncryptionConfigurationEncryptionStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpaceEncryptionConfigurationEncryptionStrategyOutput struct{ *pulumi.OutputState }
+
+func (SpaceEncryptionConfigurationEncryptionStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceEncryptionConfigurationEncryptionStrategy)(nil)).Elem()
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyOutput) ToSpaceEncryptionConfigurationEncryptionStrategyOutput() SpaceEncryptionConfigurationEncryptionStrategyOutput {
+	return o
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyOutput) ToSpaceEncryptionConfigurationEncryptionStrategyOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationEncryptionStrategyOutput {
+	return o
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyOutput) ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutput() SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
+	return o.ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyOutput) ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceEncryptionConfigurationEncryptionStrategy) *SpaceEncryptionConfigurationEncryptionStrategy {
+		return &v
+	}).(SpaceEncryptionConfigurationEncryptionStrategyPtrOutput)
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceEncryptionConfigurationEncryptionStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceEncryptionConfigurationEncryptionStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceEncryptionConfigurationEncryptionStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceEncryptionConfigurationEncryptionStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceEncryptionConfigurationEncryptionStrategy)(nil)).Elem()
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyPtrOutput) ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutput() SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
+	return o
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyPtrOutput) ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
+	return o
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyPtrOutput) Elem() SpaceEncryptionConfigurationEncryptionStrategyOutput {
+	return o.ApplyT(func(v *SpaceEncryptionConfigurationEncryptionStrategy) SpaceEncryptionConfigurationEncryptionStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceEncryptionConfigurationEncryptionStrategy
+		return ret
+	}).(SpaceEncryptionConfigurationEncryptionStrategyOutput)
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceEncryptionConfigurationEncryptionStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpaceEncryptionConfigurationEncryptionStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpaceEncryptionConfigurationEncryptionStrategyInput is an input type that accepts values of the SpaceEncryptionConfigurationEncryptionStrategy enum
+// A concrete instance of `SpaceEncryptionConfigurationEncryptionStrategyInput` can be one of the following:
+//
+//	SpaceEncryptionConfigurationEncryptionStrategyAwsOwned
+//	SpaceEncryptionConfigurationEncryptionStrategyCustomerManaged
+type SpaceEncryptionConfigurationEncryptionStrategyInput interface {
+	pulumi.Input
+
+	ToSpaceEncryptionConfigurationEncryptionStrategyOutput() SpaceEncryptionConfigurationEncryptionStrategyOutput
+	ToSpaceEncryptionConfigurationEncryptionStrategyOutputWithContext(context.Context) SpaceEncryptionConfigurationEncryptionStrategyOutput
+}
+
+var spaceEncryptionConfigurationEncryptionStrategyPtrType = reflect.TypeOf((**SpaceEncryptionConfigurationEncryptionStrategy)(nil)).Elem()
+
+type SpaceEncryptionConfigurationEncryptionStrategyPtrInput interface {
+	pulumi.Input
+
+	ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutput() SpaceEncryptionConfigurationEncryptionStrategyPtrOutput
+	ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutputWithContext(context.Context) SpaceEncryptionConfigurationEncryptionStrategyPtrOutput
+}
+
+type spaceEncryptionConfigurationEncryptionStrategyPtr string
+
+func SpaceEncryptionConfigurationEncryptionStrategyPtr(v string) SpaceEncryptionConfigurationEncryptionStrategyPtrInput {
+	return (*spaceEncryptionConfigurationEncryptionStrategyPtr)(&v)
+}
+
+func (*spaceEncryptionConfigurationEncryptionStrategyPtr) ElementType() reflect.Type {
+	return spaceEncryptionConfigurationEncryptionStrategyPtrType
+}
+
+func (in *spaceEncryptionConfigurationEncryptionStrategyPtr) ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutput() SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
+	return pulumi.ToOutput(in).(SpaceEncryptionConfigurationEncryptionStrategyPtrOutput)
+}
+
+func (in *spaceEncryptionConfigurationEncryptionStrategyPtr) ToSpaceEncryptionConfigurationEncryptionStrategyPtrOutputWithContext(ctx context.Context) SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpaceEncryptionConfigurationEncryptionStrategyPtrOutput)
+}
+
+// The status of the space.
+type SpaceStatus string
+
+const (
+	SpaceStatusActive    = SpaceStatus("ACTIVE")
+	SpaceStatusSuspended = SpaceStatus("SUSPENDED")
+	SpaceStatusMoving    = SpaceStatus("MOVING")
+)
+
+type SpaceStatusOutput struct{ *pulumi.OutputState }
+
+func (SpaceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceStatus)(nil)).Elem()
+}
+
+func (o SpaceStatusOutput) ToSpaceStatusOutput() SpaceStatusOutput {
+	return o
+}
+
+func (o SpaceStatusOutput) ToSpaceStatusOutputWithContext(ctx context.Context) SpaceStatusOutput {
+	return o
+}
+
+func (o SpaceStatusOutput) ToSpaceStatusPtrOutput() SpaceStatusPtrOutput {
+	return o.ToSpaceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceStatusOutput) ToSpaceStatusPtrOutputWithContext(ctx context.Context) SpaceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceStatus) *SpaceStatus {
+		return &v
+	}).(SpaceStatusPtrOutput)
+}
+
+func (o SpaceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpaceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpaceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceStatus)(nil)).Elem()
+}
+
+func (o SpaceStatusPtrOutput) ToSpaceStatusPtrOutput() SpaceStatusPtrOutput {
+	return o
+}
+
+func (o SpaceStatusPtrOutput) ToSpaceStatusPtrOutputWithContext(ctx context.Context) SpaceStatusPtrOutput {
+	return o
+}
+
+func (o SpaceStatusPtrOutput) Elem() SpaceStatusOutput {
+	return o.ApplyT(func(v *SpaceStatus) SpaceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceStatus
+		return ret
+	}).(SpaceStatusOutput)
+}
+
+func (o SpaceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpaceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ownership category of the view. Views created through CloudFormation are always USER views; MANAGED views are provisioned by AWS.
 type ViewType string
 
@@ -1196,24 +2994,64 @@ func (o ViewTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPermissionInput)(nil)).Elem(), AccessGrantPermission("SPACE_ADMIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPermissionPtrInput)(nil)).Elem(), AccessGrantPermission("SPACE_ADMIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPrincipalPrincipalTypeInput)(nil)).Elem(), AccessGrantPrincipalPrincipalType("IDC_USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPrincipalPrincipalTypePtrInput)(nil)).Elem(), AccessGrantPrincipalPrincipalType("IDC_USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantResourceScopeSignalTypesItemInput)(nil)).Elem(), AccessGrantResourceScopeSignalTypesItem("LOGS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantResourceScopeSignalTypesItemPtrInput)(nil)).Elem(), AccessGrantResourceScopeSignalTypesItem("LOGS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantResourceScopeSignalTypesItemArrayInput)(nil)).Elem(), AccessGrantResourceScopeSignalTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantRowScopeOperatorInput)(nil)).Elem(), AccessGrantRowScopeOperator("IN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantRowScopeOperatorPtrInput)(nil)).Elem(), AccessGrantRowScopeOperator("IN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeInput)(nil)).Elem(), DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IDC_USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrInput)(nil)).Elem(), DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IDC_USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationPermissionInput)(nil)).Elem(), DomainAccessGrantForOrganizationPermission("ADMIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationPermissionPtrInput)(nil)).Elem(), DomainAccessGrantForOrganizationPermission("ADMIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProvidersItemInput)(nil)).Elem(), DomainForOrganizationIdentityProvidersItem("IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProvidersItemPtrInput)(nil)).Elem(), DomainForOrganizationIdentityProvidersItem("IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainForOrganizationIdentityProvidersItemArrayInput)(nil)).Elem(), DomainForOrganizationIdentityProvidersItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProvidersItemInput)(nil)).Elem(), DomainIdentityProvidersItem("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProvidersItemPtrInput)(nil)).Elem(), DomainIdentityProvidersItem("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProvidersItemArrayInput)(nil)).Elem(), DomainIdentityProvidersItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStateInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStatePtrInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTypeInput)(nil)).Elem(), IntegrationType("AWS_CONFIG_SLREC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTypePtrInput)(nil)).Elem(), IntegrationType("AWS_CONFIG_SLREC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationEncryptionStrategyInput)(nil)).Elem(), SpaceEncryptionConfigurationEncryptionStrategy("AWS_OWNED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationEncryptionStrategyPtrInput)(nil)).Elem(), SpaceEncryptionConfigurationEncryptionStrategy("AWS_OWNED"))
+	pulumi.RegisterOutputType(AccessGrantGrantTypeOutput{})
+	pulumi.RegisterOutputType(AccessGrantGrantTypePtrOutput{})
+	pulumi.RegisterOutputType(AccessGrantPermissionOutput{})
+	pulumi.RegisterOutputType(AccessGrantPermissionPtrOutput{})
+	pulumi.RegisterOutputType(AccessGrantPrincipalPrincipalTypeOutput{})
+	pulumi.RegisterOutputType(AccessGrantPrincipalPrincipalTypePtrOutput{})
+	pulumi.RegisterOutputType(AccessGrantResourceScopeSignalTypesItemOutput{})
+	pulumi.RegisterOutputType(AccessGrantResourceScopeSignalTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(AccessGrantResourceScopeSignalTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(AccessGrantRowScopeOperatorOutput{})
+	pulumi.RegisterOutputType(AccessGrantRowScopeOperatorPtrOutput{})
 	pulumi.RegisterOutputType(AccessProfileAssumeStatusOutput{})
 	pulumi.RegisterOutputType(AccessProfileAssumeStatusPtrOutput{})
 	pulumi.RegisterOutputType(AccessProfileProfileTypeOutput{})
 	pulumi.RegisterOutputType(AccessProfileProfileTypePtrOutput{})
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusOutput{})
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusPtrOutput{})
+	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationGrantTypeOutput{})
+	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationGrantTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput{})
+	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationPermissionOutput{})
+	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationPermissionPtrOutput{})
 	pulumi.RegisterOutputType(DomainForOrganizationIdentityProvidersItemOutput{})
 	pulumi.RegisterOutputType(DomainForOrganizationIdentityProvidersItemPtrOutput{})
 	pulumi.RegisterOutputType(DomainForOrganizationIdentityProvidersItemArrayOutput{})
 	pulumi.RegisterOutputType(DomainForOrganizationStatusOutput{})
 	pulumi.RegisterOutputType(DomainForOrganizationStatusPtrOutput{})
+	pulumi.RegisterOutputType(DomainIdentityProvidersItemOutput{})
+	pulumi.RegisterOutputType(DomainIdentityProvidersItemPtrOutput{})
+	pulumi.RegisterOutputType(DomainIdentityProvidersItemArrayOutput{})
+	pulumi.RegisterOutputType(DomainStatusOutput{})
+	pulumi.RegisterOutputType(DomainStatusPtrOutput{})
 	pulumi.RegisterOutputType(InsightRuleRuleStateOutput{})
 	pulumi.RegisterOutputType(InsightRuleRuleStatePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationStatusOutput{})
@@ -1222,6 +3060,10 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationTypePtrOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusPtrOutput{})
+	pulumi.RegisterOutputType(SpaceEncryptionConfigurationEncryptionStrategyOutput{})
+	pulumi.RegisterOutputType(SpaceEncryptionConfigurationEncryptionStrategyPtrOutput{})
+	pulumi.RegisterOutputType(SpaceStatusOutput{})
+	pulumi.RegisterOutputType(SpaceStatusPtrOutput{})
 	pulumi.RegisterOutputType(ViewTypeOutput{})
 	pulumi.RegisterOutputType(ViewTypePtrOutput{})
 }

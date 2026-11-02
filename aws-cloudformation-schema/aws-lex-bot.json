@@ -739,8 +739,7 @@
         "ContinueResponse" : {
           "$ref" : "#/definitions/ResponseSpecification"
         }
-      },
-      "required" : [ "WaitingResponse", "ContinueResponse" ]
+      }
     },
     "DialogActionType" : {
       "type" : "string",
@@ -1537,8 +1536,7 @@
         "DeclinationResponse" : {
           "$ref" : "#/definitions/ResponseSpecification"
         }
-      },
-      "required" : [ "PromptSpecification" ]
+      }
     },
     "Utterance" : {
       "type" : "string"
@@ -1583,7 +1581,7 @@
               "properties" : {
                 "AssistedNluMode" : {
                   "type" : "string",
-                  "enum" : [ "Primary", "Fallback" ]
+                  "enum" : [ "Primary", "Fallback", "DialogManager" ]
                 },
                 "IntentDisambiguationSettings" : {
                   "$ref" : "#/definitions/IntentDisambiguationSettings"

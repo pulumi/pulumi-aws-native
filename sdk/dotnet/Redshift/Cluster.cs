@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Redshift
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// Resource Type definition for AWS::Redshift::Cluster
     /// </summary>
     [AwsNativeResourceType("aws-native:redshift:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

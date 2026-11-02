@@ -42,15 +42,6 @@ export const ApplicationEncryptionConfigurationKeyType = {
  */
 export type ApplicationEncryptionConfigurationKeyType = (typeof ApplicationEncryptionConfigurationKeyType)[keyof typeof ApplicationEncryptionConfigurationKeyType];
 
-export const ApplicationInputSchemaRecordEncoding = {
-    Utf8: "UTF-8",
-} as const;
-
-/**
- * Specifies the encoding of the records in the streaming source. For example, UTF-8.
- */
-export type ApplicationInputSchemaRecordEncoding = (typeof ApplicationInputSchemaRecordEncoding)[keyof typeof ApplicationInputSchemaRecordEncoding];
-
 export const ApplicationMode = {
     Interactive: "INTERACTIVE",
     Streaming: "STREAMING",
@@ -105,16 +96,6 @@ export const ApplicationParallelismConfigurationConfigurationType = {
  */
 export type ApplicationParallelismConfigurationConfigurationType = (typeof ApplicationParallelismConfigurationConfigurationType)[keyof typeof ApplicationParallelismConfigurationConfigurationType];
 
-export const ApplicationRecordFormatRecordFormatType = {
-    Csv: "CSV",
-    Json: "JSON",
-} as const;
-
-/**
- * The type of record format.
- */
-export type ApplicationRecordFormatRecordFormatType = (typeof ApplicationRecordFormatRecordFormatType)[keyof typeof ApplicationRecordFormatRecordFormatType];
-
 export const ApplicationRestoreConfigurationApplicationRestoreType = {
     SkipRestoreFromSnapshot: "SKIP_RESTORE_FROM_SNAPSHOT",
     RestoreFromLatestSnapshot: "RESTORE_FROM_LATEST_SNAPSHOT",
@@ -125,6 +106,16 @@ export const ApplicationRestoreConfigurationApplicationRestoreType = {
  * Specifies how the application should be restored.
  */
 export type ApplicationRestoreConfigurationApplicationRestoreType = (typeof ApplicationRestoreConfigurationApplicationRestoreType)[keyof typeof ApplicationRestoreConfigurationApplicationRestoreType];
+
+export const ApplicationSnapshotConfigurationSnapshotMode = {
+    ApplicationSnapshotsLegacy: "APPLICATION_SNAPSHOTS_LEGACY",
+    EnhancedSnapshots: "ENHANCED_SNAPSHOTS",
+} as const;
+
+/**
+ * The snapshot mode of a Flink-based Kinesis Data Analytics application. Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+ */
+export type ApplicationSnapshotConfigurationSnapshotMode = (typeof ApplicationSnapshotConfigurationSnapshotMode)[keyof typeof ApplicationSnapshotConfigurationSnapshotMode];
 
 export const ApplicationZeppelinMonitoringConfigurationLogLevel = {
     Debug: "DEBUG",

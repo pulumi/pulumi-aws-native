@@ -939,6 +939,967 @@ func (o BridgeStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
+type DestinationEndpointConnectionState string
+
+const (
+	DestinationEndpointConnectionStateConnected     = DestinationEndpointConnectionState("CONNECTED")
+	DestinationEndpointConnectionStateDisconnected  = DestinationEndpointConnectionState("DISCONNECTED")
+	DestinationEndpointConnectionStateConnecting    = DestinationEndpointConnectionState("CONNECTING")
+	DestinationEndpointConnectionStateDisconnecting = DestinationEndpointConnectionState("DISCONNECTING")
+)
+
+type DestinationEndpointConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointConnectionState)(nil)).Elem()
+}
+
+func (o DestinationEndpointConnectionStateOutput) ToDestinationEndpointConnectionStateOutput() DestinationEndpointConnectionStateOutput {
+	return o
+}
+
+func (o DestinationEndpointConnectionStateOutput) ToDestinationEndpointConnectionStateOutputWithContext(ctx context.Context) DestinationEndpointConnectionStateOutput {
+	return o
+}
+
+func (o DestinationEndpointConnectionStateOutput) ToDestinationEndpointConnectionStatePtrOutput() DestinationEndpointConnectionStatePtrOutput {
+	return o.ToDestinationEndpointConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointConnectionStateOutput) ToDestinationEndpointConnectionStatePtrOutputWithContext(ctx context.Context) DestinationEndpointConnectionStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationEndpointConnectionState) *DestinationEndpointConnectionState {
+		return &v
+	}).(DestinationEndpointConnectionStatePtrOutput)
+}
+
+func (o DestinationEndpointConnectionStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointConnectionStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointConnectionState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointConnectionStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointConnectionStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointConnectionState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointConnectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointConnectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointConnectionState)(nil)).Elem()
+}
+
+func (o DestinationEndpointConnectionStatePtrOutput) ToDestinationEndpointConnectionStatePtrOutput() DestinationEndpointConnectionStatePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointConnectionStatePtrOutput) ToDestinationEndpointConnectionStatePtrOutputWithContext(ctx context.Context) DestinationEndpointConnectionStatePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointConnectionStatePtrOutput) Elem() DestinationEndpointConnectionStateOutput {
+	return o.ApplyT(func(v *DestinationEndpointConnectionState) DestinationEndpointConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointConnectionState
+		return ret
+	}).(DestinationEndpointConnectionStateOutput)
+}
+
+func (o DestinationEndpointConnectionStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointConnectionStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DestinationEndpointConnectionState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointEndpointLifecycle string
+
+const (
+	DestinationEndpointEndpointLifecycleManaged   = DestinationEndpointEndpointLifecycle("MANAGED")
+	DestinationEndpointEndpointLifecycleUnmanaged = DestinationEndpointEndpointLifecycle("UNMANAGED")
+)
+
+type DestinationEndpointEndpointLifecycleOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointEndpointLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointEndpointLifecycle)(nil)).Elem()
+}
+
+func (o DestinationEndpointEndpointLifecycleOutput) ToDestinationEndpointEndpointLifecycleOutput() DestinationEndpointEndpointLifecycleOutput {
+	return o
+}
+
+func (o DestinationEndpointEndpointLifecycleOutput) ToDestinationEndpointEndpointLifecycleOutputWithContext(ctx context.Context) DestinationEndpointEndpointLifecycleOutput {
+	return o
+}
+
+func (o DestinationEndpointEndpointLifecycleOutput) ToDestinationEndpointEndpointLifecyclePtrOutput() DestinationEndpointEndpointLifecyclePtrOutput {
+	return o.ToDestinationEndpointEndpointLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointEndpointLifecycleOutput) ToDestinationEndpointEndpointLifecyclePtrOutputWithContext(ctx context.Context) DestinationEndpointEndpointLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationEndpointEndpointLifecycle) *DestinationEndpointEndpointLifecycle {
+		return &v
+	}).(DestinationEndpointEndpointLifecyclePtrOutput)
+}
+
+func (o DestinationEndpointEndpointLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointEndpointLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointEndpointLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointEndpointLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointEndpointLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointEndpointLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointEndpointLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointEndpointLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointEndpointLifecycle)(nil)).Elem()
+}
+
+func (o DestinationEndpointEndpointLifecyclePtrOutput) ToDestinationEndpointEndpointLifecyclePtrOutput() DestinationEndpointEndpointLifecyclePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointEndpointLifecyclePtrOutput) ToDestinationEndpointEndpointLifecyclePtrOutputWithContext(ctx context.Context) DestinationEndpointEndpointLifecyclePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointEndpointLifecyclePtrOutput) Elem() DestinationEndpointEndpointLifecycleOutput {
+	return o.ApplyT(func(v *DestinationEndpointEndpointLifecycle) DestinationEndpointEndpointLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointEndpointLifecycle
+		return ret
+	}).(DestinationEndpointEndpointLifecycleOutput)
+}
+
+func (o DestinationEndpointEndpointLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointEndpointLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DestinationEndpointEndpointLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointForwardErrorCorrectionState string
+
+const (
+	DestinationEndpointForwardErrorCorrectionStateEnabled  = DestinationEndpointForwardErrorCorrectionState("ENABLED")
+	DestinationEndpointForwardErrorCorrectionStateDisabled = DestinationEndpointForwardErrorCorrectionState("DISABLED")
+)
+
+func (DestinationEndpointForwardErrorCorrectionState) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointForwardErrorCorrectionState)(nil)).Elem()
+}
+
+func (e DestinationEndpointForwardErrorCorrectionState) ToDestinationEndpointForwardErrorCorrectionStateOutput() DestinationEndpointForwardErrorCorrectionStateOutput {
+	return pulumi.ToOutput(e).(DestinationEndpointForwardErrorCorrectionStateOutput)
+}
+
+func (e DestinationEndpointForwardErrorCorrectionState) ToDestinationEndpointForwardErrorCorrectionStateOutputWithContext(ctx context.Context) DestinationEndpointForwardErrorCorrectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DestinationEndpointForwardErrorCorrectionStateOutput)
+}
+
+func (e DestinationEndpointForwardErrorCorrectionState) ToDestinationEndpointForwardErrorCorrectionStatePtrOutput() DestinationEndpointForwardErrorCorrectionStatePtrOutput {
+	return e.ToDestinationEndpointForwardErrorCorrectionStatePtrOutputWithContext(context.Background())
+}
+
+func (e DestinationEndpointForwardErrorCorrectionState) ToDestinationEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx context.Context) DestinationEndpointForwardErrorCorrectionStatePtrOutput {
+	return DestinationEndpointForwardErrorCorrectionState(e).ToDestinationEndpointForwardErrorCorrectionStateOutputWithContext(ctx).ToDestinationEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx)
+}
+
+func (e DestinationEndpointForwardErrorCorrectionState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DestinationEndpointForwardErrorCorrectionState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DestinationEndpointForwardErrorCorrectionState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DestinationEndpointForwardErrorCorrectionState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DestinationEndpointForwardErrorCorrectionStateOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointForwardErrorCorrectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointForwardErrorCorrectionState)(nil)).Elem()
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStateOutput) ToDestinationEndpointForwardErrorCorrectionStateOutput() DestinationEndpointForwardErrorCorrectionStateOutput {
+	return o
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStateOutput) ToDestinationEndpointForwardErrorCorrectionStateOutputWithContext(ctx context.Context) DestinationEndpointForwardErrorCorrectionStateOutput {
+	return o
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStateOutput) ToDestinationEndpointForwardErrorCorrectionStatePtrOutput() DestinationEndpointForwardErrorCorrectionStatePtrOutput {
+	return o.ToDestinationEndpointForwardErrorCorrectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStateOutput) ToDestinationEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx context.Context) DestinationEndpointForwardErrorCorrectionStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationEndpointForwardErrorCorrectionState) *DestinationEndpointForwardErrorCorrectionState {
+		return &v
+	}).(DestinationEndpointForwardErrorCorrectionStatePtrOutput)
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointForwardErrorCorrectionState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointForwardErrorCorrectionState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointForwardErrorCorrectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointForwardErrorCorrectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointForwardErrorCorrectionState)(nil)).Elem()
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStatePtrOutput) ToDestinationEndpointForwardErrorCorrectionStatePtrOutput() DestinationEndpointForwardErrorCorrectionStatePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStatePtrOutput) ToDestinationEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx context.Context) DestinationEndpointForwardErrorCorrectionStatePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStatePtrOutput) Elem() DestinationEndpointForwardErrorCorrectionStateOutput {
+	return o.ApplyT(func(v *DestinationEndpointForwardErrorCorrectionState) DestinationEndpointForwardErrorCorrectionState {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointForwardErrorCorrectionState
+		return ret
+	}).(DestinationEndpointForwardErrorCorrectionStateOutput)
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointForwardErrorCorrectionStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DestinationEndpointForwardErrorCorrectionState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DestinationEndpointForwardErrorCorrectionStateInput is an input type that accepts values of the DestinationEndpointForwardErrorCorrectionState enum
+// A concrete instance of `DestinationEndpointForwardErrorCorrectionStateInput` can be one of the following:
+//
+//	DestinationEndpointForwardErrorCorrectionStateEnabled
+//	DestinationEndpointForwardErrorCorrectionStateDisabled
+type DestinationEndpointForwardErrorCorrectionStateInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointForwardErrorCorrectionStateOutput() DestinationEndpointForwardErrorCorrectionStateOutput
+	ToDestinationEndpointForwardErrorCorrectionStateOutputWithContext(context.Context) DestinationEndpointForwardErrorCorrectionStateOutput
+}
+
+var destinationEndpointForwardErrorCorrectionStatePtrType = reflect.TypeOf((**DestinationEndpointForwardErrorCorrectionState)(nil)).Elem()
+
+type DestinationEndpointForwardErrorCorrectionStatePtrInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointForwardErrorCorrectionStatePtrOutput() DestinationEndpointForwardErrorCorrectionStatePtrOutput
+	ToDestinationEndpointForwardErrorCorrectionStatePtrOutputWithContext(context.Context) DestinationEndpointForwardErrorCorrectionStatePtrOutput
+}
+
+type destinationEndpointForwardErrorCorrectionStatePtr string
+
+func DestinationEndpointForwardErrorCorrectionStatePtr(v string) DestinationEndpointForwardErrorCorrectionStatePtrInput {
+	return (*destinationEndpointForwardErrorCorrectionStatePtr)(&v)
+}
+
+func (*destinationEndpointForwardErrorCorrectionStatePtr) ElementType() reflect.Type {
+	return destinationEndpointForwardErrorCorrectionStatePtrType
+}
+
+func (in *destinationEndpointForwardErrorCorrectionStatePtr) ToDestinationEndpointForwardErrorCorrectionStatePtrOutput() DestinationEndpointForwardErrorCorrectionStatePtrOutput {
+	return pulumi.ToOutput(in).(DestinationEndpointForwardErrorCorrectionStatePtrOutput)
+}
+
+func (in *destinationEndpointForwardErrorCorrectionStatePtr) ToDestinationEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx context.Context) DestinationEndpointForwardErrorCorrectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DestinationEndpointForwardErrorCorrectionStatePtrOutput)
+}
+
+type DestinationEndpointNetworkingType string
+
+const (
+	DestinationEndpointNetworkingTypePublic = DestinationEndpointNetworkingType("PUBLIC")
+	DestinationEndpointNetworkingTypeVpc    = DestinationEndpointNetworkingType("VPC")
+)
+
+func (DestinationEndpointNetworkingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointNetworkingType)(nil)).Elem()
+}
+
+func (e DestinationEndpointNetworkingType) ToDestinationEndpointNetworkingTypeOutput() DestinationEndpointNetworkingTypeOutput {
+	return pulumi.ToOutput(e).(DestinationEndpointNetworkingTypeOutput)
+}
+
+func (e DestinationEndpointNetworkingType) ToDestinationEndpointNetworkingTypeOutputWithContext(ctx context.Context) DestinationEndpointNetworkingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DestinationEndpointNetworkingTypeOutput)
+}
+
+func (e DestinationEndpointNetworkingType) ToDestinationEndpointNetworkingTypePtrOutput() DestinationEndpointNetworkingTypePtrOutput {
+	return e.ToDestinationEndpointNetworkingTypePtrOutputWithContext(context.Background())
+}
+
+func (e DestinationEndpointNetworkingType) ToDestinationEndpointNetworkingTypePtrOutputWithContext(ctx context.Context) DestinationEndpointNetworkingTypePtrOutput {
+	return DestinationEndpointNetworkingType(e).ToDestinationEndpointNetworkingTypeOutputWithContext(ctx).ToDestinationEndpointNetworkingTypePtrOutputWithContext(ctx)
+}
+
+func (e DestinationEndpointNetworkingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DestinationEndpointNetworkingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DestinationEndpointNetworkingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DestinationEndpointNetworkingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DestinationEndpointNetworkingTypeOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointNetworkingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointNetworkingType)(nil)).Elem()
+}
+
+func (o DestinationEndpointNetworkingTypeOutput) ToDestinationEndpointNetworkingTypeOutput() DestinationEndpointNetworkingTypeOutput {
+	return o
+}
+
+func (o DestinationEndpointNetworkingTypeOutput) ToDestinationEndpointNetworkingTypeOutputWithContext(ctx context.Context) DestinationEndpointNetworkingTypeOutput {
+	return o
+}
+
+func (o DestinationEndpointNetworkingTypeOutput) ToDestinationEndpointNetworkingTypePtrOutput() DestinationEndpointNetworkingTypePtrOutput {
+	return o.ToDestinationEndpointNetworkingTypePtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointNetworkingTypeOutput) ToDestinationEndpointNetworkingTypePtrOutputWithContext(ctx context.Context) DestinationEndpointNetworkingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationEndpointNetworkingType) *DestinationEndpointNetworkingType {
+		return &v
+	}).(DestinationEndpointNetworkingTypePtrOutput)
+}
+
+func (o DestinationEndpointNetworkingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointNetworkingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointNetworkingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointNetworkingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointNetworkingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointNetworkingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointNetworkingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointNetworkingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointNetworkingType)(nil)).Elem()
+}
+
+func (o DestinationEndpointNetworkingTypePtrOutput) ToDestinationEndpointNetworkingTypePtrOutput() DestinationEndpointNetworkingTypePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointNetworkingTypePtrOutput) ToDestinationEndpointNetworkingTypePtrOutputWithContext(ctx context.Context) DestinationEndpointNetworkingTypePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointNetworkingTypePtrOutput) Elem() DestinationEndpointNetworkingTypeOutput {
+	return o.ApplyT(func(v *DestinationEndpointNetworkingType) DestinationEndpointNetworkingType {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointNetworkingType
+		return ret
+	}).(DestinationEndpointNetworkingTypeOutput)
+}
+
+func (o DestinationEndpointNetworkingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointNetworkingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DestinationEndpointNetworkingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DestinationEndpointNetworkingTypeInput is an input type that accepts values of the DestinationEndpointNetworkingType enum
+// A concrete instance of `DestinationEndpointNetworkingTypeInput` can be one of the following:
+//
+//	DestinationEndpointNetworkingTypePublic
+//	DestinationEndpointNetworkingTypeVpc
+type DestinationEndpointNetworkingTypeInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointNetworkingTypeOutput() DestinationEndpointNetworkingTypeOutput
+	ToDestinationEndpointNetworkingTypeOutputWithContext(context.Context) DestinationEndpointNetworkingTypeOutput
+}
+
+var destinationEndpointNetworkingTypePtrType = reflect.TypeOf((**DestinationEndpointNetworkingType)(nil)).Elem()
+
+type DestinationEndpointNetworkingTypePtrInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointNetworkingTypePtrOutput() DestinationEndpointNetworkingTypePtrOutput
+	ToDestinationEndpointNetworkingTypePtrOutputWithContext(context.Context) DestinationEndpointNetworkingTypePtrOutput
+}
+
+type destinationEndpointNetworkingTypePtr string
+
+func DestinationEndpointNetworkingTypePtr(v string) DestinationEndpointNetworkingTypePtrInput {
+	return (*destinationEndpointNetworkingTypePtr)(&v)
+}
+
+func (*destinationEndpointNetworkingTypePtr) ElementType() reflect.Type {
+	return destinationEndpointNetworkingTypePtrType
+}
+
+func (in *destinationEndpointNetworkingTypePtr) ToDestinationEndpointNetworkingTypePtrOutput() DestinationEndpointNetworkingTypePtrOutput {
+	return pulumi.ToOutput(in).(DestinationEndpointNetworkingTypePtrOutput)
+}
+
+func (in *destinationEndpointNetworkingTypePtr) ToDestinationEndpointNetworkingTypePtrOutputWithContext(ctx context.Context) DestinationEndpointNetworkingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DestinationEndpointNetworkingTypePtrOutput)
+}
+
+type DestinationEndpointProtocol string
+
+const (
+	DestinationEndpointProtocolRtp         = DestinationEndpointProtocol("RTP")
+	DestinationEndpointProtocolRist        = DestinationEndpointProtocol("RIST")
+	DestinationEndpointProtocolSrtCaller   = DestinationEndpointProtocol("SRT_CALLER")
+	DestinationEndpointProtocolSrtListener = DestinationEndpointProtocol("SRT_LISTENER")
+)
+
+func (DestinationEndpointProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointProtocol)(nil)).Elem()
+}
+
+func (e DestinationEndpointProtocol) ToDestinationEndpointProtocolOutput() DestinationEndpointProtocolOutput {
+	return pulumi.ToOutput(e).(DestinationEndpointProtocolOutput)
+}
+
+func (e DestinationEndpointProtocol) ToDestinationEndpointProtocolOutputWithContext(ctx context.Context) DestinationEndpointProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DestinationEndpointProtocolOutput)
+}
+
+func (e DestinationEndpointProtocol) ToDestinationEndpointProtocolPtrOutput() DestinationEndpointProtocolPtrOutput {
+	return e.ToDestinationEndpointProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e DestinationEndpointProtocol) ToDestinationEndpointProtocolPtrOutputWithContext(ctx context.Context) DestinationEndpointProtocolPtrOutput {
+	return DestinationEndpointProtocol(e).ToDestinationEndpointProtocolOutputWithContext(ctx).ToDestinationEndpointProtocolPtrOutputWithContext(ctx)
+}
+
+func (e DestinationEndpointProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DestinationEndpointProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DestinationEndpointProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DestinationEndpointProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DestinationEndpointProtocolOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointProtocol)(nil)).Elem()
+}
+
+func (o DestinationEndpointProtocolOutput) ToDestinationEndpointProtocolOutput() DestinationEndpointProtocolOutput {
+	return o
+}
+
+func (o DestinationEndpointProtocolOutput) ToDestinationEndpointProtocolOutputWithContext(ctx context.Context) DestinationEndpointProtocolOutput {
+	return o
+}
+
+func (o DestinationEndpointProtocolOutput) ToDestinationEndpointProtocolPtrOutput() DestinationEndpointProtocolPtrOutput {
+	return o.ToDestinationEndpointProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointProtocolOutput) ToDestinationEndpointProtocolPtrOutputWithContext(ctx context.Context) DestinationEndpointProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationEndpointProtocol) *DestinationEndpointProtocol {
+		return &v
+	}).(DestinationEndpointProtocolPtrOutput)
+}
+
+func (o DestinationEndpointProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointProtocol)(nil)).Elem()
+}
+
+func (o DestinationEndpointProtocolPtrOutput) ToDestinationEndpointProtocolPtrOutput() DestinationEndpointProtocolPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointProtocolPtrOutput) ToDestinationEndpointProtocolPtrOutputWithContext(ctx context.Context) DestinationEndpointProtocolPtrOutput {
+	return o
+}
+
+func (o DestinationEndpointProtocolPtrOutput) Elem() DestinationEndpointProtocolOutput {
+	return o.ApplyT(func(v *DestinationEndpointProtocol) DestinationEndpointProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointProtocol
+		return ret
+	}).(DestinationEndpointProtocolOutput)
+}
+
+func (o DestinationEndpointProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DestinationEndpointProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DestinationEndpointProtocolInput is an input type that accepts values of the DestinationEndpointProtocol enum
+// A concrete instance of `DestinationEndpointProtocolInput` can be one of the following:
+//
+//	DestinationEndpointProtocolRtp
+//	DestinationEndpointProtocolRist
+//	DestinationEndpointProtocolSrtCaller
+//	DestinationEndpointProtocolSrtListener
+type DestinationEndpointProtocolInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointProtocolOutput() DestinationEndpointProtocolOutput
+	ToDestinationEndpointProtocolOutputWithContext(context.Context) DestinationEndpointProtocolOutput
+}
+
+var destinationEndpointProtocolPtrType = reflect.TypeOf((**DestinationEndpointProtocol)(nil)).Elem()
+
+type DestinationEndpointProtocolPtrInput interface {
+	pulumi.Input
+
+	ToDestinationEndpointProtocolPtrOutput() DestinationEndpointProtocolPtrOutput
+	ToDestinationEndpointProtocolPtrOutputWithContext(context.Context) DestinationEndpointProtocolPtrOutput
+}
+
+type destinationEndpointProtocolPtr string
+
+func DestinationEndpointProtocolPtr(v string) DestinationEndpointProtocolPtrInput {
+	return (*destinationEndpointProtocolPtr)(&v)
+}
+
+func (*destinationEndpointProtocolPtr) ElementType() reflect.Type {
+	return destinationEndpointProtocolPtrType
+}
+
+func (in *destinationEndpointProtocolPtr) ToDestinationEndpointProtocolPtrOutput() DestinationEndpointProtocolPtrOutput {
+	return pulumi.ToOutput(in).(DestinationEndpointProtocolPtrOutput)
+}
+
+func (in *destinationEndpointProtocolPtr) ToDestinationEndpointProtocolPtrOutputWithContext(ctx context.Context) DestinationEndpointProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DestinationEndpointProtocolPtrOutput)
+}
+
+type DestinationEndpointRegistrationState string
+
+const (
+	DestinationEndpointRegistrationStateRegistered         = DestinationEndpointRegistrationState("REGISTERED")
+	DestinationEndpointRegistrationStateRegistering        = DestinationEndpointRegistrationState("REGISTERING")
+	DestinationEndpointRegistrationStateDeregistering      = DestinationEndpointRegistrationState("DEREGISTERING")
+	DestinationEndpointRegistrationStateRegistrationFailed = DestinationEndpointRegistrationState("REGISTRATION_FAILED")
+)
+
+type DestinationEndpointRegistrationStateOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRegistrationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointRegistrationState)(nil)).Elem()
+}
+
+func (o DestinationEndpointRegistrationStateOutput) ToDestinationEndpointRegistrationStateOutput() DestinationEndpointRegistrationStateOutput {
+	return o
+}
+
+func (o DestinationEndpointRegistrationStateOutput) ToDestinationEndpointRegistrationStateOutputWithContext(ctx context.Context) DestinationEndpointRegistrationStateOutput {
+	return o
+}
+
+func (o DestinationEndpointRegistrationStateOutput) ToDestinationEndpointRegistrationStatePtrOutput() DestinationEndpointRegistrationStatePtrOutput {
+	return o.ToDestinationEndpointRegistrationStatePtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointRegistrationStateOutput) ToDestinationEndpointRegistrationStatePtrOutputWithContext(ctx context.Context) DestinationEndpointRegistrationStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationEndpointRegistrationState) *DestinationEndpointRegistrationState {
+		return &v
+	}).(DestinationEndpointRegistrationStatePtrOutput)
+}
+
+func (o DestinationEndpointRegistrationStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointRegistrationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointRegistrationState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointRegistrationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointRegistrationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointRegistrationState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointRegistrationStatePtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRegistrationStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointRegistrationState)(nil)).Elem()
+}
+
+func (o DestinationEndpointRegistrationStatePtrOutput) ToDestinationEndpointRegistrationStatePtrOutput() DestinationEndpointRegistrationStatePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRegistrationStatePtrOutput) ToDestinationEndpointRegistrationStatePtrOutputWithContext(ctx context.Context) DestinationEndpointRegistrationStatePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRegistrationStatePtrOutput) Elem() DestinationEndpointRegistrationStateOutput {
+	return o.ApplyT(func(v *DestinationEndpointRegistrationState) DestinationEndpointRegistrationState {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointRegistrationState
+		return ret
+	}).(DestinationEndpointRegistrationStateOutput)
+}
+
+func (o DestinationEndpointRegistrationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointRegistrationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DestinationEndpointRegistrationState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointRouterInputState string
+
+const (
+	DestinationEndpointRouterInputStateCreating   = DestinationEndpointRouterInputState("CREATING")
+	DestinationEndpointRouterInputStateStandby    = DestinationEndpointRouterInputState("STANDBY")
+	DestinationEndpointRouterInputStateStarting   = DestinationEndpointRouterInputState("STARTING")
+	DestinationEndpointRouterInputStateActive     = DestinationEndpointRouterInputState("ACTIVE")
+	DestinationEndpointRouterInputStateStopping   = DestinationEndpointRouterInputState("STOPPING")
+	DestinationEndpointRouterInputStateDeleting   = DestinationEndpointRouterInputState("DELETING")
+	DestinationEndpointRouterInputStateUpdating   = DestinationEndpointRouterInputState("UPDATING")
+	DestinationEndpointRouterInputStateError      = DestinationEndpointRouterInputState("ERROR")
+	DestinationEndpointRouterInputStateRecovering = DestinationEndpointRouterInputState("RECOVERING")
+	DestinationEndpointRouterInputStateMigrating  = DestinationEndpointRouterInputState("MIGRATING")
+)
+
+type DestinationEndpointRouterInputStateOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRouterInputStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointRouterInputState)(nil)).Elem()
+}
+
+func (o DestinationEndpointRouterInputStateOutput) ToDestinationEndpointRouterInputStateOutput() DestinationEndpointRouterInputStateOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputStateOutput) ToDestinationEndpointRouterInputStateOutputWithContext(ctx context.Context) DestinationEndpointRouterInputStateOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputStateOutput) ToDestinationEndpointRouterInputStatePtrOutput() DestinationEndpointRouterInputStatePtrOutput {
+	return o.ToDestinationEndpointRouterInputStatePtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointRouterInputStateOutput) ToDestinationEndpointRouterInputStatePtrOutputWithContext(ctx context.Context) DestinationEndpointRouterInputStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationEndpointRouterInputState) *DestinationEndpointRouterInputState {
+		return &v
+	}).(DestinationEndpointRouterInputStatePtrOutput)
+}
+
+func (o DestinationEndpointRouterInputStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointRouterInputStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointRouterInputState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointRouterInputStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointRouterInputStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointRouterInputState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointRouterInputStatePtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointRouterInputStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointRouterInputState)(nil)).Elem()
+}
+
+func (o DestinationEndpointRouterInputStatePtrOutput) ToDestinationEndpointRouterInputStatePtrOutput() DestinationEndpointRouterInputStatePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputStatePtrOutput) ToDestinationEndpointRouterInputStatePtrOutputWithContext(ctx context.Context) DestinationEndpointRouterInputStatePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointRouterInputStatePtrOutput) Elem() DestinationEndpointRouterInputStateOutput {
+	return o.ApplyT(func(v *DestinationEndpointRouterInputState) DestinationEndpointRouterInputState {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointRouterInputState
+		return ret
+	}).(DestinationEndpointRouterInputStateOutput)
+}
+
+func (o DestinationEndpointRouterInputStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointRouterInputStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DestinationEndpointRouterInputState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointType string
+
+const (
+	DestinationEndpointTypeStandard    = DestinationEndpointType("STANDARD")
+	DestinationEndpointTypeRouterInput = DestinationEndpointType("ROUTER_INPUT")
+)
+
+type DestinationEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationEndpointType)(nil)).Elem()
+}
+
+func (o DestinationEndpointTypeOutput) ToDestinationEndpointTypeOutput() DestinationEndpointTypeOutput {
+	return o
+}
+
+func (o DestinationEndpointTypeOutput) ToDestinationEndpointTypeOutputWithContext(ctx context.Context) DestinationEndpointTypeOutput {
+	return o
+}
+
+func (o DestinationEndpointTypeOutput) ToDestinationEndpointTypePtrOutput() DestinationEndpointTypePtrOutput {
+	return o.ToDestinationEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointTypeOutput) ToDestinationEndpointTypePtrOutputWithContext(ctx context.Context) DestinationEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationEndpointType) *DestinationEndpointType {
+		return &v
+	}).(DestinationEndpointTypePtrOutput)
+}
+
+func (o DestinationEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DestinationEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DestinationEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DestinationEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationEndpointType)(nil)).Elem()
+}
+
+func (o DestinationEndpointTypePtrOutput) ToDestinationEndpointTypePtrOutput() DestinationEndpointTypePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointTypePtrOutput) ToDestinationEndpointTypePtrOutputWithContext(ctx context.Context) DestinationEndpointTypePtrOutput {
+	return o
+}
+
+func (o DestinationEndpointTypePtrOutput) Elem() DestinationEndpointTypeOutput {
+	return o.ApplyT(func(v *DestinationEndpointType) DestinationEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationEndpointType
+		return ret
+	}).(DestinationEndpointTypeOutput)
+}
+
+func (o DestinationEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DestinationEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Indicates whether the BlackFrames metric is enabled or disabled.
 type FlowBlackFramesState string
 
@@ -8468,6 +9429,505 @@ func (in *routerInputDayPtr) ToRouterInputDayPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(RouterInputDayPtrOutput)
 }
 
+type RouterInputEndpointEncryptionSecretType string
+
+const (
+	RouterInputEndpointEncryptionSecretTypeAes128Key     = RouterInputEndpointEncryptionSecretType("AES_128_KEY")
+	RouterInputEndpointEncryptionSecretTypeAes192Key     = RouterInputEndpointEncryptionSecretType("AES_192_KEY")
+	RouterInputEndpointEncryptionSecretTypeAes256Key     = RouterInputEndpointEncryptionSecretType("AES_256_KEY")
+	RouterInputEndpointEncryptionSecretTypeSrtPassphrase = RouterInputEndpointEncryptionSecretType("SRT_PASSPHRASE")
+)
+
+func (RouterInputEndpointEncryptionSecretType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionSecretType)(nil)).Elem()
+}
+
+func (e RouterInputEndpointEncryptionSecretType) ToRouterInputEndpointEncryptionSecretTypeOutput() RouterInputEndpointEncryptionSecretTypeOutput {
+	return pulumi.ToOutput(e).(RouterInputEndpointEncryptionSecretTypeOutput)
+}
+
+func (e RouterInputEndpointEncryptionSecretType) ToRouterInputEndpointEncryptionSecretTypeOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionSecretTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterInputEndpointEncryptionSecretTypeOutput)
+}
+
+func (e RouterInputEndpointEncryptionSecretType) ToRouterInputEndpointEncryptionSecretTypePtrOutput() RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return e.ToRouterInputEndpointEncryptionSecretTypePtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputEndpointEncryptionSecretType) ToRouterInputEndpointEncryptionSecretTypePtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return RouterInputEndpointEncryptionSecretType(e).ToRouterInputEndpointEncryptionSecretTypeOutputWithContext(ctx).ToRouterInputEndpointEncryptionSecretTypePtrOutputWithContext(ctx)
+}
+
+func (e RouterInputEndpointEncryptionSecretType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputEndpointEncryptionSecretType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputEndpointEncryptionSecretType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputEndpointEncryptionSecretType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterInputEndpointEncryptionSecretTypeOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionSecretTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionSecretType)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionSecretTypeOutput) ToRouterInputEndpointEncryptionSecretTypeOutput() RouterInputEndpointEncryptionSecretTypeOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionSecretTypeOutput) ToRouterInputEndpointEncryptionSecretTypeOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionSecretTypeOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionSecretTypeOutput) ToRouterInputEndpointEncryptionSecretTypePtrOutput() RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return o.ToRouterInputEndpointEncryptionSecretTypePtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointEncryptionSecretTypeOutput) ToRouterInputEndpointEncryptionSecretTypePtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputEndpointEncryptionSecretType) *RouterInputEndpointEncryptionSecretType {
+		return &v
+	}).(RouterInputEndpointEncryptionSecretTypePtrOutput)
+}
+
+func (o RouterInputEndpointEncryptionSecretTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointEncryptionSecretTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputEndpointEncryptionSecretType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterInputEndpointEncryptionSecretTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointEncryptionSecretTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputEndpointEncryptionSecretType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterInputEndpointEncryptionSecretTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionSecretTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputEndpointEncryptionSecretType)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionSecretTypePtrOutput) ToRouterInputEndpointEncryptionSecretTypePtrOutput() RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionSecretTypePtrOutput) ToRouterInputEndpointEncryptionSecretTypePtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionSecretTypePtrOutput) Elem() RouterInputEndpointEncryptionSecretTypeOutput {
+	return o.ApplyT(func(v *RouterInputEndpointEncryptionSecretType) RouterInputEndpointEncryptionSecretType {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputEndpointEncryptionSecretType
+		return ret
+	}).(RouterInputEndpointEncryptionSecretTypeOutput)
+}
+
+func (o RouterInputEndpointEncryptionSecretTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointEncryptionSecretTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterInputEndpointEncryptionSecretType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterInputEndpointEncryptionSecretTypeInput is an input type that accepts values of the RouterInputEndpointEncryptionSecretType enum
+// A concrete instance of `RouterInputEndpointEncryptionSecretTypeInput` can be one of the following:
+//
+//	RouterInputEndpointEncryptionSecretTypeAes128Key
+//	RouterInputEndpointEncryptionSecretTypeAes192Key
+//	RouterInputEndpointEncryptionSecretTypeAes256Key
+//	RouterInputEndpointEncryptionSecretTypeSrtPassphrase
+type RouterInputEndpointEncryptionSecretTypeInput interface {
+	pulumi.Input
+
+	ToRouterInputEndpointEncryptionSecretTypeOutput() RouterInputEndpointEncryptionSecretTypeOutput
+	ToRouterInputEndpointEncryptionSecretTypeOutputWithContext(context.Context) RouterInputEndpointEncryptionSecretTypeOutput
+}
+
+var routerInputEndpointEncryptionSecretTypePtrType = reflect.TypeOf((**RouterInputEndpointEncryptionSecretType)(nil)).Elem()
+
+type RouterInputEndpointEncryptionSecretTypePtrInput interface {
+	pulumi.Input
+
+	ToRouterInputEndpointEncryptionSecretTypePtrOutput() RouterInputEndpointEncryptionSecretTypePtrOutput
+	ToRouterInputEndpointEncryptionSecretTypePtrOutputWithContext(context.Context) RouterInputEndpointEncryptionSecretTypePtrOutput
+}
+
+type routerInputEndpointEncryptionSecretTypePtr string
+
+func RouterInputEndpointEncryptionSecretTypePtr(v string) RouterInputEndpointEncryptionSecretTypePtrInput {
+	return (*routerInputEndpointEncryptionSecretTypePtr)(&v)
+}
+
+func (*routerInputEndpointEncryptionSecretTypePtr) ElementType() reflect.Type {
+	return routerInputEndpointEncryptionSecretTypePtrType
+}
+
+func (in *routerInputEndpointEncryptionSecretTypePtr) ToRouterInputEndpointEncryptionSecretTypePtrOutput() RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return pulumi.ToOutput(in).(RouterInputEndpointEncryptionSecretTypePtrOutput)
+}
+
+func (in *routerInputEndpointEncryptionSecretTypePtr) ToRouterInputEndpointEncryptionSecretTypePtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionSecretTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterInputEndpointEncryptionSecretTypePtrOutput)
+}
+
+type RouterInputEndpointEncryptionType string
+
+const (
+	RouterInputEndpointEncryptionTypeSecretsManager = RouterInputEndpointEncryptionType("SECRETS_MANAGER")
+	RouterInputEndpointEncryptionTypeAutomatic      = RouterInputEndpointEncryptionType("AUTOMATIC")
+)
+
+func (RouterInputEndpointEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionType)(nil)).Elem()
+}
+
+func (e RouterInputEndpointEncryptionType) ToRouterInputEndpointEncryptionTypeOutput() RouterInputEndpointEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(RouterInputEndpointEncryptionTypeOutput)
+}
+
+func (e RouterInputEndpointEncryptionType) ToRouterInputEndpointEncryptionTypeOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterInputEndpointEncryptionTypeOutput)
+}
+
+func (e RouterInputEndpointEncryptionType) ToRouterInputEndpointEncryptionTypePtrOutput() RouterInputEndpointEncryptionTypePtrOutput {
+	return e.ToRouterInputEndpointEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputEndpointEncryptionType) ToRouterInputEndpointEncryptionTypePtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionTypePtrOutput {
+	return RouterInputEndpointEncryptionType(e).ToRouterInputEndpointEncryptionTypeOutputWithContext(ctx).ToRouterInputEndpointEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e RouterInputEndpointEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputEndpointEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputEndpointEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputEndpointEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterInputEndpointEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointEncryptionType)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionTypeOutput) ToRouterInputEndpointEncryptionTypeOutput() RouterInputEndpointEncryptionTypeOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionTypeOutput) ToRouterInputEndpointEncryptionTypeOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionTypeOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionTypeOutput) ToRouterInputEndpointEncryptionTypePtrOutput() RouterInputEndpointEncryptionTypePtrOutput {
+	return o.ToRouterInputEndpointEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointEncryptionTypeOutput) ToRouterInputEndpointEncryptionTypePtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputEndpointEncryptionType) *RouterInputEndpointEncryptionType {
+		return &v
+	}).(RouterInputEndpointEncryptionTypePtrOutput)
+}
+
+func (o RouterInputEndpointEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputEndpointEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterInputEndpointEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputEndpointEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterInputEndpointEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputEndpointEncryptionType)(nil)).Elem()
+}
+
+func (o RouterInputEndpointEncryptionTypePtrOutput) ToRouterInputEndpointEncryptionTypePtrOutput() RouterInputEndpointEncryptionTypePtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionTypePtrOutput) ToRouterInputEndpointEncryptionTypePtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionTypePtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointEncryptionTypePtrOutput) Elem() RouterInputEndpointEncryptionTypeOutput {
+	return o.ApplyT(func(v *RouterInputEndpointEncryptionType) RouterInputEndpointEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputEndpointEncryptionType
+		return ret
+	}).(RouterInputEndpointEncryptionTypeOutput)
+}
+
+func (o RouterInputEndpointEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterInputEndpointEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterInputEndpointEncryptionTypeInput is an input type that accepts values of the RouterInputEndpointEncryptionType enum
+// A concrete instance of `RouterInputEndpointEncryptionTypeInput` can be one of the following:
+//
+//	RouterInputEndpointEncryptionTypeSecretsManager
+//	RouterInputEndpointEncryptionTypeAutomatic
+type RouterInputEndpointEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToRouterInputEndpointEncryptionTypeOutput() RouterInputEndpointEncryptionTypeOutput
+	ToRouterInputEndpointEncryptionTypeOutputWithContext(context.Context) RouterInputEndpointEncryptionTypeOutput
+}
+
+var routerInputEndpointEncryptionTypePtrType = reflect.TypeOf((**RouterInputEndpointEncryptionType)(nil)).Elem()
+
+type RouterInputEndpointEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToRouterInputEndpointEncryptionTypePtrOutput() RouterInputEndpointEncryptionTypePtrOutput
+	ToRouterInputEndpointEncryptionTypePtrOutputWithContext(context.Context) RouterInputEndpointEncryptionTypePtrOutput
+}
+
+type routerInputEndpointEncryptionTypePtr string
+
+func RouterInputEndpointEncryptionTypePtr(v string) RouterInputEndpointEncryptionTypePtrInput {
+	return (*routerInputEndpointEncryptionTypePtr)(&v)
+}
+
+func (*routerInputEndpointEncryptionTypePtr) ElementType() reflect.Type {
+	return routerInputEndpointEncryptionTypePtrType
+}
+
+func (in *routerInputEndpointEncryptionTypePtr) ToRouterInputEndpointEncryptionTypePtrOutput() RouterInputEndpointEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(RouterInputEndpointEncryptionTypePtrOutput)
+}
+
+func (in *routerInputEndpointEncryptionTypePtr) ToRouterInputEndpointEncryptionTypePtrOutputWithContext(ctx context.Context) RouterInputEndpointEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterInputEndpointEncryptionTypePtrOutput)
+}
+
+type RouterInputEndpointLifecycle string
+
+const (
+	RouterInputEndpointLifecycleManaged   = RouterInputEndpointLifecycle("MANAGED")
+	RouterInputEndpointLifecycleUnmanaged = RouterInputEndpointLifecycle("UNMANAGED")
+)
+
+func (RouterInputEndpointLifecycle) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointLifecycle)(nil)).Elem()
+}
+
+func (e RouterInputEndpointLifecycle) ToRouterInputEndpointLifecycleOutput() RouterInputEndpointLifecycleOutput {
+	return pulumi.ToOutput(e).(RouterInputEndpointLifecycleOutput)
+}
+
+func (e RouterInputEndpointLifecycle) ToRouterInputEndpointLifecycleOutputWithContext(ctx context.Context) RouterInputEndpointLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterInputEndpointLifecycleOutput)
+}
+
+func (e RouterInputEndpointLifecycle) ToRouterInputEndpointLifecyclePtrOutput() RouterInputEndpointLifecyclePtrOutput {
+	return e.ToRouterInputEndpointLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputEndpointLifecycle) ToRouterInputEndpointLifecyclePtrOutputWithContext(ctx context.Context) RouterInputEndpointLifecyclePtrOutput {
+	return RouterInputEndpointLifecycle(e).ToRouterInputEndpointLifecycleOutputWithContext(ctx).ToRouterInputEndpointLifecyclePtrOutputWithContext(ctx)
+}
+
+func (e RouterInputEndpointLifecycle) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputEndpointLifecycle) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputEndpointLifecycle) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputEndpointLifecycle) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterInputEndpointLifecycleOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputEndpointLifecycle)(nil)).Elem()
+}
+
+func (o RouterInputEndpointLifecycleOutput) ToRouterInputEndpointLifecycleOutput() RouterInputEndpointLifecycleOutput {
+	return o
+}
+
+func (o RouterInputEndpointLifecycleOutput) ToRouterInputEndpointLifecycleOutputWithContext(ctx context.Context) RouterInputEndpointLifecycleOutput {
+	return o
+}
+
+func (o RouterInputEndpointLifecycleOutput) ToRouterInputEndpointLifecyclePtrOutput() RouterInputEndpointLifecyclePtrOutput {
+	return o.ToRouterInputEndpointLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointLifecycleOutput) ToRouterInputEndpointLifecyclePtrOutputWithContext(ctx context.Context) RouterInputEndpointLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputEndpointLifecycle) *RouterInputEndpointLifecycle {
+		return &v
+	}).(RouterInputEndpointLifecyclePtrOutput)
+}
+
+func (o RouterInputEndpointLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputEndpointLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterInputEndpointLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputEndpointLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterInputEndpointLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputEndpointLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputEndpointLifecycle)(nil)).Elem()
+}
+
+func (o RouterInputEndpointLifecyclePtrOutput) ToRouterInputEndpointLifecyclePtrOutput() RouterInputEndpointLifecyclePtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointLifecyclePtrOutput) ToRouterInputEndpointLifecyclePtrOutputWithContext(ctx context.Context) RouterInputEndpointLifecyclePtrOutput {
+	return o
+}
+
+func (o RouterInputEndpointLifecyclePtrOutput) Elem() RouterInputEndpointLifecycleOutput {
+	return o.ApplyT(func(v *RouterInputEndpointLifecycle) RouterInputEndpointLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputEndpointLifecycle
+		return ret
+	}).(RouterInputEndpointLifecycleOutput)
+}
+
+func (o RouterInputEndpointLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputEndpointLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterInputEndpointLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterInputEndpointLifecycleInput is an input type that accepts values of the RouterInputEndpointLifecycle enum
+// A concrete instance of `RouterInputEndpointLifecycleInput` can be one of the following:
+//
+//	RouterInputEndpointLifecycleManaged
+//	RouterInputEndpointLifecycleUnmanaged
+type RouterInputEndpointLifecycleInput interface {
+	pulumi.Input
+
+	ToRouterInputEndpointLifecycleOutput() RouterInputEndpointLifecycleOutput
+	ToRouterInputEndpointLifecycleOutputWithContext(context.Context) RouterInputEndpointLifecycleOutput
+}
+
+var routerInputEndpointLifecyclePtrType = reflect.TypeOf((**RouterInputEndpointLifecycle)(nil)).Elem()
+
+type RouterInputEndpointLifecyclePtrInput interface {
+	pulumi.Input
+
+	ToRouterInputEndpointLifecyclePtrOutput() RouterInputEndpointLifecyclePtrOutput
+	ToRouterInputEndpointLifecyclePtrOutputWithContext(context.Context) RouterInputEndpointLifecyclePtrOutput
+}
+
+type routerInputEndpointLifecyclePtr string
+
+func RouterInputEndpointLifecyclePtr(v string) RouterInputEndpointLifecyclePtrInput {
+	return (*routerInputEndpointLifecyclePtr)(&v)
+}
+
+func (*routerInputEndpointLifecyclePtr) ElementType() reflect.Type {
+	return routerInputEndpointLifecyclePtrType
+}
+
+func (in *routerInputEndpointLifecyclePtr) ToRouterInputEndpointLifecyclePtrOutput() RouterInputEndpointLifecyclePtrOutput {
+	return pulumi.ToOutput(in).(RouterInputEndpointLifecyclePtrOutput)
+}
+
+func (in *routerInputEndpointLifecyclePtr) ToRouterInputEndpointLifecyclePtrOutputWithContext(ctx context.Context) RouterInputEndpointLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterInputEndpointLifecyclePtrOutput)
+}
+
 type RouterInputFailoverInputSourcePriorityMode string
 
 const (
@@ -9910,6 +11370,8 @@ const (
 	RouterInputTierInput100 = RouterInputTier("INPUT_100")
 	RouterInputTierInput50  = RouterInputTier("INPUT_50")
 	RouterInputTierInput20  = RouterInputTier("INPUT_20")
+	RouterInputTierInput500 = RouterInputTier("INPUT_500")
+	RouterInputTierInput250 = RouterInputTier("INPUT_250")
 )
 
 func (RouterInputTier) ElementType() reflect.Type {
@@ -10037,6 +11499,8 @@ func (o RouterInputTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 //	RouterInputTierInput100
 //	RouterInputTierInput50
 //	RouterInputTierInput20
+//	RouterInputTierInput500
+//	RouterInputTierInput250
 type RouterInputTierInput interface {
 	pulumi.Input
 
@@ -10239,11 +11703,12 @@ func (in *routerInputTransitEncryptionKeyTypePtr) ToRouterInputTransitEncryption
 type RouterInputType string
 
 const (
-	RouterInputTypeStandard         = RouterInputType("STANDARD")
-	RouterInputTypeFailover         = RouterInputType("FAILOVER")
-	RouterInputTypeMerge            = RouterInputType("MERGE")
-	RouterInputTypeMediaconnectFlow = RouterInputType("MEDIACONNECT_FLOW")
-	RouterInputTypeMedialiveChannel = RouterInputType("MEDIALIVE_CHANNEL")
+	RouterInputTypeStandard            = RouterInputType("STANDARD")
+	RouterInputTypeFailover            = RouterInputType("FAILOVER")
+	RouterInputTypeMerge               = RouterInputType("MERGE")
+	RouterInputTypeMediaconnectFlow    = RouterInputType("MEDIACONNECT_FLOW")
+	RouterInputTypeMedialiveChannel    = RouterInputType("MEDIALIVE_CHANNEL")
+	RouterInputTypeDestinationEndpoint = RouterInputType("DESTINATION_ENDPOINT")
 )
 
 type RouterInputTypeOutput struct{ *pulumi.OutputState }
@@ -10686,6 +12151,505 @@ func (in *routerOutputResourceDayPtr) ToRouterOutputResourceDayPtrOutput() Route
 
 func (in *routerOutputResourceDayPtr) ToRouterOutputResourceDayPtrOutputWithContext(ctx context.Context) RouterOutputResourceDayPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RouterOutputResourceDayPtrOutput)
+}
+
+type RouterOutputResourceEndpointEncryptionSecretType string
+
+const (
+	RouterOutputResourceEndpointEncryptionSecretTypeAes128Key     = RouterOutputResourceEndpointEncryptionSecretType("AES_128_KEY")
+	RouterOutputResourceEndpointEncryptionSecretTypeAes192Key     = RouterOutputResourceEndpointEncryptionSecretType("AES_192_KEY")
+	RouterOutputResourceEndpointEncryptionSecretTypeAes256Key     = RouterOutputResourceEndpointEncryptionSecretType("AES_256_KEY")
+	RouterOutputResourceEndpointEncryptionSecretTypeSrtPassphrase = RouterOutputResourceEndpointEncryptionSecretType("SRT_PASSPHRASE")
+)
+
+func (RouterOutputResourceEndpointEncryptionSecretType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionSecretType)(nil)).Elem()
+}
+
+func (e RouterOutputResourceEndpointEncryptionSecretType) ToRouterOutputResourceEndpointEncryptionSecretTypeOutput() RouterOutputResourceEndpointEncryptionSecretTypeOutput {
+	return pulumi.ToOutput(e).(RouterOutputResourceEndpointEncryptionSecretTypeOutput)
+}
+
+func (e RouterOutputResourceEndpointEncryptionSecretType) ToRouterOutputResourceEndpointEncryptionSecretTypeOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionSecretTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterOutputResourceEndpointEncryptionSecretTypeOutput)
+}
+
+func (e RouterOutputResourceEndpointEncryptionSecretType) ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutput() RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return e.ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutputWithContext(context.Background())
+}
+
+func (e RouterOutputResourceEndpointEncryptionSecretType) ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return RouterOutputResourceEndpointEncryptionSecretType(e).ToRouterOutputResourceEndpointEncryptionSecretTypeOutputWithContext(ctx).ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutputWithContext(ctx)
+}
+
+func (e RouterOutputResourceEndpointEncryptionSecretType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterOutputResourceEndpointEncryptionSecretType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterOutputResourceEndpointEncryptionSecretType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterOutputResourceEndpointEncryptionSecretType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterOutputResourceEndpointEncryptionSecretTypeOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionSecretTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionSecretType)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypeOutput) ToRouterOutputResourceEndpointEncryptionSecretTypeOutput() RouterOutputResourceEndpointEncryptionSecretTypeOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypeOutput) ToRouterOutputResourceEndpointEncryptionSecretTypeOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionSecretTypeOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypeOutput) ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutput() RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return o.ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypeOutput) ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterOutputResourceEndpointEncryptionSecretType) *RouterOutputResourceEndpointEncryptionSecretType {
+		return &v
+	}).(RouterOutputResourceEndpointEncryptionSecretTypePtrOutput)
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterOutputResourceEndpointEncryptionSecretType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterOutputResourceEndpointEncryptionSecretType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterOutputResourceEndpointEncryptionSecretTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionSecretTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceEndpointEncryptionSecretType)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypePtrOutput) ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutput() RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypePtrOutput) ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypePtrOutput) Elem() RouterOutputResourceEndpointEncryptionSecretTypeOutput {
+	return o.ApplyT(func(v *RouterOutputResourceEndpointEncryptionSecretType) RouterOutputResourceEndpointEncryptionSecretType {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceEndpointEncryptionSecretType
+		return ret
+	}).(RouterOutputResourceEndpointEncryptionSecretTypeOutput)
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointEncryptionSecretTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterOutputResourceEndpointEncryptionSecretType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterOutputResourceEndpointEncryptionSecretTypeInput is an input type that accepts values of the RouterOutputResourceEndpointEncryptionSecretType enum
+// A concrete instance of `RouterOutputResourceEndpointEncryptionSecretTypeInput` can be one of the following:
+//
+//	RouterOutputResourceEndpointEncryptionSecretTypeAes128Key
+//	RouterOutputResourceEndpointEncryptionSecretTypeAes192Key
+//	RouterOutputResourceEndpointEncryptionSecretTypeAes256Key
+//	RouterOutputResourceEndpointEncryptionSecretTypeSrtPassphrase
+type RouterOutputResourceEndpointEncryptionSecretTypeInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceEndpointEncryptionSecretTypeOutput() RouterOutputResourceEndpointEncryptionSecretTypeOutput
+	ToRouterOutputResourceEndpointEncryptionSecretTypeOutputWithContext(context.Context) RouterOutputResourceEndpointEncryptionSecretTypeOutput
+}
+
+var routerOutputResourceEndpointEncryptionSecretTypePtrType = reflect.TypeOf((**RouterOutputResourceEndpointEncryptionSecretType)(nil)).Elem()
+
+type RouterOutputResourceEndpointEncryptionSecretTypePtrInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutput() RouterOutputResourceEndpointEncryptionSecretTypePtrOutput
+	ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutputWithContext(context.Context) RouterOutputResourceEndpointEncryptionSecretTypePtrOutput
+}
+
+type routerOutputResourceEndpointEncryptionSecretTypePtr string
+
+func RouterOutputResourceEndpointEncryptionSecretTypePtr(v string) RouterOutputResourceEndpointEncryptionSecretTypePtrInput {
+	return (*routerOutputResourceEndpointEncryptionSecretTypePtr)(&v)
+}
+
+func (*routerOutputResourceEndpointEncryptionSecretTypePtr) ElementType() reflect.Type {
+	return routerOutputResourceEndpointEncryptionSecretTypePtrType
+}
+
+func (in *routerOutputResourceEndpointEncryptionSecretTypePtr) ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutput() RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return pulumi.ToOutput(in).(RouterOutputResourceEndpointEncryptionSecretTypePtrOutput)
+}
+
+func (in *routerOutputResourceEndpointEncryptionSecretTypePtr) ToRouterOutputResourceEndpointEncryptionSecretTypePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionSecretTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterOutputResourceEndpointEncryptionSecretTypePtrOutput)
+}
+
+type RouterOutputResourceEndpointEncryptionType string
+
+const (
+	RouterOutputResourceEndpointEncryptionTypeSecretsManager = RouterOutputResourceEndpointEncryptionType("SECRETS_MANAGER")
+	RouterOutputResourceEndpointEncryptionTypeAutomatic      = RouterOutputResourceEndpointEncryptionType("AUTOMATIC")
+)
+
+func (RouterOutputResourceEndpointEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionType)(nil)).Elem()
+}
+
+func (e RouterOutputResourceEndpointEncryptionType) ToRouterOutputResourceEndpointEncryptionTypeOutput() RouterOutputResourceEndpointEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(RouterOutputResourceEndpointEncryptionTypeOutput)
+}
+
+func (e RouterOutputResourceEndpointEncryptionType) ToRouterOutputResourceEndpointEncryptionTypeOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterOutputResourceEndpointEncryptionTypeOutput)
+}
+
+func (e RouterOutputResourceEndpointEncryptionType) ToRouterOutputResourceEndpointEncryptionTypePtrOutput() RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return e.ToRouterOutputResourceEndpointEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e RouterOutputResourceEndpointEncryptionType) ToRouterOutputResourceEndpointEncryptionTypePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return RouterOutputResourceEndpointEncryptionType(e).ToRouterOutputResourceEndpointEncryptionTypeOutputWithContext(ctx).ToRouterOutputResourceEndpointEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e RouterOutputResourceEndpointEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterOutputResourceEndpointEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterOutputResourceEndpointEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterOutputResourceEndpointEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterOutputResourceEndpointEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointEncryptionType)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypeOutput) ToRouterOutputResourceEndpointEncryptionTypeOutput() RouterOutputResourceEndpointEncryptionTypeOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypeOutput) ToRouterOutputResourceEndpointEncryptionTypeOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionTypeOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypeOutput) ToRouterOutputResourceEndpointEncryptionTypePtrOutput() RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return o.ToRouterOutputResourceEndpointEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypeOutput) ToRouterOutputResourceEndpointEncryptionTypePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterOutputResourceEndpointEncryptionType) *RouterOutputResourceEndpointEncryptionType {
+		return &v
+	}).(RouterOutputResourceEndpointEncryptionTypePtrOutput)
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterOutputResourceEndpointEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterOutputResourceEndpointEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterOutputResourceEndpointEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceEndpointEncryptionType)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypePtrOutput) ToRouterOutputResourceEndpointEncryptionTypePtrOutput() RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypePtrOutput) ToRouterOutputResourceEndpointEncryptionTypePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypePtrOutput) Elem() RouterOutputResourceEndpointEncryptionTypeOutput {
+	return o.ApplyT(func(v *RouterOutputResourceEndpointEncryptionType) RouterOutputResourceEndpointEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceEndpointEncryptionType
+		return ret
+	}).(RouterOutputResourceEndpointEncryptionTypeOutput)
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterOutputResourceEndpointEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterOutputResourceEndpointEncryptionTypeInput is an input type that accepts values of the RouterOutputResourceEndpointEncryptionType enum
+// A concrete instance of `RouterOutputResourceEndpointEncryptionTypeInput` can be one of the following:
+//
+//	RouterOutputResourceEndpointEncryptionTypeSecretsManager
+//	RouterOutputResourceEndpointEncryptionTypeAutomatic
+type RouterOutputResourceEndpointEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceEndpointEncryptionTypeOutput() RouterOutputResourceEndpointEncryptionTypeOutput
+	ToRouterOutputResourceEndpointEncryptionTypeOutputWithContext(context.Context) RouterOutputResourceEndpointEncryptionTypeOutput
+}
+
+var routerOutputResourceEndpointEncryptionTypePtrType = reflect.TypeOf((**RouterOutputResourceEndpointEncryptionType)(nil)).Elem()
+
+type RouterOutputResourceEndpointEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceEndpointEncryptionTypePtrOutput() RouterOutputResourceEndpointEncryptionTypePtrOutput
+	ToRouterOutputResourceEndpointEncryptionTypePtrOutputWithContext(context.Context) RouterOutputResourceEndpointEncryptionTypePtrOutput
+}
+
+type routerOutputResourceEndpointEncryptionTypePtr string
+
+func RouterOutputResourceEndpointEncryptionTypePtr(v string) RouterOutputResourceEndpointEncryptionTypePtrInput {
+	return (*routerOutputResourceEndpointEncryptionTypePtr)(&v)
+}
+
+func (*routerOutputResourceEndpointEncryptionTypePtr) ElementType() reflect.Type {
+	return routerOutputResourceEndpointEncryptionTypePtrType
+}
+
+func (in *routerOutputResourceEndpointEncryptionTypePtr) ToRouterOutputResourceEndpointEncryptionTypePtrOutput() RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(RouterOutputResourceEndpointEncryptionTypePtrOutput)
+}
+
+func (in *routerOutputResourceEndpointEncryptionTypePtr) ToRouterOutputResourceEndpointEncryptionTypePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterOutputResourceEndpointEncryptionTypePtrOutput)
+}
+
+type RouterOutputResourceEndpointLifecycle string
+
+const (
+	RouterOutputResourceEndpointLifecycleManaged   = RouterOutputResourceEndpointLifecycle("MANAGED")
+	RouterOutputResourceEndpointLifecycleUnmanaged = RouterOutputResourceEndpointLifecycle("UNMANAGED")
+)
+
+func (RouterOutputResourceEndpointLifecycle) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointLifecycle)(nil)).Elem()
+}
+
+func (e RouterOutputResourceEndpointLifecycle) ToRouterOutputResourceEndpointLifecycleOutput() RouterOutputResourceEndpointLifecycleOutput {
+	return pulumi.ToOutput(e).(RouterOutputResourceEndpointLifecycleOutput)
+}
+
+func (e RouterOutputResourceEndpointLifecycle) ToRouterOutputResourceEndpointLifecycleOutputWithContext(ctx context.Context) RouterOutputResourceEndpointLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterOutputResourceEndpointLifecycleOutput)
+}
+
+func (e RouterOutputResourceEndpointLifecycle) ToRouterOutputResourceEndpointLifecyclePtrOutput() RouterOutputResourceEndpointLifecyclePtrOutput {
+	return e.ToRouterOutputResourceEndpointLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (e RouterOutputResourceEndpointLifecycle) ToRouterOutputResourceEndpointLifecyclePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointLifecyclePtrOutput {
+	return RouterOutputResourceEndpointLifecycle(e).ToRouterOutputResourceEndpointLifecycleOutputWithContext(ctx).ToRouterOutputResourceEndpointLifecyclePtrOutputWithContext(ctx)
+}
+
+func (e RouterOutputResourceEndpointLifecycle) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterOutputResourceEndpointLifecycle) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterOutputResourceEndpointLifecycle) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterOutputResourceEndpointLifecycle) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterOutputResourceEndpointLifecycleOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceEndpointLifecycle)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointLifecycleOutput) ToRouterOutputResourceEndpointLifecycleOutput() RouterOutputResourceEndpointLifecycleOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointLifecycleOutput) ToRouterOutputResourceEndpointLifecycleOutputWithContext(ctx context.Context) RouterOutputResourceEndpointLifecycleOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointLifecycleOutput) ToRouterOutputResourceEndpointLifecyclePtrOutput() RouterOutputResourceEndpointLifecyclePtrOutput {
+	return o.ToRouterOutputResourceEndpointLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointLifecycleOutput) ToRouterOutputResourceEndpointLifecyclePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterOutputResourceEndpointLifecycle) *RouterOutputResourceEndpointLifecycle {
+		return &v
+	}).(RouterOutputResourceEndpointLifecyclePtrOutput)
+}
+
+func (o RouterOutputResourceEndpointLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterOutputResourceEndpointLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterOutputResourceEndpointLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterOutputResourceEndpointLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterOutputResourceEndpointLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceEndpointLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceEndpointLifecycle)(nil)).Elem()
+}
+
+func (o RouterOutputResourceEndpointLifecyclePtrOutput) ToRouterOutputResourceEndpointLifecyclePtrOutput() RouterOutputResourceEndpointLifecyclePtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointLifecyclePtrOutput) ToRouterOutputResourceEndpointLifecyclePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointLifecyclePtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceEndpointLifecyclePtrOutput) Elem() RouterOutputResourceEndpointLifecycleOutput {
+	return o.ApplyT(func(v *RouterOutputResourceEndpointLifecycle) RouterOutputResourceEndpointLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceEndpointLifecycle
+		return ret
+	}).(RouterOutputResourceEndpointLifecycleOutput)
+}
+
+func (o RouterOutputResourceEndpointLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceEndpointLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterOutputResourceEndpointLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterOutputResourceEndpointLifecycleInput is an input type that accepts values of the RouterOutputResourceEndpointLifecycle enum
+// A concrete instance of `RouterOutputResourceEndpointLifecycleInput` can be one of the following:
+//
+//	RouterOutputResourceEndpointLifecycleManaged
+//	RouterOutputResourceEndpointLifecycleUnmanaged
+type RouterOutputResourceEndpointLifecycleInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceEndpointLifecycleOutput() RouterOutputResourceEndpointLifecycleOutput
+	ToRouterOutputResourceEndpointLifecycleOutputWithContext(context.Context) RouterOutputResourceEndpointLifecycleOutput
+}
+
+var routerOutputResourceEndpointLifecyclePtrType = reflect.TypeOf((**RouterOutputResourceEndpointLifecycle)(nil)).Elem()
+
+type RouterOutputResourceEndpointLifecyclePtrInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceEndpointLifecyclePtrOutput() RouterOutputResourceEndpointLifecyclePtrOutput
+	ToRouterOutputResourceEndpointLifecyclePtrOutputWithContext(context.Context) RouterOutputResourceEndpointLifecyclePtrOutput
+}
+
+type routerOutputResourceEndpointLifecyclePtr string
+
+func RouterOutputResourceEndpointLifecyclePtr(v string) RouterOutputResourceEndpointLifecyclePtrInput {
+	return (*routerOutputResourceEndpointLifecyclePtr)(&v)
+}
+
+func (*routerOutputResourceEndpointLifecyclePtr) ElementType() reflect.Type {
+	return routerOutputResourceEndpointLifecyclePtrType
+}
+
+func (in *routerOutputResourceEndpointLifecyclePtr) ToRouterOutputResourceEndpointLifecyclePtrOutput() RouterOutputResourceEndpointLifecyclePtrOutput {
+	return pulumi.ToOutput(in).(RouterOutputResourceEndpointLifecyclePtrOutput)
+}
+
+func (in *routerOutputResourceEndpointLifecyclePtr) ToRouterOutputResourceEndpointLifecyclePtrOutputWithContext(ctx context.Context) RouterOutputResourceEndpointLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterOutputResourceEndpointLifecyclePtrOutput)
 }
 
 type RouterOutputResourceFabricLatencyMode string
@@ -11969,6 +13933,8 @@ const (
 	RouterOutputResourceRouterOutputTierOutput100 = RouterOutputResourceRouterOutputTier("OUTPUT_100")
 	RouterOutputResourceRouterOutputTierOutput50  = RouterOutputResourceRouterOutputTier("OUTPUT_50")
 	RouterOutputResourceRouterOutputTierOutput20  = RouterOutputResourceRouterOutputTier("OUTPUT_20")
+	RouterOutputResourceRouterOutputTierOutput500 = RouterOutputResourceRouterOutputTier("OUTPUT_500")
+	RouterOutputResourceRouterOutputTierOutput250 = RouterOutputResourceRouterOutputTier("OUTPUT_250")
 )
 
 func (RouterOutputResourceRouterOutputTier) ElementType() reflect.Type {
@@ -12096,6 +14062,8 @@ func (o RouterOutputResourceRouterOutputTierPtrOutput) ToStringPtrOutputWithCont
 //	RouterOutputResourceRouterOutputTierOutput100
 //	RouterOutputResourceRouterOutputTierOutput50
 //	RouterOutputResourceRouterOutputTierOutput20
+//	RouterOutputResourceRouterOutputTierOutput500
+//	RouterOutputResourceRouterOutputTierOutput250
 type RouterOutputResourceRouterOutputTierInput interface {
 	pulumi.Input
 
@@ -12136,6 +14104,7 @@ const (
 	RouterOutputResourceRouterOutputTypeStandard         = RouterOutputResourceRouterOutputType("STANDARD")
 	RouterOutputResourceRouterOutputTypeMediaconnectFlow = RouterOutputResourceRouterOutputType("MEDIACONNECT_FLOW")
 	RouterOutputResourceRouterOutputTypeMedialiveInput   = RouterOutputResourceRouterOutputType("MEDIALIVE_INPUT")
+	RouterOutputResourceRouterOutputTypeSourceEndpoint   = RouterOutputResourceRouterOutputType("SOURCE_ENDPOINT")
 )
 
 type RouterOutputResourceRouterOutputTypeOutput struct{ *pulumi.OutputState }
@@ -12549,6 +14518,967 @@ func (in *routerOutputResourceTlsEncryptionTypePtr) ToRouterOutputResourceTlsEnc
 	return pulumi.ToOutputWithContext(ctx, in).(RouterOutputResourceTlsEncryptionTypePtrOutput)
 }
 
+type SourceEndpointConnectionState string
+
+const (
+	SourceEndpointConnectionStateConnected     = SourceEndpointConnectionState("CONNECTED")
+	SourceEndpointConnectionStateDisconnected  = SourceEndpointConnectionState("DISCONNECTED")
+	SourceEndpointConnectionStateConnecting    = SourceEndpointConnectionState("CONNECTING")
+	SourceEndpointConnectionStateDisconnecting = SourceEndpointConnectionState("DISCONNECTING")
+)
+
+type SourceEndpointConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointConnectionState)(nil)).Elem()
+}
+
+func (o SourceEndpointConnectionStateOutput) ToSourceEndpointConnectionStateOutput() SourceEndpointConnectionStateOutput {
+	return o
+}
+
+func (o SourceEndpointConnectionStateOutput) ToSourceEndpointConnectionStateOutputWithContext(ctx context.Context) SourceEndpointConnectionStateOutput {
+	return o
+}
+
+func (o SourceEndpointConnectionStateOutput) ToSourceEndpointConnectionStatePtrOutput() SourceEndpointConnectionStatePtrOutput {
+	return o.ToSourceEndpointConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointConnectionStateOutput) ToSourceEndpointConnectionStatePtrOutputWithContext(ctx context.Context) SourceEndpointConnectionStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceEndpointConnectionState) *SourceEndpointConnectionState {
+		return &v
+	}).(SourceEndpointConnectionStatePtrOutput)
+}
+
+func (o SourceEndpointConnectionStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointConnectionStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointConnectionState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointConnectionStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointConnectionStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointConnectionState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointConnectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointConnectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointConnectionState)(nil)).Elem()
+}
+
+func (o SourceEndpointConnectionStatePtrOutput) ToSourceEndpointConnectionStatePtrOutput() SourceEndpointConnectionStatePtrOutput {
+	return o
+}
+
+func (o SourceEndpointConnectionStatePtrOutput) ToSourceEndpointConnectionStatePtrOutputWithContext(ctx context.Context) SourceEndpointConnectionStatePtrOutput {
+	return o
+}
+
+func (o SourceEndpointConnectionStatePtrOutput) Elem() SourceEndpointConnectionStateOutput {
+	return o.ApplyT(func(v *SourceEndpointConnectionState) SourceEndpointConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointConnectionState
+		return ret
+	}).(SourceEndpointConnectionStateOutput)
+}
+
+func (o SourceEndpointConnectionStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointConnectionStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceEndpointConnectionState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointEndpointLifecycle string
+
+const (
+	SourceEndpointEndpointLifecycleManaged   = SourceEndpointEndpointLifecycle("MANAGED")
+	SourceEndpointEndpointLifecycleUnmanaged = SourceEndpointEndpointLifecycle("UNMANAGED")
+)
+
+type SourceEndpointEndpointLifecycleOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointEndpointLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointEndpointLifecycle)(nil)).Elem()
+}
+
+func (o SourceEndpointEndpointLifecycleOutput) ToSourceEndpointEndpointLifecycleOutput() SourceEndpointEndpointLifecycleOutput {
+	return o
+}
+
+func (o SourceEndpointEndpointLifecycleOutput) ToSourceEndpointEndpointLifecycleOutputWithContext(ctx context.Context) SourceEndpointEndpointLifecycleOutput {
+	return o
+}
+
+func (o SourceEndpointEndpointLifecycleOutput) ToSourceEndpointEndpointLifecyclePtrOutput() SourceEndpointEndpointLifecyclePtrOutput {
+	return o.ToSourceEndpointEndpointLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointEndpointLifecycleOutput) ToSourceEndpointEndpointLifecyclePtrOutputWithContext(ctx context.Context) SourceEndpointEndpointLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceEndpointEndpointLifecycle) *SourceEndpointEndpointLifecycle {
+		return &v
+	}).(SourceEndpointEndpointLifecyclePtrOutput)
+}
+
+func (o SourceEndpointEndpointLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointEndpointLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointEndpointLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointEndpointLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointEndpointLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointEndpointLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointEndpointLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointEndpointLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointEndpointLifecycle)(nil)).Elem()
+}
+
+func (o SourceEndpointEndpointLifecyclePtrOutput) ToSourceEndpointEndpointLifecyclePtrOutput() SourceEndpointEndpointLifecyclePtrOutput {
+	return o
+}
+
+func (o SourceEndpointEndpointLifecyclePtrOutput) ToSourceEndpointEndpointLifecyclePtrOutputWithContext(ctx context.Context) SourceEndpointEndpointLifecyclePtrOutput {
+	return o
+}
+
+func (o SourceEndpointEndpointLifecyclePtrOutput) Elem() SourceEndpointEndpointLifecycleOutput {
+	return o.ApplyT(func(v *SourceEndpointEndpointLifecycle) SourceEndpointEndpointLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointEndpointLifecycle
+		return ret
+	}).(SourceEndpointEndpointLifecycleOutput)
+}
+
+func (o SourceEndpointEndpointLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointEndpointLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceEndpointEndpointLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointForwardErrorCorrectionState string
+
+const (
+	SourceEndpointForwardErrorCorrectionStateEnabled  = SourceEndpointForwardErrorCorrectionState("ENABLED")
+	SourceEndpointForwardErrorCorrectionStateDisabled = SourceEndpointForwardErrorCorrectionState("DISABLED")
+)
+
+func (SourceEndpointForwardErrorCorrectionState) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointForwardErrorCorrectionState)(nil)).Elem()
+}
+
+func (e SourceEndpointForwardErrorCorrectionState) ToSourceEndpointForwardErrorCorrectionStateOutput() SourceEndpointForwardErrorCorrectionStateOutput {
+	return pulumi.ToOutput(e).(SourceEndpointForwardErrorCorrectionStateOutput)
+}
+
+func (e SourceEndpointForwardErrorCorrectionState) ToSourceEndpointForwardErrorCorrectionStateOutputWithContext(ctx context.Context) SourceEndpointForwardErrorCorrectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SourceEndpointForwardErrorCorrectionStateOutput)
+}
+
+func (e SourceEndpointForwardErrorCorrectionState) ToSourceEndpointForwardErrorCorrectionStatePtrOutput() SourceEndpointForwardErrorCorrectionStatePtrOutput {
+	return e.ToSourceEndpointForwardErrorCorrectionStatePtrOutputWithContext(context.Background())
+}
+
+func (e SourceEndpointForwardErrorCorrectionState) ToSourceEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx context.Context) SourceEndpointForwardErrorCorrectionStatePtrOutput {
+	return SourceEndpointForwardErrorCorrectionState(e).ToSourceEndpointForwardErrorCorrectionStateOutputWithContext(ctx).ToSourceEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx)
+}
+
+func (e SourceEndpointForwardErrorCorrectionState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceEndpointForwardErrorCorrectionState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceEndpointForwardErrorCorrectionState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SourceEndpointForwardErrorCorrectionState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SourceEndpointForwardErrorCorrectionStateOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointForwardErrorCorrectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointForwardErrorCorrectionState)(nil)).Elem()
+}
+
+func (o SourceEndpointForwardErrorCorrectionStateOutput) ToSourceEndpointForwardErrorCorrectionStateOutput() SourceEndpointForwardErrorCorrectionStateOutput {
+	return o
+}
+
+func (o SourceEndpointForwardErrorCorrectionStateOutput) ToSourceEndpointForwardErrorCorrectionStateOutputWithContext(ctx context.Context) SourceEndpointForwardErrorCorrectionStateOutput {
+	return o
+}
+
+func (o SourceEndpointForwardErrorCorrectionStateOutput) ToSourceEndpointForwardErrorCorrectionStatePtrOutput() SourceEndpointForwardErrorCorrectionStatePtrOutput {
+	return o.ToSourceEndpointForwardErrorCorrectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointForwardErrorCorrectionStateOutput) ToSourceEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx context.Context) SourceEndpointForwardErrorCorrectionStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceEndpointForwardErrorCorrectionState) *SourceEndpointForwardErrorCorrectionState {
+		return &v
+	}).(SourceEndpointForwardErrorCorrectionStatePtrOutput)
+}
+
+func (o SourceEndpointForwardErrorCorrectionStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointForwardErrorCorrectionStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointForwardErrorCorrectionState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointForwardErrorCorrectionStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointForwardErrorCorrectionStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointForwardErrorCorrectionState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointForwardErrorCorrectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointForwardErrorCorrectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointForwardErrorCorrectionState)(nil)).Elem()
+}
+
+func (o SourceEndpointForwardErrorCorrectionStatePtrOutput) ToSourceEndpointForwardErrorCorrectionStatePtrOutput() SourceEndpointForwardErrorCorrectionStatePtrOutput {
+	return o
+}
+
+func (o SourceEndpointForwardErrorCorrectionStatePtrOutput) ToSourceEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx context.Context) SourceEndpointForwardErrorCorrectionStatePtrOutput {
+	return o
+}
+
+func (o SourceEndpointForwardErrorCorrectionStatePtrOutput) Elem() SourceEndpointForwardErrorCorrectionStateOutput {
+	return o.ApplyT(func(v *SourceEndpointForwardErrorCorrectionState) SourceEndpointForwardErrorCorrectionState {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointForwardErrorCorrectionState
+		return ret
+	}).(SourceEndpointForwardErrorCorrectionStateOutput)
+}
+
+func (o SourceEndpointForwardErrorCorrectionStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointForwardErrorCorrectionStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceEndpointForwardErrorCorrectionState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SourceEndpointForwardErrorCorrectionStateInput is an input type that accepts values of the SourceEndpointForwardErrorCorrectionState enum
+// A concrete instance of `SourceEndpointForwardErrorCorrectionStateInput` can be one of the following:
+//
+//	SourceEndpointForwardErrorCorrectionStateEnabled
+//	SourceEndpointForwardErrorCorrectionStateDisabled
+type SourceEndpointForwardErrorCorrectionStateInput interface {
+	pulumi.Input
+
+	ToSourceEndpointForwardErrorCorrectionStateOutput() SourceEndpointForwardErrorCorrectionStateOutput
+	ToSourceEndpointForwardErrorCorrectionStateOutputWithContext(context.Context) SourceEndpointForwardErrorCorrectionStateOutput
+}
+
+var sourceEndpointForwardErrorCorrectionStatePtrType = reflect.TypeOf((**SourceEndpointForwardErrorCorrectionState)(nil)).Elem()
+
+type SourceEndpointForwardErrorCorrectionStatePtrInput interface {
+	pulumi.Input
+
+	ToSourceEndpointForwardErrorCorrectionStatePtrOutput() SourceEndpointForwardErrorCorrectionStatePtrOutput
+	ToSourceEndpointForwardErrorCorrectionStatePtrOutputWithContext(context.Context) SourceEndpointForwardErrorCorrectionStatePtrOutput
+}
+
+type sourceEndpointForwardErrorCorrectionStatePtr string
+
+func SourceEndpointForwardErrorCorrectionStatePtr(v string) SourceEndpointForwardErrorCorrectionStatePtrInput {
+	return (*sourceEndpointForwardErrorCorrectionStatePtr)(&v)
+}
+
+func (*sourceEndpointForwardErrorCorrectionStatePtr) ElementType() reflect.Type {
+	return sourceEndpointForwardErrorCorrectionStatePtrType
+}
+
+func (in *sourceEndpointForwardErrorCorrectionStatePtr) ToSourceEndpointForwardErrorCorrectionStatePtrOutput() SourceEndpointForwardErrorCorrectionStatePtrOutput {
+	return pulumi.ToOutput(in).(SourceEndpointForwardErrorCorrectionStatePtrOutput)
+}
+
+func (in *sourceEndpointForwardErrorCorrectionStatePtr) ToSourceEndpointForwardErrorCorrectionStatePtrOutputWithContext(ctx context.Context) SourceEndpointForwardErrorCorrectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SourceEndpointForwardErrorCorrectionStatePtrOutput)
+}
+
+type SourceEndpointNetworkingType string
+
+const (
+	SourceEndpointNetworkingTypePublic = SourceEndpointNetworkingType("PUBLIC")
+	SourceEndpointNetworkingTypeVpc    = SourceEndpointNetworkingType("VPC")
+)
+
+func (SourceEndpointNetworkingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointNetworkingType)(nil)).Elem()
+}
+
+func (e SourceEndpointNetworkingType) ToSourceEndpointNetworkingTypeOutput() SourceEndpointNetworkingTypeOutput {
+	return pulumi.ToOutput(e).(SourceEndpointNetworkingTypeOutput)
+}
+
+func (e SourceEndpointNetworkingType) ToSourceEndpointNetworkingTypeOutputWithContext(ctx context.Context) SourceEndpointNetworkingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SourceEndpointNetworkingTypeOutput)
+}
+
+func (e SourceEndpointNetworkingType) ToSourceEndpointNetworkingTypePtrOutput() SourceEndpointNetworkingTypePtrOutput {
+	return e.ToSourceEndpointNetworkingTypePtrOutputWithContext(context.Background())
+}
+
+func (e SourceEndpointNetworkingType) ToSourceEndpointNetworkingTypePtrOutputWithContext(ctx context.Context) SourceEndpointNetworkingTypePtrOutput {
+	return SourceEndpointNetworkingType(e).ToSourceEndpointNetworkingTypeOutputWithContext(ctx).ToSourceEndpointNetworkingTypePtrOutputWithContext(ctx)
+}
+
+func (e SourceEndpointNetworkingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceEndpointNetworkingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceEndpointNetworkingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SourceEndpointNetworkingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SourceEndpointNetworkingTypeOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointNetworkingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointNetworkingType)(nil)).Elem()
+}
+
+func (o SourceEndpointNetworkingTypeOutput) ToSourceEndpointNetworkingTypeOutput() SourceEndpointNetworkingTypeOutput {
+	return o
+}
+
+func (o SourceEndpointNetworkingTypeOutput) ToSourceEndpointNetworkingTypeOutputWithContext(ctx context.Context) SourceEndpointNetworkingTypeOutput {
+	return o
+}
+
+func (o SourceEndpointNetworkingTypeOutput) ToSourceEndpointNetworkingTypePtrOutput() SourceEndpointNetworkingTypePtrOutput {
+	return o.ToSourceEndpointNetworkingTypePtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointNetworkingTypeOutput) ToSourceEndpointNetworkingTypePtrOutputWithContext(ctx context.Context) SourceEndpointNetworkingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceEndpointNetworkingType) *SourceEndpointNetworkingType {
+		return &v
+	}).(SourceEndpointNetworkingTypePtrOutput)
+}
+
+func (o SourceEndpointNetworkingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointNetworkingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointNetworkingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointNetworkingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointNetworkingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointNetworkingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointNetworkingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointNetworkingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointNetworkingType)(nil)).Elem()
+}
+
+func (o SourceEndpointNetworkingTypePtrOutput) ToSourceEndpointNetworkingTypePtrOutput() SourceEndpointNetworkingTypePtrOutput {
+	return o
+}
+
+func (o SourceEndpointNetworkingTypePtrOutput) ToSourceEndpointNetworkingTypePtrOutputWithContext(ctx context.Context) SourceEndpointNetworkingTypePtrOutput {
+	return o
+}
+
+func (o SourceEndpointNetworkingTypePtrOutput) Elem() SourceEndpointNetworkingTypeOutput {
+	return o.ApplyT(func(v *SourceEndpointNetworkingType) SourceEndpointNetworkingType {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointNetworkingType
+		return ret
+	}).(SourceEndpointNetworkingTypeOutput)
+}
+
+func (o SourceEndpointNetworkingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointNetworkingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceEndpointNetworkingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SourceEndpointNetworkingTypeInput is an input type that accepts values of the SourceEndpointNetworkingType enum
+// A concrete instance of `SourceEndpointNetworkingTypeInput` can be one of the following:
+//
+//	SourceEndpointNetworkingTypePublic
+//	SourceEndpointNetworkingTypeVpc
+type SourceEndpointNetworkingTypeInput interface {
+	pulumi.Input
+
+	ToSourceEndpointNetworkingTypeOutput() SourceEndpointNetworkingTypeOutput
+	ToSourceEndpointNetworkingTypeOutputWithContext(context.Context) SourceEndpointNetworkingTypeOutput
+}
+
+var sourceEndpointNetworkingTypePtrType = reflect.TypeOf((**SourceEndpointNetworkingType)(nil)).Elem()
+
+type SourceEndpointNetworkingTypePtrInput interface {
+	pulumi.Input
+
+	ToSourceEndpointNetworkingTypePtrOutput() SourceEndpointNetworkingTypePtrOutput
+	ToSourceEndpointNetworkingTypePtrOutputWithContext(context.Context) SourceEndpointNetworkingTypePtrOutput
+}
+
+type sourceEndpointNetworkingTypePtr string
+
+func SourceEndpointNetworkingTypePtr(v string) SourceEndpointNetworkingTypePtrInput {
+	return (*sourceEndpointNetworkingTypePtr)(&v)
+}
+
+func (*sourceEndpointNetworkingTypePtr) ElementType() reflect.Type {
+	return sourceEndpointNetworkingTypePtrType
+}
+
+func (in *sourceEndpointNetworkingTypePtr) ToSourceEndpointNetworkingTypePtrOutput() SourceEndpointNetworkingTypePtrOutput {
+	return pulumi.ToOutput(in).(SourceEndpointNetworkingTypePtrOutput)
+}
+
+func (in *sourceEndpointNetworkingTypePtr) ToSourceEndpointNetworkingTypePtrOutputWithContext(ctx context.Context) SourceEndpointNetworkingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SourceEndpointNetworkingTypePtrOutput)
+}
+
+type SourceEndpointProtocol string
+
+const (
+	SourceEndpointProtocolRtp         = SourceEndpointProtocol("RTP")
+	SourceEndpointProtocolRist        = SourceEndpointProtocol("RIST")
+	SourceEndpointProtocolSrtCaller   = SourceEndpointProtocol("SRT_CALLER")
+	SourceEndpointProtocolSrtListener = SourceEndpointProtocol("SRT_LISTENER")
+)
+
+func (SourceEndpointProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointProtocol)(nil)).Elem()
+}
+
+func (e SourceEndpointProtocol) ToSourceEndpointProtocolOutput() SourceEndpointProtocolOutput {
+	return pulumi.ToOutput(e).(SourceEndpointProtocolOutput)
+}
+
+func (e SourceEndpointProtocol) ToSourceEndpointProtocolOutputWithContext(ctx context.Context) SourceEndpointProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SourceEndpointProtocolOutput)
+}
+
+func (e SourceEndpointProtocol) ToSourceEndpointProtocolPtrOutput() SourceEndpointProtocolPtrOutput {
+	return e.ToSourceEndpointProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e SourceEndpointProtocol) ToSourceEndpointProtocolPtrOutputWithContext(ctx context.Context) SourceEndpointProtocolPtrOutput {
+	return SourceEndpointProtocol(e).ToSourceEndpointProtocolOutputWithContext(ctx).ToSourceEndpointProtocolPtrOutputWithContext(ctx)
+}
+
+func (e SourceEndpointProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceEndpointProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceEndpointProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SourceEndpointProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SourceEndpointProtocolOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointProtocol)(nil)).Elem()
+}
+
+func (o SourceEndpointProtocolOutput) ToSourceEndpointProtocolOutput() SourceEndpointProtocolOutput {
+	return o
+}
+
+func (o SourceEndpointProtocolOutput) ToSourceEndpointProtocolOutputWithContext(ctx context.Context) SourceEndpointProtocolOutput {
+	return o
+}
+
+func (o SourceEndpointProtocolOutput) ToSourceEndpointProtocolPtrOutput() SourceEndpointProtocolPtrOutput {
+	return o.ToSourceEndpointProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointProtocolOutput) ToSourceEndpointProtocolPtrOutputWithContext(ctx context.Context) SourceEndpointProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceEndpointProtocol) *SourceEndpointProtocol {
+		return &v
+	}).(SourceEndpointProtocolPtrOutput)
+}
+
+func (o SourceEndpointProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointProtocol)(nil)).Elem()
+}
+
+func (o SourceEndpointProtocolPtrOutput) ToSourceEndpointProtocolPtrOutput() SourceEndpointProtocolPtrOutput {
+	return o
+}
+
+func (o SourceEndpointProtocolPtrOutput) ToSourceEndpointProtocolPtrOutputWithContext(ctx context.Context) SourceEndpointProtocolPtrOutput {
+	return o
+}
+
+func (o SourceEndpointProtocolPtrOutput) Elem() SourceEndpointProtocolOutput {
+	return o.ApplyT(func(v *SourceEndpointProtocol) SourceEndpointProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointProtocol
+		return ret
+	}).(SourceEndpointProtocolOutput)
+}
+
+func (o SourceEndpointProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceEndpointProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SourceEndpointProtocolInput is an input type that accepts values of the SourceEndpointProtocol enum
+// A concrete instance of `SourceEndpointProtocolInput` can be one of the following:
+//
+//	SourceEndpointProtocolRtp
+//	SourceEndpointProtocolRist
+//	SourceEndpointProtocolSrtCaller
+//	SourceEndpointProtocolSrtListener
+type SourceEndpointProtocolInput interface {
+	pulumi.Input
+
+	ToSourceEndpointProtocolOutput() SourceEndpointProtocolOutput
+	ToSourceEndpointProtocolOutputWithContext(context.Context) SourceEndpointProtocolOutput
+}
+
+var sourceEndpointProtocolPtrType = reflect.TypeOf((**SourceEndpointProtocol)(nil)).Elem()
+
+type SourceEndpointProtocolPtrInput interface {
+	pulumi.Input
+
+	ToSourceEndpointProtocolPtrOutput() SourceEndpointProtocolPtrOutput
+	ToSourceEndpointProtocolPtrOutputWithContext(context.Context) SourceEndpointProtocolPtrOutput
+}
+
+type sourceEndpointProtocolPtr string
+
+func SourceEndpointProtocolPtr(v string) SourceEndpointProtocolPtrInput {
+	return (*sourceEndpointProtocolPtr)(&v)
+}
+
+func (*sourceEndpointProtocolPtr) ElementType() reflect.Type {
+	return sourceEndpointProtocolPtrType
+}
+
+func (in *sourceEndpointProtocolPtr) ToSourceEndpointProtocolPtrOutput() SourceEndpointProtocolPtrOutput {
+	return pulumi.ToOutput(in).(SourceEndpointProtocolPtrOutput)
+}
+
+func (in *sourceEndpointProtocolPtr) ToSourceEndpointProtocolPtrOutputWithContext(ctx context.Context) SourceEndpointProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SourceEndpointProtocolPtrOutput)
+}
+
+type SourceEndpointRegistrationState string
+
+const (
+	SourceEndpointRegistrationStateRegistered         = SourceEndpointRegistrationState("REGISTERED")
+	SourceEndpointRegistrationStateRegistering        = SourceEndpointRegistrationState("REGISTERING")
+	SourceEndpointRegistrationStateDeregistering      = SourceEndpointRegistrationState("DEREGISTERING")
+	SourceEndpointRegistrationStateRegistrationFailed = SourceEndpointRegistrationState("REGISTRATION_FAILED")
+)
+
+type SourceEndpointRegistrationStateOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRegistrationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointRegistrationState)(nil)).Elem()
+}
+
+func (o SourceEndpointRegistrationStateOutput) ToSourceEndpointRegistrationStateOutput() SourceEndpointRegistrationStateOutput {
+	return o
+}
+
+func (o SourceEndpointRegistrationStateOutput) ToSourceEndpointRegistrationStateOutputWithContext(ctx context.Context) SourceEndpointRegistrationStateOutput {
+	return o
+}
+
+func (o SourceEndpointRegistrationStateOutput) ToSourceEndpointRegistrationStatePtrOutput() SourceEndpointRegistrationStatePtrOutput {
+	return o.ToSourceEndpointRegistrationStatePtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointRegistrationStateOutput) ToSourceEndpointRegistrationStatePtrOutputWithContext(ctx context.Context) SourceEndpointRegistrationStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceEndpointRegistrationState) *SourceEndpointRegistrationState {
+		return &v
+	}).(SourceEndpointRegistrationStatePtrOutput)
+}
+
+func (o SourceEndpointRegistrationStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointRegistrationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointRegistrationState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointRegistrationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointRegistrationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointRegistrationState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointRegistrationStatePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRegistrationStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointRegistrationState)(nil)).Elem()
+}
+
+func (o SourceEndpointRegistrationStatePtrOutput) ToSourceEndpointRegistrationStatePtrOutput() SourceEndpointRegistrationStatePtrOutput {
+	return o
+}
+
+func (o SourceEndpointRegistrationStatePtrOutput) ToSourceEndpointRegistrationStatePtrOutputWithContext(ctx context.Context) SourceEndpointRegistrationStatePtrOutput {
+	return o
+}
+
+func (o SourceEndpointRegistrationStatePtrOutput) Elem() SourceEndpointRegistrationStateOutput {
+	return o.ApplyT(func(v *SourceEndpointRegistrationState) SourceEndpointRegistrationState {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointRegistrationState
+		return ret
+	}).(SourceEndpointRegistrationStateOutput)
+}
+
+func (o SourceEndpointRegistrationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointRegistrationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceEndpointRegistrationState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointRouterOutputState string
+
+const (
+	SourceEndpointRouterOutputStateCreating   = SourceEndpointRouterOutputState("CREATING")
+	SourceEndpointRouterOutputStateStandby    = SourceEndpointRouterOutputState("STANDBY")
+	SourceEndpointRouterOutputStateStarting   = SourceEndpointRouterOutputState("STARTING")
+	SourceEndpointRouterOutputStateActive     = SourceEndpointRouterOutputState("ACTIVE")
+	SourceEndpointRouterOutputStateStopping   = SourceEndpointRouterOutputState("STOPPING")
+	SourceEndpointRouterOutputStateDeleting   = SourceEndpointRouterOutputState("DELETING")
+	SourceEndpointRouterOutputStateUpdating   = SourceEndpointRouterOutputState("UPDATING")
+	SourceEndpointRouterOutputStateError      = SourceEndpointRouterOutputState("ERROR")
+	SourceEndpointRouterOutputStateRecovering = SourceEndpointRouterOutputState("RECOVERING")
+	SourceEndpointRouterOutputStateMigrating  = SourceEndpointRouterOutputState("MIGRATING")
+)
+
+type SourceEndpointRouterOutputStateOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRouterOutputStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointRouterOutputState)(nil)).Elem()
+}
+
+func (o SourceEndpointRouterOutputStateOutput) ToSourceEndpointRouterOutputStateOutput() SourceEndpointRouterOutputStateOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputStateOutput) ToSourceEndpointRouterOutputStateOutputWithContext(ctx context.Context) SourceEndpointRouterOutputStateOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputStateOutput) ToSourceEndpointRouterOutputStatePtrOutput() SourceEndpointRouterOutputStatePtrOutput {
+	return o.ToSourceEndpointRouterOutputStatePtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointRouterOutputStateOutput) ToSourceEndpointRouterOutputStatePtrOutputWithContext(ctx context.Context) SourceEndpointRouterOutputStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceEndpointRouterOutputState) *SourceEndpointRouterOutputState {
+		return &v
+	}).(SourceEndpointRouterOutputStatePtrOutput)
+}
+
+func (o SourceEndpointRouterOutputStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointRouterOutputStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointRouterOutputState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointRouterOutputStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointRouterOutputStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointRouterOutputState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointRouterOutputStatePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointRouterOutputStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointRouterOutputState)(nil)).Elem()
+}
+
+func (o SourceEndpointRouterOutputStatePtrOutput) ToSourceEndpointRouterOutputStatePtrOutput() SourceEndpointRouterOutputStatePtrOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputStatePtrOutput) ToSourceEndpointRouterOutputStatePtrOutputWithContext(ctx context.Context) SourceEndpointRouterOutputStatePtrOutput {
+	return o
+}
+
+func (o SourceEndpointRouterOutputStatePtrOutput) Elem() SourceEndpointRouterOutputStateOutput {
+	return o.ApplyT(func(v *SourceEndpointRouterOutputState) SourceEndpointRouterOutputState {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointRouterOutputState
+		return ret
+	}).(SourceEndpointRouterOutputStateOutput)
+}
+
+func (o SourceEndpointRouterOutputStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointRouterOutputStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceEndpointRouterOutputState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointType string
+
+const (
+	SourceEndpointTypeStandard     = SourceEndpointType("STANDARD")
+	SourceEndpointTypeRouterOutput = SourceEndpointType("ROUTER_OUTPUT")
+)
+
+type SourceEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceEndpointType)(nil)).Elem()
+}
+
+func (o SourceEndpointTypeOutput) ToSourceEndpointTypeOutput() SourceEndpointTypeOutput {
+	return o
+}
+
+func (o SourceEndpointTypeOutput) ToSourceEndpointTypeOutputWithContext(ctx context.Context) SourceEndpointTypeOutput {
+	return o
+}
+
+func (o SourceEndpointTypeOutput) ToSourceEndpointTypePtrOutput() SourceEndpointTypePtrOutput {
+	return o.ToSourceEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointTypeOutput) ToSourceEndpointTypePtrOutputWithContext(ctx context.Context) SourceEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceEndpointType) *SourceEndpointType {
+		return &v
+	}).(SourceEndpointTypePtrOutput)
+}
+
+func (o SourceEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceEndpointType)(nil)).Elem()
+}
+
+func (o SourceEndpointTypePtrOutput) ToSourceEndpointTypePtrOutput() SourceEndpointTypePtrOutput {
+	return o
+}
+
+func (o SourceEndpointTypePtrOutput) ToSourceEndpointTypePtrOutputWithContext(ctx context.Context) SourceEndpointTypePtrOutput {
+	return o
+}
+
+func (o SourceEndpointTypePtrOutput) Elem() SourceEndpointTypeOutput {
+	return o.ApplyT(func(v *SourceEndpointType) SourceEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret SourceEndpointType
+		return ret
+	}).(SourceEndpointTypeOutput)
+}
+
+func (o SourceEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFailoverConfigStateEnumInput)(nil)).Elem(), BridgeFailoverConfigStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFailoverConfigStateEnumPtrInput)(nil)).Elem(), BridgeFailoverConfigStateEnum("ENABLED"))
@@ -12560,6 +15490,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeProtocolEnumPtrInput)(nil)).Elem(), BridgeProtocolEnum("rtp-fec"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceProtocolEnumInput)(nil)).Elem(), BridgeSourceProtocolEnum("rtp-fec"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceProtocolEnumPtrInput)(nil)).Elem(), BridgeSourceProtocolEnum("rtp-fec"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointForwardErrorCorrectionStateInput)(nil)).Elem(), DestinationEndpointForwardErrorCorrectionState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointForwardErrorCorrectionStatePtrInput)(nil)).Elem(), DestinationEndpointForwardErrorCorrectionState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointNetworkingTypeInput)(nil)).Elem(), DestinationEndpointNetworkingType("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointNetworkingTypePtrInput)(nil)).Elem(), DestinationEndpointNetworkingType("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointProtocolInput)(nil)).Elem(), DestinationEndpointProtocol("RTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationEndpointProtocolPtrInput)(nil)).Elem(), DestinationEndpointProtocol("RTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesStateInput)(nil)).Elem(), FlowBlackFramesState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesStatePtrInput)(nil)).Elem(), FlowBlackFramesState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncodingProfileInput)(nil)).Elem(), FlowEncodingProfile("DISTRIBUTION_H264_DEFAULT"))
@@ -12648,6 +15584,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputContentQualityAnalysisStatePtrInput)(nil)).Elem(), RouterInputContentQualityAnalysisState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDayInput)(nil)).Elem(), RouterInputDay("MONDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDayPtrInput)(nil)).Elem(), RouterInputDay("MONDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputEndpointEncryptionSecretTypeInput)(nil)).Elem(), RouterInputEndpointEncryptionSecretType("AES_128_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputEndpointEncryptionSecretTypePtrInput)(nil)).Elem(), RouterInputEndpointEncryptionSecretType("AES_128_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputEndpointEncryptionTypeInput)(nil)).Elem(), RouterInputEndpointEncryptionType("SECRETS_MANAGER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputEndpointEncryptionTypePtrInput)(nil)).Elem(), RouterInputEndpointEncryptionType("SECRETS_MANAGER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputEndpointLifecycleInput)(nil)).Elem(), RouterInputEndpointLifecycle("MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputEndpointLifecyclePtrInput)(nil)).Elem(), RouterInputEndpointLifecycle("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverInputSourcePriorityModeInput)(nil)).Elem(), RouterInputFailoverInputSourcePriorityMode("NO_PRIORITY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverInputSourcePriorityModePtrInput)(nil)).Elem(), RouterInputFailoverInputSourcePriorityMode("NO_PRIORITY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFlowTransitEncryptionKeyTypeInput)(nil)).Elem(), RouterInputFlowTransitEncryptionKeyType("SECRETS_MANAGER"))
@@ -12668,6 +15610,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputTransitEncryptionKeyTypePtrInput)(nil)).Elem(), RouterInputTransitEncryptionKeyType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceDayInput)(nil)).Elem(), RouterOutputResourceDay("MONDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceDayPtrInput)(nil)).Elem(), RouterOutputResourceDay("MONDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceEndpointEncryptionSecretTypeInput)(nil)).Elem(), RouterOutputResourceEndpointEncryptionSecretType("AES_128_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceEndpointEncryptionSecretTypePtrInput)(nil)).Elem(), RouterOutputResourceEndpointEncryptionSecretType("AES_128_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceEndpointEncryptionTypeInput)(nil)).Elem(), RouterOutputResourceEndpointEncryptionType("SECRETS_MANAGER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceEndpointEncryptionTypePtrInput)(nil)).Elem(), RouterOutputResourceEndpointEncryptionType("SECRETS_MANAGER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceEndpointLifecycleInput)(nil)).Elem(), RouterOutputResourceEndpointLifecycle("MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceEndpointLifecyclePtrInput)(nil)).Elem(), RouterOutputResourceEndpointLifecycle("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFabricLatencyModeInput)(nil)).Elem(), RouterOutputResourceFabricLatencyMode("BALANCED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFabricLatencyModePtrInput)(nil)).Elem(), RouterOutputResourceFabricLatencyMode("BALANCED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFlowTransitEncryptionKeyTypeInput)(nil)).Elem(), RouterOutputResourceFlowTransitEncryptionKeyType("SECRETS_MANAGER"))
@@ -12686,6 +15634,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRoutingScopePtrInput)(nil)).Elem(), RouterOutputResourceRoutingScope("REGIONAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceTlsEncryptionTypeInput)(nil)).Elem(), RouterOutputResourceTlsEncryptionType("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceTlsEncryptionTypePtrInput)(nil)).Elem(), RouterOutputResourceTlsEncryptionType("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointForwardErrorCorrectionStateInput)(nil)).Elem(), SourceEndpointForwardErrorCorrectionState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointForwardErrorCorrectionStatePtrInput)(nil)).Elem(), SourceEndpointForwardErrorCorrectionState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointNetworkingTypeInput)(nil)).Elem(), SourceEndpointNetworkingType("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointNetworkingTypePtrInput)(nil)).Elem(), SourceEndpointNetworkingType("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointProtocolInput)(nil)).Elem(), SourceEndpointProtocol("RTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceEndpointProtocolPtrInput)(nil)).Elem(), SourceEndpointProtocol("RTP"))
 	pulumi.RegisterOutputType(BridgeFailoverConfigStateEnumOutput{})
 	pulumi.RegisterOutputType(BridgeFailoverConfigStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(BridgeFailoverModeEnumOutput{})
@@ -12698,6 +15652,22 @@ func init() {
 	pulumi.RegisterOutputType(BridgeSourceProtocolEnumPtrOutput{})
 	pulumi.RegisterOutputType(BridgeStateEnumOutput{})
 	pulumi.RegisterOutputType(BridgeStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointConnectionStateOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointEndpointLifecycleOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointEndpointLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointForwardErrorCorrectionStateOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointForwardErrorCorrectionStatePtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointNetworkingTypeOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointNetworkingTypePtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointProtocolOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointProtocolPtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRegistrationStateOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRegistrationStatePtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRouterInputStateOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointRouterInputStatePtrOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointTypeOutput{})
+	pulumi.RegisterOutputType(DestinationEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowBlackFramesStateOutput{})
 	pulumi.RegisterOutputType(FlowBlackFramesStatePtrOutput{})
 	pulumi.RegisterOutputType(FlowEncodingProfileOutput{})
@@ -12788,6 +15758,12 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputContentQualityAnalysisStatePtrOutput{})
 	pulumi.RegisterOutputType(RouterInputDayOutput{})
 	pulumi.RegisterOutputType(RouterInputDayPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionSecretTypeOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionSecretTypePtrOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointLifecycleOutput{})
+	pulumi.RegisterOutputType(RouterInputEndpointLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverInputSourcePriorityModeOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverInputSourcePriorityModePtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFlowTransitEncryptionKeyTypeOutput{})
@@ -12820,6 +15796,12 @@ func init() {
 	pulumi.RegisterOutputType(RouterNetworkInterfaceTypePtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceDayOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceDayPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionSecretTypeOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionSecretTypePtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointLifecycleOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceEndpointLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFabricLatencyModeOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFabricLatencyModePtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFlowTransitEncryptionKeyTypeOutput{})
@@ -12846,4 +15828,20 @@ func init() {
 	pulumi.RegisterOutputType(RouterOutputResourceRoutingScopePtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceTlsEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceTlsEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointConnectionStateOutput{})
+	pulumi.RegisterOutputType(SourceEndpointConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointEndpointLifecycleOutput{})
+	pulumi.RegisterOutputType(SourceEndpointEndpointLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointForwardErrorCorrectionStateOutput{})
+	pulumi.RegisterOutputType(SourceEndpointForwardErrorCorrectionStatePtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointNetworkingTypeOutput{})
+	pulumi.RegisterOutputType(SourceEndpointNetworkingTypePtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointProtocolOutput{})
+	pulumi.RegisterOutputType(SourceEndpointProtocolPtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRegistrationStateOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRegistrationStatePtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRouterOutputStateOutput{})
+	pulumi.RegisterOutputType(SourceEndpointRouterOutputStatePtrOutput{})
+	pulumi.RegisterOutputType(SourceEndpointTypeOutput{})
+	pulumi.RegisterOutputType(SourceEndpointTypePtrOutput{})
 }

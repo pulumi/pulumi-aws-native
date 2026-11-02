@@ -397,6 +397,8 @@ if typing.TYPE_CHECKING:
     networkmanager = __networkmanager
     import pulumi_aws_native.networkmonitor as __networkmonitor
     networkmonitor = __networkmonitor
+    import pulumi_aws_native.networksecuritymanager as __networksecuritymanager
+    networksecuritymanager = __networksecuritymanager
     import pulumi_aws_native.nimblestudio as __nimblestudio
     nimblestudio = __nimblestudio
     import pulumi_aws_native.oam as __oam
@@ -789,6 +791,7 @@ else:
     networkflowmonitor = _utilities.lazy_import('pulumi_aws_native.networkflowmonitor')
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     networkmonitor = _utilities.lazy_import('pulumi_aws_native.networkmonitor')
+    networksecuritymanager = _utilities.lazy_import('pulumi_aws_native.networksecuritymanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
     observabilityadmin = _utilities.lazy_import('pulumi_aws_native.observabilityadmin')
@@ -1232,6 +1235,7 @@ _utilities.register(
   "mod": "backup",
   "fqn": "pulumi_aws_native.backup",
   "classes": {
+   "aws-native:backup:BackupAccessPoint": "BackupAccessPoint",
    "aws-native:backup:BackupPlan": "BackupPlan",
    "aws-native:backup:BackupSelection": "BackupSelection",
    "aws-native:backup:BackupVault": "BackupVault",
@@ -1561,11 +1565,14 @@ _utilities.register(
   "mod": "cloudwatch",
   "fqn": "pulumi_aws_native.cloudwatch",
   "classes": {
+   "aws-native:cloudwatch:AccessGrant": "AccessGrant",
    "aws-native:cloudwatch:AccessProfile": "AccessProfile",
    "aws-native:cloudwatch:Alarm": "Alarm",
    "aws-native:cloudwatch:AlarmMuteRule": "AlarmMuteRule",
    "aws-native:cloudwatch:CompositeAlarm": "CompositeAlarm",
    "aws-native:cloudwatch:Dashboard": "Dashboard",
+   "aws-native:cloudwatch:Domain": "Domain",
+   "aws-native:cloudwatch:DomainAccessGrantForOrganization": "DomainAccessGrantForOrganization",
    "aws-native:cloudwatch:DomainForOrganization": "DomainForOrganization",
    "aws-native:cloudwatch:InsightRule": "InsightRule",
    "aws-native:cloudwatch:Integration": "Integration",
@@ -1574,6 +1581,7 @@ _utilities.register(
    "aws-native:cloudwatch:OTelEnrichment": "OTelEnrichment",
    "aws-native:cloudwatch:OmniDashboard": "OmniDashboard",
    "aws-native:cloudwatch:ResourceMetricsConfiguration": "ResourceMetricsConfiguration",
+   "aws-native:cloudwatch:Space": "Space",
    "aws-native:cloudwatch:View": "View"
   }
  },
@@ -2140,6 +2148,7 @@ _utilities.register(
    "aws-native:ec2:SecurityGroupEgress": "SecurityGroupEgress",
    "aws-native:ec2:SecurityGroupIngress": "SecurityGroupIngress",
    "aws-native:ec2:SecurityGroupVpcAssociation": "SecurityGroupVpcAssociation",
+   "aws-native:ec2:Snapshot": "Snapshot",
    "aws-native:ec2:SnapshotBlockPublicAccess": "SnapshotBlockPublicAccess",
    "aws-native:ec2:SpotFleet": "SpotFleet",
    "aws-native:ec2:SqlHaStandbyDetectedInstance": "SqlHaStandbyDetectedInstance",
@@ -3136,6 +3145,7 @@ _utilities.register(
    "aws-native:mediaconnect:Bridge": "Bridge",
    "aws-native:mediaconnect:BridgeOutputResource": "BridgeOutputResource",
    "aws-native:mediaconnect:BridgeSource": "BridgeSource",
+   "aws-native:mediaconnect:DestinationEndpoint": "DestinationEndpoint",
    "aws-native:mediaconnect:Flow": "Flow",
    "aws-native:mediaconnect:FlowEntitlement": "FlowEntitlement",
    "aws-native:mediaconnect:FlowMediaStream": "FlowMediaStream",
@@ -3145,7 +3155,8 @@ _utilities.register(
    "aws-native:mediaconnect:Gateway": "Gateway",
    "aws-native:mediaconnect:RouterInput": "RouterInput",
    "aws-native:mediaconnect:RouterNetworkInterface": "RouterNetworkInterface",
-   "aws-native:mediaconnect:RouterOutputResource": "RouterOutputResource"
+   "aws-native:mediaconnect:RouterOutputResource": "RouterOutputResource",
+   "aws-native:mediaconnect:SourceEndpoint": "SourceEndpoint"
   }
  },
  {
@@ -3239,9 +3250,12 @@ _utilities.register(
   "mod": "mgn",
   "fqn": "pulumi_aws_native.mgn",
   "classes": {
+   "aws-native:mgn:Application": "Application",
    "aws-native:mgn:Connector": "Connector",
    "aws-native:mgn:LaunchConfigurationTemplate": "LaunchConfigurationTemplate",
-   "aws-native:mgn:NetworkMigrationDefinition": "NetworkMigrationDefinition"
+   "aws-native:mgn:NetworkMigrationDefinition": "NetworkMigrationDefinition",
+   "aws-native:mgn:ReplicationConfigurationTemplate": "ReplicationConfigurationTemplate",
+   "aws-native:mgn:Wave": "Wave"
   }
  },
  {
@@ -3354,6 +3368,17 @@ _utilities.register(
   "classes": {
    "aws-native:networkmonitor:Monitor": "Monitor",
    "aws-native:networkmonitor:Probe": "Probe"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "networksecuritymanager",
+  "fqn": "pulumi_aws_native.networksecuritymanager",
+  "classes": {
+   "aws-native:networksecuritymanager:Policy": "Policy",
+   "aws-native:networksecuritymanager:Rule": "Rule",
+   "aws-native:networksecuritymanager:Scope": "Scope",
+   "aws-native:networksecuritymanager:Template": "Template"
   }
  },
  {
@@ -3549,6 +3574,7 @@ _utilities.register(
    "aws-native:personalize:EventTracker": "EventTracker",
    "aws-native:personalize:Filter": "Filter",
    "aws-native:personalize:MetricAttribution": "MetricAttribution",
+   "aws-native:personalize:Recommender": "Recommender",
    "aws-native:personalize:Schema": "Schema",
    "aws-native:personalize:Solution": "Solution"
   }

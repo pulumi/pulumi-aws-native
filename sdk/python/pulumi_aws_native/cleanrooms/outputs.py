@@ -63,6 +63,9 @@ __all__ = [
     'ConfiguredTableAssociationAnalysisRulePolicyV12Properties',
     'ConfiguredTableAthenaTableReference',
     'ConfiguredTableComparisonControls',
+    'ConfiguredTableDatabricksConnectionTypeProperties',
+    'ConfiguredTableDatabricksDeltaSharingConnection',
+    'ConfiguredTableDatabricksTableReference',
     'ConfiguredTableDifferentialPrivacy',
     'ConfiguredTableDifferentialPrivacyColumn',
     'ConfiguredTableGlueTableReference',
@@ -73,6 +76,7 @@ __all__ = [
     'ConfiguredTableTableReference0Properties',
     'ConfiguredTableTableReference1Properties',
     'ConfiguredTableTableReference2Properties',
+    'ConfiguredTableTableReference3Properties',
     'IdMappingTableInputReferenceConfig',
     'IdMappingTableInputReferenceProperties',
     'IdMappingTableInputSource',
@@ -1866,6 +1870,129 @@ class ConfiguredTableComparisonControls(dict):
 
 
 @pulumi.output_type
+class ConfiguredTableDatabricksConnectionTypeProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deltaSharing":
+            suggest = "delta_sharing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableDatabricksConnectionTypeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableDatabricksConnectionTypeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableDatabricksConnectionTypeProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delta_sharing: 'outputs.ConfiguredTableDatabricksDeltaSharingConnection'):
+        pulumi.set(__self__, "delta_sharing", delta_sharing)
+
+    @_builtins.property
+    @pulumi.getter(name="deltaSharing")
+    def delta_sharing(self) -> 'outputs.ConfiguredTableDatabricksDeltaSharingConnection':
+        return pulumi.get(self, "delta_sharing")
+
+
+@pulumi.output_type
+class ConfiguredTableDatabricksDeltaSharingConnection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deltaShareEndpoint":
+            suggest = "delta_share_endpoint"
+        elif key == "shareName":
+            suggest = "share_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableDatabricksDeltaSharingConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableDatabricksDeltaSharingConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableDatabricksDeltaSharingConnection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delta_share_endpoint: _builtins.str,
+                 share_name: _builtins.str):
+        pulumi.set(__self__, "delta_share_endpoint", delta_share_endpoint)
+        pulumi.set(__self__, "share_name", share_name)
+
+    @_builtins.property
+    @pulumi.getter(name="deltaShareEndpoint")
+    def delta_share_endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "delta_share_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> _builtins.str:
+        return pulumi.get(self, "share_name")
+
+
+@pulumi.output_type
+class ConfiguredTableDatabricksTableReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionType":
+            suggest = "connection_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "workspaceUrl":
+            suggest = "workspace_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableDatabricksTableReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableDatabricksTableReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableDatabricksTableReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_type: 'outputs.ConfiguredTableDatabricksConnectionTypeProperties',
+                 schema_name: _builtins.str,
+                 table_name: _builtins.str,
+                 workspace_url: _builtins.str):
+        pulumi.set(__self__, "connection_type", connection_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "table_name", table_name)
+        pulumi.set(__self__, "workspace_url", workspace_url)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> 'outputs.ConfiguredTableDatabricksConnectionTypeProperties':
+        return pulumi.get(self, "connection_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> _builtins.str:
+        return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceUrl")
+    def workspace_url(self) -> _builtins.str:
+        return pulumi.get(self, "workspace_url")
+
+
+@pulumi.output_type
 class ConfiguredTableDifferentialPrivacy(dict):
     def __init__(__self__, *,
                  columns: Sequence['outputs.ConfiguredTableDifferentialPrivacyColumn']):
@@ -2131,6 +2258,18 @@ class ConfiguredTableTableReference2Properties(dict):
     @pulumi.getter
     def athena(self) -> 'outputs.ConfiguredTableAthenaTableReference':
         return pulumi.get(self, "athena")
+
+
+@pulumi.output_type
+class ConfiguredTableTableReference3Properties(dict):
+    def __init__(__self__, *,
+                 databricks: 'outputs.ConfiguredTableDatabricksTableReference'):
+        pulumi.set(__self__, "databricks", databricks)
+
+    @_builtins.property
+    @pulumi.getter
+    def databricks(self) -> 'outputs.ConfiguredTableDatabricksTableReference':
+        return pulumi.get(self, "databricks")
 
 
 @pulumi.output_type

@@ -38,9 +38,17 @@ export interface GetConnectorResult {
      */
     readonly connectorConfiguration?: {[key: string]: string};
     /**
+     * List of plugins to use with the connector.
+     */
+    readonly plugins?: outputs.kafkaconnect.ConnectorPlugin[];
+    /**
      * A collection of tags associated with a resource
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The worker configurations that are in use with the connector.
+     */
+    readonly workerConfiguration?: outputs.kafkaconnect.ConnectorWorkerConfiguration;
 }
 /**
  * Resource Type definition for AWS::KafkaConnect::Connector

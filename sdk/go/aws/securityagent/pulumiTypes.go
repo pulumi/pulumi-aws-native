@@ -4201,6 +4201,146 @@ func (o PentestCaCertificateSourceOutput) S3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestCaCertificateSource) *string { return v.S3Location }).(pulumi.StringPtrOutput)
 }
 
+// Configuration for running pentests automatically from a CI/CD pipeline
+type PentestCiCdConfiguration struct {
+	// Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+	Enabled bool `pulumi:"enabled"`
+}
+
+// PentestCiCdConfigurationInput is an input type that accepts PentestCiCdConfigurationArgs and PentestCiCdConfigurationOutput values.
+// You can construct a concrete instance of `PentestCiCdConfigurationInput` via:
+//
+//	PentestCiCdConfigurationArgs{...}
+type PentestCiCdConfigurationInput interface {
+	pulumi.Input
+
+	ToPentestCiCdConfigurationOutput() PentestCiCdConfigurationOutput
+	ToPentestCiCdConfigurationOutputWithContext(context.Context) PentestCiCdConfigurationOutput
+}
+
+// Configuration for running pentests automatically from a CI/CD pipeline
+type PentestCiCdConfigurationArgs struct {
+	// Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (PentestCiCdConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestCiCdConfiguration)(nil)).Elem()
+}
+
+func (i PentestCiCdConfigurationArgs) ToPentestCiCdConfigurationOutput() PentestCiCdConfigurationOutput {
+	return i.ToPentestCiCdConfigurationOutputWithContext(context.Background())
+}
+
+func (i PentestCiCdConfigurationArgs) ToPentestCiCdConfigurationOutputWithContext(ctx context.Context) PentestCiCdConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestCiCdConfigurationOutput)
+}
+
+func (i PentestCiCdConfigurationArgs) ToPentestCiCdConfigurationPtrOutput() PentestCiCdConfigurationPtrOutput {
+	return i.ToPentestCiCdConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PentestCiCdConfigurationArgs) ToPentestCiCdConfigurationPtrOutputWithContext(ctx context.Context) PentestCiCdConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestCiCdConfigurationOutput).ToPentestCiCdConfigurationPtrOutputWithContext(ctx)
+}
+
+// PentestCiCdConfigurationPtrInput is an input type that accepts PentestCiCdConfigurationArgs, PentestCiCdConfigurationPtr and PentestCiCdConfigurationPtrOutput values.
+// You can construct a concrete instance of `PentestCiCdConfigurationPtrInput` via:
+//
+//	        PentestCiCdConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PentestCiCdConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPentestCiCdConfigurationPtrOutput() PentestCiCdConfigurationPtrOutput
+	ToPentestCiCdConfigurationPtrOutputWithContext(context.Context) PentestCiCdConfigurationPtrOutput
+}
+
+type pentestCiCdConfigurationPtrType PentestCiCdConfigurationArgs
+
+func PentestCiCdConfigurationPtr(v *PentestCiCdConfigurationArgs) PentestCiCdConfigurationPtrInput {
+	return (*pentestCiCdConfigurationPtrType)(v)
+}
+
+func (*pentestCiCdConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestCiCdConfiguration)(nil)).Elem()
+}
+
+func (i *pentestCiCdConfigurationPtrType) ToPentestCiCdConfigurationPtrOutput() PentestCiCdConfigurationPtrOutput {
+	return i.ToPentestCiCdConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *pentestCiCdConfigurationPtrType) ToPentestCiCdConfigurationPtrOutputWithContext(ctx context.Context) PentestCiCdConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestCiCdConfigurationPtrOutput)
+}
+
+// Configuration for running pentests automatically from a CI/CD pipeline
+type PentestCiCdConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PentestCiCdConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestCiCdConfiguration)(nil)).Elem()
+}
+
+func (o PentestCiCdConfigurationOutput) ToPentestCiCdConfigurationOutput() PentestCiCdConfigurationOutput {
+	return o
+}
+
+func (o PentestCiCdConfigurationOutput) ToPentestCiCdConfigurationOutputWithContext(ctx context.Context) PentestCiCdConfigurationOutput {
+	return o
+}
+
+func (o PentestCiCdConfigurationOutput) ToPentestCiCdConfigurationPtrOutput() PentestCiCdConfigurationPtrOutput {
+	return o.ToPentestCiCdConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PentestCiCdConfigurationOutput) ToPentestCiCdConfigurationPtrOutputWithContext(ctx context.Context) PentestCiCdConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestCiCdConfiguration) *PentestCiCdConfiguration {
+		return &v
+	}).(PentestCiCdConfigurationPtrOutput)
+}
+
+// Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+func (o PentestCiCdConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v PentestCiCdConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type PentestCiCdConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PentestCiCdConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestCiCdConfiguration)(nil)).Elem()
+}
+
+func (o PentestCiCdConfigurationPtrOutput) ToPentestCiCdConfigurationPtrOutput() PentestCiCdConfigurationPtrOutput {
+	return o
+}
+
+func (o PentestCiCdConfigurationPtrOutput) ToPentestCiCdConfigurationPtrOutputWithContext(ctx context.Context) PentestCiCdConfigurationPtrOutput {
+	return o
+}
+
+func (o PentestCiCdConfigurationPtrOutput) Elem() PentestCiCdConfigurationOutput {
+	return o.ApplyT(func(v *PentestCiCdConfiguration) PentestCiCdConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PentestCiCdConfiguration
+		return ret
+	}).(PentestCiCdConfigurationOutput)
+}
+
+// Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+func (o PentestCiCdConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PentestCiCdConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // CloudWatch Logs configuration for pentest output
 type PentestCloudWatchLog struct {
 	// CloudWatch log group
@@ -7092,6 +7232,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationInput)(nil)).Elem(), PentestAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationPtrInput)(nil)).Elem(), PentestAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCaCertificateSourceInput)(nil)).Elem(), PentestCaCertificateSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestCiCdConfigurationInput)(nil)).Elem(), PentestCiCdConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestCiCdConfigurationPtrInput)(nil)).Elem(), PentestCiCdConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCloudWatchLogInput)(nil)).Elem(), PentestCloudWatchLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCloudWatchLogPtrInput)(nil)).Elem(), PentestCloudWatchLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCustomHeaderInput)(nil)).Elem(), PentestCustomHeaderArgs{})
@@ -7175,6 +7317,8 @@ func init() {
 	pulumi.RegisterOutputType(PentestAuthenticationOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(PentestCaCertificateSourceOutput{})
+	pulumi.RegisterOutputType(PentestCiCdConfigurationOutput{})
+	pulumi.RegisterOutputType(PentestCiCdConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PentestCloudWatchLogOutput{})
 	pulumi.RegisterOutputType(PentestCloudWatchLogPtrOutput{})
 	pulumi.RegisterOutputType(PentestCustomHeaderOutput{})

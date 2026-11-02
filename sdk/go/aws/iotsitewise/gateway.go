@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::IoTSiteWise::Gateway
+// Resource Type definition for AWS::IoTSiteWise::Gateway
 type Gateway struct {
 	pulumi.CustomResourceState
 

@@ -42,6 +42,7 @@ __all__ = [
     'PentestAssets',
     'PentestAuthentication',
     'PentestCaCertificateSource',
+    'PentestCiCdConfiguration',
     'PentestCloudWatchLog',
     'PentestCustomHeader',
     'PentestDocumentInfo',
@@ -1728,6 +1729,29 @@ class PentestCaCertificateSource(dict):
         Amazon S3 location URI of a customer-staged certificate
         """
         return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class PentestCiCdConfiguration(dict):
+    """
+    Configuration for running pentests automatically from a CI/CD pipeline
+    """
+    def __init__(__self__, *,
+                 enabled: _builtins.bool):
+        """
+        Configuration for running pentests automatically from a CI/CD pipeline
+
+        :param _builtins.bool enabled: Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

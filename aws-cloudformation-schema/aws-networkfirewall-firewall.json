@@ -46,6 +46,70 @@
       "enum" : [ "TLS_SNI", "HTTP_HOST" ],
       "type" : "string"
     },
+    "NatGatewayMapping" : {
+      "description" : "A mapping to a NAT gateway that a proxy-mode firewall proxies egress traffic through.",
+      "type" : "object",
+      "properties" : {
+        "NatGatewayId" : {
+          "description" : "The unique identifier of a NAT gateway.",
+          "type" : "string"
+        }
+      },
+      "required" : [ "NatGatewayId" ],
+      "additionalProperties" : false
+    },
+    "ListenerProperty" : {
+      "description" : "A port and protocol that a proxy-mode firewall's proxy listener accepts traffic on.",
+      "type" : "object",
+      "properties" : {
+        "Port" : {
+          "description" : "The port the proxy listener accepts traffic on.",
+          "type" : "integer"
+        },
+        "Type" : {
+          "description" : "The protocol the proxy listener uses.",
+          "enum" : [ "HTTP", "HTTPS" ],
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ProxySettings" : {
+      "description" : "The proxy listener configuration for a proxy-mode (no source preservation) firewall.",
+      "type" : "object",
+      "properties" : {
+        "ListenerProperties" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/ListenerProperty"
+          }
+        }
+      },
+      "additionalProperties" : false
+    },
+    "VpcEndpoint" : {
+      "description" : "The VPC and subnets for a proxy-mode firewall's endpoint. Provide this instead of the top-level VpcId and SubnetMappings when NoSourcePreservation is true.",
+      "type" : "object",
+      "properties" : {
+        "VpcId" : {
+          "description" : "The unique identifier of the VPC for the firewall endpoint.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128,
+          "pattern" : "^vpc-[0-9a-f]+$"
+        },
+        "SubnetMappings" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/SubnetMapping"
+          }
+        }
+      },
+      "additionalProperties" : false
+    },
     "Tag" : {
       "type" : "object",
       "properties" : {
@@ -148,6 +212,29 @@
       },
       "description" : "The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both."
     },
+    "NoSourcePreservation" : {
+      "description" : "Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved. When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.",
+      "type" : "boolean"
+    },
+    "NatGatewayMappings" : {
+      "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/NatGatewayMapping"
+      },
+      "description" : "The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true."
+    },
+    "ProxySettings" : {
+      "$ref" : "#/definitions/ProxySettings"
+    },
+    "VpcEndpoint" : {
+      "$ref" : "#/definitions/VpcEndpoint"
+    },
+    "NumberOfAssociations" : {
+      "description" : "The number of VPC endpoint associations attached to the firewall.",
+      "type" : "integer"
+    },
     "Tags" : {
       "type" : "array",
       "insertionOrder" : false,
@@ -166,21 +253,21 @@
     "permissions" : [ "network-firewall:TagResource", "network-firewall:UntagResource", "network-firewall:ListTagsForResource" ]
   },
   "required" : [ "FirewallName", "FirewallPolicyArn" ],
-  "readOnlyProperties" : [ "/properties/FirewallArn", "/properties/FirewallId", "/properties/TransitGatewayAttachmentId", "/properties/EndpointIds" ],
+  "readOnlyProperties" : [ "/properties/FirewallArn", "/properties/FirewallId", "/properties/TransitGatewayAttachmentId", "/properties/EndpointIds", "/properties/NumberOfAssociations" ],
   "primaryIdentifier" : [ "/properties/FirewallArn" ],
-  "createOnlyProperties" : [ "/properties/VpcId", "/properties/FirewallName" ],
+  "createOnlyProperties" : [ "/properties/VpcId", "/properties/FirewallName", "/properties/NoSourcePreservation", "/properties/NatGatewayMappings", "/properties/VpcEndpoint" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "network-firewall:CreateFirewall", "network-firewall:DescribeFirewallPolicy", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource", "network-firewall:AssociateSubnets", "network-firewall:AssociateAvailabilityZones", "network-firewall:AssociateFirewallPolicy", "network-firewall:DescribeFirewall" ]
+      "permissions" : [ "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeNatGateways", "ec2:AttachApplianceToNatGateway", "ec2:CreateNetworkInterfacePermission", "iam:CreateServiceLinkedRole", "network-firewall:CreateFirewall", "network-firewall:DescribeFirewallPolicy", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource", "network-firewall:AssociateSubnets", "network-firewall:AssociateAvailabilityZones", "network-firewall:AssociateFirewallPolicy", "network-firewall:DescribeFirewall" ]
     },
     "read" : {
       "permissions" : [ "network-firewall:DescribeFirewall", "network-firewall:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "network-firewall:AssociateSubnets", "network-firewall:DisassociateSubnets", "network-firewall:UpdateFirewallDescription", "network-firewall:UpdateFirewallDeleteProtection", "network-firewall:UpdateSubnetChangeProtection", "network-firewall:UpdateFirewallPolicyChangeProtection", "network-firewall:AssociateFirewallPolicy", "network-firewall:TagResource", "network-firewall:UntagResource", "network-firewall:DescribeFirewall", "network-firewall:UpdateFirewallAnalysisSettings", "network-firewall:DisassociateAvailabilityZones", "network-firewall:AssociateAvailabilityZones", "network-firewall:UpdateAvailabilityZoneChangeProtection" ]
+      "permissions" : [ "network-firewall:AssociateSubnets", "network-firewall:DisassociateSubnets", "network-firewall:UpdateFirewallDescription", "network-firewall:UpdateFirewallDeleteProtection", "network-firewall:UpdateSubnetChangeProtection", "network-firewall:UpdateFirewallPolicyChangeProtection", "network-firewall:AssociateFirewallPolicy", "network-firewall:TagResource", "network-firewall:UntagResource", "network-firewall:DescribeFirewall", "network-firewall:UpdateFirewallAnalysisSettings", "network-firewall:DisassociateAvailabilityZones", "network-firewall:AssociateAvailabilityZones", "network-firewall:UpdateAvailabilityZoneChangeProtection", "network-firewall:UpdateProxySettings" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteVpcEndpoints", "ec2:DescribeRouteTables", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery", "logs:ListLogDeliveries", "network-firewall:DeleteFirewall", "network-firewall:UntagResource", "network-firewall:DescribeFirewall" ]
+      "permissions" : [ "ec2:DeleteVpcEndpoints", "ec2:DescribeRouteTables", "ec2:DetachApplianceFromNatGateway", "ec2:DeleteNetworkInterfacePermission", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery", "logs:ListLogDeliveries", "network-firewall:DeleteFirewall", "network-firewall:UntagResource", "network-firewall:DescribeFirewall" ]
     },
     "list" : {
       "permissions" : [ "network-firewall:ListFirewalls" ]

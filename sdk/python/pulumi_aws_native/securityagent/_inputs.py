@@ -66,6 +66,8 @@ __all__ = [
     'PentestAuthenticationArgsDict',
     'PentestCaCertificateSourceArgs',
     'PentestCaCertificateSourceArgsDict',
+    'PentestCiCdConfigurationArgs',
+    'PentestCiCdConfigurationArgsDict',
     'PentestCloudWatchLogArgs',
     'PentestCloudWatchLogArgsDict',
     'PentestCustomHeaderArgs',
@@ -2060,6 +2062,39 @@ class PentestCaCertificateSourceArgs:
     @s3_location.setter
     def s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_location", value)
+
+
+class PentestCiCdConfigurationArgsDict(TypedDict):
+    """
+    Configuration for running pentests automatically from a CI/CD pipeline
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+    """
+
+@pulumi.input_type
+class PentestCiCdConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        Configuration for running pentests automatically from a CI/CD pipeline
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class PentestCloudWatchLogArgsDict(TypedDict):

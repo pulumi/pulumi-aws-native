@@ -252,6 +252,7 @@ import * as networkfirewall from "./networkfirewall";
 import * as networkflowmonitor from "./networkflowmonitor";
 import * as networkmanager from "./networkmanager";
 import * as networkmonitor from "./networkmonitor";
+import * as networksecuritymanager from "./networksecuritymanager";
 import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
@@ -544,6 +545,7 @@ export {
     networkflowmonitor,
     networkmanager,
     networkmonitor,
+    networksecuritymanager,
     nimblestudio,
     oam,
     observabilityadmin,

@@ -1585,6 +1585,7 @@ class ApprovalPolicyGovernedAction(_builtins.str, Enum):
 @pulumi.type_token("aws-native:quicksight:CustomPermissionsCapabilityState")
 class CustomPermissionsCapabilityState(_builtins.str, Enum):
     DENY = "DENY"
+    ALLOW = "ALLOW"
 
 
 @pulumi.type_token("aws-native:quicksight:DashboardAnchorOption")

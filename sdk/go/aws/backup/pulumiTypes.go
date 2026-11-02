@@ -13,6 +13,108 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Metadata the service reports for the backup access point. Once the access point reaches the AVAILABLE status this carries the Amazon S3 access point ARN and alias; for continuous recovery points it also echoes the AccessPointInTime that was supplied at create time.
+type BackupAccessPointAccessPointMetadata struct {
+	// For a continuous recovery point, the point in time the backup access point exposes, echoed back by the service as supplied at create time. Absent for snapshot recovery points. A plain string rather than a date-time, because it is one entry of the service's string-to-string metadata map.
+	AccessPointInTime *string `pulumi:"accessPointInTime"`
+	// The alias of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+	S3AccessPointAlias *string `pulumi:"s3AccessPointAlias"`
+	// The Amazon Resource Name (ARN) of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+	S3AccessPointArn *string `pulumi:"s3AccessPointArn"`
+}
+
+// Metadata the service reports for the backup access point. Once the access point reaches the AVAILABLE status this carries the Amazon S3 access point ARN and alias; for continuous recovery points it also echoes the AccessPointInTime that was supplied at create time.
+type BackupAccessPointAccessPointMetadataOutput struct{ *pulumi.OutputState }
+
+func (BackupAccessPointAccessPointMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupAccessPointAccessPointMetadata)(nil)).Elem()
+}
+
+func (o BackupAccessPointAccessPointMetadataOutput) ToBackupAccessPointAccessPointMetadataOutput() BackupAccessPointAccessPointMetadataOutput {
+	return o
+}
+
+func (o BackupAccessPointAccessPointMetadataOutput) ToBackupAccessPointAccessPointMetadataOutputWithContext(ctx context.Context) BackupAccessPointAccessPointMetadataOutput {
+	return o
+}
+
+// For a continuous recovery point, the point in time the backup access point exposes, echoed back by the service as supplied at create time. Absent for snapshot recovery points. A plain string rather than a date-time, because it is one entry of the service's string-to-string metadata map.
+func (o BackupAccessPointAccessPointMetadataOutput) AccessPointInTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupAccessPointAccessPointMetadata) *string { return v.AccessPointInTime }).(pulumi.StringPtrOutput)
+}
+
+// The alias of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+func (o BackupAccessPointAccessPointMetadataOutput) S3AccessPointAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupAccessPointAccessPointMetadata) *string { return v.S3AccessPointAlias }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+func (o BackupAccessPointAccessPointMetadataOutput) S3AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupAccessPointAccessPointMetadata) *string { return v.S3AccessPointArn }).(pulumi.StringPtrOutput)
+}
+
+type BackupAccessPointAccessPointMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (BackupAccessPointAccessPointMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupAccessPointAccessPointMetadata)(nil)).Elem()
+}
+
+func (o BackupAccessPointAccessPointMetadataPtrOutput) ToBackupAccessPointAccessPointMetadataPtrOutput() BackupAccessPointAccessPointMetadataPtrOutput {
+	return o
+}
+
+func (o BackupAccessPointAccessPointMetadataPtrOutput) ToBackupAccessPointAccessPointMetadataPtrOutputWithContext(ctx context.Context) BackupAccessPointAccessPointMetadataPtrOutput {
+	return o
+}
+
+func (o BackupAccessPointAccessPointMetadataPtrOutput) Elem() BackupAccessPointAccessPointMetadataOutput {
+	return o.ApplyT(func(v *BackupAccessPointAccessPointMetadata) BackupAccessPointAccessPointMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret BackupAccessPointAccessPointMetadata
+		return ret
+	}).(BackupAccessPointAccessPointMetadataOutput)
+}
+
+// For a continuous recovery point, the point in time the backup access point exposes, echoed back by the service as supplied at create time. Absent for snapshot recovery points. A plain string rather than a date-time, because it is one entry of the service's string-to-string metadata map.
+func (o BackupAccessPointAccessPointMetadataPtrOutput) AccessPointInTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupAccessPointAccessPointMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPointInTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The alias of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+func (o BackupAccessPointAccessPointMetadataPtrOutput) S3AccessPointAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupAccessPointAccessPointMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessPointAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon S3 access point that Backup provisioned. Use this with standard Amazon S3 read APIs to access the backup data. Populated once the backup access point reaches the AVAILABLE status.
+func (o BackupAccessPointAccessPointMetadataPtrOutput) S3AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupAccessPointAccessPointMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessPointArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with the backup access point.
+type BackupAccessPointTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type BackupPlanAdvancedBackupSettingResourceType struct {
 	// The backup option for the resource. Each option is a key-value pair. This option is only available for Windows VSS backup jobs.
 	//
@@ -3872,6 +3974,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsPtrInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TieringConfigurationResourceSelectionInput)(nil)).Elem(), TieringConfigurationResourceSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TieringConfigurationResourceSelectionArrayInput)(nil)).Elem(), TieringConfigurationResourceSelectionArray{})
+	pulumi.RegisterOutputType(BackupAccessPointAccessPointMetadataOutput{})
+	pulumi.RegisterOutputType(BackupAccessPointAccessPointMetadataPtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanBackupRuleResourceTypeOutput{})

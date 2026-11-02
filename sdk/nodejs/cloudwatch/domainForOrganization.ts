@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudWatch::DomainForOrganization. The organization-level boundary for CloudWatch Omni: an organization domain configures the identity providers users sign in through for the whole AWS Organization and exposes the endpoint URLs used to reach CloudWatch Omni. It can only be created by the organization's management account.
+ * Resource Type definition for AWS::CloudWatch::DomainForOrganization. An organization domain provides a single sign-in URL and centralized identity provider configuration for your AWS Organization, removing the need for each account to configure its own domain. Only the management account can create it.
  */
 export class DomainForOrganization extends pulumi.CustomResource {
     /**
@@ -38,11 +38,11 @@ export class DomainForOrganization extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the organization domain.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The timestamp when the domain was created.
+     * The timestamp when the organization domain was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
@@ -50,44 +50,47 @@ export class DomainForOrganization extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly customEndpointUrls: pulumi.Output<string[]>;
     /**
-     * The ARN of an IAM role in the management account that CloudWatch Omni assumes for domain-scoped credential vending.
+     * The ARN of the customer-provided IAM role in the management account used for domain access.
      */
     declare public readonly domainAccessRoleArn: pulumi.Output<string>;
     /**
-     * The HTTPS endpoint URL for accessing the domain.
+     * The HTTPS endpoint URL for accessing the organization domain.
      */
     declare public /*out*/ readonly domainEndpointUrl: pulumi.Output<string>;
     /**
-     * The unique ID of the domain.
+     * The unique ID of the organization domain.
      */
     declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The ARN of the Identity Center application. Absent for IAM-only domains.
      */
     declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
+    /**
+     * Identity provider configuration for the organization domain.
+     */
     declare public readonly identityProviderConfiguration: pulumi.Output<outputs.cloudwatch.DomainForOrganizationIdentityProviderConfiguration | undefined>;
     /**
-     * The identity providers configured for the domain.
+     * The identity providers configured for the organization domain.
      */
     declare public readonly identityProviders: pulumi.Output<enums.cloudwatch.DomainForOrganizationIdentityProvidersItem[]>;
     /**
-     * A name that identifies the domain.
+     * A name that identifies the organization domain.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The ID of the AWS Organization this domain belongs to.
+     * The ID of the AWS Organization that owns the domain.
      */
     declare public /*out*/ readonly organizationId: pulumi.Output<string>;
     /**
-     * The account ID of the organization's management account, which owns this domain.
+     * The AWS account ID that owns the organization domain.
      */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
-     * The Region where this domain was created.
+     * The Region where this organization domain was created.
      */
     declare public /*out*/ readonly region: pulumi.Output<string>;
     /**
-     * Current status of the domain.
+     * Current status of the organization domain.
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.cloudwatch.DomainForOrganizationStatus>;
     /**
@@ -95,7 +98,7 @@ export class DomainForOrganization extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The timestamp when the domain was last updated.
+     * The timestamp when the organization domain was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
@@ -162,16 +165,19 @@ export class DomainForOrganization extends pulumi.CustomResource {
  */
 export interface DomainForOrganizationArgs {
     /**
-     * The ARN of an IAM role in the management account that CloudWatch Omni assumes for domain-scoped credential vending.
+     * The ARN of the customer-provided IAM role in the management account used for domain access.
      */
     domainAccessRoleArn: pulumi.Input<string>;
+    /**
+     * Identity provider configuration for the organization domain.
+     */
     identityProviderConfiguration?: pulumi.Input<inputs.cloudwatch.DomainForOrganizationIdentityProviderConfigurationArgs | undefined>;
     /**
-     * The identity providers configured for the domain.
+     * The identity providers configured for the organization domain.
      */
     identityProviders: pulumi.Input<pulumi.Input<enums.cloudwatch.DomainForOrganizationIdentityProvidersItem>[]>;
     /**
-     * A name that identifies the domain.
+     * A name that identifies the organization domain.
      */
     name?: pulumi.Input<string | undefined>;
     /**

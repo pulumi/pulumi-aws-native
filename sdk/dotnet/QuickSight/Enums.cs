@@ -4266,6 +4266,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         public static CustomPermissionsCapabilityState Deny { get; } = new CustomPermissionsCapabilityState("DENY");
+        public static CustomPermissionsCapabilityState Allow { get; } = new CustomPermissionsCapabilityState("ALLOW");
 
         public static bool operator ==(CustomPermissionsCapabilityState left, CustomPermissionsCapabilityState right) => left.Equals(right);
         public static bool operator !=(CustomPermissionsCapabilityState left, CustomPermissionsCapabilityState right) => !left.Equals(right);

@@ -67,7 +67,7 @@ export class RouterNetworkInterface extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly networkInterfaceType: pulumi.Output<enums.mediaconnect.RouterNetworkInterfaceType>;
     /**
-     * The AWS Region for the router network interface. Defaults to the current region if not specified.
+     * The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
      */
     declare public readonly regionName: pulumi.Output<string | undefined>;
     /**
@@ -140,7 +140,7 @@ export interface RouterNetworkInterfaceArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The AWS Region for the router network interface. Defaults to the current region if not specified.
+     * The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.
      */
     regionName?: pulumi.Input<string | undefined>;
     /**

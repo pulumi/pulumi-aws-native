@@ -30,8 +30,10 @@ type LookupRouterOutputResourceArgs struct {
 
 type LookupRouterOutputResourceResult struct {
 	// The Amazon Resource Name (ARN) of the router output.
-	Arn           *string     `pulumi:"arn"`
-	Configuration interface{} `pulumi:"configuration"`
+	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+	AssociatedSourceEndpointArns []string    `pulumi:"associatedSourceEndpointArns"`
+	Configuration                interface{} `pulumi:"configuration"`
 	// The timestamp when the router output was created.
 	CreatedAt           *string                                  `pulumi:"createdAt"`
 	FabricConfiguration *RouterOutputResourceFabricConfiguration `pulumi:"fabricConfiguration"`
@@ -94,6 +96,11 @@ func (o LookupRouterOutputResourceResultOutput) ToLookupRouterOutputResourceResu
 // The Amazon Resource Name (ARN) of the router output.
 func (o LookupRouterOutputResourceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouterOutputResourceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+func (o LookupRouterOutputResourceResultOutput) AssociatedSourceEndpointArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRouterOutputResourceResult) []string { return v.AssociatedSourceEndpointArns }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupRouterOutputResourceResultOutput) Configuration() pulumi.AnyOutput {

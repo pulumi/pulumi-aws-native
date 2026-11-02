@@ -297,4 +297,193 @@ namespace Pulumi.AwsNative.Mgn
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The data plane routing mechanism that will be used for replication.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationTemplateDataPlaneRouting : IEquatable<ReplicationConfigurationTemplateDataPlaneRouting>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationTemplateDataPlaneRouting(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationTemplateDataPlaneRouting PrivateIp { get; } = new ReplicationConfigurationTemplateDataPlaneRouting("PRIVATE_IP");
+        public static ReplicationConfigurationTemplateDataPlaneRouting PublicIp { get; } = new ReplicationConfigurationTemplateDataPlaneRouting("PUBLIC_IP");
+
+        public static bool operator ==(ReplicationConfigurationTemplateDataPlaneRouting left, ReplicationConfigurationTemplateDataPlaneRouting right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationTemplateDataPlaneRouting left, ReplicationConfigurationTemplateDataPlaneRouting right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationTemplateDataPlaneRouting value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationTemplateDataPlaneRouting other && Equals(other);
+        public bool Equals(ReplicationConfigurationTemplateDataPlaneRouting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Staging Disk EBS volume type to be used during replication.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationTemplateDefaultLargeStagingDiskType : IEquatable<ReplicationConfigurationTemplateDefaultLargeStagingDiskType>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationTemplateDefaultLargeStagingDiskType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationTemplateDefaultLargeStagingDiskType Gp2 { get; } = new ReplicationConfigurationTemplateDefaultLargeStagingDiskType("GP2");
+        public static ReplicationConfigurationTemplateDefaultLargeStagingDiskType St1 { get; } = new ReplicationConfigurationTemplateDefaultLargeStagingDiskType("ST1");
+        public static ReplicationConfigurationTemplateDefaultLargeStagingDiskType Gp3 { get; } = new ReplicationConfigurationTemplateDefaultLargeStagingDiskType("GP3");
+
+        public static bool operator ==(ReplicationConfigurationTemplateDefaultLargeStagingDiskType left, ReplicationConfigurationTemplateDefaultLargeStagingDiskType right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationTemplateDefaultLargeStagingDiskType left, ReplicationConfigurationTemplateDefaultLargeStagingDiskType right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationTemplateDefaultLargeStagingDiskType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationTemplateDefaultLargeStagingDiskType other && Equals(other);
+        public bool Equals(ReplicationConfigurationTemplateDefaultLargeStagingDiskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of EBS encryption to be used during replication.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationTemplateEbsEncryption : IEquatable<ReplicationConfigurationTemplateEbsEncryption>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationTemplateEbsEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationTemplateEbsEncryption Default { get; } = new ReplicationConfigurationTemplateEbsEncryption("DEFAULT");
+        public static ReplicationConfigurationTemplateEbsEncryption Custom { get; } = new ReplicationConfigurationTemplateEbsEncryption("CUSTOM");
+
+        public static bool operator ==(ReplicationConfigurationTemplateEbsEncryption left, ReplicationConfigurationTemplateEbsEncryption right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationTemplateEbsEncryption left, ReplicationConfigurationTemplateEbsEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationTemplateEbsEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationTemplateEbsEncryption other && Equals(other);
+        public bool Equals(ReplicationConfigurationTemplateEbsEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Which internet protocol to use for replication of data.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationTemplateInternetProtocol : IEquatable<ReplicationConfigurationTemplateInternetProtocol>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationTemplateInternetProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationTemplateInternetProtocol Ipv4 { get; } = new ReplicationConfigurationTemplateInternetProtocol("IPV4");
+        public static ReplicationConfigurationTemplateInternetProtocol Ipv6 { get; } = new ReplicationConfigurationTemplateInternetProtocol("IPV6");
+
+        public static bool operator ==(ReplicationConfigurationTemplateInternetProtocol left, ReplicationConfigurationTemplateInternetProtocol right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationTemplateInternetProtocol left, ReplicationConfigurationTemplateInternetProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationTemplateInternetProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationTemplateInternetProtocol other && Equals(other);
+        public bool Equals(ReplicationConfigurationTemplateInternetProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The health status of the wave.
+    /// </summary>
+    [EnumType]
+    public readonly struct WaveAggregatedStatusHealthStatus : IEquatable<WaveAggregatedStatusHealthStatus>
+    {
+        private readonly string _value;
+
+        private WaveAggregatedStatusHealthStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WaveAggregatedStatusHealthStatus Healthy { get; } = new WaveAggregatedStatusHealthStatus("HEALTHY");
+        public static WaveAggregatedStatusHealthStatus Lagging { get; } = new WaveAggregatedStatusHealthStatus("LAGGING");
+        public static WaveAggregatedStatusHealthStatus Error { get; } = new WaveAggregatedStatusHealthStatus("ERROR");
+
+        public static bool operator ==(WaveAggregatedStatusHealthStatus left, WaveAggregatedStatusHealthStatus right) => left.Equals(right);
+        public static bool operator !=(WaveAggregatedStatusHealthStatus left, WaveAggregatedStatusHealthStatus right) => !left.Equals(right);
+
+        public static explicit operator string(WaveAggregatedStatusHealthStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WaveAggregatedStatusHealthStatus other && Equals(other);
+        public bool Equals(WaveAggregatedStatusHealthStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The progress status of the wave.
+    /// </summary>
+    [EnumType]
+    public readonly struct WaveAggregatedStatusProgressStatus : IEquatable<WaveAggregatedStatusProgressStatus>
+    {
+        private readonly string _value;
+
+        private WaveAggregatedStatusProgressStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WaveAggregatedStatusProgressStatus NotStarted { get; } = new WaveAggregatedStatusProgressStatus("NOT_STARTED");
+        public static WaveAggregatedStatusProgressStatus InProgress { get; } = new WaveAggregatedStatusProgressStatus("IN_PROGRESS");
+        public static WaveAggregatedStatusProgressStatus Completed { get; } = new WaveAggregatedStatusProgressStatus("COMPLETED");
+
+        public static bool operator ==(WaveAggregatedStatusProgressStatus left, WaveAggregatedStatusProgressStatus right) => left.Equals(right);
+        public static bool operator !=(WaveAggregatedStatusProgressStatus left, WaveAggregatedStatusProgressStatus right) => !left.Equals(right);
+
+        public static explicit operator string(WaveAggregatedStatusProgressStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WaveAggregatedStatusProgressStatus other && Equals(other);
+        public bool Equals(WaveAggregatedStatusProgressStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

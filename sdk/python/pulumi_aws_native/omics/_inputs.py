@@ -226,16 +226,26 @@ class ConfigurationRunConfigurationsArgs:
 class ConfigurationVpcConfigArgsDict(TypedDict):
     security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    vpc_owner_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+    """
 
 @pulumi.input_type
 class ConfigurationVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] vpc_owner_account_id: The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_owner_account_id is not None:
+            pulumi.set(__self__, "vpc_owner_account_id", vpc_owner_account_id)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
@@ -254,6 +264,18 @@ class ConfigurationVpcConfigArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcOwnerAccountId")
+    def vpc_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+        """
+        return pulumi.get(self, "vpc_owner_account_id")
+
+    @vpc_owner_account_id.setter
+    def vpc_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_owner_account_id", value)
 
 
 class ReferenceStoreSseConfigArgsDict(TypedDict):

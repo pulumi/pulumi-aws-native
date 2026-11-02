@@ -46,6 +46,7 @@ export interface GetEventTriggerResult {
      * Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
      */
     readonly eventTriggerLimits?: outputs.customerprofiles.EventTriggerLimits;
+    readonly intentFilterDefinition?: outputs.customerprofiles.EventTriggerIntentFilterDefinition;
     /**
      * The timestamp of when the event trigger was most recently updated.
      */

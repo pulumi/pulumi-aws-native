@@ -76,9 +76,17 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConnectorConfiguration;
         /// <summary>
+        /// List of plugins to use with the connector.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ConnectorPlugin> Plugins;
+        /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The worker configurations that are in use with the connector.
+        /// </summary>
+        public readonly Outputs.ConnectorWorkerConfiguration? WorkerConfiguration;
 
         [OutputConstructor]
         private GetConnectorResult(
@@ -88,12 +96,18 @@ namespace Pulumi.AwsNative.KafkaConnect
 
             ImmutableDictionary<string, string>? connectorConfiguration,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Outputs.ConnectorPlugin> plugins,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.ConnectorWorkerConfiguration? workerConfiguration)
         {
             Capacity = capacity;
             ConnectorArn = connectorArn;
             ConnectorConfiguration = connectorConfiguration;
+            Plugins = plugins;
             Tags = tags;
+            WorkerConfiguration = workerConfiguration;
         }
     }
 }

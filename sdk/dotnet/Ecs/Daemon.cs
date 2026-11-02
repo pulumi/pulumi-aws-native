@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
+        /// </summary>
         [Output("critical")]
         public Output<bool?> Critical { get; private set; } = null!;
 
@@ -149,6 +152,9 @@ namespace Pulumi.AwsNative.Ecs
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
+        /// <summary>
+        /// If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
+        /// </summary>
         [Input("critical")]
         public Input<bool>? Critical { get; set; }
 

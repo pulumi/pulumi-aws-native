@@ -82,7 +82,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
     /**
      * The table that this configured table represents.
      */
-    declare public readonly tableReference: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference0Properties | outputs.cleanrooms.ConfiguredTableTableReference1Properties | outputs.cleanrooms.ConfiguredTableTableReference2Properties>;
+    declare public readonly tableReference: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference0Properties | outputs.cleanrooms.ConfiguredTableTableReference1Properties | outputs.cleanrooms.ConfiguredTableTableReference2Properties | outputs.cleanrooms.ConfiguredTableTableReference3Properties>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
@@ -172,7 +172,7 @@ export interface ConfiguredTableArgs {
     /**
      * The table that this configured table represents.
      */
-    tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference0PropertiesArgs | inputs.cleanrooms.ConfiguredTableTableReference1PropertiesArgs | inputs.cleanrooms.ConfiguredTableTableReference2PropertiesArgs>;
+    tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference0PropertiesArgs | inputs.cleanrooms.ConfiguredTableTableReference1PropertiesArgs | inputs.cleanrooms.ConfiguredTableTableReference2PropertiesArgs | inputs.cleanrooms.ConfiguredTableTableReference3PropertiesArgs>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */

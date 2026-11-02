@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectorResult:
-    def __init__(__self__, capacity=None, connector_arn=None, connector_configuration=None, tags=None):
+    def __init__(__self__, capacity=None, connector_arn=None, connector_configuration=None, plugins=None, tags=None, worker_configuration=None):
         if capacity and not isinstance(capacity, dict):
             raise TypeError("Expected argument 'capacity' to be a dict")
         pulumi.set(__self__, "capacity", capacity)
@@ -35,9 +35,15 @@ class GetConnectorResult:
         if connector_configuration and not isinstance(connector_configuration, dict):
             raise TypeError("Expected argument 'connector_configuration' to be a dict")
         pulumi.set(__self__, "connector_configuration", connector_configuration)
+        if plugins and not isinstance(plugins, list):
+            raise TypeError("Expected argument 'plugins' to be a list")
+        pulumi.set(__self__, "plugins", plugins)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if worker_configuration and not isinstance(worker_configuration, dict):
+            raise TypeError("Expected argument 'worker_configuration' to be a dict")
+        pulumi.set(__self__, "worker_configuration", worker_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -65,11 +71,27 @@ class GetConnectorResult:
 
     @_builtins.property
     @pulumi.getter
+    def plugins(self) -> Optional[Sequence['outputs.ConnectorPlugin']]:
+        """
+        List of plugins to use with the connector.
+        """
+        return pulumi.get(self, "plugins")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="workerConfiguration")
+    def worker_configuration(self) -> Optional['outputs.ConnectorWorkerConfiguration']:
+        """
+        The worker configurations that are in use with the connector.
+        """
+        return pulumi.get(self, "worker_configuration")
 
 
 class AwaitableGetConnectorResult(GetConnectorResult):
@@ -81,7 +103,9 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             capacity=self.capacity,
             connector_arn=self.connector_arn,
             connector_configuration=self.connector_configuration,
-            tags=self.tags)
+            plugins=self.plugins,
+            tags=self.tags,
+            worker_configuration=self.worker_configuration)
 
 
 def get_connector(connector_arn: Optional[_builtins.str] = None,
@@ -100,7 +124,9 @@ def get_connector(connector_arn: Optional[_builtins.str] = None,
         capacity=pulumi.get(__ret__, 'capacity'),
         connector_arn=pulumi.get(__ret__, 'connector_arn'),
         connector_configuration=pulumi.get(__ret__, 'connector_configuration'),
-        tags=pulumi.get(__ret__, 'tags'))
+        plugins=pulumi.get(__ret__, 'plugins'),
+        tags=pulumi.get(__ret__, 'tags'),
+        worker_configuration=pulumi.get(__ret__, 'worker_configuration'))
 def get_connector_output(connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
@@ -116,4 +142,6 @@ def get_connector_output(connector_arn: pulumi.Input[Optional[_builtins.str]] = 
         capacity=pulumi.get(__response__, 'capacity'),
         connector_arn=pulumi.get(__response__, 'connector_arn'),
         connector_configuration=pulumi.get(__response__, 'connector_configuration'),
-        tags=pulumi.get(__response__, 'tags')))
+        plugins=pulumi.get(__response__, 'plugins'),
+        tags=pulumi.get(__response__, 'tags'),
+        worker_configuration=pulumi.get(__response__, 'worker_configuration')))
