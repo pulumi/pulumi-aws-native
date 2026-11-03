@@ -521,3 +521,267 @@ func Prealloc[T any](capacity int) []T {
 	}
 	return make([]T, 0, capacity)
 }
+
+func TestCalcPatchWithActualOutputsNestedReadOnly(t *testing.T) {
+	agentSpace := func(readOnly ...string) metadata.CloudAPIResource {
+		operatorApp := schema.PropertySpec{
+			TypeSpec: schema.TypeSpec{Ref: "#/types/aws-native:devopsagent:AgentSpaceOperatorApp"},
+		}
+		return metadata.CloudAPIResource{
+			Inputs: map[string]schema.PropertySpec{
+				"name":        {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"operatorApp": operatorApp,
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"agentSpaceId": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"name":         {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"operatorApp":  operatorApp,
+			},
+			ReadOnly: readOnly,
+		}
+	}
+	types := map[string]metadata.CloudAPIType{
+		"aws-native:devopsagent:AgentSpaceOperatorApp": {
+			Type: "object",
+			Properties: map[string]schema.PropertySpec{
+				"iam": {TypeSpec: schema.TypeSpec{Ref: "#/types/aws-native:devopsagent:AgentSpaceIamAuthConfiguration"}},
+				"idc": {TypeSpec: schema.TypeSpec{Ref: "#/types/aws-native:devopsagent:AgentSpaceIdcAuthConfiguration"}},
+			},
+		},
+		"aws-native:devopsagent:AgentSpaceIamAuthConfiguration": {
+			Type: "object",
+			Properties: map[string]schema.PropertySpec{
+				"createdAt":          {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"operatorAppRoleArn": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"updatedAt":          {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+		},
+		"aws-native:devopsagent:AgentSpaceIdcAuthConfiguration": {
+			Type: "object",
+			Properties: map[string]schema.PropertySpec{
+				"createdAt":         {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"idcApplicationArn": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"idcInstanceArn":    {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"updatedAt":         {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+		},
+	}
+	nestedReadOnly := []string{
+		"agentSpaceId",
+		"operatorApp/iam/createdAt",
+		"operatorApp/iam/updatedAt",
+		"operatorApp/idc/createdAt",
+		"operatorApp/idc/idcApplicationArn",
+		"operatorApp/idc/updatedAt",
+	}
+	iamInputs := func() resource.PropertyValue {
+		return resource.NewObjectProperty(resource.PropertyMap{
+			"operatorAppRoleArn": resource.NewStringProperty("arn:aws:iam::123456789012:role/operator"),
+		})
+	}
+	iamOutputs := resource.NewObjectProperty(resource.PropertyMap{
+		"operatorAppRoleArn": resource.NewStringProperty("arn:aws:iam::123456789012:role/operator"),
+		"createdAt":          resource.NewStringProperty("2026-10-01T10:00:00Z"),
+		"updatedAt":          resource.NewStringProperty("2026-10-02T10:00:00Z"),
+	})
+	idcInputs := resource.NewObjectProperty(resource.PropertyMap{
+		"idcInstanceArn": resource.NewStringProperty("arn:aws:sso:::instance/ssoins-1234567890abcdef"),
+	})
+	oldInputs := resource.PropertyMap{
+		"name":        resource.NewStringProperty("space"),
+		"operatorApp": resource.NewObjectProperty(resource.PropertyMap{"iam": iamInputs()}),
+	}
+	actualOutputs := resource.PropertyMap{
+		"agentSpaceId": resource.NewStringProperty("space-id"),
+		"name":         resource.NewStringProperty("space"),
+		"operatorApp":  resource.NewObjectProperty(resource.PropertyMap{"iam": iamOutputs}),
+	}
+
+	t.Run("replaced object keeps nested read-only values from state", func(t *testing.T) {
+		newInputs := resource.PropertyMap{
+			"name":        resource.NewStringProperty("space"),
+			"operatorApp": resource.NewObjectProperty(resource.PropertyMap{"iam": iamInputs(), "idc": idcInputs}),
+		}
+		patch, err := CalcPatchWithActualOutputs(
+			oldInputs, actualOutputs, newInputs, agentSpace(nestedReadOnly...), types, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{
+				Operation: "replace",
+				Path:      "/OperatorApp",
+				Value: map[string]interface{}{
+					"Iam": map[string]interface{}{
+						"OperatorAppRoleArn": "arn:aws:iam::123456789012:role/operator",
+						"CreatedAt":          "2026-10-01T10:00:00Z",
+						"UpdatedAt":          "2026-10-02T10:00:00Z",
+					},
+					"Idc": map[string]interface{}{
+						"IdcInstanceArn": "arn:aws:sso:::instance/ssoins-1234567890abcdef",
+					},
+				},
+			},
+		}, patch)
+		assert.False(t, hasPath(newInputs, "operatorApp/iam/createdAt"))
+	})
+
+	t.Run("nested read-only value absent from state is not added", func(t *testing.T) {
+		outputs := resource.PropertyMap{
+			"agentSpaceId": resource.NewStringProperty("space-id"),
+			"name":         resource.NewStringProperty("space"),
+			"operatorApp":  resource.NewObjectProperty(resource.PropertyMap{"iam": iamInputs()}),
+		}
+		newInputs := resource.PropertyMap{
+			"name":        resource.NewStringProperty("space"),
+			"operatorApp": resource.NewObjectProperty(resource.PropertyMap{"iam": iamInputs(), "idc": idcInputs}),
+		}
+		patch, err := CalcPatchWithActualOutputs(
+			oldInputs, outputs, newInputs, agentSpace(nestedReadOnly...), types, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{
+				Operation: "replace",
+				Path:      "/OperatorApp",
+				Value: map[string]interface{}{
+					"Iam": map[string]interface{}{
+						"OperatorAppRoleArn": "arn:aws:iam::123456789012:role/operator",
+					},
+					"Idc": map[string]interface{}{
+						"IdcInstanceArn": "arn:aws:sso:::instance/ssoins-1234567890abcdef",
+					},
+				},
+			},
+		}, patch)
+	})
+
+	t.Run("removed parent object is not restored", func(t *testing.T) {
+		newInputs := resource.PropertyMap{
+			"name":        resource.NewStringProperty("space"),
+			"operatorApp": resource.NewObjectProperty(resource.PropertyMap{"idc": idcInputs}),
+		}
+		patch, err := CalcPatchWithActualOutputs(
+			oldInputs, actualOutputs, newInputs, agentSpace(nestedReadOnly...), types, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{
+				Operation: "replace",
+				Path:      "/OperatorApp",
+				Value: map[string]interface{}{
+					"Idc": map[string]interface{}{
+						"IdcInstanceArn": "arn:aws:sso:::instance/ssoins-1234567890abcdef",
+					},
+				},
+			},
+		}, patch)
+	})
+
+	t.Run("secret replacement keeps nested read-only values", func(t *testing.T) {
+		newInputs := resource.PropertyMap{
+			"name": resource.NewStringProperty("space"),
+			"operatorApp": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"iam": iamInputs(),
+				"idc": idcInputs,
+			})),
+		}
+		patch, err := CalcPatchWithActualOutputs(
+			oldInputs, actualOutputs, newInputs, agentSpace(nestedReadOnly...), types, nil, "", nil)
+		require.NoError(t, err)
+		require.Len(t, patch, 1)
+		assert.Equal(t, map[string]interface{}{
+			"OperatorAppRoleArn": "arn:aws:iam::123456789012:role/operator",
+			"CreatedAt":          "2026-10-01T10:00:00Z",
+			"UpdatedAt":          "2026-10-02T10:00:00Z",
+		}, patch[0].Value.(map[string]interface{})["Iam"])
+	})
+
+	t.Run("user-supplied nested read-only value is kept", func(t *testing.T) {
+		newInputs := resource.PropertyMap{
+			"name": resource.NewStringProperty("space"),
+			"operatorApp": resource.NewObjectProperty(resource.PropertyMap{
+				"iam": resource.NewObjectProperty(resource.PropertyMap{
+					"operatorAppRoleArn": resource.NewStringProperty("arn:aws:iam::123456789012:role/operator"),
+					"createdAt":          resource.NewStringProperty("2026-10-03T10:00:00Z"),
+				}),
+				"idc": idcInputs,
+			}),
+		}
+		patch, err := CalcPatchWithActualOutputs(
+			oldInputs, actualOutputs, newInputs, agentSpace(nestedReadOnly...), types, nil, "", nil)
+		require.NoError(t, err)
+		require.Len(t, patch, 1)
+		assert.Equal(t, map[string]interface{}{
+			"OperatorAppRoleArn": "arn:aws:iam::123456789012:role/operator",
+			"CreatedAt":          "2026-10-03T10:00:00Z",
+			"UpdatedAt":          "2026-10-02T10:00:00Z",
+		}, patch[0].Value.(map[string]interface{})["Iam"])
+	})
+
+	t.Run("null nested read-only value in state is not added", func(t *testing.T) {
+		outputs := resource.PropertyMap{
+			"name": resource.NewStringProperty("space"),
+			"operatorApp": resource.NewObjectProperty(resource.PropertyMap{
+				"iam": resource.NewObjectProperty(resource.PropertyMap{
+					"operatorAppRoleArn": resource.NewStringProperty("arn:aws:iam::123456789012:role/operator"),
+					"createdAt":          resource.NewNullProperty(),
+				}),
+			}),
+		}
+		newInputs := resource.PropertyMap{
+			"name":        resource.NewStringProperty("space"),
+			"operatorApp": resource.NewObjectProperty(resource.PropertyMap{"iam": iamInputs(), "idc": idcInputs}),
+		}
+		patch, err := CalcPatchWithActualOutputs(
+			oldInputs, outputs, newInputs, agentSpace(nestedReadOnly...), types, nil, "", nil)
+		require.NoError(t, err)
+		require.Len(t, patch, 1)
+		assert.Equal(t, map[string]interface{}{
+			"OperatorAppRoleArn": "arn:aws:iam::123456789012:role/operator",
+		}, patch[0].Value.(map[string]interface{})["Iam"])
+	})
+
+	t.Run("top-level read-only paths leave the patch unchanged", func(t *testing.T) {
+		newInputs := resource.PropertyMap{
+			"name":        resource.NewStringProperty("renamed"),
+			"operatorApp": resource.NewObjectProperty(resource.PropertyMap{"iam": iamInputs(), "idc": idcInputs}),
+		}
+		spec := agentSpace("agentSpaceId")
+		patch, err := CalcPatchWithActualOutputs(oldInputs, actualOutputs, newInputs, spec, types, nil, "", nil)
+		require.NoError(t, err)
+		expected, err := CalcPatch(oldInputs, newInputs, spec, types)
+		require.NoError(t, err)
+		assert.Equal(t, expected, patch)
+	})
+}
+
+func TestKeepNestedReadOnlyValues(t *testing.T) {
+	actualOutputs := resource.PropertyMap{
+		"settings": resource.NewObjectProperty(resource.PropertyMap{
+			"name":      resource.NewStringProperty("old"),
+			"createdAt": resource.NewStringProperty("2026-10-01T10:00:00Z"),
+		}),
+		"rules": resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"name":      resource.NewStringProperty("rule"),
+				"createdAt": resource.NewStringProperty("2026-10-01T10:00:00Z"),
+			}),
+		}),
+	}
+	rules := resource.NewArrayProperty([]resource.PropertyValue{
+		resource.NewObjectProperty(resource.PropertyMap{"name": resource.NewStringProperty("rule")}),
+	})
+	diff := &resource.ObjectDiff{
+		Adds: resource.PropertyMap{
+			"settings": resource.NewObjectProperty(resource.PropertyMap{"name": resource.NewStringProperty("new")}),
+		},
+		Updates: map[resource.PropertyKey]resource.ValueDiff{
+			"rules": {New: rules},
+		},
+	}
+
+	keepNestedReadOnlyValues(diff, actualOutputs, []string{"settings/createdAt", "rules/*/createdAt"})
+
+	assert.Equal(t, resource.NewObjectProperty(resource.PropertyMap{
+		"name":      resource.NewStringProperty("new"),
+		"createdAt": resource.NewStringProperty("2026-10-01T10:00:00Z"),
+	}), diff.Adds["settings"])
+	assert.Equal(t, rules, diff.Updates["rules"].New)
+}
