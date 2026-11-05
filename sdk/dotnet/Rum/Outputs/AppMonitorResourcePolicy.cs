@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.Rum.Outputs
     public sealed class AppMonitorResourcePolicy
     {
         /// <summary>
-        /// The JSON to use as the resource policy. The document can be up to 4 KB in size. 
+        /// The JSON to use as the resource policy. The document can be up to 4 KB in size.
         /// </summary>
         public readonly string PolicyDocument;
         /// <summary>
-        /// A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
+        /// A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.
         /// 
         ///  When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
         /// </summary>

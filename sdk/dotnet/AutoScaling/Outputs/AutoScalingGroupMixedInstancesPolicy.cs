@@ -17,8 +17,8 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     ///  There are key differences between Spot Instances and On-Demand Instances:
     ///   +  The price for Spot Instances varies based on demand
     ///   +  Amazon EC2 can terminate an individual Spot Instance as the availability of, or price for, Spot Instances changes
-    ///   
-    ///  When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group. 
+    /// 
+    ///  When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group.
     ///  ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
     /// </summary>
     [OutputType]

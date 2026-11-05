@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     public sealed class GraphQlApiCognitoUserPoolConfig
     {
         /// <summary>
-        /// A regular expression for validating the incoming Amazon Cognito user pool app client ID. 
+        /// A regular expression for validating the incoming Amazon Cognito user pool app client ID.
         /// </summary>
         public readonly string? AppIdClientRegex;
         /// <summary>

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
         /// </summary>
         public readonly string? ReplicationGroupRegion;
         /// <summary>
-        /// A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
+        /// A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalReplicationGroupReshardingConfiguration> ReshardingConfigurations;
 

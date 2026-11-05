@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Signer
         public Output<Pulumi.AwsNative.Signer.SigningProfilePlatformId> PlatformId { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
+        /// A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
         /// </summary>
         [Output("profileName")]
         public Output<string> ProfileName { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Signer
         public Input<Pulumi.AwsNative.Signer.SigningProfilePlatformId> PlatformId { get; set; } = null!;
 
         /// <summary>
-        /// A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
+        /// A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
         /// </summary>
         [Input("profileName")]
         public Input<string>? ProfileName { get; set; }

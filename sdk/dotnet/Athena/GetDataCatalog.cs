@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Athena
     public sealed class GetDataCatalogArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Athena
     public sealed class GetDataCatalogInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Athena
         /// </summary>
         public readonly string? ConnectionType;
         /// <summary>
-        /// A description of the data catalog to be created. 
+        /// A description of the data catalog to be created.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Athena
         /// </summary>
         public readonly string? Error;
         /// <summary>
-        /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
+        /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Athena
         /// </summary>
         public readonly Pulumi.AwsNative.Athena.DataCatalogStatus? Status;
         /// <summary>
-        /// A list of comma separated tags to add to the data catalog that is created. 
+        /// A list of comma separated tags to add to the data catalog that is created.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

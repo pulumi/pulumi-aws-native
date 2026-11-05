@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
+        /// The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Deadline.Inputs
         /// <summary>
         /// The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
         /// 
-        /// &gt; You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
+        /// &gt; You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers.
         /// 
         /// The default is 300 seconds (5 minutes).
         /// </summary>

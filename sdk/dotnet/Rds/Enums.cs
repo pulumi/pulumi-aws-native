@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Rds
     }
 
     /// <summary>
-    /// The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+    /// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
     /// </summary>
     [EnumType]
     public readonly struct DbProxyAuthFormatAuthScheme : IEquatable<DbProxyAuthFormatAuthScheme>

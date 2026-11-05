@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
     public sealed class ScalingPolicyTargetTrackingMetricDataQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. 
+        /// The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions.
         ///  Conditional: Within each ``TargetTrackingMetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
         /// </summary>
         [Input("expression")]
@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
         public Input<Inputs.ScalingPolicyTargetTrackingMetricStatArgs>? MetricStat { get; set; }
 
         /// <summary>
-        /// Indicates whether to return the timestamps and raw data values of this metric. 
+        /// Indicates whether to return the timestamps and raw data values of this metric.
         ///  If you use any math expressions, specify ``true`` for this value for only the final math expression that the metric specification is based on. You must specify ``false`` for ``ReturnData`` for all the other metrics and expressions used in the metric specification.
         ///  If you are only retrieving metrics and not performing any math expressions, do not specify anything for ``ReturnData``. This sets it to its default (``true``).
         /// </summary>

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     public sealed class RuleReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+        /// The type of the reference. ``DATE`` must be of type Epoch timestamp.
         ///  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         /// </summary>
         [Input("type", required: true)]

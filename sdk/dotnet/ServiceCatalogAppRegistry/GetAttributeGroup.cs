@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// </summary>
         public readonly object? Attributes;
         /// <summary>
-        /// The description of the attribute group. 
+        /// The description of the attribute group.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The name of the attribute group. 
+        /// The name of the attribute group.
         /// </summary>
         public readonly string? Name;
         /// <summary>

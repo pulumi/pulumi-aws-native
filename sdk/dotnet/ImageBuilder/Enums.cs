@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
     /// <summary>
-    /// The type of the component denotes whether the component is used to build the image or only to test it. 
+    /// The type of the component denotes whether the component is used to build the image or only to test it.
     /// </summary>
     [EnumType]
     public readonly struct ComponentType : IEquatable<ComponentType>
@@ -423,7 +423,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
     /// <summary>
-    /// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+    /// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
     /// </summary>
     [EnumType]
     public readonly struct InfrastructureConfigurationInstanceMetadataOptionsHttpTokens : IEquatable<InfrastructureConfigurationInstanceMetadataOptionsHttpTokens>

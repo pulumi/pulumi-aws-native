@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Configuration.Outputs
     public sealed class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata
     {
         /// <summary>
-        /// A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule. 
+        /// A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
         /// </summary>
         public readonly ImmutableArray<string> DebugLogDeliveryAccounts;
         /// <summary>

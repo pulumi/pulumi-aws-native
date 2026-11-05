@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.AppFlow
         /// </summary>
         public readonly Outputs.ConnectorProvisioningConfig? ConnectorProvisioningConfig;
         /// <summary>
-        /// The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+        /// The provisioning type of the connector. Currently the only supported value is LAMBDA.
         /// </summary>
         public readonly string? ConnectorProvisioningType;
         /// <summary>

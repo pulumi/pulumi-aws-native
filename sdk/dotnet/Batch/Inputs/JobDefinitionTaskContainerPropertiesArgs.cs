@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// 
         /// By default, containers use the same logging driver that the Docker daemon uses. However the container can use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the *Docker documentation* .
         /// 
-        /// &gt; Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the `LogConfiguration` data type). Additional log drivers may be available in future releases of the Amazon ECS container agent. 
+        /// &gt; Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the `LogConfiguration` data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
         /// 
         /// This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version `--format '{{.Server.APIVersion}}'`
         /// 
@@ -187,7 +187,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// <summary>
         /// The user to use inside the container. This parameter maps to User in the Create a container section of the Docker Remote API and the --user option to docker run.
         /// 
-        /// &gt; When running tasks using the `host` network mode, don't run containers using the `root user (UID 0)` . We recommend using a non-root user for better security. 
+        /// &gt; When running tasks using the `host` network mode, don't run containers using the `root user (UID 0)` . We recommend using a non-root user for better security.
         /// 
         /// You can specify the `user` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.
         /// 

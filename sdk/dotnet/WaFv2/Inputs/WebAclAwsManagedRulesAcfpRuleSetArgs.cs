@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         /// <summary>
         /// The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users.
         /// 
-        /// &gt; This page must accept `GET` text/html requests. 
+        /// &gt; This page must accept `GET` text/html requests.
         /// 
         /// For example, for the URL `https://example.com/web/registration` , you would provide the path `/web/registration` . Registration page paths that start with the path that you provide are considered a match. For example `/web/registration` matches the registration paths `/web/registration` , `/web/registration/` , `/web/registrationPage` , and `/web/registration/thisPage` , but doesn't match the path `/home/web/registration` or `/website/registration` .
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         /// <summary>
         /// The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
         /// 
-        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
+        /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
         /// 
         /// The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
         /// </summary>

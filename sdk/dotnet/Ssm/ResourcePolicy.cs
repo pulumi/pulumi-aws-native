@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Ssm
         public Output<string> PolicyHash { get; private set; } = null!;
 
         /// <summary>
-        /// An unique identifier within the policies of a resource. 
+        /// An unique identifier within the policies of a resource.
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CertificateManager.Inputs
         /// 
         /// This option is required for publicly trusted certificates.
         /// 
-        /// &gt; The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ". 
+        /// &gt; The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
         /// 
         /// When you change your `DomainValidationOptions` , a new resource is created.
         /// </summary>

@@ -17,12 +17,12 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     ///  +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
     ///   +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
     ///   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-    ///  In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
-    ///   ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'`` 
+    ///       In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+    ///        ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
     ///   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-    ///  In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-    ///   ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-    ///   
+    ///       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+    ///        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+    /// 
     ///  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
     ///  The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
     /// </summary>

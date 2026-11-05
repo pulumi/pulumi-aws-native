@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     public sealed class AutomationRuleRelatedFindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The product-generated identifier for a related finding. 
+        /// The product-generated identifier for a related finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         [Input("id", required: true)]

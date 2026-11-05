@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     public sealed class AutomationRuleRelatedFinding
     {
         /// <summary>
-        /// The product-generated identifier for a related finding. 
+        /// The product-generated identifier for a related finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly string Id;

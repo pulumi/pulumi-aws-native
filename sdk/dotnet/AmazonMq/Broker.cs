@@ -463,7 +463,7 @@ namespace Pulumi.AwsNative.AmazonMq
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Users to configure on the broker. 
+        /// Users to configure on the broker.
         /// For RabbitMQ, this should be one user, created when the broker is created, and changes thereafter are ignored.
         /// For ActiveMQ, changes to anything but Password are detected and will trigger an update,
         /// but changes to Password cannot be detected so updates to Password may not take effect unless there is some other change.
@@ -698,7 +698,7 @@ namespace Pulumi.AwsNative.AmazonMq
         private InputList<Inputs.BrokerUserArgs>? _users;
 
         /// <summary>
-        /// Users to configure on the broker. 
+        /// Users to configure on the broker.
         /// For RabbitMQ, this should be one user, created when the broker is created, and changes thereafter are ignored.
         /// For ActiveMQ, changes to anything but Password are detected and will trigger an update,
         /// but changes to Password cannot be detected so updates to Password may not take effect unless there is some other change.

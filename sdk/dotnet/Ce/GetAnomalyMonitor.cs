@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Ce
     public sealed class GetAnomalyMonitorResult
     {
         /// <summary>
-        /// The date when the monitor was created. 
+        /// The date when the monitor was created.
         /// </summary>
         public readonly string? CreationDate;
         /// <summary>

@@ -754,7 +754,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
     /// <summary>
-    /// The protocol that you want to use to forward DNS queries. 
+    /// The protocol that you want to use to forward DNS queries.
     /// </summary>
     [EnumType]
     public readonly struct ResolverRuleTargetAddressProtocol : IEquatable<ResolverRuleTargetAddressProtocol>

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Redshift
     public partial class ClusterSubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+        /// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
         /// </summary>
         [Output("clusterSubnetGroupName")]
         public Output<string> ClusterSubnetGroupName { get; private set; } = null!;

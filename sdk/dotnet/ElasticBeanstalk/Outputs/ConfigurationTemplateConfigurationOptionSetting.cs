@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Outputs
         /// </summary>
         public readonly string OptionName;
         /// <summary>
-        /// A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+        /// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
         /// </summary>
         public readonly string? ResourceName;
         /// <summary>

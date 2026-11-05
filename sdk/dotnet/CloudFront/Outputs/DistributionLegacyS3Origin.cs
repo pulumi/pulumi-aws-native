@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
     /// <summary>
-    /// The origin as an S3 bucket. 
+    /// The origin as an S3 bucket.
     ///   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
     /// </summary>
     [OutputType]

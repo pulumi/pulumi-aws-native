@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
     public sealed class CustomActionTypeConfigurationProperties
     {
         /// <summary>
-        /// The description of the action configuration property that is displayed to users. 
+        /// The description of the action configuration property that is displayed to users.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
+        /// Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
         /// </summary>
         public readonly bool? Queryable;
         /// <summary>

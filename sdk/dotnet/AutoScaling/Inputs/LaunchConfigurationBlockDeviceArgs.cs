@@ -16,19 +16,19 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     public sealed class LaunchConfigurationBlockDeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the volume is deleted on instance termination. 
+        /// Indicates whether the volume is deleted on instance termination.
         /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// Specifies whether the volume should be encrypted. 
+        /// Specifies whether the volume should be encrypted.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
+        /// The number of input/output (I/O) operations per second (IOPS) to provision for the volume.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }

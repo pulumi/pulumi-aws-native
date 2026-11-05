@@ -334,9 +334,9 @@ namespace Pulumi.AwsNative.Redshift
         public Output<bool?> SnapshotCopyManual { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain automated snapshots in the destination region after they are copied from the source region. 
+        /// The number of days to retain automated snapshots in the destination region after they are copied from the source region.
         /// 
-        ///  Default is 7. 
+        ///  Default is 7.
         /// 
         ///  Constraints: Must be at least 1 and no more than 35.
         /// </summary>
@@ -729,9 +729,9 @@ namespace Pulumi.AwsNative.Redshift
         public Input<bool>? SnapshotCopyManual { get; set; }
 
         /// <summary>
-        /// The number of days to retain automated snapshots in the destination region after they are copied from the source region. 
+        /// The number of days to retain automated snapshots in the destination region after they are copied from the source region.
         /// 
-        ///  Default is 7. 
+        ///  Default is 7.
         /// 
         ///  Constraints: Must be at least 1 and no more than 35.
         /// </summary>

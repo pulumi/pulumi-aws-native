@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public Input<Inputs.CacheClusterDestinationDetailsArgs> DestinationDetails { get; set; } = null!;
 
         /// <summary>
-        /// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        /// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
         /// </summary>
         [Input("destinationType", required: true)]
         public Input<string> DestinationType { get; set; } = null!;

@@ -22,9 +22,9 @@ namespace Pulumi.AwsNative.Lambda
         ///  You can also use the ``AWS::Lambda::Permission`` resource, however using both ``AWS::Lambda::Permission`` and ``AWS::Lambda::ResourcePolicy`` to set permissions on a function can result in errors. Permissions defined in ``AWS::Lambda::Permission`` can be unintentionally overwritten, whether in a single CFN stack or across multiple stacks. Don't use both resource types to set permissions on a function.
         ///  To migrate existing permissions for a function from ``AWS::Lambda::Permission`` to ``AWS::Lambda::ResourcePolicy``, do the following:
         ///   1.  Set a ``Retain``[deletion policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) on the ``AWS::Lambda::Permission`` resources you want to migrate. This is necessary so that Lambda does not delete statements with the same statement ID when you delete these resources.
-        ///   1.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
-        ///   1.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
-        ///   1.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
+        ///   2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
+        ///   3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
+        ///   4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
         /// </summary>
         public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws-native:lambda:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
@@ -40,9 +40,9 @@ namespace Pulumi.AwsNative.Lambda
         ///  You can also use the ``AWS::Lambda::Permission`` resource, however using both ``AWS::Lambda::Permission`` and ``AWS::Lambda::ResourcePolicy`` to set permissions on a function can result in errors. Permissions defined in ``AWS::Lambda::Permission`` can be unintentionally overwritten, whether in a single CFN stack or across multiple stacks. Don't use both resource types to set permissions on a function.
         ///  To migrate existing permissions for a function from ``AWS::Lambda::Permission`` to ``AWS::Lambda::ResourcePolicy``, do the following:
         ///   1.  Set a ``Retain``[deletion policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) on the ``AWS::Lambda::Permission`` resources you want to migrate. This is necessary so that Lambda does not delete statements with the same statement ID when you delete these resources.
-        ///   1.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
-        ///   1.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
-        ///   1.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
+        ///   2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
+        ///   3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
+        ///   4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:lambda:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
@@ -58,9 +58,9 @@ namespace Pulumi.AwsNative.Lambda
         ///  You can also use the ``AWS::Lambda::Permission`` resource, however using both ``AWS::Lambda::Permission`` and ``AWS::Lambda::ResourcePolicy`` to set permissions on a function can result in errors. Permissions defined in ``AWS::Lambda::Permission`` can be unintentionally overwritten, whether in a single CFN stack or across multiple stacks. Don't use both resource types to set permissions on a function.
         ///  To migrate existing permissions for a function from ``AWS::Lambda::Permission`` to ``AWS::Lambda::ResourcePolicy``, do the following:
         ///   1.  Set a ``Retain``[deletion policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) on the ``AWS::Lambda::Permission`` resources you want to migrate. This is necessary so that Lambda does not delete statements with the same statement ID when you delete these resources.
-        ///   1.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
-        ///   1.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
-        ///   1.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
+        ///   2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
+        ///   3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
+        ///   4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:lambda:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());

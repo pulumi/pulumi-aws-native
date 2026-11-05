@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<string?> HealthCheckPath { get; private set; } = null!;
 
         /// <summary>
-        /// The port the load balancer uses when performing health checks on targets. 
+        /// The port the load balancer uses when performing health checks on targets.
         /// </summary>
         [Output("healthCheckPort")]
         public Output<string?> HealthCheckPort { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol the load balancer uses when performing health checks on targets. 
+        /// The protocol the load balancer uses when performing health checks on targets.
         /// </summary>
         [Output("healthCheckProtocol")]
         public Output<string?> HealthCheckProtocol { get; private set; } = null!;
@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<int?> HealthCheckTimeoutSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+        /// The number of consecutive health checks successes required before considering an unhealthy target healthy.
         /// </summary>
         [Output("healthyThresholdCount")]
         public Output<int?> HealthyThresholdCount { get; private set; } = null!;
 
         /// <summary>
-        /// The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+        /// The type of IP address used for this target group. The possible values are ipv4 and ipv6.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
@@ -233,13 +233,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Input<string>? HealthCheckPath { get; set; }
 
         /// <summary>
-        /// The port the load balancer uses when performing health checks on targets. 
+        /// The port the load balancer uses when performing health checks on targets.
         /// </summary>
         [Input("healthCheckPort")]
         public Input<string>? HealthCheckPort { get; set; }
 
         /// <summary>
-        /// The protocol the load balancer uses when performing health checks on targets. 
+        /// The protocol the load balancer uses when performing health checks on targets.
         /// </summary>
         [Input("healthCheckProtocol")]
         public Input<string>? HealthCheckProtocol { get; set; }
@@ -251,13 +251,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Input<int>? HealthCheckTimeoutSeconds { get; set; }
 
         /// <summary>
-        /// The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+        /// The number of consecutive health checks successes required before considering an unhealthy target healthy.
         /// </summary>
         [Input("healthyThresholdCount")]
         public Input<int>? HealthyThresholdCount { get; set; }
 
         /// <summary>
-        /// The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+        /// The type of IP address used for this target group. The possible values are ipv4 and ipv6.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }

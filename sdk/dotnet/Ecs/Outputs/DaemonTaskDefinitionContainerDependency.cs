@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     ///   For tasks that use the Fargate launch type, the task or service requires the following platforms:
     ///   +  Linux platform version ``1.3.0`` or later.
     ///   +  Windows platform version ``1.0.0`` or later.
-    ///   
+    /// 
     ///   For more information about how to create a container dependency, see [Container dependency](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/example_task_definitions.html#example_task_definition-containerdependency) in the *Amazon Elastic Container Service Developer Guide*.
     /// </summary>
     [OutputType]

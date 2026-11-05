@@ -231,7 +231,7 @@ namespace Pulumi.AwsNative.Kinesis
     }
 
     /// <summary>
-    /// The encryption type to use. The only valid value is KMS. 
+    /// The encryption type to use. The only valid value is KMS.
     /// </summary>
     [EnumType]
     public readonly struct StreamEncryptionEncryptionType : IEquatable<StreamEncryptionEncryptionType>

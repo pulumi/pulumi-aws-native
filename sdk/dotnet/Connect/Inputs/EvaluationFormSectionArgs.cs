@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         /// <summary>
         /// The scoring weight of the section.
-        ///  *Minimum*: 0 
+        ///  *Minimum*: 0
         ///  *Maximum*: 100
         /// </summary>
         [Input("weight")]

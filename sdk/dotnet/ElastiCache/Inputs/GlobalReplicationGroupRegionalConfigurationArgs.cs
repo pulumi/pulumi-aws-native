@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         private InputList<Inputs.GlobalReplicationGroupReshardingConfigurationArgs>? _reshardingConfigurations;
 
         /// <summary>
-        /// A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
+        /// A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
         /// </summary>
         public InputList<Inputs.GlobalReplicationGroupReshardingConfigurationArgs> ReshardingConfigurations
         {

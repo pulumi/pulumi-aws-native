@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
     /// <summary>
-    /// ``ScheduledAction`` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies a scheduled action for a scalable target. 
+    /// ``ScheduledAction`` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies a scheduled action for a scalable target.
     ///  For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide*.
     /// </summary>
     [OutputType]
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
         ///   +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
         ///   +  Rate expressions - "``rate(valueunit)``"
         ///   +  Cron expressions - "``cron(fields)``"
-        ///   
+        /// 
         ///  At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
         ///  At and cron expressions use Universal Coordinated Time (UTC) by default.
         ///  The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].

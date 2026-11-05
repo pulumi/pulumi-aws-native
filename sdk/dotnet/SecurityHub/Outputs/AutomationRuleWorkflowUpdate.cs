@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         ///  Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
         ///   +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
         ///   +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
-        ///   
+        /// 
         ///   +  ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
         ///   +  ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
         ///   +  ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.

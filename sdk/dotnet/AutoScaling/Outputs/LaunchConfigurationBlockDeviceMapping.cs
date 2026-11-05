@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     public sealed class LaunchConfigurationBlockDeviceMapping
     {
         /// <summary>
-        /// The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
+        /// The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh).
         /// </summary>
         public readonly string DeviceName;
         /// <summary>

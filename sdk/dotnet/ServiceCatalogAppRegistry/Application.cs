@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the application. 
+        /// The name of the application.
         /// </summary>
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public Output<string> ApplicationTagKey { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
+        /// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
         /// </summary>
         [Output("applicationTagValue")]
         public Output<string> ApplicationTagValue { get; private set; } = null!;
@@ -46,13 +46,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the application. 
+        /// The description of the application.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the application. 
+        /// The name of the application.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -109,13 +109,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the application. 
+        /// The description of the application.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the application. 
+        /// The name of the application.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

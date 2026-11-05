@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     /// An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
     ///   +  To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter.
     ///   +  To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter.
-    ///   
+    /// 
     ///  For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
     /// </summary>
     [OutputType]

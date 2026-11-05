@@ -64,9 +64,9 @@ namespace Pulumi.AwsNative.Neptune
         public Output<string?> DbInstanceParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The port number on which the DB instances in the DB cluster accept connections. 
+        /// The port number on which the DB instances in the DB cluster accept connections.
         /// 
-        /// If not specified, the default port used is `8182`. 
+        /// If not specified, the default port used is `8182`.
         /// 
         /// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
         /// </summary>
@@ -347,9 +347,9 @@ namespace Pulumi.AwsNative.Neptune
         public Input<string>? DbInstanceParameterGroupName { get; set; }
 
         /// <summary>
-        /// The port number on which the DB instances in the DB cluster accept connections. 
+        /// The port number on which the DB instances in the DB cluster accept connections.
         /// 
-        /// If not specified, the default port used is `8182`. 
+        /// If not specified, the default port used is `8182`.
         /// 
         /// Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
         /// </summary>

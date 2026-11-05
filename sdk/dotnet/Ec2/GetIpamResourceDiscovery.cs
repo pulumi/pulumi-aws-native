@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? IpamResourceDiscoveryId;
         /// <summary>
-        /// The region the resource discovery is setup in. 
+        /// The region the resource discovery is setup in.
         /// </summary>
         public readonly string? IpamResourceDiscoveryRegion;
         /// <summary>

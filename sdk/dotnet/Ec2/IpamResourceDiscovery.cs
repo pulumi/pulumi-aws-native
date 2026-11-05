@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> IpamResourceDiscoveryId { get; private set; } = null!;
 
         /// <summary>
-        /// The region the resource discovery is setup in. 
+        /// The region the resource discovery is setup in.
         /// </summary>
         [Output("ipamResourceDiscoveryRegion")]
         public Output<string> IpamResourceDiscoveryRegion { get; private set; } = null!;

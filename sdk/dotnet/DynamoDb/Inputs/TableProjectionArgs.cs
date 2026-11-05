@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         ///   +  ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
         ///   +  ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
         ///   +  ``ALL`` - All of the table attributes are projected into the index.
-        ///   
+        /// 
         ///  When using the DynamoDB console, ``ALL`` is selected by default.
         ///  You can't modify the projection of an existing index. To change the projected attributes, you must delete the index and create a new one with the projection that you want.
         /// </summary>

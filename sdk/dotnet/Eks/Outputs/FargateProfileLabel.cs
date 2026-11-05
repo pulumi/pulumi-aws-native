@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Eks.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The value for the label. 
+        /// The value for the label.
         /// </summary>
         public readonly string Value;
 

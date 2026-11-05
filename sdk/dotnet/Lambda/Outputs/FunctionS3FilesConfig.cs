@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         ///   +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
         ///   +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
         ///   +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
-        ///   
+        /// 
         ///  To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
         /// </summary>
         public readonly Pulumi.AwsNative.Lambda.FunctionS3FilesConfigDirectS3Read? DirectS3Read;
